@@ -1,0 +1,91 @@
+# Global
+export LANG=en_US.UTF-8
+export DISPLAY='${ip route | awk "/default via / {print $3; exit}" 2>/dev/null}:0'
+export GHQ_ROOT="$HOME/ghq"
+export FISH_CONFIG_DIR=$HOME/.config/fish
+export PIPENV_VENV_IN_PROJECT=1
+export TODAY=(date +'%Y/%m/%d')
+
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
+{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").zshrc_workspace.value }}
+{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").zshrc_win_home.value }}
+{{ else }}
+{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").zshrc_workspace.value }}
+{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").zshrc_win_home.value }}
+{{ end }}
+
+alias f="fuck"
+alias ls="exa"
+alias l1="ls -1"
+alias lt="ls -T"
+alias mkdir="mkdir -p"
+alias rm="rm -i"
+
+export PATH="/usr/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export STARSHIP_CACHE="$HOME/.config/starship/cache"
+
+#Ubuntu
+export PATH="/bin:$PATH"
+export PATH="/usr/games:$PATH"
+export PATH="/usr/sbin:$PATH"
+export PATH="/usr/local/games:$PATH"
+export PATH="/sbin:$PATH"
+export PATH="/snap/bin:$PATH"
+export PATH="$HOME/.fzf/bin:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.dotnet/tools/:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin/:$PATH"
+export PATH="$HOME/depot_tools:$PATH"
+export EDITOR=nvim
+
+alias pip="python3 -m pip"
+alias vim="nvim"
+. $HOME/.asdf/asdf.sh
+
+# delete duplicate path
+# https://qiita.com/itkr/items/1b868d75e54802e8d11a
+
+# starship config
+eval "$(starship init zsh)"
+
+# direnv config
+eval "$(asdf exec direnv hook zsh)"
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+
+if [ -e /home/yuto/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuto/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# zoxide
+eval "$(zoxide init zsh)"
+

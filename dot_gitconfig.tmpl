@@ -1,0 +1,26 @@
+[user]
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
+	email = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").gitconfig_email.value }}
+{{ else }}
+	email = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").gitconfig_email.value }}
+{{ end }}
+	name = Yuto Tanaka
+[core]
+	autocrlf = false
+	ignorecase = false
+	editor = nvim
+	quotepath = false
+	excludesfile = /home/yuto/.gitignore_global
+[color]
+	ui = true
+[credential]
+	helper = cache --timeout=86400
+[alias]
+	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+	ls = "ls-files"
+	graph = "log --graph"
+	file-diff = "diff --name-only"
+	amecomi = "commit --amend --no-edit"
+[init]
+	defaultBranch = master
+	templatedir = ~/.git-templates/git-secrets

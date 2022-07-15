@@ -1,0 +1,14 @@
+chezmoi                      https://github.com/joke/asdf-chezmoi.git
+direnv                       https://github.com/asdf-community/asdf-direnv.git
+dotnet-core                  https://github.com/emersonsoares/asdf-dotnet-core.git
+fzf                          https://github.com/kompiro/asdf-fzf.git
+ghq                          https://github.com/kajisha/asdf-ghq.git
+neovim                       https://github.com/richin13/asdf-neovim.git
+nodejs                       https://github.com/asdf-vm/asdf-nodejs.git
+peco                         https://github.com/asdf-community/asdf-peco.git
+python                       https://github.com/danhper/asdf-python.git
+ruby                         https://github.com/asdf-vm/asdf-ruby.git
+shellcheck                   https://github.com/luizm/asdf-shellcheck.git
+shfmt                        https://github.com/luizm/asdf-shfmt.git
+vim                          https://github.com/tsuyoshicho/asdf-vim.git
+yarn                         https://github.com/twuni/asdf-yarn.git

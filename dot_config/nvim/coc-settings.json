@@ -1,0 +1,7 @@
+{
+  "jedi": {
+    "enable": true,
+    "startupMessage": false,
+    "executable.command": "~/neovim-venv/bin/jedi-language-server"
+  }
+}

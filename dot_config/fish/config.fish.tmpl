@@ -1,0 +1,86 @@
+# Global
+set -x LANG en_US.UTF-8
+set -x GHQ_ROOT $HOME/ghq
+set -x GHQ_SELECTOR fzf
+set -x FISH_CONFIG_DIR $HOME/.config/fish
+set -x PIPENV_VENV_IN_PROJECT 1
+set -x TODAY (date +'%Y/%m/%d')
+
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
+set -x WORKSPACE {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_path_workspace.value }}
+set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_path_win_home.value }}
+{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_alias_1.value }}
+{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_alias_2.value }}
+{{ else }}
+set -x WORKSPACE {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_workspace.value }}
+set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_win_home.value }}
+{{ end }}
+
+alias f fuck
+alias rm 'rm -i'
+alias l1 'ls -1'
+alias ls exa
+alias lt 'ls -T'
+alias la 'ls -la'
+alias mkdir 'mkdir -p'
+alias untar 'tar xvf'
+alias rm gomi
+alias asdf-update-nvim-stable 'asdf uninstall neovim stable && asdf install neovim stable'
+alias asdf-update-nvim-nightly 'asdf uninstall neovim nightly && asdf install neovim nightly'
+alias asdf-update-nvim-master 'asdf uninstall neovim ref:master && asdf install neovim ref:master'
+
+set -x PATH /usr/bin $PATH
+set -x PATH /usr/local/bin $PATH
+set -x PATH /usr/local/sbin $PATH
+set -x PATH $HOME/go/bin $PATH
+set -x PATH $HOME/.cargo/bin $PATH
+
+set -x DENO_INSTALL $HOME/.deno
+set -x PATH $DENO_INSTALL/bin $PATH
+
+set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
+set -x STARSHIP_CACHE ~/.config/starship/cache
+
+#Ubuntu
+set -x PATH /bin $PATH
+set -x PATH /usr/games $PATH
+set -x PATH /usr/sbin $PATH
+set -x PATH /usr/local/games $PATH
+set -x PATH /sbin $PATH
+set -x PATH /snap/bin $PATH
+set -x PATH $HOME/.fzf/bin $PATH
+set -x PATH $HOME/.local/bin/ $PATH
+set -x PATH $HOME/.npm-global/bin $PATH
+set -x PATH $HOME/.dotnet/tools/ $PATH
+set -x PATH $HOME/.gem/ruby/2.7.0/bin/ $PATH
+set -x PATH $HOME/depot_tools $PATH
+set -x PATH /usr/local/go/bin/ $PATH
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x EDITOR nvim
+
+alias pip 'python3 -m pip'
+alias vim 'nvim'
+
+# delete duplicate path
+# https://qiita.com/itkr/items/1b868d75e54802e8d11a 
+set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
+
+# asdf
+source ~/.asdf/asdf.fish
+
+# starship config
+starship init fish | source
+
+# direnv config
+asdf exec direnv hook fish | source
+
+# dotnet-core completions
+complete -f -c dotnet -a "(dotnet complete)"
+
+# Bun
+set -Ux BUN_INSTALL $HOME/.bun
+set -px --path PATH $BUN_INSTALL/bin
+
+# navi
+source ~/.config/navi/navi_widget.fish
+

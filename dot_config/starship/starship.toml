@@ -1,0 +1,361 @@
+# Warning: This config does not include keys that have an unset value
+
+# $all is shorthand for $username$hostname$shlvl$singularity$kubernetes$directory$vcsh$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$docker_context$package$cmake$cobol$dart$deno$dotnet$elixir$elm$erlang$golang$helm$java$julia$kotlin$lua$nim$nodejs$ocaml$perl$php$pulumi$purescript$python$rlang$red$ruby$rust$scala$swift$terraform$vlang$vagrant$zig$nix_shell$conda$memory_usage$aws$gcloud$openstack$azure$env_var$crystal$custom$sudo$cmd_duration$line_break$jobs$battery$time$status$shell$character
+format = '$all'
+right_format = ''
+scan_timeout = 30
+command_timeout = 500
+add_newline = false
+
+[character]
+format = '$symbol '
+success_symbol = '[➜](bold green)'
+error_symbol = '[❯](bold red)'
+vicmd_symbol = '[❮](bold green)'
+disabled = false
+
+[cmake]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = '△ '
+style = 'bold blue'
+disabled = false
+detect_extensions = []
+detect_files = [
+    'CMakeLists.txt',
+    'CMakeCache.txt',
+]
+detect_folders = []
+
+[cmd_duration]
+min_time = 2000
+format = 'took [$duration]($style) '
+style = 'yellow bold'
+show_milliseconds = false
+disabled = false
+show_notifications = false
+min_time_to_notify = 45000
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+fish_style_pwd_dir_length = 0
+use_logical_path = true
+format = '[$path]($style)[$read_only]($read_only_style) '
+repo_root_format = '[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+style = 'cyan bold'
+disabled = false
+read_only = '🔒'
+read_only_style = 'red'
+truncation_symbol = ''
+home_symbol = '~'
+
+[directory.substitutions]
+
+[docker_context]
+symbol = ' '
+style = 'blue bold'
+format = 'via [$symbol$context]($style) '
+only_with_files = true
+disabled = false
+detect_extensions = []
+detect_files = [
+    'docker-compose.yml',
+    'docker-compose.yaml',
+    'Dockerfile',
+]
+detect_folders = []
+
+[dotnet]
+format = 'via [$symbol($version )(🎯 $tfm )]($style)'
+version_format = 'v${raw}'
+symbol = '.NET '
+style = 'blue bold'
+heuristic = true
+disabled = false
+detect_extensions = [
+    'csproj',
+    'fsproj',
+    'xproj',
+]
+detect_files = [
+    'global.json',
+    'project.json',
+    'Directory.Build.props',
+    'Directory.Build.targets',
+    'Packages.props',
+]
+detect_folders = []
+
+[fill]
+style = 'bold black'
+symbol = '.'
+disabled = false
+
+[git_branch]
+format = 'on [$symbol$branch]($style)(:[$remote]($style)) '
+symbol = ' '
+style = 'bold purple'
+truncation_length = 9223372036854775807
+truncation_symbol = '…'
+only_attached = false
+always_show_remote = false
+disabled = false
+
+[git_commit]
+commit_hash_length = 7
+format = '[\($hash$tag\)]($style) '
+style = 'green bold'
+only_detached = true
+disabled = false
+tag_symbol = ' 🏷  '
+tag_disabled = true
+
+[git_metrics]
+added_style = 'bold green'
+deleted_style = 'bold red'
+only_nonzero_diffs = true
+format = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
+disabled = true
+
+[git_state]
+rebase = 'REBASING'
+merge = 'MERGING'
+revert = 'REVERTING'
+cherry_pick = 'CHERRY-PICKING'
+bisect = 'BISECTING'
+am = 'AM'
+am_or_rebase = 'AM/REBASE'
+style = 'bold yellow'
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+disabled = false
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = 'red bold'
+stashed = '\$'
+ahead = '⇡'
+behind = '⇣'
+up_to_date = ''
+diverged = '⇕'
+conflicted = '='
+deleted = '✘'
+renamed = '»'
+modified = '!'
+staged = '+'
+untracked = '?'
+disabled = false
+
+[golang]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = ' '
+style = 'bold cyan'
+disabled = false
+detect_extensions = ['go']
+detect_files = [
+    'go.mod',
+    'go.sum',
+    'glide.yaml',
+    'Gopkg.yml',
+    'Gopkg.lock',
+    '.go-version',
+]
+detect_folders = ['Godeps']
+
+[hostname]
+ssh_only = true
+trim_at = '.'
+format = '[$hostname]($style) in '
+style = 'green dimmed bold'
+disabled = false
+
+[jobs]
+threshold = 1
+symbol_threshold = 1
+number_threshold = 2
+format = '[$symbol$number]($style) '
+symbol = '✦'
+style = 'bold blue'
+disabled = false
+
+[line_break]
+disabled = false
+
+[memory_usage]
+threshold = 75
+format = 'via $symbol[$ram( | $swap)]($style) '
+style = 'white bold dimmed'
+symbol = ' '
+disabled = true
+
+[nix_shell]
+format = 'via [$symbol$state( \($name\))]($style) '
+symbol = ' '
+style = 'bold blue'
+impure_msg = 'impure'
+pure_msg = 'pure'
+disabled = false
+
+[nodejs]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = ' '
+style = 'bold green'
+disabled = false
+not_capable_style = 'bold red'
+detect_extensions = [
+    'js',
+    'mjs',
+    'cjs',
+    'ts',
+]
+detect_files = [
+    'package.json',
+    '.node-version',
+    '.nvmrc',
+]
+detect_folders = ['node_modules']
+
+[package]
+format = 'is [$symbol$version]($style) '
+symbol = ' '
+style = '208 bold'
+display_private = false
+disabled = true
+version_format = 'v${raw}'
+
+[php]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = ' '
+style = '147 bold'
+disabled = false
+detect_extensions = ['php']
+detect_files = [
+    'composer.json',
+    '.php-version',
+]
+detect_folders = []
+
+[python]
+pyenv_version_name = false
+pyenv_prefix = 'pyenv '
+python_binary = ['python3']
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = 'v${raw}'
+style = 'yellow bold'
+symbol = ' '
+disabled = false
+detect_extensions = ['py']
+detect_files = [
+    'requirements.txt',
+    '.python-version',
+    'pyproject.toml',
+    'Pipfile',
+    'tox.ini',
+    'setup.py',
+    '__init__.py',
+]
+detect_folders = []
+
+[ruby]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = ' '
+style = 'bold red'
+disabled = false
+detect_extensions = ['rb']
+detect_files = [
+    'Gemfile',
+    '.ruby-version',
+]
+detect_folders = []
+detect_variables = [
+    'RUBY_VERSION',
+    'RBENV_VERSION',
+]
+
+[rust]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = ' '
+style = 'bold red'
+disabled = false
+detect_extensions = ['rs']
+detect_files = ['Cargo.toml']
+detect_folders = []
+
+[shell]
+format = '[$indicator]($style) '
+bash_indicator = 'bsh'
+fish_indicator = 'fsh'
+zsh_indicator = 'zsh'
+powershell_indicator = 'psh'
+ion_indicator = 'ion'
+elvish_indicator = 'esh'
+tcsh_indicator = 'tsh'
+nu_indicator = 'nu'
+xonsh_indicator = 'xsh'
+unknown_indicator = ''
+style = 'white bold'
+disabled = true
+
+[shlvl]
+threshold = 2
+format = '[$symbol$shlvl]($style) '
+symbol = '↕️  '
+repeat = false
+style = 'bold yellow'
+disabled = true
+
+[status]
+format = '[$symbol$status]($style) '
+symbol = '✖'
+success_symbol = '✔️'
+not_executable_symbol = '🚫'
+not_found_symbol = '🔍'
+sigint_symbol = '🧱'
+signal_symbol = '⚡'
+style = 'bold red'
+map_symbol = false
+recognize_signal_code = true
+pipestatus = false
+pipestatus_separator = '|'
+pipestatus_format = '\[$pipestatus\] => [$symbol$common_meaning$signal_name$maybe_int]($style)'
+disabled = true
+
+[sudo]
+format = '[as $symbol]($style)'
+symbol = '🧙 '
+style = 'bold blue'
+allow_windows = false
+disabled = true
+
+[time]
+format = 'at [$time]($style) '
+style = 'bold yellow'
+use_12hr = false
+disabled = true
+utc_time_offset = 'local'
+time_range = '-'
+
+[username]
+format = '[$user]($style) in '
+style_root = 'red bold'
+style_user = 'yellow bold'
+show_always = false
+disabled = false
+
+[zig]
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+symbol = '↯ '
+style = 'bold yellow'
+disabled = false
+detect_extensions = ['zig']
+detect_files = []
+detect_folders = []
+
+[custom]
+
