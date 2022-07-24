@@ -13,5 +13,5 @@ curl -L https://dot.mimikun.dev | sh
 
 ### Windows
 
-See: `windows/README.md`
+See: [windows/README.md](windows/README.md)
 
