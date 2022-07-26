@@ -32,11 +32,13 @@ mask
 monolith
 natls
 navi
+nu
 onefetch
 pipr
 procs
 pueue
 ripgrep
+ripgrep_all
 sd
 shellharden
 silicon
@@ -45,6 +47,9 @@ starship
 tealdeer
 tokei
 topgrade
+tree-sitter-cli
 watchexec-cli
+xh
 xsv
 zenith
+zoxide
