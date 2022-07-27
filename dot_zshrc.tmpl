@@ -84,7 +84,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-if [ -e /home/yuto/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuto/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # zoxide
 eval "$(zoxide init zsh)"

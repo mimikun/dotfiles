@@ -85,7 +85,7 @@ if [ -z "$RUNNING" ]; then
 fi
 
 # Nix
-. /home/yuto/.nix-profile/etc/profile.d/nix.sh
+. $HOME/.nix-profile/etc/profile.d/nix.sh
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").bashrc_command_1.value }}
@@ -97,7 +97,7 @@ case $- in
 esac
 
 # Bash It
-export BASH_IT="/home/yuto/.bash_it"
+export BASH_IT="$HOME/.bash_it"
 export BASH_IT_THEME='bobby'
 export GIT_HOSTING='git@git.domain.com'
 unset MAILCHECK
