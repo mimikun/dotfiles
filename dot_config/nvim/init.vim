@@ -7,7 +7,7 @@ set mouse=a
 syntax enable
 " カラースキームを設定
 " $XDG_CONFIG_HOME/nvim/colors 以下にある
-colorscheme molokai
+colorscheme monokai
 " 使用可能性のある改行コードを指定
 set fileformats=unix,dos,mac
 " True Colorでのシンタックスハイライト
@@ -95,7 +95,6 @@ call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 Plug 'vim-denops/denops.vim'
-Plug 'vim-denops/denops-helloworld.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/fern.vim', {'branch': 'main'}
@@ -111,6 +110,7 @@ Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'rcabralc/monokai-airline.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -192,7 +192,7 @@ let g:coc_global_extensions = [
 \]
 
 "" vim.airline settings
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'monokai'
 
 "" fern.vim settings
 " 参考: https://qiita.com/youichiro/items/b4748b3e96106d25c5bc#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%84%E3%83%AA%E3%83%BC%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B
