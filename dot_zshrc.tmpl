@@ -52,9 +52,6 @@ alias pip="python3 -m pip"
 alias vim="nvim"
 . $HOME/.asdf/asdf.sh
 
-# delete duplicate path
-# https://qiita.com/itkr/items/1b868d75e54802e8d11a
-
 # starship config
 eval "$(starship init zsh)"
 
@@ -88,4 +85,13 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# zinit plugins
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light chrissicool/zsh-256color
+
+# delete duplicate path
+typeset -U PATH
 
