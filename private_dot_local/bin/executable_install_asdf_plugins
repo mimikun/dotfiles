@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while read line
+do
+    asdf plugin add $line
+done < $HOME/asdf_plugin_list.txt
+

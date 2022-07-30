@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while read line
+do
+    cargo install $line
+done < $HOME/cargo_packages.txt
+
