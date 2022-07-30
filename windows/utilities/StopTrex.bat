@@ -1,1 +1,1 @@
-powershell -NoProfile -ExecutionPolicy Unrestricted C:\Users\dzdzb\awesome_bin\StopTrex.ps1
+powershell -NoProfile -ExecutionPolicy Unrestricted %userprofile%\utilities\StopTrex.ps1

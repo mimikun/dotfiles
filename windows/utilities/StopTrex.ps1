@@ -1,4 +1,4 @@
-. C:\Users\dzdzb\TrexPasswordClass.ps1
+. %userprofile%\TrexPasswordClass.ps1
 $MyClass = New-Object MyClass;
 $LoginPassword = $MyClass.GetPassword(); 
 
