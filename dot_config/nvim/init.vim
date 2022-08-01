@@ -116,20 +116,18 @@ Plug 'rcabralc/monokai-airline.vim'
 call plug#end()
 
 "" coc.nvim settings
-"ref: https://momozo.tech/2021/03/09/coc-nvim%E3%82%92%E4%BD%BF%E3%81%84vim%E3%81%AE%E8%87%AA%E5%8B%95%E8%A3%9C%E5%AE%8C%E3%82%92%E5%BC%B7%E5%8C%96%E3%81%99%E3%82%8B/
 """ <Tab>で候補をナビゲート
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
 """ <Tab>で次、<S+Tab>で前
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 "" nvim-treesitter config
 lua <<EOF
@@ -188,7 +186,8 @@ let g:coc_global_extensions = [
       \'coc-html', 
       \'coc-jedi', 
       \'coc-solargraph', 
-      \'coc-git'
+      \'coc-git',
+      \'coc-json'
 \]
 
 "" vim.airline settings
