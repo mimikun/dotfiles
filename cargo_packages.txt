@@ -21,7 +21,6 @@ git-delta
 git-interactive-rebase-tool
 gitui
 glitchcat
-globe-cli
 gping
 grex
 hexyl
