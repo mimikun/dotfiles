@@ -1,7 +1,10 @@
 today   = $(shell date "+%Y%m%d")
 
 .PHONY : patch
-patch :
+patch : diff-patch
+
+.PHONY : format-patch
+format-patch :
 	git format-patch master
 
 .PHONY : diff-patch
