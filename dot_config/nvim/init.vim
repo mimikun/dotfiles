@@ -92,6 +92,7 @@ call plug#begin()
 " Make sure you use single quotes
 " e.g.
 " Plug 'github-username/plugin-name'
+Plug 'alker0/chezmoi.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 Plug 'vim-denops/denops.vim'
