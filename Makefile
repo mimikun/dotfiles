@@ -14,3 +14,7 @@ diff-patch :
 .PHONY : clean
 clean :
 	rm -f *.patch
+
+.PHONY : update
+update :
+	cp ~/.tool-versions ./dot_tool-versions
