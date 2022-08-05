@@ -65,7 +65,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export STARSHIP_CONFIG=~/.config/starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.config/starship/cache
 export EDITOR=nvim
 
@@ -108,6 +108,9 @@ source "$BASH_IT"/bash_it.sh
 
 # zoxide
 eval "$(zoxide init bash)"
+
+# starship
+eval "$(starship init bash)"
 
 # Launch fish-shell
 exec fish
