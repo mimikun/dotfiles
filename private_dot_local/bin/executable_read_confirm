@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if test $(test -z "$read_prompt"; echo $?) -eq 0; then
+if test "$(test -z "$read_prompt"; echo $?)" -eq 0; then
   read_prompt="Continue?"
 fi
 
 while :
 do
-  read -p "${read_prompt} [y/N]: " confirm
+  read -r -p "${read_prompt} [y/N]: " confirm
 
   case "${confirm}" in
     Y | y )

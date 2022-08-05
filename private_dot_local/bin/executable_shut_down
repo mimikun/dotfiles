@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! test $(sudo uname >> /dev/null ; echo $?) -eq 0; then
+if ! test "$(sudo uname >> /dev/null ; echo $?)" -eq 0; then
     return
 fi
 

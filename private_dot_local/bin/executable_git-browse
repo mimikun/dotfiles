@@ -9,4 +9,4 @@ remote_url=$(\
         sed -e 's/ssh:\/\/git@/http:\/\//g' | \
         sed -e 's/\:2200/\:8080/g' \
         )
-echo $remote_url
+echo "$remote_url"
