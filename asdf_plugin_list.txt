@@ -10,5 +10,6 @@ python                       https://github.com/danhper/asdf-python.git
 ruby                         https://github.com/asdf-vm/asdf-ruby.git
 shellcheck                   https://github.com/luizm/asdf-shellcheck.git
 shfmt                        https://github.com/luizm/asdf-shfmt.git
+tig                          https://github.com/koketani/asdf-tig.git
 vim                          https://github.com/tsuyoshicho/asdf-vim.git
 yarn                         https://github.com/twuni/asdf-yarn.git
