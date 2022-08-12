@@ -2,6 +2,6 @@
 
 while read -r line
 do
-    cargo install "$line"
+    cargo install $line
 done < ~/cargo_packages.txt
 
