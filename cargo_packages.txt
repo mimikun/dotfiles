@@ -1,3 +1,4 @@
+
 ag
 bandwhich
 bat
@@ -13,6 +14,7 @@ diskonaut
 dua-cli
 du-dust
 dutree
+erg
 exa
 fd-find
 fselect
@@ -21,6 +23,7 @@ git-delta
 git-interactive-rebase-tool
 gitui
 glitchcat
+globe-cli
 gping
 grex
 hexyl
