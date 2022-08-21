@@ -17,4 +17,4 @@ clean :
 
 .PHONY : update
 update :
-	cp ~/.tool-versions ./dot_tool-versions
+	bash update_dotfiles.sh
