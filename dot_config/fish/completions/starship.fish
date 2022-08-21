@@ -6,6 +6,7 @@ complete -c starship -n "__fish_use_subcommand" -f -a "config" -d 'Edit the star
 complete -c starship -n "__fish_use_subcommand" -f -a "explain" -d 'Explains the currently showing modules'
 complete -c starship -n "__fish_use_subcommand" -f -a "init" -d 'Prints the shell function used to execute starship'
 complete -c starship -n "__fish_use_subcommand" -f -a "module" -d 'Prints a specific prompt module'
+complete -c starship -n "__fish_use_subcommand" -f -a "preset" -d 'Prints a preset config'
 complete -c starship -n "__fish_use_subcommand" -f -a "print-config" -d 'Prints the computed starship configuration'
 complete -c starship -n "__fish_use_subcommand" -f -a "prompt" -d 'Prints the full starship prompt'
 complete -c starship -n "__fish_use_subcommand" -f -a "session" -d 'Generate random session key'
@@ -37,6 +38,8 @@ complete -c starship -n "__fish_seen_subcommand_from module" -s k -l keymap -d '
 complete -c starship -n "__fish_seen_subcommand_from module" -s j -l jobs -d 'The number of currently running jobs' -r
 complete -c starship -n "__fish_seen_subcommand_from module" -s l -l list -d 'List out all supported modules'
 complete -c starship -n "__fish_seen_subcommand_from module" -s h -l help -d 'Print help information'
+complete -c starship -n "__fish_seen_subcommand_from preset" -s l -l list -d 'List out all preset names'
+complete -c starship -n "__fish_seen_subcommand_from preset" -s h -l help -d 'Print help information'
 complete -c starship -n "__fish_seen_subcommand_from print-config" -s d -l default -d 'Print the default instead of the computed config'
 complete -c starship -n "__fish_seen_subcommand_from print-config" -s h -l help -d 'Print help information'
 complete -c starship -n "__fish_seen_subcommand_from prompt" -s s -l status -d 'The status code of the previously run command as an unsigned or signed 32bit integer' -r
