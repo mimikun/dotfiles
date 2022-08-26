@@ -13,6 +13,7 @@ complete -c deno -n "__fish_use_subcommand" -f -a "coverage" -d 'Print coverage 
 complete -c deno -n "__fish_use_subcommand" -f -a "doc" -d 'Show documentation for a module'
 complete -c deno -n "__fish_use_subcommand" -f -a "eval" -d 'Eval script'
 complete -c deno -n "__fish_use_subcommand" -f -a "fmt" -d 'Format source files'
+complete -c deno -n "__fish_use_subcommand" -f -a "init" -d 'Initialize a new project'
 complete -c deno -n "__fish_use_subcommand" -f -a "info" -d 'Show info about cache or info related to source file'
 complete -c deno -n "__fish_use_subcommand" -f -a "install" -d 'Install script as an executable'
 complete -c deno -n "__fish_use_subcommand" -f -a "uninstall" -d 'Uninstall a script previously installed with deno install'
@@ -199,6 +200,10 @@ complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-single-quote -d
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_seen_subcommand_from init" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
+complete -c deno -n "__fish_seen_subcommand_from init" -s h -l help -d 'Print help information'
+complete -c deno -n "__fish_seen_subcommand_from init" -l unstable -d 'Enable unstable features and APIs'
+complete -c deno -n "__fish_seen_subcommand_from init" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from info" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from info" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from info" -l location -d 'Show files used for origin bound APIs like the Web Storage API when running a script with \'--location=<HREF>\'' -r -f
