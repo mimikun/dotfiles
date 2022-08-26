@@ -13,7 +13,7 @@ diff-patch :
 
 .PHONY : clean
 clean :
-	rm -f *.patch
+	bash clean_files.sh
 
 .PHONY : update
 update :

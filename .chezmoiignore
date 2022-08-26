@@ -5,3 +5,4 @@ windows
 LICENSE.txt
 Makefile
 .gitignore
+clean_files.sh
