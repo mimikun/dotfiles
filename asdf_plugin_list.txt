@@ -3,6 +3,7 @@ direnv                       https://github.com/asdf-community/asdf-direnv.git
 dotnet-core                  https://github.com/emersonsoares/asdf-dotnet-core.git
 fzf                          https://github.com/kompiro/asdf-fzf.git
 ghq                          https://github.com/kajisha/asdf-ghq.git
+github-cli                   https://github.com/bartlomiejdanek/asdf-github-cli.git
 neovim                       https://github.com/richin13/asdf-neovim.git
 nodejs                       https://github.com/asdf-vm/asdf-nodejs.git
 peco                         https://github.com/asdf-community/asdf-peco.git
