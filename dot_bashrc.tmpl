@@ -77,12 +77,14 @@ export EDITOR=nvim
 eval "$(asdf exec direnv hook bash)"
 direnv() { asdf exec direnv "$@"; }
 
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
 # Start Docker daemon automatically when logging in if not running.
 RUNNING=`ps aux | grep dockerd | grep -v grep`
 if [ -z "$RUNNING" ]; then
     sudo dockerd > /dev/null 2>&1 &
     disown
 fi
+{{ end }}
 
 # Nix
 . $HOME/.nix-profile/etc/profile.d/nix.sh
