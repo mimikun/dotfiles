@@ -29,3 +29,18 @@ class MyClass{
     }
 }
 ```
+
+### `%USERPROFILE%\Desktop` 以下に配置する
+
+- Mining.bat
+
+#### Mining.bat
+
+まず以下を実行
+
+```shell
+cp ./utilities/gminer-flux-mining.bat $windl/Mining.bat
+```
+
+その後、手作業でデスクトップに配置
+
