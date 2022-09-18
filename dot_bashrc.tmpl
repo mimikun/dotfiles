@@ -114,5 +114,9 @@ eval "$(zoxide init bash)"
 # starship
 eval "$(starship init bash)"
 
+# fly.io
+export FLYCTL_INSTALL="/home/mimikun/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
 # Launch fish-shell
 exec fish

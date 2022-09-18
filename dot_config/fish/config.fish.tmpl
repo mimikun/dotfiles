@@ -61,10 +61,6 @@ set -x EDITOR nvim
 alias pip 'python3 -m pip'
 alias vim 'nvim'
 
-# delete duplicate path
-# https://qiita.com/itkr/items/1b868d75e54802e8d11a 
-set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
-
 # asdf
 source ~/.asdf/asdf.fish
 
@@ -83,6 +79,10 @@ set -px --path PATH $BUN_INSTALL/bin
 
 # navi
 source ~/.config/navi/navi_widget.fish
+
+# fly.io
+set -x FLYCTL_INSTALL $HOME/.fly
+set -x PATH $FLYCTL_INSTALL/bin $PATH
 
 # keychain
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
