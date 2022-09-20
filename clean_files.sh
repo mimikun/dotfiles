@@ -8,3 +8,4 @@ rm -f dot_config/fish/completions/fisher.fish
 rm -f dot_config/fish/completions/ghq.fish
 rm -f dot_config/fish/completions/gitignore.fish
 rm -f dot_config/fish/completions/spin.fish
+rm -f dot_config/fish/completions/poetry.fish
