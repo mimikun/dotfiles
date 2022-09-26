@@ -15,10 +15,14 @@ mkdir $WIN_HOME/utilities
 cp ./utilities/* $WIN_HOME/utilities/
 ```
 
-### `%USERPROFILE%` 以下に配置する
+### `%USERPROFILE%\Documents\WindowsPowerShell\` 以下に配置する
 
 - Microsoft.PowerShell_profile.ps1
 - TrexPasswordClass.ps1
+
+### `%USERPROFILE%\Documents\PowerShell\` 以下に配置する
+
+- Microsoft.PowerShell_profile.ps1
 
 #### TrexPasswordClass.ps1
 
