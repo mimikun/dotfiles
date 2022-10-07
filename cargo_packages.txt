@@ -5,6 +5,7 @@ bat
 bingrep
 bottom
 broot
+cargo-audit
 cargo-edit
 cargo-update
 choose
