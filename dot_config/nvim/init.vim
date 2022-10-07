@@ -112,6 +112,8 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'rcabralc/monokai-airline.vim'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 
 " Initialize plugin system
 call plug#end()
@@ -267,5 +269,12 @@ nnoremap fm :Marks<CR>
 nnoremap fh :History<CR>
 " fcでコミット履歴検索を開く
 nnoremap fc :Commits<CR>
+
+"" vim-markdown
+" 折りたたみ無効化
+let g:vim_markdown_folding_disabled = 1
+" YAMLフロントマターの強調表示
+let g:vim_markdown_frontmatter = 1
+
 
 filetype plugin indent on
