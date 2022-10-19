@@ -1,4 +1,3 @@
-
 ag
 bandwhich
 bat
@@ -7,13 +6,15 @@ bottom
 broot
 cargo-audit
 cargo-edit
+cargo-make
 cargo-update
 choose
+create-tauri-app
 csview
 desed
 diskonaut
-dua-cli
 du-dust
+dua-cli
 dutree
 erg
 exa
@@ -24,7 +25,6 @@ git-delta
 git-interactive-rebase-tool
 gitui
 glitchcat
-globe-cli
 gping
 grex
 hexyl
@@ -37,6 +37,7 @@ natls
 navi
 nu
 onefetch
+os_info_cli
 pipr
 procs
 pueue
@@ -47,6 +48,7 @@ shellharden
 silicon
 skim
 starship
+tauri-cli
 tealdeer
 tokei
 topgrade
