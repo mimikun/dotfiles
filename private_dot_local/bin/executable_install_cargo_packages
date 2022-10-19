@@ -3,5 +3,6 @@
 while read -r line
 do
     cargo install $line
+    sleep 3
 done < ~/cargo_packages.txt
 
