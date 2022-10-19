@@ -114,6 +114,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'rcabralc/monokai-airline.vim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'nastevens/vim-cargo-make'
+Plug 'cespare/vim-toml'
+Plug 'nastevens/vim-duckscript'
 
 " Initialize plugin system
 call plug#end()
