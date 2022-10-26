@@ -5,11 +5,11 @@ patch : diff-patch
 
 .PHONY : format-patch
 format-patch :
-	git format-patch master
+	git format-patch origin/master
 
 .PHONY : diff-patch
 diff-patch :
-	git diff master > dotfiles.$(today).patch
+	git diff origin/master > dotfiles.$(today).patch
 
 .PHONY : clean
 clean :
