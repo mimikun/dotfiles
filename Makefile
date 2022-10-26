@@ -11,6 +11,10 @@ format-patch :
 diff-patch :
 	git diff origin/master > dotfiles.$(today).patch
 
+.PHONY : patch-branch
+patch-branch :
+	git switch -c patch-$(today)
+
 .PHONY : clean
 clean :
 	bash clean_files.sh
