@@ -7,6 +7,7 @@ broot
 cargo-audit
 cargo-edit
 cargo-make
+cargo-udeps
 cargo-update
 choose
 create-tauri-app
