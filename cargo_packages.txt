@@ -6,7 +6,9 @@ bottom
 broot
 cargo-audit
 cargo-edit
+cargo-llvm-cov
 cargo-make
+cargo-tarpaulin
 cargo-udeps
 cargo-update
 choose
