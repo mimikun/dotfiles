@@ -2,6 +2,6 @@
   "jedi": {
     "enable": true,
     "startupMessage": false,
-    "executable.command": "~/neovim-venv/bin/jedi-language-server"
+    "executable.command": "~/.asdf/shims/jedi-language-server"
   }
 }
