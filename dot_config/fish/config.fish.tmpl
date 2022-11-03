@@ -84,6 +84,10 @@ source ~/.config/navi/navi_widget.fish
 set -x FLYCTL_INSTALL $HOME/.fly
 set -x PATH $FLYCTL_INSTALL/bin $PATH
 
+# pnpm
+set -x PNPM_HOME $HOME/.local/share/pnpm
+set -x PATH $PNPM_HOME $PATH
+
 # keychain
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 source $HOME/.keychain/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_keychain_filepath.value }}-fish
