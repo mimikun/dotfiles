@@ -32,7 +32,7 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -s c -l config -d 'Speci
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from bench" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from bench" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-read -d 'Allow file system read access' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-write -d 'Allow file system write access' -r -F
@@ -52,7 +52,8 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l no-remote -d 'Do not 
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from bench" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from bench" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from bench" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-hrtime -d 'Allow high resolution time measurement'
 complete -c deno -n "__fish_seen_subcommand_from bench" -s A -l allow-all -d 'Allow all permissions'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
@@ -69,14 +70,15 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -s c -l config -d 'Spec
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l watch -d 'Watch for file changes and restart automatically'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s h -l help -d 'Print help information'
@@ -87,28 +89,30 @@ complete -c deno -n "__fish_seen_subcommand_from cache" -s c -l config -d 'Speci
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from cache" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from cache" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from cache" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from cache" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from cache" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from cache" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from cache" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from cache" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from cache" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from cache" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from cache" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from check" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from check" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from check" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from check" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from check" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from check" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from check" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from check" -l remote -d 'Type-check all modules, including remote'
 complete -c deno -n "__fish_seen_subcommand_from check" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from check" -l unstable -d 'Enable unstable features and APIs'
@@ -118,7 +122,7 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -s c -l config -d 'Spe
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from compile" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from compile" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-read -d 'Allow file system read access' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-write -d 'Allow file system write access' -r -F
@@ -138,7 +142,8 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l no-remote -d 'Do no
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from compile" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from compile" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from compile" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-hrtime -d 'Allow high resolution time measurement'
 complete -c deno -n "__fish_seen_subcommand_from compile" -s A -l allow-all -d 'Allow all permissions'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
@@ -174,7 +179,7 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -s c -l config -d 'Specif
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from eval" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from eval" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect -d 'Activate inspector on host:port (default: 127.0.0.1:9229)' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect-brk -d 'Activate inspector on host:port and break at start of user script' -r
@@ -187,7 +192,8 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -l no-remote -d 'Do not r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from eval" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from eval" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from eval" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_seen_subcommand_from eval" -s T -l ts -d 'Treat eval input as TypeScript'
@@ -223,6 +229,7 @@ complete -c deno -n "__fish_seen_subcommand_from info" -s c -l config -d 'Specif
 complete -c deno -n "__fish_seen_subcommand_from info" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from info" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from info" -l no-config -d 'Disable automatic loading of the configuration file.'
+complete -c deno -n "__fish_seen_subcommand_from info" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from info" -l json -d 'UNSTABLE: Outputs the information in JSON format'
 complete -c deno -n "__fish_seen_subcommand_from info" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from info" -l unstable -d 'Enable unstable features and APIs'
@@ -232,7 +239,7 @@ complete -c deno -n "__fish_seen_subcommand_from install" -s c -l config -d 'Spe
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from install" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from install" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-read -d 'Allow file system read access' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-write -d 'Allow file system write access' -r -F
@@ -254,7 +261,8 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l no-remote -d 'Do no
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from install" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from install" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from install" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from install" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-hrtime -d 'Allow high resolution time measurement'
 complete -c deno -n "__fish_seen_subcommand_from install" -s A -l allow-all -d 'Allow all permissions'
 complete -c deno -n "__fish_seen_subcommand_from install" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
@@ -294,7 +302,7 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -s c -l config -d 'Specif
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from repl" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from repl" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l inspect -d 'Activate inspector on host:port (default: 127.0.0.1:9229)' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l inspect-brk -d 'Activate inspector on host:port and break at start of user script' -r
@@ -309,7 +317,8 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l no-remote -d 'Do not r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from repl" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from repl" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from repl" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_seen_subcommand_from repl" -s h -l help -d 'Print help information'
@@ -320,7 +329,7 @@ complete -c deno -n "__fish_seen_subcommand_from run" -s c -l config -d 'Specify
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from run" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from run" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-read -d 'Allow file system read access' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-write -d 'Allow file system write access' -r -F
@@ -341,7 +350,8 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l no-remote -d 'Do not re
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from run" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from run" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from run" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from run" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-hrtime -d 'Allow high resolution time measurement'
 complete -c deno -n "__fish_seen_subcommand_from run" -s A -l allow-all -d 'Allow all permissions'
 complete -c deno -n "__fish_seen_subcommand_from run" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
@@ -363,7 +373,7 @@ complete -c deno -n "__fish_seen_subcommand_from test" -s c -l config -d 'Specif
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
-complete -c deno -n "__fish_seen_subcommand_from test" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from test" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-read -d 'Allow file system read access' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-write -d 'Allow file system write access' -r -F
@@ -389,7 +399,8 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l no-remote -d 'Do not r
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_seen_subcommand_from test" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from test" -l lock-write -d 'Write lock file (use with --lock)'
+complete -c deno -n "__fish_seen_subcommand_from test" -l lock-write -d 'Force overwriting the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from test" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-hrtime -d 'Allow high resolution time measurement'
 complete -c deno -n "__fish_seen_subcommand_from test" -s A -l allow-all -d 'Allow all permissions'
 complete -c deno -n "__fish_seen_subcommand_from test" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
@@ -423,7 +434,7 @@ complete -c deno -n "__fish_seen_subcommand_from upgrade" -s q -l quiet -d 'Supp
 complete -c deno -n "__fish_seen_subcommand_from vendor" -l output -d 'The directory to output the vendored modules to' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_seen_subcommand_from vendor" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from vendor" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from vendor" -l lock -d 'Check the specified lock file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from vendor" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from vendor" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from vendor" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from vendor" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
