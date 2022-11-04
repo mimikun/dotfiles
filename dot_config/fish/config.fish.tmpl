@@ -87,6 +87,7 @@ set -x PATH $FLYCTL_INSTALL/bin $PATH
 # pnpm
 set -x PNPM_HOME $HOME/.local/share/pnpm
 set -x PATH "$PNPM_HOME" $PATH
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
 
 # keychain
 {{ if (eq .chezmoi.hostname "TanakaPC") }}

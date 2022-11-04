@@ -119,6 +119,7 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
 
 # Launch fish-shell
 exec fish

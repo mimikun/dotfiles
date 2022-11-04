@@ -98,6 +98,7 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
 # delete duplicate path
 typeset -U PATH
