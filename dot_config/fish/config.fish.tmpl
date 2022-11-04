@@ -86,7 +86,7 @@ set -x PATH $FLYCTL_INSTALL/bin $PATH
 
 # pnpm
 set -x PNPM_HOME $HOME/.local/share/pnpm
-set -x PATH $PNPM_HOME $PATH
+set -x PATH "$PNPM_HOME" $PATH
 
 # keychain
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
