@@ -1,7 +1,7 @@
 today   = $(shell date "+%Y%m%d")
 
 .PHONY : patch
-patch : diff-patch
+patch : clean diff-patch copy2win
 
 .PHONY : format-patch
 format-patch :
@@ -22,3 +22,7 @@ clean :
 .PHONY : update
 update :
 	bash update_dotfiles.sh
+
+.PHONY : copy2win
+copy2win :
+	cp *.patch $$WIN_HOME/Downloads/
