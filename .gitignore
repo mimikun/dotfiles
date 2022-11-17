@@ -7,3 +7,4 @@ dot_config/fish/completions/ghq.fish
 dot_config/fish/completions/gitignore.fish
 dot_config/fish/completions/spin.fish
 dot_config/fish/completions/poetry.fish
+dot_config/fish/completions/hwm.fish
