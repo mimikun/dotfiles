@@ -22,6 +22,7 @@ dutree
 erg
 exa
 fd-find
+felix
 fselect
 genact
 git-delta
