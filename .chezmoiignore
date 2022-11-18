@@ -1,11 +1,11 @@
 setup.sh
-update_dotfiles.sh
+update.sh
 README.md
 windows
 LICENSE.txt
 Makefile
 .gitignore
-clean_files.sh
+clean.sh
 *.patch
 dot_config/fish/completions/bd.fish
 dot_config/fish/completions/docker-compose.fish
@@ -15,3 +15,4 @@ dot_config/fish/completions/ghq.fish
 dot_config/fish/completions/gitignore.fish
 dot_config/fish/completions/spin.fish
 dot_config/fish/completions/poetry.fish
+dot_config/fish/completions/hwm.fish
