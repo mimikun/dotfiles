@@ -18,11 +18,11 @@ patch-branch :
 
 .PHONY : clean
 clean :
-	bash clean_files.sh
+	bash clean.sh
 
 .PHONY : update
 update :
-	bash update_dotfiles.sh
+	bash update.sh
 
 .PHONY : copy2win
 copy2win :
