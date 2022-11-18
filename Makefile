@@ -1,4 +1,5 @@
 today   = $(shell date "+%Y%m%d")
+product_name = dotfiles
 
 .PHONY : patch
 patch : clean diff-patch copy2win
@@ -9,7 +10,7 @@ format-patch :
 
 .PHONY : diff-patch
 diff-patch :
-	git diff origin/master > dotfiles.$(today).patch
+	git diff origin/master > $(product_name).$(today).patch
 
 .PHONY : patch-branch
 patch-branch :
