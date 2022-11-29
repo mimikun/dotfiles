@@ -19,3 +19,6 @@ if (Test-Path($ChocolateyProfile)) {
 # starship config
 Invoke-Expression (& 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' init powershell --print-full-init | Out-String)
 
+# shell completion
+Invoke-Expression (& 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' completions powershell | Out-String)
+
