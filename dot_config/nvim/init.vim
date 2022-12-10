@@ -80,49 +80,55 @@ set showtabline=2
 " モードの表記を消す
 set noshowmode
 
-"" vim-plug auto download
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"" vim-Jetpack
+" Automatic installation on startup of vim-jetpack
+let s:jetpackfile = stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if !filereadable(s:jetpackfile)
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
-"" vim-plug settings
-call plug#begin()
-" Make sure you use single quotes
+" vim-jetpack settings
+packadd vim-jetpack
+call jetpack#begin()
 " e.g.
-" Plug 'github-username/plugin-name'
-Plug 'alker0/chezmoi.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
-Plug 'vim-denops/denops.vim'
-Plug 'Omochice/dps-translate-vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'lambdalisue/fern.vim', {'branch': 'main'}
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'lambdalisue/gin.vim'
-Plug 'thinca/vim-quickrun'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'thinca/vim-scouter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'lambdalisue/fern-git-status.vim'
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'lambdalisue/glyph-palette.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'rcabralc/monokai-airline.vim'
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
-Plug 'nastevens/vim-cargo-make'
-Plug 'cespare/vim-toml'
-Plug 'nastevens/vim-duckscript'
-Plug 'NoahTheDuke/vim-just'
-Plug 'IndianBoy42/tree-sitter-just'
+" Jetpack 'github-username/plugin-name'
+Jetpack 'alker0/chezmoi.vim'
+Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
+Jetpack 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+Jetpack 'vim-denops/denops.vim'
+Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Jetpack 'junegunn/fzf.vim'
+Jetpack 'lambdalisue/fern.vim', {'branch': 'main'}
+Jetpack 'antoinemadec/FixCursorHold.nvim'
+Jetpack 'lambdalisue/gin.vim'
+Jetpack 'thinca/vim-quickrun'
+Jetpack 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Jetpack 'thinca/vim-scouter'
+Jetpack 'vim-airline/vim-airline'
+Jetpack 'vim-airline/vim-airline-themes'
+Jetpack 'lambdalisue/fern-git-status.vim'
+Jetpack 'lambdalisue/nerdfont.vim'
+Jetpack 'lambdalisue/fern-renderer-nerdfont.vim'
+Jetpack 'lambdalisue/glyph-palette.vim'
+Jetpack 'airblade/vim-gitgutter'
+Jetpack 'rcabralc/monokai-airline.vim'
+Jetpack 'godlygeek/tabular'
+Jetpack 'preservim/vim-markdown'
+Jetpack 'nastevens/vim-cargo-make'
+Jetpack 'cespare/vim-toml'
+Jetpack 'nastevens/vim-duckscript'
+Jetpack 'NoahTheDuke/vim-just'
+Jetpack 'IndianBoy42/tree-sitter-just'
+call jetpack#end()
 
-" Initialize plugin system
-call plug#end()
+" Automatic plugin installation on startup of vim-jetpack
+"for name in jetpack#names()
+"  if !jetpack#tap(name)
+"    call jetpack#sync()
+"    break
+"  endif
+"endfor
 
 "" coc.nvim settings
 """ <Tab>で候補をナビゲート
