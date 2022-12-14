@@ -96,6 +96,7 @@ Plug 'alker0/chezmoi.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 Plug 'vim-denops/denops.vim'
+Plug 'Omochice/dps-translate-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/fern.vim', {'branch': 'main'}
@@ -279,5 +280,8 @@ let g:vim_markdown_folding_disabled = 1
 " YAMLフロントマターの強調表示
 let g:vim_markdown_frontmatter = 1
 
+"" dps-translate-vim
+let g:dps_translate_source = "en"
+let g:dps_translate_target = "ja"
 
 filetype plugin indent on
