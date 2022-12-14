@@ -4,11 +4,16 @@ bat
 bingrep
 bottom
 broot
+cargo-all-features
 cargo-audit
 cargo-edit
+cargo-fuzz
+cargo-license
 cargo-llvm-cov
 cargo-make
 cargo-nextest
+cargo-outdated
+cargo-release
 cargo-tarpaulin
 cargo-udeps
 cargo-update
