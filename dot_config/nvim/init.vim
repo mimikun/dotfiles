@@ -188,7 +188,6 @@ require'nvim-treesitter.configs'.setup {
     'yaml',
   }
 }
-require('tree-sitter-just').setup()
 EOF
 
 "" coc.nvim settings
