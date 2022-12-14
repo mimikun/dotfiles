@@ -1,8 +1,9 @@
+complete -c fd -l and -d 'Additional search patterns that need to be matched' -r
 complete -c fd -s d -l max-depth -d 'Set maximum search depth (default: none)' -r
-complete -c fd -l min-depth -d 'Only show search results starting at the given depth' -r
+complete -c fd -l min-depth -d 'Only show search results starting at the given depth.' -r
 complete -c fd -l exact-depth -d 'Only show search results at the exact given depth' -r
 complete -c fd -s E -l exclude -d 'Exclude entries that match the given glob pattern' -r
-complete -c fd -s t -l type -d 'Filter by type: file (f), directory (d), symlink (l), executable (x), empty (e), socket (s), pipe (p)' -r -f -a "{file	,directory	,symlink	,executable	,empty	,socket	,pipe	}"
+complete -c fd -s t -l type -d 'Filter by type: file (f), directory (d), symlink (l), executable (x), empty (e), socket (s), pipe (p)' -r -f -a "{file	,directory	,symlink	,executable	A file which is executable by the current effective user,empty	,socket	,pipe	}"
 complete -c fd -s e -l extension -d 'Filter by file extension' -r
 complete -c fd -s S -l size -d 'Limit results based on the size of files' -r
 complete -c fd -l changed-within -d 'Filter by file modification time (newer than)' -r
@@ -15,7 +16,7 @@ complete -c fd -l ignore-file -d 'Add a custom ignore-file in \'.gitignore\' for
 complete -c fd -s c -l color -d 'When to use colors' -r -f -a "{auto	show colors if the output goes to an interactive console (default),always	always use colorized output,never	do not use colorized output}"
 complete -c fd -s j -l threads -d 'Set number of threads to use for searching & executing (default: number of available CPU cores)' -r
 complete -c fd -l max-buffer-time -d 'Milliseconds to buffer before streaming search results to console' -r
-complete -c fd -l max-results -d 'Limit number of search results' -r
+complete -c fd -l max-results -d 'Limit the number of search results' -r
 complete -c fd -l base-directory -d 'Change current working directory' -r -F
 complete -c fd -l path-separator -d 'Set path separator when printing file paths' -r
 complete -c fd -l search-path -d 'Provides paths to search as an alternative to the positional <path> argument' -r -F
@@ -46,6 +47,6 @@ complete -c fd -s 1 -d 'Limit search to a single result'
 complete -c fd -s q -l quiet -d 'Print nothing, exit code 0 if match found, 1 otherwise'
 complete -c fd -l show-errors -d 'Show filesystem errors'
 complete -c fd -l strip-cwd-prefix -d 'By default, relative paths are prefixed with \'./\' when -x/--exec, -X/--exec-batch, or -0/--print0 are given, to reduce the risk of a path starting with \'-\' being treated as a command line option. Use this flag to disable this behaviour'
-complete -c fd -l one-file-system
+complete -c fd -l one-file-system -d 'By default, fd will traverse the file system tree as far as other options dictate. With this flag, fd ensures that it does not descend into a different file system than the one it started in. Comparable to the -mount or -xdev filters of find(1)'
 complete -c fd -s h -l help -d 'Print help information (use `--help` for more detail)'
 complete -c fd -s V -l version -d 'Print version information'
