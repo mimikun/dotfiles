@@ -118,6 +118,8 @@ Plug 'preservim/vim-markdown'
 Plug 'nastevens/vim-cargo-make'
 Plug 'cespare/vim-toml'
 Plug 'nastevens/vim-duckscript'
+Plug 'NoahTheDuke/vim-just'
+Plug 'IndianBoy42/tree-sitter-just'
 
 " Initialize plugin system
 call plug#end()
@@ -186,6 +188,7 @@ require'nvim-treesitter.configs'.setup {
     'yaml',
   }
 }
+require('tree-sitter-just').setup()
 EOF
 
 "" coc.nvim settings

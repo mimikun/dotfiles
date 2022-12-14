@@ -8,6 +8,7 @@ windows
 README.md
 LICENSE.txt
 Makefile
+Justfile
 *.patch
 
 # fish completions
