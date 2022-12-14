@@ -40,6 +40,7 @@ grex
 hexyl
 ht
 hyperfine
+just
 lsd
 mask
 monolith
