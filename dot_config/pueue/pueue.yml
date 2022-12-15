@@ -1,0 +1,21 @@
+---
+client:
+  read_local_logs: true
+  show_confirmation_questions: false
+  show_expanded_aliases: false
+  dark_mode: false
+  max_status_lines: ~
+daemon:
+  default_parallel_tasks: 1
+  pause_group_on_failure: false
+  pause_all_on_failure: false
+  callback: ~
+shared:
+  pueue_directory: /home/mimikun/.local/share/pueue
+  use_unix_socket: true
+  unix_socket_path: /home/mimikun/.local/share/pueue/pueue_mimikun.socket
+  host: 127.0.0.1
+  port: "6924"
+  daemon_cert: /home/mimikun/.local/share/pueue/certs/daemon.cert
+  daemon_key: /home/mimikun/.local/share/pueue/certs/daemon.key
+  shared_secret_path: /home/mimikun/.local/share/pueue/shared_secret
