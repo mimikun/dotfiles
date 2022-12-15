@@ -113,6 +113,7 @@ complete -c deno -n "__fish_seen_subcommand_from check" -l node-modules-dir -d '
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from check" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-lock -d 'Disable auto discovery of the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from check" -l all -d 'Type-check all code, including remote modules and npm packages'
 complete -c deno -n "__fish_seen_subcommand_from check" -l remote -d 'Type-check all modules, including remote'
 complete -c deno -n "__fish_seen_subcommand_from check" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from check" -l unstable -d 'Enable unstable features and APIs'
@@ -182,7 +183,8 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -s r -l reload -d 'Reload
 complete -c deno -n "__fish_seen_subcommand_from eval" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect -d 'Activate inspector on host:port (default: 127.0.0.1:9229)' -r
-complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect-brk -d 'Activate inspector on host:port and break at start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from eval" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l seed -d 'Set the random number generator seed' -r
@@ -250,7 +252,8 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l allow-sys -d 'Allow
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-run -d 'Allow running subprocesses' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-ffi -d 'Allow loading dynamic libraries' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l inspect -d 'Activate inspector on host:port (default: 127.0.0.1:9229)' -r
-complete -c deno -n "__fish_seen_subcommand_from install" -l inspect-brk -d 'Activate inspector on host:port and break at start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from install" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from install" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from install" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l seed -d 'Set the random number generator seed' -r
@@ -304,14 +307,22 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l check -d 'Type-check m
 complete -c deno -n "__fish_seen_subcommand_from repl" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-read -d 'Allow file system read access' -r -F
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-write -d 'Allow file system write access' -r -F
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-net -d 'Allow network access' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-env -d 'Allow environment access' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-sys -d 'Allow access to system info' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-run -d 'Allow running subprocesses' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-ffi -d 'Allow loading dynamic libraries' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l inspect -d 'Activate inspector on host:port (default: 127.0.0.1:9229)' -r
-complete -c deno -n "__fish_seen_subcommand_from repl" -l inspect-brk -d 'Activate inspector on host:port and break at start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from repl" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l eval-file -d 'Evaluates the provided file(s) as scripts when the REPL starts. Accepts file paths and URLs.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l eval -d 'Evaluates the provided code when the REPL starts.' -r
-complete -c deno -n "__fish_seen_subcommand_from repl" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-npm -d 'Do not resolve npm modules'
@@ -319,6 +330,10 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l node-modules-dir -d 'C
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-lock -d 'Disable auto discovery of the lock file.'
+complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-hrtime -d 'Allow high resolution time measurement'
+complete -c deno -n "__fish_seen_subcommand_from repl" -s A -l allow-all -d 'Allow all permissions'
+complete -c deno -n "__fish_seen_subcommand_from repl" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
+complete -c deno -n "__fish_seen_subcommand_from repl" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_seen_subcommand_from repl" -s h -l help -d 'Print help information'
@@ -340,7 +355,8 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l allow-sys -d 'Allow acc
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-run -d 'Allow running subprocesses' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-ffi -d 'Allow loading dynamic libraries' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l inspect -d 'Activate inspector on host:port (default: 127.0.0.1:9229)' -r
-complete -c deno -n "__fish_seen_subcommand_from run" -l inspect-brk -d 'Activate inspector on host:port and break at start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from run" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from run" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from run" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l seed -d 'Set the random number generator seed' -r
@@ -384,7 +400,8 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l allow-sys -d 'Allow ac
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-run -d 'Allow running subprocesses' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-ffi -d 'Allow loading dynamic libraries' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l inspect -d 'Activate inspector on host:port (default: 127.0.0.1:9229)' -r
-complete -c deno -n "__fish_seen_subcommand_from test" -l inspect-brk -d 'Activate inspector on host:port and break at start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from test" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
+complete -c deno -n "__fish_seen_subcommand_from test" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from test" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l seed -d 'Set the random number generator seed' -r
