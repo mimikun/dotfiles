@@ -1,0 +1,32 @@
+---
+client:
+  read_local_logs: true
+  show_confirmation_questions: false
+  show_expanded_aliases: false
+  dark_mode: false
+  max_status_lines: ~
+daemon:
+  default_parallel_tasks: 1
+  pause_group_on_failure: false
+  pause_all_on_failure: false
+  callback: ~
+shared:
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
+  pueue_directory: /home/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").pueue_config_unix_socket_path.value }}/.local/share/pueue
+  use_unix_socket: true
+  unix_socket_path: /home/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").pueue_config_unix_socket_path.value }}/.local/share/pueue/pueue_{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").pueue_config_unix_socket_path.value }}.socket
+  host: 127.0.0.1
+  port: "6924"
+  daemon_cert: /home/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").pueue_config_unix_socket_path.value }}/.local/share/pueue/certs/daemon.cert
+  daemon_key: /home/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").pueue_config_unix_socket_path.value }}/.local/share/pueue/certs/daemon.key
+  shared_secret_path: /home/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").pueue_config_unix_socket_path.value }}/.local/share/pueue/shared_secret
+{{ else }}
+  pueue_directory: /home/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").pueue_config_unix_socket_path.value }}/.local/share/pueue
+  use_unix_socket: true
+  unix_socket_path: /home/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").pueue_config_unix_socket_path.value }}/.local/share/pueue/pueue_{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").pueue_config_unix_socket_path.value }}.socket
+  host: 127.0.0.1
+  port: "6924"
+  daemon_cert: /home/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").pueue_config_unix_socket_path.value }}/.local/share/pueue/certs/daemon.cert
+  daemon_key: /home/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").pueue_config_unix_socket_path.value }}/.local/share/pueue/certs/daemon.key
+  shared_secret_path: /home/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").pueue_config_unix_socket_path.value }}/.local/share/pueue/shared_secret
+{{ end }}
