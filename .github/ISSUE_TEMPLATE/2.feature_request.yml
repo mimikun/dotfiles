@@ -1,0 +1,17 @@
+name: 機能追加
+description: 追加したいスクリプト等
+labels: [suggestion]
+assignees: 'mimikun'
+body:
+  - type: textarea
+    attributes:
+      label: ピッチ
+      description: 機能のアイデアを説明してください。以前に提案/実装/却下されていないことを確認してください。
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: モチベーション
+      description: なぜこの機能が必要だと思いますか?だれにとって有益ですか？
+    validations:
+      required: true
