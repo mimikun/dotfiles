@@ -1,0 +1,48 @@
+name: Bug Report
+description: バグ報告やエラーなど
+labels: [bug]
+assignees: [mimikun]
+body:
+  - type: textarea
+    attributes:
+      label: 問題の再現手順
+      description: どのように操作しましたか？
+      value: |
+        1.
+        2.
+        3.
+        ...
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: 期待する挙動
+      description: どのようにしてほしかったですか？
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: 実際の挙動
+      description: 実際には何が起きましたか？
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 詳細な説明など
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: ソフトのバージョンなど
+      description: |
+        バグが別なソフトに関係している場合は、そのソフトのバージョンなどを記載してください
+      placeholder: |
+        Neovim (v0.9.0-dev-533+ga6747545b)
+        fish shell (v3.5.1)
+
+        Ubuntu 20.04
+        Windows 11
+
+        etc...
+    validations:
+      required: true
