@@ -64,6 +64,7 @@ tealdeer
 tokei
 topgrade
 tree-sitter-cli
+typos-cli
 watchexec-cli
 xh
 xsv
