@@ -8,10 +8,10 @@ readonly VERSION="0.1.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
-UBUNTU_OS="OS type: Ubuntu"
-ARCH_OS="OS type: Arch Linux"
-ENDEAVOUR_OS="OS type: EndeavourOS"
-MAC_OS="OS type: Mac OS"
+readonly UBUNTU_OS="OS type: Ubuntu"
+readonly ARCH_OS="OS type: Arch Linux"
+readonly ENDEAVOUR_OS="OS type: EndeavourOS"
+readonly MAC_OS="OS type: Mac OS"
 
 #=======================
 # 関数定義
