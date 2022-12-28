@@ -17,6 +17,9 @@ set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d
 set -x WORKSPACE {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_workspace.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_win_home.value }}
 {{ end }}
+set -x windl $WIN_HOME/Downloads
+set -x WIN_DESKTOP $WIN_HOME/Desktop
+set -x WIN_DOCUMENTS $WIN_HOME/Documents
 
 alias f fuck
 alias rm 'rm -i'
