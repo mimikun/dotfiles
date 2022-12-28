@@ -106,3 +106,7 @@ if test -z  $RUNNING
 end
 {{ end }}
 
+# work pc only tools
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
+source $HOME/.config/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }}
+{{ end }}
