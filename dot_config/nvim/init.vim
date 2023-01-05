@@ -120,6 +120,7 @@ Plug 'cespare/vim-toml'
 Plug 'nastevens/vim-duckscript'
 Plug 'NoahTheDuke/vim-just'
 Plug 'IndianBoy42/tree-sitter-just'
+Plug 'vim-jp/vimdoc-ja'
 
 " Initialize plugin system
 call plug#end()
@@ -285,5 +286,8 @@ let g:vim_markdown_frontmatter = 1
 "" dps-translate-vim
 let g:dps_translate_source = "en"
 let g:dps_translate_target = "ja"
+
+"" ヘルプ日本語化
+set helplang=ja,en
 
 filetype plugin indent on
