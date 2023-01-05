@@ -52,6 +52,7 @@ os_info_cli
 pipr
 procs
 pueue
+pylyzer
 ripgrep
 ripgrep_all
 sd
