@@ -10,4 +10,3 @@ else
   echo "neovim (latest)nightly is already installed"
   echo "version: $VERSION"
 fi
-

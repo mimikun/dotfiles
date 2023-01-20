@@ -89,6 +89,8 @@ ohter_tools() {
   pueue add -- "update_geckodriver"
   # tldr update
   pueue add -- "tldr --update"
+  # GitHub CLI extensions update
+  pueue add -- "gh extensions upgrade --all"
 }
 
 no_pueue_other_tools() {
