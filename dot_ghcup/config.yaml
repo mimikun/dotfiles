@@ -1,0 +1,121 @@
+# Cache downloads in ~/.ghcup/cache
+cache: False
+# Skip tarball checksum verification
+no-verify: False
+# enable verbosity
+verbose: False
+# When to keep build directories
+keep-dirs: Errors  # Always | Never | Errors
+# Which downloader to use
+downloader: Curl   # Curl | Wget | Internal
+# whether to run in offline mode
+no-network: False
+# whether/how to do gpg verification
+gpg-setting: GPGNone # GPGStrict | GPGLax | GPGNone
+
+# TUI key bindings,
+# see https://hackage.haskell.org/package/vty-5.31/docs/Graphics-Vty-Input-Events.html#t:Key
+# for possible values.
+key-bindings:
+  up:
+    KUp: []
+  down:
+    KDown: []
+  quit:
+    KChar: 'q'
+  install:
+    KChar: 'i'
+  uninstall:
+    KChar: 'u'
+  set:
+    KChar: 's'
+  changelog:
+    KChar: 'c'
+  show-all:
+    KChar: 'a'
+  show-all-tools:
+    KChar: 't'
+
+# The caching for the metadata files containing download info, depending on last access time
+# of the file. These usually are in '~/.ghcup/cache/ghcup-<ver>.yaml'.
+meta-cache: 300 # in seconds
+
+# When trying to download ghcup metadata, this option decides what to do
+# when the download fails:
+#   1. Lax: use existing ~/.ghcup/cache/ghcup-<ver>.yaml as fallback (default)
+#   2. Strict: fail hard
+meta-mode: Lax # Strict | Lax
+
+# Where to get GHC/cabal/hls download info/versions from. For more detailed explanation
+# check the 'URLSource' type in the code.
+url-source:
+  ## Use the internal download uri, this is the default
+  GHCupURL: []
+
+  ## Example 1: Read download info from this location instead
+  ## Accepts file/http/https scheme
+  ## Can also be an array of URLs or an array of 'Either GHCupInfo URL', in
+  ## which case they are merged right-biased (overwriting duplicate versions).
+  # OwnSource: "file:///home/jule/git/ghcup-hs/ghcup-0.0.3.yaml"
+
+  ## Example 2: Add custom tarballs to the default downloads, overwriting duplicate versions.
+  ## Can also be an array of 'Either GHCupInfo URL', also see Example 3.
+  # AddSource:
+    # Left:
+      # globalTools: {}
+      # toolRequirements: {}
+      # ghcupDownloads:
+        # GHC:
+          # 9.10.2:
+            # viTags: []
+            # viArch:
+              # A_64:
+                # Linux_UnknownLinux:
+                  # unknown_versioning:
+                    # dlUri: https://downloads.haskell.org/~ghc/7.10.3/ghc-7.10.3-x86_64-deb8-linux.tar.bz2
+                    # dlSubdir: ghc-7.10.3
+                    # dlHash: 01cfbad8dff1e8b34a5fdca8caeaf843b56e36af919e29cd68870d2588563db5
+
+  ## Example 3: Add multiple custom download files to the default downloads via right-biased merge (overwriting duplicate
+  ## versions).
+  # AddSource:
+    # - Right: "file:///home/jule/git/ghcup-hs/ghcup-prereleases.yaml"
+    # - Right: "file:///home/jule/git/ghcup-hs/ghcup-custom.yaml"
+
+# This is a way to override platform detection, e.g. when you're running
+# a Ubuntu derivate based on 18.04, you could do:
+#
+# platform-override:
+#   arch: A_64
+#   platform:
+#     contents: Ubuntu
+#     tag: Linux
+#   version: '18.04'
+platform-override: null
+
+# Support for mirrors. Currently there are 3 hosts you can mirror:
+#   - github.com (for stack and some older HLS versions)
+#   - raw.githubusercontent.com (for the yaml metadata)
+#   - downloads.haskell.org (for everything else)
+#
+# E.g. when we have 'https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-0.0.7.yaml'
+# and the following mirror config
+#
+#  "raw.githubusercontent.com":
+#    authority:
+#      host: "mirror.sjtu.edu.cn"
+#    pathPrefix: "ghcup/yaml"
+#
+# Then the resulting url will be 'https://mirror.sjtu.edu.cn/ghcup/yaml/haskell/ghcup-metadata/master/ghcup-0.0.7.yaml'
+mirrors:
+  "github.com":
+    authority:
+      host: "mirror.sjtu.edu.cn"
+  "raw.githubusercontent.com":
+    authority:
+      host: "mirror.sjtu.edu.cn"
+    pathPrefix: "ghcup/yaml"
+  "downloads.haskell.org":
+    authority:
+      host: "mirror.sjtu.edu.cn"
+
