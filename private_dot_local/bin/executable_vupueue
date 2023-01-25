@@ -118,9 +118,6 @@ no_pueue_other_tools() {
   # Create asdf_plugin_list.txt
   asdf plugin list --urls >~/asdf_plugin_list.txt
   update_fish_completions
-  # nvim checkhealth fix
-  fish -c "cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)"
-  fish -c 'cpanm -n Neovim::Ext'
 }
 
 #=======================
