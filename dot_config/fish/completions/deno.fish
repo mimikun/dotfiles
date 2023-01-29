@@ -206,16 +206,17 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -s q -l quiet -d 'Suppres
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l ext -d 'Set standard input (stdin) content type' -r -f -a "{ts	,tsx	,js	,jsx	,md	,json	,jsonc	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l ignore -d 'Ignore formatting particular source files' -r -F
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-use-tabs -d 'Use tabs instead of spaces for indentation. Defaults to false.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-line-width -d 'Define maximum line width. Defaults to 80.' -r
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-indent-width -d 'Define indentation width. Defaults to 2.' -r
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-single-quote -d 'Use single quotes. Defaults to false.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-prose-wrap -d 'Define how prose should be wrapped. Defaults to always.' -r -f -a "{always	,never	,preserve	}"
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-no-semicolons -d 'Don\'t use semicolons except where necessary.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l check -d 'Check if the source files are formatted'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l watch -d 'Watch for file changes and restart automatically'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-use-tabs -d 'Use tabs instead of spaces for indentation. Defaults to false.'
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-single-quote -d 'Use single quotes. Defaults to false.'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s q -l quiet -d 'Suppress diagnostic output'
