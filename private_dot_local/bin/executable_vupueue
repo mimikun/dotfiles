@@ -82,7 +82,7 @@ update_asdf_tools() {
 }
 
 update_cargo_packages() {
-  cargo_outdated_pkgs=$(cargo install-update -a | grep "Yes" | cut -d " " -f 1)
+  cargo_outdated_pkgs=$(cargo install-update -l | grep "Yes" | cut -d " " -f 1)
   for i in $cargo_outdated_pkgs; do
     pueue add -- "cargo install $i"
   done
