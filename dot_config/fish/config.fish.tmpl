@@ -110,6 +110,15 @@ end
 # work pc only tools
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 source $HOME/.config/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }}
+
+# JVM path
+set -x JAVA_HOME $HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10
+set -x PATH $HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin $PATH
+
+# coursier path
+set -x PATH $HOME/.local/share/coursier/bin $PATH
+# windowsのpathとかぶる問題防止
+alias cs $HOME/.local/share/coursier/bin/cs
 {{ end }}
 
 # cabal config
