@@ -3,12 +3,12 @@
 COMPLETIONS_DIR="$HOME/.config/fish/completions"
 
 command_exist() {
-    if type "$1" >/dev/null 2>&1; then
-        return 0
-    else
-        echo "$1: not found"
-        return 1
-    fi
+  if type "$1" >/dev/null 2>&1; then
+    return 0
+  else
+    echo "$1: not found"
+    return 1
+  fi
 }
 
 pueue add -- "fish -c 'fish_update_completions'"
@@ -47,6 +47,10 @@ fi
 
 if command_exist fd; then
   pueue add -- "fd --gen-completions fish > '${COMPLETIONS_DIR}'/fd.fish"
+fi
+
+if command_exist zellij; then
+  pueue add -- "zellij setup --generate-completion fish > '${COMPLETIONS_DIR}'/zellij.fish"
 fi
 
 if command_exist exa; then

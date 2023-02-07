@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly VERSION="0.1.0"
+readonly PRODUCT_VERSION="0.1.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -35,7 +35,7 @@ EOF
 # バージョン情報出力
 version() {
   echo "$PRODUCT_NAME"
-  echo "v$VERSION"
+  echo "v$PRODUCT_VERSION"
 }
 
 # magic
@@ -97,7 +97,7 @@ pueue_update_asdf_neovim_nightly() {
     pueue add -- 'asdf install neovim nightly'
   else
     echo "neovim (latest)nightly is already installed"
-    echo "version: $VERSION"
+    echo "version: $NVIM_VERSION"
   fi
 }
 
