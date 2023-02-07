@@ -100,14 +100,6 @@ source $HOME/.keychain/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e
 source $HOME/.keychain/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_keychain_filepath.value }}-fish
 {{ end }}
 
-# pueued
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
-set PUEUED_RUNNING (ps aux | grep pueued | grep -v grep)
-if test -z  $RUNNING
-  pueued -d > /dev/null 2>&1
-end
-{{ end }}
-
 # work pc only tools
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 source $HOME/.config/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }}
