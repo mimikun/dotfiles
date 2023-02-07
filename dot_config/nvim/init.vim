@@ -121,6 +121,7 @@ Plug 'nastevens/vim-duckscript'
 Plug 'NoahTheDuke/vim-just'
 Plug 'IndianBoy42/tree-sitter-just'
 Plug 'vim-jp/vimdoc-ja'
+Plug 'imsnif/kdl.vim'
 
 " Initialize plugin system
 call plug#end()

@@ -69,5 +69,6 @@ typos-cli
 watchexec-cli
 xh
 xsv
+zellij
 zenith
 zoxide

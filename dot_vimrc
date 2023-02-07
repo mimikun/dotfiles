@@ -109,6 +109,7 @@ Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 Plug 'lambdalisue/glyph-palette.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'rcabralc/monokai-airline.vim'
+Plug 'imsnif/kdl.vim'
 
 " Initialize plugin system
 call plug#end()
