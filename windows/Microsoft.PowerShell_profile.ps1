@@ -16,9 +16,7 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
-# starship config
-Invoke-Expression (& 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' init powershell --print-full-init | Out-String)
-
-# shell completion
-Invoke-Expression (& 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' completions powershell | Out-String)
+# starship
+starship init powershell --print-full-init | Out-String | Invoke-Expression
+starship completions powershell | Out-String | Invoke-Expression
 
