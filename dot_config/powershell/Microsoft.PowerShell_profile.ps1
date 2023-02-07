@@ -3,8 +3,8 @@ Set-Alias -Name vim -Value nvim
 
 # function
 function gcd-fzf {
-  $repo = $(ghq list -p | fzf)
-  Set-Location $repo
+  $ghqrepo = $(ghq list -p | fzf)
+  Set-Location $ghqrepo
 }
 
 # keybinding
@@ -15,6 +15,5 @@ Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
 
 # starship config
 $starship = '~/.cargo/bin/starship'
-
-Invoke-Expression (& $starship init powershell --print-full-init | Out-String)
-Invoke-Expression (& $starship completions powershell | Out-String)
+$starship init powershell --print-full-init | Out-String | Invoke-Expression
+$starship completions powershell | Out-String | Invoke-Expression
