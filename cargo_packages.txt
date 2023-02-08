@@ -53,6 +53,7 @@ pipr
 procs
 pueue
 pylyzer
+rana
 ripgrep
 ripgrep_all
 sd
