@@ -1,5 +1,6 @@
 .gitignore
 .github
+.editorconfig
 
 clean.sh
 setup.sh
