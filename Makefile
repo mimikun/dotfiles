@@ -21,7 +21,7 @@ clean :
 	bash clean.sh
 
 .PHONY : update
-update :
+update : clean
 	bash update.sh
 
 .PHONY : copy2win
