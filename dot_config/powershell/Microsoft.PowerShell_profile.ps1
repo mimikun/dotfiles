@@ -14,6 +14,5 @@ Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
 }
 
 # starship config
-$starship = '~/.cargo/bin/starship'
-$starship init powershell --print-full-init | Out-String | Invoke-Expression
-$starship completions powershell | Out-String | Invoke-Expression
+Invoke-Expression (& '/home/yuto/.cargo/bin/starship' init powershell --print-full-init | Out-String)
+Invoke-Expression (& '/home/yuto/.cargo/bin/starship' completions powershell | Out-String)
