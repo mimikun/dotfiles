@@ -64,6 +64,7 @@ starship
 tauri-cli
 tealdeer
 tokei
+toml2json
 topgrade
 tree-sitter-cli
 typos-cli
