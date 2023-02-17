@@ -16,6 +16,14 @@ diff-patch :
 patch-branch :
 	git switch -c patch-$(today)
 
+.PHONY : switch-master
+switch-master :
+	git switch master
+
+.PHONY : delete-branch
+delete-branch : switch-master
+	git branch -D patch-*
+
 .PHONY : clean
 clean :
 	bash clean.sh
