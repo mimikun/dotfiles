@@ -4,8 +4,10 @@ bat
 bingrep
 bottom
 broot
+cargo-about
 cargo-all-features
 cargo-audit
+cargo-deny
 cargo-edit
 cargo-fuzz
 cargo-license
