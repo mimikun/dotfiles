@@ -93,6 +93,7 @@ pueue_update_asdf_neovim_nightly() {
   NVIM_VERSION=$(curl --silent https://api.github.com/repos/neovim/neovim/releases/tags/nightly | jq .body | tr " " "\n" | sed -n 2p | sed -e "s/\\\nBuild//g")
 
   if [ "$NVIM_OLD_VERSION" != "$NVIM_VERSION" ]; then
+    echo "neovim (latest)nightly found!"
     asdf uninstall neovim nightly
     pueue add -- 'asdf install neovim nightly'
   else
