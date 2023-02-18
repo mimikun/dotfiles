@@ -68,12 +68,12 @@ let g:python3_host_prog = expand('~/.asdf/shims/python3')
 nnoremap <C-w>n <Esc>:enew<Return>
 " NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
 " 低スぺック環境ではオフにする
-"set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 " win32yankの設定
-"nnoremap <silent> <Space>y :.w !win32yank.exe -i<CR><CR>
-"vnoremap <silent> <Space>y :w !win32yank.exe -i<CR><CR>
-"nnoremap <silent> <Space>p :r !win32yank.exe -o<CR>
-"vnoremap <silent> <Space>p :r !win32yank.exe -o<CR>
+nnoremap <silent> <Space>y :.w !win32yank.exe -i<CR><CR>
+vnoremap <silent> <Space>y :w !win32yank.exe -i<CR><CR>
+nnoremap <silent> <Space>p :r !win32yank.exe -o<CR>
+vnoremap <silent> <Space>p :r !win32yank.exe -o<CR>
 "" lightline.vim 用
 " 常にタブページのラベル(各タブのファイル名)を表示
 set showtabline=2
