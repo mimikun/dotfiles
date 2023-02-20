@@ -122,6 +122,7 @@ Plug 'NoahTheDuke/vim-just'
 Plug 'IndianBoy42/tree-sitter-just'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'imsnif/kdl.vim'
+Plug 'mattn/calendar-vim'
 
 " Initialize plugin system
 call plug#end()
