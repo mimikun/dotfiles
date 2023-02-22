@@ -22,7 +22,7 @@ switch-master :
 
 .PHONY : delete-branch
 delete-branch : switch-master
-	git branch -D patch-*
+	git branch --list "patch*" | xargs -n 1 git branch -D
 
 .PHONY : clean
 clean :
