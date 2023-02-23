@@ -4,7 +4,7 @@ ruby 3.2.1
 vim 9.0.1341
 neovim nightly
 yarn 1.22.19
-ghq 1.4.0
+ghq 1.4.1
 fzf 0.38.0
 peco 0.5.10
 direnv 2.32.2
