@@ -28,6 +28,7 @@ complete -c deno -n "__fish_use_subcommand" -f -a "upgrade" -d 'Upgrade deno exe
 complete -c deno -n "__fish_use_subcommand" -f -a "vendor" -d 'Vendor remote modules into a local directory'
 complete -c deno -n "__fish_use_subcommand" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from bench" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from bench" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l check -d 'Type-check modules' -r
@@ -50,7 +51,6 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l filter -d 'Run benchm
 complete -c deno -n "__fish_seen_subcommand_from bench" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from bench" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -60,12 +60,14 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l prompt -d 'deprecated
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_seen_subcommand_from bench" -l json -d 'UNSTABLE: Output benchmark result in JSON format'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l watch -d 'Watch for file changes and restart automatically'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_seen_subcommand_from bench" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from bench" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l check -d 'Type-check modules' -r
@@ -75,7 +77,6 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -l cert -d 'Load certif
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from bundle" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -85,6 +86,7 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -s h -l help -d 'Print 
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from cache" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from cache" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from cache" -l check -d 'Type-check modules' -r
@@ -94,7 +96,6 @@ complete -c deno -n "__fish_seen_subcommand_from cache" -l cert -d 'Load certifi
 complete -c deno -n "__fish_seen_subcommand_from cache" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from cache" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -102,6 +103,7 @@ complete -c deno -n "__fish_seen_subcommand_from cache" -s h -l help -d 'Print h
 complete -c deno -n "__fish_seen_subcommand_from cache" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from cache" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from check" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from check" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from check" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
@@ -109,7 +111,6 @@ complete -c deno -n "__fish_seen_subcommand_from check" -l cert -d 'Load certifi
 complete -c deno -n "__fish_seen_subcommand_from check" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from check" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from check" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from check" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -119,6 +120,7 @@ complete -c deno -n "__fish_seen_subcommand_from check" -s h -l help -d 'Print h
 complete -c deno -n "__fish_seen_subcommand_from check" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from check" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from compile" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from compile" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l check -d 'Type-check modules' -r
@@ -141,7 +143,6 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l target -d 'Target O
 complete -c deno -n "__fish_seen_subcommand_from compile" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from compile" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -176,6 +177,7 @@ complete -c deno -n "__fish_seen_subcommand_from doc" -s h -l help -d 'Print hel
 complete -c deno -n "__fish_seen_subcommand_from doc" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from doc" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from eval" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l check -d 'Type-check modules' -r
@@ -192,7 +194,6 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -l ext -d 'Set standard i
 complete -c deno -n "__fish_seen_subcommand_from eval" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from eval" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -206,12 +207,12 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -s q -l quiet -d 'Suppres
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l ext -d 'Set standard input (stdin) content type' -r -f -a "{ts	,tsx	,js	,jsx	,md	,json	,jsonc	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l ignore -d 'Ignore formatting particular source files' -r -F
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-use-tabs -d 'Use tabs instead of spaces for indentation. Defaults to false.' -r -f -a "{true	,false	}"
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-line-width -d 'Define maximum line width. Defaults to 80.' -r
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-indent-width -d 'Define indentation width. Defaults to 2.' -r
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-single-quote -d 'Use single quotes. Defaults to false.' -r -f -a "{true	,false	}"
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-prose-wrap -d 'Define how prose should be wrapped. Defaults to always.' -r -f -a "{always	,never	,preserve	}"
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l options-no-semicolons -d 'Don\'t use semicolons except where necessary.' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l use-tabs -d 'Use tabs instead of spaces for indentation. Defaults to false.' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l line-width -d 'Define maximum line width. Defaults to 80.' -r
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l indent-width -d 'Define indentation width. Defaults to 2.' -r
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l single-quote -d 'Use single quotes. Defaults to false.' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l prose-wrap -d 'Define how prose should be wrapped. Defaults to always.' -r -f -a "{always	,never	,preserve	}"
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l no-semicolons -d 'Don\'t use semicolons except where necessary.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l check -d 'Check if the source files are formatted'
@@ -230,14 +231,15 @@ complete -c deno -n "__fish_seen_subcommand_from info" -l location -d 'Show file
 complete -c deno -n "__fish_seen_subcommand_from info" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from info" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from info" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from info" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from info" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from info" -l no-config -d 'Disable automatic loading of the configuration file.'
-complete -c deno -n "__fish_seen_subcommand_from info" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from info" -l json -d 'UNSTABLE: Outputs the information in JSON format'
 complete -c deno -n "__fish_seen_subcommand_from info" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from info" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from info" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from install" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from install" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from install" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l check -d 'Type-check modules' -r
@@ -263,7 +265,6 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l root -d 'Installati
 complete -c deno -n "__fish_seen_subcommand_from install" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from install" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from install" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -302,6 +303,7 @@ complete -c deno -n "__fish_seen_subcommand_from lint" -s h -l help -d 'Print he
 complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from lint" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from repl" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from repl" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l check -d 'Type-check modules' -r
@@ -327,7 +329,6 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l eval -d 'Evaluates the
 complete -c deno -n "__fish_seen_subcommand_from repl" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from repl" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -341,6 +342,7 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -s h -l help -d 'Print he
 complete -c deno -n "__fish_seen_subcommand_from repl" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from repl" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from run" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from run" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from run" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l check -d 'Type-check modules' -r
@@ -365,7 +367,6 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l watch -d 'Watch for fil
 complete -c deno -n "__fish_seen_subcommand_from run" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from run" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from run" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -386,6 +387,7 @@ complete -c deno -n "__fish_seen_subcommand_from task" -s h -l help -d 'Print he
 complete -c deno -n "__fish_seen_subcommand_from task" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from task" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from test" -l import-map -d 'Load import map file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from test" -l node-modules-dir -d 'Creates a local node_modules folder. This option is implicitly true when a package.json is auto-discovered.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from test" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l check -d 'Type-check modules' -r
@@ -409,13 +411,12 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l seed -d 'Set the rando
 complete -c deno -n "__fish_seen_subcommand_from test" -l ignore -d 'Ignore files' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l fail-fast -d 'Stop after N errors. Defaults to stopping after first failure.' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l filter -d 'Run tests with this string or pattern in the test name' -r
-complete -c deno -n "__fish_seen_subcommand_from test" -l shuffle -d '(UNSTABLE): Shuffle the order in which the tests are run' -r
-complete -c deno -n "__fish_seen_subcommand_from test" -l coverage -d 'UNSTABLE: Collect coverage profile data into DIR' -r
+complete -c deno -n "__fish_seen_subcommand_from test" -l shuffle -d 'Shuffle the order in which the tests are run' -r
+complete -c deno -n "__fish_seen_subcommand_from test" -l coverage -d 'Collect coverage profile data into DIR' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -s j -l jobs -d 'deprecated: Number of parallel workers, defaults to number of available CPUs when no value is provided. Defaults to 1 when the option is not present.' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-npm -d 'Do not resolve npm modules'
-complete -c deno -n "__fish_seen_subcommand_from test" -l node-modules-dir -d 'Creates a local node_modules folder'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-lock -d 'Disable auto discovery of the lock file.'
@@ -427,7 +428,7 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l cached-only -d 'Requir
 complete -c deno -n "__fish_seen_subcommand_from test" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-run -d 'Cache test modules, but don\'t run tests'
 complete -c deno -n "__fish_seen_subcommand_from test" -l trace-ops -d 'Enable tracing of async ops. Useful when debugging leaking ops in test, but impacts test execution time.'
-complete -c deno -n "__fish_seen_subcommand_from test" -l doc -d 'UNSTABLE: type-check code blocks'
+complete -c deno -n "__fish_seen_subcommand_from test" -l doc -d 'Type-check code blocks in JSDoc and Markdown'
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-none -d 'Don\'t return error code if no test files are found'
 complete -c deno -n "__fish_seen_subcommand_from test" -l parallel -d 'Run test modules in parallel. Parallelism defaults to the number of available CPUs or the value in the DENO_JOBS environment variable.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l watch -d 'Watch for file changes and restart automatically'
