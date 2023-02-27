@@ -30,6 +30,9 @@ alias la 'ls -la'
 alias mkdir 'mkdir -p'
 alias untar 'tar xvf'
 alias rm gomi
+alias pueued_enable 'systemctl --user enable pueue'
+alias pueued_start 'systemctl --user start pueue'
+alias pueued_restart 'systemctl --user restart pueue'
 
 set -x PATH /usr/bin $PATH
 set -x PATH /usr/local/bin $PATH
