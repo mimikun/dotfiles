@@ -200,7 +200,7 @@ let g:coc_global_extensions = [
       \'coc-solargraph', 
       \'coc-git', 
       \'coc-json', 
-      \'coc-rust-analyzer' 
+      \'coc-rust-analyzer', 
       \'coc-zls' 
 \]
 
