@@ -1,9 +1,10 @@
 #!/bin/bash
 
-OLD_VERSION=$(nvim --version | head -n 1 | tr " " "\n" | sed -n '2p')
-VERSION=$(curl --silent https://api.github.com/repos/neovim/neovim/releases/tags/nightly | jq .body | tr " " "\n" | sed -n 2p | sed -e "s/\\\nBuild//g")
+VERSION=$(nvim --version | head -n 1 | tr " " "\n" | sed -n '2p')
+NEW_VERSION=$(curl --silent https://api.github.com/repos/neovim/neovim/releases/tags/nightly | jq .body | tr " " "\n" | sed -n 2p | sed -e "s/\\\nBuild//g")
 
-if [ "$OLD_VERSION" != "$VERSION" ]; then
+if [ "$VERSION" != "$NEW_VERSION" ]; then
+  echo "neovim (latest)nightly found!"
   asdf uninstall neovim nightly
   asdf install neovim nightly
 else

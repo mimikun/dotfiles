@@ -88,20 +88,6 @@ update_cargo_packages() {
   done
 }
 
-pueue_update_asdf_neovim_nightly() {
-  NVIM_OLD_VERSION=$(nvim --version | head -n 1 | tr " " "\n" | sed -n '2p')
-  NVIM_VERSION=$(curl --silent https://api.github.com/repos/neovim/neovim/releases/tags/nightly | jq .body | tr " " "\n" | sed -n 2p | sed -e "s/\\\nBuild//g")
-
-  if [ "$NVIM_OLD_VERSION" != "$NVIM_VERSION" ]; then
-    echo "neovim (latest)nightly found!"
-    asdf uninstall neovim nightly
-    pueue add -- 'asdf install neovim nightly'
-  else
-    echo "neovim (latest)nightly is already installed"
-    echo "version: $NVIM_VERSION"
-  fi
-}
-
 pueue_update_asdf_nodejs_lts() {
   asdf uninstall nodejs lts
   pueue add -- 'asdf install nodejs lts'
@@ -135,6 +121,7 @@ no_pueue_other_tools() {
   asdf plugin update --all
   update_asdf_tools
   pueue_update_asdf_neovim_nightly
+  pueue_update_asdf_zig_master
   # Update rust tools
   update_cargo_packages
   # Create cargo_packages.txt
