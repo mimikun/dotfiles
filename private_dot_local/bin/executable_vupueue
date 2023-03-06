@@ -81,13 +81,6 @@ update_asdf_tools() {
   done
 }
 
-update_cargo_packages() {
-  cargo_outdated_pkgs=$(cargo install-update -l | grep "Yes" | cut -d " " -f 1)
-  for i in $cargo_outdated_pkgs; do
-    pueue add -- "cargo install $i"
-  done
-}
-
 pueue_update_asdf_nodejs_lts() {
   asdf uninstall nodejs lts
   pueue add -- 'asdf install nodejs lts'
@@ -123,7 +116,7 @@ no_pueue_other_tools() {
   pueue_update_asdf_neovim_nightly
   pueue_update_asdf_zig_master
   # Update rust tools
-  update_cargo_packages
+  pueue_update_cargo_packages
   # Create cargo_packages.txt
   generate_cargo_package_list
   # Create asdf_plugin_list.txt
