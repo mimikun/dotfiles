@@ -936,3 +936,7 @@ Register-ArgumentCompleter -Native -CommandName 'rustup' -ScriptBlock {
 }
 # rustup completions powershell Result end.
 
+# PSGhq setup
+. $env:GHQ_ROOT\github.com\mimikun\PSGhq\Set-GhqLocation.ps1
+Set-Alias -Name gcd -Value Set-GhqLocation
+
