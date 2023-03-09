@@ -459,7 +459,6 @@ Register-ArgumentCompleter -Native -CommandName 'starship' -ScriptBlock {
         Sort-Object -Property ListItemText
 }
 # starship completions powershell Result end.
-Import-Module 'C:\tools\poshgit\dahlbyk-posh-git-9bda399\src\posh-git.psd1'
 
 # rustup completions powershell Result:
 Register-ArgumentCompleter -Native -CommandName 'rustup' -ScriptBlock {
@@ -936,7 +935,19 @@ Register-ArgumentCompleter -Native -CommandName 'rustup' -ScriptBlock {
 }
 # rustup completions powershell Result end.
 
+# posh-git setup
+$PoshGitPath = "C:\tools\poshgit\dahlbyk-posh-git-9bda399\src\posh-git.psd1"
+if (Test-Path($PoshGitPath)) {
+    Import-Module "$PoshGitPath"
+}
+else {
+    Import-Module posh-git
+}
+
 # PSGhq setup
-. $env:GHQ_ROOT\github.com\mimikun\PSGhq\Set-GhqLocation.ps1
-Set-Alias -Name gcd -Value Set-GhqLocation
+$PSGhqPath = "$env:GHQ_ROOT\github.com\mimikun\PSGhq\Set-GhqLocation.ps1"
+if (Test-Path($PSGhqPath)) {
+    . $PSGhqPath
+    Set-Alias -Name gcd -Value Set-GhqLocation
+}
 
