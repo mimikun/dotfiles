@@ -951,3 +951,9 @@ if (Test-Path($PSGhqPath)) {
     Set-Alias -Name gcd -Value Set-GhqLocation
 }
 
+# neovim setup
+$NeovimDirectory = "C:\Program Files\nvim-win64"
+if (Test-Path($NeovimDirectory)) {
+    Set-Alias -Name vim -Value nvim
+}
+
