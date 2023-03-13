@@ -2,9 +2,8 @@
 .github
 .editorconfig
 
-clean.sh
+utils
 setup.sh
-update.sh
 
 windows
 README.md

@@ -26,11 +26,11 @@ delete-branch : switch-master
 
 .PHONY : clean
 clean :
-	bash clean.sh
+	bash utils/clean.sh
 
 .PHONY : update
 update : clean
-	bash update.sh
+	bash utils/update.sh
 
 .PHONY : copy2win
 copy2win :
