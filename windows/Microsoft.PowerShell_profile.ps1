@@ -951,6 +951,20 @@ if (Test-Path($PSGhqPath)) {
     Set-Alias -Name gcd -Value Set-GhqLocation
 }
 
+# update_cargo_package setup
+$UpdateCargoPackagePath = "$env:GHQ_ROOT\github.com\mimikun\update_cargo_packages\Invoke-UpdateCargoPackage.ps1"
+if (Test-Path($UpdateCargoPackagePath)) {
+    . $UpdateCargoPackagePath
+    Set-Alias -Name update_cargo_package -Value Invoke-UpdateCargoPackage
+}
+
+# vup setup
+$VupPath = "$env:GHQ_ROOT\github.com\mimikun\vup\Invoke-Vup.ps1"
+if (Test-Path($VupPath)) {
+    . $VupPath
+    Set-Alias -Name vup -Value Invoke-Vup
+}
+
 # neovim setup
 $NeovimDirectory = "C:\Program Files\nvim-win64"
 if (Test-Path($NeovimDirectory)) {
