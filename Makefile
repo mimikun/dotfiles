@@ -4,10 +4,6 @@ product_name = dotfiles
 .PHONY : patch
 patch : clean diff-patch copy2win
 
-.PHONY : format-patch
-format-patch :
-	git format-patch origin/master
-
 .PHONY : diff-patch
 diff-patch :
 	git diff origin/master > $(product_name).$(today).patch
