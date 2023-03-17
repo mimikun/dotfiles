@@ -35,14 +35,19 @@ unset color_prompt force_color_prompt
 
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1='\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1'
     ;;
 *)
     ;;
 esac
 
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    if test -r ~/.dircolors
+    then
+        eval "$(dircolors -b ~/.dircolors)"
+    else
+        eval "$(dircolors -b)"
+    fi
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -68,8 +73,8 @@ export STARSHIP_CACHE=~/.config/starship/cache
 export EDITOR=nvim
 
 # asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+. "$HOME"/.asdf/asdf.sh
+. "$HOME"/.asdf/completions/asdf.bash
 
 # direnv config
 eval "$(asdf exec direnv hook bash)"
@@ -77,7 +82,7 @@ direnv() { asdf exec direnv "$@"; }
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 # Start Docker daemon automatically when logging in if not running.
-RUNNING=`ps aux | grep dockerd | grep -v grep`
+RUNNING=$(pgrep -f dockerd)
 if [ -z "$RUNNING" ]; then
     sudo dockerd > /dev/null 2>&1 &
     disown
@@ -85,8 +90,9 @@ fi
 {{ end }}
 
 # Nix
-. $HOME/.nix-profile/etc/profile.d/nix.sh
+. "$HOME"/.nix-profile/etc/profile.d/nix.sh
 
+# Work PC only command
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").bashrc_command_1.value }}
 {{ end }}
@@ -119,4 +125,9 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-[ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
+if test -f ~/.config/tabtab/bash/__tabtab.bash
+then
+    . ~/.config/tabtab/bash/__tabtab.bash
+else
+    true
+fi
