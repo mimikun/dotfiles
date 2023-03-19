@@ -1,6 +1,6 @@
 python 3.11.2
 nodejs 18.13.0
-ruby system
+ruby 3.2.1
 vim 9.0.1414
 neovim nightly
 yarn 1.22.19
