@@ -39,4 +39,7 @@ require('dps-translate-vim')
 -- github-theme
 require('github-nvim-theme')
 
+-- monokai.nvim
+require('monokai-nvim')
+
 cmd('filetype plugin indent on')
