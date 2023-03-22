@@ -93,4 +93,4 @@ g.python3_host_prog = '~/.asdf/shims/python3'
 
 -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
 -- 低スぺック環境ではオフにする
-cmd([[set clipboard+=unnamedplus]])
+--cmd([[set clipboard+=unnamedplus]])
