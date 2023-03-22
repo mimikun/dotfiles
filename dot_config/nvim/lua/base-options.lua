@@ -80,7 +80,7 @@ cmd('syntax enable')
 
 -- カラースキームを設定
 -- $XDG_CONFIG_HOME/nvim/colors 以下にある
-cmd('colorscheme monokai')
+--cmd('colorscheme monokai')
 
 -- True Colorでのシンタックスハイライト
 opt.termguicolors = true
