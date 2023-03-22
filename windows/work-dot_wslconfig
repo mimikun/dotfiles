@@ -1,4 +1,4 @@
 [wsl2]
-memory=4GB
+memory=3GB
 swap=8GB
 localhostForwarding=true
