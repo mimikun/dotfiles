@@ -36,4 +36,7 @@ require('vim-markdown')
 -- dps-translate-vim
 require('dps-translate-vim')
 
+-- github-theme
+require('github-nvim-theme')
+
 cmd('filetype plugin indent on')
