@@ -74,6 +74,7 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -s c -l config -d 'Spec
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock -d 'Check the specified lock file. If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-npm -d 'Do not resolve npm modules'
@@ -138,8 +139,10 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-ffi -d 'Allow
 complete -c deno -n "__fish_seen_subcommand_from compile" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from compile" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from compile" -l include -d 'UNSTABLE: Additional module to include in the module graph' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -s o -l output -d 'Output file (defaults to $PWD/<inferred-name>)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l target -d 'Target OS architecture' -r -f -a "{x86_64-unknown-linux-gnu	,x86_64-pc-windows-msvc	,x86_64-apple-darwin	,aarch64-apple-darwin	}"
+complete -c deno -n "__fish_seen_subcommand_from compile" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	}"
 complete -c deno -n "__fish_seen_subcommand_from compile" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-npm -d 'Do not resolve npm modules'
@@ -194,7 +197,7 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect-wait -d 'Activ
 complete -c deno -n "__fish_seen_subcommand_from eval" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from eval" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_seen_subcommand_from eval" -l ext -d 'Set standard input (stdin) content type' -r -f -a "{ts	,tsx	,js	,jsx	}"
+complete -c deno -n "__fish_seen_subcommand_from eval" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-npm -d 'Do not resolve npm modules'
@@ -203,13 +206,13 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -l lock-write -d 'Force o
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
-complete -c deno -n "__fish_seen_subcommand_from eval" -s T -l ts -d 'Treat eval input as TypeScript'
+complete -c deno -n "__fish_seen_subcommand_from eval" -s T -l ts -d 'deprecated: Treat eval input as TypeScript'
 complete -c deno -n "__fish_seen_subcommand_from eval" -s p -l print -d 'print result to stdout'
 complete -c deno -n "__fish_seen_subcommand_from eval" -s h -l help -d 'Print help information'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from eval" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s c -l config -d 'Specify the configuration file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from fmt" -l ext -d 'Set standard input (stdin) content type' -r -f -a "{ts	,tsx	,js	,jsx	,md	,json	,jsonc	}"
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	,md	,json	,jsonc	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l ignore -d 'Ignore formatting particular source files' -r -F
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l use-tabs -d 'Use tabs instead of spaces for indentation. Defaults to false.' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l line-width -d 'Define maximum line width. Defaults to 80.' -r
@@ -372,6 +375,7 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l location -d 'Value of \
 complete -c deno -n "__fish_seen_subcommand_from run" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l watch -d 'Watch for file changes and restart automatically' -r -F
+complete -c deno -n "__fish_seen_subcommand_from run" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	}"
 complete -c deno -n "__fish_seen_subcommand_from run" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-npm -d 'Do not resolve npm modules'
