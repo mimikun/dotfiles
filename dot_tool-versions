@@ -1,7 +1,7 @@
 python 3.11.2
 nodejs 18.13.0
 ruby 3.2.1
-vim 9.0.1425
+vim 9.0.1428
 neovim nightly
 yarn 1.22.19
 ghq 1.4.1
@@ -15,6 +15,6 @@ shfmt 3.6.0
 tig 2.5.8
 github-cli 2.25.1
 duf 0.8.1
-yq 4.32.2
+yq 4.33.1
 zig master
 bitwarden 2023.3.0
