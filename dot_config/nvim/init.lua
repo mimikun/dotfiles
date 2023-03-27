@@ -1,7 +1,5 @@
-local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
-
 -- ファイルの種類毎に設定ファイルを記述できるようにする
-cmd('filetype plugin indent off')
+vim.cmd('filetype plugin indent off')
 
 -- 基本的なオプションを読み込む
 require('base-options')
@@ -42,4 +40,4 @@ require('github-nvim-theme')
 -- monokai.nvim
 require('monokai-nvim')
 
-cmd('filetype plugin indent on')
+vim.cmd('filetype plugin indent on')

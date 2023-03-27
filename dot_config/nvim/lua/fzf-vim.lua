@@ -1,13 +1,7 @@
---ref: https://oroques.dev/2020/01/07/neovim-05.html
-local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
-local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
-local g = vim.g      -- a table to access global variables
-local opt = vim.opt  -- to set options
-
 -- fzf.vim
 -- Ctrl+pでファイル検索を開く
 -- git管理されていれば:GFiles、そうでなければ:Filesを実行する
-cmd([[
+vim.cmd([[
 fun! FzfOmniFiles()
   let is_git = system('git status')
   if v:shell_error
@@ -22,7 +16,7 @@ vim.keymap.set('n', '<C-p>', ':call FzfOmniFiles()<CR>')
 
 -- Ctrl+gで文字列検索を開く
 -- <S-?>でプレビューを表示/非表示する
-cmd([[
+vim.cmd([[
 command! -bang -nargs=* Rg
 \ call fzf#vim#grep(
 \ 'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
