@@ -80,6 +80,7 @@ export EDITOR=nvim
 eval "$(asdf exec direnv hook bash)"
 direnv() { asdf exec direnv "$@"; }
 
+# 仕事PCでのみdockerd実行チェックをする
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 # Start Docker daemon automatically when logging in if not running.
 RUNNING=$(pgrep -f dockerd)
@@ -91,26 +92,6 @@ fi
 
 # Nix
 . "$HOME"/.nix-profile/etc/profile.d/nix.sh
-
-# Work PC only command
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
-{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").bashrc_command_1.value }}
-{{ end }}
-
-case $- in
-  *i*) ;;
-    *) return;;
-esac
-
-# Bash It
-export BASH_IT="$HOME/.bash_it"
-export BASH_IT_THEME='bobby'
-export GIT_HOSTING='git@git.domain.com'
-unset MAILCHECK
-export IRC_CLIENT='irssi'
-export TODO="t"
-export SCM_CHECK=true
-source "$BASH_IT"/bash_it.sh
 
 # zoxide
 eval "$(zoxide init bash)"
