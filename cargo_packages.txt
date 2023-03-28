@@ -63,6 +63,7 @@ shellharden
 silicon
 skim
 starship
+stylua
 tauri-cli
 tealdeer
 tokei
