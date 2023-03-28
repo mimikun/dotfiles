@@ -59,6 +59,15 @@ return require('packer').startup(function(use)
   use 'airblade/vim-gitgutter'
   use 'godlygeek/tabular'
   use 'dstein64/vim-startuptime'
+  use {
+    'kode-team/mastodon.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'rcarriga/nvim-notify',
+      'kkharji/sqlite.lua',
+    },
+  config = function() require("mastodon").setup() end
+  }
   ---- denops.vim
   use 'vim-denops/denops.vim'
   use 'lambdalisue/gin.vim'
