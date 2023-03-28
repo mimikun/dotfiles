@@ -17,7 +17,8 @@ require('coc')
 require('treesitter')
 
 -- vim.airline settings
-require('vim-airline')
+--require('vim-airline')
+require('lualine-nvim')
 
 -- fern.vim settings
 require('fern-vim')
