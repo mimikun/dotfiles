@@ -26,3 +26,4 @@ chezmoi add ~/.local/bin/update_fish_completions
 chezmoi add ~/.local/bin/update_geckodriver
 chezmoi add ~/.local/bin/update_ripgrep_fish_completion
 chezmoi add ~/.local/bin/vupueue
+chezmoi add ~/.config/gup/gup.conf
