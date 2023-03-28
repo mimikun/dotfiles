@@ -58,6 +58,7 @@ return require('packer').startup(function(use)
   use 'thinca/vim-quickrun'
   use 'airblade/vim-gitgutter'
   use 'godlygeek/tabular'
+  use 'dstein64/vim-startuptime'
   ---- denops.vim
   use 'vim-denops/denops.vim'
   use 'lambdalisue/gin.vim'
