@@ -57,8 +57,6 @@ ubuntu() {
   # Cleaning APT caches
   sudo apt autoremove -y
   sudo apt-get clean
-  # Upgrade snaps
-  sudo snap refresh
 }
 
 # Arch Linux
