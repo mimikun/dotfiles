@@ -47,4 +47,7 @@ require("github-nvim-theme")
 -- monokai.nvim
 require("monokai-nvim")
 
+-- ChatGPT.nvim
+require("chatgpt-nvim")
+
 vim.cmd("filetype plugin indent on")

@@ -74,6 +74,14 @@ return require("packer").startup(function(use)
             require("mastodon").setup()
         end,
     })
+    use({
+        "jackMort/ChatGPT.nvim",
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+    })
 
     ---- denops.vim
     use("vim-denops/denops.vim")
