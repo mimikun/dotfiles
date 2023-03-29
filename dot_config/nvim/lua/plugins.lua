@@ -44,6 +44,7 @@ return require("packer").startup(function(use)
     -- color theme
     use({ "projekt0n/github-nvim-theme", tag = "v0.0.7" })
     use("tanvirtin/monokai.nvim")
+    use("Allianaab2m/penumbra.nvim")
 
     -- syntax hilights
     use("preservim/vim-markdown")

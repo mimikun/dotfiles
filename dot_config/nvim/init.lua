@@ -50,4 +50,6 @@ require("monokai-nvim")
 -- ChatGPT.nvim
 require("chatgpt-nvim")
 
+-- penumbra.nvim
+require("penumbra-nvim")
 vim.cmd("filetype plugin indent on")
