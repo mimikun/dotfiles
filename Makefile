@@ -2,7 +2,7 @@ today   = $(shell date "+%Y%m%d")
 product_name = dotfiles
 
 .PHONY : patch
-patch : clean diff-patch copy2win
+patch : clean diff-patch copy2win-patch
 
 .PHONY : diff-patch
 diff-patch :
@@ -28,6 +28,6 @@ clean :
 update : clean
 	bash utils/update.sh
 
-.PHONY : copy2win
-copy2win :
+.PHONY : copy2win-patch
+copy2win-patch :
 	cp *.patch $$WIN_HOME/Downloads/
