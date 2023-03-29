@@ -31,3 +31,20 @@ update : clean
 .PHONY : copy2win-patch
 copy2win-patch :
 	cp *.patch $$WIN_HOME/Downloads/
+
+.PHONY : lint
+lint : stylua-lint
+
+.PHONY : stylua-lint
+stylua-lint :
+	stylua --check ./
+
+.PHONY : fmt
+fmt : format
+
+.PHONY : format
+format : stylua-format
+
+.PHONY : stylua-format
+stylua-format :
+	stylua ./
