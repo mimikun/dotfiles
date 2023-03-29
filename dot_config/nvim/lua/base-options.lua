@@ -1,16 +1,16 @@
 -- 参考: https://trap.jp/post/524/
 -- マウス操作を有効にする
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- 使用可能性のある改行コードを指定
-vim.opt.fileformats = 'unix', 'dos', 'mac'
+vim.opt.fileformats = "unix", "dos", "mac"
 
 -- ファイル読み込むときのエンコード
 -- 左から順に試す
-vim.opt.fileencodings = 'ucs-bombs', 'utf-8', 'euc-jp', 'cp932'
+vim.opt.fileencodings = "ucs-bombs", "utf-8", "euc-jp", "cp932"
 
 --" 全角文字の表示に2文字分使うようにする
-vim.opt.ambiwidth = 'double'
+vim.opt.ambiwidth = "double"
 
 -- スワップファイルを作成しないようにする
 vim.opt.swapfile = false
@@ -23,7 +23,7 @@ vim.opt.number = true
 
 -- 空白文字を可視化する
 vim.opt.list = true
-vim.opt.listchars = {tab = '>-', trail = '*', nbsp = '+'}
+vim.opt.listchars = { tab = ">-", trail = "*", nbsp = "+" }
 
 -- 良い感じにインデントしてくれるようにする
 vim.opt.smartindent = true
@@ -61,16 +61,16 @@ vim.opt.showmode = false
 -- BackSpaceキー, SPACEキーで有効になる
 -- <(←キー),>(→キー)はNORMALモード及びVISUALモードで各キーにこの機能を割り当て
 -- [(←キー),](→キー)はINSERTモード(置換含む)でこの機能を有効にする
-vim.opt.whichwrap = 'b', 's', '<', '>', '[', ']'
+vim.opt.whichwrap = "b", "s", "<", ">", "[", "]"
 
 -- 反映時間を短くする(デフォルトは4000ms)
 vim.opt.updatetime = 250
 
 -- ヘルプ日本語化
-vim.opt.helplang = 'ja', 'en'
+vim.opt.helplang = "ja", "en"
 
 -- シンタックスハイライトを有効にする
-vim.cmd('syntax enable')
+vim.cmd("syntax enable")
 
 -- カラースキームを設定
 -- $XDG_CONFIG_HOME/nvim/colors 以下にある
@@ -82,8 +82,8 @@ vim.cmd([[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]])
 vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
 
 -- Pythonのパスを指定
-vim.g.python_host_prog = '~/.asdf/shims/python2'
-vim.g.python3_host_prog = '~/.asdf/shims/python3'
+vim.g.python_host_prog = "~/.asdf/shims/python2"
+vim.g.python3_host_prog = "~/.asdf/shims/python3"
 
 -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
 -- 低スぺック環境ではオフにする

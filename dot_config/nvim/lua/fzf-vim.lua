@@ -12,7 +12,7 @@ fun! FzfOmniFiles()
 endfun
 ]])
 
-vim.keymap.set('n', '<C-p>', ':call FzfOmniFiles()<CR>')
+vim.keymap.set("n", "<C-p>", ":call FzfOmniFiles()<CR>")
 
 -- Ctrl+gで文字列検索を開く
 -- <S-?>でプレビューを表示/非表示する
@@ -25,29 +25,29 @@ command! -bang -nargs=* Rg
 \ <bang>0)
 ]])
 
-vim.keymap.set('n', '<C-g>', ':Rg<CR>')
+vim.keymap.set("n", "<C-g>", ":Rg<CR>")
 
 -- frでカーソル位置の単語をファイル検索する
-vim.keymap.set('n', 'fr', 'vawy:Rg <C-R>"<CR>')
+vim.keymap.set("n", "fr", 'vawy:Rg <C-R>"<CR>')
 
 -- frで選択した単語をファイル検索する
 --cmd([[xnoremap fr y:Rg <C-R>"<CR>]])
-vim.keymap.set('x', 'fr y', ':Rg <C-R>"<CR>')
+vim.keymap.set("x", "fr y", ':Rg <C-R>"<CR>')
 
 -- fbでバッファ検索を開く
-vim.keymap.set('n', 'fb', ':Buffers<CR>')
+vim.keymap.set("n", "fb", ":Buffers<CR>")
 
 -- fpでバッファの中で1つ前に開いたファイルを開く
-vim.keymap.set('n', 'fp', ':Buffers<CR><CR>')
+vim.keymap.set("n", "fp", ":Buffers<CR><CR>")
 
 -- flで開いているファイルの文字列検索を開く
-vim.keymap.set('n', 'fl', ':BLines<CR>')
+vim.keymap.set("n", "fl", ":BLines<CR>")
 
 -- fmでマーク検索を開く
-vim.keymap.set('n', 'fm', ':Marks<CR>')
+vim.keymap.set("n", "fm", ":Marks<CR>")
 
 -- fhでファイル閲覧履歴検索を開く
-vim.keymap.set('n', 'fh', ':History<CR>')
+vim.keymap.set("n", "fh", ":History<CR>")
 
 -- fcでコミット履歴検索を開く
-vim.keymap.set('n', 'fc', ':Commits<CR>')
+vim.keymap.set("n", "fc", ":Commits<CR>")
