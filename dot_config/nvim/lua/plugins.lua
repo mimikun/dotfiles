@@ -83,6 +83,7 @@ return require("packer").startup(function(use)
             "nvim-telescope/telescope.nvim",
         },
     })
+    use("alec-gibson/nvim-tetris")
 
     ---- denops.vim
     use("vim-denops/denops.vim")
