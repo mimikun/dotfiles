@@ -1,6 +1,6 @@
 # my dotfiles
 
-Yuto Tanaka's dotfiles.
+mimikun's dotfiles.
 managed by [chezmoi](https://www.chezmoi.io/).
 
 ## Setup
