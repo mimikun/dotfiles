@@ -78,6 +78,8 @@ return require("packer").startup(function(use)
     })
     use({
         "jackMort/ChatGPT.nvim",
+        -- March 6th 2023, before submit issue
+        commit = "8820b99c",
         requires = {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
