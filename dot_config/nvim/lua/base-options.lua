@@ -23,7 +23,7 @@ vim.opt.number = true
 
 -- 空白文字を可視化する
 vim.opt.list = true
-vim.opt.listchars = { tab = ">-", trail = "*", nbsp = "+" }
+vim.opt.listchars = { tab = ">-", trail = "*", nbsp = "+", space = "⋅" }
 
 -- 良い感じにインデントしてくれるようにする
 vim.opt.smartindent = true
