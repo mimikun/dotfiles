@@ -22,10 +22,6 @@ require("coc")
 -- nvim-treesitter config
 require("treesitter")
 
--- vim.airline settings
---require("vim-airline")
-require("lualine-nvim")
-
 -- fern.vim settings
 require("fern-vim")
 
@@ -41,17 +37,12 @@ require("vim-markdown")
 -- dps-translate-vim
 require("dps-translate-vim")
 
--- github-theme
-require("github-nvim-theme")
-
--- monokai.nvim
-require("monokai-nvim")
-
 -- ChatGPT.nvim
 require("chatgpt-nvim")
 
--- penumbra.nvim
-require("penumbra-nvim")
+-- lualine.nvim settings
+require("lualine-nvim")
+
 -- indent-blankline.nvim
 --require("indent-blankline-nvim")
 

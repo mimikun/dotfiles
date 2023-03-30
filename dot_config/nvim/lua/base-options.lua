@@ -72,10 +72,6 @@ vim.opt.helplang = "ja", "en"
 -- シンタックスハイライトを有効にする
 vim.cmd("syntax enable")
 
--- カラースキームを設定
--- $XDG_CONFIG_HOME/nvim/colors 以下にある
---cmd('colorscheme monokai')
-
 -- True Colorでのシンタックスハイライト
 vim.opt.termguicolors = true
 vim.cmd([[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]])

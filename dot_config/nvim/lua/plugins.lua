@@ -4,15 +4,6 @@ return require("packer").startup(function(use)
     -- Packer itself
     use("wbthomason/packer.nvim")
 
-    -- status line
-    --use 'vim-airline/vim-airline'
-    --use 'vim-airline/vim-airline-themes'
-    --use 'rcabralc/monokai-airline.vim'
-    use({
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
-
     -- fern.vim
     use({ "lambdalisue/fern.vim", branch = "main" })
     use("lambdalisue/fern-git-status.vim")
@@ -40,11 +31,6 @@ return require("packer").startup(function(use)
         branch = "main",
         run = "yarn install --frozen-lockfile && yarn build",
     })
-
-    -- color theme
-    use({ "projekt0n/github-nvim-theme", tag = "v0.0.7" })
-    use("tanvirtin/monokai.nvim")
-    use("Allianaab2m/penumbra.nvim")
 
     -- syntax hilights
     use("preservim/vim-markdown")
@@ -101,4 +87,33 @@ return require("packer").startup(function(use)
     ---- denops.vim
     use("vim-denops/denops.vim")
     use("lambdalisue/gin.vim")
+
+    -- status line
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
+
+    -- color theme
+    use({
+        "projekt0n/github-nvim-theme",
+        tag = "v0.0.7",
+        config = function()
+            require("github-theme").setup({
+                theme_style = "dark",
+            })
+        end,
+    })
+    use({
+        "tanvirtin/monokai.nvim",
+        config = function()
+            require("monokai").setup()
+        end,
+    })
+    use({
+        "Allianaab2m/penumbra.nvim",
+        config = function()
+            require("penumbra").setup()
+        end,
+    })
 end)
