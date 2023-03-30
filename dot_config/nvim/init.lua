@@ -52,4 +52,7 @@ require("chatgpt-nvim")
 
 -- penumbra.nvim
 require("penumbra-nvim")
+-- indent-blankline.nvim
+--require("indent-blankline-nvim")
+
 vim.cmd("filetype plugin indent on")

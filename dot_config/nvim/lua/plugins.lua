@@ -53,6 +53,7 @@ return require("packer").startup(function(use)
     use("NoahTheDuke/vim-just")
     use("nastevens/vim-cargo-make")
     use("alker0/chezmoi.vim")
+    --use("lukas-reineke/indent-blankline.nvim")
 
     -- utilities
     use("mattn/calendar-vim")
