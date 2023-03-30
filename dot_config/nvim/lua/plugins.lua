@@ -86,6 +86,16 @@ return require("packer").startup(function(use)
             "nvim-telescope/telescope.nvim",
         },
     })
+    use({
+        "kylechui/nvim-surround",
+        -- Use for stability; omit to use `main` branch for the latest features
+        tag = "*",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end,
+    })
     use("alec-gibson/nvim-tetris")
 
     ---- denops.vim
