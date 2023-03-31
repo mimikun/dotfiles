@@ -7,7 +7,7 @@ vim.opt.fileformats = "unix", "dos", "mac"
 
 -- ファイル読み込むときのエンコード
 -- 左から順に試す
-vim.opt.fileencodings = "ucs-bombs", "utf-8", "euc-jp", "cp932"
+vim.opt.fileencodings = "utf-8", "cp932", "ucs-bombs", "euc-jp"
 
 --" 全角文字の表示に2文字分使うようにする
 vim.opt.ambiwidth = "double"
