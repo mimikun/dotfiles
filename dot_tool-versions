@@ -1,11 +1,11 @@
 python 3.11.2
 nodejs 18.13.0
 ruby 3.2.1
-vim 9.0.1437
+vim 9.0.1439
 neovim nightly
 yarn 1.22.19
 ghq 1.4.1
-fzf 0.38.0
+fzf 0.39.0
 peco 0.5.11
 direnv 2.32.2
 dotnet-core 7.0.202
