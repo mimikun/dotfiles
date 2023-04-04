@@ -81,6 +81,9 @@ vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
 vim.g.python_host_prog = "~/.asdf/shims/python2"
 vim.g.python3_host_prog = "~/.asdf/shims/python3"
 
+-- Perl Providerを無効にする
+vim.g.loaded_perl_provider = 0
+
 -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
 -- 低スぺック環境ではオフにする
 --vim.opt.clipboard = 'unnamedplus'
