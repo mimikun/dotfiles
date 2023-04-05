@@ -103,15 +103,7 @@ return require("packer").startup(function(use)
         end,
     })
     use({
-        "tanvirtin/monokai.nvim",
-        config = function()
-            require("monokai").setup()
-        end,
     })
-    use({
-        "Allianaab2m/penumbra.nvim",
-        config = function()
-            require("penumbra").setup()
-        end,
-    })
+    use("tanvirtin/monokai.nvim")
+    use("Allianaab2m/penumbra.nvim")
 end)
