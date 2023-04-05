@@ -86,12 +86,6 @@ return require("packer").startup(function(use)
     use("vim-denops/denops.vim")
     use("lambdalisue/gin.vim")
 
-    -- status line
-    use({
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
-
     -- color theme
     use({
         "projekt0n/github-nvim-theme",
@@ -102,7 +96,11 @@ return require("packer").startup(function(use)
             })
         end,
     })
+
+    -- status line
     use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
     use("tanvirtin/monokai.nvim")
     use("Allianaab2m/penumbra.nvim")
