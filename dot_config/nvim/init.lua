@@ -43,6 +43,8 @@ require("chatgpt-nvim")
 -- lualine.nvim settings
 require("lualine-nvim")
 
+require("github-theme-nvim")
+
 -- indent-blankline.nvim
 --require("indent-blankline-nvim")
 
