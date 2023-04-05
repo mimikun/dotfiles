@@ -2,7 +2,7 @@
 --https://raw.githubusercontent.com/numToStr/dotfiles/master/neovim/.config/nvim/lua/numToStr/plugins/lualine.lua
 require("lualine").setup({
     options = {
-        theme = "github_dark",
+        theme = "auto",
         component_separators = "",
         section_separators = "",
         icons_enabled = true,
