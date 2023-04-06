@@ -81,6 +81,10 @@ return require("packer").startup(function(use)
             })
         end,
     })
+    use({
+        "alanfortlink/blackjack.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+    })
 
     ---- denops.vim
     use("vim-denops/denops.vim")
