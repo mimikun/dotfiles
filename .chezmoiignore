@@ -11,6 +11,7 @@ LICENSE.txt
 Makefile
 Justfile
 *.patch
+*.patch.gpg
 
 # fish completions
 dot_config/fish/completions/bd.fish
