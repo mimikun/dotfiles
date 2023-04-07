@@ -7,11 +7,13 @@ managed by [chezmoi](https://www.chezmoi.io/).
 
 ### Linux, macOS
 
-```shell
-curl -L https://dot.mimikun.dev | sh
-```
+WIP
 
 ### Windows
 
 See: [windows/README.md](windows/README.md)
 
+## Others
+
+- [Neovim config](dot_config/nvim/README.md)
+- [Fish-shell config](dot_config/fish/README.md)

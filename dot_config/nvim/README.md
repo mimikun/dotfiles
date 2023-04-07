@@ -1,0 +1,5 @@
+# neovim config
+
+## Plugins
+
+WIP
