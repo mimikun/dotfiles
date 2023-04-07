@@ -11,8 +11,6 @@ set -x TODAY (date +'%Y/%m/%d')
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 set -x WORKSPACE {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_path_workspace.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_path_win_home.value }}
-{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_alias_1.value }}
-{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_alias_2.value }}
 {{ else }}
 set -x WORKSPACE {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_workspace.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_win_home.value }}
