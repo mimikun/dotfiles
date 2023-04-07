@@ -3,7 +3,7 @@
 vim.opt.mouse = "a"
 
 -- 使用可能性のある改行コードを指定
-vim.opt.fileformats = "unix", "dos", "mac"
+vim.opt.fileformats = {"unix", "dos", "mac"}
 
 -- ファイル読み込むときのエンコード
 -- 左から順に試す
