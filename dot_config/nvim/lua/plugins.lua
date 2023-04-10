@@ -89,6 +89,8 @@ return require("packer").startup(function(use)
     ---- denops.vim
     use("vim-denops/denops.vim")
     use("lambdalisue/gin.vim")
+    --use("skanehira/denops-twihi.vim")
+    use("skanehira/denops-docker.vim")
 
     -- color theme
     use({
