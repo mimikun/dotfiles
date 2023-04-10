@@ -7,5 +7,6 @@ meiji163/gh-notify
 seachicken/gh-poi
 carlsberg/gh-releaser
 gennaro-tedesco/gh-s
+advanced-security/gh-sbom
 koozz/gh-semver
 aymanbagabas/gh-stars
