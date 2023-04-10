@@ -17,9 +17,9 @@ cp ./utilities/* $WIN_HOME/utilities/
 
 ### `%USERPROFILE%\Documents\WindowsPowerShell\` 以下に配置する
 
-- Microsoft.PowerShell_profile.ps1
+- `Microsoft.PowerShell_profile.ps1`
 
 ### `%USERPROFILE%\Documents\PowerShell\` 以下に配置する
 
-- Microsoft.PowerShell_profile.ps1
+- `Microsoft.PowerShell_profile.ps1`
 
