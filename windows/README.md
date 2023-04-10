@@ -23,3 +23,6 @@ cp ./utilities/* $WIN_HOME/utilities/
 
 - `Microsoft.PowerShell_profile.ps1`
 
+### WSLの `/etc/wsl.conf` に配置する
+
+- `wsl.conf`
