@@ -966,7 +966,7 @@ if (Test-Path($VupPath)) {
 }
 
 # neovim setup
-$NeovimDirectory = "C:\Program Files\nvim-win64"
+$NeovimDirectory = Join-Path $env:USERPROFILE -ChildPath AppData\Local\nvim
 if (Test-Path($NeovimDirectory)) {
     Set-Alias -Name vim -Value nvim
 }
