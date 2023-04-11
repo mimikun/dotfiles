@@ -1,16 +1,17 @@
 # alias
 Set-Alias -Name vim -Value nvim
 
-# function
-function gcd-fzf {
-  $ghqrepo = $(ghq list -p | fzf)
-  Set-Location $ghqrepo
+# PSGhq setup
+$PSGhqPath = "$env:GHQ_ROOT\github.com\mimikun\PSGhq\Set-GhqLocation.ps1"
+if (Test-Path($PSGhqPath)) {
+    . $PSGhqPath
+    Set-Alias -Name gcd -Value Set-GhqLocation
 }
 
 # keybinding
 # Set CTRL+G to Gcd
 Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
-  gcd-fzf
+  gcd
 }
 
 # starship config
