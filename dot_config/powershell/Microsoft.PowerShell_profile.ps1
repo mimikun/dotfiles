@@ -16,3 +16,6 @@ Set-PSReadLineKeyHandler -Chord Ctrl+g -ScriptBlock {
 # starship config
 Invoke-Expression (& "$HOME/.cargo/bin/starship" init powershell --print-full-init | Out-String)
 Invoke-Expression (& "$HOME/.cargo/bin/starship" completions powershell | Out-String)
+
+# wezterm config
+Invoke-Expression (& wezterm shell-completion --shell power-shell | Out-String)
