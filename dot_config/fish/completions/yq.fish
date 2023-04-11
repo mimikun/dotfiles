@@ -55,6 +55,60 @@ function __yq_perform_completion
     printf "%s\n" "$directiveLine"
 end
 
+# this function limits calls to __yq_perform_completion, by caching the result behind $__yq_perform_completion_once_result
+function __yq_perform_completion_once
+    __yq_debug "Starting __yq_perform_completion_once"
+
+    if test -n "$__yq_perform_completion_once_result"
+        __yq_debug "Seems like a valid result already exists, skipping __yq_perform_completion"
+        return 0
+    end
+
+    set --global __yq_perform_completion_once_result (__yq_perform_completion)
+    if test -z "$__yq_perform_completion_once_result"
+        __yq_debug "No completions, probably due to a failure"
+        return 1
+    end
+
+    __yq_debug "Performed completions and set __yq_perform_completion_once_result"
+    return 0
+end
+
+# this function is used to clear the $__yq_perform_completion_once_result variable after completions are run
+function __yq_clear_perform_completion_once_result
+    __yq_debug ""
+    __yq_debug "========= clearing previously set __yq_perform_completion_once_result variable =========="
+    set --erase __yq_perform_completion_once_result
+    __yq_debug "Succesfully erased the variable __yq_perform_completion_once_result"
+end
+
+function __yq_requires_order_preservation
+    __yq_debug ""
+    __yq_debug "========= checking if order preservation is required =========="
+
+    __yq_perform_completion_once
+    if test -z "$__yq_perform_completion_once_result"
+        __yq_debug "Error determining if order preservation is required"
+        return 1
+    end
+
+    set -l directive (string sub --start 2 $__yq_perform_completion_once_result[-1])
+    __yq_debug "Directive is: $directive"
+
+    set -l shellCompDirectiveKeepOrder 32
+    set -l keeporder (math (math --scale 0 $directive / $shellCompDirectiveKeepOrder) % 2)
+    __yq_debug "Keeporder is: $keeporder"
+
+    if test $keeporder -ne 0
+        __yq_debug "This does require order preservation"
+        return 0
+    end
+
+    __yq_debug "This doesn't require order preservation"
+    return 1
+end
+
+
 # This function does two things:
 # - Obtain the completions and store them in the global __yq_comp_results
 # - Return false if file completion should be performed
@@ -65,17 +119,17 @@ function __yq_prepare_completions
     # Start fresh
     set --erase __yq_comp_results
 
-    set -l results (__yq_perform_completion)
-    __yq_debug "Completion results: $results"
+    __yq_perform_completion_once
+    __yq_debug "Completion results: $__yq_perform_completion_once_result"
 
-    if test -z "$results"
+    if test -z "$__yq_perform_completion_once_result"
         __yq_debug "No completion, probably due to a failure"
         # Might as well do file completion, in case it helps
         return 1
     end
 
-    set -l directive (string sub --start 2 $results[-1])
-    set --global __yq_comp_results $results[1..-2]
+    set -l directive (string sub --start 2 $__yq_perform_completion_once_result[-1])
+    set --global __yq_comp_results $__yq_perform_completion_once_result[1..-2]
 
     __yq_debug "Completions are: $__yq_comp_results"
     __yq_debug "Directive is: $directive"
@@ -171,7 +225,11 @@ end
 # Remove any pre-existing completions for the program since we will be handling all of them.
 complete -c yq -e
 
+# this will get called after the two calls below and clear the $__yq_perform_completion_once_result global
+complete -c yq -n '__yq_clear_perform_completion_once_result'
 # The call to __yq_prepare_completions will setup __yq_comp_results
 # which provides the program's completion choices.
-complete -c yq -n '__yq_prepare_completions' -f -a '$__yq_comp_results'
-
+# If this doesn't require order preservation, we don't use the -k flag
+complete -c yq -n 'not __yq_requires_order_preservation && __yq_prepare_completions' -f -a '$__yq_comp_results'
+# otherwise we use the -k flag
+complete -k -c yq -n '__yq_requires_order_preservation && __yq_prepare_completions' -f -a '$__yq_comp_results'

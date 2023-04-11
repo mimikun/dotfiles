@@ -38,6 +38,7 @@ complete -c starship -n "__fish_seen_subcommand_from module" -s k -l keymap -d '
 complete -c starship -n "__fish_seen_subcommand_from module" -s j -l jobs -d 'The number of currently running jobs' -r
 complete -c starship -n "__fish_seen_subcommand_from module" -s l -l list -d 'List out all supported modules'
 complete -c starship -n "__fish_seen_subcommand_from module" -s h -l help -d 'Print help'
+complete -c starship -n "__fish_seen_subcommand_from preset" -s o -l output -d 'Output the preset to a file instead of stdout' -r -F
 complete -c starship -n "__fish_seen_subcommand_from preset" -s l -l list -d 'List out all preset names'
 complete -c starship -n "__fish_seen_subcommand_from preset" -s h -l help -d 'Print help'
 complete -c starship -n "__fish_seen_subcommand_from print-config" -s d -l default -d 'Print the default instead of the computed config'
