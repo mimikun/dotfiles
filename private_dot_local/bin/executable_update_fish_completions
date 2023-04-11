@@ -57,12 +57,25 @@ if command_exist pipx; then
   pueue add -- "register-python-argcomplete --shell fish pipx > '${COMPLETIONS_DIR}'/pipx.fish"
 fi
 
+if command_exist wezterm; then
+  pueue add -- "wezterm shell-completion --shell fish > '${COMPLETIONS_DIR}'/wezterm.fish"
+fi
+
+if command_exist pueue; then
+  pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
+fi
+
 if command_exist exa; then
   pueue add -- "curl -L https://raw.githubusercontent.com/ogham/exa/master/completions/fish/exa.fish -o '${COMPLETIONS_DIR}'/exa.fish"
 fi
 
 if command_exist tldr; then
   pueue add -- "curl -L https://raw.githubusercontent.com/dbrgn/tealdeer/main/completion/fish_tealdeer -o '${COMPLETIONS_DIR}'/tldr.fish"
+fi
+
+if command_exist http; then
+  pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/http.fish"
+  pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/https.fish"
 fi
 
 if command_exist bat; then
