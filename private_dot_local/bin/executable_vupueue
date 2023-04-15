@@ -100,8 +100,6 @@ ohter_tools() {
   pueue add -- "update_chromedriver"
   # Upgrade geckodriver
   pueue add -- "update_geckodriver"
-  # Upgrade twitch cli
-  pueue add -- "update_twitch_cli"
   # tldr update
   pueue add -- "tldr --update"
   # GitHub CLI extensions update
