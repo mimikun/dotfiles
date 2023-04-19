@@ -28,7 +28,6 @@ complete -c deno -n "__fish_use_subcommand" -f -a "upgrade" -d 'Upgrade deno exe
 complete -c deno -n "__fish_use_subcommand" -f -a "vendor" -d 'Vendor remote modules into a local directory'
 complete -c deno -n "__fish_use_subcommand" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from bench" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from bench" -s c -l config -d 'Specify the configuration file' -r -F
@@ -48,6 +47,7 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-ffi -d 'Allow l
 complete -c deno -n "__fish_seen_subcommand_from bench" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from bench" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from bench" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l ignore -d 'Ignore files' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l filter -d 'Run benchmarks with this string or pattern in the bench name' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
@@ -69,7 +69,6 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l unstable -d 'Enable u
 complete -c deno -n "__fish_seen_subcommand_from bench" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from bench" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from bundle" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s c -l config -d 'Specify the configuration file' -r -F
@@ -78,6 +77,7 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock -d 'Check the s
 
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-remote -d 'Do not resolve remote modules'
@@ -91,7 +91,6 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -l unstable -d 'Enable 
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from cache" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from cache" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from cache" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from cache" -s c -l config -d 'Specify the configuration file' -r -F
@@ -100,6 +99,7 @@ complete -c deno -n "__fish_seen_subcommand_from cache" -l lock -d 'Check the sp
 
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from cache" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
+complete -c deno -n "__fish_seen_subcommand_from cache" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from cache" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-npm -d 'Do not resolve npm modules'
@@ -129,7 +129,6 @@ complete -c deno -n "__fish_seen_subcommand_from check" -l unstable -d 'Enable u
 complete -c deno -n "__fish_seen_subcommand_from check" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from check" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from compile" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from compile" -s c -l config -d 'Specify the configuration file' -r -F
@@ -149,6 +148,7 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-ffi -d 'Allow
 complete -c deno -n "__fish_seen_subcommand_from compile" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from compile" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from compile" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l include -d 'UNSTABLE: Additional module to include in the module graph' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -s o -l output -d 'Output file (defaults to $PWD/<inferred-name>)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l target -d 'Target OS architecture' -r -f -a "{x86_64-unknown-linux-gnu	,x86_64-pc-windows-msvc	,x86_64-apple-darwin	,aarch64-apple-darwin	}"
@@ -196,7 +196,6 @@ complete -c deno -n "__fish_seen_subcommand_from doc" -l unstable -d 'Enable uns
 complete -c deno -n "__fish_seen_subcommand_from doc" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from doc" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from eval" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -s c -l config -d 'Specify the configuration file' -r -F
@@ -211,6 +210,7 @@ complete -c deno -n "__fish_seen_subcommand_from eval" -l inspect-wait -d 'Activ
 complete -c deno -n "__fish_seen_subcommand_from eval" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from eval" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from eval" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-remote -d 'Do not resolve remote modules'
@@ -266,7 +266,6 @@ complete -c deno -n "__fish_seen_subcommand_from info" -l unstable -d 'Enable un
 complete -c deno -n "__fish_seen_subcommand_from info" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from info" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from install" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from install" -s c -l config -d 'Specify the configuration file' -r -F
@@ -289,6 +288,7 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l inspect-wait -d 'Ac
 complete -c deno -n "__fish_seen_subcommand_from install" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from install" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from install" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -s n -l name -d 'Executable file name' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l root -d 'Installation root' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_seen_subcommand_from install" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
@@ -332,7 +332,6 @@ complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable -d 'Enable un
 complete -c deno -n "__fish_seen_subcommand_from lint" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from lint" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from repl" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from repl" -s c -l config -d 'Specify the configuration file' -r -F
@@ -355,6 +354,7 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l inspect-wait -d 'Activ
 complete -c deno -n "__fish_seen_subcommand_from repl" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from repl" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from repl" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l eval-file -d 'Evaluates the provided file(s) as scripts when the REPL starts. Accepts file paths and URLs.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l eval -d 'Evaluates the provided code when the REPL starts.' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
@@ -373,7 +373,6 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l unstable -d 'Enable un
 complete -c deno -n "__fish_seen_subcommand_from repl" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from repl" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from run" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from run" -s c -l config -d 'Specify the configuration file' -r -F
@@ -396,6 +395,7 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l inspect-wait -d 'Activa
 complete -c deno -n "__fish_seen_subcommand_from run" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from run" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from run" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l watch -d 'Watch for file changes and restart automatically' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	,tsx	,js	,jsx	}"
 complete -c deno -n "__fish_seen_subcommand_from run" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
@@ -421,7 +421,6 @@ complete -c deno -n "__fish_seen_subcommand_from task" -l unstable -d 'Enable un
 complete -c deno -n "__fish_seen_subcommand_from task" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from task" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-check -d 'Skip type-checking modules' -r
-complete -c deno -n "__fish_seen_subcommand_from test" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l import-map -d 'Load import map file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from test" -s c -l config -d 'Specify the configuration file' -r -F
@@ -444,6 +443,7 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l inspect-wait -d 'Activ
 complete -c deno -n "__fish_seen_subcommand_from test" -l location -d 'Value of \'globalThis.location\' used by some web APIs' -r -f
 complete -c deno -n "__fish_seen_subcommand_from test" -l v8-flags -d 'Set V8 command line options' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l seed -d 'Set the random number generator seed' -r
+complete -c deno -n "__fish_seen_subcommand_from test" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l ignore -d 'Ignore files' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l fail-fast -d 'Stop after N errors. Defaults to stopping after first failure.' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l filter -d 'Run tests with this string or pattern in the test name' -r
