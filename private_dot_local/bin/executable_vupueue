@@ -113,6 +113,7 @@ no_pueue_other_tools() {
   update_asdf_tools
   pueue_update_asdf_neovim_nightly
   pueue_update_asdf_zig_master
+  pueue_update_asdf_nodejs_lts
   # Update rust tools
   pueue_update_cargo_packages
   # Create cargo_packages.txt
