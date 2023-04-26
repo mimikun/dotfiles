@@ -1437,11 +1437,25 @@ if (Test-Path($UpdateCargoPackagePath)) {
     Set-Alias -Name update_cargo_package -Value Invoke-UpdateCargoPackage
 }
 
+# pueue_update_cargo_package setup
+$PueueUpdateCargoPackagePath = "$env:GHQ_ROOT\github.com\mimikun\update_cargo_packages\Invoke-PueueUpdateCargoPackage.ps1"
+if (Test-Path($PueueUpdateCargoPackagePath)) {
+    . $PueueUpdateCargoPackagePath
+    Set-Alias -Name pueue_update_cargo_package -Value Invoke-PueueUpdateCargoPackage
+}
+
 # vup setup
 $VupPath = "$env:GHQ_ROOT\github.com\mimikun\vup\Invoke-Vup.ps1"
 if (Test-Path($VupPath)) {
     . $VupPath
     Set-Alias -Name vup -Value Invoke-Vup
+}
+
+# vupueue setup
+$VupueuePath = "$env:GHQ_ROOT\github.com\mimikun\vup\Invoke-Vupueue.ps1"
+if (Test-Path($VupueuePath)) {
+    . $VupueuePath
+    Set-Alias -Name vupueue -Value Invoke-Vupueue
 }
 
 # neovim setup
