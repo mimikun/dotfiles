@@ -1464,3 +1464,15 @@ if (Test-Path($NeovimDirectory)) {
     Set-Alias -Name vim -Value nvim
 }
 
+# alias bd
+function Set-ParentLocation() {
+    Set-Location ..
+}
+Set-Alias -Name bd -Value Set-ParentLocation
+
+# alias touch
+Set-Alias -Name touch -Value New-Item
+
+# alias ls lsd
+Set-Alias -Name ls -Value lsd
+
