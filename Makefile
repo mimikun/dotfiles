@@ -5,6 +5,9 @@ gpg_pub_key = CCAA9E0638DF9088BB624BC37C0F8AD3FB3938FC
 .PHONY : patch
 patch : clean diff-patch copy2win-patch
 
+.PHONY : gpg-patch
+gpg-patch : clean diff-patch-gpg copy2win-patch-gpg
+
 .PHONY : diff-patch-raw
 diff-patch-raw :
 	git diff origin/master > $(product_name).$(today).patch
@@ -71,3 +74,4 @@ apply-windows-powershell-config :
 
 .PHONY : apply
 apply : apply-windows-powershell-config
+	chezmoi apply
