@@ -16,7 +16,6 @@ require("nvim-treesitter.configs").setup({
         "go",
         "gomod",
         "gowork",
-        "help",
         "html",
         "java",
         "javascript",
