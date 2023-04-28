@@ -12,6 +12,7 @@ dot_config/fish/README.md
 LICENSE.txt
 Makefile
 Justfile
+*.just
 *.patch
 *.patch.gpg
 
