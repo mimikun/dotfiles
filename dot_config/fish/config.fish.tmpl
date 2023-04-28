@@ -64,7 +64,7 @@ set -x EDITOR nvim
 
 alias pip 'python3 -m pip'
 alias pipx 'python3 -m pipx'
-alias vim 'nvim'
+
 alias open wsl-open
 alias zel zellij
 alias pueuexec 'pueue add --'
@@ -130,3 +130,9 @@ set -x NI_CONFIG_FILE $HOME/.config/ni/.nirc
 
 # codon config
 set -x PATH $HOME/.codon/bin $PATH
+
+# vim alias
+alias paleovim $HOME/.asdf/shims/vim
+alias pvim paleovim
+alias neovim $HOME/.asdf/shims/nvim
+alias vim 'nvim'
