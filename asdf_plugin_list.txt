@@ -1,4 +1,4 @@
-bitwarden                    https://github.com/mimikun/asdf-bitwarden.git
+bitwarden                    https://github.com/vixus0/asdf-bitwarden
 chezmoi                      https://github.com/joke/asdf-chezmoi.git
 direnv                       https://github.com/asdf-community/asdf-direnv.git
 dotnet-core                  https://github.com/emersonsoares/asdf-dotnet-core.git
