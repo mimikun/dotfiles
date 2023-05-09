@@ -85,12 +85,14 @@ return require("packer").startup(function(use)
         "alanfortlink/blackjack.nvim",
         requires = { "nvim-lua/plenary.nvim" },
     })
+    use("vim-skk/skkeleton")
 
     ---- denops.vim
     use("vim-denops/denops.vim")
     use("lambdalisue/gin.vim")
     --use("skanehira/denops-twihi.vim")
     use("skanehira/denops-docker.vim")
+    use("willelz/skk-tutorial.vim")
 
     -- color theme
     use({
