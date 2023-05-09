@@ -120,35 +120,50 @@ call jetpack#begin()
 " vim-jetpack itself
 Jetpack 'tani/vim-jetpack', {'opt': 1}
 " TODO: カテゴリ分けして整理する
-Jetpack 'vim-jp/vimdoc-ja'
-Jetpack 'mattn/calendar-vim'
-Jetpack 'nastevens/vim-duckscript'
-Jetpack 'dstein64/vim-startuptime'
-Jetpack 'thinca/vim-scouter'
-Jetpack 'thinca/vim-quickrun'
-Jetpack 'vim-denops/denops.vim'
-Jetpack 'Omochice/dps-translate-vim'
-Jetpack 'skanehira/denops-docker.vim'
+" fern.vim
 Jetpack 'lambdalisue/fern.vim'
 Jetpack 'lambdalisue/fern-git-status.vim'
 Jetpack 'lambdalisue/nerdfont.vim'
 Jetpack 'lambdalisue/fern-renderer-nerdfont.vim'
 Jetpack 'lambdalisue/glyph-palette.vim'
-Jetpack 'lambdalisue/gin.vim'
-Jetpack 'airblade/vim-gitgutter'
-Jetpack 'godlygeek/tabular'
-Jetpack 'preservim/vim-markdown'
+
+" fzf.vim
+Jetpack 'junegunn/fzf', { 'do': {-> fzf#install()} }
+Jetpack 'junegunn/fzf.vim'
+
+" denops.vim
+Jetpack 'vim-denops/denops.vim'
+Jetpack 'Omochice/dps-translate-vim'
+Jetpack 'skanehira/denops-docker.vim'
+Jetpack 'willelz/skk-tutorial.vim'
+
+" status line
+Jetpack 'vim-airline/vim-airline'
+Jetpack 'vim-airline/vim-airline-themes'
+
+" syntax hilights
+Jetpack 'nastevens/vim-duckscript'
 Jetpack 'imsnif/kdl.vim'
 Jetpack 'cespare/vim-toml'
 Jetpack 'NoahTheDuke/vim-just'
 Jetpack 'nastevens/vim-cargo-make'
 Jetpack 'alker0/chezmoi.vim'
-Jetpack 'junegunn/fzf', { 'do': {-> fzf#install()} }
-Jetpack 'junegunn/fzf.vim'
-Jetpack 'vim-airline/vim-airline'
-Jetpack 'vim-airline/vim-airline-themes'
+
+" utilities
+Jetpack 'vim-jp/vimdoc-ja'
+Jetpack 'mattn/calendar-vim'
+Jetpack 'dstein64/vim-startuptime'
+Jetpack 'thinca/vim-scouter'
+Jetpack 'thinca/vim-quickrun'
+Jetpack 'lambdalisue/gin.vim'
+Jetpack 'airblade/vim-gitgutter'
+Jetpack 'godlygeek/tabular'
+Jetpack 'preservim/vim-markdown'
 Jetpack 'tpope/vim-surround'
+Jetpack 'vim-skk/skkeleton'
+
 " TODO: エラーが起きるので調べる
+" coc.nvim
 "Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
 "Jetpack 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 call jetpack#end()
