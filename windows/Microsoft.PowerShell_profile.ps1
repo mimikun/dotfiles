@@ -1476,3 +1476,5 @@ Set-Alias -Name touch -Value New-Item
 # alias ls lsd
 Set-Alias -Name ls -Value lsd
 
+# PSReadline settings
+Set-PSReadLineOption -PredictionSource History
