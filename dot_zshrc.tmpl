@@ -99,6 +99,9 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
+# broot
+source "$HOME.config/broot/launcher/bash/br"
+
 # delete duplicate path
 typeset -U PATH
 

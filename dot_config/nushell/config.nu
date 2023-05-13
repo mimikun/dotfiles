@@ -649,3 +649,6 @@ let-env config = {
     }
   ]
 }
+
+# broot
+source ~/.config/broot/launcher/nushell/br
