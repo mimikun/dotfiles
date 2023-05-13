@@ -46,4 +46,5 @@ vim.g.coc_global_extensions = {
     "coc-json",
     "coc-rust-analyzer",
     "coc-snippets",
+    "coc-deno",
 }
