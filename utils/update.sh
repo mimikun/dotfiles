@@ -27,3 +27,4 @@ chezmoi add ~/.local/bin/update_geckodriver
 chezmoi add ~/.local/bin/update_ripgrep_fish_completion
 chezmoi add ~/.local/bin/vupueue
 chezmoi add ~/.config/gup/gup.conf
+chezmoi add ~/.local/bin/update_twitch_cli
