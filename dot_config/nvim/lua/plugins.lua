@@ -114,4 +114,5 @@ return require("packer").startup(function(use)
     -- other color theme
     use("tanvirtin/monokai.nvim")
     use("Allianaab2m/penumbra.nvim")
+    use("folke/tokyonight.nvim")
 end)
