@@ -12,7 +12,7 @@ syntax enable
 
 " カラースキームを設定
 " $HOME/.vim/colors 以下にある
-colorscheme molokai
+"colorscheme molokai
 
 " 使用可能性のある改行コードを指定
 set fileformats=unix,dos,mac
@@ -162,7 +162,9 @@ Jetpack 'preservim/vim-markdown'
 Jetpack 'tpope/vim-surround'
 Jetpack 'vim-skk/skkeleton'
 
-" TODO: エラーが起きるので調べる
+" colorschemes
+Jetpack 'ghifarit53/tokyonight-vim'
+
 " coc.nvim
 "Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
 "Jetpack 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
@@ -303,6 +305,11 @@ nnoremap fc :Commits<CR>
 "      \'coc-rust-analyzer', 
 "      \'coc-zls' 
 "\]
+" TODO: エラーが起きるので調べる
+
+" ghifarit53/tokyonight-vim
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
 
 "-----------------"
 "  Reference
