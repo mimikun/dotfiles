@@ -1,14 +1,14 @@
 python 3.11.3
 nodejs 18.16.0
 ruby 3.2.2
-vim 9.0.1561
+vim 9.0.1562
 neovim nightly
 yarn 1.22.19
 ghq 1.4.2
 fzf 0.40.0
 peco 0.5.11
 direnv 2.32.2
-dotnet-core 7.0.203
+dotnet-core 7.0.302
 shellcheck 0.9.0
 chezmoi 2.33.6
 shfmt 3.6.0
