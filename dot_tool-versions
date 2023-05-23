@@ -15,6 +15,6 @@ shfmt 3.6.0
 tig 2.5.8
 github-cli 2.29.0
 duf 0.8.1
-yq 4.33.3
+yq 4.34.1
 zig master
 bitwarden 2023.4.0
