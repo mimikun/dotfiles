@@ -59,6 +59,7 @@ rana
 ripgrep
 ripgrep_all
 sd
+selene
 shellharden
 silicon
 skim
