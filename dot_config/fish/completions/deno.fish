@@ -29,7 +29,7 @@ complete -c deno -n "__fish_use_subcommand" -f -a "vendor" -d 'Vendor remote mod
 complete -c deno -n "__fish_use_subcommand" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from bench" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from bench" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from bench" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l lock -d 'Check the specified lock file.
@@ -37,38 +37,38 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l lock -d 'Check the sp
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
@@ -85,10 +85,10 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l no-config -d 'Disable
 complete -c deno -n "__fish_seen_subcommand_from bench" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from bench" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.33.4/basics/permissions
+https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from bench" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
@@ -103,7 +103,7 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -s q -l quiet -d 'Suppre
 complete -c deno -n "__fish_seen_subcommand_from bench" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from bundle" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock -d 'Check the specified lock file.
@@ -125,7 +125,7 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -s q -l quiet -d 'Suppr
 complete -c deno -n "__fish_seen_subcommand_from bundle" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from cache" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from cache" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from cache" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from cache" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from cache" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from cache" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from cache" -l lock -d 'Check the specified lock file.
@@ -143,7 +143,7 @@ complete -c deno -n "__fish_seen_subcommand_from cache" -l unstable -d 'Enable u
 complete -c deno -n "__fish_seen_subcommand_from cache" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_seen_subcommand_from cache" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from check" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from check" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from check" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from check" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from check" -l lock -d 'Check the specified lock file.
@@ -163,7 +163,7 @@ complete -c deno -n "__fish_seen_subcommand_from check" -s q -l quiet -d 'Suppre
 complete -c deno -n "__fish_seen_subcommand_from check" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from compile" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from compile" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from compile" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l lock -d 'Check the specified lock file.
@@ -171,38 +171,38 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l lock -d 'Check the 
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
@@ -221,10 +221,10 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l no-config -d 'Disab
 complete -c deno -n "__fish_seen_subcommand_from compile" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from compile" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.33.4/basics/permissions
+https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from compile" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
@@ -262,7 +262,7 @@ complete -c deno -n "__fish_seen_subcommand_from doc" -s q -l quiet -d 'Suppress
 complete -c deno -n "__fish_seen_subcommand_from doc" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from eval" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from eval" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from eval" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from eval" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from eval" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from eval" -l lock -d 'Check the specified lock file.
@@ -320,7 +320,7 @@ complete -c deno -n "__fish_seen_subcommand_from info" -l lock -d 'Check the spe
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from info" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from info" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from info" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from info" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from info" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
 complete -c deno -n "__fish_seen_subcommand_from info" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from info" -l no-remote -d 'Do not resolve remote modules'
@@ -332,7 +332,7 @@ complete -c deno -n "__fish_seen_subcommand_from info" -s q -l quiet -d 'Suppres
 complete -c deno -n "__fish_seen_subcommand_from info" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from install" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from install" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from install" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l lock -d 'Check the specified lock file.
@@ -340,38 +340,38 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l lock -d 'Check the 
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
@@ -391,10 +391,10 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l no-config -d 'Disab
 complete -c deno -n "__fish_seen_subcommand_from install" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from install" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.33.4/basics/permissions
+https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from install" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
@@ -430,7 +430,7 @@ complete -c deno -n "__fish_seen_subcommand_from lint" -s q -l quiet -d 'Suppres
 complete -c deno -n "__fish_seen_subcommand_from lint" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from repl" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from repl" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from repl" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l lock -d 'Check the specified lock file.
@@ -438,38 +438,38 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l lock -d 'Check the spe
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
@@ -489,10 +489,10 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l no-config -d 'Disable 
 complete -c deno -n "__fish_seen_subcommand_from repl" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from repl" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.33.4/basics/permissions
+https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from repl" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
@@ -503,7 +503,7 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -s q -l quiet -d 'Suppres
 complete -c deno -n "__fish_seen_subcommand_from repl" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from run" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from run" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from run" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l lock -d 'Check the specified lock file.
@@ -511,38 +511,38 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l lock -d 'Check the spec
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
@@ -562,10 +562,10 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l no-config -d 'Disable a
 complete -c deno -n "__fish_seen_subcommand_from run" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from run" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.33.4/basics/permissions
+https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from run" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
@@ -583,7 +583,7 @@ complete -c deno -n "__fish_seen_subcommand_from task" -s q -l quiet -d 'Suppres
 complete -c deno -n "__fish_seen_subcommand_from task" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-check -d 'Skip type-checking modules' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l import-map -d 'Load import map file' -r -F
-complete -c deno -n "__fish_seen_subcommand_from test" -l node-modules-dir -d 'Creates a local node_modules folder' -r -f -a "{true	,false	}"
+complete -c deno -n "__fish_seen_subcommand_from test" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from test" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l lock -d 'Check the specified lock file.
@@ -591,38 +591,38 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l lock -d 'Check the spe
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
@@ -646,10 +646,10 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l no-config -d 'Disable 
 complete -c deno -n "__fish_seen_subcommand_from test" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.33.4/basics/permissions
+Docs: https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from test" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.33.4/basics/permissions
+https://deno.land/manual@v1.34.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from test" -l prompt -d 'deprecated: Fallback to prompt if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
@@ -685,6 +685,7 @@ complete -c deno -n "__fish_seen_subcommand_from vendor" -l import-map -d 'Load 
 complete -c deno -n "__fish_seen_subcommand_from vendor" -l lock -d 'Check the specified lock file.
 
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
+complete -c deno -n "__fish_seen_subcommand_from vendor" -l node-modules-dir -d 'Enables or disables the use of a local node_modules folder for npm packages' -r -f -a "{true	,false	}"
 complete -c deno -n "__fish_seen_subcommand_from vendor" -s r -l reload -d 'Reload source code cache (recompile TypeScript)' -r -F
 complete -c deno -n "__fish_seen_subcommand_from vendor" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from vendor" -s L -l log-level -d 'Set log level' -r -f -a "{debug	,info	}"
