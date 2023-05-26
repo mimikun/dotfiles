@@ -2,50 +2,38 @@
 
 # Import additional configuration files
 #
-# Imports are loaded in order, skipping all missing files, with the importing
-# file being loaded last. If a field is already present in a previous import, it
-# will be replaced.
+# Imports are loaded in order, skipping all missing files, with the importing file being loaded last. If a field is already present in a previous import, it will be replaced.
 #
-# All imports must either be absolute paths starting with `/`, or paths relative
-# to the user's home directory starting with `~/`.
-#import:
-#  - /path/to/alacritty.yml
+# All imports must either be absolute paths starting with `/`, or paths relative to the user's home directory starting with `~/`.
+import:
+  - ~/AppData/Roaming/alacritty/themes/themes/github_dark.yaml
+  - ~/.config/alacritty/themes/themes/github_dark.yaml
 
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
+# Any items in the `env` entry below will be added as environment variables. Some entries may override variables set by alacritty itself.
 #env:
   # TERM variable
   #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
+  # This value is used to set the `$TERM` environment variable for each instance of Alacritty. If it is not present, alacritty will check the local terminfo database and use `alacritty` if it is available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
-  # Number of lines/columns (not pixels) in the terminal. Both lines and columns
-  # must be non-zero for this to take effect. The number of columns must be at
-  # least `2`, while using a value of `0` for columns and lines will fall back
-  # to the window manager's recommended size
+  # Number of lines/columns (not pixels) in the terminal. Both lines and columns must be non-zero for this to take effect. The number of columns must be at least `2`, while using a value of `0` for columns and lines will fall back to the window manager's recommended size
   #dimensions:
-  #  columns: 0
-  #  lines: 0
+    columns: 120
+    lines: 30
 
   # Window position (changes require restart)
   #
-  # Specified in number of pixels.
-  # If the position is not set, the window manager will handle the placement.
+  # Specified in number of pixels. If the position is not set, the window manager will handle the placement.
   #position:
   #  x: 0
   #  y: 0
 
   # Window padding (changes require restart)
   #
-  # Blank space added around the window in pixels. This padding is scaled
-  # by DPI and the specified value is always added at both opposing sides.
+  # Blank space added around the window in pixels. This padding is scaled by DPI and the specified value is always added at both opposing sides.
   #padding:
   #  x: 0
   #  y: 0
@@ -96,9 +84,7 @@
 
   # Decorations theme variant
   #
-  # Override the variant of the System theme/GTK theme/Wayland client side
-  # decorations. Commonly supported values are `Dark`, `Light`, and `None` for
-  # auto pick-up. Set this to `None` to use the default theme variant.
+  # Override the variant of the System theme/GTK theme/Wayland client side decorations. Commonly supported values are `Dark`, `Light`, and `None` for auto pick-up. Set this to `None` to use the default theme variant.
   #decorations_theme_variant: None
 
   # Resize increments
@@ -113,10 +99,10 @@
   #   - None (default)
   #option_as_alt: None
 
-#scrolling:
+scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 10000
 
   # Scrolling distance multiplier.
   #multiplier: 3
@@ -140,8 +126,7 @@
   #bold:
     # Font family
     #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
+    # If the bold family is not specified, it will fall back to the value specified for the normal font.
     #family: monospace
 
     # The `style` can be specified to pick a specific face.
@@ -151,8 +136,7 @@
   #italic:
     # Font family
     #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
+    # If the italic family is not specified, it will fall back to the value specified for the normal font.
     #family: monospace
 
     # The `style` can be specified to pick a specific face.
@@ -162,8 +146,7 @@
   #bold_italic:
     # Font family
     #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
+    # If the bold italic family is not specified, it will fall back to the value specified for the normal font.
     #family: monospace
 
     # The `style` can be specified to pick a specific face.
@@ -172,24 +155,19 @@
   # Point size
   #size: 11.0
 
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
+  # Offset is the extra space around each character. `offset.y` can be thought of as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   #offset:
   #  x: 0
   #  y: 0
 
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the
-  # right, increasing `y` moves the glyph upward.
+  # Glyph offset determines the locations of the glyphs within their cells with the default being at the bottom. Increasing `x` moves the glyph to the right, increasing `y` moves the glyph upward.
   #glyph_offset:
   #  x: 0
   #  y: 0
 
   # Use built-in font for box drawing characters.
   #
-  # If `true`, Alacritty will use a custom built-in font for box drawing
-  # characters (Unicode points 2500 - 259f).
+  # If `true`, Alacritty will use a custom built-in font for box drawing characters (Unicode points 2500 - 259f).
   #
   #builtin_box_drawing: true
 
@@ -205,10 +183,7 @@
 
     # Bright and dim foreground colors
     #
-    # The dimmed foreground color is calculated automatically if it is not
-    # present. If the bright foreground color is not set, or
-    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-    # color will be used.
+    # The dimmed foreground color is calculated automatically if it is not present. If the bright foreground color is not set, or `draw_bold_text_with_bright_colors` is `false`, the normal foreground color will be used.
     #dim_foreground: '#828482'
     #bright_foreground: '#eaeaea'
 
@@ -216,8 +191,7 @@
   #
   # Colors which should be used to draw the terminal cursor.
   #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
+  # Allowed values are CellForeground/CellBackground, which reference the affected cell, or hexadecimal colors like #ff00ff.
   #cursor:
   #  text: CellBackground
   #  cursor: CellForeground
@@ -226,8 +200,7 @@
   #
   # Colors for the cursor when the vi mode is active.
   #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
+  # Allowed values are CellForeground/CellBackground, which reference the affected cell, or hexadecimal colors like #ff00ff.
   #vi_mode_cursor:
   #  text: CellBackground
   #  cursor: CellForeground
@@ -236,8 +209,7 @@
   #
   # Colors used for the search bar and match highlighting.
   #search:
-    # Allowed values are CellForeground/CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
+    # Allowed values are CellForeground/CellBackground, which reference the affected cell, or hexadecimal colors like #ff00ff.
     #matches:
     #  foreground: '#000000'
     #  background: '#ffffff'
@@ -249,24 +221,21 @@
   #hints:
     # First character in the hint label
     #
-    # Allowed values are CellForeground/CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
+    # Allowed values are CellForeground/CellBackground, which reference the affected cell, or hexadecimal colors like #ff00ff.
     #start:
     #  foreground: '#1d1f21'
     #  background: '#e9ff5e'
 
     # All characters after the first one in the hint label
     #
-    # Allowed values are CellForeground/CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
+    # Allowed values are CellForeground/CellBackground, which reference the affected cell, or hexadecimal colors like #ff00ff.
     #end:
     #  foreground: '#e9ff5e'
     #  background: '#1d1f21'
 
   # Line indicator
   #
-  # Color used for the indicator displaying the position in history during
-  # search and vi mode.
+  # Color used for the indicator displaying the position in history during search and vi mode.
   #
   # By default, these will use the opposing primary color.
   #line_indicator:
@@ -275,8 +244,7 @@
 
   # Footer bar
   #
-  # Color used for the footer bar on the bottom, used by search regex input,
-  # hyperlink URI preview, etc.
+  # Color used for the footer bar on the bottom, used by search regex input, hyperlink URI preview, etc.
   #
   #footer_bar:
   #  background: '#c5c8c6'
@@ -286,8 +254,7 @@
   #
   # Colors which should be used to draw the selection area.
   #
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
+  # Allowed values are CellForeground/CellBackground, which reference the affected cell, or hexadecimal colors like #ff00ff.
   #selection:
   #  text: CellBackground
   #  background: CellForeground
@@ -316,8 +283,7 @@
 
   # Dim colors
   #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
+  # If the dim colors are not set, they will be calculated automatically based on the `normal` colors.
   #dim:
   #  black:   '#131415'
   #  red:     '#864343'
@@ -340,9 +306,7 @@
 
   # Transparent cell backgrounds
   #
-  # Whether or not `window.opacity` applies to all cell backgrounds or only to
-  # the default background. When set to `true` all cells will be transparent
-  # regardless of their background color.
+  # Whether or not `window.opacity` applies to all cell backgrounds or only to the default background. When set to `true` all cells will be transparent regardless of their background color.
   #transparent_background_colors: false
 
 # Bell
@@ -387,8 +351,7 @@
   #command: None
 
 #selection:
-  # This string contains all characters that are used as separators for
-  # "semantic words" in Alacritty.
+  # This string contains all characters that are used as separators for "semantic words" in Alacritty.
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
@@ -416,8 +379,7 @@
 
   # Vi mode cursor style
   #
-  # If the vi mode cursor style is `None` or not specified, it will fall back to
-  # the style of the active value of the normal cursor.
+  # If the vi mode cursor style is `None` or not specified, it will fall back to the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
   #vi_mode_style: None
@@ -430,12 +392,10 @@
   # Specifying '0' will disable timeout for blinking.
   #blink_timeout: 5
 
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
+  # If this is `true`, the cursor will be rendered as a hollow box when the window is not focused.
   #unfocused_hollow: true
 
-  # Thickness of the cursor relative to the cell width as floating point number
-  # from `0.0` to `1.0`.
+  # Thickness of the cursor relative to the cell width as floating point number from `0.0` to `1.0`.
   #thickness: 0.15
 
 # Live config reload (changes require restart)
@@ -443,13 +403,12 @@
 
 # Shell
 #
-# You can set `shell.program` to the path of your favorite shell, e.g.
-# `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the
-# shell.
+# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the shell.
 #
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
+#   TODO
 #shell:
 #  program: /bin/bash
 #  args:
@@ -457,8 +416,7 @@
 
 # Startup directory
 #
-# Directory the shell is started in. If this is unset, or `None`, the working
-# directory of the parent process will be used.
+# Directory the shell is started in. If this is unset, or `None`, the working directory of the parent process will be used.
 #working_directory: None
 
 # Offer IPC using `alacritty msg` (unix only)
@@ -467,9 +425,7 @@
 #mouse:
   # Click settings
   #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
+  # The `double_click` and `triple_click` settings control the time alacritty should wait for accepting multiple clicks as one double or triple click.
   #double_click: { threshold: 300 }
   #triple_click: { threshold: 300 }
 
@@ -478,31 +434,22 @@
 
 # Hints
 #
-# Terminal hints can be used to find text or hyperlink in the visible part of
-# the terminal and pipe it to other applications.
+# Terminal hints can be used to find text or hyperlink in the visible part of the terminal and pipe it to other applications.
 #hints:
   # Keys used for the hint labels.
   #alphabet: "jfkdls;ahgurieowpq"
 
   # List with all available hints
   #
-  # Each hint must have any of `regex` or `hyperlinks` field and either an
-  # `action` or a `command` field. The fields `mouse`, `binding` and
-  # `post_processing` are optional.
+  # Each hint must have any of `regex` or `hyperlinks` field and either an `action` or a `command` field. The fields `mouse`, `binding` and `post_processing` are optional.
   #
-  # The `hyperlinks` option will cause OSC 8 escape sequence hyperlinks to be
-  # highlighted.
+  # The `hyperlinks` option will cause OSC 8 escape sequence hyperlinks to be highlighted.
   #
-  # The fields `command`, `binding.key`, `binding.mods`, `binding.mode` and
-  # `mouse.mods` accept the same values as they do in the `key_bindings` section.
+  # The fields `command`, `binding.key`, `binding.mods`, `binding.mode` and `mouse.mods` accept the same values as they do in the `key_bindings` section.
   #
-  # The `mouse.enabled` field controls if the hint should be underlined while
-  # the mouse with all `mouse.mods` keys held or the vi mode cursor is above it.
+  # The `mouse.enabled` field controls if the hint should be underlined while the mouse with all `mouse.mods` keys held or the vi mode cursor is above it.
   #
-  # If the `post_processing` field is set to `true`, heuristics will be used to
-  # shorten the match if there are characters likely not to be part of the hint
-  # (e.g. a trailing `.`). This is most useful for URIs and applies only to
-  # `regex` matches.
+  # If the `post_processing` field is set to `true`, heuristics will be used to shorten the match if there are characters likely not to be part of the hint (e.g. a trailing `.`). This is most useful for URIs and applies only to `regex` matches.
   #
   # Values for `action`:
   #   - Copy
@@ -528,12 +475,9 @@
 
 # Mouse bindings
 #
-# Mouse bindings are specified as a list of objects, much like the key
-# bindings further below.
+# Mouse bindings are specified as a list of objects, much like the key bindings further below.
 #
-# To trigger mouse bindings when an application running within Alacritty
-# captures the mouse, the `Shift` modifier is automatically added as a
-# requirement.
+# To trigger mouse bindings when an application running within Alacritty captures the mouse, the `Shift` modifier is automatically added as a requirement.
 #
 # Each mouse binding will specify a:
 #
@@ -561,8 +505,7 @@
 
 # Key bindings
 #
-# Key bindings are specified as a list of objects. For example, this is the
-# default paste binding:
+# Key bindings are specified as a list of objects. For example, this is the default paste binding:
 #
 # `- { key: V, mods: Control|Shift, action: Paste }`
 #
@@ -577,10 +520,7 @@
 #    A full list with available key codes can be found here:
 #    https://docs.rs/winit/*/winit/event/enum.VirtualKeyCode.html#variants
 #
-#    Instead of using the name of the keys, the `key` field also supports using
-#    the scancode of the desired key. Scancodes have to be specified as a
-#    decimal number. This command will allow you to display the hex scancodes
-#    for certain keys:
+#    Instead of using the name of the keys, the `key` field also supports using the scancode of the desired key. Scancodes have to be specified as a decimal number. This command will allow you to display the hex scancodes for certain keys:
 #
 #       `showkey --scancodes`.
 #
@@ -588,12 +528,7 @@
 #
 # - `chars`: Send a byte sequence to the running application
 #
-#    The `chars` field writes the specified string to the terminal. This makes
-#    it possible to pass escape sequences. To find escape codes for bindings
-#    like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside
-#    of tmux. Note that applications use terminfo to map escape sequences back
-#    to keys. It is therefore required to update the terminfo when changing an
-#    escape sequence.
+#    The `chars` field writes the specified string to the terminal. This makes it possible to pass escape sequences. To find escape codes for bindings like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside of tmux. Note that applications use terminfo to map escape sequences back to keys. It is therefore required to update the terminfo when changing an escape sequence.
 #
 # - `action`: Execute a predefined action
 #
@@ -639,8 +574,7 @@
 # - Vi mode exclusive actions:
 #
 #   - Open
-#       Perform the action of the first matching hint under the vi mode cursor
-#       with `mouse.enabled` set to `true`.
+#       Perform the action of the first matching hint under the vi mode cursor with `mouse.enabled` set to `true`.
 #   - ToggleNormalSelection
 #   - ToggleLineSelection
 #   - ToggleBlockSelection
@@ -664,8 +598,7 @@
 #   - Last
 #       Last column, or beginning of the line when already at the last column.
 #   - FirstOccupied
-#       First non-empty cell in this terminal row, or first non-empty cell of
-#       the line when already at the first cell of the row.
+#       First non-empty cell in this terminal row, or first non-empty cell of the line when already at the first cell of the row.
 #   - High
 #       Top of the screen.
 #   - Middle
@@ -728,9 +661,7 @@
 #
 # - `command`: Fork and execute a specified command plus arguments
 #
-#    The `command` field must be a map containing a `program` string and an
-#    `args` array of command line parameter strings. For example:
-#       `{ program: "alacritty", args: ["-e", "vttest"] }`
+#    The `command` field must be a map containing a `program` string and an `args` array of command line parameter strings. For example: `{ program: "alacritty", args: ["-e", "vttest"] }`
 #
 # And optionally:
 #
@@ -758,16 +689,11 @@
 #    - Alt
 #    - Vi
 #
-#    A `~` operator can be used before a mode to apply the binding whenever
-#    the mode is *not* active, e.g. `~Alt`.
+#    A `~` operator can be used before a mode to apply the binding whenever the mode is *not* active, e.g. `~Alt`.
 #
-# Bindings are always filled by default, but will be replaced when a new
-# binding with the same triggers is defined. To unset a default binding, it can
-# be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
-# a no-op if you do not wish to receive input characters for that binding.
+# Bindings are always filled by default, but will be replaced when a new binding with the same triggers is defined. To unset a default binding, it can be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for a no-op if you do not wish to receive input characters for that binding.
 #
-# If the same trigger is assigned to multiple actions, all of them are executed
-# in the order they were defined in.
+# If the same trigger is assigned to multiple actions, all of them are executed in the order they were defined in.
 #key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
