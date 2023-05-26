@@ -5,8 +5,8 @@ export PIPENV_VENV_IN_PROJECT=1
 export TODAY=(date +'%Y/%m/%d')
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
-{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").zshrc_workspace.value }}
-{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").zshrc_win_home.value }}
+export WORKSPACE={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
+export WIN_HOME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
 {{ else }}
 {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").zshrc_workspace.value }}
 {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").zshrc_win_home.value }}
