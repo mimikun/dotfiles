@@ -61,6 +61,10 @@ if command_exist wezterm; then
   pueue add -- "wezterm shell-completion --shell fish > '${COMPLETIONS_DIR}'/wezterm.fish"
 fi
 
+if command_exist rye; then
+  pueue add -- "rye self completion -s fish > '${COMPLETIONS_DIR}'/rye.fish"
+fi
+
 if command_exist pueue; then
   pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
 fi
