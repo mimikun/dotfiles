@@ -80,8 +80,8 @@ update_asdf_tools() {
 }
 
 pueue_update_asdf_nodejs_lts() {
-  asdf uninstall nodejs lts
-  pueue add -- 'asdf install nodejs lts'
+  nodejs_lts_ver=$(asdf nodejs resolve lts --latest-available)
+  pueue add -- "asdf install nodejs $nodejs_lts_ver"
 }
 
 # other
