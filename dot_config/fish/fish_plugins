@@ -6,9 +6,11 @@ halostatue/fish-docker@v1.x
 jethrokuan/z
 jorgebucaran/fisher
 jorgebucaran/getopts.fish
+mimikun/bw.fish
 mimikun/def
 mimikun/editorconfig
 mimikun/gcd
+mimikun/nkf.fish
 mimikun/numeronym
 mimikun/pcd
 mimikun/read_confirm
