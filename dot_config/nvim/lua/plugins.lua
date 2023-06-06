@@ -86,6 +86,14 @@ return require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     })
     use("vim-skk/skkeleton")
+    use({
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup({})
+        end,
+    })
 
     ---- denops.vim
     use("vim-denops/denops.vim")
