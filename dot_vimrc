@@ -161,6 +161,7 @@ Jetpack 'godlygeek/tabular'
 Jetpack 'preservim/vim-markdown'
 Jetpack 'tpope/vim-surround'
 Jetpack 'vim-skk/skkeleton'
+Jetpack 'liuchengxu/vim-which-key'
 
 " colorschemes
 Jetpack 'ghifarit53/tokyonight-vim'
