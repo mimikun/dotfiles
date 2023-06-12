@@ -20,7 +20,7 @@ for cmd in "poetry" "rustup" "starship" "deno"; do
 done
 
 if command_exist asdf; then
-  pueue add -- cp "'${HOME}'/.asdf/completions/asdf.fish '${COMPLETIONS_DIR}'/asdf.fish"
+  pueue add -- "cp ${HOME}/.asdf/completions/asdf.fish ${COMPLETIONS_DIR}/asdf.fish"
 fi
 
 if command_exist bun; then
@@ -67,6 +67,10 @@ fi
 
 if command_exist pueue; then
   pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
+fi
+
+if command_exist brew; then
+  pueue add -- "cp $(brew --prefix)/Homebrew/completions/fish/brew.fish ${COMPLETIONS_DIR}/brew.fish"
 fi
 
 if command_exist exa; then
