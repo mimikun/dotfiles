@@ -1,0 +1,31 @@
+#https://docs.helix-editor.com/configuration.html#configuration
+theme = "tokyonight"
+
+[editor]
+#https://docs.helix-editor.com/configuration.html#editor-section
+color-modes = true
+
+[editor.statusline]
+#https://docs.helix-editor.com/configuration.html#editorstatusline-section
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["diagnostics", "selections", "position", "file-encoding"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.whitespace.render]
+#https://docs.helix-editor.com/configuration.html#editorwhitespace-section
+space = "all"
+nbsp = "all"
+tab = "all"
+newline = "all"
+
+[editor.whitespace.characters]
+#https://docs.helix-editor.com/configuration.html#editorwhitespace-section
+space = "·"
+nbsp = "+"
+tab = "→"
+newline = "⏎"
+tabpad = "·" # Tabs will look like "→···" (depending on tab width)
