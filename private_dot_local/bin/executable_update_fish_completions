@@ -93,3 +93,7 @@ fi
 if command_exist rg; then
   pueue add -- "update_ripgrep_fish_completion"
 fi
+
+if command_exist hx; then
+  pueue add -- "update_helix_fish_completion"
+fi
