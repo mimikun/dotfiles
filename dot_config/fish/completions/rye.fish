@@ -85,9 +85,8 @@ complete -c rye -n "__fish_seen_subcommand_from make-req" -l absolute -d 'Force 
 complete -c rye -n "__fish_seen_subcommand_from make-req" -s h -l help -d 'Print help'
 complete -c rye -n "__fish_seen_subcommand_from pin" -l no-update-requires-python -d 'Prevent updating requires-python in the pyproject.toml'
 complete -c rye -n "__fish_seen_subcommand_from pin" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c rye -n "__fish_seen_subcommand_from publish" -s r -l repository -d 'The repository to publish to' -r
-complete -c rye -n "__fish_seen_subcommand_from publish" -l repository-url -d 'The repository url to publish to' -r
-complete -c rye -n "__fish_seen_subcommand_from publish" -s u -l username -d 'The username to authenticate to the repository with' -r
+complete -c rye -n "__fish_seen_subcommand_from publish" -s r -l repository -d 'The repository to publish to (defaults to \'pypi\')' -r
+complete -c rye -n "__fish_seen_subcommand_from publish" -l repository-url -d 'The repository url to publish to (defaults to https://upload.pypi.org/legacy/)' -r
 complete -c rye -n "__fish_seen_subcommand_from publish" -l token -d 'An access token used for the upload' -r
 complete -c rye -n "__fish_seen_subcommand_from publish" -s i -l identity -d 'GPG identity used to sign files' -r
 complete -c rye -n "__fish_seen_subcommand_from publish" -l cert -d 'Path to alternate CA bundle' -r -F
