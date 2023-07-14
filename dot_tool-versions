@@ -8,13 +8,13 @@ ghq 1.4.2
 fzf 0.42.0
 peco 0.5.11
 direnv 2.32.3
-dotnet-core 7.0.305
+dotnet-core 7.0.306
 shellcheck 0.9.0
 chezmoi 2.34.3
 shfmt 3.7.0
 tig 2.5.8
-github-cli 2.31.0
+github-cli 2.32.0
 duf 0.8.1
-yq 4.34.1
+yq 4.34.2
 zig master
-bitwarden 2023.5.0
+bitwarden 2023.7.0
