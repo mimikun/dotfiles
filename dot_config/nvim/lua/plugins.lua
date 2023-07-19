@@ -12,12 +12,6 @@ return require("packer").startup(function(use)
     use("lambdalisue/glyph-palette.vim")
 
     -- fzf.vim
-    use({
-        "junegunn/fzf",
-        run = function()
-            vim.fn["fzf#install()"](0)
-        end,
-    })
     use("junegunn/fzf.vim")
 
     -- nvim treesitter
@@ -26,11 +20,6 @@ return require("packer").startup(function(use)
 
     -- coc.nvim
     use({ "neoclide/coc.nvim", branch = "release" })
-    use({
-        "pappasam/coc-jedi",
-        branch = "main",
-        run = "yarn install --frozen-lockfile && yarn build",
-    })
 
     -- syntax hilights
     use("preservim/vim-markdown")
@@ -72,11 +61,9 @@ return require("packer").startup(function(use)
     })
     use({
         "kylechui/nvim-surround",
-        -- Use for stability; omit to use `main` branch for the latest features
         tag = "*",
         config = function()
             require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
             })
         end,
     })
