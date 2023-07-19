@@ -39,17 +39,19 @@ endfunction
 
 -- coc.nvim settings
 vim.g.coc_global_extensions = {
-    "coc-html",
-    "coc-solargraph",
-    "coc-git",
-    "coc-json",
-    "coc-rust-analyzer",
-    "coc-snippets",
-    "coc-deno",
-    "coc-tsserver",
-    "coc-eslint",
     "coc-css",
+    "coc-deno",
+    "coc-eslint",
+    "coc-git",
+    "coc-html",
     "coc-jest",
+    "coc-json",
     "coc-prettier",
     "coc-pyright",
+    "coc-rust-analyzer",
+    "coc-snippets",
+    "coc-solargraph",
+    "coc-tsserver",
+    "coc-yaml",
+    "coc-zls",
 }
