@@ -45,7 +45,6 @@ return require("packer").startup(function(use)
     use("vim-jp/vimdoc-ja")
     use("nastevens/vim-duckscript")
     use("thinca/vim-scouter")
-    use("Omochice/dps-translate-vim")
     use("thinca/vim-quickrun")
     use("airblade/vim-gitgutter")
     use("godlygeek/tabular")
@@ -101,6 +100,7 @@ return require("packer").startup(function(use)
     --use("skanehira/denops-twihi.vim")
     use("skanehira/denops-docker.vim")
     use("willelz/skk-tutorial.vim")
+    use("Omochice/dps-translate-vim")
 
     -- color theme
     use({
