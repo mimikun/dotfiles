@@ -950,7 +950,7 @@ __fish_brew_complete_arg 'lc; and not __fish_seen_argument -l cask -l casks' -a 
 __fish_brew_complete_arg 'lc; and not __fish_seen_argument -l formula -l formulae' -a '(__fish_brew_suggest_casks_all)'
 
 
-__fish_brew_complete_cmd 'leaves' 'List installed formulae that are not dependencies of another installed formula'
+__fish_brew_complete_cmd 'leaves' 'List installed formulae that are not dependencies of another installed formula or cask'
 __fish_brew_complete_arg 'leaves' -l debug -d 'Display any debugging information'
 __fish_brew_complete_arg 'leaves' -l help -d 'Show this message'
 __fish_brew_complete_arg 'leaves' -l installed-as-dependency -d 'Only list leaves that were installed as dependencies'
@@ -1227,6 +1227,13 @@ __fish_brew_complete_arg 'prof' -l verbose -d 'Make some output more verbose'
 __fish_brew_complete_arg 'prof' -a '(__fish_brew_suggest_commands)'
 
 
+__fish_brew_complete_cmd 'pyenv-sync' 'Create symlinks for Homebrew\'s installed Python versions in ~/.pyenv/versions'
+__fish_brew_complete_arg 'pyenv-sync' -l debug -d 'Display any debugging information'
+__fish_brew_complete_arg 'pyenv-sync' -l help -d 'Show this message'
+__fish_brew_complete_arg 'pyenv-sync' -l quiet -d 'Make some output more quiet'
+__fish_brew_complete_arg 'pyenv-sync' -l verbose -d 'Make some output more verbose'
+
+
 __fish_brew_complete_cmd 'rbenv-sync' 'Create symlinks for Homebrew\'s installed Ruby versions in ~/.rbenv/versions'
 __fish_brew_complete_arg 'rbenv-sync' -l debug -d 'Display any debugging information'
 __fish_brew_complete_arg 'rbenv-sync' -l help -d 'Show this message'
@@ -1388,6 +1395,7 @@ __fish_brew_complete_cmd 'tap' 'Tap a formula repository'
 __fish_brew_complete_arg 'tap' -l custom-remote -d 'Install or change a tap with a custom remote. Useful for mirrors'
 __fish_brew_complete_arg 'tap' -l debug -d 'Display any debugging information'
 __fish_brew_complete_arg 'tap' -l eval-all -d 'Evaluate all the formulae, casks and aliases in the new tap to check validity. Implied if `HOMEBREW_EVAL_ALL` is set'
+__fish_brew_complete_arg 'tap' -l force -d 'Force install core taps even under API mode'
 __fish_brew_complete_arg 'tap' -l force-auto-update -d 'Auto-update tap even if it is not hosted on GitHub. By default, only taps hosted on GitHub are auto-updated (for performance reasons)'
 __fish_brew_complete_arg 'tap' -l help -d 'Show this message'
 __fish_brew_complete_arg 'tap' -l list-pinned -d 'List all pinned taps'
