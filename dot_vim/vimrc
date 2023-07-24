@@ -128,7 +128,7 @@ Jetpack 'lambdalisue/fern-renderer-nerdfont.vim'
 Jetpack 'lambdalisue/glyph-palette.vim'
 
 " fzf.vim
-Jetpack 'junegunn/fzf', { 'do': {-> fzf#install()} }
+Jetpack 'junegunn/fzf'
 Jetpack 'junegunn/fzf.vim'
 
 " denops.vim
@@ -167,8 +167,8 @@ Jetpack 'liuchengxu/vim-which-key'
 Jetpack 'ghifarit53/tokyonight-vim'
 
 " coc.nvim
-"Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
-"Jetpack 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
+
 call jetpack#end()
 
 " Automatic plugin installation on startup
@@ -284,29 +284,36 @@ nnoremap fc :Commits<CR>
 
 "" neoclide/coc.nvim
 "" <Tab>で候補をナビゲート
-"function! s:check_back_space() abort
-"  let col = col('.') - 1
-"  return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
 
 "" <Tab>で次、<S+Tab>で前
-"inoremap <silent><expr> <TAB>
-"  \ coc#pum#visible() ? coc#pum#next(1):
-"  \ <SID>check_back_space() ? "\<Tab>" :
-"  \ coc#refresh()
-"inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 "" coc.nvim settings
-"let g:coc_global_extensions = [
-"      \'coc-html', 
-"      \'coc-jedi', 
-"      \'coc-solargraph', 
-"      \'coc-git', 
-"      \'coc-json', 
-"      \'coc-rust-analyzer', 
-"      \'coc-zls' 
-"\]
-" TODO: エラーが起きるので調べる
+let g:coc_global_extensions = [
+      \'coc-css',
+      \'coc-deno',
+      \'coc-eslint',
+      \'coc-git',
+      \'coc-html',
+      \'coc-jest',
+      \'coc-json',
+      \'coc-prettier',
+      \'coc-pyright',
+      \'coc-rust-analyzer',
+      \'coc-snippets',
+      \'coc-solargraph',
+      \'coc-tsserver',
+      \'coc-yaml',
+      \'coc-zls',
+\]
 
 " ghifarit53/tokyonight-vim
 let g:tokyonight_style = 'night' " available: night, storm
