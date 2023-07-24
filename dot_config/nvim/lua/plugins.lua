@@ -15,48 +15,46 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup(function(use)
     -- Packer itself
-    use("wbthomason/packer.nvim")
+    use({ "wbthomason/packer.nvim" })
 
     -- fern.vim
     use({ "lambdalisue/fern.vim", branch = "main" })
-    use("lambdalisue/fern-git-status.vim")
-    use("lambdalisue/nerdfont.vim")
-    use("lambdalisue/fern-renderer-nerdfont.vim")
-    use("lambdalisue/glyph-palette.vim")
+    use({ "lambdalisue/fern-git-status.vim" })
+    use({ "lambdalisue/nerdfont.vim" })
+    use({ "lambdalisue/fern-renderer-nerdfont.vim" })
+    use({ "lambdalisue/glyph-palette.vim" })
 
     -- fzf.vim
     use("junegunn/fzf.vim")
 
     -- nvim treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use("IndianBoy42/tree-sitter-just")
+    use({ "IndianBoy42/tree-sitter-just" })
 
     -- coc.nvim
     use({ "neoclide/coc.nvim", branch = "release" })
 
     -- syntax hilights
     use("preservim/vim-markdown")
-    use("imsnif/kdl.vim")
     use("cespare/vim-toml")
-    use("NoahTheDuke/vim-just")
     use("nastevens/vim-cargo-make")
-    use("alker0/chezmoi.vim")
+    use({ "imsnif/kdl.vim" })
+    use({ "NoahTheDuke/vim-just" })
+    use({ "alker0/chezmoi.vim" })
 
     -- utilities
-    use("mattn/calendar-vim")
-    use("vim-jp/vimdoc-ja")
-    use("nastevens/vim-duckscript")
-    use("thinca/vim-scouter")
-    use("thinca/vim-quickrun")
-    use("airblade/vim-gitgutter")
-    use("godlygeek/tabular")
-    use("dstein64/vim-startuptime")
+    use({ "mattn/calendar-vim" })
+    use({ "vim-jp/vimdoc-ja" })
+    use({ "thinca/vim-scouter" })
+    use({ "thinca/vim-quickrun" })
+    use({ "airblade/vim-gitgutter" })
+    use({ "dstein64/vim-startuptime" })
     use({
         "kode-team/mastodon.nvim",
         requires = {
-            "nvim-lua/plenary.nvim",
-            "rcarriga/nvim-notify",
-            "kkharji/sqlite.lua",
+            { "nvim-lua/plenary.nvim" },
+            { "rcarriga/nvim-notify" },
+            { "kkharji/sqlite.lua" },
         },
         config = function()
             require("mastodon").setup()
@@ -67,9 +65,9 @@ return require("packer").startup(function(use)
         -- March 6th 2023, before submit issue
         commit = "8820b99c",
         requires = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
+            { "MunifTanjim/nui.nvim" },
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope.nvim" },
         },
     })
     use({
@@ -95,12 +93,12 @@ return require("packer").startup(function(use)
     })
 
     ---- denops.vim
-    use("vim-denops/denops.vim")
-    use("lambdalisue/gin.vim")
-    --use("skanehira/denops-twihi.vim")
-    use("skanehira/denops-docker.vim")
-    use("willelz/skk-tutorial.vim")
-    use("Omochice/dps-translate-vim")
+    use({ "vim-denops/denops.vim" })
+    use({ "lambdalisue/gin.vim" })
+    use({ "skanehira/denops-docker.vim" })
+    use({ "willelz/skk-tutorial.vim" })
+    use({ "Omochice/dps-translate-vim" })
+    use({ "vim-skk/skkeleton" })
 
     -- color theme
     use({
@@ -118,9 +116,9 @@ return require("packer").startup(function(use)
     })
 
     -- other color theme
-    use("tanvirtin/monokai.nvim")
-    use("Allianaab2m/penumbra.nvim")
-    use("folke/tokyonight.nvim")
+    use({ "tanvirtin/monokai.nvim" })
+    use({ "Allianaab2m/penumbra.nvim" })
+    use({ "folke/tokyonight.nvim" })
 
     if packer_bootstrap then
         require("packer").sync()
