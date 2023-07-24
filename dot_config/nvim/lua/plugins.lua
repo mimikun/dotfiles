@@ -92,11 +92,9 @@ return require("packer").startup(function(use)
     -- color theme
     use({
         "projekt0n/github-nvim-theme",
-        tag = "v0.0.7",
         config = function()
-            require("github-theme").setup({
-                theme_style = "dark",
-            })
+            require("github-theme").setup({})
+            vim.cmd("colorscheme github_dark")
         end,
     })
 

@@ -43,7 +43,4 @@ require("chatgpt-nvim")
 -- lualine.nvim settings
 require("lualine-nvim")
 
--- github-theme settings
-require("github-theme-nvim")
-
 vim.cmd("filetype plugin indent on")
