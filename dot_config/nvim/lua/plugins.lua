@@ -92,7 +92,6 @@ return require("packer").startup(function(use)
             require("nvim-surround").setup({})
         end,
     })
-    use("vim-skk/skkeleton")
     use({
         "folke/which-key.nvim",
         config = function()
