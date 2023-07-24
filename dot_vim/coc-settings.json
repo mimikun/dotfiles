@@ -1,0 +1,10 @@
+{
+  "languageserver": {
+    "zls": {
+      "command": "zls",
+      "filetypes": ["zig"]
+    },
+  },
+  "zig.zls.path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls",
+  "snippets.ultisnips.enable": false
+}
