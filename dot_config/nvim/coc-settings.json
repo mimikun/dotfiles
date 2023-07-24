@@ -5,8 +5,5 @@
       "filetypes": ["zig"]
     },
   },
-  "jedi.enable": true,
-  "jedi.startupMessage": false,
-  "jedi.executable.command": "~/.asdf/shims/jedi-language-server",
   "zig.zls.path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls"
 }
