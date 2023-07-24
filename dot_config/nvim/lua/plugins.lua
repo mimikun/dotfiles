@@ -92,10 +92,6 @@ return require("packer").startup(function(use)
             require("nvim-surround").setup({})
         end,
     })
-    use({
-        "alanfortlink/blackjack.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-    })
     use("vim-skk/skkeleton")
     use({
         "folke/which-key.nvim",
