@@ -128,6 +128,7 @@ return require("packer").startup(function(use)
     use({ "tanvirtin/monokai.nvim" })
     use({ "Allianaab2m/penumbra.nvim" })
     use({ "folke/tokyonight.nvim" })
+    use({ "kihachi2000/yash.nvim" })
 
     if packer_bootstrap then
         require("packer").sync()
