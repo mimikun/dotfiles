@@ -25,7 +25,12 @@ return require("packer").startup(function(use)
     use({ "lambdalisue/glyph-palette.vim" })
 
     -- fzf.vim
-    use("junegunn/fzf.vim")
+    use({
+        "junegunn/fzf.vim",
+        requires = {
+            { "junegunn/fzf" },
+        },
+    })
 
     -- nvim treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -35,12 +40,22 @@ return require("packer").startup(function(use)
     use({ "neoclide/coc.nvim", branch = "release" })
 
     -- syntax hilights
-    use("preservim/vim-markdown")
-    use("cespare/vim-toml")
-    use("nastevens/vim-cargo-make")
     use({ "imsnif/kdl.vim" })
     use({ "NoahTheDuke/vim-just" })
     use({ "alker0/chezmoi.vim" })
+    use({
+        "preservim/vim-markdown",
+        requires = {
+            { "godlygeek/tabular" },
+        },
+    })
+    use({
+        "nastevens/vim-cargo-make",
+        requires = {
+            { "cespare/vim-toml" },
+            { "nastevens/vim-duckscript" },
+        },
+    })
 
     -- utilities
     use({ "mattn/calendar-vim" })
@@ -57,7 +72,7 @@ return require("packer").startup(function(use)
             { "kkharji/sqlite.lua" },
         },
         config = function()
-            require("mastodon").setup()
+            require("mastodon").setup({})
         end,
     })
     use({
@@ -74,8 +89,7 @@ return require("packer").startup(function(use)
         "kylechui/nvim-surround",
         tag = "*",
         config = function()
-            require("nvim-surround").setup({
-            })
+            require("nvim-surround").setup({})
         end,
     })
     use({
