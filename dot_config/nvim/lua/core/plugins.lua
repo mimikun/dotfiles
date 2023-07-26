@@ -129,6 +129,7 @@ return require("packer").startup(function(use)
     use({ "Allianaab2m/penumbra.nvim" })
     use({ "folke/tokyonight.nvim" })
     use({ "kihachi2000/yash.nvim" })
+    use({ "EdenEast/nightfox.nvim" })
 
     if packer_bootstrap then
         require("packer").sync()
