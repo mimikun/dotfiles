@@ -16,31 +16,4 @@ require("core.keymaps")
 -- packer.nvim のファイルを読み込む
 require("core.plugins")
 
--- coc.nvim settings
-require("core.coc")
-
--- nvim-treesitter config
-require("core.treesitter")
-
--- fern.vim settings
-require("core.fern-vim")
-
--- vim-gitgutter
-require("core.vim-gitgutter")
-
--- fzf.vim
-require("core.fzf-vim")
-
--- vim-markdown
-require("core.vim-markdown")
-
--- dps-translate-vim
-require("core.dps-translate-vim")
-
--- ChatGPT.nvim
-require("core.chatgpt-nvim")
-
--- lualine.nvim settings
-require("core.lualine-nvim")
-
 vim.cmd("filetype plugin indent on")
