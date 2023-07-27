@@ -1,5 +1,20 @@
 # Changelog
 
+## [v2023.07.27]
+
+### Added - 新機能について
+
+### Changed - 既存機能の変更について
+
+- Update fish completions
+    - brew
+    - deno
+
+- neovim sppedup?
+
+### Removed - 今回で削除された機能について
+
+### Fixed - 不具合修正について
 
 ## [v2023.07.26]
 
