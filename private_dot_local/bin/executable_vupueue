@@ -48,12 +48,12 @@ before_sudo() {
   fi
 }
 
-# brew upgrade commands using pueue
-pueue_brew_update_process() {
-  pueue add -- "brew update"
-  pueue add -- "brew upgrade"
-  pueue add -- "brew upgrade --cask"
-  pueue add -- "brew cleanup"
+# brew upgrade commands
+brew_update_process() {
+  brew update
+  brew upgrade
+  brew upgrade --cask
+  brew cleanup
 }
 
 # Ubuntu
@@ -67,7 +67,7 @@ ubuntu() {
   sudo apt-get clean
   which brew >/dev/null
   if test $? -eq 0; then
-    pueue_brew_update_process
+    brew_update_process
   fi
 }
 
@@ -79,7 +79,7 @@ arch() {
 
 # Mac
 mac() {
-  pueue_brew_update_process
+  brew_update_process
 }
 
 update_asdf_tools() {
