@@ -65,6 +65,10 @@ if command_exist rye; then
   pueue add -- "rye self completion -s fish > '${COMPLETIONS_DIR}'/rye.fish"
 fi
 
+if command_exist procs; then
+  pueue add -- "procs --gen-completion-out fish > '${COMPLETIONS_DIR}'/procs.fish"
+fi
+
 if command_exist pueue; then
   pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
 fi
