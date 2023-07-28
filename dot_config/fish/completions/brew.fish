@@ -412,6 +412,8 @@ __fish_brew_complete_arg 'bump-cask-pr' -l sha256 -d 'Specify the SHA-256 checks
 __fish_brew_complete_arg 'bump-cask-pr' -l url -d 'Specify the URL for the new download'
 __fish_brew_complete_arg 'bump-cask-pr' -l verbose -d 'Make some output more verbose'
 __fish_brew_complete_arg 'bump-cask-pr' -l version -d 'Specify the new version for the cask'
+__fish_brew_complete_arg 'bump-cask-pr' -l version-arm -d 'Specify the new cask version for the ARM architecture'
+__fish_brew_complete_arg 'bump-cask-pr' -l version-intel -d 'Specify the new cask version for the Intel architecture'
 __fish_brew_complete_arg 'bump-cask-pr' -l write-only -d 'Make the expected file modifications without taking any Git actions'
 __fish_brew_complete_arg 'bump-cask-pr' -a '(__fish_brew_suggest_casks_all)'
 
@@ -1398,7 +1400,6 @@ __fish_brew_complete_arg 'tap' -l eval-all -d 'Evaluate all the formulae, casks 
 __fish_brew_complete_arg 'tap' -l force -d 'Force install core taps even under API mode'
 __fish_brew_complete_arg 'tap' -l force-auto-update -d 'Auto-update tap even if it is not hosted on GitHub. By default, only taps hosted on GitHub are auto-updated (for performance reasons)'
 __fish_brew_complete_arg 'tap' -l help -d 'Show this message'
-__fish_brew_complete_arg 'tap' -l list-pinned -d 'List all pinned taps'
 __fish_brew_complete_arg 'tap' -l no-force-auto-update -d 'Auto-update tap even if it is not hosted on GitHub. By default, only taps hosted on GitHub are auto-updated (for performance reasons)'
 __fish_brew_complete_arg 'tap' -l quiet -d 'Make some output more quiet'
 __fish_brew_complete_arg 'tap' -l repair -d 'Migrate tapped formulae from symlink-based to directory-based structure'
