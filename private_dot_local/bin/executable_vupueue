@@ -48,6 +48,14 @@ before_sudo() {
   fi
 }
 
+# brew upgrade commands using pueue
+pueue_brew_update_process() {
+  pueue add -- "brew update"
+  pueue add -- "brew upgrade"
+  pueue add -- "brew upgrade --cask"
+  pueue add -- "brew cleanup"
+}
+
 # Ubuntu
 ubuntu() {
   # Upgrade APT repogitory list
@@ -57,6 +65,10 @@ ubuntu() {
   # Cleaning APT caches
   sudo apt autoremove -y
   sudo apt-get clean
+  which brew >/dev/null
+  if test $? -eq 0; then
+    pueue_brew_update_process
+  fi
 }
 
 # Arch Linux
@@ -67,10 +79,7 @@ arch() {
 
 # Mac
 mac() {
-  pueue add -- "brew update"
-  pueue add -- "brew upgrade"
-  pueue add -- "brew upgrade --cask"
-  pueue add -- "brew cleanup"
+  pueue_brew_update_process
 }
 
 update_asdf_tools() {
