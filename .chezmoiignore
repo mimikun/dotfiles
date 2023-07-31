@@ -16,6 +16,7 @@ Justfile
 *.just
 *.patch
 *.patch.gpg
+stylua.toml
 
 # fish completions
 dot_config/fish/completions/bd.fish
