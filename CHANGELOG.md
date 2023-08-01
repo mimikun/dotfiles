@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2023.08.01]
+
+### Added - 新機能について
+
+- Add `.config/README.md`
+- Add `.config/nvim/Makefile`
+
+### Changed - 既存機能の変更について
+
+- Use lazy.nvim
+- Chezmoi Ignore `.config/README.md`
+- Update brew fish completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.07.31]
 
 ### Added - 新機能について
