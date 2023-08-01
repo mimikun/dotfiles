@@ -10,6 +10,7 @@ README.md
 CHANGELOG.md
 dot_config/nvim/README.md
 dot_config/fish/README.md
+dot_config/README.md
 LICENSE.txt
 Makefile
 Justfile
