@@ -18,7 +18,8 @@ function __flyctl_perform_completion
     __flyctl_debug "args: $args"
     __flyctl_debug "last arg: $lastArg"
 
-    set -l requestComp "$args[1] __complete $args[2..-1] $lastArg"
+    # Disable ActiveHelp which is not supported for fish shell
+    set -l requestComp "FLYCTL_ACTIVE_HELP=0 $args[1] __complete $args[2..-1] $lastArg"
 
     __flyctl_debug "Calling $requestComp"
     set -l results (eval $requestComp 2> /dev/null)
@@ -54,6 +55,60 @@ function __flyctl_perform_completion
     printf "%s\n" "$directiveLine"
 end
 
+# this function limits calls to __flyctl_perform_completion, by caching the result behind $__flyctl_perform_completion_once_result
+function __flyctl_perform_completion_once
+    __flyctl_debug "Starting __flyctl_perform_completion_once"
+
+    if test -n "$__flyctl_perform_completion_once_result"
+        __flyctl_debug "Seems like a valid result already exists, skipping __flyctl_perform_completion"
+        return 0
+    end
+
+    set --global __flyctl_perform_completion_once_result (__flyctl_perform_completion)
+    if test -z "$__flyctl_perform_completion_once_result"
+        __flyctl_debug "No completions, probably due to a failure"
+        return 1
+    end
+
+    __flyctl_debug "Performed completions and set __flyctl_perform_completion_once_result"
+    return 0
+end
+
+# this function is used to clear the $__flyctl_perform_completion_once_result variable after completions are run
+function __flyctl_clear_perform_completion_once_result
+    __flyctl_debug ""
+    __flyctl_debug "========= clearing previously set __flyctl_perform_completion_once_result variable =========="
+    set --erase __flyctl_perform_completion_once_result
+    __flyctl_debug "Succesfully erased the variable __flyctl_perform_completion_once_result"
+end
+
+function __flyctl_requires_order_preservation
+    __flyctl_debug ""
+    __flyctl_debug "========= checking if order preservation is required =========="
+
+    __flyctl_perform_completion_once
+    if test -z "$__flyctl_perform_completion_once_result"
+        __flyctl_debug "Error determining if order preservation is required"
+        return 1
+    end
+
+    set -l directive (string sub --start 2 $__flyctl_perform_completion_once_result[-1])
+    __flyctl_debug "Directive is: $directive"
+
+    set -l shellCompDirectiveKeepOrder 32
+    set -l keeporder (math (math --scale 0 $directive / $shellCompDirectiveKeepOrder) % 2)
+    __flyctl_debug "Keeporder is: $keeporder"
+
+    if test $keeporder -ne 0
+        __flyctl_debug "This does require order preservation"
+        return 0
+    end
+
+    __flyctl_debug "This doesn't require order preservation"
+    return 1
+end
+
+
 # This function does two things:
 # - Obtain the completions and store them in the global __flyctl_comp_results
 # - Return false if file completion should be performed
@@ -64,17 +119,17 @@ function __flyctl_prepare_completions
     # Start fresh
     set --erase __flyctl_comp_results
 
-    set -l results (__flyctl_perform_completion)
-    __flyctl_debug "Completion results: $results"
+    __flyctl_perform_completion_once
+    __flyctl_debug "Completion results: $__flyctl_perform_completion_once_result"
 
-    if test -z "$results"
+    if test -z "$__flyctl_perform_completion_once_result"
         __flyctl_debug "No completion, probably due to a failure"
         # Might as well do file completion, in case it helps
         return 1
     end
 
-    set -l directive (string sub --start 2 $results[-1])
-    set --global __flyctl_comp_results $results[1..-2]
+    set -l directive (string sub --start 2 $__flyctl_perform_completion_once_result[-1])
+    set --global __flyctl_comp_results $__flyctl_perform_completion_once_result[1..-2]
 
     __flyctl_debug "Completions are: $__flyctl_comp_results"
     __flyctl_debug "Directive is: $directive"
@@ -170,7 +225,11 @@ end
 # Remove any pre-existing completions for the program since we will be handling all of them.
 complete -c flyctl -e
 
+# this will get called after the two calls below and clear the $__flyctl_perform_completion_once_result global
+complete -c flyctl -n '__flyctl_clear_perform_completion_once_result'
 # The call to __flyctl_prepare_completions will setup __flyctl_comp_results
 # which provides the program's completion choices.
-complete -c flyctl -n '__flyctl_prepare_completions' -f -a '$__flyctl_comp_results'
-
+# If this doesn't require order preservation, we don't use the -k flag
+complete -c flyctl -n 'not __flyctl_requires_order_preservation && __flyctl_prepare_completions' -f -a '$__flyctl_comp_results'
+# otherwise we use the -k flag
+complete -k -c flyctl -n '__flyctl_requires_order_preservation && __flyctl_prepare_completions' -f -a '$__flyctl_comp_results'
