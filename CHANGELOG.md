@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2023.08.02]
+
+### Added - 新機能について
+
+- Add lazy-lock.json
+- Add ion config
+- Add elvish config
+- Add vup
+- Add update_cargo_packages
+- Add neovim plugin: LhKipp/nvim-nu
+- Add neovim plugin: ellisonleao/glow.nvim
+
+### Changed - 既存機能の変更について
+
+- Update .config/nvim/README.md
+- Update .config/fish/README.md
+- Update neovim coc.nvim config
+- Update nushell config
+- Update .chezmoiignore
+- Update utils/clean.sh
+- Update utils/update.sh
+- Update flyctl fish completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.01]
 
 ### Added - 新機能について
