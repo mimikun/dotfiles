@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# patch
 rm -f ./*.patch
 rm -f ./*.patch.gpg
+
+# fish completions
 rm -f dot_config/fish/completions/bd.fish
 rm -f dot_config/fish/completions/docker-compose.fish
 rm -f dot_config/fish/completions/docker.fish
