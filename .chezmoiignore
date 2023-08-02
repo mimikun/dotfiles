@@ -1,31 +1,35 @@
-.gitignore
-.github
+# root
 .editorconfig
-
-utils
-setup.sh
-
-windows
-README.md
+.github
+.gitignore
 CHANGELOG.md
-dot_config/nvim/README.md
-dot_config/fish/README.md
-dot_config/README.md
 LICENSE.txt
 Makefile
+README.md
+setup.sh
 Justfile
 *.just
 *.patch
 *.patch.gpg
 stylua.toml
 
-# fish completions
-dot_config/fish/completions/bd.fish
-dot_config/fish/completions/docker-compose.fish
-dot_config/fish/completions/docker.fish
-dot_config/fish/completions/fisher.fish
-dot_config/fish/completions/ghq.fish
-dot_config/fish/completions/gitignore.fish
-dot_config/fish/completions/hwm.fish
-dot_config/fish/completions/poetry.fish
-dot_config/fish/completions/spin.fish
+# .config
+.config/README.md
+
+# .config/fish
+.config/fish/README.md
+
+# .config/fish/completions
+.config/fish/completions/bd.fish
+.config/fish/completions/docker-compose.fish
+.config/fish/completions/docker.fish
+.config/fish/completions/fisher.fish
+.config/fish/completions/ghq.fish
+.config/fish/completions/gitignore.fish
+.config/fish/completions/hwm.fish
+.config/fish/completions/poetry.fish
+.config/fish/completions/spin.fish
+
+# others
+utils
+windows
