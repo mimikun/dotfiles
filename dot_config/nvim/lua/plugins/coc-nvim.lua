@@ -6,6 +6,8 @@ local coc_extensions = {
     "coc-html",
     "coc-jest",
     "coc-json",
+    "coc-lua",
+    "coc-powershell",
     "coc-prettier",
     "coc-pyright",
     "coc-rust-analyzer",
