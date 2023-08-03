@@ -33,7 +33,10 @@ set ambiwidth=double
 set noswapfile
 
 " :q したときにバッファを消さず隠して保持しておくようにする
-set hidden
+" Linuxの場合のみ設定
+if has('unix')
+    set hidden
+endif
 
 " 行番号を表示する
 set number
@@ -95,7 +98,9 @@ nnoremap <C-w>n <Esc>:enew<Return>
 
 " NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
 " 低スぺック環境ではオフにする
-set clipboard+=unnamedplus
+if hostname() == "TanakaPC"
+    set clipboard+=unnamedplus
+endif
 
 " win32yankの設定
 nnoremap <silent> <Space>y :.w !win32yank.exe -i<CR><CR>
