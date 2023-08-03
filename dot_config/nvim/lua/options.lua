@@ -7,7 +7,7 @@ vim.opt.fileformats = { "unix", "dos", "mac" }
 
 -- ファイル読み込むときのエンコード
 -- 左から順に試す
-vim.opt.fileencodings = "utf-8", "cp932", "ucs-bombs", "euc-jp"
+vim.opt.fileencodings = { "utf-8", "cp932", "ucs-bombs", "euc-jp" }
 
 --" 全角文字の表示に2文字分使うようにする
 vim.opt.ambiwidth = "double"
@@ -16,7 +16,9 @@ vim.opt.ambiwidth = "double"
 vim.opt.swapfile = false
 
 -- :q したときにバッファを消さず隠して保持しておくようにする
+if vim.fn.has("unix") == 1 then
 vim.opt.hidden = true
+end
 
 -- 行番号を表示する
 vim.opt.number = true
@@ -62,12 +64,13 @@ vim.opt.showmode = false
 -- <(←キー),>(→キー)はNORMALモード及びVISUALモードで各キーにこの機能を割り当て
 -- [(←キー),](→キー)はINSERTモード(置換含む)でこの機能を有効にする
 vim.opt.whichwrap = "b", "s", "<", ">", "[", "]"
+--vim.opt.whichwrap = {"b", "s", "<", ">", "[", "]"}
 
 -- 反映時間を短くする(デフォルトは4000ms)
 vim.opt.updatetime = 250
 
 -- ヘルプ日本語化
-vim.opt.helplang = "ja", "en"
+vim.opt.helplang = {"ja", "en"}
 
 -- シンタックスハイライトを有効にする
 vim.cmd("syntax enable")
@@ -77,13 +80,22 @@ vim.opt.termguicolors = true
 vim.cmd([[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]])
 vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
 
+-- Perl Providerを無効にする
+vim.g.loaded_perl_provider = 0
+
 -- Pythonのパスを指定
 vim.g.python_host_prog = "~/.asdf/shims/python2"
 vim.g.python3_host_prog = "~/.asdf/shims/python3"
 
--- Perl Providerを無効にする
-vim.g.loaded_perl_provider = 0
-
+-- 低スぺック環境ではオフになる
+if not vim.fn.hostname() == "TanakaPC" then
 -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
--- 低スぺック環境ではオフにする
---vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
+end
+
+-- Windowsでは各種プロバイダを無効にする
+if (vim.fn.has("win32") or vim.fn.has("win64")) == 1 then
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+end
