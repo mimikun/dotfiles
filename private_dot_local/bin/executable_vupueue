@@ -107,6 +107,8 @@ ohter_tools() {
   pueue add -- "tldr --update"
   # GitHub CLI extensions update
   pueue add -- "gh extensions upgrade --all"
+  # flyctl upgrade
+  pueue add -- "flyctl version upgrade"
 }
 
 no_pueue_other_tools() {
