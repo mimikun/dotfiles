@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.08.04]
+
+### Added - 新機能について
+
+- Add some envrionments variables in config.fish
+    - TZ "Azia/Tokyo"
+    - obsidian /path/to/001_DailyNotes
+    - XDG_CONFIG_HOME $HOME/.config
+    - LOCALBIN $HOME/.local/bin
+
+### Changed - 既存機能の変更について
+
+- Update vup
+- Update lazy-lock.json
+- Use double quote in config.fish
+- Update neovim coc.nvim config
+- Update fish completions
+    - exa
+    - deno
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.03]
 
 ### Added - 新機能について
