@@ -6,7 +6,7 @@ set -x FISH_CONFIG_DIR $HOME/.config/fish
 set -x FISH_COMPLETIONS_DIR $HOME/.config/fish/completions
 set -x FISH_FUNCTIONS_DIR $HOME/.config/fish/functions
 set -x PIPENV_VENV_IN_PROJECT 1
-set -x TODAY (date +'%Y/%m/%d')
+set -x TODAY (date +"%Y/%m/%d")
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 set -x WORKSPACE {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
@@ -20,19 +20,19 @@ set -x WIN_DESKTOP $WIN_HOME/Desktop
 set -x WIN_DOCUMENTS $WIN_HOME/Documents
 
 alias f fuck
-alias rm 'rm -i'
-alias l1 'ls -1'
+alias rm "rm -i"
+alias l1 "ls -1"
 alias ls exa
-alias lt 'ls -T'
-alias la 'ls -la'
-alias mkdir 'mkdir -p'
-alias untar 'tar xvf'
+alias lt "ls -T"
+alias la "ls -la"
+alias mkdir "mkdir -p"
+alias untar "tar xvf"
 alias rm gomi
-alias pueued_enable 'systemctl --user enable pueue'
-alias pueued_start 'systemctl --user start pueue'
-alias pueued_restart 'systemctl --user restart pueue'
-alias patch 'patch -p1 <'
-alias imgcat 'wezterm imgcat'
+alias pueued_enable "systemctl --user enable pueue"
+alias pueued_start "systemctl --user start pueue"
+alias pueued_restart "systemctl --user restart pueue"
+alias patch "patch -p1 <"
+alias imgcat "wezterm imgcat"
 
 set -x PATH /usr/bin $PATH
 set -x PATH /usr/local/bin $PATH
@@ -65,12 +65,12 @@ set -x EDITOR nvim
 set -x NVIM_APPNAME nvim
 set -x NVIM_CONFIG $HOME/.config/nvim
 
-alias pip 'python3 -m pip'
-alias pipx 'python3 -m pipx'
+alias pip "python3 -m pip"
+alias pipx "python3 -m pipx"
 
 alias open wsl-open
 alias zel zellij
-alias pueuexec 'pueue add --'
+alias pueuexec "pueue add --"
 
 # asdf
 source ~/.asdf/asdf.fish
@@ -138,7 +138,7 @@ set -x PATH $HOME/.codon/bin $PATH
 alias paleovim $HOME/.asdf/shims/vim
 alias pvim paleovim
 alias neovim $HOME/.asdf/shims/nvim
-alias vim 'nvim'
+alias vim "nvim"
 
 # Rye
 set -x PATH $HOME/.rye/shims $PATH
