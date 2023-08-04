@@ -17,7 +17,7 @@ vim.opt.swapfile = false
 
 -- :q したときにバッファを消さず隠して保持しておくようにする
 if vim.fn.has("unix") == 1 then
-vim.opt.hidden = true
+    vim.opt.hidden = true
 end
 
 -- 行番号を表示する
@@ -70,7 +70,7 @@ vim.opt.whichwrap = "b", "s", "<", ">", "[", "]"
 vim.opt.updatetime = 250
 
 -- ヘルプ日本語化
-vim.opt.helplang = {"ja", "en"}
+vim.opt.helplang = { "ja", "en" }
 
 -- シンタックスハイライトを有効にする
 vim.cmd("syntax enable")
@@ -89,13 +89,13 @@ vim.g.python3_host_prog = "~/.asdf/shims/python3"
 
 -- 低スぺック環境ではオフになる
 if not vim.fn.hostname() == "TanakaPC" then
--- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
-vim.opt.clipboard = 'unnamedplus'
+    -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
+    vim.opt.clipboard = "unnamedplus"
 end
 
 -- Windowsでは各種プロバイダを無効にする
 if (vim.fn.has("win32") or vim.fn.has("win64")) == 1 then
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
+    vim.g.loaded_python3_provider = 0
+    vim.g.loaded_ruby_provider = 0
+    vim.g.loaded_node_provider = 0
 end
