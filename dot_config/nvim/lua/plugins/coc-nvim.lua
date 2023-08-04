@@ -7,7 +7,8 @@ local coc_extensions = {
     "coc-jest",
     "coc-json",
     "coc-lua",
-    "coc-powershell",
+    --変なポップアップが出てきてつらいので消す
+    --"coc-powershell",
     "coc-prettier",
     "coc-pyright",
     "coc-rust-analyzer",
