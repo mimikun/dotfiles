@@ -11,7 +11,7 @@ WIP
 
 ### Windows
 
-See: [windows/README.md](windows/README.md)
+See: [dotfiles-windows](https://github.com/mimikun/dotfiles-windows)
 
 ## Others
 

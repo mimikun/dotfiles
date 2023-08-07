@@ -66,12 +66,3 @@ format : stylua-format
 .PHONY : stylua-format
 stylua-format :
 	stylua ./
-
-.PHONY : apply-windows-powershell-config
-apply-windows-powershell-config :
-	cp windows/Microsoft.PowerShell_profile.ps1 $$WIN_HOME/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
-	cp windows/Microsoft.PowerShell_profile.ps1 $$WIN_HOME/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-
-.PHONY : apply
-apply : apply-windows-powershell-config
-	chezmoi apply

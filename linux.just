@@ -49,10 +49,3 @@ format : stylua-format
 
 stylua-format :
 	stylua ./
-
-apply-windows-powershell-config :
-        cp windows/Microsoft.PowerShell_profile.ps1 $$WIN_HOME/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
-        cp windows/Microsoft.PowerShell_profile.ps1 $$WIN_HOME/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-
-apply : apply-windows-powershell-config
-    chezmoi apply

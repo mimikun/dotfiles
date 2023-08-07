@@ -100,12 +100,3 @@ format : stylua-format
 
 stylua-format :
     stylua ./
-
-[linux]
-apply-windows-powershell-config :
-        cp windows/Microsoft.PowerShell_profile.ps1 $env:WIN_HOME/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
-        cp windows/Microsoft.PowerShell_profile.ps1 $env:WIN_HOME/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
-
-[linux]
-apply : apply-windows-powershell-config
-    chezmoi apply
