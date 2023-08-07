@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2023.08.07]
+
+### Added - 新機能について
+
+- Add `.vim/README.md`
+- Add Brewfile
+
+### Changed - 既存機能の変更について
+
+- Fix .editorconfig
+- Update asdf tools version
+- Update lazy-lock.json
+- Update vim config
+    - Set colorscheme
+- Update neovim config
+    - Use zbirenbaum/copilot.lua
+- Update brew fish completion
+
+### Removed - 今回で削除された機能について
+
+- Remove windows config
+    - [dotfiles-windows](https://github.com/mimikun/dotfiles-windows) があるため
+- Remove `.vim/colors`
+
+### Fixed - 不具合修正について
+
+- Fix "Azia/Tokyo" to "Asia/Tokyo"
+    - タイムゾーンのミスによる時間取得誤りを修正
+
 ## [v2023.08.05]
 
 ### Added - 新機能について
