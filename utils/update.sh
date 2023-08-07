@@ -11,6 +11,9 @@ chezmoi add ~/asdf_plugin_list.txt
 # cargo packages
 chezmoi add ~/cargo_packages.txt
 
+# Brewfile
+chezmoi add ~/Brewfile
+
 # go packages (managed by gup)
 chezmoi add ~/.config/gup/gup.conf
 
