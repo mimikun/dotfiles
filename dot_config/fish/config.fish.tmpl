@@ -7,7 +7,7 @@ set -x FISH_COMPLETIONS_DIR $HOME/.config/fish/completions
 set -x FISH_FUNCTIONS_DIR $HOME/.config/fish/functions
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x TODAY (date +"%Y/%m/%d")
-set -x TZ "Azia/Tokyo"
+set -x TZ "Asia/Tokyo"
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 set -x WORKSPACE {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
