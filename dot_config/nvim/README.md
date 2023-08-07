@@ -50,6 +50,7 @@
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [copilot.vim](https://github.com/github/copilot.vim)
+- [copilot.lua ](https://github.com/zbirenbaum/copilot.lua)
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [jaq-nvim](https://github.com/is0n/jaq-nvim)
