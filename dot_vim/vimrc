@@ -10,10 +10,6 @@ set mouse=a
 " シンタックスハイライトを有効にする
 syntax enable
 
-" カラースキームを設定
-" $HOME/.vim/colors 以下にある
-"colorscheme molokai
-
 " 使用可能性のある改行コードを指定
 set fileformats=unix,dos,mac
 
@@ -170,6 +166,8 @@ Jetpack 'liuchengxu/vim-which-key'
 
 " colorschemes
 Jetpack 'ghifarit53/tokyonight-vim'
+Jetpack 'cormacrelf/vim-colors-github'
+
 
 " coc.nvim
 Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
@@ -323,7 +321,13 @@ let g:coc_global_extensions = [
 " ghifarit53/tokyonight-vim
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+
+" cormacrelf/vim-colors-github
+set background=dark
+
+" colorscheme settings
+colorscheme github
+let g:airline_theme = "github"
 
 "-----------------"
 "  Reference
