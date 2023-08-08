@@ -85,6 +85,10 @@ if command_exist tldr; then
   pueue add -- "curl -L https://raw.githubusercontent.com/dbrgn/tealdeer/main/completion/fish_tealdeer -o '${COMPLETIONS_DIR}'/tldr.fish"
 fi
 
+if command_exist zoxide; then
+  pueue add -- "curl -L https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/zoxide.fish -o '${COMPLETIONS_DIR}'zoxide.fish"
+fi
+
 if command_exist http; then
   pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/http.fish"
   pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/https.fish"
