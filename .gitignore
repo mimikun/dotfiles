@@ -1,5 +1,6 @@
 *.patch
 *.patch.gpg
+*.zip
 dot_config/fish/completions/bd.fish
 dot_config/fish/completions/docker-compose.fish
 dot_config/fish/completions/docker.fish

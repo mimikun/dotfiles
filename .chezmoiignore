@@ -11,6 +11,7 @@ Justfile
 *.just
 *.patch
 *.patch.gpg
+*.zip
 stylua.toml
 
 # .config
@@ -29,6 +30,10 @@ stylua.toml
 .config/fish/completions/hwm.fish
 .config/fish/completions/poetry.fish
 .config/fish/completions/spin.fish
+
+# *.zip
+.config/nvim/nvim-conf.zip
+.vim/vim-conf.zip
 
 # others
 utils
