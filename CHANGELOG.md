@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2023.08.08]
+
+### Added - 新機能について
+
+- Add .vim/Makefile
+- Add zoxide fish completion
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.1678
+- Update lazy-lock.json
+- Update Linux PowerShell config
+- Update .config/nvim/Makefile
+- Ignore zip file
+- Update update_fish_completions
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.07]
 
 ### Added - 新機能について
