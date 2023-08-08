@@ -1,5 +1,5 @@
 today   = $(shell date "+%Y%m%d")
-product_name = nvim
+product_name = nvim-conf
 gpg_pub_key = CCAA9E0638DF9088BB624BC37C0F8AD3FB3938FC
 
 .PHONY : patch
@@ -35,6 +35,7 @@ delete-branch : clean switch-master
 clean :
 	rm -f *.patch
 	rm -f *.patch.gpg
+	rm -f *.zip
 
 .PHONY : copy2win-patch-raw
 copy2win-patch-raw :
@@ -63,3 +64,20 @@ format : stylua-format
 .PHONY : stylua-format
 stylua-format :
 	stylua ./
+
+.PHONY : release
+release : copy2win-release
+
+.PHONY : create-release
+create-release : clean
+	zip -r $(product_name).zip \
+		Makefile \
+		README.md \
+		coc-settings.json \
+		init.lua \
+		lua/* \
+		stylua.toml
+
+.PHONY : copy2win-release
+copy2win-release : create-release
+	cp *.zip $$WIN_HOME/Downloads/
