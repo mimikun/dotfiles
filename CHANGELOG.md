@@ -1,5 +1,43 @@
 # Changelog
 
+## [v2023.08.09]
+
+### Added - 新機能について
+
+- Add some nvim plugin
+    - Rename fzf.lua to fzf-vim.lua
+    - Add fzf.lua
+    - Add startup.nvim
+    - Add image-preview.nvim
+    - Add dressing.nvim
+    - Add editorconfig.nvim
+- Add some vim colorschemes
+    - voidekh/kyotonight.vim
+    - sainnhe/sonokai
+    - loctvl842/monokai-pro.nvim
+    - crusoexia/vim-monokai
+- Add some neovim colorschemes
+    - tiagovla/tokyodark.nvim
+    - loctvl842/monokai-pro.nvim
+    - crusoexia/vim-monokai
+    - sainnhe/sonokai
+    - voidekh/kyotonight.vim
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.1679
+    - dotnet-core 7.0.400
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.08]
 
 ### Added - 新機能について
