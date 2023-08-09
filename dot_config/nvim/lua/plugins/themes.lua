@@ -62,4 +62,57 @@ return {
         end,
         cond = false,
     },
+    {
+        "tiagovla/tokyodark.nvim",
+        --lazy = false,
+        --priority = 1000,
+
+        opts = {},
+        config = function(_, opts)
+            require("tokyodark").setup(opts) -- calling setup is optional
+            vim.cmd.colorscheme("tokyodark")
+        end,
+        cond = false,
+    },
+    {
+        "loctvl842/monokai-pro.nvim",
+        --lazy = false,
+        --priority = 1000,
+
+        config = function()
+            require("monokai-pro").setup()
+            vim.cmd.colorscheme("monokai-pro")
+        end,
+        cond = false,
+    },
+    {
+        "crusoexia/vim-monokai",
+        --lazy = false,
+        --priority = 1000,
+
+        config = function()
+            vim.cmd.colorscheme("vim-monokai")
+        end,
+        cond = false,
+    },
+    {
+        "sainnhe/sonokai",
+        --lazy = false,
+        --priority = 1000,
+
+        config = function()
+            vim.cmd.colorscheme("sonokai")
+        end,
+        cond = false,
+    },
+    {
+        "voidekh/kyotonight.vim",
+        --lazy = false,
+        --priority = 1000,
+
+        config = function()
+            vim.cmd.colorscheme("sonokai")
+        end,
+        cond = false,
+    },
 }
