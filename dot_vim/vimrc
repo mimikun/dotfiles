@@ -167,6 +167,10 @@ Jetpack 'liuchengxu/vim-which-key'
 " colorschemes
 Jetpack 'ghifarit53/tokyonight-vim'
 Jetpack 'cormacrelf/vim-colors-github'
+Jetpack 'voidekh/kyotonight.vim'
+Jetpack 'sainnhe/sonokai'
+Jetpack 'loctvl842/monokai-pro.nvim'
+Jetpack 'crusoexia/vim-monokai'
 
 
 " coc.nvim
