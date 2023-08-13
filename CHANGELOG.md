@@ -11,7 +11,7 @@
 - Update lazy-lock.json
 - Update asdf tools version
     - nodejs 18.17.1
-    - vim 9.0.1699
+    - vim 9.0.1702
 
 ### Removed - 今回で削除された機能について
 
