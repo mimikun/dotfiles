@@ -23,7 +23,7 @@
   "nerdfont.vim": { "branch": "master", "commit": "85dcc800c94f7ab04e13900d6668faf86a0cdc78" },
   "nvim-notify": { "branch": "master", "commit": "ea9c8ce7a37f2238f934e087c255758659948e0f" },
   "nvim-surround": { "branch": "main", "commit": "0d6882635817a2677749a330127d12ac30a4f3c8" },
-  "nvim-treesitter": { "branch": "master", "commit": "baed6439e22aa4d1302a0c2acb1eb4a5824b1d23" },
+  "nvim-treesitter": { "branch": "master", "commit": "b5f203031282a6e9e025080fe71b58dbb43f7509" },
   "nvim-web-devicons": { "branch": "master", "commit": "ab899311f8ae00a47eae8e0879506cead8eb1561" },
   "plenary.nvim": { "branch": "master", "commit": "267282a9ce242bbb0c5dc31445b6d353bed978bb" },
   "sqlite.lua": { "branch": "master", "commit": "b7e28c8463254c46a8e61c52d27d6a2040492fc3" },
