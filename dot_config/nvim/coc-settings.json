@@ -5,5 +5,23 @@
       "filetypes": ["zig"]
     },
   },
-  "zig.zls.path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls"
+  "zig": {
+    "zls": {
+      "path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls"
+    }
+  },
+  "Lua": {
+    "workspace": {
+        "library": {
+          "/usr/local/share/nvim/runtime/lua": true,
+          "/usr/local/share/nvim/runtime/lua/vim": true,
+          "/usr/local/share/nvim/runtime/lua/vim/lsp": true
+        }
+    },
+    "diagnostics": {
+      "globals": [
+        "vim"
+      ]
+    }
+  }
 }
