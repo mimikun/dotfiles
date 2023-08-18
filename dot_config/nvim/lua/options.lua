@@ -63,7 +63,7 @@ vim.opt.showmode = false
 -- BackSpaceキー, SPACEキーで有効になる
 -- <(←キー),>(→キー)はNORMALモード及びVISUALモードで各キーにこの機能を割り当て
 -- [(←キー),](→キー)はINSERTモード(置換含む)でこの機能を有効にする
-vim.opt.whichwrap = "b", "s", "<", ">", "[", "]"
+--vim.opt.whichwrap = "b", "s", "<", ">", "[", "]"
 --vim.opt.whichwrap = {"b", "s", "<", ">", "[", "]"}
 
 -- 反映時間を短くする(デフォルトは4000ms)
