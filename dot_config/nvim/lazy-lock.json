@@ -5,7 +5,7 @@
   "denops-docker.vim": { "branch": "main", "commit": "cf03b50835ea57852d7ba9d1650e2818e7725ead" },
   "denops.vim": { "branch": "main", "commit": "9f1b8cf0d516ee0a0e26f50bdbd935c29a8f4588" },
   "dps-translate-vim": { "branch": "main", "commit": "efb92cd6a8b76c7779ca7b43641f04ff9fdc3fcf" },
-  "dressing.nvim": { "branch": "master", "commit": "6bde51adabba06f7fd4a469885a85f36d78a5f52" },
+  "dressing.nvim": { "branch": "master", "commit": "ee571505f3566f84fd252e76c4ce6df6eaf2fb94" },
   "editorconfig.nvim": { "branch": "master", "commit": "5b9e303e1d6f7abfe616ce4cc8d3fffc554790bf" },
   "fern-git-status.vim": { "branch": "master", "commit": "151336335d3b6975153dad77e60049ca7111da8e" },
   "fern-renderer-nerdfont.vim": { "branch": "master", "commit": "1e90a78ab5510fbcedc85abeb9a251d978726935" },
