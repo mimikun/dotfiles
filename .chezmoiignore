@@ -7,8 +7,6 @@ LICENSE.txt
 Makefile
 README.md
 setup.sh
-Justfile
-*.just
 *.patch
 *.patch.gpg
 *.zip
