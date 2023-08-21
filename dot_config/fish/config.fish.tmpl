@@ -37,7 +37,12 @@ alias pueued_restart "systemctl --user restart pueue"
 alias patch "patch -p1 <"
 alias imgcat "wezterm imgcat"
 
+# XDG Base Directory
 set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_STATE_HOME $HOME/.local/state
+
 set -x LOCALBIN $HOME/.local/bin
 
 set -x PATH /usr/bin $PATH
@@ -66,7 +71,7 @@ set -x PATH $HOME/.dotnet/tools/ $PATH
 set -x PATH $HOME/.gem/ruby/2.7.0/bin/ $PATH
 set -x PATH $HOME/depot_tools $PATH
 set -x PATH /usr/local/go/bin/ $PATH
-set -x XDG_CACHE_HOME $HOME/.cache
+
 set -x EDITOR nvim
 set -x NVIM_APPNAME nvim
 set -x NVIM_CONFIG $HOME/.config/nvim
