@@ -111,7 +111,27 @@ return {
         --priority = 1000,
 
         config = function()
-            vim.cmd.colorscheme("sonokai")
+            vim.cmd.colorscheme("kyotonight")
+        end,
+        cond = false,
+    },
+    {
+        "shaunsingh/nord.nvim",
+        --lazy = false,
+        --priority = 1000,
+
+        config = function()
+            vim.cmd.colorscheme("nord")
+        end,
+        cond = false,
+    },
+    {
+        "catppuccin/nvim",
+        --lazy = false,
+        --priority = 1000,
+
+        config = function()
+            vim.cmd.colorscheme("catppuccin")
         end,
         cond = false,
     },
