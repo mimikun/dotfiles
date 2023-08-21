@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2023.08.21]
+
+### Added - 新機能について
+
+- Add kensaku.vim
+    - lambdalisue/kensaku.vim
+    - lambdalisue/kensaku-command.vim
+    - lambdalisue/kensaku-search.vim
+- Add align.nvim
+    - Vonr/align.nvim
+- Add new colorscheme
+    - catppuccin/nvim
+    - shaunsingh/nord.nvim
+- Add update_poetry command
+- Add commit.verbose git config
+- Add XDG Base directory config
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.1778
+
+### Removed - 今回で削除された機能について
+
+- Remove ~/.config/nvim/event_learn_support.lua
+- Remove Justfile
+    - 遅すぎて使い物にならないので削除
+
+### Fixed - 不具合修正について
+
+- Fix script miss
+
 ## [v2023.08.20]
 
 ### Added - 新機能について
