@@ -33,7 +33,7 @@ vim.opt.autowriteall = false
 vim.opt.background = "dark"
 
 -- https://neovim.io/doc/user/options.html#'backspace'
-vim.opt.backspace = {"indent,eol,start"}
+vim.opt.backspace = { "indent,eol,start" }
 
 -- https://neovim.io/doc/user/options.html#'backup'
 vim.opt.backup = false
@@ -69,7 +69,7 @@ vim.opt.breakat = " ^I!@*-+;:,./?"
 vim.opt.breakindentopt = ""
 
 -- https://neovim.io/doc/user/options.html#'browsedir'
-vim.opt.browsedir = "last"
+--vim.opt.browsedir = "last"
 
 -- https://neovim.io/doc/user/options.html#'bufhidden'
 vim.opt.bufhidden = ""
@@ -95,7 +95,7 @@ vim.opt.cdhome = false
 --'cedit'   string (default CTRL-F)
 
 -- https://neovim.io/doc/user/options.html#'channel'
-vim.opt.channel = 0
+--vim.opt.channel = 0
 
 -- https://neovim.io/doc/user/options.html#'charconvert'
 vim.opt.charconvert = ""
@@ -150,7 +150,7 @@ vim.opt.completefunc = ""
 vim.opt.completeopt = "menu,preview"
 
 -- https://neovim.io/doc/user/options.html#'completeslash'
-vim.opt.completeslash = ""
+--vim.opt.completeslash = ""
 
 -- https://neovim.io/doc/user/options.html#'concealcursor'
 vim.opt.concealcursor = ""
@@ -358,10 +358,10 @@ vim.opt.guifontwide = ""
 --'guioptions' 'go' string (default "egmrLT"   (MS-Windows))
 
 -- https://neovim.io/doc/user/options.html#'guitablabel'
-vim.opt.guitablabel = ""
+--vim.opt.guitablabel = ""
 
 -- https://neovim.io/doc/user/options.html#'guitabtooltip'
-vim.opt.guitabtooltip = ""
+--vim.opt.guitabtooltip = ""
 
 -- TODO
 -- https://neovim.io/doc/user/options.html#'helpfile'
@@ -397,10 +397,10 @@ vim.opt.iconstring = ""
 vim.opt.ignorecase = true
 
 -- https://neovim.io/doc/user/options.html#'imcmdline'
-vim.opt.imcmdline = false
+--vim.opt.imcmdline = false
 
 -- https://neovim.io/doc/user/options.html#'imdisable'
-vim.opt.imdisable = false
+--vim.opt.imdisable = false
 
 -- https://neovim.io/doc/user/options.html#'iminsert'
 vim.opt.iminsert = 0
@@ -561,10 +561,10 @@ vim.opt.more = true
 vim.opt.mousefocus = false
 
 -- https://neovim.io/doc/user/options.html#'mousehide'
-vim.opt.mousehide = true
+--vim.opt.mousehide = true
 
 -- https://neovim.io/doc/user/options.html#'mousemodel'
-vim.opt.mousemodal = "popup_setpos"
+--vim.opt.mousemodal = "popup_setpos"
 
 -- https://neovim.io/doc/user/options.html#'mousemoveevent'
 vim.opt.mousemoveevent = false
@@ -597,7 +597,7 @@ vim.opt.numberwidth = 4
 vim.opt.omnifunc = ""
 
 -- https://neovim.io/doc/user/options.html#'opendevice'
-vim.opt.opendevice = false
+--vim.opt.opendevice = false
 
 -- https://neovim.io/doc/user/options.html#'operatorfunc'
 vim.opt.operatorfunc = ""
@@ -742,7 +742,7 @@ vim.opt.shadafile = ""
 --'shell' 'sh'  string (default $SHELL or "sh", Win32: "cmd.exe")
 
 -- https://neovim.io/doc/user/options.html#'shellslash'
-vim.opt.shellslash = false
+--vim.opt.shellslash = false
 
 -- https://neovim.io/doc/user/options.html#'shelltemp'
 vim.opt.shelltemp = true
@@ -1086,7 +1086,6 @@ vim.cmd("syntax enable")
 
 -- Perl Providerを無効にする
 vim.g.loaded_perl_provider = 0
-
 
 -- Windowsでは各種プロバイダを無効にする
 if (vim.fn.has("win32") or vim.fn.has("win64")) == 1 then
