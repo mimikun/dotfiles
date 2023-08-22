@@ -4,6 +4,7 @@
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ## Enable Plugins
+- [align.nvim](https://github.com/Vonr/align.nvim)
 - [calendar-vim](https://github.com/mattn/calendar-vim)
 - [chezmoi.vim](https://github.com/alker0/chezmoi.vim)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
@@ -24,6 +25,12 @@
     - [denops.vim](https://github.com/vim-denops/denops.vim)
 - [glow.nvim](https://github.com/ellisonleao/glow.nvim)
 - [kdl.vim](https://github.com/imsnif/kdl.vim)
+- [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
+    - [denops.vim](https://github.com/vim-denops/denops.vim)
+- [kensaku-command.vim](https://github.com/lambdalisue/kensaku-command.vim)
+    - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
+- [kensaku-search.vim](https://github.com/lambdalisue/kensaku-search.vim)
+    - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [mastodon.nvim](https://github.com/kode-team/mastodon.nvim)
@@ -65,6 +72,8 @@
 - [monokai.nvim](https://github.com/tanvirtin/monokai.nvim)
 - [monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
 - [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
+- [nord.nvim](https://github.com/shaunsingh/nord.nvim)
+- [catppuccin/nvim](https://github.com/catppuccin/nvim)
 - [penumbra.nvim](https://github.com/Allianaab2m/penumbra.nvim)
 - [tokyodark.nvim](https://github.com/tiagovla/tokyodark.nvim)
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
@@ -76,6 +85,8 @@
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [vim-monokai](https://github.com/crusoexia/vim-monokai)
+
+
 
 ### Vimscript Plugins
 - [copilot.vim](https://github.com/github/copilot.vim)
@@ -95,6 +106,12 @@
 - [gin.vim](https://github.com/lambdalisue/gin.vim)
     - [denops.vim](https://github.com/vim-denops/denops.vim)
 - [kdl.vim](https://github.com/imsnif/kdl.vim)
+- [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
+    - [denops.vim](https://github.com/vim-denops/denops.vim)
+- [kensaku-command.vim](https://github.com/lambdalisue/kensaku-command.vim)
+    - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
+- [kensaku-search.vim](https://github.com/lambdalisue/kensaku-search.vim)
+    - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
 - [kyotonight](https://github.com/sigmavim/kyotonight)
 - [nvim-nu](https://github.com/LhKipp/nvim-nu)
 - [sonokai](https://github.com/sainnhe/sonokai)
