@@ -7,7 +7,7 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 
-[*.{rb,js,ts,html,md,adoc}]
+[*.{rb,js,ts,}]
 indent_size = 2
 
 [*.{py,cpp,c,cs,go,rs,sh,fish}]
@@ -23,5 +23,5 @@ indent_size = 2
 indent_size = 2
 
 [*.{ps1,psd1}]
-end_of_line = crlf
 charset = utf-8-bom
+end_of_line = crlf
