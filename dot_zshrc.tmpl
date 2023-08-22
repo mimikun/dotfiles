@@ -110,5 +110,10 @@ source "$HOME/.rye/env"
 # Linuxbrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# walk
+function lk {
+  cd "$(walk "$@")"
+}
+
 # delete duplicate path
 typeset -U PATH

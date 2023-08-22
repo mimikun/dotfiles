@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# cd using walk
+cd "$(walk "$@")" || exit
