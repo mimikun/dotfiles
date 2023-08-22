@@ -1,22 +1,36 @@
 local coc_extensions = {
     "coc-css",
+    "coc-deepl",
     "coc-deno",
     "coc-eslint",
+    "coc-explorer",
     "coc-git",
+    "coc-highlight",
     "coc-html",
+    "coc-html-css-support",
     "coc-jest",
     "coc-json",
+    "coc-lists",
     "coc-lua",
+    "coc-marketplace",
+    "coc-pairs",
     --変なポップアップが出てきてつらいので消す
     --"coc-powershell",
-    "coc-prettier",
+    --エタったのか更新されていないので別のを使う
+    "@raidou/coc-prettier-v3",
+    --"coc-prettier",
     "coc-pyright",
     "coc-rust-analyzer",
     "coc-snippets",
     "coc-solargraph",
+    --変なポップアップが出てきてつらいので消す
+    --"coc-spell-checker",
+    "coc-toml",
     "coc-tsserver",
     "coc-yaml",
-    "coc-zls",
+    "@yaegassy/coc-black-formatter",
+    "@yaegassy/coc-mypy",
+    "@yaegassy/coc-nginx",
 }
 
 return {
