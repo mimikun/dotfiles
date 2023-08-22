@@ -10,10 +10,10 @@ peco 0.5.11
 direnv 2.32.3
 dotnet-core 7.0.400
 shellcheck 0.9.0
-chezmoi 2.37.0
+chezmoi 2.38.0
 shfmt 3.7.0
 tig 2.5.8
-github-cli 2.32.1
+github-cli 2.33.0
 duf 0.8.1
 yq 4.35.1
 zig master
