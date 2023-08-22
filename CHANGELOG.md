@@ -1,5 +1,51 @@
 # Changelog
 
+## [v2023.08.22]
+
+### Added - 新機能について
+
+- Add some coc extensions
+    - coc-zig
+    - @yaegassy/coc-nginx
+    - @yaegassy/coc-mypy
+    - coc-explorer
+    - coc-marketplace
+    - coc-highlight
+    - coc-toml
+    - coc-html-css-support
+    - coc-spell-checker
+    - coc-deepl
+    - @yaegassy/coc-black-formatter
+    - coc-lists
+    - coc-pairs
+- Add editorconfig command
+- Use walk command
+    - github.com/antonmedv/walk
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update neovim themes.lua
+- Update neovim coc-nvim.lua
+- Update ~/.config/nvim/README.md
+- Update deno fish completion
+- Update asdf tools version
+    - chezmoi 2.38.0
+    - github-cli 2.33.0
+- Update .editorconfig-template
+
+### Removed - 今回で削除された機能について
+
+- [NEED REVERT] coc-prettier is not maintained
+    - エタったのか更新されていないので別のを使う
+    - Use "@raidou/coc-prettier-v3
+- Remove coc-prettier
+- Remove coc-zls
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.21]
 
 ### Added - 新機能について
