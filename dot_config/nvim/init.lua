@@ -13,6 +13,9 @@ require("options")
 -- keymap を読み込む
 require("keymaps")
 
+-- User function を読み込む
+require("func")
+
 -- plugin を読み込む
 require("lazyvim")
 
