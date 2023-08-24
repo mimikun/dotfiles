@@ -83,10 +83,6 @@ vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
 -- Perl Providerを無効にする
 vim.g.loaded_perl_provider = 0
 
--- Pythonのパスを指定
-vim.g.python_host_prog = "~/.asdf/shims/python2"
-vim.g.python3_host_prog = "~/.asdf/shims/python3"
-
 -- 低スぺック環境ではオフになる
 if not vim.fn.hostname() == "TanakaPC" then
     -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
@@ -95,7 +91,13 @@ end
 
 -- Windowsでは各種プロバイダを無効にする
 if (vim.fn.has("win32") or vim.fn.has("win64")) == 1 then
+    -- Windows
     vim.g.loaded_python3_provider = 0
     vim.g.loaded_ruby_provider = 0
     vim.g.loaded_node_provider = 0
+else
+    -- それ以外
+    -- Pythonのパスを指定
+    vim.g.python_host_prog = "~/.asdf/shims/python2"
+    vim.g.python3_host_prog = "~/.asdf/shims/python3"
 end
