@@ -9,6 +9,7 @@ github-cli                   https://github.com/bartlomiejdanek/asdf-github-cli.
 neovim                       https://github.com/richin13/asdf-neovim.git
 nodejs                       https://github.com/asdf-vm/asdf-nodejs.git
 peco                         https://github.com/asdf-community/asdf-peco.git
+powershell-core              https://github.com/daveneeley/asdf-powershell-core.git
 python                       https://github.com/danhper/asdf-python.git
 ruby                         https://github.com/asdf-vm/asdf-ruby.git
 shellcheck                   https://github.com/luizm/asdf-shellcheck.git
