@@ -31,6 +31,7 @@ local coc_extensions = {
     "@yaegassy/coc-black-formatter",
     "@yaegassy/coc-mypy",
     "@yaegassy/coc-nginx",
+    "coc-zig",
 }
 
 return {
