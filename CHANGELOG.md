@@ -5,6 +5,7 @@
 ### Added - 新機能について
 
 - Add asdf-powershell-core
+- Add coc-zig
 
 ### Changed - 既存機能の変更について
 
@@ -13,10 +14,12 @@
     - vim 9.0.1787
     - powershell-core 7.3.6
 - Update ~/.local/bin/README.md
+- Update alpha-nvim config
+- Copy config from nvim to pvim
 
 ### Removed - 今回で削除された機能について
 
-なし
+- Disable alpha-nvim
 
 ### Fixed - 不具合修正について
 
