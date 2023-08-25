@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2023.08.25]
+
+### Added - 新機能について
+
+- Add pip_packages commands
+
+### Changed - 既存機能の変更について
+
+- Update alpha-nvim config
+- Update lazy-lock.json
+- Update deno fish completion
+- Update asdf tools version
+    - python 3.11.5
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.24]
 
 ### Added - 新機能について
