@@ -1,3 +1,4 @@
 #!/bin/bash
 
-curl -sL https://www.gitignore.io/api/$@
+# shellcheck disable=SC2145
+curl -sL "https://www.gitignore.io/api/$@"
