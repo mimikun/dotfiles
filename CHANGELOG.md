@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2023.08.26]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update LOCALBINs
+- Update utils/update.sh
+
+### Removed - 今回で削除された機能について
+
+- Remove some coc extensions for pvim
+- Remove coc-prettier from pvim
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.25]
 
 ### Added - 新機能について
