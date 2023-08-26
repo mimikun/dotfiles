@@ -321,7 +321,6 @@ let g:coc_global_extensions = [
     \'coc-marketplace',
     \'coc-pairs',
     \'@raidou/coc-prettier-v3',
-    \'coc-prettier',
     \'coc-pyright',
     \'coc-rust-analyzer',
     \'coc-snippets',
