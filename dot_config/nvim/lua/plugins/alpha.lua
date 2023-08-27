@@ -39,6 +39,7 @@ return {
         dashboard.section.header.val = vanitas_header_2
         dashboard.section.buttons.val = {
             dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+            dashboard.button("u", "  Update plugins", "<cmd>Lazy sync<CR>"),
             dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
         }
         alpha.setup(dashboard.config)
