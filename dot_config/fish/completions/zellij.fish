@@ -159,6 +159,7 @@ complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subco
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s p -l plugin -r
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -l cwd -d 'Change the working directory of the new pane' -r -F
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s n -l name -d 'Name of the new pane' -r
+complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -l configuration -r
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s f -l floating -d 'Open the new pane in floating mode'
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s c -l close-on-exit -d 'Close the pane immediately when its command exits'
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s s -l start-suspended -d 'Start the command suspended, only running it after the you first press ENTER'
@@ -190,8 +191,11 @@ complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subco
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from previous-swap-layout" -s h -l help -d 'Print help information'
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from next-swap-layout" -s h -l help -d 'Print help information'
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from query-tab-names" -s h -l help -d 'Print help information'
+complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from start-or-reload-plugin" -s c -l configuration -r
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from start-or-reload-plugin" -s h -l help -d 'Print help information'
+complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from launch-or-focus-plugin" -s c -l configuration -r
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from launch-or-focus-plugin" -s f -l floating
+complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from launch-or-focus-plugin" -s m -l move-to-focused-tab
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from launch-or-focus-plugin" -s h -l help -d 'Print help information'
 complete -c zellij -n "__fish_seen_subcommand_from run" -s d -l direction -d 'Direction to open the new pane in' -r
 complete -c zellij -n "__fish_seen_subcommand_from run" -l cwd -d 'Change the working directory of the new pane' -r -F
