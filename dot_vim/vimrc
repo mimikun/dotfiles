@@ -149,6 +149,7 @@ Jetpack 'cespare/vim-toml'
 Jetpack 'NoahTheDuke/vim-just'
 Jetpack 'nastevens/vim-cargo-make'
 Jetpack 'alker0/chezmoi.vim'
+Jetpack 'ron-rs/ron.vim'
 
 " utilities
 Jetpack 'vim-jp/vimdoc-ja'
