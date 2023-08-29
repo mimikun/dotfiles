@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2023.08.29]
+
+### Added - 新機能について
+
+- Add chezmoi_apply_hook scripts
+- Add some LOCALBINs
+- Add about chezmoi settings in README
+
+### Changed - 既存機能の変更について
+
+- Update fish_plugins
+- Cleanup coc-nvim config
+- Update todo-comments.nvim config
+- Update alpha.nvim config
+- Update nvim README.md
+- Improved dashboard-nvim config
+- Update README.md
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.1815
+    - bitwarden 2023.8.2
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.08.28]
 
 ### Added - 新機能について
