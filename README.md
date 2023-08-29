@@ -9,6 +9,18 @@ managed by [chezmoi](https://www.chezmoi.io/).
 
 WIP
 
+#### `~/.config/chezmoi/chezmoi.toml`
+
+```toml
+[hooks.apply.pre]
+command = "echo"
+args = ["pre-apply-hook"]
+
+[hooks.apply.post]
+command = "echo"
+args = ["post-apply-hook"]
+```
+
 ### Windows
 
 See: [dotfiles-windows](https://github.com/mimikun/dotfiles-windows)
