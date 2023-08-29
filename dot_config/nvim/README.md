@@ -38,6 +38,7 @@
     - [nvim-notify](https://github.com/rcarriga/nvim-notify)
     - [sqlite.lua](https://github.com/kkharji/sqlite.lua)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
+- [ron.vim](https://github.com/ron-rs/ron.vim)
 - [github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
 - [tree-sitter-just](https://github.com/IndianBoy42/tree-sitter-just)
     - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
