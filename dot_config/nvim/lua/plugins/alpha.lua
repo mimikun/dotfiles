@@ -30,10 +30,19 @@ local vanitas_header_2 = {
     [[ Vanitas vanitatum. et omnia vanitas.]],
 }
 
+local remember_covid_19 = {
+    [[================================]],
+    [[===== Remember COVID-19!!! =====]],
+    [[================================]],
+    [[==== コロナを忘れるな！！！ ====]],
+    [[================================]],
+}
+
 local headers = {
     neovim_header,
     vanitas_header,
     vanitas_header_2,
+    remember_covid_19,
 }
 
 return {
@@ -52,7 +61,8 @@ return {
             -- 1: neovim_header
             -- 2: vanitas_header
             -- 3: vanitas_header_2
-            val = headers[3],
+            -- 4: remember_covid_19
+            val = headers[4],
             opts = {
                 position = "center",
                 hl = "Type",
@@ -64,7 +74,7 @@ return {
             val = {
                 {
                     type = "text",
-                    val = "Recent files",
+                    val = "  Recent files",
                     opts = {
                         hl = "SpecialComment",
                         shrink_margin = false,
@@ -90,10 +100,11 @@ return {
         local buttons = {
             type = "group",
             val = {
-                { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
+                { type = "text", val = "󰍜  Quick links", opts = { hl = "SpecialComment", position = "center" } },
                 { type = "padding", val = 1 },
-                dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-                dashboard.button("u", "  Update plugins", "<cmd>Lazy sync<CR>"),
+                dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+                dashboard.button("u", "  Update plugins", "<cmd>Lazy sync<CR>"),
+                dashboard.button("c", "  Run checkhealth", "<cmd>checkhealth<CR>"),
                 dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
             },
             position = "center",
@@ -101,11 +112,11 @@ return {
 
         local config = {
             layout = {
-                { type = "padding", val = 2 },
+                { type = "padding", val = 1 },
                 header,
-                { type = "padding", val = 2 },
+                { type = "padding", val = 1 },
                 buttons,
-                { type = "padding", val = 2 },
+                { type = "padding", val = 1 },
                 section_mru,
             },
             opts = {
