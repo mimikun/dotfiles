@@ -14,17 +14,11 @@ local coc_extensions = {
     "coc-lua",
     "coc-marketplace",
     "coc-pairs",
-    --変なポップアップが出てきてつらいので消す
-    --"coc-powershell",
-    --エタったのか更新されていないので別のを使う
     "@raidou/coc-prettier-v3",
-    --"coc-prettier",
     "coc-pyright",
     "coc-rust-analyzer",
     "coc-snippets",
     "coc-solargraph",
-    --変なポップアップが出てきてつらいので消す
-    --"coc-spell-checker",
     "coc-toml",
     "coc-tsserver",
     "coc-yaml",
