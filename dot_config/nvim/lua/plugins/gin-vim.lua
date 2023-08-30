@@ -3,5 +3,5 @@ return {
     dependencies = {
         "vim-denops/denops.vim",
     },
-    --cond = false,
+    cond = false,
 }

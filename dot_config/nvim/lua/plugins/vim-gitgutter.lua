@@ -18,5 +18,5 @@ return {
         vim.cmd([[highlight GitGutterChange ctermfg=blue]])
         vim.cmd([[highlight GitGutterDelete ctermfg=red]])
     end,
-    --cond = false,
+    cond = false,
 }

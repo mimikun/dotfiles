@@ -21,8 +21,6 @@
     - [fern-git-status.vim](https://github.com/lambdalisue/fern-git-status.vim)
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
     - [fzf](https://github.com/junegunn/fzf)
-- [gin.vim](https://github.com/lambdalisue/gin.vim)
-    - [denops.vim](https://github.com/vim-denops/denops.vim)
 - [glow.nvim](https://github.com/ellisonleao/glow.nvim)
 - [kdl.vim](https://github.com/imsnif/kdl.vim)
 - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
@@ -46,7 +44,6 @@
 - [vim-cargo-make](https://github.com/nastevens/vim-cargo-make)
     - [vim-toml](https://github.com/cespare/vim-toml)
     - [vim-duckscript](https://github.com/nastevens/vim-duckscript)
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [vim-just](https://github.com/NoahTheDuke/vim-just)
 - [vim-markdown](https://github.com/preservim/vim-markdown)
     - [tabular](https://github.com/godlygeek/tabular)
@@ -64,6 +61,8 @@
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [fzf.lua](https://github.com/ibhagwan/fzf-lua)
+- [gin.vim](https://github.com/lambdalisue/gin.vim)
+    - [denops.vim](https://github.com/vim-denops/denops.vim)
 - [image-preview.nvim](https://github.com/adelarsq/image_preview.nvim)
 - [jaq-nvim](https://github.com/is0n/jaq-nvim)
 - [kyotonight](https://github.com/sigmavim/kyotonight)
@@ -86,6 +85,7 @@
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [vim-monokai](https://github.com/crusoexia/vim-monokai)
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 
 
 
