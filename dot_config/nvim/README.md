@@ -69,6 +69,7 @@
 - [copilot.lua ](https://github.com/zbirenbaum/copilot.lua)
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+- [dial.nvim](https://github.com/monaqa/dial.nvim)
 - [fzf.lua](https://github.com/ibhagwan/fzf-lua)
 - [gin.vim](https://github.com/lambdalisue/gin.vim)
     - [denops.vim](https://github.com/vim-denops/denops.vim)
