@@ -8,6 +8,7 @@
 - [calendar-vim](https://github.com/mattn/calendar-vim)
 - [chezmoi.vim](https://github.com/alker0/chezmoi.vim)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
+- [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [denops-docker.vim](https://github.com/skanehira/denops-docker.vim)
     - [denops.vim](https://github.com/vim-denops/denops.vim)
 - [dressing.nvim](https://github.com/stevearc/dressing.nvim)
