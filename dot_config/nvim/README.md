@@ -41,6 +41,7 @@
 - [neogit](https://github.com/NeogitOrg/neogit)
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
+- [readablefold.vim](https://github.com/lambdalisue/readablefold.vim)
 - [ron.vim](https://github.com/ron-rs/ron.vim)
 - [github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
 - [tree-sitter-just](https://github.com/IndianBoy42/tree-sitter-just)
