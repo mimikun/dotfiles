@@ -22,6 +22,7 @@
     - [fern-git-status.vim](https://github.com/lambdalisue/fern-git-status.vim)
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
     - [fzf](https://github.com/junegunn/fzf)
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [glow.nvim](https://github.com/ellisonleao/glow.nvim)
 - [kdl.vim](https://github.com/imsnif/kdl.vim)
 - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
