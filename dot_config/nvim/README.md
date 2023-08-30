@@ -57,6 +57,7 @@
     - [tabular](https://github.com/godlygeek/tabular)
 - [vim-quickrun](https://github.com/thinca/vim-quickrun)
 - [vim-scouter](https://github.com/thinca/vim-scouter)
+- [vim-silicon](https://github.com/segeljakt/vim-silicon)
 - [vim-startuptime](https://github.com/dstein64/vim-startuptime)
 - [vimdoc-ja](https://github.com/vim-jp/vimdoc-ja)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
