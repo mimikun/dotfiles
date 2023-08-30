@@ -80,6 +80,7 @@
     - [nui.nvim](https://github.com/MunifTanjim/nui.nvim)
     - [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-nu](https://github.com/LhKipp/nvim-nu)
+- [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag)
 - [monokai.nvim](https://github.com/tanvirtin/monokai.nvim)
 - [monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
 - [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim)
