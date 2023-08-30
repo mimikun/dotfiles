@@ -38,6 +38,7 @@
     - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
     - [nvim-notify](https://github.com/rcarriga/nvim-notify)
     - [sqlite.lua](https://github.com/kkharji/sqlite.lua)
+- [neogit](https://github.com/NeogitOrg/neogit)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
 - [ron.vim](https://github.com/ron-rs/ron.vim)
 - [github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
