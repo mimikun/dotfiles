@@ -60,7 +60,7 @@ complete -c rye -n "__fish_seen_subcommand_from fetch" -s q -l quiet -d 'Turns o
 complete -c rye -n "__fish_seen_subcommand_from fetch" -s h -l help -d 'Print help'
 complete -c rye -n "__fish_seen_subcommand_from init" -l min-py -d 'Minimal Python version supported by this project' -r
 complete -c rye -n "__fish_seen_subcommand_from init" -s p -l py -d 'Python version to use for the virtualenv' -r
-complete -c rye -n "__fish_seen_subcommand_from init" -l build-system -d 'Which build system should be used(defaults to hatchling)?' -r -f -a "{hatchling	,setuptools	,flit	,pdm	}"
+complete -c rye -n "__fish_seen_subcommand_from init" -l build-system -d 'Which build system should be used(defaults to hatchling)?' -r -f -a "{hatchling	,setuptools	,flit	,pdm	,maturin	}"
 complete -c rye -n "__fish_seen_subcommand_from init" -l license -d 'Which license should be used (SPDX identifier)?' -r
 complete -c rye -n "__fish_seen_subcommand_from init" -l name -d 'The name of the package' -r
 complete -c rye -n "__fish_seen_subcommand_from init" -s r -l requirements -d 'Requirements files to initialize pyproject.toml with' -r -F
