@@ -57,19 +57,19 @@ return {
                         desc = "New file",
                         group = "@property",
                         action = "enew",
-                        key = "e"
+                        key = "e",
                     },
                     {
                         desc = "Update plugins",
                         group = "@property",
                         action = "Lazy update",
-                        key = "u"
+                        key = "u",
                     },
                     {
                         desc = "󰅚Quit NVIM",
                         group = "@property",
                         action = "qa",
-                        key = "q"
+                        key = "q",
                     },
                 },
                 packages = {
@@ -80,8 +80,8 @@ return {
                 },
                 mru = {
                     limit = 10,
-                    icon = '',
-                    label = 'Recent files',
+                    icon = "",
+                    label = "Recent files",
                 },
             },
         })

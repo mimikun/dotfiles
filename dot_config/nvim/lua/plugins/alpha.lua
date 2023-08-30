@@ -83,7 +83,7 @@ return {
                 },
                 {
                     type = "padding",
-                    val = 1
+                    val = 1,
                 },
                 {
                     type = "group",
