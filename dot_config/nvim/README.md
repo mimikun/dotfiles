@@ -44,6 +44,7 @@
 - [readablefold.vim](https://github.com/lambdalisue/readablefold.vim)
 - [ron.vim](https://github.com/ron-rs/ron.vim)
 - [github-nvim-theme](https://github.com/projekt0n/github-nvim-theme)
+- [silicon.lua](https://github.com/0oAstro/silicon.lua)
 - [tree-sitter-just](https://github.com/IndianBoy42/tree-sitter-just)
     - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
