@@ -1,4 +1,5 @@
-# root
+# All Platform ignoreパターン
+## root
 .editorconfig
 .github
 .gitignore
@@ -6,19 +7,30 @@ CHANGELOG.md
 LICENSE.txt
 Makefile
 README.md
-setup.sh
 *.patch
 *.patch.gpg
 *.zip
 stylua.toml
+.textlintrc.json
+.textlintcache
+package.json
+pnpm-lock.yaml
+PSScriptAnalyzerSettings.psd1
+typos.toml
+node_modules
 
-# .config
+{{ if eq .chezmoi.os "linux" }}
+# Linuxの場合のignoreパターン
+## root
+setup.sh
+
+## .config
 .config/README.md
 
-# .config/fish
+## .config/fish
 .config/fish/README.md
 
-# .config/fish/completions
+## .config/fish/completions
 .config/fish/completions/bd.fish
 .config/fish/completions/docker-compose.fish
 .config/fish/completions/docker.fish
@@ -29,9 +41,31 @@ stylua.toml
 .config/fish/completions/poetry.fish
 .config/fish/completions/spin.fish
 
-# *.zip
+## *.zip
 .config/nvim/nvim-conf.zip
 .vim/vim-conf.zip
 
-# others
+## others
 utils
+
+{{ else if eq .chezmoi.os "darwin" }}
+# macOSの場合のignoreパターン
+{{ else if eq .chezmoi.os "windows" }}
+# Windowsの場合のignoreパターン
+## root
+wsl.conf
+WSLInterop.conf
+tasks.ps1
+scripts
+
+## zip
+AppData/Local/nvim/*.zip
+vimfiles/Makefile/*.zip
+
+AppData/Local/nvim/Makefile
+AppData/Local/nvim/scripts
+vimfiles/Makefile
+
+{{ else }}
+# その他のOS
+{{ end }}
