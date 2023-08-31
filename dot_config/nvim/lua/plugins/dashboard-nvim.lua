@@ -30,10 +30,19 @@ local vanitas_header_2 = {
     [[ Vanitas vanitatum. et omnia vanitas.]],
 }
 
+local remember_covid_19 = {
+    [[================================]],
+    [[===== Remember COVID-19!!! =====]],
+    [[================================]],
+    [[==== コロナを忘れるな！！！ ====]],
+    [[================================]],
+}
+
 local headers = {
     neovim_header,
     vanitas_header,
     vanitas_header_2,
+    remember_covid_19,
 }
 
 return {
@@ -48,7 +57,12 @@ return {
             theme = "hyper",
             shortcut_type = "number",
             config = {
-                header = headers[3],
+                -- Set original headers
+                -- 1: neovim_header
+                -- 2: vanitas_header
+                -- 3: vanitas_header_2
+                -- 4: remember_covid_19
+                header = headers[4],
                 week_header = {
                     enable = false,
                 },
@@ -60,10 +74,16 @@ return {
                         key = "e",
                     },
                     {
-                        desc = "Update plugins",
+                        desc = "Update plugins",
                         group = "@property",
                         action = "Lazy update",
                         key = "u",
+                    },
+                    {
+                        desc = "Run checkhealth",
+                        group = "@property",
+                        action = "checkhealth",
+                        key = "c",
                     },
                     {
                         desc = "󰅚Quit NVIM",
