@@ -1,9 +1,9 @@
 {
   "align.nvim": { "branch": "master", "commit": "2004d263bb1b1ec28e55cf56c35944ec4ea23f8b" },
+  "alpha-nvim": { "branch": "main", "commit": "26d95031e2c624c5317dbdce386eb89f9356d4c0" },
   "calendar-vim": { "branch": "master", "commit": "2083a41e2d310f9bbbbf644517f30e901f1fb04d" },
   "chezmoi.vim": { "branch": "main", "commit": "902c4070f204b226a6e0c6681302244c8d27b7c3" },
   "coc.nvim": { "branch": "release", "commit": "05fcd1acb2e3b70bba6e73b9e470bf765a98170b" },
-  "dashboard-nvim": { "branch": "master", "commit": "2caf39ffe2b51bdcf28528473b51042760e888f3" },
   "denops-docker.vim": { "branch": "main", "commit": "0b641e57fec9c25d96b809969584fa9de4d6c2a2" },
   "denops.vim": { "branch": "main", "commit": "a80e4d83fc7922f79886126d505790ad1da30ab2" },
   "dps-translate-vim": { "branch": "main", "commit": "efb92cd6a8b76c7779ca7b43641f04ff9fdc3fcf" },
