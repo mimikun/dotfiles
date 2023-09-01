@@ -10,5 +10,5 @@ extend-exclude = [
     "AppData/Local/nvim/README.md",
     "AppData/Local/nvim/lua/plugins/noice.lua",
     "AppData/Local/nvim/lua/keymaps.lua",
-    "tasks.ps1"
+    "tasks.ps1",
 ]
