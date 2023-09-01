@@ -1,6 +1,11 @@
+# Common to all platforms
+*.zip
 *.patch
 *.patch.gpg
-*.zip
+node_modules
+.textlintcache
+
+# Linux only
 dot_config/fish/completions/bd.fish
 dot_config/fish/completions/docker-compose.fish
 dot_config/fish/completions/docker.fish
@@ -10,3 +15,7 @@ dot_config/fish/completions/gitignore.fish
 dot_config/fish/completions/spin.fish
 dot_config/fish/completions/poetry.fish
 dot_config/fish/completions/hwm.fish
+
+# Windows only
+AppData/Local/nvim/Makefile
+vimfiles/Makefile
