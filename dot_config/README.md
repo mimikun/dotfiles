@@ -1,6 +1,6 @@
 # $HOME/.config
 
-## [alacritty](https://github.com/alacritty/alacritty
+## [alacritty](https://github.com/alacritty/alacritty)
 
 ## [bat](https://github.com/sharkdp/bat)
 
@@ -10,7 +10,7 @@
 
 ## [direnv](https://github.com/direnv/direnv)
 
-[asdf-direnv](https://github.com/asdf-community/asdf-direnv)
+- [asdf-direnv](https://github.com/asdf-community/asdf-direnv)
 
 ## [emacs](https://www.gnu.org/software/emacs/)
 
