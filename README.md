@@ -69,7 +69,8 @@ WIP
 
 ## Others
 
-- [Linux neovim config](dot_config/nvim/README.md)
-- [Windows neovim config](AppData/Local/nvim/README.md)
-- [Windows vim config](vimfiles/README.md)
+- [neovim config](dot_config/nvim/README.md)
+- [paleovim(vim) config](dot_vim/README.md)
+- [config](dot_config/README.md)
 - [Fish-shell config](dot_config/fish/README.md)
+- [~/.local/bin](private_dot_local/bin/README.md)
