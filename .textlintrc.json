@@ -9,7 +9,9 @@
         "max": 10
       },
       "ja-no-redundant-expression": false,
-      "ja-no-mixed-period": false
+      "ja-no-mixed-period": false,
+      "no-unmatched-pair": false,
+      "no-exclamation-question-mark": false
     }
   }
 }
