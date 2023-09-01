@@ -50,12 +50,27 @@ copy2win-patch-gpg :
 .PHONY : copy2win-patch
 copy2win-patch : copy2win-patch-raw
 
+.PHONY : test
+test : lint
+
 .PHONY : lint
-lint : stylua-lint
+lint : stylua-lint textlint typo-check pwsh-test
 
 .PHONY : stylua-lint
 stylua-lint :
 	stylua --check ./
+
+.PHONY : textlint
+textlint :
+	pnpm run lint
+
+.PHONY : typo-check
+typo-check :
+	typos .
+
+.PHONY : pwsh-test
+pwsh-test :
+	echo "THIS IS WIP"
 
 .PHONY : fmt
 fmt : format
