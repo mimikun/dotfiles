@@ -134,5 +134,5 @@ return {
         }
         alpha.setup(config)
     end,
-    cond = false,
+    --cond = false,
 }
