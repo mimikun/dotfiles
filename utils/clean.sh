@@ -16,5 +16,6 @@ rm -f dot_config/fish/completions/poetry.fish
 rm -f dot_config/fish/completions/hwm.fish
 
 # zip file
+rm -f ./*.zip
 rm -f dot_config/nvim/nvim-conf.zip
 rm -f dot_vim/vim-conf.zip
