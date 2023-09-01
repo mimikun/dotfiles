@@ -12,7 +12,7 @@
   "fern-git-status.vim": { "branch": "master", "commit": "151336335d3b6975153dad77e60049ca7111da8e" },
   "fern-renderer-nerdfont.vim": { "branch": "master", "commit": "1e90a78ab5510fbcedc85abeb9a251d978726935" },
   "fern.vim": { "branch": "main", "commit": "e295f0df5735a042f63b05218118646809ba9d27" },
-  "fzf": { "branch": "master", "commit": "2c74f0a0405bc4d394063bb66f8c6dfd5fe750fa" },
+  "fzf": { "branch": "master", "commit": "f50a7058d6734b8213fb8bbe6a293b2ffd485eed" },
   "fzf.vim": { "branch": "master", "commit": "811f34b70b60b4df2997e3ba8cd109e7d06d683b" },
   "git.nvim": { "branch": "main", "commit": "eb09b8d01d7bb38ca1d65ed0d82d71bddcd8a8bd" },
   "github-nvim-theme": { "branch": "main", "commit": "58d3d585b9cd90c113e7b63a12f0719aaf5541db" },
