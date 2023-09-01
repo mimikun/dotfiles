@@ -142,7 +142,7 @@ Jetpack 'willelz/skk-tutorial.vim'
 Jetpack 'vim-airline/vim-airline'
 Jetpack 'vim-airline/vim-airline-themes'
 
-" syntax hilights
+" syntax highlights
 Jetpack 'nastevens/vim-duckscript'
 Jetpack 'imsnif/kdl.vim'
 Jetpack 'cespare/vim-toml'

@@ -95,7 +95,7 @@ update_asdf_nodejs_lts() {
 }
 
 # other
-ohter_tools() {
+other_tools() {
   # Upgrade Rust toolchains
   rustup update
   # Upgrade deno
@@ -164,7 +164,7 @@ case "$OS_INFO" in
 esac
 
 # 共通の処理
-ohter_tools
+other_tools
 
 # ファイルがあれば再起動を促す
 if test -e /var/run/reboot-required; then

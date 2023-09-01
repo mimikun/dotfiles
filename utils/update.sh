@@ -24,7 +24,7 @@ chezmoi add ~/.config/nvim/lazy-lock.json
 chezmoi add ~/.local/bin/editorconfig
 chezmoi add ~/.local/bin/generate_cargo_package_list
 chezmoi add ~/.local/bin/generate_pip_package_list
-chezmoi add ~/.local/bin/git-ammend-commit
+chezmoi add ~/.local/bin/git-amend-commit
 chezmoi add ~/.local/bin/git-browse
 chezmoi add ~/.local/bin/git-hash
 chezmoi add ~/.local/bin/git-ignore

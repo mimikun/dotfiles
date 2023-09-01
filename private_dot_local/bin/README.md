@@ -38,7 +38,7 @@
     - update_pnpm
     - update_poetry
     - generate_cargo_package_list
-    - git-ammend-commit
+    - git-amend-commit
     - git-browse
     - git-hash
     - git-ignore

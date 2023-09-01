@@ -631,7 +631,7 @@
 
 ### Added - 新機能について
 
-- Add some envrionments variables in config.fish
+- Add some environments variables in config.fish
     - TZ "Azia/Tokyo"
     - obsidian /path/to/001_DailyNotes
     - XDG_CONFIG_HOME $HOME/.config

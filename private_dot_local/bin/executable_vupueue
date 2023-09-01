@@ -94,7 +94,7 @@ pueue_update_asdf_nodejs_lts() {
 }
 
 # other
-ohter_tools() {
+other_tools() {
   # Upgrade Rust toolchains
   pueue add -- "rustup update"
   # Upgrade deno
@@ -167,7 +167,7 @@ case "$OS_INFO" in
 esac
 
 # 共通の処理
-ohter_tools
+other_tools
 no_pueue_other_tools
 
 # ファイルがあれば再起動を促す
