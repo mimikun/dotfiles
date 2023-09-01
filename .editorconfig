@@ -7,20 +7,21 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 
+[*.{rb,js,ts,}]
+indent_size = 2
+
+[*.{py,cpp,c,cs,go,rs,sh,fish}]
+indent_size = 4
+
 [Makefile]
 indent_style = tab
 
-[dot_gitconfig.tmpl]
-indent_style = tab
-
-[Justfile,*.just]
-indent_size = 4
-
-[*.md]
-indent_size = 4
-
-[*.sh]
-indent_size = 4
-
-[*.toml]
+[*.{yml,yaml}]
 indent_size = 2
+
+[*.{json,toml}]
+indent_size = 2
+
+[*.{ps1,psd1}]
+charset = utf-8-bom
+end_of_line = crlf
