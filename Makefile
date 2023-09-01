@@ -70,7 +70,8 @@ typo-check :
 
 .PHONY : pwsh-test
 pwsh-test :
-	echo "THIS IS WIP"
+	@echo "Run PowerShell ScriptAnalyzer"
+	@pwsh utils/pssa.ps1
 
 .PHONY : fmt
 fmt : format
