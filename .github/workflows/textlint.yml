@@ -1,0 +1,34 @@
+name: Run textlint
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**.md'
+
+jobs:
+  textlint:
+    name: textlint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: |
+          pnpm install
+
+      - name: Run textlint
+        run: |
+          pnpm run lint

@@ -48,6 +48,23 @@ setup.sh
 ## others
 utils
 
+## Windows only file
+### root
+### TODO
+wsl.conf
+vimfiles
+utilities
+tasks.ps1
+macros.txt
+komorebi.json
+applications.yaml
+WSLInterop.conf
+OneDrive
+Documents
+AppData
+.wslconfig
+.config/whkdrc
+
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSの場合のignoreパターン
 {{ else if eq .chezmoi.os "windows" }}
@@ -66,6 +83,50 @@ AppData/Local/nvim/Makefile
 AppData/Local/nvim/scripts
 vimfiles/Makefile
 
+## Linux only file
+### root
+### TODO
+utils
+pip_packages.txt
+gh_extension_list.txt
+cargo_packages.txt
+get_ipv4.sh
+.zshrc
+asdf_plugin_list.txt
+.ghcup
+.exrc
+Brewfile
+.vuerc
+.tool-versions
+.asdfrc
+.tmux.conf
+.profile
+.npmrc
+.nanorc
+.local
+
+### .config
+.config/fish
+.config/powershell
+.config/pueue
+.config/zellij
+.config/nvim
+.vim
+
+### 非自宅PCではignoreしたい
+{{ if eq .chezmoi.hostname "TanakaPC" }}
+utilities/GamingMode.bat
+utilities/Mining.bat
+utilities/MiningMode.bat
+utilities/StopTrex.bat
+utilities/StopTrex.ps1
+utilities/dual-gminer-mining.bat
+utilities/gminer-flux-mining.bat
+utilities/gminer-mining.bat
+utilities/lolminer-mining.bat
+utilities/miniz-flux-mining.bat
+utilities/t-rex-mining.bat
+{{ end }}
 {{ else }}
 # その他のOS
 {{ end }}

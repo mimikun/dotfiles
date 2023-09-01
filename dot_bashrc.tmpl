@@ -1,3 +1,8 @@
+# All platform 共通
+export EDITOR=nvim
+
+{{ if eq .chezmoi.os "linux" }}
+# Linuxのとき
 case $- in
     *i*) ;;
       *) return;;
@@ -71,7 +76,6 @@ fi
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export STARSHIP_CACHE=~/.config/starship/cache
-export EDITOR=nvim
 export NVIM_APPNAME=nvim
 export NVIM_CONFIG=~/.config/nvim
 
@@ -132,3 +136,16 @@ function lk {
 
 # sheldon
 eval "$(sheldon source)"
+{{ else if eq .chezmoi.os "darwin" }}
+# macOSのとき
+{{ else if eq .chezmoi.os "windows" }}
+# Windowsのとき
+export GHQ_ROOT=~/ghq
+export GHQ_SELECTOR=fzf
+export TZ="Asia/Tokyo"
+
+alias vim=nvim
+alias patch="patch -p1 <"
+{{ else }}
+# その他OSのとき
+{{ end }}

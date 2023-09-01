@@ -11,10 +11,17 @@
 	editor = nvim
 	quotepath = false
 	excludesfile = ~/.gitignore_global
+	{{ if eq .chezmoi.os "windows" }}
+	filemode = false
+	{{ end }}
 [color]
 	ui = true
 [credential]
+	{{ if eq .chezmoi.os "windows" }}
+	helper = manager
+	{{ else }}
 	helper = cache --timeout=86400
+	{{ end }}
 [alias]
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 	ls = "ls-files"
@@ -29,3 +36,9 @@
 	sort = -version:refname
 [commit]
 	verbose = true
+{{ if eq .chezmoi.os "windows" }}
+[winUpdater]
+        recentlySeenVersion = 2.25.0.windows.1
+[credential "helperselector"]
+        selected = manager
+{{ end }}
