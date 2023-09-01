@@ -1,0 +1,14 @@
+[default.extend-words]
+
+[files]
+extend-exclude = [
+    "pnpm-lock.yaml",
+    "dot_logseq/config/config.edn",
+    "dot_logseq/config/plugins.edn",
+    "dot_config/starship.toml",
+    "vimfiles/vimrc",
+    "AppData/Local/nvim/README.md",
+    "AppData/Local/nvim/lua/plugins/noice.lua",
+    "AppData/Local/nvim/lua/keymaps.lua",
+    "tasks.ps1"
+]

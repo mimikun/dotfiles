@@ -1,0 +1,9 @@
+[wsl2]
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
+memory=3GB
+swap=8GB
+{{ else }}
+memory=8GB
+swap=0
+{{ end }}
+localhostForwarding=true

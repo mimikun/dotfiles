@@ -1,0 +1,15 @@
+{
+  "filters": {},
+  "rules": {
+    "preset-ja-technical-writing": {
+      "sentence-length": {
+        "max": 150
+      },
+      "max-kanji-continuous-len": {
+        "max": 10
+      },
+      "ja-no-redundant-expression": false,
+      "ja-no-mixed-period": false
+    }
+  }
+}
