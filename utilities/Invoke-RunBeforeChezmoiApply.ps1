@@ -1,8 +1,7 @@
-# Run before chezmoi apply
+﻿# Run before chezmoi apply
 
 function Invoke-RunBeforeChezmoiApply() {
-    Write-Output "RUN BEFORE CHEZMOI APPLY"
-    Write-Output "THIS IS WIP"
+    Write-Output "pre-apply-hook"
     # TODO: set $env:BW_SESSION
 }
 
