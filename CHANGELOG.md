@@ -4,10 +4,21 @@
 
 ### Added - 新機能について
 
+- Merge dotfiles-windows
 - Use sheldon
+- global gitignore desktop.ini
+- gitignore some files
+- Add lint task
 
 ### Changed - 既存機能の変更について
 
+- Update .config/README.md
+- Update pwsh-test task
+- Update textlint deps
+- Update README
+- Update nvim plugin config: fzf.lua
+- Update Linux wezterm config
+- Update editorconfig
 - Update lazy-lock.json
 - Update asdf tools version
     - vim 9.0.1833
@@ -19,7 +30,11 @@
 
 ### Fixed - 不具合修正について
 
-なし
+- Fix typo-check error
+- Fix typos.toml
+- Fix textlint error
+- Revert "[NEED REVERT] Use dashboard-nvim"
+    - Fix: [nvimのダッシュボードが表示されない(alpha.nvim) Issue #33](https://github.com/mimikun/dotfiles/issues/33)
 
 ## [v2023.08.31]
 
