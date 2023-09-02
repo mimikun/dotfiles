@@ -16,6 +16,11 @@
     - vim 9.0.1839
 - Update Windows chezmoi_apply hook scripts
 - Update deno fish completion
+- Update LOCALBINs
+    - generate_cargo_package_list
+    - generate_pip_package_list
+    - install_cargo_packages
+    - install_pip_packages
 
 ### Removed - 今回で削除された機能について
 
