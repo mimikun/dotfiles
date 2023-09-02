@@ -11,18 +11,6 @@ managed by [chezmoi](https://www.chezmoi.io/).
 chezmoi init --apply --verbose https://github.com/mimikun/dotfiles.git
 ```
 
-#### `~/.config/chezmoi/chezmoi.toml`
-
-```toml
-[hooks.apply.pre]
-command = "echo"
-args = ["pre-apply-hook"]
-
-[hooks.apply.post]
-command = "echo"
-args = ["post-apply-hook"]
-```
-
 ### Windows
 
 ```shell
@@ -38,21 +26,6 @@ chezmoi init --apply --verbose https://github.com/mimikun/dotfiles.git
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
-```
-
-#### `%USERPROFILE%\.config\chezmoi\chezmoi.toml`
-
-```toml
-[cd]
-    command = "pwsh.exe"
-
-[hooks.apply.pre]
-command = "pwsh"
-args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
-
-[hooks.apply.post]
-command = "pwsh"
-args = ["-c", "& {Invoke-RunAfterChezmoiApply}"]
 ```
 
 #### WSLの `/etc/wsl.conf` に配置する

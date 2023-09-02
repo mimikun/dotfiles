@@ -1,0 +1,22 @@
+{{ if eq .chezmoi.os "linux" }}
+[hooks.apply.pre]
+command = "echo"
+args = ["pre-apply-hook"]
+
+[hooks.apply.post]
+command = "echo"
+args = ["post-apply-hook"]
+{{ else if eq .chezmoi.os "windows" }}
+[cd]
+    command = "pwsh.exe"
+
+[hooks.apply.pre]
+command = "pwsh"
+args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
+
+[hooks.apply.post]
+command = "pwsh"
+args = ["-c", "& {Invoke-RunAfterChezmoiApply}"]
+{{ else if eq .chezmoi.os "darwin" }}
+{{ else }}
+{{ end }}
