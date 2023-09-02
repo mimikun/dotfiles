@@ -60,6 +60,7 @@ ripgrep
 ripgrep_all
 sd
 selene
+sheldon
 shellharden
 silicon
 skim
