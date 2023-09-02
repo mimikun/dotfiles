@@ -27,11 +27,12 @@ tasks.ps1
 ## root
 setup.sh
 
-## .config
+## READMEs
 .config/README.md
-
-## .config/fish
 .config/fish/README.md
+.config/nvim/README.md
+.local/bin/README.md
+.vim/README.md
 
 ## .config/fish/completions
 .config/fish/completions/bd.fish
@@ -58,6 +59,8 @@ macros.txt
 komorebi.json
 applications.yaml
 .config/whkdrc
+windows_cargo_packages.txt
+windows_pip_packages.txt
 
 ### directory
 vimfiles
@@ -98,9 +101,9 @@ utils
 .local
 
 ### textfiles
-pip_packages.txt
+linux_pip_packages.txt
 gh_extension_list.txt
-cargo_packages.txt
+linux_cargo_packages.txt
 get_ipv4.sh
 asdf_plugin_list.txt
 
