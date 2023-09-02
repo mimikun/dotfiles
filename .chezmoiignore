@@ -18,6 +18,9 @@ pnpm-lock.yaml
 PSScriptAnalyzerSettings.psd1
 typos.toml
 node_modules
+wsl.conf
+WSLInterop.conf
+tasks.ps1
 
 {{ if eq .chezmoi.os "linux" }}
 # Linuxの場合のignoreパターン
@@ -49,51 +52,36 @@ setup.sh
 utils
 
 ## Windows only file
-### root
-### TODO
-wsl.conf
-vimfiles
-utilities
-tasks.ps1
+### textfiles
+.wslconfig
 macros.txt
 komorebi.json
 applications.yaml
-WSLInterop.conf
+.config/whkdrc
+
+### directory
+vimfiles
+utilities
 OneDrive
 Documents
 AppData
-.wslconfig
-.config/whkdrc
 
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSの場合のignoreパターン
 {{ else if eq .chezmoi.os "windows" }}
 # Windowsの場合のignoreパターン
-## root
-wsl.conf
-WSLInterop.conf
-tasks.ps1
-scripts
 
 ## zip
 AppData/Local/nvim/*.zip
 vimfiles/Makefile/*.zip
 
+## Makefiles
 AppData/Local/nvim/Makefile
-AppData/Local/nvim/scripts
 vimfiles/Makefile
 
 ## Linux only file
 ### root
-### TODO
-utils
-pip_packages.txt
-gh_extension_list.txt
-cargo_packages.txt
-get_ipv4.sh
 .zshrc
-asdf_plugin_list.txt
-.ghcup
 .exrc
 Brewfile
 .vuerc
@@ -103,7 +91,18 @@ Brewfile
 .profile
 .npmrc
 .nanorc
+
+### directory
+utils
+.ghcup
 .local
+
+### textfiles
+pip_packages.txt
+gh_extension_list.txt
+cargo_packages.txt
+get_ipv4.sh
+asdf_plugin_list.txt
 
 ### .config
 .config/fish
