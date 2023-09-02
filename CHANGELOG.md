@@ -9,6 +9,13 @@
 ### Changed - 既存機能の変更について
 
 - Update .chezmoiignore
+- Update lazy-lock.json
+- Update pip_packages.txt
+- Update cargo_packages.txt
+- Update asdf tools version
+    - vim 9.0.1839
+- Update Windows chezmoi_apply hook scripts
+- Update deno fish completion
 
 ### Removed - 今回で削除された機能について
 
