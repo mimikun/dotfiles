@@ -1,10 +1,10 @@
+cargo-about
 ag
 bandwhich
 bat
 bingrep
 bottom
 broot
-cargo-about
 cargo-all-features
 cargo-audit
 cargo-deny

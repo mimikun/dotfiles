@@ -9,4 +9,4 @@ while read -r line; do
         echo "$line is not found"
         pueue add -- "pip install $line"
     fi
-done <~/pip_packages.txt
+done <~/linux_pip_packages.txt
