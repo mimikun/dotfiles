@@ -32,6 +32,7 @@ six
 SQLAlchemy
 text-unidecode
 thefuck
+typing_extensions
 userpath
 wcwidth
 xlrd
