@@ -1,5 +1,23 @@
 # Changelog
 
+## [v2023.09.02]
+
+### Added - 新機能について
+
+- Add chezmoi.toml template
+
+### Changed - 既存機能の変更について
+
+- Update .chezmoiignore
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.01]
 
 ### Added - 新機能について
