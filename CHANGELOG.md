@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.09.03]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.1854
+- Update linux_cargo_packages.txt
+- Update utils/update.sh
+- Update Linux cargo_packages.txt
+- Update nushell config
+- Update .chezmoiignore
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- [NEED REVERT] Update update_pnpm
+- Fix bash launch error
+
 ## [v2023.09.02]
 
 ### Added - 新機能について
