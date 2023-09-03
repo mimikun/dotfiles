@@ -9,7 +9,10 @@ chezmoi add ~/.tool-versions
 chezmoi add ~/asdf_plugin_list.txt
 
 # cargo packages
-chezmoi add ~/cargo_packages.txt
+chezmoi add ~/linux_cargo_packages.txt
+
+# pip packages
+chezmoi add ~/linux_pip_packages.txt
 
 # Brewfile
 chezmoi add ~/Brewfile
