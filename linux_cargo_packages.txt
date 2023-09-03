@@ -1,11 +1,10 @@
-cargo-about
-pylyzer
 ag
 bandwhich
 bat
 bingrep
 bottom
 broot
+cargo-about
 cargo-all-features
 cargo-audit
 cargo-deny
@@ -55,6 +54,7 @@ os_info_cli
 pipr
 procs
 pueue
+pylyzer
 rana
 ripgrep
 ripgrep_all
