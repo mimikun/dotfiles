@@ -1,0 +1,88 @@
+shell = "fish"
+
+[plugins]
+
+[plugins.fish-bd]
+github = "0rax/fish-bd"
+
+[plugins.fish-spin]
+github = "americanhanko/fish-spin"
+
+[plugins.fish-ghq]
+github = "decors/fish-ghq"
+
+[plugins.penumbra-theme]
+github = "eskori/penumbra-theme.fish"
+
+[plugins.fish-docker]
+github = "halostatue/fish-docker"
+branch = "main"
+
+[plugins.z]
+github = "jethrokuan/z"
+
+[plugins.getopts]
+github = "jorgebucaran/getopts.fish"
+
+[plugins.bw]
+github = "mimikun/bw.fish"
+
+[plugins.def]
+github = "mimikun/def"
+
+[plugins.editorconfig]
+github = "mimikun/editorconfig"
+
+[plugins.gcd]
+github = "mimikun/gcd"
+
+[plugins.nkf]
+github = "mimikun/nkf.fish"
+
+[plugins.numeronym]
+github = "mimikun/numeronym"
+
+[plugins.pcd]
+github = "mimikun/pcd"
+
+[plugins.re_boot]
+github = "mimikun/re_boot"
+
+[plugins.shut_down]
+github = "mimikun/shut_down"
+
+[plugins.supersync]
+github = "mimikun/supersync"
+
+[plugins.update_asdf_neovim]
+github = "mimikun/update_asdf_neovim"
+
+[plugins.update_asdf_zig_master]
+github = "mimikun/update_asdf_zig_master"
+
+[plugins.update_bw]
+github = "mimikun/update_bw"
+
+[plugins.update_chromedriver]
+github = "mimikun/update_chromedriver"
+
+[plugins.update_completions]
+github = "mimikun/update_completions"
+
+[plugins.update_docker_compose]
+github = "mimikun/update_docker_compose"
+
+[plugins.update_geckodriver]
+github = "mimikun/update_geckodriver"
+
+[plugins.update_peco]
+github = "mimikun/update_peco"
+
+[plugins.vup]
+github = "mimikun/vup"
+
+[plugins.plugin-thefuck]
+github = "oh-my-fish/plugin-thefuck"
+
+[plugins.gitignore]
+github = "sijad/gitignore"
