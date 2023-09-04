@@ -27,7 +27,7 @@ if command_exist bun; then
   pueue add -- "bun completions"
 fi
 
-for cmd in "chezmoi" "flyctl" "runme" "bin"; do
+for cmd in "chezmoi" "flyctl" "runme" "bin" "rtx"; do
   if command_exist "${cmd}"; then
     pueue add -- "'${cmd}' completion fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
   fi
@@ -73,6 +73,10 @@ if command_exist pueue; then
   pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
 fi
 
+if command_exist sheldon; then
+  pueue add -- "sheldon completions --shell fish > '${COMPLETIONS_DIR}'/sheldon.fish"
+fi
+
 if command_exist brew; then
   pueue add -- "cp $(brew --prefix)/Homebrew/completions/fish/brew.fish ${COMPLETIONS_DIR}/brew.fish"
 fi
@@ -86,7 +90,7 @@ if command_exist tldr; then
 fi
 
 if command_exist zoxide; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/zoxide.fish -o '${COMPLETIONS_DIR}'zoxide.fish"
+  pueue add -- "curl -L https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/zoxide.fish -o '${COMPLETIONS_DIR}'/zoxide.fish"
 fi
 
 if command_exist http; then
