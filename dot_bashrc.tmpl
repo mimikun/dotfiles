@@ -134,6 +134,10 @@ function lk {
     cd "$(walk "$@")"
 }
 
+# rtx
+#export RTX_DATA_DIR=$HOME/.rtx
+#export RTX_CACHE_DIR=$RTX_DATA_DIR/cache
+
 # sheldon
 #eval "$(sheldon source)"
 {{ else if eq .chezmoi.os "darwin" }}

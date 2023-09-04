@@ -58,6 +58,7 @@ pylyzer
 rana
 ripgrep
 ripgrep_all
+rtx-cli
 sd
 selene
 sheldon
