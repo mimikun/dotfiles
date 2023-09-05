@@ -42,6 +42,8 @@
     - [sqlite.lua](https://github.com/kkharji/sqlite.lua)
 - [nvim-surround](https://github.com/kylechui/nvim-surround)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [ron.vim](https://github.com/ron-rs/ron.vim)
 - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
     - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
