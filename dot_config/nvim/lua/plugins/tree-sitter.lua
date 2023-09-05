@@ -59,19 +59,38 @@ local need_parsers = {
 }
 
 return {
-    "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
-    build = ":TSUpdate",
-    config = function()
-        local configs = require("nvim-treesitter.configs")
+    {
+        "nvim-treesitter/nvim-treesitter",
+        event = "VeryLazy",
+        build = ":TSUpdate",
+        config = function()
+            local configs = require("nvim-treesitter.configs")
 
-        configs.setup({
-            highlight = {
-                enable = true,
-                disable = {},
-            },
-            ensure_installed = need_parsers,
-        })
-    end,
-    --cond = false,
+            configs.setup({
+                highlight = {
+                    enable = true,
+                    disable = {},
+                },
+                ensure_installed = need_parsers,
+            })
+        end,
+        --cond = false,
+    },
+
+    {
+        "windwp/nvim-ts-autotag",
+        event = "VeryLazy",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        cond = false,
+    },
+    {
+        "IndianBoy42/tree-sitter-just",
+        event = "VeryLazy",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        --cond = false,
+    },
 }
