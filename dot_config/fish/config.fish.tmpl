@@ -158,5 +158,22 @@ set -x PATH $HOME/.rye/shims $PATH
 #set -x RTX_DATA_DIR $HOME/.rtx
 #set -x RTX_CACHE_DIR $RTX_DATA_DIR/cache
 
+# luarocks
+set -x PATH $HOME/.luarocks/bin $PATH
+
+set -x LUA_PATH "/usr/local/share/lua/5.3/?.lua"
+set -x LUA_PATH "/usr/local/share/lua/5.3/?/init.lua" $LUA_PATH
+set -x LUA_PATH "/usr/local/lib/lua/5.3/?.lua" $LUA_PATH
+set -x LUA_PATH "/usr/local/lib/lua/5.3/?/init.lua" $LUA_PATH
+set -x LUA_PATH "./?.lua" $LUA_PATH
+set -x LUA_PATH "./?/init.lua" $LUA_PATH
+set -x LUA_PATH "$HOME/.luarocks/share/lua/5.3/?.lua" $LUA_PATH
+set -x LUA_PATH "$HOME/.luarocks/share/lua/5.3/?/init.lua" $LUA_PATH
+
+set -x LUA_CPATH "/usr/local/lib/lua/5.3/?.so"
+set -x LUA_CPATH "/usr/local/lib/lua/5.3/loadall.so" $LUA_CPATH
+set -x LUA_CPATH "./?.so" $LUA_CPATH
+set -x LUA_CPATH "$HOME/.luarocks/lib/lua/5.3/?.so" $LUA_CPATH
+
 # Linuxbrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
