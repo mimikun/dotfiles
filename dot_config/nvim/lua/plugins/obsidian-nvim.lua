@@ -1,6 +1,8 @@
+local vault_path = vim.fn.expand("$obsidian_vault_path")
+
 local events = {
-    "BufReadPre " .. vim.fn.expand("$obsidian_vault_path") .. "/**.md",
-    "BufNewFile " .. vim.fn.expand("$obsidian_vault_path") .. "/**.md",
+    "BufReadPre " .. vault_path .. "/**.md",
+    "BufNewFile " .. vault_path .. "/**.md",
 }
 
 local cmds = {
@@ -18,21 +20,23 @@ local cmds = {
 }
 
 local opts = {
-    dir = vim.fn.expand("$obsidian_vault_path"),
+    -- Obsidian vault path
+    dir = vault_path,
+    -- Default save location for newly created notes
     notes_subdir = "000_Inbox",
     log_level = vim.log.levels.DEBUG,
+    -- Default save location for newly daily notes
     daily_notes = {
         folder = "001_DailyNotes",
         date_format = "%Y年%m月%d日",
     },
     disable_frontmatter = true,
+    -- Obsidian templates folder
     templates = {
         subdir = "999_Templates",
         date_format = "%Y年%m月%d日",
     },
 }
-
-local cond = (vim.fn.hostname() == "TanakaPC")
 
 return {
     --"epwalsh/obsidian.nvim",
@@ -45,6 +49,5 @@ return {
         "nvim-lua/plenary.nvim",
     },
     opts = opts,
-    --cond = cond,
-    cond = true,
+    --cond = false,
 }
