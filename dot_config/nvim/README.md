@@ -98,6 +98,7 @@
 - [sonokai](https://github.com/sainnhe/sonokai)
 - [startup.nvim](https://github.com/startup-nvim/startup.nvim)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [themery.nvim](https://github.com/zaldih/themery.nvim)
 - [tokyodark.nvim](https://github.com/tiagovla/tokyodark.nvim)
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
