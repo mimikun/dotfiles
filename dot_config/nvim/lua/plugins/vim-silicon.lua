@@ -1,6 +1,10 @@
 return {
     "segeljakt/vim-silicon",
-    cmd = "Silicon",
+    --lazy = false,
+    --event = "VeryLazy",
+    cmd = {
+        "Silicon",
+    },
     config = function()
         vim.g.silicon["theme"] = "GitHub"
         --vim.g.silicon["font"] = "Hack"

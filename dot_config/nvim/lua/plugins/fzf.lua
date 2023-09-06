@@ -1,12 +1,14 @@
 return {
     "ibhagwan/fzf-lua",
-    dependencies = {
-        { "nvim-tree/nvim-web-devicons" },
-    },
+    --lazy = false,
+    --event = "VeryLazy",
     --[[keys = {
         { "<C-p>", ":call FzfOmniFiles()<CR>", desc = "Open file search" },
         { "<C-g>", ":Rg<CR>", desc = "Open string search" },
     },]]
+    dependencies = {
+        { "nvim-tree/nvim-web-devicons" },
+    },
     config = function()
         -- Ctrl+pでファイル検索を開く
         -- git管理されていれば:GFiles、そうでなければ:Filesを実行する

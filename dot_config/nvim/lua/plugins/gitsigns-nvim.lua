@@ -1,5 +1,6 @@
 return {
     "lewis6991/gitsigns.nvim",
+    --lazy = false,
     event = "WinEnter",
     config = function()
         require("gitsigns").setup({

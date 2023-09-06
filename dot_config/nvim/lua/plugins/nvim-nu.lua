@@ -1,10 +1,10 @@
---[[
-[nvim-nu](https://github.com/LhKipp/nvim-nu)
-]]
 return {
+    -- TODO: setup
+    -- https://github.com/LhKipp/nvim-nu
     "LhKipp/nvim-nu",
-    event = "VeryLazy",
     build = ":TSInstall nu",
+    --lazy = false,
+    event = "VeryLazy",
     ft = {
         "nu",
     },

@@ -1,5 +1,7 @@
 return {
     "airblade/vim-gitgutter",
+    --lazy = false,
+    --event = "VeryLazy",
     config = function()
         -- g]で前の変更箇所へ移動する
         vim.keymap.set("n", "g[", ":GitGutterPrevHunk<CR>")

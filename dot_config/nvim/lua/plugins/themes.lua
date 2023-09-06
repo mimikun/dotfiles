@@ -2,6 +2,7 @@ return {
     {
         "projekt0n/github-nvim-theme",
         lazy = false,
+        --event = "VeryLazy",
         priority = 1000,
 
         config = function()
@@ -13,6 +14,7 @@ return {
     {
         "tanvirtin/monokai.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -24,6 +26,7 @@ return {
     {
         "Allianaab2m/penumbra.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -35,6 +38,7 @@ return {
     {
         "folke/tokyonight.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -45,6 +49,7 @@ return {
     {
         "kihachi2000/yash.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -55,6 +60,7 @@ return {
     {
         "EdenEast/nightfox.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -65,6 +71,7 @@ return {
     {
         "tiagovla/tokyodark.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         opts = {},
@@ -77,6 +84,7 @@ return {
     {
         "loctvl842/monokai-pro.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -88,6 +96,7 @@ return {
     {
         "crusoexia/vim-monokai",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -98,6 +107,7 @@ return {
     {
         "sainnhe/sonokai",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -108,6 +118,7 @@ return {
     {
         "voidekh/kyotonight.vim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -118,6 +129,7 @@ return {
     {
         "shaunsingh/nord.nvim",
         --lazy = false,
+        --event = "VeryLazy",
         --priority = 1000,
 
         config = function()
@@ -127,8 +139,9 @@ return {
     },
     {
         "catppuccin/nvim",
-        --lazy = false,
         name = "catppuccin",
+        --lazy = false,
+        --event = "VeryLazy",
         priority = 1000,
 
         config = function()

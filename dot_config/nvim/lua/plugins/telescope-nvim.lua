@@ -5,7 +5,9 @@ return {
     lazy = false,
     --event = "VimEnter",
     --cmd = "",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
     config = function() end,
     cond = false,
 }

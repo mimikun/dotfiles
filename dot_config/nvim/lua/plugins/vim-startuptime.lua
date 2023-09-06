@@ -1,5 +1,7 @@
 return {
     "dstein64/vim-startuptime",
+    --lazy = false,
+    --event = "VeryLazy",
     cmd = {
         "StartupTime",
     },

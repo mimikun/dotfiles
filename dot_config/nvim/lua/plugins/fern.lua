@@ -2,6 +2,8 @@
 return {
     "lambdalisue/fern.vim",
     branch = "main",
+    --lazy = false,
+    --event = "VeryLazy",
     keys = {
         { "<C-n>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", desc = "Toggle Fern" },
     },

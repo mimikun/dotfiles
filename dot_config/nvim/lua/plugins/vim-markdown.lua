@@ -1,12 +1,12 @@
 return {
     "preservim/vim-markdown",
+    --lazy = false,
+    --event = "VeryLazy",
     ft = {
         "markdown",
     },
     dependencies = {
-        {
-            "godlygeek/tabular",
-        },
+        "godlygeek/tabular",
     },
     config = function()
         -- 折りたたみ無効化

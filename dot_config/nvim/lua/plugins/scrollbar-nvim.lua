@@ -1,5 +1,6 @@
 return {
     "Xuyuanp/scrollbar.nvim",
+    --lazy = false,
     event = {
         "WinScrolled",
         "VimResized",

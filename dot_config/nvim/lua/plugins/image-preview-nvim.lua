@@ -1,5 +1,6 @@
 return {
-    "https://github.com/adelarsq/image_preview.nvim",
+    "adelarsq/image_preview.nvim",
+    --lazy = false,
     event = "VeryLazy",
     config = function()
         require("image_preview").setup({})

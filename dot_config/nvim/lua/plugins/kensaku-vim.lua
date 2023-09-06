@@ -1,6 +1,8 @@
 return {
     {
         "lambdalisue/kensaku.vim",
+        --lazy = false,
+        --event = "VeryLazy",
         dependencies = {
             "vim-denops/denops.vim",
         },
@@ -8,6 +10,8 @@ return {
     },
     {
         "lambdalisue/kensaku-command.vim",
+        --lazy = false,
+        --event = "VeryLazy",
         dependencies = {
             "lambdalisue/kensaku.vim",
         },
@@ -15,6 +19,8 @@ return {
     },
     {
         "lambdalisue/kensaku-search.vim",
+        --lazy = false,
+        --event = "VeryLazy",
         dependencies = {
             "lambdalisue/kensaku.vim",
         },

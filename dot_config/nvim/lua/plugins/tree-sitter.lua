@@ -61,8 +61,9 @@ local need_parsers = {
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        event = "VeryLazy",
         build = ":TSUpdate",
+        --lazy = false,
+        event = "VeryLazy",
         config = function()
             local configs = require("nvim-treesitter.configs")
 
@@ -76,9 +77,9 @@ return {
         end,
         --cond = false,
     },
-
     {
         "windwp/nvim-ts-autotag",
+        --lazy = false,
         event = "VeryLazy",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
@@ -87,6 +88,7 @@ return {
     },
     {
         "IndianBoy42/tree-sitter-just",
+        --lazy = false,
         event = "VeryLazy",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",

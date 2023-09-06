@@ -1,6 +1,11 @@
 return {
+    -- TODO: setup
     "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    --lazy = false,
+    --event = "VeryLazy",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+    },
     opts = {},
     cond = false,
 }

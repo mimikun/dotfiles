@@ -1,11 +1,13 @@
 return {
     "junegunn/fzf.vim",
-    dependencies = {
-        { "junegunn/fzf" },
-    },
+    --lazy = false,
+    --event = "VeryLazy",
     keys = {
         { "<C-p>", ":call FzfOmniFiles()<CR>", desc = "Open file search" },
         { "<C-g>", ":Rg<CR>", desc = "Open string search" },
+    },
+    dependencies = {
+        "junegunn/fzf",
     },
     config = function()
         -- Ctrl+pでファイル検索を開く

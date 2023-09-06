@@ -17,5 +17,5 @@ return {
             livePreview = true,
         })
     end,
-    --cond = false,
+    cond = false,
 }

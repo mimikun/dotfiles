@@ -1,5 +1,7 @@
 return {
     "is0n/jaq-nvim",
+    --lazy = false,
+    --event = "VeryLazy",
     cmd = {
         "Jaq",
     },
