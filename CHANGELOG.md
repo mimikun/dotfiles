@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2023.09.07]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update nvim plugin config: coc.nvim
+- Update tasks.ps1
+- Update windows pvim coc-settings.json
+- Update asdf tools version
+    - vim 9.0.1882
+    - chezmoi 2.39.1
+    - github-cli 2.34.0
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.06]
 
 ### Added - 新機能について
