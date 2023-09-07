@@ -146,7 +146,7 @@ function Invoke-FileUpdate() {
     chezmoi add $env:USERPROFILE\AppData\Roaming\Hyper\config.json
     chezmoi add $env:USERPROFILE\AppData\Roaming\Hyper\.hyper.js
 
-    if ($env:COMPUTERNAME -eq "TANAKAPC") {
+    if ($env:COMPUTERNAME -ne "TANAKAPC") {
         # SKKFEP
         chezmoi add $env:USERPROFILE\AppData\Roaming\SKKFEP\skkuser.txt
 
