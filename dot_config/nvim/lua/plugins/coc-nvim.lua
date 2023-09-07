@@ -33,6 +33,7 @@ return {
     branch = "release",
     --lazy = false,
     event = "BufRead",
+    cmd = "CocUpdate",
     build = ":CocUpdate",
     config = function()
         vim.g.coc_global_extensions = coc_extensions
