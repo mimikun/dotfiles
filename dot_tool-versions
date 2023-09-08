@@ -21,3 +21,4 @@ bitwarden 2023.8.2
 powershell-core 7.3.6
 lua 5.4.6
 luajit 2.0.5--2.4.4
+jq 1.7

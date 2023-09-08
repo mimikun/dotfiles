@@ -6,6 +6,7 @@ duf                          https://github.com/NeoHsu/asdf-duf.git
 fzf                          https://github.com/kompiro/asdf-fzf.git
 ghq                          https://github.com/kajisha/asdf-ghq.git
 github-cli                   https://github.com/bartlomiejdanek/asdf-github-cli.git
+jq                           https://github.com/lsanwick/asdf-jq.git
 lua                          https://github.com/Stratus3D/asdf-lua.git
 luajit                       https://github.com/smashedtoatoms/asdf-luaJIT.git
 neovim                       https://github.com/richin13/asdf-neovim.git
