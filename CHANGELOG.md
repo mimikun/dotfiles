@@ -7,11 +7,14 @@
 - Add generate_asdf_plugin_list command
 - Add TODO.md
 - Add asdf-jq
+- Add Invoke-FixEncode.ps1 (use for develop)
+- Define obsidian vault related vars
 
 ### Changed - 既存機能の変更について
 
 - Update lazy-lock.json
 - Copy of `OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1` to the other 3 setting files
+- Change PowerShell config file to chezmoi template
 
 ### Removed - 今回で削除された機能について
 
@@ -19,7 +22,7 @@
 
 ### Fixed - 不具合修正について
 
-なし
+- Fix PowerShell config copy process
 
 ## [v2023.09.07]
 
