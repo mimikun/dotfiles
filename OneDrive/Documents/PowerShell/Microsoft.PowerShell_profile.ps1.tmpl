@@ -40,6 +40,16 @@ $env:CHEZMOI_DIR = Join-Path $env:USERPROFILE -ChildPath .local\share\chezmoi
 $env:WIN_HOME = $env:USERPROFILE
 $env:windl = Join-Path $env:USERPROFILE -ChildPath Downloads
 
+# Obsidian vault
+{{ if eq .chezmoi.hostname "TanakaPC" }}
+$win_obsidian_vault_path_value = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_obsidian_vault_path.value }}
+{{ else }}
+$win_obsidian_vault_path_value = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_obsidian_vault_path.value }}
+{{ end }}
+$windocuments = Join-Path $env:USERPROFILE -ChildPath "Documents"
+$env:obsidian_vault_path = Join-Path $windocuments -ChildPath $win_obsidian_vault_path_value
+$env:obsidian = Join-Path $env:obsidian_vault_path -ChildPath "001_DailyNotes"
+
 # alias bd
 function Set-ParentLocation() {
     Set-Location ..
