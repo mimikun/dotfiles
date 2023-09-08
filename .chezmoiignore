@@ -83,6 +83,11 @@ vimfiles/Makefile/*.zip
 AppData/Local/nvim/Makefile
 vimfiles/Makefile
 
+## keep file
+Documents/PowerShell/.keep
+Documents/WindowsPowerShell/.keep
+OneDrive/Documents/WindowsPowerShell/.keep
+
 ## Linux only file
 ### root
 .zshrc
