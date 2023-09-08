@@ -7,6 +7,7 @@ CHANGELOG.md
 LICENSE.txt
 Makefile
 README.md
+TODO.md
 *.patch
 *.patch.gpg
 *.zip
