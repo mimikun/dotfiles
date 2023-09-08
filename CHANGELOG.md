@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2023.09.08]
+
+### Added - 新機能について
+
+- Add generate_asdf_plugin_list command
+- Add TODO.md
+- Add asdf-jq
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Copy of `OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1` to the other 3 setting files
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.07]
 
 ### Added - 新機能について
