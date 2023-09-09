@@ -39,9 +39,7 @@ local opts = {
 }
 
 return {
-    --"epwalsh/obsidian.nvim",
-    "mimikun/obsidian.nvim",
-    branch = "wsl-open-support",
+    "epwalsh/obsidian.nvim",
     --lazy = false,
     event = events,
     cmd = cmds,
