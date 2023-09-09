@@ -17,29 +17,15 @@ $home_only_file =@(
     '$env:USERPROFILE\utilities\miniz-flux-mining.bat'
     '$env:USERPROFILE\utilities\t-rex-mining.bat'
 )
-$work_powershell_profile = "Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-$home_powershell_profile = "OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
 # utils
 ## fixencoding
 function Invoke-FixEncoding() {
     # ps1ファイルをUTF-8 with BOMに変える
-    $home_pwsh_config_path = "OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-    $home_powershell_config_path = "OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
-    $work_pwsh_config_path = "Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
-    $work_powershell_config_path = "Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
     $taskfile_path = "tasks.ps1"
 
-    $home_pwsh_config_file = Get-Content -Path $home_pwsh_config_path
-    $home_powershell_config_file = Get-Content -Path $home_powershell_config_path
-    $work_pwsh_config_file = Get-Content -Path $work_pwsh_config_path
-    $work_powershell_config_file = Get-Content -Path $work_powershell_config_path
     $taskfile_file = Get-Content -Path $taskfile_path
 
-    Set-Content -Path $home_pwsh_config_path -Value $home_pwsh_config_file -Encoding "utf8BOM"
-    Set-Content -Path $home_powershell_config_path -Value $home_powershell_config_file -Encoding "utf8BOM"
-    Set-Content -Path $work_pwsh_config_path -Value $work_pwsh_config_file -Encoding "utf8BOM"
-    Set-Content -Path $work_powershell_config_path -Value $work_powershell_config_file -Encoding "utf8BOM"
     Set-Content -Path $taskfile_path -Value $taskfile_file -Encoding "utf8BOM"
 }
 
@@ -166,11 +152,8 @@ function Invoke-FileUpdate() {
 
     # PowerShell config
     if ($env:COMPUTERNAME -ne "TANAKAPC") {
-        chezmoi add $env:USERPROFILE\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-        #chezmoi add $env:USERPROFILE\OneDrive\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
-    } else {
-        #chezmoi add $env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-        #chezmoi add $env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+        Write-Output "THIS IS WIP"
+        #chezmoi add $env:USERPROFILE\OneDrive\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
     }
 
     # komorebi files
@@ -232,15 +215,11 @@ function Invoke-SyncConf() {
     if ($env:COMPUTERNAME -ne "TANAKAPC") {
         # 家の場合
         Write-Output "家の場合の処理"
-        Copy-Item -Path $home_powershell_profile -Destination "./OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
-        Copy-Item -Path $home_powershell_profile -Destination "./Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
-        Copy-Item -Path $home_powershell_profile -Destination "./Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
+        Write-Output "THIS IS WIP"
     } else {
         # 会社の場合
         Write-Output "会社の場合の処理"
-        Copy-Item -Path $work_powershell_profile -Destination "./Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
-        Copy-Item -Path $work_powershell_profile -Destination "./OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1"
-        Copy-Item -Path $work_powershell_profile -Destination "./OneDrive/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1"
+        Write-Output "THIS IS WIP"
     }
 }
 
