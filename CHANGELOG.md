@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2023.09.10]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix tasks.ps1 some error
+    - Invoke-FixEncoding
+    - Invoke-FileUpdate
+    - Invoke-FileClean
+    - Invoke-SyncConf
+
 ## [v2023.09.09]
 
 ### Added - 新機能について
