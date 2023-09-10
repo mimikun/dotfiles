@@ -24,7 +24,10 @@ chezmoi add ~/.config/gup/gup.conf
 chezmoi add ~/.config/nvim/lazy-lock.json
 
 # ~/.local/bin/*
+chezmoi add ~/.local/bin/chezmoi_post_apply_hook
+chezmoi add ~/.local/bin/chezmoi_pre_apply_hook
 chezmoi add ~/.local/bin/editorconfig
+chezmoi add ~/.local/bin/generate_asdf_plugin_list
 chezmoi add ~/.local/bin/generate_cargo_package_list
 chezmoi add ~/.local/bin/generate_pip_package_list
 chezmoi add ~/.local/bin/git-amend-commit
@@ -38,14 +41,18 @@ chezmoi add ~/.local/bin/install_pip_packages
 chezmoi add ~/.local/bin/lk
 chezmoi add ~/.local/bin/numeronym
 chezmoi add ~/.local/bin/pcd
+chezmoi add ~/.local/bin/pueue_update_asdf_neovim_master
 chezmoi add ~/.local/bin/pueue_update_asdf_neovim_nightly
+chezmoi add ~/.local/bin/pueue_update_asdf_neovim_stable
 chezmoi add ~/.local/bin/pueue_update_asdf_zig_master
 chezmoi add ~/.local/bin/pueue_update_cargo_packages
 chezmoi add ~/.local/bin/pueue_update_pip_packages
 chezmoi add ~/.local/bin/re_boot
 chezmoi add ~/.local/bin/read_confirm
 chezmoi add ~/.local/bin/shut_down
+chezmoi add ~/.local/bin/update_asdf_neovim_master
 chezmoi add ~/.local/bin/update_asdf_neovim_nightly
+chezmoi add ~/.local/bin/update_asdf_neovim_stable
 chezmoi add ~/.local/bin/update_asdf_zig_master
 chezmoi add ~/.local/bin/update_bat_fish_completion
 chezmoi add ~/.local/bin/update_cargo_packages
