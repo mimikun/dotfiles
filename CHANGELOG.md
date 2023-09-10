@@ -4,11 +4,14 @@
 
 ### Added - 新機能について
 
-なし
+- Add some LOCALBINs
+    - pueue_update_asdf_neovim_stable
+    - update_asdf_neovim_stable
 
 ### Changed - 既存機能の変更について
 
 - Update lazy-lock.json
+- Update utils/update.sh
 
 ### Removed - 今回で削除された機能について
 
