@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.09.11]
+
+### Added - 新機能について
+
+- Add update_asdf_neovim command
+- Use eza
+    - exa is finished.
+    - https://github.com/ogham/exa/issues/1243
+- Add some neovim plugins
+    - dps-tenki-vim.lua
+    - tenki.lua
+
+### Changed - 既存機能の変更について
+
+- Update TODO.md
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.1894
+
+### Removed - 今回で削除された機能について
+
+- Use eza
+    - Remove exa completion
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.10]
 
 ### Added - 新機能について
