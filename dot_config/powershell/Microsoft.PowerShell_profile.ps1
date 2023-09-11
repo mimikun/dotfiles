@@ -1,4 +1,4 @@
-﻿# completions setup
+# completions setup
 # starship setup
 Invoke-Expression (starship init powershell --print-full-init | Out-String)
 # starship completion
@@ -28,21 +28,21 @@ Set-Alias -Name bd -Value Set-ParentLocation
 # alias touch
 Set-Alias -Name touch -Value New-Item
 
-# alias ls (lsd or exa)
-Get-Command exa -ErrorAction Ignore | Out-Null
+# alias ls (lsd or eza)
+Get-Command eza -ErrorAction Ignore | Out-Null
 $res = $?
 if ($res) {
-    # alias ls exa
-    Set-Alias -Name ls -Value exa
-    # exa aliases
-    function Invoke-ExaTree() {
-        exa -T
+    # alias ls eza
+    Set-Alias -Name ls -Value eza
+    # eza aliases
+    function Invoke-EzaTree() {
+        eza -T
     }
-    Set-Alias -Name lt -Value Invoke-ExaTree
-    function Invoke-ExaLa() {
-        exa -la
+    Set-Alias -Name lt -Value Invoke-EzaTree
+    function Invoke-EzaLa() {
+        eza -la
     }
-    Set-Alias -Name la -Value Invoke-ExaLa
+    Set-Alias -Name la -Value Invoke-EzaLa
 }
 
 # alias gcd

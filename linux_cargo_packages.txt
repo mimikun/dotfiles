@@ -28,7 +28,7 @@ du-dust
 dua-cli
 dutree
 erg
-exa
+eza
 fd-find
 felix
 fselect

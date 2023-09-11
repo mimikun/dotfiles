@@ -19,7 +19,7 @@ extend-exclude = [
     "dot_config/fish/completions/ghq.fish",
     "dot_config/fish/completions/brew.fish",
     "dot_config/fish/completions/nkf.fish",
-    "dot_config/fish/completions/exa.fish",
+    "dot_config/fish/completions/eza.fish",
     "dot_config/fish/completions/yq.fish",
     "dot_config/fish/completions/flyctl.fish",
     "dot_config/fish/completions/chezmoi.fish",
