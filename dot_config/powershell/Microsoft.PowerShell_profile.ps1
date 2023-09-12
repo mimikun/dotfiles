@@ -1,4 +1,4 @@
-# completions setup
+﻿# completions setup
 # starship setup
 Invoke-Expression (starship init powershell --print-full-init | Out-String)
 # starship completion
