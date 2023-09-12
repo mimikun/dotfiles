@@ -1,5 +1,46 @@
 # Changelog
 
+## [v2023.09.12]
+
+### Added - 新機能について
+
+- Add cargo-msrv
+- Add neovim screenshot in README.md
+- Add Invoke-FixEncode.ps1
+    - Fix Linux PowerShell config-file encode
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.1897
+- Update TODO.md
+- Update ls aliases
+    - zsh
+    - fish
+- Update lazy-lock.json
+- Update some fish completions
+    - brew
+    - eza
+- Bump actions/checkout from 3 to 4
+- Update dial.nvim config
+    - Fix #43
+- Update gitsigns.nvim config
+    - Fix #45
+- Update nvim-nu config
+    - Fix #42
+- Update scrollbar.nvim config
+    - Fix #38
+- Update neo-tree.nvim config
+    - Fix #37
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix PSSA error
+
 ## [v2023.09.11]
 
 ### Added - 新機能について
