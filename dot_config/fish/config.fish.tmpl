@@ -25,10 +25,6 @@ set -x obsidian_vault_path "$obsidian/../"
 
 alias f fuck
 alias rm "rm -i"
-alias l1 "ls -1"
-alias ls eza
-alias lt "ls -T"
-alias la "ls -la"
 alias mkdir "mkdir -p"
 alias untar "tar xvf"
 alias rm gomi
@@ -145,6 +141,15 @@ set -x NI_CONFIG_FILE $HOME/.config/ni/.nirc
 
 # codon config
 set -x PATH $HOME/.codon/bin $PATH
+
+# ls alias
+alias ls eza
+alias ll "ls -l"
+alias la "ls -la"
+alias l1 "ls -1"
+alias lt "ls --tree"
+alias lat "ls -l -a --tree"
+alias lta "ls --tree -a"
 
 # vim alias
 alias paleovim $HOME/.asdf/shims/vim

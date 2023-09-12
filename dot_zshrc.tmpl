@@ -13,11 +13,17 @@ export WIN_HOME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d
 {{ end }}
 
 alias f="fuck"
-alias ls="eza"
-alias l1="ls -1"
-alias lt="ls -T"
 alias mkdir="mkdir -p"
 alias rm="rm -i"
+
+# ls alias
+alias ls="eza"
+alias l1="ls -1"
+alias lt="ls --tree"
+alias ll="ls -l"
+alias la="ls -la"
+alias lat="ls -l -a --tree"
+alias lta="ls --tree -a"
 
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
