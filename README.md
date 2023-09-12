@@ -3,6 +3,10 @@
 mimikun's dotfiles.
 managed by [chezmoi](https://www.chezmoi.io/).
 
+## Screenshots
+
+![my neovim dashboard](images/neovim-dashboard.png)
+
 ## Setup
 
 ### Linux

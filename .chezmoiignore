@@ -22,6 +22,7 @@ node_modules
 wsl.conf
 WSLInterop.conf
 tasks.ps1
+images
 
 {{ if eq .chezmoi.os "linux" }}
 # Linuxの場合のignoreパターン
