@@ -95,4 +95,15 @@ return {
         },
         --cond = false,
     },
+    {
+        "LhKipp/nvim-nu",
+        build = ":TSInstall nu",
+        --lazy = false,
+        event = "VeryLazy",
+        ft = "nu",
+        config = function()
+            require("nu").setup({})
+        end,
+        cond = false,
+    },
 }
