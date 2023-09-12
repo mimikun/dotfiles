@@ -35,7 +35,7 @@
 
 ### Removed - 今回で削除された機能について
 
-なし
+- Remove AppData/Local/nvim/lua/plugins/nvim-nu.lua.tmpl
 
 ### Fixed - 不具合修正について
 
