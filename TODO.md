@@ -2,41 +2,17 @@
 
 ## No issue numbers
 
-## 45. gitsigns-nvim.lua を書く
-
-https://github.com/mimikun/dotfiles/issues/45
-
 ## 44. neogit.lua を書く
 
 https://github.com/mimikun/dotfiles/issues/44
-
-## 43. dial-nvim.lua を書く
-
-https://github.com/mimikun/dotfiles/issues/43
-
-## 42. nvim-nu.lua を書く
-
-https://github.com/mimikun/dotfiles/issues/42
 
 ## 41. telescope-nvim.lua を書く
 
 https://github.com/mimikun/dotfiles/issues/41
 
-## 40. todo-comments.lua を書く
-
-https://github.com/mimikun/dotfiles/issues/40
-
 ## 39. trouble.lua を書く
 
 https://github.com/mimikun/dotfiles/issues/39
-
-## 38. scrollbar-nvim.lua を書く
-
-https://github.com/mimikun/dotfiles/issues/38
-
-## 37. neo-tree-nvim.lua を書く
-
-https://github.com/mimikun/dotfiles/issues/37
 
 ## 36. which-key.nvim のキーマップがコンフリクトしている
 
