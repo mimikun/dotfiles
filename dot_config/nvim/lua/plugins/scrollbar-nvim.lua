@@ -9,15 +9,22 @@ return {
         "FocusGained",
     },
     config = function()
-        -- TODO: refactor using lua
-        vim.cmd([[
-            augroup ScrollbarInit
-                autocmd!
-                autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
-                autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-                autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
-            augroup end
-        ]])
+        vim.api.nvim_create_augroup("ScrollbarInit", {})
+        vim.api.nvim_create_autocmd("WinScrolled", "VimResized", "QuitPre", {
+            group = "ScrollbarInit",
+            pattern = "* silent!",
+            command = "lua require('scrollbar').show()",
+        })
+        vim.api.nvim_create_autocmd("WinEnter", "FocusGained", {
+            group = "ScrollbarInit",
+            pattern = "* silent!",
+            command = "lua require('scrollbar').show()",
+        })
+        vim.api.nvim_create_autocmd("WinLeave", "BufLeave", "BufWinLeave", "FocusLost", {
+            group = "ScrollbarInit",
+            pattern = "* silent!",
+            command = "lua require('scrollbar').clear()",
+        })
         vim.g.scrollbar_shape = {
             head = "▲",
             body = "█",
