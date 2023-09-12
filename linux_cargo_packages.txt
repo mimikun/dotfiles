@@ -13,6 +13,7 @@ cargo-fuzz
 cargo-license
 cargo-llvm-cov
 cargo-make
+cargo-msrv
 cargo-nextest
 cargo-outdated
 cargo-release
