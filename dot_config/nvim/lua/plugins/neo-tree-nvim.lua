@@ -15,5 +15,5 @@ return {
     config = function()
         vim.keymap.set("n", "<C-n>", ":Neotree . reveal toggle<CR>")
     end,
-    --cond = false,
+    cond = false,
 }
