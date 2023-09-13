@@ -1,4 +1,6 @@
 return {
+    -- TODO: setting
+    -- https://github.com/folke/which-key.nvim/blob/main/README.md
     "folke/which-key.nvim",
     --lazy = false,
     event = "VeryLazy",

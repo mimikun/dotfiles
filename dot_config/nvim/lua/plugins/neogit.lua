@@ -1,5 +1,6 @@
 return {
     -- TODO: setting
+    -- https://github.com/NeogitOrg/neogit/blob/master/README.md
     "NeogitOrg/neogit",
     lazy = false,
     --event = "VimEnter",

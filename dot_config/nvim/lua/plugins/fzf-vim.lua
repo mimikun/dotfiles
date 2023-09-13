@@ -10,6 +10,9 @@ return {
         "junegunn/fzf",
     },
     config = function()
+        -- TODO: Luaで書く
+        -- https://github.com/junegunn/fzf.vim/blob/master/README.md
+
         -- Ctrl+pでファイル検索を開く
         -- git管理されていれば:GFiles、そうでなければ:Filesを実行する
         vim.cmd([[

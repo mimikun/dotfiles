@@ -65,6 +65,11 @@ return {
         --lazy = false,
         event = "VeryLazy",
         config = function()
+            -- TODO:setting
+            -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Extra-modules-and-plugins
+            -- "LhKipp/nvim-nu"
+            -- "IndianBoy42/tree-sitter-just"
+            -- "windwp/nvim-ts-autotag"
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({

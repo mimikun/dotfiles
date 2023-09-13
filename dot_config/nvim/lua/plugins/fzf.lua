@@ -1,5 +1,8 @@
 return {
     "ibhagwan/fzf-lua",
+    -- TODO: setting
+    -- https://github.com/ibhagwan/fzf-lua/blob/main/README.md
+
     --lazy = false,
     --event = "VeryLazy",
     --[[keys = {
