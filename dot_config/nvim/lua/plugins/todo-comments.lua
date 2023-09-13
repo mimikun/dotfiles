@@ -58,7 +58,8 @@ return {
                 "--line-number",
                 "--column",
             },
-            pattern = [[\b(KEYWORDS):]], -- ripgrep regex
+            -- ripgrep regex
+            pattern = [[\b(KEYWORDS):]],
         },
     },
     --cond = false,
