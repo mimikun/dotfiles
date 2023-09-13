@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2023.09.13]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update some neovim plugins config
+- Update lazy-lock.json
+- Update asdf tools version
+    - dotnet-core 7.0.401
+- Update todo-comments.nvim config
+    - Fix #40
+- Update trouble.nvim config
+    - Fix #39
+- Update telescope.nvim config
+- Update TODO.md
+
+### Removed - 今回で削除された機能について
+
+- Disable neo-tree.nvim
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.12]
 
 ### Added - 新機能について
