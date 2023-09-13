@@ -29,6 +29,8 @@ vim.yaml
 nyagos.yaml
 selene.toml
 renovate.json5
+Dockerfile
+.dockerignore
 
 {{ if eq .chezmoi.os "linux" }}
 # Linuxの場合のignoreパターン

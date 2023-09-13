@@ -134,6 +134,16 @@ shell-format :
 benchmark :
 	bash utils/benchmark.sh
 
+## Run docker image build
+.PHONY : docker-build
+docker-build : clean
+	docker build -t $(product_name) .
+
+## Run docker image test
+.PHONY : docker-test
+docker-test :
+	docker run --rm -it $(product_name) /bin/bash
+
 ## Show help
 .PHONY : help
 help :
