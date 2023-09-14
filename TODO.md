@@ -24,14 +24,6 @@ READMEはこれ
 
 https://github.com/ibhagwan/fzf-lua/blob/main/README.md
 
-### 44. neogit.lua を書く
-
-https://github.com/mimikun/dotfiles/issues/44
-
-#### ref
-
-https://github.com/NeogitOrg/neogit/blob/master/README.md
-
 ### 41. telescope-nvim.lua を書く
 
 https://github.com/mimikun/dotfiles/issues/41
