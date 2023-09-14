@@ -83,8 +83,12 @@ shell-lint :
 fmt : format
 
 .PHONY : format
-format : stylua-format
+format : stylua-format shell-format
 
 .PHONY : stylua-format
 stylua-format :
 	stylua ./
+
+.PHONY : shell-format
+shell-format :
+	bash utils/format.sh
