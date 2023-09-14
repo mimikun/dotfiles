@@ -10,11 +10,13 @@ gpg-patch : clean diff-patch-gpg copy2win-patch-gpg
 
 .PHONY : diff-patch-raw
 diff-patch-raw :
-	git diff origin/master > $(product_name).$(today).patch
+	bash utils/create-patch.sh
 
 .PHONY : diff-patch-gpg
 diff-patch-gpg :
-	git diff origin/master | gpg --encrypt --recipient $(gpg_pub_key) > $(product_name).$(today).patch.gpg
+	echo "THIS IS WIP"
+	#bash utils/create-patch.sh --use-gpg
+	#git diff origin/master | gpg --encrypt --recipient $(gpg_pub_key) > $(product_name).$(today).patch.gpg
 
 .PHONY : diff-patch
 diff-patch : diff-patch-raw
