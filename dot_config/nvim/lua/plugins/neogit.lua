@@ -1,10 +1,8 @@
 return {
-    -- TODO: setting
-    -- https://github.com/NeogitOrg/neogit/blob/master/README.md
     "NeogitOrg/neogit",
-    lazy = false,
+    --lazy = false,
     --event = "VimEnter",
-    --cmd = "",
+    cmd = "Neogit",
     dependencies = {
         "nvim-lua/plenary.nvim", -- required
         "nvim-telescope/telescope.nvim", -- optional
