@@ -65,8 +65,6 @@ ubuntu() {
   # Cleaning APT caches
   sudo apt autoremove -y
   sudo apt-get clean
-  # Upgrade snaps
-  sudo snap refresh
   which brew >/dev/null
   if test $? -eq 0; then
     brew_update_process
@@ -122,6 +120,8 @@ other_tools() {
   fish -c 'fisher update'
   asdf plugin update --all
   update_asdf_tools
+  update_asdf_neovim_master
+  update_asdf_neovim_stable
   update_asdf_neovim_nightly
   update_asdf_zig_master
   # Update rust tools
@@ -129,7 +129,7 @@ other_tools() {
   # Create cargo_packages.txt
   generate_cargo_package_list
   # Create asdf_plugin_list.txt
-  asdf plugin list --urls >~/asdf_plugin_list.txt
+  generate_asdf_plugin_list
   update_fish_completions
 }
 

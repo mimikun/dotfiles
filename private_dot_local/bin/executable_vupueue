@@ -116,6 +116,8 @@ no_pueue_other_tools() {
   fish -c 'fisher update'
   asdf plugin update --all
   update_asdf_tools
+  pueue_update_asdf_neovim_master
+  pueue_update_asdf_neovim_stable
   pueue_update_asdf_neovim_nightly
   pueue_update_asdf_zig_master
   pueue_update_asdf_nodejs_lts
@@ -124,7 +126,7 @@ no_pueue_other_tools() {
   # Create cargo_packages.txt
   generate_cargo_package_list
   # Create asdf_plugin_list.txt
-  asdf plugin list --urls >~/asdf_plugin_list.txt
+  generate_asdf_plugin_list
   update_fish_completions
   # Upgrade docker-compose
   update_docker_compose
