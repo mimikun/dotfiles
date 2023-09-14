@@ -56,7 +56,7 @@ copy2win-patch : copy2win-patch-raw
 test : lint
 
 .PHONY : lint
-lint : stylua-lint textlint typo-check pwsh-test
+lint : stylua-lint textlint typo-check pwsh-test shell-lint
 
 .PHONY : stylua-lint
 stylua-lint :
@@ -74,6 +74,10 @@ typo-check :
 pwsh-test :
 	@echo "Run PowerShell ScriptAnalyzer"
 	@pwsh utils/pssa.ps1
+
+.PHONY : shell-lint
+shell-lint :
+	bash utils/lint.sh
 
 .PHONY : fmt
 fmt : format
