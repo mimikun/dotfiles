@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2023.09.14]
+
+### Added - 新機能について
+
+- Add utils/create-patch.sh
+    - Create the patch using a shell script
+- Add shell-format task
+- Add shell-lint task
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update fzf-lua config
+- Update fzf.vim config
+    - <C-p> process rewrite in Lua
+- Update neogit config
+    - Fix #44
+- Update rtx fish completion
+- Update TODO.md
+- Update some $LOCALBINs
+    - vup
+    - vupueue
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.13]
 
 ### Added - 新機能について
