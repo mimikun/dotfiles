@@ -13,7 +13,7 @@ return {
 
         local header = {
             type = "text",
-            val = bannars["neovim_header"],
+            val = bannars["remember_covid_19"],
             opts = {
                 position = "center",
                 hl = "Type",

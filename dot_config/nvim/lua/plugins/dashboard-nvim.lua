@@ -13,7 +13,7 @@ return {
             theme = "hyper",
             shortcut_type = "number",
             config = {
-                header = bannars["neovim_header"],
+                header = bannars["remember_covid_19"],
                 week_header = {
                     enable = false,
                 },
