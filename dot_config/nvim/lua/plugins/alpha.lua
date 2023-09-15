@@ -1,50 +1,3 @@
--- ref: https://github.com/gennaro-tedesco/dotfiles/blob/70d52bde30b4a7a6f7f788ec24c31f88e8e79a56/nvim/lua/plugins/alpha.lua
-
-local neovim_header = {
-    [[                               __                ]],
-    [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-    [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-    [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-    [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-    [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-}
-
-local vanitas_header = {
-    [[                       ᓀ‸ᓂ                       ]],
-    [[                                                 ]],
-    [[       Vanitas vanitatum. et omnia vanitas.      ]],
-}
-
-local vanitas_header_2 = {
-    [[⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀]],
-    [[⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀]],
-    [[⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀]],
-    [[⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀]],
-    [[⡀⠿⠿⠿⠿⠿⣿⠿⠿⠿⢿⣷⡄⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⣤⣿⠿⠿⠿⢿⣿⠿⠿⠿⠿⠇⡀]],
-    [[⡀⡀⡀⡀⡀⡀⣿⡀⡀⡀⡀⠈⣿⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⣸⡿⡀⡀⡀⡀⢸⣿⡀⡀⡀⡀⡀⡀]],
-    [[⡀⡀⡀⡀⡀⡀⣿⡀⡀⡀⡀⡀⣿⠁⡀⡀⡀⡀⡀⡀⡀⡀⡀⢻⣧⡀⡀⡀⡀⣸⡿⡀⡀⡀⡀⡀⡀]],
-    [[⡀⡀⡀⡀⡀⡀⠘⣿⣦⣤⣴⣿⠋⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⠿⣷⣤⣤⣾⡿⡀⡀⡀⡀⡀⡀⡀]],
-    [[⡀⡀⡀⡀⡀⡀⡀⡀⠈⠉⠁⡀⡀⡀⡀⡀⣴⡿⢿⣦⡀⡀⡀⡀⡀⡀⠉⠉⡀⡀⡀⡀⡀⡀⡀⡀⡀]],
-    [[⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⠞⠋⡀⡀⠙⠷⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀⡀]],
-    [[                                     ]],
-    [[ Vanitas vanitatum. et omnia vanitas.]],
-}
-
-local remember_covid_19 = {
-    [[================================]],
-    [[===== Remember COVID-19!!! =====]],
-    [[================================]],
-    [[==== コロナを忘れるな！！！ ====]],
-    [[================================]],
-}
-
-local headers = {
-    neovim_header,
-    vanitas_header,
-    vanitas_header_2,
-    remember_covid_19,
-}
-
 return {
     "goolord/alpha-nvim",
     lazy = false,
@@ -56,15 +9,11 @@ return {
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
         local theta = require("alpha.themes.theta")
+        local bannars = require("utils").bannar_logos
 
         local header = {
             type = "text",
-            -- Set original headers
-            -- 1: neovim_header
-            -- 2: vanitas_header
-            -- 3: vanitas_header_2
-            -- 4: remember_covid_19
-            val = headers[4],
+            val = bannars["neovim_header"],
             opts = {
                 position = "center",
                 hl = "Type",
