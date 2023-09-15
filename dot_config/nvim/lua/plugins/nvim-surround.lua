@@ -6,5 +6,5 @@ return {
     config = function()
         require("nvim-surround").setup({})
     end,
-    --cond = false,
+    cond = false,
 }
