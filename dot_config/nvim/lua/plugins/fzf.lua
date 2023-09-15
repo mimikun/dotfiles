@@ -1,8 +1,5 @@
 return {
     "ibhagwan/fzf-lua",
-    -- TODO: setting
-    -- https://github.com/ibhagwan/fzf-lua/blob/main/README.md
-
     --lazy = false,
     --event = "VeryLazy",
     keys = {
@@ -13,37 +10,36 @@ return {
         { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
-        -- うまく動かない
-        local is_git = function()
-            if vim.fn.system("git status"):find("fatal") == 1 then
-                return false
-            else
-                return true
-            end
-        end
-
-        -- workaround
+        local fzf_lua = require("fzf-lua")
+        -- TODO: workaround
+        -- `vim.opt.ambiwidth = "double"`, fzf-lua has bug.
         vim.opt.ambiwidth = "single"
 
-        local fzf_lua = require("fzf-lua")
-        fzf_lua.setup({})
+        fzf_lua.setup({
+            -- TODO: setting
+            -- https://github.com/ibhagwan/fzf-lua/issues/874
+            winopts = {
+                preview = { scrollbar = "float" },
+            },
+        })
         -- Ctrl+pでファイル検索を開く
         -- git管理されていればgit_files
         -- そうでなければfilesを実行する
         vim.keymap.set("n", "<C-p>", function()
-            if is_git then
-                fzf_lua.files()
-            else
+            if require("utils").is_git() then
                 fzf_lua.git_files()
+            else
+                fzf_lua.files()
             end
         end, {})
 
         -- Ctrl+gで文字列検索を開く
+        -- <S-?>でプレビューを表示/非表示する?
         vim.keymap.set("n", "<C-g>", function()
             fzf_lua.grep_project()
         end, {})
 
-        -- <S-?>でプレビューを表示/非表示する
+        -- Rgの書き換え?
         --vim.cmd([[
         --        command! -bang -nargs=* Rg
         --        \ call fzf#vim#grep(
@@ -52,9 +48,6 @@ return {
         --        \ : fzf#vim#with_preview({'options': '--exact --delimiter : --nth 3..'}, 'right:50%:hidden', '?'),
         --        \ <bang>0)
         --    ]])
-        --vim.keymap.set("n", "<C-g>", function ()
-        --vim.cmd(":Rg<CR>")
-        --end, {})
 
         -- frでカーソル位置の単語をファイル検索する
         vim.keymap.set("n", "fr", function()
@@ -62,16 +55,20 @@ return {
         end, {})
 
         -- frで選択した単語をファイル検索する
-        vim.keymap.set("x", "fr y", function()
-            fzf_lua.grep_project()
-        end, {})
+        -- TODO: 対応するコマンドを見つける
 
-        -- fbでバッファ検索を開く
-        --vim.keymap.set("n", "fb", function ()
-        --    vim.cmd(":Buffers<CR>")
+        --vim.keymap.set("x", "fr y", function()
+        --    fzf_lua.grep_project()
         --end, {})
 
+        -- fbでバッファ検索を開く
+        vim.keymap.set("n", "fb", function()
+            fzf_lua.buffers()
+        end, {})
+
         -- fpでバッファの中で1つ前に開いたファイルを開く
+        -- TODO: 対応するコマンドを見つける
+
         --vim.keymap.set("n", "fp", function ()
         --    vim.cmd(":Buffers<CR><CR>")
         --end, {})
