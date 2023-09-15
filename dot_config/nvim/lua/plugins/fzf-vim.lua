@@ -10,22 +10,13 @@ return {
         "junegunn/fzf",
     },
     config = function()
-        -- うまく動かない
-        local is_git = function()
-            if vim.fn.system("git status"):find("fatal") == 1 then
-                return false
-            else
-                return true
-            end
-        end
-
         -- Ctrl+pでファイル検索を開く
         -- git管理されていれば:GFiles、そうでなければ:Filesを実行する
         vim.keymap.set("n", "<C-p>", function()
-            if is_git() then
-                vim.cmd(":Files")
-            else
+            if require("utils").is_git() then
                 vim.cmd(":GFiles")
+            else
+                vim.cmd(":Files")
             end
         end, {})
 
