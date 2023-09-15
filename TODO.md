@@ -2,6 +2,10 @@
 
 ## No issue numbers
 
+### 51. `vim-skk/skkeleton` の設定
+
+https://github.com/vim-skk/skkeleton の設定
+
 ### 49. neovimの起動速度の記録を取りたい
 
 https://github.com/mimikun/dotfiles/issues/49
@@ -29,24 +33,6 @@ https://github.com/ibhagwan/fzf-lua/blob/main/README.md
 https://github.com/mimikun/dotfiles/issues/41
 
 まだ書けてないところがある
-
-### 36. which-key.nvim のキーマップがコンフリクトしている
-
-https://github.com/mimikun/dotfiles/issues/36
-
-```txt
-which-key: require("which-key.health").check()
-
-WhichKey: checking conflicting keymaps ~
-- WARNING conflicting keymap exists for mode **"n"**, lhs: **"ys"**
-- rhs: `<Plug>(nvim-surround-normal)`
-- WARNING conflicting keymap exists for mode **"n"**, lhs: **"yS"**
-- rhs: `<Plug>(nvim-surround-normal-line)`
-```
-
-#### ref
-
-https://github.com/folke/which-key.nvim/blob/main/README.md
 
 ### 30. neovimのoptionsを更新する
 
