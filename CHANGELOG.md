@@ -1,5 +1,39 @@
 # Changelog
 
+## [v2023.09.15]
+
+### Added - 新機能について
+
+- Add utils.lua
+    - Add many bannars
+    - Add is_git() function
+- Add new neovim plugin: denops-translate.vim
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update TODO.md
+- Update telescope.nvim config
+    - Use utils.lua
+- Update fzf.vim config
+    - Use utils.lua
+- Update fzf-lua config
+    - Use utils.lua
+- Update dashboard.nvim config
+    - Use utils.lua
+- Update alpha-nvim config
+    - Use utils.lua
+- Use `bannars["remember_covid_19"]`
+
+### Removed - 今回で削除された機能について
+
+- Disable nvim-surround
+    - Fix #36
+
+### Fixed - 不具合修正について
+
+- Fix dps-translate-vim error
+
 ## [v2023.09.14]
 
 ### Added - 新機能について
