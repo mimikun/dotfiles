@@ -9,6 +9,7 @@
 
 ### Changed - 既存機能の変更について
 
+- Update lazy-lock.json
 - Update asdf tools version
     - vim 9.0.1903
 
