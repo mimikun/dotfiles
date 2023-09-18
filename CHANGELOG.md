@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2023.09.17]
+
+### Added - 新機能について
+
+- Add new neovim plugin: vim-ambiwidth
+    - https://github.com/rbtnn/vim-ambiwidth
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.1903
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.16]
 
 ### Added - 新機能について
