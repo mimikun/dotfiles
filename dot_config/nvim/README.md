@@ -107,7 +107,8 @@
 - [vim-monokai](https://github.com/crusoexia/vim-monokai)
 - [vim-silicon](https://github.com/segeljakt/vim-silicon)
 - [yash.nvim](https://github.com/kihachi2000/yash.nvim)
-
+- [momiji](https://github.com/kyoh86/momiji)
+- [edge](https://github.com/sainnhe/edge)
 
 
 ### Vimscript Plugins

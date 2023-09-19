@@ -149,4 +149,28 @@ return {
         end,
         cond = false,
     },
+    {
+        "kyoh86/momiji",
+        --lazy = false,
+        --event = "VeryLazy",
+        --priority = 1000,
+
+        config = function()
+            vim.cmd.colorscheme("momiji")
+        end,
+        cond = false,
+    },
+    {
+        "sainnhe/edge",
+        --lazy = false,
+        --event = "VeryLazy",
+        --priority = 1000,
+
+        config = function()
+            vim.g.edge_style = "default"
+            vim.g.edge_better_performance = 1
+            vim.cmd.colorscheme("edge")
+        end,
+        cond = false,
+    },
 }
