@@ -2,12 +2,18 @@
 set -x LANG en_US.UTF-8
 set -x GHQ_ROOT $HOME/ghq
 set -x GHQ_SELECTOR fzf
-set -x FISH_CONFIG_DIR $HOME/.config/fish
-set -x FISH_COMPLETIONS_DIR $HOME/.config/fish/completions
-set -x FISH_FUNCTIONS_DIR $HOME/.config/fish/functions
 set -x PIPENV_VENV_IN_PROJECT 1
 set -x TODAY (date +"%Y/%m/%d")
 set -x TZ "Asia/Tokyo"
+
+# Fish paths
+set -x FISH_CONFIG_DIR $HOME/.config/fish
+set -x FISH_COMPLETIONS_DIR $HOME/.config/fish/completions
+set -x FISH_FUNCTIONS_DIR $HOME/.config/fish/functions
+set -x FISH_CACHE_DIR $HOME/.cache/fish
+
+set -x CONFIG_FISH $FISH_CONFIG_DIR/config.fish
+set -x CACHE_CONFIG_FISH $FISH_CACHE_DIR/config.fish
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 set -x WORKSPACE {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
