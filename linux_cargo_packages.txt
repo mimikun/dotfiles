@@ -68,6 +68,7 @@ silicon
 skim
 starship
 stylua
+taplo-cli
 tauri-cli
 tealdeer
 tokei
