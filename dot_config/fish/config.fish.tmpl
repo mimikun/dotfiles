@@ -99,8 +99,8 @@ asdf exec direnv hook fish | source
 complete -f -c dotnet -a "(dotnet complete)"
 
 # Bun
-set -Ux BUN_INSTALL $HOME/.bun
-set -px --path PATH $BUN_INSTALL/bin
+set -x BUN_INSTALL $HOME/.bun
+set -x PATH $BUN_INSTALL/bin $PATH
 
 # navi
 source ~/.config/navi/navi_widget.fish
