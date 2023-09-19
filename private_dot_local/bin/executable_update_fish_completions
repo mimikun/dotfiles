@@ -109,3 +109,6 @@ fi
 if command_exist hx; then
   pueue add -- "update_helix_fish_completion"
 fi
+if command_exist hyperfine; then
+  pueue add -- "update_hyperfine_fish_completion"
+fi
