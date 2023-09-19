@@ -1,8 +1,5 @@
 return {
-    -- upstream has bug
-    --"Omochice/dps-translate-vim",
-    "mimikun/dps-translate-vim",
-    branch = "fix-error",
+    "Omochice/dps-translate-vim",
     --lazy = false,
     --event = "VeryLazy",
     cmd = {
