@@ -1,0 +1,294 @@
+#!/usr/bin/env sh
+
+dir_name="neovim-configs"
+
+is_ignored() {
+  found=false
+  case "$1" in
+    *"." | *".." | *"*" | *".git")
+      found=true
+      return
+      ;;
+  esac
+  $found
+}
+
+find_init() {
+  if ls "$1"/init.lua 1> /dev/null 2>&1 \
+  || ls "$1"/init.vim 1> /dev/null 2>&1; then
+    path=${1#"$HOME/.config/$dir_name/"}
+    echo "$path"
+  else
+    for x in "*" ".*"; do
+      for pathname in "$1/"$x; do
+        if is_ignored "$pathname"; then
+          continue # skip these directories
+        elif [ -d "$pathname" ]; then
+          find_init "$pathname"
+        fi
+      done
+    done
+  fi
+}
+
+find_git() {
+  #TODO: Combine this with find_init
+  if ls "$1"/.git 1> /dev/null 2>&1; then
+    path=${1#"$HOME/.config/$dir_name/"}
+    echo "$path"
+  else
+    for x in "*" ".*"; do
+      for pathname in "$1/"$x; do
+        if is_ignored "$pathname"; then
+          continue # skip these directories
+        elif [ -d "$pathname" ]; then
+          find_git "$pathname"
+        fi
+      done
+    done
+  fi
+}
+
+select_config() {
+  if [ "$1" = "git" ]; then
+    find=find_git
+  else
+    find=find_init
+  fi
+  $find "$HOME/.config/$dir_name" | fzf --prompt="Config: " --preview="find $HOME/.config/$dir_name/{} -name 'init.[lv][ui][am]' -type f -exec cat \{} + -quit" --preview-window=right:70%:wrap --bind=ctrl-f:page-down,ctrl-b:page-up --height=100% --border
+}
+
+check_config() {
+  if [ -f "$location/$1/init.lua" ] || [ -f "$location/$1/init.vim" ]; then
+    true
+  else
+    false
+  fi
+}
+
+run() {
+  location="$HOME/.config/$dir_name"
+  case "$@" in
+    "")
+      if [ -f "$location/.last_used" ];then
+        last_used=$(cat "$location/.last_used")
+        if check_config "$last_used"; then
+          appname="$last_used"
+        fi
+      fi
+      ;;
+    "-a" | "--ask")
+      shift
+      ;;
+    "-s"*| "--select"*)
+      shift
+      if check_config "$1"; then
+        appname="$1"
+      else
+        echo config not found
+        exit 1
+      fi
+      ;;
+    *)
+      echo Unknown option provided
+      exit 1
+      ;;
+  esac
+  if [ -z "$appname" ]; then
+    appname="$(select_config)"
+  fi
+  if [ -n "$appname" ]; then
+    echo "$appname" > "$HOME/.config/$dir_name/.last_used"
+    NVIM_APPNAME="$dir_name/$appname" exec nvim
+  fi
+}
+
+purge() {
+  if [ "$1" = "-f" ] || [ "$1" = "--force" ]; then
+    shift
+  elif [ $# = 0 ]; then
+    echo "Are you sure you want to purge all files? [yN]"
+    read -r yn
+    case "$yn" in
+      [Yy] | [Yy][Ee][Ss])
+        ;;
+      "" | [Nn] | [Nn][Oo])
+        exit
+        ;;
+      *)
+        echo Option not recognized. Aborting
+        exit 1
+        ;;
+    esac
+  fi
+  echo Removing "$1"
+  rm -rf "$HOME/.config/$dir_name/$1"
+  rm -rf "$HOME/.cache/$dir_name/$1"
+  rm -rf "$HOME/.local/share/$dir_name/$1"
+  rm -rf "$HOME/.local/state/$dir_name/$1"
+}
+
+remove() {
+  appname="$(select_config "git")"
+  if [ -n "$appname" ]; then
+    purge "$appname"
+  fi
+}
+
+install() {
+  repo="$1"
+  repo=${repo#*github.com[/:]}
+  repo=${repo#*dotfyle.com[/:]}
+  repo=${repo%.git}
+  repo=${repo%/tree/*}
+  repo=${repo%/blob/*}
+  if ! git ls-remote --exit-code git@github.com:"$repo" >/dev/null 2>&1; then
+    substring="${repo%*"-"*}"
+    if [ "$substring" != "$repo" ]; then
+      install "$substring"
+    else
+      echo Provided repo could not be found
+    fi
+  else
+    git clone --depth=1 git@github.com:"$repo" "$HOME/.config/$dir_name/$repo"
+  fi
+}
+
+update() {
+  location="$HOME/.config/$dir_name"
+  repos=$(find_git "$location")
+  for repo in $repos; do
+    echo "Updating $repo"
+    git -C "$location/$repo" pull >/dev/null
+    #TODO: Better handle the --depth=1 issues
+  done
+}
+
+help() {
+
+  case "$1" in
+    "-h"|"--help")
+      cmd="$2"
+      ;;
+    *)
+      cmd="$1"
+      ;;
+  esac
+
+  case "$cmd" in
+    "run")
+      echo "Usage:
+  dotfyle run [options] Select a config to load neovim with.
+  dotfyle [options]     Alias of above.
+
+                        This option will load the last used
+                        config, or if that is unavailable it
+                        will list out all configs with fzf
+                        to select from.
+
+Options:
+  -h|--help             Print the help. Can be used after an above option
+  -a|--ask              Ask which config to load
+  -s|--select [config]  Select the specific config
+  "
+      ;;
+    "rm" | "remove")
+      echo "Usage:
+  dotfyle rm            Select a config to be removed.
+  dotfyle rm [config]   Remove the config specified.
+  dotfyle remove        Alias of above
+
+                        This option allows a config to be
+                        removed by either the cli argument
+                        or by selection with fzf.
+
+                        NOTE: This option does not currently
+                        account for monorepos and will
+                        therefore leave the contents of the
+                        git repo except for the neovim config.
+                        However, it will also remove any related
+                        files, making it still a useful option
+                        before manually removing the repo.
+                        Monorepo support is on the TODO
+  "
+      ;;
+    "purge")
+      echo "Usage:
+  dotfyle purge         Remove all configs and related files.
+
+                        This option will completely remove the
+                        neovim-configs directory from all relevant
+                        locations.
+
+Options:
+  -f|--force            Don't ask for confirmation before purging.
+  "
+      ;;
+    "install" | "download")
+      echo "Usage:
+  dotfyle install [URL] Install a config from the url provided.
+  dotfyle download      Alias of above.
+
+                        This option lets you install a config from
+                        a dotfyle or github url to the neovim-configs
+                        directory.
+  "
+      ;;
+    "update")
+      echo "Usage:
+  dotfyle update        Update all installed configs
+
+                        This option runs a git pull on all known configs.
+  "
+      ;;
+    *)
+      echo "Usage:
+  dotfyle run [options] Select a config to load neovim with
+  dotfyle rm            Remove a config and related files
+  dotfyle purge         Remove all configs and related files
+  dotfyle install [URL] Install a config from the url provided.
+  dotfyle update        Update all installed configs
+  dotfyle               Alias of dotfyle run
+
+Options:
+  -h|--help             Print the help. Can be used after an above option
+  -a|--ask              Ask which config to load
+  -s|--select [config]  Select the specific config
+  "
+      ;;
+  esac
+}
+
+case "$@" in
+  *"-h" | *"--help" | "-h"* | "--help"*)
+    help "$@"
+    ;;
+  "" | "-a" | "--ask" | "-s"* | "--select"*)
+    run "$@"
+    ;;
+  "run"*)
+    shift
+    run "$@"
+    ;;
+  "rm"* | "remove"*)
+    shift
+    remove "$@"
+    ;;
+  "purge"*)
+    shift
+    purge "$@"
+    ;;
+  "install"* | "download"*)
+    shift
+    install "$@"
+    ;;
+  "update"*)
+    shift
+    update "$@"
+    ;;
+  *)
+    echo Invalid option provided
+    echo Exiting
+    exit 1
+    ;;
+esac
