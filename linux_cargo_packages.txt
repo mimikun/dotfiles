@@ -74,6 +74,7 @@ tokei
 toml2json
 topgrade
 tree-sitter-cli
+treefmt
 typos-cli
 watchexec-cli
 xh
