@@ -52,6 +52,10 @@ copy2win-patch-gpg :
 .PHONY : copy2win-patch
 copy2win-patch : copy2win-patch-raw
 
+.PHONY : install-skk-jisyo
+install-skk-jisyo :
+	bash utils/install-skk-jisyo.sh
+
 .PHONY : test
 test : lint
 

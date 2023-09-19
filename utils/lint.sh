@@ -9,3 +9,4 @@ run_lint utils/lint.sh
 run_lint utils/clean.sh
 run_lint utils/create-patch.sh
 run_lint utils/update.sh
+run_lint utils/install-skk-jisyo.sh
