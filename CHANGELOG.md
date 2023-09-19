@@ -1,5 +1,53 @@
 # Changelog
 
+## [v2023.09.19]
+
+### Added - 新機能について
+
+- Add new rust tool: taplo-cli
+- Add NOTE in config.fish
+- Add dotfyle command
+    - https://github.com/RoryNesbitt/dotfyle-cli
+- Add some neovim plugins
+    - vim-skk/skkeleton
+    - willelz/skk-tutorial.vim
+- Add new neovim colorschemes
+    - https://github.com/kyoh86/momiji
+    - https://github.com/sainnhe/edge
+- Add make task: install-skk-jisyo
+    - Add utils/install-skk-jisyo.sh
+    - Update README.md and some utils
+- Add STARTUPTIME.md
+- Add hyperfine completion update process
+- Add update_hyperfine_fish_completion command
+- Add hyperfine fish completion
+- Add yazi configs
+- Add treefmt
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Improved bun PATH definition
+- Improved defining fish paths
+- Update fzf-lua config
+    - Use fzf-opts
+    - Improve fzf(bin) scrollbar
+- Update brew fish completion
+- Update asdf tools version
+    - vim 9.0.1910
+    - github-cli 2.35.0
+    - nodejs 18.18.0
+- Update update_fish_completion command
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Revert "Fix dps-translate-vim error"
+    - This reverts commit 539b0c51fc1c9dae2384150a68b5f92724af6eca.
+
 ## [v2023.09.18]
 
 ### Added - 新機能について
