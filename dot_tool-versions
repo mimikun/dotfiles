@@ -1,7 +1,7 @@
 python 3.11.5
 nodejs 18.18.0
 ruby 3.2.2
-vim 9.0.1910
+vim 9.0.1916
 neovim nightly
 yarn 1.22.19
 ghq 1.4.2
@@ -10,7 +10,7 @@ peco 0.5.11
 direnv 2.32.3
 dotnet-core 7.0.401
 shellcheck 0.9.0
-chezmoi 2.39.1
+chezmoi 2.40.0
 shfmt 3.7.0
 tig 2.5.8
 github-cli 2.35.0
@@ -18,7 +18,7 @@ duf 0.8.1
 yq 4.35.1
 zig master
 bitwarden 2023.8.2
-powershell-core 7.3.6
+powershell-core 7.3.7
 lua 5.4.6
 luajit 2.0.5--2.4.4
 jq 1.7
