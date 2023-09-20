@@ -1,0 +1,49 @@
+[tools]
+bitwarden = "latest"
+chezmoi = "latest"
+direnv = "latest"
+dotnet-core = "latest"
+duf = "latest"
+fzf = "latest"
+ghq = "latest"
+jq = "latest"
+lua = "latest"
+luajit = "latest"
+github-cli = "latest"
+peco = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+tig = "latest"
+vim = "latest"
+yarn = "latest"
+yq = "latest"
+ruby = [
+  "latest",
+]
+neovim = [
+  "nightly",
+  "ref:master",
+  "stable",
+  "latest",
+]
+node = [
+  # lts = 18
+  "18",
+  "16",
+  "20",
+]
+powershell-core = [
+  "latest",
+  "7.3",
+  "7.2",
+  "7.4.0-preview.5"
+]
+python = [
+  "latest",
+  "2",
+  "3",
+]
+zig = [
+  "master",
+  "latest"
+]

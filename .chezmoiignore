@@ -102,6 +102,7 @@ Brewfile
 .profile
 .npmrc
 .nanorc
+.rtx.toml
 
 ### directory
 utils
