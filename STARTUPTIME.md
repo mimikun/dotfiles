@@ -6,6 +6,41 @@ This is Work-PC startuptime memo
 - Fish-shell
 - Paleovim(vim)
 
+## 2023.09.20
+
+### Neovim
+
+```shell
+❯ vim-startuptime -vimpath nvim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 37.287700 msec
+Total Max:     40.330000 msec
+Total Min:     35.458000 msec
+```
+
+### Fish-shell
+
+```shell
+❯ hyperfine -w 5 -r 50 'fish -i -c exit'
+Benchmark 1: fish -i -c exit
+  Time (mean ± σ):     141.5 ms ±   7.6 ms    [User: 136.9 ms, System: 22.0 ms]
+  Range (min … max):   137.3 ms … 188.7 ms    50 runs
+```
+
+### Paleovim
+
+```shell
+❯ vim-startuptime -vimpath vim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 126.582000 msec
+Total Max:     129.491000 msec
+Total Min:     125.008000 msec
+```
+
 ## 2023.09.19
 
 ### Neovim
