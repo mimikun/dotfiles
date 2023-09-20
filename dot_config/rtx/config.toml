@@ -1,7 +1,7 @@
 [settings]
 always_keep_download = false
 always_keep_install = false
-asdf_compat = false
+asdf_compat = true
 disable_default_shorthands = false
 disable_tools = []
 experimental = false
