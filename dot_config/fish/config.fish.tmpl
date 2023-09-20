@@ -136,9 +136,9 @@ alias lta "ls --tree -a"
 # Rye
 set -x PATH $HOME/.rye/shims $PATH
 
-# rtx
-#set -x RTX_DATA_DIR $HOME/.rtx
-#set -x RTX_CACHE_DIR $RTX_DATA_DIR/cache
+# rtx PATHs
+set -x RTX_DATA_DIR $HOME/.rtx
+set -x RTX_CACHE_DIR $RTX_DATA_DIR/cache
 
 # luarocks
 set -x PATH $HOME/.luarocks/bin $PATH
@@ -192,6 +192,10 @@ alias vim "nvim"
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR
     echo "" > $CACHE_CONFIG_FISH
+
+    # rtx config
+    #echo "# cache rtx shell-integration script" >> $CACHE_CONFIG_FISH
+    #rtx activate fish >> $CACHE_CONFIG_FISH
 
     # starship config
     echo "# cache starship config" >> $CACHE_CONFIG_FISH
