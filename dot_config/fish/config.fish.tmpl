@@ -86,24 +86,9 @@ alias open wsl-open
 alias zel zellij
 alias pueuexec "pueue add --"
 
-# asdf
-source ~/.asdf/asdf.fish
-
-# starship config
-starship init fish | source
-
-# direnv config
-asdf exec direnv hook fish | source
-
-# dotnet-core completions
-complete -f -c dotnet -a "(dotnet complete)"
-
 # Bun
 set -x BUN_INSTALL $HOME/.bun
 set -x PATH $BUN_INSTALL/bin $PATH
-
-# navi
-source ~/.config/navi/navi_widget.fish
 
 # fly.io
 set -x FLYCTL_INSTALL $HOME/.fly
@@ -114,17 +99,8 @@ set -x PNPM_HOME $HOME/.local/share/pnpm
 set -x PATH "$PNPM_HOME" $PATH
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
 
-# keychain
+# work pc only tools?
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
-source $HOME/.keychain/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_keychain_filepath.value }}-fish
-{{ else }}
-source $HOME/.keychain/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_keychain_filepath.value }}-fish
-{{ end }}
-
-# work pc only tools
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
-source $HOME/.config/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }}
-
 # JVM path
 set -x JAVA_HOME $HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10
 set -x PATH $HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin $PATH
@@ -157,12 +133,6 @@ alias lt "ls --tree"
 alias lat "ls -l -a --tree"
 alias lta "ls --tree -a"
 
-# vim alias
-alias paleovim $HOME/.asdf/shims/vim
-alias pvim paleovim
-alias neovim $HOME/.asdf/shims/nvim
-alias vim "nvim"
-
 # Rye
 set -x PATH $HOME/.rye/shims $PATH
 
@@ -187,7 +157,62 @@ set -x LUA_CPATH "/usr/local/lib/lua/5.3/loadall.so" $LUA_CPATH
 set -x LUA_CPATH "./?.so" $LUA_CPATH
 set -x LUA_CPATH "$HOME/.luarocks/lib/lua/5.3/?.so" $LUA_CPATH
 
+# NOTE: cannot caches
+# TODO: adapt cache
+
 # Linuxbrew
-# NOTE:
-# なんのためにあるかわからん
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# NOTE: cannot caches
+# TODO: adapt cache
+
+# dotnet-core completions
+complete -f -c dotnet -a "(dotnet complete)"
+
+# NOTE: cannot caches
+# TODO: adapt cache
+
+# asdf
+source ~/.asdf/asdf.fish
+
+# NOTE: cannot caches
+# TODO: adapt cache
+
+# direnv config
+asdf exec direnv hook fish | source
+
+# vim alias
+alias paleovim $HOME/.asdf/shims/vim
+alias pvim paleovim
+alias neovim $HOME/.asdf/shims/nvim
+alias vim "nvim"
+
+# cache
+# thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
+if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
+    mkdir -p $FISH_CACHE_DIR
+    echo "" > $CACHE_CONFIG_FISH
+
+    # starship config
+    echo "# cache starship config" >> $CACHE_CONFIG_FISH
+    starship init fish --print-full-init >> $CACHE_CONFIG_FISH
+
+    # navi
+    echo "# cache navi config" >> $CACHE_CONFIG_FISH
+    cat ~/.config/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
+
+    # keychain
+    echo "# cache keychain config" >> $CACHE_CONFIG_FISH
+    {{ if (eq .chezmoi.hostname "TanakaPC") }}
+    cat $HOME/.keychain/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_keychain_filepath.value }}-fish >> $CACHE_CONFIG_FISH
+    {{ else }}
+    cat $HOME/.keychain/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_keychain_filepath.value }}-fish >> $CACHE_CONFIG_FISH
+    {{ end }}
+
+    # work pc only tools
+    {{ if (eq .chezmoi.hostname "TanakaPC") }}
+    echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
+    cat $HOME/.config/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
+    {{ end }}
+end
+source $CACHE_CONFIG_FISH
