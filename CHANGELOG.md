@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2023.09.20]
+
+### Added - 新機能について
+
+- Add rtx fish config
+- Add .rtx.toml
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Improved config.fish
+    - Use cache
+- Update asdf tools version
+    - vim 9.0.1916
+    - chezmoi 2.40.0
+    - powershell-core 7.3.7
+- Update rtx config
+    - asdf_compat = true
+- Update deno fish completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.19]
 
 ### Added - 新機能について
