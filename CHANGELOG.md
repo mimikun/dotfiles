@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2023.09.21]
+
+### Added - 新機能について
+
+- Add new rust tool: git-graph
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - bitwarden 2023.9.0
+    - vim 9.0.1922
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.20]
 
 ### Added - 新機能について
