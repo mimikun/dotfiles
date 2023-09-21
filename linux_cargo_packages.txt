@@ -35,6 +35,7 @@ felix
 fselect
 genact
 git-delta
+git-graph
 git-interactive-rebase-tool
 gitui
 glitchcat
