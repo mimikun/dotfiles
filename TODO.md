@@ -2,7 +2,15 @@
 
 ## No issue numbers
 
+### 52. PowerShellの起動速度UP
+
+https://github.com/mimikun/dotfiles/issues/52
+
+cache使うテクでうまいこといけないか試す
+
 ### 51. `vim-skk/skkeleton` の設定
+
+https://github.com/mimikun/dotfiles/issues/51
 
 https://github.com/vim-skk/skkeleton の設定
 
