@@ -97,7 +97,6 @@ set -x PATH $FLYCTL_INSTALL/bin $PATH
 # pnpm
 set -x PNPM_HOME $HOME/.local/share/pnpm
 set -x PATH "$PNPM_HOME" $PATH
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
 
 # work pc only tools?
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
@@ -166,6 +165,9 @@ complete -f -c dotnet -a "(dotnet complete)"
 # asdf
 set -x PATH $HOME/.asdf/bin $PATH
 set -x PATH $HOME/.asdf/shims $PATH
+set -x ASDF_DIR $HOME/.asdf
+set -x ASDF_DATA_DIR $HOME/.asdf
+set -x ASDF_CONFIG_FILE $HOME/.asdfrc
 
 # vim alias
 type -q asdf
@@ -205,6 +207,10 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     # navi
     echo "# cache navi config" >> $CACHE_CONFIG_FISH
     cat ~/.config/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
+
+    # pnpm
+    echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
+    cat ~/.config/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
 
     # keychain
     echo "# cache keychain config" >> $CACHE_CONFIG_FISH
