@@ -96,3 +96,7 @@ stylua-format :
 .PHONY : shell-format
 shell-format :
 	bash utils/format.sh
+
+.PHONY : benchmark
+benchmark :
+	bash utils/benchmark.sh

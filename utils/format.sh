@@ -15,4 +15,5 @@ run_shfmt format.sh
 run_shfmt lint.sh
 run_shfmt update.sh
 run_shfmt install-skk-jisyo.sh
+run_shfmt benchmark.sh
 cd "$current_dir" || exit
