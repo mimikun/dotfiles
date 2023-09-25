@@ -61,3 +61,5 @@ WIP
 - [config](dot_config/README.md)
 - [Fish-shell config](dot_config/fish/README.md)
 - [~/.local/bin](private_dot_local/bin/README.md)
+- [Changelog](CHANGELOG.md)
+- [Startup time Log](STARTUPTIME.md)
