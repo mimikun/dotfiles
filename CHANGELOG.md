@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2023.09.26]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.1943
+    - yq 4.35.2
+- Update vup and vupueue command
+
+### Removed - 今回で削除された機能について
+
+- Remove fish plugin: mimikun/update_asdf_neovim
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.25]
 
 ### Added - 新機能について
