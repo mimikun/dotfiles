@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.1.0"
+readonly PRODUCT_VERSION="0.2.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -120,9 +120,9 @@ other_tools() {
   fish -c 'fisher update'
   asdf plugin update --all
   update_asdf_tools
-  update_asdf_neovim_master
-  update_asdf_neovim_stable
-  update_asdf_neovim_nightly
+  update_asdf_neovim master
+  update_asdf_neovim stable
+  update_asdf_neovim nightly
   update_asdf_zig_master
   # Update rust tools
   update_cargo_packages

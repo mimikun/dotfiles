@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.1.0"
+readonly PRODUCT_VERSION="0.2.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -116,9 +116,9 @@ no_pueue_other_tools() {
   fish -c 'fisher update'
   asdf plugin update --all
   update_asdf_tools
-  pueue_update_asdf_neovim_master
-  pueue_update_asdf_neovim_stable
-  pueue_update_asdf_neovim_nightly
+  update_asdf_neovim master --use-pueue
+  update_asdf_neovim stable --use-pueue
+  update_asdf_neovim nightly --use-pueue
   pueue_update_asdf_zig_master
   pueue_update_asdf_nodejs_lts
   # Update rust tools
