@@ -17,7 +17,6 @@ mimikun/read_confirm
 mimikun/re_boot
 mimikun/shut_down
 mimikun/supersync
-mimikun/update_asdf_neovim
 mimikun/update_asdf_zig_master
 mimikun/update_bw
 mimikun/update_chromedriver
