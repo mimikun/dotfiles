@@ -20,6 +20,7 @@ cargo-release
 cargo-tarpaulin
 cargo-udeps
 cargo-update
+cargo-wipe
 choose
 create-tauri-app
 csview
@@ -60,6 +61,7 @@ pylyzer
 rana
 ripgrep
 ripgrep_all
+rrc
 rtx-cli
 sd
 selene
