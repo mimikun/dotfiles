@@ -30,6 +30,7 @@ local opts = {
         folder = "001_DailyNotes",
         date_format = "%Y年%m月%d日",
     },
+    mappings = {},
     disable_frontmatter = true,
     -- Obsidian templates folder
     templates = {
