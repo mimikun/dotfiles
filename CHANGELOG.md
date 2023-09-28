@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2023.09.28]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update neovim plugin config: obsidian.nvim
+- Update asdf tools version
+    - vim 9.0.1946
+- Update fish completions
+    - deno
+    - runme
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.27]
 
 ### Added - 新機能について
