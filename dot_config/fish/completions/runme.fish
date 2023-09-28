@@ -55,6 +55,60 @@ function __runme_perform_completion
     printf "%s\n" "$directiveLine"
 end
 
+# this function limits calls to __runme_perform_completion, by caching the result behind $__runme_perform_completion_once_result
+function __runme_perform_completion_once
+    __runme_debug "Starting __runme_perform_completion_once"
+
+    if test -n "$__runme_perform_completion_once_result"
+        __runme_debug "Seems like a valid result already exists, skipping __runme_perform_completion"
+        return 0
+    end
+
+    set --global __runme_perform_completion_once_result (__runme_perform_completion)
+    if test -z "$__runme_perform_completion_once_result"
+        __runme_debug "No completions, probably due to a failure"
+        return 1
+    end
+
+    __runme_debug "Performed completions and set __runme_perform_completion_once_result"
+    return 0
+end
+
+# this function is used to clear the $__runme_perform_completion_once_result variable after completions are run
+function __runme_clear_perform_completion_once_result
+    __runme_debug ""
+    __runme_debug "========= clearing previously set __runme_perform_completion_once_result variable =========="
+    set --erase __runme_perform_completion_once_result
+    __runme_debug "Succesfully erased the variable __runme_perform_completion_once_result"
+end
+
+function __runme_requires_order_preservation
+    __runme_debug ""
+    __runme_debug "========= checking if order preservation is required =========="
+
+    __runme_perform_completion_once
+    if test -z "$__runme_perform_completion_once_result"
+        __runme_debug "Error determining if order preservation is required"
+        return 1
+    end
+
+    set -l directive (string sub --start 2 $__runme_perform_completion_once_result[-1])
+    __runme_debug "Directive is: $directive"
+
+    set -l shellCompDirectiveKeepOrder 32
+    set -l keeporder (math (math --scale 0 $directive / $shellCompDirectiveKeepOrder) % 2)
+    __runme_debug "Keeporder is: $keeporder"
+
+    if test $keeporder -ne 0
+        __runme_debug "This does require order preservation"
+        return 0
+    end
+
+    __runme_debug "This doesn't require order preservation"
+    return 1
+end
+
+
 # This function does two things:
 # - Obtain the completions and store them in the global __runme_comp_results
 # - Return false if file completion should be performed
@@ -65,17 +119,17 @@ function __runme_prepare_completions
     # Start fresh
     set --erase __runme_comp_results
 
-    set -l results (__runme_perform_completion)
-    __runme_debug "Completion results: $results"
+    __runme_perform_completion_once
+    __runme_debug "Completion results: $__runme_perform_completion_once_result"
 
-    if test -z "$results"
+    if test -z "$__runme_perform_completion_once_result"
         __runme_debug "No completion, probably due to a failure"
         # Might as well do file completion, in case it helps
         return 1
     end
 
-    set -l directive (string sub --start 2 $results[-1])
-    set --global __runme_comp_results $results[1..-2]
+    set -l directive (string sub --start 2 $__runme_perform_completion_once_result[-1])
+    set --global __runme_comp_results $__runme_perform_completion_once_result[1..-2]
 
     __runme_debug "Completions are: $__runme_comp_results"
     __runme_debug "Directive is: $directive"
@@ -171,7 +225,11 @@ end
 # Remove any pre-existing completions for the program since we will be handling all of them.
 complete -c runme -e
 
+# this will get called after the two calls below and clear the $__runme_perform_completion_once_result global
+complete -c runme -n '__runme_clear_perform_completion_once_result'
 # The call to __runme_prepare_completions will setup __runme_comp_results
 # which provides the program's completion choices.
-complete -c runme -n '__runme_prepare_completions' -f -a '$__runme_comp_results'
-
+# If this doesn't require order preservation, we don't use the -k flag
+complete -c runme -n 'not __runme_requires_order_preservation && __runme_prepare_completions' -f -a '$__runme_comp_results'
+# otherwise we use the -k flag
+complete -k -c runme -n '__runme_requires_order_preservation && __runme_prepare_completions' -f -a '$__runme_comp_results'
