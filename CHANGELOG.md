@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2023.09.29]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update README.md
+- Update asdf tools version
+    - vim 9.0.1950
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.09.28]
 
 ### Added - 新機能について
