@@ -4,7 +4,7 @@
 
 ### Added - 新機能について
 
-なし
+- Add windows_cargo_packages.txt
 
 ### Changed - 既存機能の変更について
 
