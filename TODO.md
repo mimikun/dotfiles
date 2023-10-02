@@ -2,6 +2,12 @@
 
 ## No issue numbers
 
+### 53. `lspconfig` を使ってみたい
+
+https://github.com/mimikun/dotfiles/issues/53
+
+`coc.nvim` のかわりに使う
+
 ### 52. PowerShellの起動速度UP
 
 https://github.com/mimikun/dotfiles/issues/52
