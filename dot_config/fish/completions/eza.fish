@@ -14,6 +14,7 @@ complete -c eza -l color \
     -l colour -d "When to use terminal colours" -x -a "
     always\t'Always use colour'
     auto\t'Use colour if standard output is a terminal'
+    automatic\t'Use colour if standard output is a terminal'
     never\t'Never use colour'
 "
 complete -c eza -l color-scale \
@@ -73,7 +74,7 @@ complete -c eza -s t -l time -d "Which timestamp field to list" -x -a "
     accessed\t'Display accessed time'
     created\t'Display created time'
 "
-complete -c exa -s X -l dereference -d "dereference symlinks for file information"
+complete -c eza -s X -l dereference -d "dereference symlinks for file information"
 complete -c eza -s m -l modified -d "Use the modified timestamp field"
 complete -c eza -s n -l numeric -d "List numeric user and group IDs."
 complete -c eza -l changed -d "Use the changed timestamp field"
@@ -82,7 +83,7 @@ complete -c eza -s U -l created -d "Use the created timestamp field"
 complete -c eza -l time-style -d "How to format timestamps" -x -a "
     default\t'Use the default time style'
     iso\t'Display brief ISO timestamps'
-    long-iso\t'Display longer ISO timestaps, up to the minute'
+    long-iso\t'Display longer ISO timestamps, up to the minute'
     full-iso\t'Display full ISO timestamps, up to the nanosecond'
     relative\t'Display relative timestamps'
 "
