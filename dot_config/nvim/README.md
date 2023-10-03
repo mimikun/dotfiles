@@ -49,6 +49,7 @@
     - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
 - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim)
     - [denops.vim](https://github.com/vim-denops/denops.vim)
+- [live-server.nvim](https://github.com/barrett-ruth/live-server.nvim)
 - [mastodon.nvim](https://github.com/kode-team/mastodon.nvim)
     - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
     - [nvim-notify](https://github.com/rcarriga/nvim-notify)
