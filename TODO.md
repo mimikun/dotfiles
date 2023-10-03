@@ -2,6 +2,22 @@
 
 ## No issue numbers
 
+### 55. Fix nvim healthcheck warning
+
+https://github.com/mimikun/dotfiles/issues/55
+
+会社PCで発生
+
+```
+WARNING No clipboard tool found. Clipboard registers (`"+` and `"*`) will not work.
+```
+
+### 54. neovimのPluginを分類する
+
+https://github.com/mimikun/dotfiles/issues/54
+
+[yutkat/my-neovim-pluginlist](https://github.com/yutkat/my-neovim-pluginlist) の分類を参考にする
+
 ### 53. `lspconfig` を使ってみたい
 
 https://github.com/mimikun/dotfiles/issues/53
