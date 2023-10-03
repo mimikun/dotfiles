@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.10.03]
+
+### Added - 新機能について
+
+- Add new neovim plugin: typos.nvim
+- Add new neovim plugin: live-server.nvim
+- Add new neovim plugin: clock.nvim
+- Add new rust tool: colorgen-nvim
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.1976
+    - github-cli 2.36.0
+- Update TODO.md
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix mastodon-nvim.lua
+
 ## [v2023.10.02]
 
 ### Added - 新機能について
