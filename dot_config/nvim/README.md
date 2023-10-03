@@ -64,6 +64,7 @@
     - [denops.vim](https://github.com/vim-denops/denops.vim)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
     - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+- [typos.nvim](https://github.com/poljar/typos.nvim)
 - [vim-cargo-make](https://github.com/nastevens/vim-cargo-make)
     - [vim-toml](https://github.com/cespare/vim-toml)
     - [vim-duckscript](https://github.com/nastevens/vim-duckscript)
