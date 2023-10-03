@@ -76,6 +76,7 @@
 
 ## Disabled Plugins
 - [catppuccin/nvim](https://github.com/catppuccin/nvim)
+- [clock.nvim](https://github.com/registerGen/clock.nvim)
 - [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - [copilot.lua ](https://github.com/zbirenbaum/copilot.lua)
 - [copilot.vim](https://github.com/github/copilot.vim)
