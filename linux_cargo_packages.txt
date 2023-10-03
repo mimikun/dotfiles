@@ -22,6 +22,7 @@ cargo-udeps
 cargo-update
 cargo-wipe
 choose
+colorgen-nvim
 create-tauri-app
 csview
 desed
