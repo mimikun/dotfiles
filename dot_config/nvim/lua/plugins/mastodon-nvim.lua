@@ -8,6 +8,7 @@ local cmds = {
     "MastodonLoadReplies",
     "MastodonReload",
 }
+
 return {
     "kode-team/mastodon.nvim",
     --lazy = false,
