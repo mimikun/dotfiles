@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2023.10.04]
+- Add new neovim plugins: lsp
+
+### Added - 新機能について
+
+- Add new neovim plugin: mkdir.nvim
+- Add new neovim plugin: pandoc.nvim
+- Add new neovim plugin: confirm-quit.nvim
+- Add new neovim plugin: surround-ui.nvim
+
+### Changed - 既存機能の変更について
+
+- Update TODO.md
+- Update lazy-lock.json
+- Update typos.toml
+- Update rye fish completion
+- Update asdf tools version
+    - python 3.12.0
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.10.03]
 
 ### Added - 新機能について
