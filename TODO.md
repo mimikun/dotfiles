@@ -2,6 +2,31 @@
 
 ## No issue numbers
 
+- Fix nvim checkhealth error
+
+```txt
+Python 3 provider (optional) ~
+- Using: g:python3_host_prog = "~/.asdf/shims/python3"
+- Executable: /home/yuto/.asdf/shims/python3
+- Python version: 3.12.0
+- pynvim version: Traceback (most recent call last):
+    File "<string>", line 1, in <module>
+    File "/home/yuto/.asdf/installs/python/3.12.0/lib/python3.12/site-packages/neovim/__init__.py", line 5, in <module>
+      import pynvim
+    File "/home/yuto/.asdf/installs/python/3.12.0/lib/python3.12/site-packages/pynvim/__init__.py", line 9, in <module>
+      from pynvim.api import Nvim, NvimError
+    File "/home/yuto/.asdf/installs/python/3.12.0/lib/python3.12/site-packages/pynvim/api/__init__.py", line 7, in <module>
+      from pynvim.api.buffer import Buffer
+    File "/home/yuto/.asdf/installs/python/3.12.0/lib/python3.12/site-packages/pynvim/api/buffer.py", line 2, in <module>
+      from pynvim.api.common import Remote
+    File "/home/yuto/.asdf/installs/python/3.12.0/lib/python3.12/site-packages/pynvim/api/common.py", line 6, in <module>
+      from pynvim.compat import unicode_errors_default
+    File "/home/yuto/.asdf/installs/python/3.12.0/lib/python3.12/site-packages/pynvim/compat.py", line 5, in <module>
+      from imp import find_module as original_find_module
+  ModuleNotFoundError: No module named 'imp'
+- OK Latest pynvim is installed.
+```
+
 ### 55. Fix nvim healthcheck warning
 
 https://github.com/mimikun/dotfiles/issues/55
