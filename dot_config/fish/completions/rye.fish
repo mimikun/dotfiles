@@ -57,7 +57,7 @@ complete -c rye -n "__fish_seen_subcommand_from config" -l show-path -d 'Print t
 complete -c rye -n "__fish_seen_subcommand_from config" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c rye -n "__fish_seen_subcommand_from fetch" -s v -l verbose -d 'Enables verbose diagnostics'
 complete -c rye -n "__fish_seen_subcommand_from fetch" -s q -l quiet -d 'Turns off all output'
-complete -c rye -n "__fish_seen_subcommand_from fetch" -s h -l help -d 'Print help'
+complete -c rye -n "__fish_seen_subcommand_from fetch" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c rye -n "__fish_seen_subcommand_from init" -l min-py -d 'Minimal Python version supported by this project' -r
 complete -c rye -n "__fish_seen_subcommand_from init" -s p -l py -d 'Python version to use for the virtualenv' -r
 complete -c rye -n "__fish_seen_subcommand_from init" -l build-system -d 'Which build system should be used(defaults to hatchling)?' -r -f -a "{hatchling	,setuptools	,flit	,pdm	,maturin	}"
@@ -155,7 +155,7 @@ complete -c rye -n "__fish_seen_subcommand_from toolchain; and not __fish_seen_s
 complete -c rye -n "__fish_seen_subcommand_from toolchain; and not __fish_seen_subcommand_from fetch; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c rye -n "__fish_seen_subcommand_from toolchain; and __fish_seen_subcommand_from fetch" -s v -l verbose -d 'Enables verbose diagnostics'
 complete -c rye -n "__fish_seen_subcommand_from toolchain; and __fish_seen_subcommand_from fetch" -s q -l quiet -d 'Turns off all output'
-complete -c rye -n "__fish_seen_subcommand_from toolchain; and __fish_seen_subcommand_from fetch" -s h -l help -d 'Print help'
+complete -c rye -n "__fish_seen_subcommand_from toolchain; and __fish_seen_subcommand_from fetch" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c rye -n "__fish_seen_subcommand_from toolchain; and __fish_seen_subcommand_from list" -l format -d 'Request parseable output format' -r -f -a "{json	}"
 complete -c rye -n "__fish_seen_subcommand_from toolchain; and __fish_seen_subcommand_from list" -l include-downloadable -d 'Also include non installed, but downloadable toolchains'
 complete -c rye -n "__fish_seen_subcommand_from toolchain; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
