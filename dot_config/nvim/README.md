@@ -54,6 +54,7 @@
     - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
     - [nvim-notify](https://github.com/rcarriga/nvim-notify)
     - [sqlite.lua](https://github.com/kkharji/sqlite.lua)
+- [mkdir.nvim](https://github.com/jghauser/mkdir.nvim)
 - [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim)
     - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [pandoc.nvim](https://github.com/aspeddro/pandoc.nvim)
