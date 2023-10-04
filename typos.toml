@@ -31,4 +31,5 @@ extend-exclude = [
     "dot_config/nvim/lua/keymaps.lua",
     "dot_vim/vimrc",
     "private_dot_local/bin/executable_wsl-open",
+    "dot_config/fish/completions/runme.fish",
 ]
