@@ -56,6 +56,7 @@
     - [sqlite.lua](https://github.com/kkharji/sqlite.lua)
 - [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim)
     - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [pandoc.nvim](https://github.com/aspeddro/pandoc.nvim)
 - [ron.vim](https://github.com/ron-rs/ron.vim)
 - [skk-tutorial.vim](https://github.com/willelz/skk-tutorial.vim)
     - [denops.vim](https://github.com/vim-denops/denops.vim)
