@@ -116,6 +116,7 @@
 - [scrollbar.nvim](https://github.com/Xuyuanp/scrollbar.nvim)
 - [silicon.lua](https://github.com/0oAstro/silicon.lua)
 - [sonokai](https://github.com/sainnhe/sonokai)
+- [surround-ui.nvim](https://github.com/roobert/surround-ui.nvim)
 - [startup.nvim](https://github.com/startup-nvim/startup.nvim)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [tenki.lua](https://github.com/mimikun/tenki.lua)
