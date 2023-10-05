@@ -37,4 +37,5 @@ TODAY=$(date "+%Y.%m.%d")
     echo '❯ vim-startuptime -vimpathvim | head -n 6' >>$RESULT_FILE
     vim-startuptime -vimpath vim | head -n 6
     echo '```'
+    echo ""
 } >>$RESULT_FILE
