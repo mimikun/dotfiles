@@ -1,35 +1,15 @@
 [default.extend-words]
+noice = "noice"
+enew = "enew"
+iterm = "iterm"
+edn = "edn"
 
 [files]
 extend-exclude = [
-    "pnpm-lock.yaml",
-    "dot_logseq/config/config.edn",
-    "dot_logseq/config/plugins.edn",
-    "dot_config/starship.toml",
-    "vimfiles/vimrc",
-    "AppData/Local/nvim/README.md",
-    "AppData/Local/nvim/lua/plugins/noice.lua",
-    "AppData/Local/nvim/lua/keymaps.lua",
-    "tasks.ps1",
-    "AppData/Local/nvim/lua/plugins/noice.lua.tmpl",
-    "dot_config/neofetch/config.conf",
+    "dot_config/fish/completions",
     "dot_config/starship/starship.toml",
+    "dot_config/neofetch/config.conf",
     "dot_ghcup/config.yaml",
-    "dot_config/fish/completions/bun.fish",
-    "dot_config/fish/completions/ghq.fish",
-    "dot_config/fish/completions/brew.fish",
-    "dot_config/fish/completions/nkf.fish",
-    "dot_config/fish/completions/eza.fish",
-    "dot_config/fish/completions/yq.fish",
-    "dot_config/fish/completions/flyctl.fish",
-    "dot_config/fish/completions/chezmoi.fish",
-    "dot_config/fish/completions/pueue.fish",
     "dot_config/pipr/pipr.toml",
-    "dot_config/nvim/README.md",
-    "dot_config/nvim/lua/plugins/noice.lua",
-    "dot_config/nvim/lua/plugins/dashboard-nvim.lua",
-    "dot_config/nvim/lua/keymaps.lua",
-    "dot_vim/vimrc",
     "private_dot_local/bin/executable_wsl-open",
-    "dot_config/fish/completions/runme.fish",
 ]
