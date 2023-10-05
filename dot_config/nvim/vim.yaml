@@ -1,0 +1,6 @@
+--- # This begins a YAML file
+base: lua51 # We will be extending off of Lua 5.1.
+
+globals:
+  vim:
+    any: true

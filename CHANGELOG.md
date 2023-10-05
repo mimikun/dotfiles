@@ -1,7 +1,34 @@
 # Changelog
 
+## [v2023.10.05]
+
+### Added - 新機能について
+
+- Add selene Lua Linter
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update utils/benchmark.sh
+- Update typos.toml
+- Update neovim plugin config: alpha-nvim
+    - Add open Mason window shortcut button
+- Update Linux wezterm config
+    - Use nerdfont in Battery icon
+- Update neovim plugin configs: themes
+- Update neovim plugin config: themery.nvim
+- Update hyperfine fish completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.10.04]
-- Add new neovim plugins: lsp
 
 ### Added - 新機能について
 
