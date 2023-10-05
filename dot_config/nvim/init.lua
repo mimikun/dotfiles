@@ -19,6 +19,9 @@ require("func")
 -- plugin を読み込む
 require("lazyvim")
 
+-- colorschemeを読み込む
+require("colorscheme")
+
 -- autocmd勉強用ファイルを読み込む
 --require("event_learn_support")
 
