@@ -32,14 +32,14 @@ This performs benchmarks for \'gcc -O2 main.cpp\' and \'clang -O2 main.cpp\'.
 The option can be specified multiple times to run benchmarks for all possible parameter combinations.
 ' -r
 complete -c hyperfine -s S -l shell -d 'Set the shell to use for executing benchmarked commands. This can be the name or the path to the shell executable, or a full command line like "bash --norc". It can also be set to "default" to explicitly select the default shell on this platform. Finally, this can also be set to "none" to disable the shell. In this case, commands will be executed directly. They can still have arguments, but more complex things like "sleep 0.1; sleep 0.2" are not possible without a shell.' -r
-complete -c hyperfine -l style -d 'Set output style type (default: auto). Set this to \'basic\' to disable output coloring and interactive elements. Set it to \'full\' to enable all effects even if no interactive terminal was detected. Set this to \'nocolor\' to keep the interactive output without any colors. Set this to \'color\' to keep the colors without any interactive output. Set this to \'none\' to disable all the output of the tool.' -r -f -a "{auto	,basic	,full	,nocolor	,color	,none	}"
+complete -c hyperfine -l style -d 'Set output style type (default: auto). Set this to \'basic\' to disable output coloring and interactive elements. Set it to \'full\' to enable all effects even if no interactive terminal was detected. Set this to \'nocolor\' to keep the interactive output without any colors. Set this to \'color\' to keep the colors without any interactive output. Set this to \'none\' to disable all the output of the tool.' -r -f -a "{auto	'',basic	'',full	'',nocolor	'',color	'',none	''}"
 complete -c hyperfine -l sort -d 'Specify the sort order of the speed comparison summary and the exported tables for markup formats (Markdown, AsciiDoc, org-mode):
   * \'auto\' (default): the speed comparison will be ordered by time and
     the markup tables will be ordered by command (input order).
   * \'command\': order benchmarks in the way they were specified
   * \'mean-time\': order benchmarks by mean runtime
-' -r -f -a "{auto	,command	,mean-time	}"
-complete -c hyperfine -s u -l time-unit -d 'Set the time unit to be used. Possible values: millisecond, second. If the option is not given, the time unit is determined automatically. This option affects the standard output as well as all export formats except for CSV and JSON.' -r -f -a "{millisecond	,second	}"
+' -r -f -a "{auto	'',command	'',mean-time	''}"
+complete -c hyperfine -s u -l time-unit -d 'Set the time unit to be used. Possible values: microsecond, millisecond, second. If the option is not given, the time unit is determined automatically. This option affects the standard output as well as all export formats except for CSV and JSON.' -r -f -a "{microsecond	'',millisecond	'',second	''}"
 complete -c hyperfine -l export-asciidoc -d 'Export the timing summary statistics as an AsciiDoc table to the given FILE. The output time unit can be changed using the --time-unit option.' -r
 complete -c hyperfine -l export-csv -d 'Export the timing summary statistics as CSV to the given FILE. If you need the timing results for each individual run, use the JSON export format. The output time unit is always seconds.' -r
 complete -c hyperfine -l export-json -d 'Export the timing summary statistics and timings of individual runs as JSON to the given FILE. The output time unit is always seconds' -r
