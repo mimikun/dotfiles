@@ -98,7 +98,7 @@ return {
         --priority = 1000,
 
         config = function()
-            vim.g.sonokai_style = 'default'
+            vim.g.sonokai_style = "default"
         end,
         --cond = false,
     },
