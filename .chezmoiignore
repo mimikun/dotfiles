@@ -24,6 +24,8 @@ WSLInterop.conf
 tasks.ps1
 images
 STARTUPTIME.md
+vim.yaml
+selene.toml
 
 {{ if eq .chezmoi.os "linux" }}
 # Linuxの場合のignoreパターン

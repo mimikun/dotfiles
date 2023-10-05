@@ -60,11 +60,15 @@ install-skk-jisyo :
 test : lint
 
 .PHONY : lint
-lint : stylua-lint textlint typo-check pwsh-test shell-lint
+lint : selene-lint stylua-lint textlint typo-check pwsh-test shell-lint
 
 .PHONY : stylua-lint
 stylua-lint :
 	stylua --check ./
+
+.PHONY : selene-lint
+selene-lint :
+	selene .
 
 .PHONY : textlint
 textlint :

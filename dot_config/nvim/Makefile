@@ -49,11 +49,15 @@ copy2win-patch-gpg :
 copy2win-patch : copy2win-patch-raw
 
 .PHONY : lint
-lint : stylua-lint
+lint : stylua-lint selene-lint
 
 .PHONY : stylua-lint
 stylua-lint :
 	stylua --check ./
+
+.PHONY : selene-lint
+selene-lint :
+	selene .
 
 .PHONY : fmt
 fmt : format
@@ -76,7 +80,9 @@ create-release : clean
 		coc-settings.json \
 		init.lua \
 		lua/* \
-		stylua.toml
+		stylua.toml \
+		selene.toml \
+		vim.yaml
 
 .PHONY : copy2win-release
 copy2win-release : create-release
