@@ -7,7 +7,6 @@ return {
 
         config = function()
             require("github-theme").setup({})
-            vim.cmd.colorscheme("github_dark")
         end,
         --cond = false,
     },
@@ -19,9 +18,8 @@ return {
 
         config = function()
             require("monokai").setup({})
-            vim.cmd.colorscheme("monokai")
         end,
-        cond = false,
+        --cond = false,
     },
     {
         "Allianaab2m/penumbra.nvim",
@@ -31,20 +29,16 @@ return {
 
         config = function()
             require("penumbra").setup({})
-            vim.cmd.colorscheme("penumbra")
         end,
-        cond = false,
+        --cond = false,
     },
     {
         "folke/tokyonight.nvim",
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
-        config = function()
-            vim.cmd.colorscheme("tokyonight")
-        end,
-        cond = false,
+        opts = {},
+        --cond = false,
     },
     {
         "kihachi2000/yash.nvim",
@@ -52,10 +46,7 @@ return {
         --event = "VeryLazy",
         --priority = 1000,
 
-        config = function()
-            vim.cmd.colorscheme("yash")
-        end,
-        cond = false,
+        --cond = false,
     },
     {
         "EdenEast/nightfox.nvim",
@@ -64,9 +55,9 @@ return {
         --priority = 1000,
 
         config = function()
-            vim.cmd.colorscheme("nightfox")
+            require("nightfox").setup({})
         end,
-        cond = false,
+        --cond = false,
     },
     {
         "tiagovla/tokyodark.nvim",
@@ -74,12 +65,10 @@ return {
         --event = "VeryLazy",
         --priority = 1000,
 
-        opts = {},
-        config = function(_, opts)
-            require("tokyodark").setup(opts) -- calling setup is optional
-            vim.cmd.colorscheme("tokyodark")
+        config = function()
+            require("tokyodark").setup({})
         end,
-        cond = false,
+        --cond = false,
     },
     {
         "loctvl842/monokai-pro.nvim",
@@ -88,20 +77,18 @@ return {
         --priority = 1000,
 
         config = function()
-            require("monokai-pro").setup()
-            vim.cmd.colorscheme("monokai-pro")
+            require("monokai-pro").setup({})
         end,
-        cond = false,
+        --cond = false,
     },
     {
+        -- NOTE: duplicate
         "crusoexia/vim-monokai",
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
 
-        config = function()
-            vim.cmd.colorscheme("vim-monokai")
-        end,
+        config = function() end,
         cond = false,
     },
     {
@@ -111,9 +98,9 @@ return {
         --priority = 1000,
 
         config = function()
-            vim.cmd.colorscheme("sonokai")
+            vim.g.sonokai_style = 'default'
         end,
-        cond = false,
+        --cond = false,
     },
     {
         "voidekh/kyotonight.vim",
@@ -121,10 +108,7 @@ return {
         --event = "VeryLazy",
         --priority = 1000,
 
-        config = function()
-            vim.cmd.colorscheme("kyotonight")
-        end,
-        cond = false,
+        --cond = false,
     },
     {
         "shaunsingh/nord.nvim",
@@ -132,10 +116,7 @@ return {
         --event = "VeryLazy",
         --priority = 1000,
 
-        config = function()
-            vim.cmd.colorscheme("nord")
-        end,
-        cond = false,
+        --cond = false,
     },
     {
         "catppuccin/nvim",
@@ -145,9 +126,9 @@ return {
         priority = 1000,
 
         config = function()
-            vim.cmd.colorscheme("catppuccin")
+            require("catppuccin").setup({})
         end,
-        cond = false,
+        --cond = false,
     },
     {
         "kyoh86/momiji",
@@ -155,10 +136,7 @@ return {
         --event = "VeryLazy",
         --priority = 1000,
 
-        config = function()
-            vim.cmd.colorscheme("momiji")
-        end,
-        cond = false,
+        --cond = false,
     },
     {
         "sainnhe/edge",
@@ -169,8 +147,7 @@ return {
         config = function()
             vim.g.edge_style = "default"
             vim.g.edge_better_performance = 1
-            vim.cmd.colorscheme("edge")
         end,
-        cond = false,
+        --cond = false,
     },
 }
