@@ -43,22 +43,37 @@ wezterm.on("update-status", function(window, pane)
         local battery_state_of_charge = b.state_of_charge * 100
         local battery_icon = ""
 
-        if battery_state_of_charge >= 80 then
-            battery_icon = "🌕  "
+        -- Use https://www.nerdfonts.com/cheat-sheet
+        if battery_state_of_charge >= 90 then
+            -- nf-md-battery
+            battery_icon = "󰁹  "
+        elseif battery_state_of_charge >= 80 then
+            -- nf-md-battery_90
+            battery_icon = "󰂂  "
         elseif battery_state_of_charge >= 70 then
-            battery_icon = "🌖  "
+            -- nf-md-battery_80
+            battery_icon = "󰂁  "
         elseif battery_state_of_charge >= 60 then
-            battery_icon = "🌖  "
+            -- nf-md-battery_70
+            battery_icon = "󰂀  "
         elseif battery_state_of_charge >= 50 then
-            battery_icon = "🌗  "
+            -- nf-md-battery_60
+            battery_icon = "󰁿  "
         elseif battery_state_of_charge >= 40 then
-            battery_icon = "🌗  "
+            -- nf-md-battery_50
+            battery_icon = "󰁾  "
         elseif battery_state_of_charge >= 30 then
-            battery_icon = "🌘  "
+            -- nf-md-battery_40
+            battery_icon = "󰁽  "
         elseif battery_state_of_charge >= 20 then
-            battery_icon = "🌘  "
+            -- nf-md-battery_30
+            battery_icon = "󰁼  "
+        elseif battery_state_of_charge >= 10 then
+            -- nf-md-battery_20
+            battery_icon = "󰁻  "
         else
-            battery_icon = "🌑  "
+            -- nf-md-battery_outline
+            battery_icon = "󰂎  "
         end
 
         bat = string.format("%s%.0f%% ", battery_icon, battery_state_of_charge)
