@@ -55,6 +55,7 @@ return {
                 { type = "padding", val = 1 },
                 dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
                 dashboard.button("u", "  Update plugins", "<cmd>Lazy sync<CR>"),
+                dashboard.button("m", "  Open Mason Window", "<cmd>Mason<CR>"),
                 dashboard.button("c", "  Run checkhealth", "<cmd>checkhealth<CR>"),
                 dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
             },
