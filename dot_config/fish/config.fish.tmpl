@@ -178,6 +178,10 @@ if test $status -eq 0
     alias vim neovim
 end
 
+# aqua
+set -x AQUA_ROOT_DIR $HOME/.local/share/aquaproj-aqua
+set -x PATH $AQUA_ROOT_DIR/bin $PATH
+
 # cache
 # thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
