@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2023.10.09]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2004
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix SpellCheck fails
+
 ## [v2023.10.08]
 
 ### Added - 新機能について
