@@ -6,6 +6,7 @@ edn = "edn"
 
 [files]
 extend-exclude = [
+    "pnpm-lock.yaml",
     "dot_config/fish/completions",
     "dot_config/starship/starship.toml",
     "dot_config/neofetch/config.conf",
