@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.5.0"
+readonly PRODUCT_VERSION="0.5.1"
 PRODUCT_NAME="$(basename "${0}")"
 
 #=======================
@@ -82,7 +82,7 @@ function _stable() {
   NVIM_STABLE_NEW_VERSION=$(curl --silent https://api.github.com/repos/neovim/neovim/releases/tags/stable | jq .body | tr " " "\n" | sed -n 2p | sed -e "s/\\\nBuild//g")
 
   if [ "$NVIM_STABLE_VERSION" != "$NVIM_STABLE_NEW_VERSION" ]; then
-    echo "Update neovim (latest)stable!"
+    echo "neovim (latest)stable found!"
     asdf uninstall neovim stable
     if [ "$opt" == "--use-pueue" ]; then
       pueue add -- "asdf install neovim stable"
