@@ -6,14 +6,15 @@ return {
         { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
-        local bannars = require("utils").bannar_logos
+        local bannars = require("utils.bannars")
+        local bannar = bannars.get("covid_19").Japan
 
         require("dashboard").setup({
             -- https://github.com/nvimdev/dashboard-nvim
             theme = "hyper",
             shortcut_type = "number",
             config = {
-                header = bannars["remember_covid_19"],
+                header = bannar,
                 week_header = {
                     enable = false,
                 },

@@ -1,3 +1,5 @@
+local themery_config = require("core.global").themery_config
+
 return {
     "zaldih/themery.nvim",
     --lazy = false,
@@ -63,7 +65,7 @@ return {
                     colorscheme = "kyotonight",
                 },
             },
-            themeConfigFile = "~/.config/nvim/lua/colorscheme.lua",
+            themeConfigFile = themery_config,
             livePreview = true,
         })
     end,

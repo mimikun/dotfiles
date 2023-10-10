@@ -1,3 +1,5 @@
+local is_git = require("utils.func").is_git
+
 return {
     -- TODO: setting
     -- https://github.com/nvim-telescope/telescope.nvim
@@ -20,7 +22,7 @@ return {
         vim.keymap.set("n", "<C-p>", function()
             -- git管理されていれば:Telescope git_files
             -- そうでなければ:Telescope find_files
-            if require("utils").is_git() then
+            if is_git then
                 vim.cmd(":Telescope git_files")
             else
                 vim.cmd(":Telescope find_files")

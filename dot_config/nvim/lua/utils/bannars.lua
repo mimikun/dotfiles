@@ -1,3 +1,5 @@
+local bannars = {}
+
 local neovim_header = {
     [[                               __                ]],
     [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
@@ -7,7 +9,7 @@ local neovim_header = {
     [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 
-local vanitas_header = {
+local vanitas_header_1 = {
     [[                       ᓀ‸ᓂ                       ]],
     [[                                                 ]],
     [[       Vanitas vanitatum. et omnia vanitas.      ]],
@@ -84,28 +86,28 @@ local remember_covid_19_en_ua = {
     [[=================================================]],
 }
 
-local M = {}
-
-M.is_git = function()
-    vim.fn.system("git status")
-    if 0 == vim.v.shell_error then
-        return true
-    else
-        return false
-    end
-end
-
-M.bannar_logos = {
-    ["neovim_header"] = neovim_header,
-    ["vanitas_header"] = vanitas_header,
-    ["vanitas_header_2"] = vanitas_header_2,
-    ["remember_covid_19"] = remember_covid_19_en_ja,
-    ["remember_covid_19_all"] = remember_covid_19_all,
-    ["remember_covid_19_en_ja"] = remember_covid_19_en_ja,
-    ["remember_covid_19_en_kr"] = remember_covid_19_en_kr,
-    ["remember_covid_19_en_cn"] = remember_covid_19_en_cn,
-    ["remember_covid_19_en_ru"] = remember_covid_19_en_ru,
-    ["remember_covid_19_en_ua"] = remember_covid_19_en_ua,
+local data = {
+    logo = {
+        Neovim = neovim_header,
+    },
+    buruaka = {
+        Vanitas_1 = vanitas_header_1,
+        Vanitas_2 = vanitas_header_2,
+    },
+    covid_19 = {
+        All = remember_covid_19_all,
+        Japan = remember_covid_19_en_ja,
+        China = remember_covid_19_en_cn,
+        Korea = remember_covid_19_en_kr,
+        Russia = remember_covid_19_en_ru,
+        Ukraine = remember_covid_19_en_ua,
+    },
 }
 
-return M
+---Get a specific bannar set.
+---@param category "logo"|"buruaka"|"covid_19"
+function bannars.get(category)
+    return data[category]
+end
+
+return bannars

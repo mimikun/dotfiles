@@ -1,3 +1,5 @@
+local is_git = require("utils.func").is_git
+
 return {
     "junegunn/fzf.vim",
     --lazy = false,
@@ -13,7 +15,7 @@ return {
         -- Ctrl+pでファイル検索を開く
         -- git管理されていれば:GFiles、そうでなければ:Filesを実行する
         vim.keymap.set("n", "<C-p>", function()
-            if require("utils").is_git() then
+            if is_git then
                 vim.cmd(":GFiles")
             else
                 vim.cmd(":Files")

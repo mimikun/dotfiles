@@ -9,11 +9,12 @@ return {
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
         local theta = require("alpha.themes.theta")
-        local bannars = require("utils").bannar_logos
+        local bannars = require("utils.bannars")
+        local bannar = bannars.get("covid_19").Japan
 
         local header = {
             type = "text",
-            val = bannars["remember_covid_19"],
+            val = bannar,
             opts = {
                 position = "center",
                 hl = "Type",

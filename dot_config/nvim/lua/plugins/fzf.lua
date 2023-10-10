@@ -1,4 +1,5 @@
 local fzf_opts = { ["--scrollbar"] = "█" }
+local is_git = require("utils.func").is_git
 
 return {
     "ibhagwan/fzf-lua",
@@ -23,7 +24,7 @@ return {
         -- git管理されていればgit_files
         -- そうでなければfilesを実行する
         vim.keymap.set("n", "<C-p>", function()
-            if require("utils").is_git() then
+            if is_git then
                 fzf_lua.git_files({ fzf_opts = fzf_opts })
             else
                 fzf_lua.files({ fzf_opts = fzf_opts })

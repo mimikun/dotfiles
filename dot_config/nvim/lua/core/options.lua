@@ -1,3 +1,8 @@
+local global = require("core.global")
+local is_windows = global.is_windows
+local is_not_human_rights = global.is_not_human_rights
+local is_unix = global.is_unix
+
 -- 参考: https://trap.jp/post/524/
 -- マウス操作を有効にする
 vim.opt.mouse = "a"
@@ -16,7 +21,7 @@ vim.opt.ambiwidth = "double"
 vim.opt.swapfile = false
 
 -- :q したときにバッファを消さず隠して保持しておくようにする
-if vim.fn.has("unix") == 1 then
+if is_unix then
     vim.opt.hidden = true
 end
 
@@ -83,14 +88,14 @@ vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
 -- Perl Providerを無効にする
 vim.g.loaded_perl_provider = 0
 
--- 低スぺック環境ではオフになる
-if not vim.fn.hostname() == "TanakaPC" then
+-- TODO:
+if not is_not_human_rights then
     -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
     vim.opt.clipboard = "unnamedplus"
 end
 
 -- Windowsでは各種プロバイダを無効にする
-if (vim.fn.has("win32") or vim.fn.has("win64")) == 1 then
+if is_windows then
     -- Windows
     vim.g.loaded_python3_provider = 0
     vim.g.loaded_ruby_provider = 0
