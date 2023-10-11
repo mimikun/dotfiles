@@ -1,7 +1,9 @@
 local global = require("core.global")
-local is_windows = global.is_windows
-local is_not_human_rights = global.is_not_human_rights
 local is_unix = global.is_unix
+local is_windows = global.is_windows
+local is_linux = global.is_linux
+local is_human_rights = global.is_human_rights
+local is_wsl = global.is_wsl
 
 -- 参考: https://trap.jp/post/524/
 -- マウス操作を有効にする
@@ -88,21 +90,36 @@ vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
 -- Perl Providerを無効にする
 vim.g.loaded_perl_provider = 0
 
--- TODO:
-if not is_not_human_rights then
-    -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
-    vim.opt.clipboard = "unnamedplus"
-end
-
 -- Windowsでは各種プロバイダを無効にする
 if is_windows then
-    -- Windows
     vim.g.loaded_python3_provider = 0
     vim.g.loaded_ruby_provider = 0
     vim.g.loaded_node_provider = 0
-else
-    -- それ以外
-    -- Pythonのパスを指定
+end
+
+-- LinuxではPythonのパスを指定する
+if is_linux then
     vim.g.python_host_prog = "~/.asdf/shims/python2"
     vim.g.python3_host_prog = "~/.asdf/shims/python3"
+end
+
+-- TODO: improve clipboard config
+-- 人権環境でのみ有効
+if is_human_rights then
+    -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
+    vim.opt.clipboard = "unnamedplus"
+    if is_wsl then
+        vim.g.clipboard = {
+            name = "win32yank-wsl",
+            copy = {
+                ["+"] = "win32yank -i --crlf",
+                ["*"] = "win32yank -i --crlf",
+            },
+            paste = {
+                ["+"] = "win32yank -o --lf",
+                ["*"] = "win32yank -o --lf",
+            },
+            cache_enabled = 0,
+        }
+    end
 end
