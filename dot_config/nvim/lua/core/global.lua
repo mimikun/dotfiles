@@ -2,6 +2,7 @@
 
 local global = {}
 local os_name = vim.loop.os_uname().sysname
+local hostname = vim.loop.os_gethostname()
 
 function global:load_variables()
     self.is_mac = os_name == "Darwin"
@@ -11,8 +12,8 @@ function global:load_variables()
     self.is_unix = vim.fn.has("unix") == 1
     -- TODO: need improve
     -- e.g. Ryzen9 3900X, RAM 32GB, 1TB SSD
-    self.is_human_rights = vim.fn.hostname() == "YutoWindows"
-    self.is_not_human_rights = vim.fn.hostname() == "TanakaPC"
+    self.is_human_rights = hostname == "YutoWindows"
+    self.is_not_human_rights = hostname == "TanakaPC"
     self.vim_path = vim.fn.stdpath("config")
     local path_sep = self.is_windows and "\\" or "/"
     local home = self.is_windows and os.getenv("USERPROFILE") or os.getenv("HOME")
