@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.10.11]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Improved lua/core/options.lua
+- Improved lua/core/global.lua
+- Improved lua/core/lazyvim.lua
+- Improved lua/core/init.lua
+- Update Windows neovim config
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update asdf tools version
+    - dotnet-core 7.0.402
+    - powershell-core 7.3.8
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix yank bug
+    Fix #56
+
 ## [v2023.10.10]
 
 ### Added - 新機能について
