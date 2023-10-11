@@ -7,16 +7,6 @@ end
 -- ファイルの種類毎に設定ファイルを記述できるようにする
 vim.cmd("filetype plugin indent off")
 
--- options を読み込む
-require("core.options")
-
--- keymap を読み込む
-require("keymaps")
-
--- plugin を読み込む
-require("lazyvim")
-
--- colorschemeを読み込む
-require("core.colorscheme")
+require("core")
 
 vim.cmd("filetype plugin indent on")

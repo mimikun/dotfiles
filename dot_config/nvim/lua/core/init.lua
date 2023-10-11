@@ -1,0 +1,15 @@
+local load_core = function()
+    -- options を読み込む
+    require("core.options")
+
+    -- keymaps を読み込む
+    require("keymaps")
+
+    -- plugin を読み込む
+    require("core.lazyvim")
+
+    -- colorscheme を読み込む
+    require("core.colorscheme")
+end
+
+load_core()
