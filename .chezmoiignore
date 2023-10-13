@@ -74,6 +74,7 @@ OneDrive
 Documents
 AppData
 .glaze-wm
+.config/winfetch
 
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSの場合のignoreパターン
