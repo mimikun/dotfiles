@@ -1,5 +1,5 @@
 python 3.11.6
-nodejs 18.18.0
+nodejs 18.18.1
 ruby 3.2.2
 vim 9.0.2018
 neovim nightly
@@ -10,7 +10,7 @@ peco 0.5.11
 direnv 2.32.3
 dotnet-core 7.0.402
 shellcheck 0.9.0
-chezmoi 2.40.2
+chezmoi 2.40.3
 shfmt 3.7.0
 tig 2.5.8
 github-cli 2.36.0
