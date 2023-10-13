@@ -314,6 +314,13 @@ config.launch_menu = {
             DomainName = "local",
         },
     },
+    {
+        label = "nyagos - Nihongo Yet Another GOing Shell",
+        domain = {
+            DomainName = "local",
+        },
+        args = { "nyagos.exe" },
+    },
 }
 
 -- 画面の初期サイズを決める
