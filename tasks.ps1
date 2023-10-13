@@ -163,6 +163,9 @@ function Invoke-FileUpdate() {
     # whkd config
     chezmoi add $env:USERPROFILE\.config\whkdrc
 
+    # GlazeWM config
+    chezmoi add $env:USERPROFILE\.glaze-wm\config.yaml
+
     # cargo package list
     #chezmoi add $env:USERPROFILE\cargo_packages.txt
 

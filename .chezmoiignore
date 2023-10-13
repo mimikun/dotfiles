@@ -73,6 +73,7 @@ utilities
 OneDrive
 Documents
 AppData
+.glaze-wm
 
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSの場合のignoreパターン
