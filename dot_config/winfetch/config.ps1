@@ -1,4 +1,4 @@
-# ===== WINFETCH CONFIGURATION =====
+﻿# ===== WINFETCH CONFIGURATION =====
 
 # $image = "~/winfetch.png"
 # $noimage = $true
