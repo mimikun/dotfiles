@@ -169,6 +169,9 @@ function Invoke-FileUpdate() {
     # GlazeWM config
     chezmoi add $env:USERPROFILE\.glaze-wm\config.yaml
 
+    # nyagos config
+    chezmoi add $env:USERPROFILE\.nyagos
+
     # cargo package list
     #chezmoi add $env:USERPROFILE\cargo_packages.txt
 

@@ -66,6 +66,7 @@ applications.yaml
 .config/whkdrc
 windows_cargo_packages.txt
 windows_pip_packages.txt
+.nyagos
 
 ### directory
 vimfiles
