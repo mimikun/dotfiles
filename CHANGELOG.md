@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2023.10.15]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2032
+    - fzf 0.43.0
+- Update lazy-lock.json
+- Update eza fish completion
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix PSSA errors
+- Fix lualine bug
+
 ## [v2023.10.13]
 
 ### Added - 新機能について
@@ -1944,4 +1968,3 @@
 ### Fixed - 不具合修正について
 
 なし
-
