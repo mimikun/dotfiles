@@ -23,7 +23,7 @@ TODAY=$(date "+%Y.%m.%d")
     echo '```'
 
     echo ""
-    echo "### Neovim"
+    echo "### PowerShell Core(Linux) (pwsh)"
     echo ""
     echo '```powershell'
     echo '❯ hyperfine -w 5 -r 50 pwsh -i -c exit"'
