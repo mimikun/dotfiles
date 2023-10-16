@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.10.16]
+
+### Added - 新機能について
+
+- Add new make task: show help
+- Add some golang tools
+    - checkmake
+    - editorconfig-checker
+    - make2help
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update TODO.md
+- Update asdf tools version
+    - nodejs 18.18.2
+    - vim 9.0.203
+- Update vup(ueue)
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix utils/benchmark.sh
+
 ## [v2023.10.15]
 
 ### Added - 新機能について
