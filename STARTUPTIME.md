@@ -7,6 +7,52 @@ This is Work-PC startuptime memo
 - PowerShell Core(Linux) (pwsh)
 - Paleovim(vim)
 
+## 2023.10.16
+
+### Neovim
+
+```shell
+❯ vim-startuptime -vimpath nvim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 33.939800 msec
+Total Max:     35.389000 msec
+Total Min:     32.380000 msec
+```
+
+### Fish-shell
+
+```shell
+❯ hyperfine -w 5 -r 50 "fish -i -c exit"
+Benchmark 1: fish -i -c exit
+  Time (mean ± σ):      45.4 ms ±  40.3 ms    [User: 24.6 ms, System: 9.5 ms]
+  Range (min … max):    36.2 ms … 320.0 ms    50 runs
+ 
+```
+
+### PowerShell Core(Linux) (pwsh)
+
+```powershell
+❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
+Benchmark 1: pwsh -i -c exit
+  Time (mean ± σ):      1.380 s ±  0.040 s    [User: 1.084 s, System: 0.336 s]
+  Range (min … max):    1.292 s …  1.472 s    50 runs
+ 
+```
+
+### Paleovim(vim)
+
+```shell
+❯ vim-startuptime -vimpathvim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 133.842200 msec
+Total Max:     144.355000 msec
+Total Min:     129.815000 msec
+```
+
 ## 2023.10.12
 
 ### Neovim
@@ -31,7 +77,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
@@ -77,7 +123,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
@@ -123,7 +169,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
@@ -169,7 +215,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
@@ -215,7 +261,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
@@ -261,7 +307,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
@@ -306,7 +352,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
@@ -352,7 +398,7 @@ Benchmark 1: fish -i -c exit
  
 ```
 
-### Neovim
+### PowerShell Core(Linux) (pwsh)
 
 ```powershell
 ❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
