@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.2.0"
+readonly PRODUCT_VERSION="0.3.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -128,6 +128,8 @@ no_pueue_other_tools() {
   # Create asdf_plugin_list.txt
   generate_asdf_plugin_list
   update_fish_completions
+  pueue add -- "gup update"
+  pueue add -- "gup export"
   # Upgrade docker-compose
   update_docker_compose
   # Upgrade chromedriver

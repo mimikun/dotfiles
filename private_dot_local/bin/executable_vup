@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.2.0"
+readonly PRODUCT_VERSION="0.3.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -131,6 +131,10 @@ other_tools() {
   # Create asdf_plugin_list.txt
   generate_asdf_plugin_list
   update_fish_completions
+  # Update golang tools
+  gup update
+  # Create golang package list
+  gup export
 }
 
 #=======================
