@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.3.0"
+readonly PRODUCT_VERSION="0.4.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -54,6 +54,8 @@ brew_update_process() {
   brew upgrade
   brew upgrade --cask
   brew cleanup
+  # NOTE: Deno installed with brew is not required
+  brew uninstall deno
 }
 
 # Ubuntu
