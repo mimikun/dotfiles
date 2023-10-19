@@ -85,3 +85,14 @@ function Set-ChezmoiDirLocation() {
     Set-Location $env:CHEZMOI_DIR
 }
 Set-Alias -Name chezmoi_cd -Value Set-ChezmoiDirLocation
+
+# PSReadLine settings
+Import-Module PSReadLine
+
+Set-PSReadLineKeyHandler `
+    -Key Ctrl+g `
+    -BriefDescription "Run ghq cd" `
+    -LongDescription "Run ghq cd" `
+    -ScriptBlock {
+        Set-GhqLocation
+    }
