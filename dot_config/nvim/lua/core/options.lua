@@ -27,8 +27,11 @@ if is_unix then
     vim.opt.hidden = true
 end
 
--- 行番号を表示する
+-- 行番号を絶対値で表示する
 vim.opt.number = true
+
+-- 行番号を相対値で表示する
+vim.opt.relativenumber = true
 
 -- 空白文字を可視化する
 vim.opt.list = true
