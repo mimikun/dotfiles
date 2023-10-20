@@ -10,6 +10,9 @@ local load_core = function()
 
     -- colorscheme を読み込む
     require("core.colorscheme")
+
+    -- user func を読み込む
+    --require("core.userfunc")
 end
 
 load_core()
