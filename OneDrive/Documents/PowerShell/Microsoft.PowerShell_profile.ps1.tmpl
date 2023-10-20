@@ -1,4 +1,4 @@
-# commands setup
+﻿# commands setup
 # starship setup
 Invoke-Expression (starship init powershell --print-full-init | Out-String)
 # starship completion
@@ -151,3 +151,14 @@ function Invoke-GenerateEditorConfig() {
     }
 }
 Set-Alias -Name editorconfig Invoke-GenerateEditorConfig
+
+# PSReadLine settings
+Import-Module PSReadLine
+
+Set-PSReadLineKeyHandler `
+    -Key Ctrl+g `
+    -BriefDescription "Run ghq cd" `
+    -LongDescription "Run ghq cd" `
+    -ScriptBlock {
+        Set-GhqLocation
+    }
