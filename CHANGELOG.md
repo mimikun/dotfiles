@@ -16,6 +16,7 @@
 - Update lazy-lock.json
 - Update eza fish completion
 - Update STARTUPTIME.md
+- Update Windows PowerShell config
 
 ### Removed - 今回で削除された機能について
 
