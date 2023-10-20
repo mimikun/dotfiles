@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2023.10.19]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update Linux PowerShell config
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.10.18]
 
 ### Added - 新機能について
