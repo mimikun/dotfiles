@@ -182,6 +182,10 @@ end
 set -x AQUA_ROOT_DIR $HOME/.local/share/aquaproj-aqua
 set -x PATH $AQUA_ROOT_DIR/bin $PATH
 
+# wsl2-ssh-agent
+wsl2-ssh-agent > /dev/null 2>&1
+set -x SSH_AUTH_SOCK $HOME/.ssh/wsl2-ssh-agent.sock
+
 # cache
 # thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
@@ -215,14 +219,6 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     # pnpm
     echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
     cat ~/.config/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
-
-    # keychain
-    echo "# cache keychain config" >> $CACHE_CONFIG_FISH
-    {{ if (eq .chezmoi.hostname "TanakaPC") }}
-    cat $HOME/.keychain/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").config_fish_keychain_filepath.value }}-fish >> $CACHE_CONFIG_FISH
-    {{ else }}
-    cat $HOME/.keychain/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_keychain_filepath.value }}-fish >> $CACHE_CONFIG_FISH
-    {{ end }}
 
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") }}
