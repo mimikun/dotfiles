@@ -1,5 +1,5 @@
-complete -c pueue -n "__fish_use_subcommand" -l color -d 'Colorize the output; auto enables color output when connected to a tty' -r -f -a "{auto	,never	,always	}"
-complete -c pueue -n "__fish_use_subcommand" -s c -l config -d 'Path to a specific pueue config file to use. This ignores all other config files' -r -F
+complete -c pueue -n "__fish_use_subcommand" -l color -d 'Colorize the output; auto enables color output when connected to a tty' -r -f -a "{auto	'',never	'',always	''}"
+complete -c pueue -n "__fish_use_subcommand" -s c -l config -d 'If provided, Pueue only uses this config file. This path can also be set via the "PUEUE_CONFIG_PATH" environment variable. The commandline option overwrites the environment variable!' -r -F
 complete -c pueue -n "__fish_use_subcommand" -s p -l profile -d 'The name of the profile that should be loaded from your config file' -r
 complete -c pueue -n "__fish_use_subcommand" -s v -l verbose -d 'Verbose mode (-v, -vv, -vvv)'
 complete -c pueue -n "__fish_use_subcommand" -s h -l help -d 'Print help'
