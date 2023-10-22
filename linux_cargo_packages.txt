@@ -84,6 +84,7 @@ typos-cli
 watchexec-cli
 xh
 xsv
+yazi-fm
 zellij
 zenith
 zoxide
