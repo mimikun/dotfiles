@@ -1,8 +1,8 @@
 return {
     -- NOTE: `doc/tags-ja` has a bug
-    --"vim-jp/vimdoc-ja",
-    "mimikun/vimdoc-ja",
-    branch = "ignore/doc_tags-ja",
+    "vim-jp/vimdoc-ja",
+    --"mimikun/vimdoc-ja",
+    --branch = "ignore/doc_tags-ja",
     --lazy = false,
     --event = "VeryLazy",
     keys = {
