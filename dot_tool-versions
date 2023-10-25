@@ -8,7 +8,7 @@ ghq 1.4.2
 fzf 0.43.0
 peco 0.5.11
 direnv 2.32.3
-dotnet-core 7.0.402
+dotnet-core 7.0.403
 shellcheck 0.9.0
 chezmoi 2.40.3
 shfmt 3.7.0
