@@ -1,7 +1,7 @@
 python 3.11.6
 nodejs 20.8.1
 ruby 3.2.2
-vim 9.0.2067
+vim 9.0.2073
 neovim nightly
 yarn 1.22.19
 ghq 1.4.2
@@ -18,7 +18,7 @@ duf 0.8.1
 yq 4.35.2
 zig master
 bitwarden 2023.9.1
-powershell-core 7.3.8
+powershell-core 7.3.9
 lua 5.4.6
 luajit 2.0.5--2.4.4
 jq 1.7
