@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.10.27]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update asdf tools version
+    - vim 9.0.2073
+    - powershell-core 7.3.9
+- Improved Windows PowerShell config
+    - Fix #58
+- Improved Linux PowerShell config
+    - Fix #52
+
+### Removed - 今回で削除された機能について
+
+- Windows: Remove lazy-lock.json
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.10.26]
 
 ### Added - 新機能について
