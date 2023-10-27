@@ -1,44 +1,110 @@
-﻿# commands setup
-# starship setup
-Invoke-Expression (starship init powershell --print-full-init | Out-String)
-# starship completion
-Invoke-Expression (starship completions powershell | Out-String)
-# wezterm completion
-Invoke-Expression (wezterm shell-completion --shell power-shell | Out-String)
-# rustup completion
-Invoke-Expression (rustup completions powershell | Out-String)
-# chezmoi
-Invoke-Expression (chezmoi completion powershell | Out-String)
-# github-cli
-Invoke-Expression (gh completion -s powershell | Out-String)
-# zoxide setup
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
-# zoxide completion
-$env:ZoxideCompletePath = "$env:GHQ_ROOT\github.com\ajeetdsouza\zoxide\contrib\completions\_zoxide.ps1"
-if (Test-Path($env:ZoxideCompletePath)) {
-    . $env:ZoxideCompletePath
+﻿# Use cache and speedup
+# thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
+$env:CACHE_PROFILE_DIR = Join-Path -Path $env:LOCALAPPDATA -ChildPath "Microsoft\PowerShell"
+$env:CACHE_PROFILE = Join-Path -Path $env:CACHE_PROFILE_DIR -ChildPath "cache-profile.ps1"
+$CACHE_PROFILE = $env:CACHE_PROFILE
+
+if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
+    if ((Get-Item $PROFILE).LastWriteTime -gt (Get-Item $CACHE_PROFILE).LastWriteTime) {
+        $cond = $true
+    } else {
+        $cond = $false
+    }
+} elseif ((Test-Path $PROFILE) -and !(Test-Path $CACHE_PROFILE)) {
+    $cond = $true
+} else {
+    $cond = $false
 }
 
-# just completion
-# Powershell v7以上のときのみ読み込む
-$ver = $PSVersionTable.PSVersion.Major
-if ($ver -eq 7) {
-    Invoke-Expression (just --completions powershell | Out-String)
+if ($cond) {
+    New-Item $env:CACHE_PROFILE_DIR -ItemType Directory -Force 2>&1 > $null
+    New-Item $env:CACHE_PROFILE -ItemType File -Value "" -Force 2>&1 > $null
+
+    # using namespace first
+    $namespace1 = "using namespace System.Management.Automation.Language"
+    $namespace2 = "using namespace System.Management.Automation"
+    Write-Output $namespace1 >> $env:CACHE_PROFILE
+    Write-Output $namespace2 >> $env:CACHE_PROFILE
+
+    # starship setup
+    Write-Output "# cache starship setup" >> $env:CACHE_PROFILE
+    starship init powershell --print-full-init >> $env:CACHE_PROFILE
+
+    # starship completion
+    Write-Output "# cache starship completion" >> $env:CACHE_PROFILE
+    $starship_completion = starship completions powershell |
+        ForEach-Object { $_ -replace $namespace1, "" } |
+        ForEach-Object { $_ -replace $namespace2, "" }
+    Write-Output $starship_completion >> $env:CACHE_PROFILE
+
+    # wezterm completion
+    Write-Output "# cache wezterm completion" >> $env:CACHE_PROFILE
+    $wezterm_completion = wezterm shell-completion --shell power-shell |
+        ForEach-Object { $_ -replace $namespace1, "" } |
+        ForEach-Object { $_ -replace $namespace2, "" }
+    Write-Output $wezterm_completion >> $env:CACHE_PROFILE
+
+    # rustup completion
+    Write-Output "# cache rustup completion" >> $env:CACHE_PROFILE
+    $rustup_completion = rustup completions powershell |
+        ForEach-Object { $_ -replace $namespace1, "" } |
+        ForEach-Object { $_ -replace $namespace2, "" }
+    Write-Output $rustup_completion >> $env:CACHE_PROFILE
+
+    # chezmoi completion
+    Write-Output "# cache chezmoi completion" >> $env:CACHE_PROFILE
+    chezmoi completion powershell >> $env:CACHE_PROFILE
+
+    # github-cli completion
+    Write-Output "# cache github-cli completion" >> $env:CACHE_PROFILE
+    gh completion -s powershell >> $env:CACHE_PROFILE
+
+    # just completion
+    # Powershell v7以上のときのみ読み込む
+    $ver = $PSVersionTable.PSVersion.Major
+    if ($ver -eq 7) {
+        Write-Output "# cache just completion" >> $env:CACHE_PROFILE
+        $just_completion = just --completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $just_completion >> $env:CACHE_PROFILE
+    }
+
+    # zoxide setup
+    Write-Output "# cache zoxide setup" >> $env:CACHE_PROFILE
+    zoxide init powershell >> $env:CACHE_PROFILE
+
+    # zoxide completion
+    Write-Output "# cache zoxide completion" >> $env:CACHE_PROFILE
+    $zoxideCompleteFilePath = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com\ajeetdsouza\zoxide\contrib\completions\_zoxide.ps1"
+    if (Test-Path($zoxideCompleteFilePath)) {
+        $zoxide_completion = Get-Content $zoxideCompleteFilePath |
+        ForEach-Object { $_ -replace $namespace1, "" } |
+        ForEach-Object { $_ -replace $namespace2, "" }
+    }
+    Write-Output $zoxide_completion >> $env:CACHE_PROFILE
 }
+
+# Loading from cache profile
+. $env:CACHE_PROFILE
 
 # gsudo
 Import-Module gsudoModule
 #posh-git git
 Import-Module posh-git
 # scoop completion
-Import-Module "$($(Get-Item $(Get-Command scoop.ps1).Path).Directory.Parent.FullName)\modules\scoop-completion"
+$scoopCompletionPath = Join-Path $env:USERPROFILE -ChildPath "scoop\modules\scoop-completion"
+Import-Module $scoopCompletionPath
+# PSReadLine
+# settings
+Import-Module PSReadLine
 
 $env:EDITOR = "nvim"
-$env:NeovimConfig = Join-Path $env:USERPROFILE -ChildPath AppData\Local\nvim
-$env:VimConfig = Join-Path $env:USERPROFILE -ChildPath vimfiles
-$env:CHEZMOI_DIR = Join-Path $env:USERPROFILE -ChildPath .local\share\chezmoi
+$env:NeovimConfig = Join-Path $env:USERPROFILE -ChildPath "AppData\Local\nvim"
+$env:VimConfig = Join-Path $env:USERPROFILE -ChildPath "vimfiles"
+$env:CHEZMOI_DIR = Join-Path $env:USERPROFILE -ChildPath ".local\share\chezmoi"
 $env:WIN_HOME = $env:USERPROFILE
-$env:windl = Join-Path $env:USERPROFILE -ChildPath Downloads
+$env:windl = Join-Path $env:USERPROFILE -ChildPath "Downloads"
 
 # Obsidian vault
 {{ if eq .chezmoi.hostname "TanakaPC" }}
@@ -58,9 +124,6 @@ Set-Alias -Name bd -Value Set-ParentLocation
 
 # alias touch
 Set-Alias -Name touch -Value New-Item
-
-# alias make
-Set-Alias -Name make -Value just
 
 # alias ls (lsd or eza)
 Get-Command eza -ErrorAction Ignore | Out-Null
@@ -102,25 +165,11 @@ if (Test-Path($env:UpdateCargoPackagePath)) {
     Set-Alias -Name update_cargo_package -Value Invoke-UpdateCargoPackage
 }
 
-# alias pueue_update_cargo_package
-$env:PueueUpdateCargoPackagePath = "$env:GHQ_ROOT\github.com\mimikun\update_cargo_packages\Invoke-PueueUpdateCargoPackage.ps1"
-if (Test-Path($env:PueueUpdateCargoPackagePath)) {
-    . $env:PueueUpdateCargoPackagePath
-    Set-Alias -Name pueue_update_cargo_package -Value Invoke-PueueUpdateCargoPackage
-}
-
 # alias vup
 $env:VupPath = "$env:GHQ_ROOT\github.com\mimikun\vup\Invoke-Vup.ps1"
 if (Test-Path($env:VupPath)) {
     . $env:VupPath
     Set-Alias -Name vup -Value Invoke-Vup
-}
-
-# alias vupueue
-$env:VupueuePath = "$env:GHQ_ROOT\github.com\mimikun\vup\Invoke-Vupueue.ps1"
-if (Test-Path($env:VupueuePath)) {
-    . $env:VupueuePath
-    Set-Alias -Name vupueue -Value Invoke-Vupueue
 }
 
 # pueued auto start
@@ -153,8 +202,6 @@ function Invoke-GenerateEditorConfig() {
 Set-Alias -Name editorconfig Invoke-GenerateEditorConfig
 
 # PSReadLine settings
-Import-Module PSReadLine
-
 Set-PSReadLineKeyHandler `
     -Key Ctrl+g `
     -BriefDescription "Run ghq cd" `
@@ -162,3 +209,4 @@ Set-PSReadLineKeyHandler `
     -ScriptBlock {
         Set-GhqLocation
     }
+
