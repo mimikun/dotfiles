@@ -8,7 +8,7 @@
   "denops-docker.vim": { "branch": "main", "commit": "b4e5da623ff3b575de5d2a66ffc6457459259f2b" },
   "denops.vim": { "branch": "main", "commit": "ea7370bf5d323e83ee13ccba35f56e06db5753e1" },
   "dial.nvim": { "branch": "master", "commit": "019bbe9daea397c93a99adc747f8f071379fee5c" },
-  "dps-translate-vim": { "branch": "main", "commit": "25d1962d5fea5956fc8449e03b5764f8383d9f38" },
+  "dps-translate-vim": { "branch": "main", "commit": "4a2292fc88ac8f82757911c2f4ce22ca1b4b88f1" },
   "dressing.nvim": { "branch": "master", "commit": "1f2d1206a03bd3add8aedf6251e4534611de577f" },
   "edge": { "branch": "master", "commit": "d811acd067193fabadd04f081228fd97827ae5ae" },
   "editorconfig.nvim": { "branch": "master", "commit": "5b9e303e1d6f7abfe616ce4cc8d3fffc554790bf" },
