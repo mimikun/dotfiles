@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2023.10.30]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update neovim plugin config: vimdoc-ja.lua
+- Update lazy-lock.json
+- Update asdf tools version
+    - nodejs 20.9.0
+    - vim 9.0.2081
+    - chezmoi 2.40.4
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.10.28]
 
 ### Added - 新機能について
