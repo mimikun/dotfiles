@@ -13,11 +13,11 @@ shellcheck 0.9.0
 chezmoi 2.40.4
 shfmt 3.7.0
 tig 2.5.8
-github-cli 2.37.0
+github-cli 2.38.0
 duf 0.8.1
 yq 4.35.2
 zig master
-bitwarden 2023.9.1
+bitwarden 2023.10.0
 powershell-core 7.3.9
 lua 5.4.6
 luajit 2.0.5--2.4.4
