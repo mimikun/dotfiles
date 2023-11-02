@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2023.11.02]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update deno fish completion
+- Improved paleovim config
+    - Fix #28
+- Update .wslconfig
+- Update wsl.conf
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update .config/nvim/Makefile
+- Update asdf tools version
+    - github-cli 2.38.0
+    - bitwarden 2023.10.0
+- Update .vim/Makefile
+
+### Removed - 今回で削除された機能について
+
+- Remove unused files
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.11.01]
 
 ### Added - 新機能について
