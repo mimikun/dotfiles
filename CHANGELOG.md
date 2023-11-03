@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2023.11.03]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2087
+- Update lazy-lock.json
+- Update typos.toml
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+    - Fix typo
+
 ## [v2023.11.02]
 
 ### Added - 新機能について
