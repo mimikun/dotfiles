@@ -3,12 +3,19 @@ noice = "noice"
 enew = "enew"
 iterm = "iterm"
 edn = "edn"
+esy = "esy"
 
 [files]
 extend-exclude = [
     "pnpm-lock.yaml",
-    "dot_config/fish/completions",
-    "dot_config/starship/starship.toml",
+    "dot_config/fish/completions/bun.fish",
+    "dot_config/fish/completions/brew.fish",
+    "dot_config/fish/completions/nkf.fish",
+    "dot_config/fish/completions/pueue.fish",
+    "dot_config/fish/completions/yq.fish",
+    "dot_config/fish/completions/flyctl.fish",
+    "dot_config/fish/completions/chezmoi.fish",
+    "dot_config/fish/completions/runme.fish",
     "dot_config/neofetch/config.conf",
     "dot_ghcup/config.yaml",
     "dot_config/pipr/pipr.toml",
