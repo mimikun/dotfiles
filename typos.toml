@@ -4,12 +4,11 @@ enew = "enew"
 iterm = "iterm"
 edn = "edn"
 esy = "esy"
+sur = "sur"
 
 [files]
 extend-exclude = [
-    "pnpm-lock.yaml",
     "dot_config/fish/completions/bun.fish",
-    "dot_config/fish/completions/brew.fish",
     "dot_config/fish/completions/nkf.fish",
     "dot_config/fish/completions/pueue.fish",
     "dot_config/fish/completions/yq.fish",
