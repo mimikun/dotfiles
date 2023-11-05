@@ -8,6 +8,7 @@ sur = "sur"
 
 [files]
 extend-exclude = [
+    "pnpm-lock.yaml",
     "dot_config/fish/completions/bun.fish",
     "dot_config/fish/completions/nkf.fish",
     "dot_config/fish/completions/pueue.fish",
