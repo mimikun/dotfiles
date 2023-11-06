@@ -1,3 +1,6 @@
+-- ref:
+-- https://trap.jp/post/524/
+
 local global = require("core.global")
 local is_unix = global.is_unix
 local is_windows = global.is_windows
@@ -5,7 +8,6 @@ local is_linux = global.is_linux
 local is_human_rights = global.is_human_rights
 local is_wsl = global.is_wsl
 
--- 参考: https://trap.jp/post/524/
 -- マウス操作を有効にする
 vim.opt.mouse = "a"
 

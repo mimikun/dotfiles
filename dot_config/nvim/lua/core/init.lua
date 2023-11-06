@@ -1,6 +1,7 @@
 local load_core = function()
     -- options を読み込む
     require("core.options")
+    --require("core.more-options")
 
     -- keymaps を読み込む
     require("keymaps")
