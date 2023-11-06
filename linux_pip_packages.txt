@@ -24,10 +24,11 @@ pipupgrade
 pipx
 psutil
 pur
-pynvim
+pynvim @ git+https://github.com/neovim/pynvim@71d2d65f21eb1b3faa91addaa3a18d985bd48b99
 pyte
 python-slugify
 pytimeparse
+setuptools
 six
 SQLAlchemy
 text-unidecode
