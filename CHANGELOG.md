@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2023.11.06]
+
+### Added - 新機能について
+
+- Add more neovim options
+    - Fix #30
+- Add new command: update_pkgx
+
+### Changed - 既存機能の変更について
+
+- Update linux_pip_packages.txt
+- Update vup(ueue)
+- Update TODO.md
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.2092
+    - python 3.12.0
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix typo error
+
 ## [v2023.11.05]
 
 ### Added - 新機能について
