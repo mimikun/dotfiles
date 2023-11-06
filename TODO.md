@@ -54,10 +54,6 @@ Type `help` for instructions on how to use fish
 HOST_NAME ~>
 ```
 
-### 58. PowerShell(Windows)の起動速度UP
-
-https://github.com/mimikun/dotfiles/issues/58
-
 ### 57. nyagos設定
 
 https://github.com/mimikun/dotfiles/issues/57
@@ -85,12 +81,6 @@ https://github.com/mimikun/dotfiles/issues/54
 https://github.com/mimikun/dotfiles/issues/53
 
 `coc.nvim` のかわりに使う
-
-### 52. PowerShell(Linux)の起動速度UP
-
-https://github.com/mimikun/dotfiles/issues/52
-
-cache使うテクでうまいこといけないか試す
 
 ### 51. `vim-skk/skkeleton` の設定
 
@@ -131,12 +121,6 @@ https://github.com/mimikun/dotfiles/issues/41
 https://github.com/mimikun/dotfiles/issues/30
 
 もっとたくさんのオプションがあるのでそれらをすべて書く
-
-### 28. vimrc分割
-
-https://github.com/mimikun/dotfiles/issues/28
-
-vimrcを分割して見やすくしたい
 
 ### 20. fzf-vim.lua を全部Luaで書く
 
