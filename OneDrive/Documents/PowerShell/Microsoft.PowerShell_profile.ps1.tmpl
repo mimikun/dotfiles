@@ -211,3 +211,18 @@ Set-PSReadLineKeyHandler `
         Set-GhqLocation
     }
 
+# inshellisense
+$v7inshellisensePath = Join-Path $env:USERPROFILE -ChildPath ".inshellisense/key-bindings-pwsh.ps1"
+$v5inshellisensePath = Join-Path $env:USERPROFILE -ChildPath ".inshellisense/key-bindings-powershell.ps1"
+
+if ($majorVer -eq 7) {
+    if (Test-Path $v7inshellisensePath -PathType Leaf) {
+        . $v7inshellisensePath
+    }
+}
+
+if ($majorVer -eq 5) {
+    if (Test-Path $v5inshellisensePath -PathType Leaf) {
+        . $v5inshellisensePath
+    }
+}
