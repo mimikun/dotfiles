@@ -5,6 +5,7 @@ iterm = "iterm"
 edn = "edn"
 esy = "esy"
 sur = "sur"
+chec = "chec"
 
 [files]
 extend-exclude = [
