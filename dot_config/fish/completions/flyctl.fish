@@ -79,7 +79,7 @@ function __flyctl_clear_perform_completion_once_result
     __flyctl_debug ""
     __flyctl_debug "========= clearing previously set __flyctl_perform_completion_once_result variable =========="
     set --erase __flyctl_perform_completion_once_result
-    __flyctl_debug "Succesfully erased the variable __flyctl_perform_completion_once_result"
+    __flyctl_debug "Successfully erased the variable __flyctl_perform_completion_once_result"
 end
 
 function __flyctl_requires_order_preservation
