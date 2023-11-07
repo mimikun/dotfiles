@@ -29,16 +29,25 @@ set -x WIN_DESKTOP $WIN_HOME/Desktop
 set -x WIN_DOCUMENTS $WIN_HOME/Documents
 set -x obsidian_vault_path "$obsidian/../"
 
-alias f fuck
+# aliases
 alias rm "rm -i"
 alias mkdir "mkdir -p"
 alias untar "tar xvf"
 alias rm gomi
-alias pueued_enable "systemctl --user enable pueue"
-alias pueued_start "systemctl --user start pueue"
-alias pueued_restart "systemctl --user restart pueue"
 alias patch "patch -p1 <"
 alias imgcat "wezterm imgcat"
+
+# abbrs
+abbr -a f fuck
+abbr -a pueued_enable "systemctl --user enable pueue"
+abbr -a pueued_start "systemctl --user start pueue"
+abbr -a pueued_restart "systemctl --user restart pueue"
+abbr -a ccd "chezmoi cd"
+abbr -a chd "chezmoi cd"
+abbr -a chec "chezmoi cd"
+abbr -a cap "chezmoi apply"
+abbr -a chp "chezmoi apply"
+abbr -a chep "chezmoi apply"
 
 # XDG Base Directory
 set -x XDG_CONFIG_HOME $HOME/.config
@@ -82,8 +91,8 @@ set -x NVIM_CONFIG $HOME/.config/nvim
 alias pip "python3 -m pip"
 alias pipx "python3 -m pipx"
 
-alias open wsl-open
-alias zel zellij
+abbr -a open wsl-open
+abbr -a zel zellij
 alias pueuexec "pueue add --"
 
 # Bun
@@ -125,12 +134,19 @@ set -x PATH $HOME/.codon/bin $PATH
 
 # ls alias
 alias ls eza
-alias ll "ls -l"
-alias la "ls -la"
-alias l1 "ls -1"
-alias lt "ls --tree"
-alias lat "ls -l -a --tree"
-alias lta "ls --tree -a"
+
+# ls abbr
+abbr -a ll "ls -l"
+abbr -a la "ls -a"
+abbr -a lla "ls -l -a"
+abbr -a l1 "ls -1"
+abbr -a ll1 "ls -l -1"
+abbr -a lt "ls --tree"
+abbr -a lta "ls --tree -a"
+abbr -a llt "ls -l --tree"
+abbr -a ll1 "ls -l -1"
+abbr -a lt1 "ls --tree -1"
+abbr -a lat "ls -a --tree"
 
 # Rye
 set -x PATH $HOME/.rye/shims $PATH
@@ -166,13 +182,17 @@ set -x ASDF_DIR $HOME/.asdf
 set -x ASDF_DATA_DIR $HOME/.asdf
 set -x ASDF_CONFIG_FILE $HOME/.asdfrc
 
-# vim alias
+# vim
 type -q asdf
 if test $status -eq 0
+    # alias
     alias paleovim $HOME/.asdf/shims/vim
-    alias pvim paleovim
     alias neovim $HOME/.asdf/shims/nvim
-    alias vim neovim
+    # abbr
+    abbr -a pvim paleovim
+    abbr -a nvim neovim
+    abbr -a vim nvim
+    abbr -a vip "nvim --headless '+Lazy! sync' +qa"
 end
 
 # aqua
