@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2023.11.07]
+
+### Added - 新機能について
+
+- Use abbr in fish
+- Use inshellisense
+- Add new command: bit
+    - github.com/chriswalz/bit
+
+### Changed - 既存機能の変更について
+
+- Update flyctl fish completion
+- Update typos.toml
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update TODO.md
+    - Fixed #60
+- Update neovim config: obsidian.nvim
+- Improved version detection in Linux PowerShell
+- Improved version detection in Windows PowerShell
+
+### Removed - 今回で削除された機能について
+
+- Remove unused comment in config.fish
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.11.06]
 
 ### Added - 新機能について
