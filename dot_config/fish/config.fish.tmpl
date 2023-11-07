@@ -186,6 +186,10 @@ set -x PATH $AQUA_ROOT_DIR/bin $PATH
 wsl2-ssh-agent > /dev/null 2>&1
 set -x SSH_AUTH_SOCK $HOME/.ssh/wsl2-ssh-agent.sock
 
+# inshellisense
+if test -f ~/.inshellisense/key-bindings.fish
+    source ~/.inshellisense/key-bindings.fish
+end
 # cache
 # thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH

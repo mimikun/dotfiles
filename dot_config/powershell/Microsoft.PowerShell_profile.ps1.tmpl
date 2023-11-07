@@ -174,3 +174,10 @@ function Set-ChezmoiDirLocation() {
 }
 Set-Alias -Name chezmoi_cd -Value Set-ChezmoiDirLocation
 
+if ($majorVer -eq 7) {
+    # inshellisense pwsh v7
+    $inshellisensePath = Join-Path -Path $env:HOME -ChildPath ".inshellisense/key-bindings-pwsh.ps1"
+    if (Test-Path $inshellisensePath -PathType Leaf) {
+        . $inshellisensePath
+    }
+}
