@@ -156,9 +156,6 @@ set -x LUA_CPATH "/usr/local/lib/lua/5.3/loadall.so" $LUA_CPATH
 set -x LUA_CPATH "./?.so" $LUA_CPATH
 set -x LUA_CPATH "$HOME/.luarocks/lib/lua/5.3/?.so" $LUA_CPATH
 
-# NOTE: cannot caches
-# TODO: adapt cache
-
 # dotnet-core completions
 complete -f -c dotnet -a "(dotnet complete)"
 
@@ -195,10 +192,6 @@ end
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR
     echo "" > $CACHE_CONFIG_FISH
-
-    # dotnet-core completions
-    echo "# cache dotnet-core completions" >> $CACHE_CONFIG_FISH
-    echo "# Cannot cache dotnet-core completions NOW." >> $CACHE_CONFIG_FISH
 
     # asdf-direnv config
     echo "# cache asdf-direnv config" >> $CACHE_CONFIG_FISH
