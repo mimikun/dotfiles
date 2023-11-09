@@ -28,12 +28,33 @@ local coc_extensions = {
     "coc-zig",
 }
 
+local cmds = {
+    "CocCommand",
+    "CocConfig",
+    "CocDiagnostics",
+    "CocDisable",
+    "CocEnable",
+    "CocInfo",
+    "CocInstall",
+    "CocLocalConfig",
+    "CocOpenLog",
+    "CocOutline",
+    "CocPrintErrors",
+    "CocRestart",
+    "CocSearch",
+    "CocStart",
+    "CocUninstall",
+    "CocUpdate",
+    "CocUpdateSync",
+    "CocWatch",
+}
+
 return {
     "neoclide/coc.nvim",
     branch = "release",
     --lazy = false,
     event = "BufRead",
-    cmd = "CocUpdate",
+    cmd = cmds,
     build = ":CocUpdate",
     config = function()
         vim.g.coc_global_extensions = coc_extensions
