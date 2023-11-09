@@ -1,10 +1,31 @@
-﻿# Use cache and speedup
-# thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
-$env:CACHE_PROFILE_DIR = Join-Path -Path $env:LOCALAPPDATA -ChildPath "Microsoft\PowerShell"
-$env:CACHE_PROFILE = Join-Path -Path $env:CACHE_PROFILE_DIR -ChildPath "cache-profile.ps1"
-$CACHE_PROFILE = $env:CACHE_PROFILE
+﻿$majorVer = $PSVersionTable.PSVersion.Major
 
-$majorVer = $PSVersionTable.PSVersion.Major
+# Windows PowerShell (v5)
+$isPowerShell = ($majorVer -eq 5)
+$env:V5_CACHE_PROFILE_DIR = Join-Path -Path $env:LOCALAPPDATA -ChildPath "Microsoft\Windows\PowerShell"
+$env:V5_CACHE_PROFILE = Join-Path -Path $env:V5_CACHE_PROFILE_DIR -ChildPath "cache-profile-v5.ps1"
+$V5_CACHE_PROFILE = $env:V5_CACHE_PROFILE
+
+# PowerShell (v7)
+$isPwsh = ($majorVer -eq 7)
+$env:V7_CACHE_PROFILE_DIR = Join-Path -Path $env:LOCALAPPDATA -ChildPath "Microsoft\PowerShell"
+$env:V7_CACHE_PROFILE = Join-Path -Path $env:V7_CACHE_PROFILE_DIR -ChildPath "cache-profile-v7.ps1"
+$V7_CACHE_PROFILE = $env:V7_CACHE_PROFILE
+
+# Use cache and speedup
+# thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
+if ($isPwsh) {
+    # PowerShell v7
+    $env:CACHE_PROFILE_DIR = $env:V7_CACHE_PROFILE_DIR
+    $env:CACHE_PROFILE = $env:V7_CACHE_PROFILE
+}
+if ($isPowerShell) {
+    # Windows PowerShell v5
+    $env:CACHE_PROFILE_DIR = $env:V5_CACHE_PROFILE_DIR
+    $env:CACHE_PROFILE = $env:V5_CACHE_PROFILE
+}
+
+$CACHE_PROFILE = $env:CACHE_PROFILE
 
 if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
     if ((Get-Item $PROFILE).LastWriteTime -gt (Get-Item $CACHE_PROFILE).LastWriteTime) {
@@ -63,7 +84,7 @@ if ($cond) {
 
     # just completion
     # Powershell v7以上のときのみ読み込む
-    if ($majorVer -eq 7) {
+    if ($isPwsh) {
         Write-Output "# cache just completion" >> $env:CACHE_PROFILE
         $just_completion = just --completions powershell |
             ForEach-Object { $_ -replace $namespace1, "" } |
@@ -215,13 +236,13 @@ Set-PSReadLineKeyHandler `
 $v7inshellisensePath = Join-Path $env:USERPROFILE -ChildPath ".inshellisense/key-bindings-pwsh.ps1"
 $v5inshellisensePath = Join-Path $env:USERPROFILE -ChildPath ".inshellisense/key-bindings-powershell.ps1"
 
-if ($majorVer -eq 7) {
+if ($isPwsh) {
     if (Test-Path $v7inshellisensePath -PathType Leaf) {
         . $v7inshellisensePath
     }
 }
 
-if ($majorVer -eq 5) {
+if ($isPowerShell) {
     if (Test-Path $v5inshellisensePath -PathType Leaf) {
         . $v5inshellisensePath
     }
