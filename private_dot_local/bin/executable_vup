@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.5.0"
+readonly PRODUCT_VERSION="0.6.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -48,14 +48,6 @@ before_sudo() {
   fi
 }
 
-# brew upgrade commands
-brew_update_process() {
-  brew update
-  brew upgrade
-  brew upgrade --cask
-  brew cleanup
-}
-
 # Ubuntu
 ubuntu() {
   # Upgrade APT repogitory list
@@ -65,10 +57,7 @@ ubuntu() {
   # Cleaning APT caches
   sudo apt autoremove -y
   sudo apt-get clean
-  which brew >/dev/null
-  if test $? -eq 0; then
-    brew_update_process
-  fi
+  brew_update
 }
 
 # Arch Linux
@@ -79,7 +68,7 @@ arch() {
 
 # Mac
 mac() {
-  brew_update_process
+  brew_update
 }
 
 update_asdf_tools() {
