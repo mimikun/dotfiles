@@ -43,9 +43,9 @@ local cmds = {
     "CocRestart",
     "CocSearch",
     "CocStart",
-    "CocUninstall",
+    --"CocUninstall",
     "CocUpdate",
-    "CocUpdateSync",
+    --"CocUpdateSync",
     "CocWatch",
 }
 
