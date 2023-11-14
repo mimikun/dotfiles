@@ -21,10 +21,10 @@ complete -c nkf -s w16l -d 'Specify output encoding UTF-8N.'
 #           Specify input and output encodings. Upper case is input.  cf. --ic and --oc.
 #
 #           -W16[BL][0]
-#               UTF-16.  B or L gives whether Big Endian or Little Endian.  0 gives whther put BOM or not.
+#               UTF-16.  B or L gives whether Big Endian or Little Endian.  0 gives whether put BOM or not.
 #
 #           -W32[BL][0]
-#               UTF-32.  B or L gives whether Big Endian or Little Endian.  0 gives whther put BOM or not.
+#               UTF-32.  B or L gives whether Big Endian or Little Endian.  0 gives whether put BOM or not.
 #
 #       -b -u
 #           Output is buffered (DEFAULT), Output is unbuffered.
