@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2023.11.14]
+
+### Added - 新機能について
+
+- Add some fish abbr
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update nkf fish completion
+- Update vup(ueue)
+- Update neovim config: coc-nvim
+- Update zellij fish completion
+- Update eza fish completion
+- Update lazy-lock.json
+- Update typos.toml
+- Update asdf tools version
+    - fzf 0.44.0
+    - chezmoi 2.41.0
+    - github-cli 2.39.0
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix selene warning
+
 ## [v2023.11.13]
 
 ### Added - 新機能について
