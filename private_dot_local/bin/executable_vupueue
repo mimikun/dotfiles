@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.6.0"
+readonly PRODUCT_VERSION="0.7.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -98,6 +98,8 @@ other_tools() {
   pueue add -- "gh extensions upgrade --all"
   # flyctl upgrade
   pueue add -- "flyctl version upgrade"
+  # pnpm
+  pueue add -- "update_pnpm"
 }
 
 no_pueue_other_tools() {
