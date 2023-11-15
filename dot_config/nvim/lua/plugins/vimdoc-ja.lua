@@ -1,5 +1,6 @@
 return {
     "mimikun/vimdoc-ja",
+    branch = "fixed",
     --lazy = false,
     --event = "VeryLazy",
     keys = {
