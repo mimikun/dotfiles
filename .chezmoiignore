@@ -108,6 +108,7 @@ Brewfile
 .npmrc
 .nanorc
 .rtx.toml
+aqua.yaml
 
 ### directory
 utils
