@@ -39,9 +39,9 @@
   "nightfox.nvim": { "branch": "main", "commit": "6a6076bd678f825ffbe16ec97807793c3167f1a7" },
   "nord.nvim": { "branch": "master", "commit": "0a22a387c92bb3b46e3d245522712ae7497bec38" },
   "nvim-notify": { "branch": "master", "commit": "e4a2022f4fec2d5ebc79afa612f96d8b11c627b3" },
-  "nvim-treesitter": { "branch": "master", "commit": "c0da2013d1cef768c00f3f0b7f365fe19a10bca3" },
+  "nvim-treesitter": { "branch": "master", "commit": "8b9f99660294dcd11d42572c84ee33a1e284f70d" },
   "nvim-web-devicons": { "branch": "master", "commit": "11eb26fc166742db8d1e8a6f5a7de9df37b09aae" },
-  "obsidian.nvim": { "branch": "main", "commit": "7c9cd6e907bce4ea4cfc5b10a511c7a65538883f" },
+  "obsidian.nvim": { "branch": "main", "commit": "8e5395e736aface9d53f7fd19ff9fedcf353a120" },
   "pandoc.nvim": { "branch": "main", "commit": "c6b447bf86e0d5d1f87f73105e035e240dae5002" },
   "penumbra.nvim": { "branch": "main", "commit": "11cd9994a42fd4d079793727ff11f6e19ef18942" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
@@ -67,7 +67,7 @@
   "vim-scouter": { "branch": "master", "commit": "5221901d4ad6b2ef8b370b336db2aa7f69f2b6dc" },
   "vim-startuptime": { "branch": "master", "commit": "454b3de856b7bd298700de33d79774ca9b9e3875" },
   "vim-toml": { "branch": "main", "commit": "d36caa6b1cf508a4df1c691f915572fc02143258" },
-  "vimdoc-ja": { "branch": "master", "commit": "29d35664d5898182ec7fc1bb42db1cbf06706541" },
+  "vimdoc-ja": { "branch": "fixed", "commit": "17bfd76e24b220822e3e315f05e13a5e0dbeb774" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
   "yash.nvim": { "branch": "main", "commit": "8697cab8883b0a65058758c96e5c5b1e2e804ba3" }
 }
