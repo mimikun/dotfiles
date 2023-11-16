@@ -1,5 +1,59 @@
 # Changelog
 
+## [v2023.11.16]
+
+### Added - 新機能について
+
+- Add aqua local registry.yaml
+- Add aqua policy.yaml
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Move aqua.yaml to `XDG_CONFIG_HOME/aqua`
+- Update config.fish
+- Update aqua envs in config.fish
+- Update asdf envs in config.fish
+- Use `XDG_CACHE_HOME` in config.fish
+- Use `XDG_DATA_HOME` in config.fish
+- Use `XDG_CONFIG_HOME` in config.fish
+- Use `FISH_CONFIG_DIR` in config.fish
+- Use `STARSHIP_CONFIG_DIR` in config.fish
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
+## [v2023.11.15]
+
+### Added - 新機能について
+
+- Add aqua.yaml
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update rtx fish completion
+- Update chezmoi fish completion
+- Update asdf tools version
+    - dotnet-core 8.0.100
+    - github-cli 2.39.1
+    - vim 9.0.2105
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin config: vimdoc-ja
+
 ## [v2023.11.14]
 
 ### Added - 新機能について
