@@ -72,8 +72,8 @@ set -x DENO_INSTALL $HOME/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 
 set -x STARSHIP_CONFIG_DIR $XDG_CONFIG_HOME/starship
-set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
-set -x STARSHIP_CACHE ~/.config/starship/cache
+set -x STARSHIP_CONFIG $STARSHIP_CONFIG_DIR/starship.toml
+set -x STARSHIP_CACHE $STARSHIP_CONFIG_DIR/cache
 
 #Ubuntu
 set -x PATH /bin $PATH
