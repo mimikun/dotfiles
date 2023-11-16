@@ -10,7 +10,7 @@ set -x TZ "Asia/Tokyo"
 set -x FISH_CONFIG_DIR $HOME/.config/fish
 set -x FISH_COMPLETIONS_DIR $HOME/.config/fish/completions
 set -x FISH_FUNCTIONS_DIR $HOME/.config/fish/functions
-set -x FISH_CACHE_DIR $HOME/.cache/fish
+set -x FISH_CACHE_DIR $XDG_CACHE_HOME/fish
 
 set -x CONFIG_FISH $FISH_CONFIG_DIR/config.fish
 set -x CACHE_CONFIG_FISH $FISH_CACHE_DIR/config.fish
@@ -119,8 +119,8 @@ set -x PATH "$PNPM_HOME" $PATH
 # work pc only tools?
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 # JVM path
-set -x JAVA_HOME $HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10
-set -x PATH $HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin $PATH
+set -x JAVA_HOME $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10
+set -x PATH $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin $PATH
 
 # coursier path
 set -x PATH $HOME/.local/share/coursier/bin $PATH
