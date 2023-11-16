@@ -185,18 +185,21 @@ set -x LUA_CPATH "$HOME/.luarocks/lib/lua/5.3/?.so" $LUA_CPATH
 complete -f -c dotnet -a "(dotnet complete)"
 
 # asdf
-set -x PATH $HOME/.asdf/bin $PATH
-set -x PATH $HOME/.asdf/shims $PATH
 set -x ASDF_DIR $HOME/.asdf
-set -x ASDF_DATA_DIR $HOME/.asdf
+set -x ASDF_DATA_DIR $ASDF_DIR
 set -x ASDF_CONFIG_FILE $HOME/.asdfrc
+set -x ASDF_BIN $ASDF_DIR/bin
+set -x ASDF_SHIMS $ASDF_DIR/shims
+
+set -x PATH $ASDF_BIN $PATH
+set -x PATH $ASDF_SHIMS $PATH
 
 # vim
 type -q asdf
 if test $status -eq 0
     # alias
-    alias paleovim $HOME/.asdf/shims/vim
-    alias neovim $HOME/.asdf/shims/nvim
+    alias paleovim $ASDF_SHIMS/vim
+    alias neovim $ASDF_SHIMS/nvim
     # abbr
     abbr -a pvim paleovim
     abbr -a nvim neovim
