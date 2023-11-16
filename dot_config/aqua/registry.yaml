@@ -1,0 +1,265 @@
+---
+# mimikun's Local registry
+packages:
+#wsl2-ssh-agent
+#https://github.com/mame/wsl2-ssh-agent
+  - type: github_release
+    repo_owner: mame
+    repo_name: wsl2-ssh-agent
+    description: A bridge from WSL2 ssh client to Windows ssh-agent.exe service
+    asset: wsl2-ssh-agent
+    checksum:
+      type: github_release
+      asset: checksums.txt
+#sleepy
+#https://github.com/mattn/sleepy
+  - type: github_release
+    repo_owner: mattn
+    repo_name: sleepy
+    description: I'm sleepy
+      # GitHub release page files
+      #sleepy_v0.0.3_darwin_amd64.zip
+      #sleepy_v0.0.3_darwin_arm64.zip
+      #sleepy_v0.0.3_linux_amd64.tar.gz
+      #sleepy_v0.0.3_linux_arm64.tar.gz
+      #sleepy_v0.0.3_windows_amd64.zip
+      #sleepy_v0.0.3_windows_arm64.zip
+# TODO: 
+
+#dlv
+#https://github.com/go-delve/delve/cmd/dlv
+  - type: github_release
+    path: github.com/go-delve/delve/cmd/dlv
+    description: Delve is a debugger for the Go programming language.
+      # GitHub release page files
+#errcheck
+#https://github.com/kisielk/errcheck
+  - type: github_release
+    repo_owner: kisielk
+    repo_name: errcheck
+    description: errcheck checks that you checked errors.
+      # GitHub release page files
+#fillstruct
+#https://github.com/davidrjenni/reftools/cmd/fillstruct
+  - type: github_release
+    path: github.com/davidrjenni/reftools/cmd/fillstruct
+    description: reftools - refactoring tools for Go
+      # GitHub release page files
+#godef
+#https://github.com/rogpeppe/godef
+  - type: github_release
+    repo_owner: rogpeppe
+    repo_name: godef
+    description: Print where symbols are defined in Go source code
+      # GitHub release page files
+#gomi
+#https://github.com/b4b4r07/gomi
+  - type: github_release
+    repo_owner: b4b4r07
+    repo_name: gomi
+    description: 🗑️ Replacement for UNIX rm command!
+      # GitHub release page files
+      #gomi_1.1.6_checksums.txt
+      #gomi_darwin_arm64.tar.gz
+      #gomi_darwin_x86_64.tar.gz
+      #gomi_linux_arm64.tar.gz
+      #gomi_linux_i386.tar.gz
+      #gomi_linux_x86_64.tar.gz
+      #gomi_windows_arm64.zip
+      #gomi_windows_i386.zip
+      #gomi_windows_x86_64.zip
+#gomodifytags
+#https://github.com/fatih/gomodifytags
+  - type: github_release
+    repo_owner: fatih
+    repo_name: gomodifytags
+    description: Go tool to modify struct field tags
+      # GitHub release page files
+#gotags
+#https://github.com/jstemmer/gotags
+  - type: github_release
+    repo_owner: jstemmer
+    repo_name: gotags
+    description: ctags-compatible tag generator for Go
+      # GitHub release page files
+#impl
+#https://github.com/josharian/impl
+  - type: github_release
+    repo_owner: josharian
+    repo_name: impl
+    description: impl generates method stubs for implementing an interface.
+      # GitHub release page files
+#keyify
+#https://honnef.co/go/tools/cmd/keyify
+  - type: github_release
+    path: honnef.co/go/tools/cmd/keyify
+    description: 
+      # GitHub release page files
+#make2help
+#https://github.com/Songmu/make2help/cmd/make2help
+  - type: github_release
+    repo_owner: Songmu
+    repo_name: make2help
+    description: 
+      # GitHub release page files
+      #make2help_v0.2.1_darwin_amd64.zip
+      #make2help_v0.2.1_darwin_arm64.zip
+      #make2help_v0.2.1_freebsd_amd64.tar.gz
+      #make2help_v0.2.1_freebsd_arm64.tar.gz
+      #make2help_v0.2.1_linux_amd64.tar.gz
+      #make2help_v0.2.1_linux_arm64.tar.gz
+      #make2help_v0.2.1_windows_amd64.zip
+      #make2help_v0.2.1_windows_arm64.zip
+#misskey-cli
+#https://github.com/mikuta0407/misskey-cli
+  - type: github_release
+    repo_owner: mikuta0407
+    repo_name: misskey-cli
+    description: MisskeyのCLIクライアントです。
+      # GitHub release page files
+      #misskey-cli_darwin_amd64
+      #misskey-cli_freebsd_386
+      #misskey-cli_freebsd_amd64
+      #misskey-cli_freebsd_arm
+      #misskey-cli_linux_386
+      #misskey-cli_linux_amd64
+      #misskey-cli_linux_arm
+      #misskey-cli_linux_mips
+      #misskey-cli_linux_mips64
+      #misskey-cli_linux_mips64le
+      #misskey-cli_linux_mipsle
+      #misskey-cli_linux_s390x
+      #misskey-cli_netbsd_386
+      #misskey-cli_netbsd_amd64
+      #misskey-cli_netbsd_arm
+      #misskey-cli_openbsd_386
+      #misskey-cli_openbsd_amd64
+      #misskey-cli_windows_386.exe
+      #misskey-cli_windows_amd64.exe
+#motion
+#https://github.com/fatih/motion
+  - type: github_release
+    repo_owner: fatih
+    repo_name: motion
+    description: Navigation and insight in Go
+      # GitHub release page files
+#revive
+#https://github.com/mgechev/revive
+  - type: github_release
+    repo_owner: mgechev
+    repo_name: revive
+    description: 🔥 ~6x faster, stricter, configurable, extensible, and beautiful drop-in replacement for golint
+      # GitHub release page files
+      #checksums.txt
+      #revive_darwin_amd64.tar.gz
+      #revive_darwin_arm64.tar.gz
+      #revive_linux_386.tar.gz
+      #revive_linux_amd64.tar.gz
+      #revive_linux_arm64.tar.gz
+      #revive_windows_386.tar.gz
+      #revive_windows_amd64.tar.gz
+      #revive_windows_arm64.tar.gz
+#sqly
+#https://github.com/nao1215/sqly
+  - type: github_release
+    repo_owner: nao1215
+    repo_name: sqly
+    description: sqly - eaisly execute SQL against CSV/TSV/LTSV/JSON with shell.
+      # GitHub release page files
+      #checksums.txt
+      #sqly_0.5.2_linux_amd64.apk
+      #sqly_0.5.2_linux_amd64.deb
+      #sqly_0.5.2_linux_amd64.rpm
+      #sqly_0.5.2_Linux_x86_64.tar.gz
+#staticcheck
+#https://github.com/dominikh/go-tools
+  - type: github_release
+    repo_owner: dominikh
+    repo_name: go-tools
+    description: Staticcheck - The advanced Go linter
+      # GitHub release page files
+      #staticcheck_darwin_amd64.tar.gz
+      #staticcheck_darwin_amd64.tar.gz.sha256
+      #staticcheck_darwin_arm64.tar.gz
+      #staticcheck_darwin_arm64.tar.gz.sha256
+      #staticcheck_freebsd_386.tar.gz
+      #staticcheck_freebsd_386.tar.gz.sha256
+      #staticcheck_freebsd_amd64.tar.gz
+      #staticcheck_freebsd_amd64.tar.gz.sha256
+      #staticcheck_linux_386.tar.gz
+      #staticcheck_linux_386.tar.gz.sha256
+      #staticcheck_linux_amd64.tar.gz
+      #staticcheck_linux_amd64.tar.gz.sha256
+      #staticcheck_linux_arm64.tar.gz
+      #staticcheck_linux_arm64.tar.gz.sha256
+      #staticcheck_linux_armv5l.tar.gz
+      #staticcheck_linux_armv5l.tar.gz.sha256
+      #staticcheck_linux_armv6l.tar.gz
+      #staticcheck_linux_armv6l.tar.gz.sha256
+      #staticcheck_linux_armv7l.tar.gz
+      #staticcheck_linux_armv7l.tar.gz.sha256
+      #staticcheck_windows_386.tar.gz
+      #staticcheck_windows_386.tar.gz.sha256
+      #staticcheck_windows_amd64.tar.gz
+      #staticcheck_windows_amd64.tar.gz.sha256
+#asmfmt
+#https://github.com/klauspost/asmfmt/cmd/asmfmt
+  - type: github_release
+    repo_owner: klauspost
+    repo_name: asmfmt
+    description: Go Assembler Formatter
+      # GitHub release page files
+      #checksums.txt
+      #asmfmt-AIX_ppc64_1.3.2.tar.gz
+      #asmfmt-FreeBSD_arm64_1.3.2.tar.gz
+      #asmfmt-FreeBSD_arm_1.3.2.tar.gz
+      #asmfmt-FreeBSD_i386_1.3.2.tar.gz
+      #asmfmt-FreeBSD_x86_64_1.3.2.tar.gz
+      #asmfmt-Linux_arm64_1.3.2.tar.gz
+      #asmfmt-Linux_arm_1.3.2.tar.gz
+      #asmfmt-Linux_i386_1.3.2.tar.gz
+      #asmfmt-Linux_mips64le_1.3.2.tar.gz
+      #asmfmt-Linux_mips64_1.3.2.tar.gz
+      #asmfmt-Linux_ppc64le_1.3.2.tar.gz
+      #asmfmt-Linux_ppc64_1.3.2.tar.gz
+      #asmfmt-Linux_x86_64_1.3.2.tar.gz
+      #asmfmt-NetBSD_arm_1.3.2.tar.gz
+      #asmfmt-NetBSD_i386_1.3.2.tar.gz
+      #asmfmt-NetBSD_x86_64_1.3.2.tar.gz
+      #asmfmt-OSX_arm64_1.3.2.tar.gz
+      #asmfmt-OSX_x86_64_1.3.2.tar.gz
+      #asmfmt-Windows_arm64_1.3.2.zip
+      #asmfmt-Windows_arm_1.3.2.zip
+      #asmfmt-Windows_i386_1.3.2.zip
+      #asmfmt-Windows_x86_64_1.3.2.zip
+      #asmfmt_package_1.3.2_Linux_386.deb
+      #asmfmt_package_1.3.2_Linux_386.rpm
+      #asmfmt_package_1.3.2_Linux_arm.deb
+      #asmfmt_package_1.3.2_Linux_arm.rpm
+      #asmfmt_package_1.3.2_Linux_arm64.deb
+      #asmfmt_package_1.3.2_Linux_arm64.rpm
+      #asmfmt_package_1.3.2_Linux_mips64.deb
+      #asmfmt_package_1.3.2_Linux_mips64.rpm
+      #asmfmt_package_1.3.2_Linux_mips64le.deb
+      #asmfmt_package_1.3.2_Linux_mips64le.rpm
+      #asmfmt_package_1.3.2_Linux_ppc64.deb
+      #asmfmt_package_1.3.2_Linux_ppc64.rpm
+      #asmfmt_package_1.3.2_Linux_ppc64le.deb
+      #asmfmt_package_1.3.2_Linux_ppc64le.rpm
+      #asmfmt_package_1.3.2_Linux_x86_64.deb
+      #asmfmt_package_1.3.2_Linux_x86_64.rpm
+#chmod-cli
+#https://github.com/Mayowa-Ojo/chmod-cli
+  - type: github_release
+    repo_owner: Mayowa-Ojo
+    repo_name: chmod-cli
+    description: Effortlessly generate chmod commands
+      # GitHub release page files
+      #checksums.txt
+      #chmod-cli_0.2.0_Darwin_arm64.tar.gz
+      #chmod-cli_0.2.0_Darwin_x86_64.tar.gz
+      #chmod-cli_0.2.0_Linux_arm64.tar.gz
+      #chmod-cli_0.2.0_Linux_i386.tar.gz
+      #chmod-cli_0.2.0_Linux_x86_64.tar.gz
+      #chmod-cli_0.2.0_Windows_i386.tar.gz
+      #chmod-cli_0.2.0_Windows_x86_64.tar.gz
