@@ -113,7 +113,7 @@ set -x FLYCTL_INSTALL $HOME/.fly
 set -x PATH $FLYCTL_INSTALL/bin $PATH
 
 # pnpm
-set -x PNPM_HOME $HOME/.local/share/pnpm
+set -x PNPM_HOME $XDG_DATA_HOME/pnpm
 set -x PATH "$PNPM_HOME" $PATH
 
 # work pc only tools?
@@ -123,9 +123,9 @@ set -x JAVA_HOME $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/open
 set -x PATH $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin $PATH
 
 # coursier path
-set -x PATH $HOME/.local/share/coursier/bin $PATH
+set -x PATH $XDG_DATA_HOME/coursier/bin $PATH
 # windowsのpathとかぶる問題防止
-alias cs $HOME/.local/share/coursier/bin/cs
+alias cs $XDG_DATA_HOME/coursier/bin/cs
 {{ end }}
 
 # cabal config
