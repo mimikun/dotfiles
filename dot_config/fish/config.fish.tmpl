@@ -7,7 +7,7 @@ set -x TODAY (date +"%Y/%m/%d")
 set -x TZ "Asia/Tokyo"
 
 # Fish paths
-set -x FISH_CONFIG_DIR $HOME/.config/fish
+set -x FISH_CONFIG_DIR $XDG_CONFIG_HOME/fish
 set -x FISH_COMPLETIONS_DIR $HOME/.config/fish/completions
 set -x FISH_FUNCTIONS_DIR $HOME/.config/fish/functions
 set -x FISH_CACHE_DIR $XDG_CACHE_HOME/fish
@@ -71,6 +71,7 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x DENO_INSTALL $HOME/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 
+set -x STARSHIP_CONFIG_DIR $XDG_CONFIG_HOME/starship
 set -x STARSHIP_CONFIG $HOME/.config/starship/starship.toml
 set -x STARSHIP_CACHE ~/.config/starship/cache
 
@@ -136,7 +137,7 @@ set -x PATH $HOME/.ghcup/bin $PATH
 set -x SSH_AUTH_SOCK $HOME/.ssh/wsl2-ssh-agent.sock
 
 # https://github.com/antfu/ni config
-set -x NI_CONFIG_FILE $HOME/.config/ni/.nirc
+set -x NI_CONFIG_FILE $XDG_CONFIG_HOME/ni/.nirc
 
 # codon config
 set -x PATH $HOME/.codon/bin $PATH
@@ -282,16 +283,16 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
 
     # navi
     echo "# cache navi config" >> $CACHE_CONFIG_FISH
-    cat ~/.config/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
+    cat $XDG_CONFIG_HOME/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
 
     # pnpm
     echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
-    cat ~/.config/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
+    cat $XDG_CONFIG_HOME/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
 
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") }}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
-    cat $HOME/.config/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
+    cat $XDG_CONFIG_HOME/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
     {{ end }}
 end
 source $CACHE_CONFIG_FISH
