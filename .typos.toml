@@ -1,25 +1,26 @@
 [default.extend-words]
+# noice.nvim
 noice = "noice"
+# vim keymap
 enew = "enew"
+# iterm2
 iterm = "iterm"
+# starship config
 edn = "edn"
 esy = "esy"
+# macOS Big Sur
 sur = "sur"
+# fish abbr `chezmoi cd`
 chec = "chec"
+# Linux OS name
 Siduction = "Siduction"
 
 [files]
 extend-exclude = [
     "pnpm-lock.yaml",
     "dot_config/fish/completions/bun.fish",
-    "dot_config/fish/completions/nkf.fish",
     "dot_config/fish/completions/pueue.fish",
     "dot_config/fish/completions/yq.fish",
-    "dot_config/fish/completions/flyctl.fish",
-    "dot_config/fish/completions/chezmoi.fish",
-    "dot_config/fish/completions/runme.fish",
-    "dot_config/neofetch/config.conf",
     "dot_ghcup/config.yaml",
     "dot_config/pipr/pipr.toml",
-    "private_dot_local/bin/executable_wsl-open",
 ]
