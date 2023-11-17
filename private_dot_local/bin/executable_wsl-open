@@ -204,7 +204,7 @@ if [[ -n $File ]]; then
     fi
 
     if [[ -z "$FileWin" ]]; then
-      # Backwards compatability for WSL builds without wslpath
+      # Backwards compatibility for WSL builds without wslpath
       # shellcheck disable=SC2053
       if [[ $FilePath != $WslDisks/* ]]; then
         # File or directory is not on a Windows accessible disk
