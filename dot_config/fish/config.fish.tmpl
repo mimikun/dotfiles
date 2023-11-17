@@ -6,6 +6,12 @@ set -x PIPENV_VENV_IN_PROJECT 1
 set -x TODAY (date +"%Y/%m/%d")
 set -x TZ "Asia/Tokyo"
 
+# XDG Base Directory
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
+set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_STATE_HOME $HOME/.local/state
+
 # Fish paths
 set -x FISH_CONFIG_DIR $XDG_CONFIG_HOME/fish
 set -x FISH_COMPLETIONS_DIR $FISH_CONFIG_DIR/completions
@@ -53,12 +59,6 @@ abbr -a puc "pueue clean -s"
 abbr -a pucf "pueue clean"
 abbr -a puf "pueue follow"
 abbr -a pul "pueue log"
-
-# XDG Base Directory
-set -x XDG_CONFIG_HOME $HOME/.config
-set -x XDG_CACHE_HOME $HOME/.cache
-set -x XDG_DATA_HOME $HOME/.local/share
-set -x XDG_STATE_HOME $HOME/.local/state
 
 set -x LOCALBIN $HOME/.local/bin
 
