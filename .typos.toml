@@ -20,7 +20,7 @@ extend-exclude = [
     "pnpm-lock.yaml",
     "dot_config/fish/completions/bun.fish",
     "dot_config/fish/completions/pueue.fish",
-    "dot_config/fish/completions/yq.fish",
+    "dot_config/fish/completions/runme.fish",
     "dot_ghcup/config.yaml",
     "dot_config/pipr/pipr.toml",
 ]
