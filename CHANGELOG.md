@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2023.11.18]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - yq 4.40.2
+- Update yq fish completion
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix .typos.toml
+
 ## [v2023.11.17]
 
 ### Added - 新機能について
