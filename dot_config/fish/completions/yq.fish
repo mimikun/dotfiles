@@ -79,7 +79,7 @@ function __yq_clear_perform_completion_once_result
     __yq_debug ""
     __yq_debug "========= clearing previously set __yq_perform_completion_once_result variable =========="
     set --erase __yq_perform_completion_once_result
-    __yq_debug "Succesfully erased the variable __yq_perform_completion_once_result"
+    __yq_debug "Successfully erased the variable __yq_perform_completion_once_result"
 end
 
 function __yq_requires_order_preservation
