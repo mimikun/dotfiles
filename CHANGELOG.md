@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2023.11.17]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Rename typos.toml
+- Update lazy-lock.json
+- Update deno fish completion
+- Update asdf tools version
+    - vim 9.0.2112
+    - powershell-core 7.4.0
+    - fzf 0.44.1
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix fish error
+- Fix typos
+
 ## [v2023.11.16]
 
 ### Added - 新機能について
