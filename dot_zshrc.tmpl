@@ -114,9 +114,11 @@ export LUA_CPATH="/usr/local/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/loadall.so;
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 
 # inshellisense
-if test -f ~/.inshellisense/key-bindings.zsh
-then
-    source ~/.inshellisense/key-bindings.zsh
+#if test -f ~/.inshellisense/key-bindings.zsh
+#then
+#    source ~/.inshellisense/key-bindings.zsh
+#fi
 fi
+
 # delete duplicate path
 typeset -U PATH
