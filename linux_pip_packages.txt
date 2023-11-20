@@ -32,7 +32,7 @@ setuptools
 six
 SQLAlchemy
 text-unidecode
-thefuck
+thefuck @ git+https://github.com/nvbn/thefuck@62e0767c5069aeee176b0fe3459068b7703aaa26
 typing_extensions
 userpath
 wcwidth
