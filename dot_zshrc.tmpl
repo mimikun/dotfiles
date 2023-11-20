@@ -4,6 +4,12 @@ export GHQ_ROOT="$HOME/ghq"
 export PIPENV_VENV_IN_PROJECT=1
 export TODAY=(date +'%Y/%m/%d')
 
+# XDG Base Directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 export WORKSPACE={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
 export WIN_HOME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}

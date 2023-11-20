@@ -1,6 +1,12 @@
 # All platform 共通
 export EDITOR=nvim
 
+# XDG Base Directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 {{ if eq .chezmoi.os "linux" }}
 # Linuxのとき
 case $- in
