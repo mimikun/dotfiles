@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.11.20]
+
+### Added - 新機能について
+
+- Add sheldon env-vars
+    - SHELDON_CONFIG_DIR
+    - SHELDON_DATA_DIR
+- Add zsh plugin: zeno.zsh
+
+### Changed - 既存機能の変更について
+
+- Update runme fish completion
+- Update yq fish completion
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update .typos.toml
+- Relocated sheldon configs
+- Disable inshellisense in bash and zsh
+- Update linux_pip_packages.txt
+
+### Removed - 今回で削除された機能について
+
+- Remove fish plugin: oh-my-fish/plugin-thefuck
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.11.19]
 
 ### Added - 新機能について
