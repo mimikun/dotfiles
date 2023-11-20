@@ -1,0 +1,78 @@
+shell = "zsh"
+
+[plugins]
+
+# Plugins
+[plugins.zeno]
+github = "yuki-yano/zeno.zsh"
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+
+[plugins.bd]
+github = "Tarrasch/zsh-bd"
+
+[plugins.zsh-async]
+github = "mafredri/zsh-async"
+
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
+[plugins.zsh-bat]
+github = "fdellwing/zsh-bat"
+
+[plugins.bw-zsh-plugin]
+github = "begris/bw-zsh-plugin"
+
+[plugins.colorize]
+github = "zpm-zsh/colorize"
+
+[plugins.zsh-completion-generator]
+github = "RobSis/zsh-completion-generator"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+#[plugins.zsh-ghq]
+#github = "mimikun/zsh-ghq"
+
+# Themes
+#[plugins.theme-dracula]
+#github = "dracula/zsh"
+
+#[plugins.theme-fish]
+#github = "Raniconduh/zshfish"
+
+#[plugins.theme-github]
+#github = "Debdut/github.zsh-theme"
+
+#jorgebucaran/getopts.fish
+#mimikun/def
+#mimikun/editorconfig
+#mimikun/numeronym
+#mimikun/pcd
+#mimikun/read_confirm
+#mimikun/re_boot
+#mimikun/shut_down
+#mimikun/supersync
+#mimikun/update_bw
+#mimikun/update_chromedriver
+#mimikun/update_docker_compose
+#mimikun/update_geckodriver
+#mimikun/update_peco
+#sijad/gitignore
+#halostatue/fish-docker@v1.x
+#mimikun/gcd
+#mimikun/update_completions
+#mimikun/vup
+#mimikun/update_asdf_zig_master
+#mimikun/bw.fish
+#mimikun/nkf.fish
+#americanhanko/fish-spin
+#jethrokuan/z

@@ -1,6 +1,0 @@
-shell = "zsh"
-
-[plugins]
-
-[plugins.base16]
-github = "chriskempson/base16-shell"
