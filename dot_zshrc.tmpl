@@ -98,9 +98,6 @@ function lk {
   cd "$(walk "$@")"
 }
 
-# sheldon
-eval "$(sheldon source)"
-
 # rtx
 #export RTX_DATA_DIR=$HOME/.rtx
 #export RTX_CACHE_DIR=$RTX_DATA_DIR/cache
@@ -118,6 +115,13 @@ export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua
 #then
 #    source ~/.inshellisense/key-bindings.zsh
 #fi
+
+# sheldon
+export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/zsh"
+export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/zsh"
+
+eval "$(sheldon source)"
+
 fi
 
 # delete duplicate path

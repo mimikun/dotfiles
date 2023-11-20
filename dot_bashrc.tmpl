@@ -144,9 +144,6 @@ function lk {
 #export RTX_DATA_DIR=$HOME/.rtx
 #export RTX_CACHE_DIR=$RTX_DATA_DIR/cache
 
-# sheldon
-#eval "$(sheldon source)"
-
 # luarocks
 export PATH="$HOME/.luarocks/bin:$PATH"
 export LUA_PATH="/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.lua;/usr/local/lib/lua/5.3/?.lua;/usr/local/lib/lua/5.3/?/init.lua;./?.lua;./?/init.lua;$HOME/.luarocks/share/lua/5.3/?.lua;$HOME/.luarocks/share/lua/5.3/?/init.lua"
@@ -160,6 +157,12 @@ export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua
 #then
 #    source ~/.inshellisense/key-bindings.bash
 #fi
+
+# sheldon
+export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/bash"
+export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/bash"
+
+eval "$(sheldon source)"
 
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSのとき
