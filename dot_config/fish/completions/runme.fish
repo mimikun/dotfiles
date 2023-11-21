@@ -79,7 +79,7 @@ function __runme_clear_perform_completion_once_result
     __runme_debug ""
     __runme_debug "========= clearing previously set __runme_perform_completion_once_result variable =========="
     set --erase __runme_perform_completion_once_result
-    __runme_debug "Successfully erased the variable __runme_perform_completion_once_result"
+    __runme_debug "Succesfully erased the variable __runme_perform_completion_once_result"
 end
 
 function __runme_requires_order_preservation
