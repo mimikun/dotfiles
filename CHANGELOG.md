@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2023.11.21]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - yarn 1.22.21
+- Update lazy-lock.json
+- Update yq fish completion
+- Update runme fish completion
+- Update STARTUPTIME.md
+- Update .typos.toml
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.11.20]
 
 ### Added - 新機能について
