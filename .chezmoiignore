@@ -6,6 +6,7 @@
 CHANGELOG.md
 LICENSE.txt
 Makefile
+*maskfile.md
 README.md
 TODO.md
 *.patch
