@@ -1,9 +1,9 @@
 python 3.12.0
 nodejs 20.9.0
 ruby 3.2.2
-vim 9.0.2120
+vim 9.0.2130
 neovim nightly
-yarn 1.22.21
+yarn system
 ghq 1.4.2
 fzf 0.44.1
 peco 0.5.11
@@ -15,7 +15,7 @@ shfmt 3.7.0
 tig 2.5.8
 github-cli 2.39.1
 duf 0.8.1
-yq 4.40.2
+yq 4.40.3
 zig master
 bitwarden 2023.10.0
 powershell-core 7.4.0
