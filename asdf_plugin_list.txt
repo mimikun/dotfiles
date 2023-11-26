@@ -19,6 +19,5 @@ shellcheck                   https://github.com/luizm/asdf-shellcheck.git
 shfmt                        https://github.com/luizm/asdf-shfmt.git
 tig                          https://github.com/koketani/asdf-tig.git
 vim                          https://github.com/tsuyoshicho/asdf-vim.git
-yarn                         https://github.com/twuni/asdf-yarn.git
 yq                           https://github.com/sudermanjr/asdf-yq.git
 zig                          https://github.com/cheetah/asdf-zig.git
