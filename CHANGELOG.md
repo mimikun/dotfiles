@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2023.11.26]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - nodejs 20.10.0
+    - yq 4.40.3
+    - vim 9.0.2130
+- Update lazy-lock.json
+- Update eza fish completion
+- Update deno fish completion
+
+### Removed - 今回で削除された機能について
+
+- Remove asdf-yarn plugin
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.11.22]
 
 ### Added - 新機能について
