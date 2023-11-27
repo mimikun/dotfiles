@@ -28,7 +28,6 @@
 - [update_fish_completions](https://github.com/mimikun/update_fish_completions)
     - update_fish_completions
     - update_bat_fish_completion
-    - update_ripgrep_fish_completion
     - update_helix_fish_completion
 - [update_geckodriver](https://github.com/mimikun/update_geckodriver)
     - update_geckodriver
