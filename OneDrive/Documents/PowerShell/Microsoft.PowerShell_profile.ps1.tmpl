@@ -105,6 +105,13 @@ if ($cond) {
         ForEach-Object { $_ -replace $namespace2, "" }
     }
     Write-Output $zoxide_completion >> $env:CACHE_PROFILE
+
+    # ripgrep completion
+    Write-Output "# cache ripgrep completion" >> $env:CACHE_PROFILE
+    $ripgrep_completion = rg --generate complete-powershell |
+        ForEach-Object { $_ -replace $namespace1, "" } |
+        ForEach-Object { $_ -replace $namespace2, "" }
+    Write-Output $ripgrep_completion >> $env:CACHE_PROFILE
 }
 
 # Loading from cache profile
