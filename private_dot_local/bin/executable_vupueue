@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.7.0"
+readonly PRODUCT_VERSION="0.8.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -62,6 +62,7 @@ ubuntu() {
 
 # Arch Linux
 arch() {
+  echo "Run yay..."
   pueue add -- "yay"
   pueue add -- "yay -Sc"
 }
@@ -73,6 +74,7 @@ mac() {
 
 update_asdf_tools() {
   for i in $(asdf plugin list); do
+    echo "asdf install $i latest"
     pueue add -- "asdf install $i latest"
   done
 }
@@ -85,51 +87,99 @@ pueue_update_asdf_nodejs_lts() {
 # other
 other_tools() {
   # Upgrade Rust toolchains
+  echo "rustup update"
   pueue add -- "rustup update"
+
   # Upgrade deno
+  echo "deno upgrade"
   pueue add -- "deno upgrade"
+
   # Upgrade bun
+  echo "bun upgrade"
   pueue add -- "bun upgrade"
+
   # Upgrade asdf
+  echo "asdf update"
   pueue add -- "asdf update"
+
   # tldr update
+  echo "tldr --update"
   pueue add -- "tldr --update"
+
   # GitHub CLI extensions update
+  echo "gh extensions upgrade --all"
   pueue add -- "gh extensions upgrade --all"
+
   # flyctl upgrade
+  echo "flyctl version upgrade"
   pueue add -- "flyctl version upgrade"
+
   # pnpm
+  echo "update_pnpm"
   pueue add -- "update_pnpm"
 }
 
 no_pueue_other_tools() {
   # Upgrade fisher
   fish -c 'fisher update'
+
   asdf plugin update --all
   update_asdf_tools
+
+  echo "asdf install neovim ref:master"
   update_asdf_neovim master --use-pueue
+
+  echo "asdf install neovim stable"
   update_asdf_neovim stable --use-pueue
+
+  echo "asdf install neovim nightly"
   update_asdf_neovim nightly --use-pueue
+
+  echo "asdf install zig master"
   pueue_update_asdf_zig_master
+
+  echo "asdf install nodejs lts"
   pueue_update_asdf_nodejs_lts
+
   # Update rust tools
+  echo "update_cargo_packages"
   pueue_update_cargo_packages
+
   # Create cargo_packages.txt
+  echo "generate_cargo_package_list"
   generate_cargo_package_list
+
   # Create asdf_plugin_list.txt
+  echo "generate_asdf_plugin_list"
   generate_asdf_plugin_list
+
+  echo "update_fish_completions"
   update_fish_completions
+
+  echo "gup update"
   pueue add -- "gup update"
+
+  echo "gup export"
   pueue add -- "gup export"
+
   # Upgrade docker-compose
+  echo "update_docker_compose"
   update_docker_compose
+
   # Upgrade chromedriver
+  echo "update_chromedriver"
   update_chromedriver
+
   # Upgrade geckodriver
+  echo "update_geckodriver"
   update_geckodriver
+
   # Upgrade twitch-cli
+  echo "update_twitch_cli"
   update_twitch_cli
+
   # Upgrade pkgx
+  echo "update_pkgx"
   update_pkgx
 }
 
