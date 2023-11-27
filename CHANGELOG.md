@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2023.11.27]
+
+### Added - 新機能について
+
+- Add ripgrep powershell completion
+
+### Changed - 既存機能の変更について
+
+- Update .typos.toml
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update asdf tools version
+    - chezmoi 2.42.0
+- Update update_fish_completions command
+- Update ripgrep fish completion
+- Update vupueue command
+
+### Removed - 今回で削除された機能について
+
+- Remove update_ripgrep_fish_completion command
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.11.26]
 
 ### Added - 新機能について
