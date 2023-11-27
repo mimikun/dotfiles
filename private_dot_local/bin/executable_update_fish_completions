@@ -103,7 +103,7 @@ if command_exist bat; then
 fi
 
 if command_exist rg; then
-  pueue add -- "update_ripgrep_fish_completion"
+  pueue add -- "rg --generate complete-fish > '${COMPLETIONS_DIR}'/rg.fish"
 fi
 
 if command_exist hx; then
