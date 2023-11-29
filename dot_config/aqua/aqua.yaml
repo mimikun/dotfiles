@@ -15,7 +15,7 @@ registries:
 packages:
 # Previously managed with asdf
 - name: bitwarden/clients@cli-v2023.10.0
-- name: twpayne/chezmoi@v2.42.0
+- name: twpayne/chezmoi@v2.42.1
 - name: direnv/direnv@v2.32.3
 - name: muesli/duf@v0.8.1
 - name: junegunn/fzf@0.44.1
