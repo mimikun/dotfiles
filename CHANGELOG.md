@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2023.11.29]
+
+### Added - 新機能について
+
+- Add new rust tool: trashy
+- Add new abbr
+
+### Changed - 既存機能の変更について
+
+- Disable aqua security policy
+    - It's just idiot to care about security.
+- Update chezmoi by aqua
+- Manage what was managed with gup and asdf with aqua
+- Update asdf tools version
+    - vim 9.0.2136
+- Update zellij fish completion
+- Update runme fish completion
+- Update pueue fish completion
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+- Remove asdf-direnv config from config.fish
+- Remove some asdf plugins
+
+### Fixed - 不具合修正について
+
+- Fixed pueue completion typo
+
 ## [v2023.11.28]
 
 ### Added - 新機能について
