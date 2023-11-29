@@ -75,7 +75,7 @@ complete -c pueue -n "__fish_seen_subcommand_from start" -s a -l all -d 'Resume 
 complete -c pueue -n "__fish_seen_subcommand_from start" -s c -l children -d 'Deprecated: this switch no longer has any effect'
 complete -c pueue -n "__fish_seen_subcommand_from start" -s h -l help -d 'Print help'
 complete -c pueue -n "__fish_seen_subcommand_from restart" -s g -l failed-in-group -d 'Like `--all-failed`, but only restart tasks failed tasks of a specific group. The group will be set to running and its paused tasks will be resumed' -r
-complete -c pueue -n "__fish_seen_subcommand_from restart" -s a -l all-failed -d 'Restart all failed tasks accross all groups. Nice to use in combination with `-i/--in-place`'
+complete -c pueue -n "__fish_seen_subcommand_from restart" -s a -l all-failed -d 'Restart all failed tasks across all groups. Nice to use in combination with `-i/--in-place`'
 complete -c pueue -n "__fish_seen_subcommand_from restart" -s k -l start-immediately -d 'Immediately start the tasks, no matter how many open slots there are. This will ignore any dependencies tasks may have'
 complete -c pueue -n "__fish_seen_subcommand_from restart" -s s -l stashed -d 'Set the restarted task to a "Stashed" state. Useful to avoid immediate execution'
 complete -c pueue -n "__fish_seen_subcommand_from restart" -s i -l in-place -d 'Restart the task by reusing the already existing tasks. This will overwrite any previous logs of the restarted tasks'
