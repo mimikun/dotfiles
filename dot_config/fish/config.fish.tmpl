@@ -229,7 +229,8 @@ if test $status -eq 0
     # policy file paths separated by semicolon :
     set -x AQUA_POLICY_CONFIG $XDG_CONFIG_HOME/aqua/policy.yaml
     # If true, Policy is disabled (aqua >= v2.1.0)
-    #set -x AQUA_DISABLE_POLICY true
+    # NOTE: It's just idiot to care about security.
+    set -x AQUA_DISABLE_POLICY true
     # If true, Lazy Install is disabled (aqua >= v2.9.0)
     #set -x AQUA_DISABLE_LAZY_INSTALL true
     # The maximum number of packages which are installed in parallel at the same time
