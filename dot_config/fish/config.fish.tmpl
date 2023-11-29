@@ -272,10 +272,6 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR
     echo "" > $CACHE_CONFIG_FISH
 
-    # asdf-direnv config
-    echo "# cache asdf-direnv config" >> $CACHE_CONFIG_FISH
-    asdf exec direnv hook fish >> $CACHE_CONFIG_FISH
-
     # Linuxbrew
     echo "# cache linuxbrew config" >> $CACHE_CONFIG_FISH
     /home/linuxbrew/.linuxbrew/bin/brew shellenv fish >> $CACHE_CONFIG_FISH
