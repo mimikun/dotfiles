@@ -20,9 +20,6 @@ extend-exclude = [
     "pnpm-lock.yaml",
     # Not fixed
     "dot_config/fish/completions/bun.fish",
-    # Will be fix next release
-    # ref: https://github.com/Nukesor/pueue/commit/059c648c0978d9ea63c33cb9805afa6142ed3b84
-    "dot_config/fish/completions/pueue.fish",
     # Not fixed
     # NOTE: Fixed runme v2
     # ref: https://github.com/stateful/runme/commit/2cd6f0fc797e622d47c23ab393d6a9b4cfadccb4
