@@ -21,10 +21,6 @@ extend-exclude = [
     # Not fixed
     "dot_config/fish/completions/bun.fish",
     # Not fixed
-    # NOTE: Fixed runme v2
-    # ref: https://github.com/stateful/runme/commit/2cd6f0fc797e622d47c23ab393d6a9b4cfadccb4
-    "dot_config/fish/completions/runme.fish",
-    # Not fixed
     "dot_ghcup/config.yaml",
     # NOTE: Unmaintained and no upstream fixes
     "dot_config/pipr/pipr.toml",
