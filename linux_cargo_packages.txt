@@ -78,6 +78,7 @@ tealdeer
 tokei
 toml2json
 topgrade
+trashy
 tree-sitter-cli
 treefmt
 typos-cli
