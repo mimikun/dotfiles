@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.11.30]
+
+### Added - 新機能について
+
+- Set ZSH_CACHE_DIR
+- Add aqua PATH
+- Add renovate.json
+
+### Changed - 既存機能の変更について
+
+- Update utils/update.sh
+- Update lazy-lock.json
+- Update rtx config
+- Manage what was managed with gup with aqua
+    - gomi
+    - misskey-cli
+- Disable bw-zsh-plugin
+- Update aqua configs
+- Update .config/README.md
+
+### Removed - 今回で削除された機能について
+
+- Remove direnv config
+
+### Fixed - 不具合修正について
+
+- Fixed runme fish completion typo
+
 ## [v2023.11.29]
 
 ### Added - 新機能について
