@@ -268,6 +268,11 @@ chezmoi add ~/Brewfile
 # go packages (managed by gup)
 chezmoi add ~/.config/gup/gup.conf
 
+# managed by aqua
+chezmoi add ~/.config/aqua/aqua.yaml
+chezmoi add ~/.config/aqua/policy.yaml
+chezmoi add ~/.config/aqua/registry.yaml
+
 # lazy.nvim lockfile
 chezmoi add ~/.config/nvim/lazy-lock.json
 
