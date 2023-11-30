@@ -165,5 +165,7 @@ if [[ -n $ZENO_LOADED ]]; then
   #export ZENO_COMPLETION_FALLBACK=expand-or-complete
 fi
 
+export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
+
 # delete duplicate path
 typeset -U PATH
