@@ -1,22 +1,9 @@
 [tools]
-bitwarden = "latest"
-chezmoi = "latest"
-direnv = "latest"
 dotnet-core = "latest"
-duf = "latest"
-fzf = "latest"
-ghq = "latest"
-jq = "latest"
 lua = "latest"
 luajit = "latest"
-github-cli = "latest"
-peco = "latest"
-shellcheck = "latest"
-shfmt = "latest"
 tig = "latest"
 vim = "latest"
-yarn = "latest"
-yq = "latest"
 ruby = [
   "latest",
 ]
