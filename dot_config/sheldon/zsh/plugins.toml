@@ -27,8 +27,8 @@ github = "zsh-users/zsh-autosuggestions"
 [plugins.zsh-bat]
 github = "fdellwing/zsh-bat"
 
-[plugins.bw-zsh-plugin]
-github = "begris/bw-zsh-plugin"
+#[plugins.bw-zsh-plugin]
+#github = "begris/bw-zsh-plugin"
 
 [plugins.colorize]
 github = "zpm-zsh/colorize"
