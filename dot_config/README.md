@@ -2,6 +2,8 @@
 
 ## [alacritty](https://github.com/alacritty/alacritty)
 
+## [aqua](https://github.com/aquaproj/aqua)
+
 ## [bat](https://github.com/sharkdp/bat)
 
 ## [bottom](https://github.com/ClementTsang/bottom)
