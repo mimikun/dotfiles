@@ -89,10 +89,6 @@ export NVIM_CONFIG=~/.config/nvim
 . "$HOME"/.asdf/asdf.sh
 . "$HOME"/.asdf/completions/asdf.bash
 
-# direnv config
-eval "$(asdf exec direnv hook bash)"
-direnv() { asdf exec direnv "$@"; }
-
 # 仕事PCでのみdockerd実行チェックをする
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 # Start Docker daemon automatically when logging in if not running.

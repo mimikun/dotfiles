@@ -8,10 +8,6 @@
 
 ## [contour](https://github.com/contour-terminal/contour)
 
-## [direnv](https://github.com/direnv/direnv)
-
-- [asdf-direnv](https://github.com/asdf-community/asdf-direnv)
-
 ## [emacs](https://www.gnu.org/software/emacs/)
 
 ## [felix](https://github.com/kyoheiu/felix)
