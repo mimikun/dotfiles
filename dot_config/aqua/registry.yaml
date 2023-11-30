@@ -1,6 +1,35 @@
 ---
 # mimikun's Local registry
 packages:
+
+#########################
+# type: github_release  #
+#########################
+
+#misskey-cli
+#https://github.com/mikuta0407/misskey-cli
+  - type: github_release
+    repo_owner: mikuta0407
+    repo_name: misskey-cli
+    description: MisskeyのCLIクライアントです。
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: semver("<= 0.1")
+        asset: misskey-cli_{{.OS}}_{{.Arch}}
+        format: raw
+        rosetta2: true
+        supported_envs:
+          - linux/amd64
+          - darwin
+      - version_constraint: "true"
+        asset: misskey-cli_{{.OS}}_{{.Arch}}
+        format: raw
+        rosetta2: true
+        windows_arm_emulation: true
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
 #wsl2-ssh-agent
 #https://github.com/mame/wsl2-ssh-agent
   - type: github_release
@@ -8,114 +37,320 @@ packages:
     repo_name: wsl2-ssh-agent
     description: A bridge from WSL2 ssh client to Windows ssh-agent.exe service
     asset: wsl2-ssh-agent
-    checksum:
-      type: github_release
-      asset: checksums.txt
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: "true"
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
 #sleepy
 #https://github.com/mattn/sleepy
   - type: github_release
     repo_owner: mattn
     repo_name: sleepy
     description: I'm sleepy
-    asset: sleepy
-    overrides:
-    # Linux
-    - goos: linux
-      asset: sleepy_{{.Version}}_{{.OS}}_{{.Arch}}.tar.gz
-    # macOS
-    - goos: darwin
-      asset: sleepy_{{.Version}}_{{.OS}}_{{.Arch}}.zip
-    # Windows
-    - goos: Windows
-      asset: sleepy_{{.Version}}_{{.OS}}_{{.Arch}}.zip
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: "true"
+        asset: sleepy_{{.Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: zip
+        overrides:
+          - goos: linux
+            format: tar.gz
     files:
       - name: sleepy
         src: sleepy_{{.SemVer}}_{{.OS}}_{{.Arch}}/sleepy
-#dlv
-#https://github.com/go-delve/delve/cmd/dlv
-  - type: go_install
-    path: github.com/go-delve/delve/cmd/dlv
-    description: Delve is a debugger for the Go programming language.
-#errcheck
-#https://github.com/kisielk/errcheck
-  - type: go_install
-    path: github.com/kisielk/errcheck
-    description: errcheck checks that you checked errors.
+#gomi
+#https://github.com/b4b4r07/gomi
+  - type: github_release
+    repo_owner: b4b4r07
+    repo_name: gomi
+    description: 🗑️ Replacement for UNIX rm command!
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: semver("<= 0.1.2")
+        asset: gomi_{{.OS}}_{{.Arch}}
+        format: raw
+        rosetta2: true
+        windows_arm_emulation: true
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
+      - version_constraint: Version == "v0.1.4"
+        asset: gomi_{{.OS}}_{{.Arch}}
+        format: raw
+        rosetta2: true
+        windows_arm_emulation: true
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
+      - version_constraint: Version == "v0.1.5"
+        asset: gomi_{{.OS}}_{{.Arch}}
+        format: raw
+        rosetta2: true
+        windows_arm_emulation: true
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
+      - version_constraint: semver("<= 0.1.7")
+        asset: gomi_{{.OS}}_{{.Arch}}
+        format: raw
+        rosetta2: true
+        windows_arm_emulation: true
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
+      - version_constraint: semver("<= 1.1.1")
+        asset: gomi_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        rosetta2: true
+        replacements:
+          amd64: x86_64
+        supported_envs:
+          - linux/amd64
+          - darwin
+        checksum:
+          type: github_release
+          asset: gomi_{{trimV .Version}}_checksums.txt
+          algorithm: sha256
+      - version_constraint: Version == "v1.1.3"
+        asset: gomi_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        replacements:
+          amd64: x86_64
+        supported_envs:
+          - linux
+          - darwin
+        checksum:
+          type: github_release
+          asset: gomi_{{trimV .Version}}_checksums.txt
+          algorithm: sha256
+      - version_constraint: "true"
+        asset: gomi_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
+        replacements:
+          amd64: x86_64
+        checksum:
+          type: github_release
+          asset: gomi_{{trimV .Version}}_checksums.txt
+          algorithm: sha256
 #chmod-cli
 #https://github.com/Mayowa-Ojo/chmod-cli
   - type: github_release
     repo_owner: Mayowa-Ojo
     repo_name: chmod-cli
     description: Effortlessly generate chmod commands
-    asset: chmod-cli
-    overrides:
-    # Linux
-    - goos: linux
-      goarch: arm64
-      asset: chmod-cli_{{trimV .Version}}_Linux_{{.Arch}}.tar.gz
-    - goos: linux
-      goarch: i386
-      asset: chmod-cli_{{trimV .Version}}_Linux_{{.Arch}}.tar.gz
-    - goos: linux
-      goarch: amd64
-      asset: chmod-cli_{{trimV .Version}}_Linux_x86_64.tar.gz
-    # macOS
-    - goos: darwin
-      goarch: amd64
-      asset: chmod-cli_{{trimV .Version}}_Darwin_x86_64.tar.gz
-    - goos: darwin
-      goarch: arm64
-      asset: chmod-cli_{{trimV .Version}}_Darwin_{{.Arch}}.tar.gz
-    # Windows
-    - goos: windows
-      goarch: i386
-      asset: chmod-cli_{{trimV .Version}}_Windows_{{.Arch}}.tar.gz
-    - goos: windows
-      goarch: amd64
-      asset: chmod-cli_{{trimV .Version}}_Windows_x86_64.tar.gz
-    files:
-      - name: chmod-cli
-        src: chmod-cli
-    checksum:
-      type: github_release
-      asset: checksums.txt
-#sqly
-#https://github.com/nao1215/sqly
-  - type: go_install
-    path: github.com/nao1215/sqly
-    description: sqly - eaisly execute SQL against CSV/TSV/LTSV/JSON with shell.
-    supported_envs:
-      - linux
-#motion
-#https://github.com/fatih/motion
-  - type: go_install
-    path: github.com/fatih/motion
-    description: Navigation and insight in Go
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: "true"
+        asset: chmod-cli_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        windows_arm_emulation: true
+        replacements:
+          amd64: x86_64
+          darwin: Darwin
+          linux: Linux
+          windows: Windows
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
 #make2help
 #https://github.com/Songmu/make2help/cmd/make2help
-  - type: go_install
-    path: github.com/Songmu/make2help/cmd/make2help
+  - type: github_release
+    repo_owner: Songmu
+    repo_name: make2help
     description: Utility for self-documented Makefile
-#gomodifytags
-#https://github.com/fatih/gomodifytags
-  - type: go_install
-    path: github.com/fatih/gomodifytags
-    description: Go tool to modify struct field tags
-#impl
-#https://github.com/josharian/impl
-  - type: go_install
-    path: github.com/josharian/impl
-    description: impl generates method stubs for implementing an interface.
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: semver("<= 0.0.1")
+        asset: make2help_{{.Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        rosetta2: true
+        overrides:
+          - goos: darwin
+            format: zip
+        supported_envs:
+          - linux/amd64
+          - darwin
+      - version_constraint: Version == "v0.0.2"
+        asset: make2help_{{.Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: zip
+        rosetta2: true
+        windows_arm_emulation: true
+        overrides:
+          - goos: linux
+            format: tar.gz
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
+      - version_constraint: semver("<= 0.2.0")
+        asset: make2help_{{.Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: zip
+        rosetta2: true
+        windows_arm_emulation: true
+        overrides:
+          - goos: linux
+            format: tar.gz
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
+      - version_constraint: "true"
+        asset: make2help_{{.Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: zip
+        overrides:
+          - goos: linux
+            format: tar.gz
+    files:
+      - name: make2help
+        src: make2help_{{.Version}}_{{.OS}}_{{.Arch}}/make2help
+#sqly
+#https://github.com/nao1215/sqly
+  - type: github_release
+    repo_owner: nao1215
+    repo_name: sqly
+    description: sqly - eaisly execute SQL against CSV/TSV/LTSV/JSON with shell
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: semver("<= 0.0.4")
+        asset: sqly_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
+        replacements:
+          amd64: x86_64
+          darwin: Darwin
+          linux: Linux
+          windows: Windows
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: semver("<= 0.3.0")
+        asset: sqly_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        replacements:
+          amd64: x86_64
+          linux: Linux
+        supported_envs:
+          - linux/amd64
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: "true"
+        asset: sqly_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        replacements:
+          amd64: x86_64
+          linux: Linux
+        supported_envs:
+          - linux/amd64
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
 #revive
 #https://github.com/mgechev/revive
-  - type: go_install
-    path: github.com/mgechev/revive
+  - type: github_release
+    repo_owner: mgechev
+    repo_name: revive
     description: 🔥 ~6x faster, stricter, configurable, extensible, and beautiful drop-in replacement for golint
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: semver("<= 1.0.3")
+        no_asset: true
+      - version_constraint: semver("<= 1.2.2")
+        asset: revive_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        windows_arm_emulation: true
+        replacements:
+          amd64: x86_64
+          darwin: Darwin
+          linux: Linux
+          windows: Windows
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: semver("<= 1.3.2")
+        asset: revive_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        replacements:
+          amd64: x86_64
+          darwin: Darwin
+          linux: Linux
+          windows: Windows
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: "true"
+        asset: revive_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
 #asmfmt
 #https://github.com/klauspost/asmfmt/cmd/asmfmt
-  - type: go_install
-    path: github.com/klauspost/asmfmt/cmd/asmfmt
+  - type: github_release
+    repo_owner: klauspost
+    repo_name: asmfmt
     description: Go Assembler Formatter
+    version_constraint: "false"
+    version_overrides:
+      - version_constraint: semver("<= 1.2.3")
+        no_asset: true
+      - version_constraint: Version == "v1.3.0"
+        asset: asmfmt-{{.OS}}_{{.Arch}}_{{trimV .Version}}.{{.Format}}
+        format: tar.gz
+        windows_arm_emulation: true
+        overrides:
+          - goos: windows
+            format: zip
+        replacements:
+          amd64: x86_64
+          darwin: OSX
+          linux: Linux
+          windows: Windows
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: Version == "v1.3.1"
+        no_asset: true
+      - version_constraint: "true"
+        asset: asmfmt-{{.OS}}_{{.Arch}}_{{trimV .Version}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
+        replacements:
+          amd64: x86_64
+          darwin: OSX
+          linux: Linux
+          windows: Windows
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+
+####################
+# type: go_install #
+####################
+
 #gotags
 #https://github.com/jstemmer/gotags
   - type: go_install
@@ -126,55 +361,35 @@ packages:
   - type: go_install
     path: github.com/rogpeppe/godef
     description: Print where symbols are defined in Go source code
-# TODO: 
+#motion
+#https://github.com/fatih/motion
+  - type: go_install
+    path: github.com/fatih/motion
+    description: Navigation and insight in Go
+#dlv
+#https://github.com/go-delve/delve/cmd/dlv
+  - type: go_install
+    path: github.com/go-delve/delve/cmd/dlv
+    description: Delve is a debugger for the Go programming language.
+#gomodifytags
+#https://github.com/fatih/gomodifytags
+  - type: go_install
+    path: github.com/fatih/gomodifytags
+    description: Go tool to modify struct field tags
+#impl
+#https://github.com/josharian/impl
+  - type: go_install
+    path: github.com/josharian/impl
+    description: impl generates method stubs for implementing an interface.
+#errcheck
+#https://github.com/kisielk/errcheck
+  - type: go_install
+    path: github.com/kisielk/errcheck
+    description: errcheck checks that you checked errors.
+
+# TODO: Cannot manage by aqua
+
 #fillstruct
 #https://github.com/davidrjenni/reftools/cmd/fillstruct
-  - type: github_release
-    path: github.com/davidrjenni/reftools/cmd/fillstruct
-    description: reftools - refactoring tools for Go
-      # GitHub release page files
-#gomi
-#https://github.com/b4b4r07/gomi
-  - type: github_release
-    repo_owner: b4b4r07
-    repo_name: gomi
-    description: 🗑️ Replacement for UNIX rm command!
-    checksum:
-      type: github_release
-      asset: gomi_{{trimV .Version}}_checksums.txt
-      # GitHub release page files
-      #gomi_1.1.6_checksums.txt
-      #gomi_darwin_arm64.tar.gz
-      #gomi_darwin_x86_64.tar.gz
-      #gomi_linux_arm64.tar.gz
-      #gomi_linux_i386.tar.gz
-      #gomi_linux_x86_64.tar.gz
-      #gomi_windows_arm64.zip
-      #gomi_windows_i386.zip
-      #gomi_windows_x86_64.zip
-#misskey-cli
-#https://github.com/mikuta0407/misskey-cli
-  - type: github_release
-    repo_owner: mikuta0407
-    repo_name: misskey-cli
-    description: MisskeyのCLIクライアントです。
-      # GitHub release page files
-      #misskey-cli_darwin_amd64
-      #misskey-cli_freebsd_386
-      #misskey-cli_freebsd_amd64
-      #misskey-cli_freebsd_arm
-      #misskey-cli_linux_386
-      #misskey-cli_linux_amd64
-      #misskey-cli_linux_arm
-      #misskey-cli_linux_mips
-      #misskey-cli_linux_mips64
-      #misskey-cli_linux_mips64le
-      #misskey-cli_linux_mipsle
-      #misskey-cli_linux_s390x
-      #misskey-cli_netbsd_386
-      #misskey-cli_netbsd_amd64
-      #misskey-cli_netbsd_arm
-      #misskey-cli_openbsd_386
-      #misskey-cli_openbsd_amd64
-      #misskey-cli_windows_386.exe
-      #misskey-cli_windows_amd64.exe
+#iferr
+#https://github.com/koron/iferr
