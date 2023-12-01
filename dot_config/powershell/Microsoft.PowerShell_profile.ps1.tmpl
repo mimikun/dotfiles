@@ -1,6 +1,6 @@
 # Use cache and speedup
 # thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
-$env:CACHE_PROFILE_DIR = "$env:HOME/.cache/powershell"
+$env:CACHE_PROFILE_DIR = Join-Path -Path $env:HOME -ChildPath ".cache/powershell"
 $env:CACHE_PROFILE = Join-Path -Path $env:CACHE_PROFILE_DIR -ChildPath "cache-profile.ps1"
 $CACHE_PROFILE = $env:CACHE_PROFILE
 
@@ -148,7 +148,7 @@ if ($res) {
 }
 
 # alias gcd
-$env:PSGhqPath = "$env:GHQ_ROOT\github.com\mimikun\PSGhq\Set-GhqLocation.ps1"
+$env:PSGhqPath = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com/mimikun/PSGhq/Set-GhqLocation.ps1"
 if (Test-Path($env:PSGhqPath)) {
     . $env:PSGhqPath
     Set-Alias -Name gcd -Value Set-GhqLocation
@@ -193,9 +193,9 @@ if ($majorVer -eq 7) {
 # The directory path where aqua install tools
 # default (linux and macOS): ${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua
 # default (windows): ${HOME/AppData/Local}/aquaproj-aqua
-$env:AQUA_ROOT_DIR = $env:HOME/.local/share/aqua
-$env:AQUA_CONFIG_DIR = $env:HOME/.config/aqua
-$env:AQUA_BIN = $env:AQUA_ROOT_DIR/bin
+$env:AQUA_ROOT_DIR = Join-Path -Path $env:HOME -ChildPath ".local/share/aqua"
+$env:AQUA_CONFIG_DIR = Join-Path -Path $env:HOME -ChildPath ".config/aqua"
+$env:AQUA_BIN = Join-Path -Path $env:AQUA_ROOT_DIR -ChildPath "bin"
 
 Get-Command aqua -ErrorAction Ignore | Out-Null
 $res = $?
@@ -203,11 +203,11 @@ if ($res) {
     # Log level
     #$env:AQUA_LOG_LEVEL = "info"
     # configuration file path
-    $env:AQUA_CONFIG="$AQUA_CONFIG_DIR/aqua.yaml"
+    $env:AQUA_CONFIG = Join-Path -Path $env:AQUA_CONFIG_DIR -ChildPath "aqua.yaml"
     # global configuration file paths separated by semicolon :
-    $env:AQUA_GLOBAL_CONFIG = "$AQUA_CONFIG"
+    $env:AQUA_GLOBAL_CONFIG = $env:AQUA_CONFIG
     # policy file paths separated by semicolon :
-    $env:AQUA_POLICY_CONFIG = "$XDG_CONFIG_HOME/aqua/policy.yaml"
+    $env:AQUA_POLICY_CONFIG = Join-Path -Path $env:AQUA_CONFIG_DIR -ChildPath "policy.yaml"
     # If true, Policy is disabled (aqua >= v2.1.0)
     # NOTE: It's just idiot to care about security.
     $env:AQUA_DISABLE_POLICY = $True
