@@ -67,20 +67,10 @@ nyagos.envadd("NYAGOS_CONFIG", (home .. path_sep .. ".nyagos"))
 
 -- workspace, win_home and obsidian
 -- TODO: settings
---[[
+
 local workspace_path = ""
 local win_home_path = ""
 local obsidian_dailynotes_path = ""
-
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
-workspace_path = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
-win_home_path = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
-obsidian_dailynotes_path = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_dailynotes_path.value }}
-{{ else }}
-workspace_path = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_workspace.value }}
-win_home_path = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_win_home.value }}
-obsidian_dailynotes_path = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_dailynotes_path.value }}
-{{ end }}
 
 nyagos.envadd("WORKSPACE", workspace_path)
 nyagos.envadd("WIN_HOME", win_home_path)
@@ -89,7 +79,6 @@ nyagos.envadd("windl", win_home_path .. "Downloads")
 nyagos.envadd("WIN_DESKTOP", win_home_path .. "Desktop")
 nyagos.envadd("WIN_DOCUMENTS", win_home_path .. "Documents")
 nyagos.envadd("obsidian_vault_path", obsidian_dailynotes_path:format("001_dailyNotes", ""))
-]]
 
 -- alias
 if is_linux then
