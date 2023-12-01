@@ -13,17 +13,22 @@ local events = {
 }
 
 local cmds = {
-    "ObsidianOpen",
-    "ObsidianNew",
-    "ObsidianQuickSwitch",
-    "ObsidianFollowLink",
     "ObsidianBacklinks",
-    "ObsidianToday",
-    "ObsidianYesterday",
-    "ObsidianTemplate",
-    "ObsidianSearch",
+    "ObsidianCheck",
+    "ObsidianFollowLink",
     "ObsidianLink",
     "ObsidianLinkNew",
+    "ObsidianNew",
+    "ObsidianOpen",
+    "ObsidianPasteImg",
+    "ObsidianQuickSwitch",
+    "ObsidianRename",
+    "ObsidianSearch",
+    "ObsidianTemplate",
+    "ObsidianToday",
+    "ObsidianTomorrow",
+    "ObsidianWorkspace",
+    "ObsidianYesterday",
 }
 
 local opts = {
@@ -36,33 +41,41 @@ local opts = {
     daily_notes = {
         folder = "001_DailyNotes",
         date_format = "%Y年%m月%d日",
-        -- TODO: Use dailyNoteTemplate.md
-        --template = nil,
+        template = "999_Templates/dailyNoteTemplateFromObsidianNvim.md",
     },
     disable_frontmatter = true,
     -- Obsidian templates folder
     templates = {
         subdir = "999_Templates",
         date_format = "%Y年%m月%d日",
-        -- TODO: 999_Templates/dailyNoteTemplate.md
-        -- 一番下を見ること
         substitutions = {
             -- 999_Templates/dailyNoteTemplate.md
             -- 翌日
-            next_day = function() end,
+            tomorrow = function()
+                return os.date("%Y年%m月%d日", os.time() + 86400)
+            end,
             -- 前日
-            last_day = function() end,
+            yesterday = function()
+                return os.date("%Y年%m月%d日", os.time() - 86400)
+            end,
             -- 999_Templates/monthlyNoteTemplate.md
             -- 翌月
-            next_month = function() end,
+            next_month = function()
+                return ""
+            end,
             -- 前月
-            last_month = function() end,
+            last_month = function()
+                return ""
+            end,
             -- 999_Templates/yearlyNoteTemplate.md
             -- 翌年
-            next_year = function() end,
+            next_year = function()
+                return ""
+            end,
             -- 前年
-            last_year = function() end,
-            -- 999_Templates/weeklyNoteTemplate.md
+            last_year = function()
+                return ""
+            end,
         },
     },
 
@@ -101,47 +114,21 @@ return {
     event = events,
     cmd = cmds,
     dependencies = {
+        -- Must
         "nvim-lua/plenary.nvim",
+        -- Completion
+        --"hrsh7th/nvim-cmp",
+        -- Search functionality
         "junegunn/fzf",
         "junegunn/fzf.vim",
+        --"nvim-telescope/telescope.nvim",
+        --"ibhagwan/fzf-lua",
+        -- Syntax highlighting
+        "nvim-treesitter/nvim-treesitter",
+        "preservim/vim-markdown",
+        -- Miscellaneous
+        --"epwalsh/pomo.nvim",
     },
     opts = opts,
     --cond = false,
 }
-
--- 999_Templates/dailyNoteTemplate.md
---❯ cat $obsidian_vault_path/999_Templates/dailyNoteTemplate.md
------
---aliases:
---  - {{date:YYYYMMDD}}
---  - {{date:YYYYMD}}
---  - {{date:YYYY/MM/DD}}
---  - {{date:YYYY/M/D}}
---  - {{date:YYYY年MM月DD日}}
---  - {{date:YYYY年M月D日}}
---  - {{date:YYYY-MM-DD}}
---  - {{date:YYYY-M-D}}
---tags:
---  - "#{{date:YYYY/MM/DD}}"
---  - "#{{date:YYYY/M/D}}"
---  - "#{{date:YYYY年MM月DD日}}"
---  - "#{{date:YYYY年M月D日}}"
---  - "#{{date:YYYY-MM-DD}}"
---  - "#{{date:YYYY-M-D}}"
---  - "#daily-note"
------
---# {{date:YYYY年MM月DD日}}
---<< [[<% moment(tp.file.title, "YYYY年MM月DD日").subtract(1, "days").format("YYYY年MM月DD日") %>]] | [[<% moment(tp.file.title, "YYYY年MM月DD日").add(1, "days").format("YYYY年MM月DD日") %>]] >>
---
---[[電子レンジ対応表]]
---
---## Daily TODO
---<% tp.file.cursor() %>
---<%*
---async function asyncSleep(ms) {
---  return new Promise((resolve) => { setTimeout(() => { resolve(); }, ms); });
---}
---
---await asyncSleep(50) // waitを入れないとDaily Noteのタイトルから日付を読み込めない
---app.commands.executeCommandById("obsidian-silhouette:insert-tasks")
---%>
