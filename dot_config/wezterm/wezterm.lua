@@ -10,7 +10,7 @@ end
 local global = require("global")
 local hostname = global.hostname
 local is_wsl = global.is_wsl
-local is_not_human_rights = global.is_not_human_rights
+local is_human_rights = global.is_human_rights
 
 -- デバッグ用
 local function debug_log_print()
@@ -127,12 +127,12 @@ config.inactive_pane_hsb = {
 }
 
 local wsl_domain
-if is_not_human_rights then
-    -- Work PC
-    wsl_domain = "WSL:Ubuntu-20.04"
-else
+if is_human_rights then
     -- Home PC
     wsl_domain = "WSL:Ubuntu"
+else
+    -- Work PC
+    wsl_domain = "WSL:Ubuntu-20.04"
 end
 
 -- デフォルトで開かれるものを決める

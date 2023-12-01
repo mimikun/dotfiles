@@ -5,6 +5,17 @@ local os_name = wezterm.target_triple
 local hostname = wezterm.hostname()
 local is_wsl = wezterm.running_under_wsl()
 
+-- NOTE: wezterm cannot get sysinfo
+function global:is_human_rights()
+    if hostname == "YutoWindows" then
+        return true
+    elseif hostname == "TanakaPC" then
+        return false
+    else
+        return false
+    end
+end
+
 function global:load_variables()
     self.hostname = hostname
     self.is_intel_mac = os_name == "x86_64-apple-darwin"
@@ -13,10 +24,7 @@ function global:load_variables()
     self.is_linux = os_name == "x86_64-unknown-linux-gnu"
     self.is_windows = os_name == "x86_64-pc-windows-msvc"
     self.is_wsl = is_wsl
-    -- TODO: need improve
-    -- e.g. Ryzen9 3900X, RAM 32GB, 1TB SSD
-    self.is_human_rights = hostname == "YutoWindows"
-    self.is_not_human_rights = hostname == "TanakaPC"
+    self.is_human_rights = global:is_human_rights()
     self.path_sep = self.is_windows and "\\" or "/"
 end
 
