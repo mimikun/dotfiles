@@ -11,12 +11,14 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
-export WORKSPACE={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
+export GITHUB_USERNAME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}
 export WIN_HOME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
 {{ else }}
-{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").zshrc_workspace.value }}
-{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").zshrc_win_home.value }}
+export GITHUB_USERNAME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
+export WIN_HOME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
 {{ end }}
+
+export WORKSPACE="$GHQ_ROOT/$GITHUB_USERNAME"
 
 alias f="fuck"
 alias mkdir="mkdir -p"

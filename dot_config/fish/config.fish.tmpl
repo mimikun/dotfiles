@@ -22,18 +22,24 @@ set -x CONFIG_FISH $FISH_CONFIG_DIR/config.fish
 set -x CACHE_CONFIG_FISH $FISH_CACHE_DIR/config.fish
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
-set -x WORKSPACE {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").workspace_path.value }}
+set -x GITHUB_USERNAME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
-set -x obsidian $WIN_HOME/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_dailynotes_path.value }}
+set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
 {{ else }}
-set -x WORKSPACE {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_workspace.value }}
-set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").config_fish_path_win_home.value }}
-set -x obsidian $WIN_HOME/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_dailynotes_path.value }}
+set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
+set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
+set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}
 {{ end }}
-set -x windl $WIN_HOME/Downloads
-set -x WIN_DESKTOP $WIN_HOME/Desktop
-set -x WIN_DOCUMENTS $WIN_HOME/Documents
-set -x obsidian_vault_path "$obsidian/../"
+
+set -x WORKSPACE "$GHQ_ROOT/$GITHUB_USERNAME"
+set -x windl "$WIN_HOME/Downloads"
+set -x WIN_DESKTOP "$WIN_HOME/Desktop"
+set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
+
+set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
+set -x obsidian_vault_path $obsidian_vault_root_path
+set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
+set -x obsidian $obsidian_dailynote_path
 
 # aliases
 alias rm "rm -i"
