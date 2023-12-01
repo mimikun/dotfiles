@@ -227,7 +227,7 @@ if test $status -eq 0
     # global configuration file paths separated by semicolon :
     set -x AQUA_GLOBAL_CONFIG $AQUA_CONFIG
     # policy file paths separated by semicolon :
-    set -x AQUA_POLICY_CONFIG $XDG_CONFIG_HOME/aqua/policy.yaml
+    set -x AQUA_POLICY_CONFIG $AQUA_CONFIG_DIR/policy.yaml
     # If true, Policy is disabled (aqua >= v2.1.0)
     # NOTE: It's just idiot to care about security.
     set -x AQUA_DISABLE_POLICY true
