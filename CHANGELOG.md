@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2023.12.01]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Improved process of using chezmoi templates (Windows)
+- Improved process of using chezmoi templates
+- Update GitHub CLI config
+- Use Join-Path in PowerShell config
+- Update nyagos config
+- Update neovim config: obsidian.nvim
+- aqua: Bump version
+- Update human rights judgment process in wezterm
+- Improved human rights judgment process in neovim
+- Update deno fish completion
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update asdf tools version
+    - vim 9.0.2138
+- Update textlint deps
+- Rename renovate.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fixed AQUA_POLICY_CONFIG env
+
 ## [v2023.11.30]
 
 ### Added - 新機能について
