@@ -28,6 +28,7 @@ STARTUPTIME.md
 vim.yaml
 nyagos.yaml
 selene.toml
+renovate.json5
 
 {{ if eq .chezmoi.os "linux" }}
 # Linuxの場合のignoreパターン
