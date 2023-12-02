@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2023.12.02]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2143
+- aqua: Bump version
+- Update lazy-lock.json
+- Update JohnnyMorganz/stylua-action action to v3
+- chore(deps): update dependency textlint-rule-preset-ja-technical-writing to v8
+- Update actions/setup-node action to v4
+- Update crate-ci/typos action to v1.16.23
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.12.01]
 
 ### Added - 新機能について
