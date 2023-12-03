@@ -46,6 +46,7 @@ grex
 hexyl
 ht
 hyperfine
+hysp
 just
 lsd
 mask
