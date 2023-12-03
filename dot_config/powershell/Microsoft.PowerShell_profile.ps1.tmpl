@@ -1,4 +1,4 @@
-# Use cache and speedup
+﻿# Use cache and speedup
 # thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 $env:CACHE_PROFILE_DIR = Join-Path -Path $env:HOME -ChildPath ".cache/powershell"
 $env:CACHE_PROFILE = Join-Path -Path $env:CACHE_PROFILE_DIR -ChildPath "cache-profile.ps1"
@@ -17,6 +17,19 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
 } else {
     $cond = $false
 }
+
+# Obsidian vault
+# GitHub username
+{{ if eq .chezmoi.hostname "TanakaPC" }}
+$obsidian_vault_root = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+$env:GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+{{ else }}
+$obsidian_vault_root = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
+$env:GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
+{{ end }}
+
+$env:GHQ_ROOT = Join-Path -Path "$env:HOME" -ChildPath "ghq/github.com/$env:GITHUB_USERNAME"
+$GHQ_ROOT = $env:GHQ_ROOT
 
 if ($cond) {
     New-Item $env:CACHE_PROFILE_DIR -ItemType Directory -Force 2>&1 > $null
@@ -102,13 +115,6 @@ Import-Module posh-git
 Import-Module PSReadLine
 
 $env:EDITOR = "nvim"
-
-# Obsidian vault
-{{ if eq .chezmoi.hostname "TanakaPC" }}
-$obsidian_vault_root = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
-{{ else }}
-$obsidian_vault_root = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}
-{{ end }}
 
 $env:WIN_DOCUMENTS = Join-Path -Path $env:WIN_HOME -ChildPath "Documents"
 $win_documents = $env:WIN_DOCUMENTS
