@@ -19,8 +19,6 @@ Siduction = "Siduction"
 extend-exclude = [
     "pnpm-lock.yaml",
     # Not fixed
-    "dot_config/fish/completions/bun.fish",
-    # Not fixed
     "dot_ghcup/config.yaml",
     # NOTE: Unmaintained and no upstream fixes
     "dot_config/pipr/pipr.toml",
