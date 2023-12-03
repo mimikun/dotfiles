@@ -19,6 +19,8 @@ Siduction = "Siduction"
 extend-exclude = [
     "pnpm-lock.yaml",
     # Not fixed
+    # PR sent.
+    # https://github.com/haskell/ghcup-hs/pull/943
     "dot_ghcup/config.yaml",
     # NOTE: Unmaintained and no upstream fixes
     "dot_config/pipr/pipr.toml",
