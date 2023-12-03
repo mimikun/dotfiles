@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.12.03]
+
+### Added - 新機能について
+
+- Add aqua-renovate-config
+- Add new rust tool: hysp
+
+### Changed - 既存機能の変更について
+
+- chore(deps): update dependency aquaproj/aqua-registry to v4.95.0
+- chore(deps): update dependency textlint-rule-preset-ja-technical-writing to v9
+- chore(deps): update dependency tdewolff/minify to v2.20.9
+- chore(deps): update dependency aquaproj/aqua-renovate-config to v1.13.0
+- Update .typos.toml
+- Update bun fish completion
+- Update lazy-lock.json
+- Update Linux PowerShell config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.12.02]
 
 ### Added - 新機能について
