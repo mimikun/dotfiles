@@ -31,6 +31,10 @@ local cmds = {
     "ObsidianYesterday",
 }
 
+local day_sec = 86400
+local month_sec = 2592000
+local year_sec = 31536000
+
 local opts = {
     workspaces = vaults,
     detect_cwd = false,
@@ -50,31 +54,70 @@ local opts = {
         date_format = "%Y年%m月%d日",
         substitutions = {
             -- 999_Templates/dailyNoteTemplate.md
+            -- 今日
+            today = function ()
+                local tmp = os.date("*t", os.time())
+                local year = tmp.year
+                local month = tmp.month
+                local day = tmp.day
+                return (year .. "年" .. month .. "月" .. day .. "日")
+            end,
             -- 翌日
             tomorrow = function()
-                return os.date("%Y年%m月%d日", os.time() + 86400)
+                local tmp = os.date("*t", os.time() + day_sec)
+                local year = tmp.year
+                local month = tmp.month
+                local day = tmp.day
+                return (year .. "年" .. month .. "月" .. day .. "日")
             end,
             -- 前日
             yesterday = function()
-                return os.date("%Y年%m月%d日", os.time() - 86400)
+                local tmp = os.date("*t", os.time() - day_sec)
+                local year = tmp.year
+                local month = tmp.month
+                local day = tmp.day
+                return (year .. "年" .. month .. "月" .. day .. "日")
             end,
             -- 999_Templates/monthlyNoteTemplate.md
+            -- 今月
+            current_month = function()
+                local tmp = os.date("*t", os.time())
+                local year = tmp.year
+                local month = tmp.month
+                return (year .. "年" .. month .. "月")
+            end,
             -- 翌月
             next_month = function()
-                return ""
+                local tmp = os.date("*t", os.time() + month_sec + day_sec)
+                local year = tmp.year
+                local month = tmp.month
+                return (year .. "年" .. month .. "月")
             end,
             -- 前月
             last_month = function()
-                return ""
+                local tmp = os.date("*t", os.time() - month_sec)
+                local year = tmp.year
+                local month = tmp.month
+                return (year .. "年" .. month .. "月")
             end,
             -- 999_Templates/yearlyNoteTemplate.md
+            -- 今年
+            current_year = function()
+                local tmp = os.date("*t", os.time())
+                local year = tmp.year
+                return (year .. "年")
+            end,
             -- 翌年
             next_year = function()
-                return ""
+                local tmp = os.date("*t", os.time() + year_sec)
+                local year = tmp.year
+                return (year .. "年")
             end,
             -- 前年
             last_year = function()
-                return ""
+                local tmp = os.date("*t", os.time() - year_sec)
+                local year = tmp.year
+                return (year .. "年")
             end,
         },
     },
