@@ -17,6 +17,7 @@
     - vim 9.0.2146
 - Update neovim config: obsidian.nvim
 - Update neovim utils: func.lua
+- Improved PowerShell config
 
 ### Removed - 今回で削除された機能について
 
@@ -24,7 +25,9 @@
 
 ### Fixed - 不具合修正について
 
-なし
+- Fix stylua error
+- Fix Windows PowerShell config copy error
+- Fix utilities/Invoke-RunBeforeChezmoiApply.ps1
 
 ## [v2023.12.03]
 
