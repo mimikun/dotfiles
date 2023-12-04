@@ -55,7 +55,7 @@ local opts = {
         substitutions = {
             -- 999_Templates/dailyNoteTemplate.md
             -- 今日
-            today = function ()
+            today = function()
                 local tmp = os.date("*t", os.time())
                 local year = tmp.year
                 local month = tmp.month

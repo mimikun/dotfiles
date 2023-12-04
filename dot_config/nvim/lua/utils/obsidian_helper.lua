@@ -18,33 +18,27 @@ end
 
 -- {{date:YYYY/MM/DD}}
 ---@return string
-M.daily_fm_1 = function ()
-end
+M.daily_fm_1 = function() end
 
 -- {{date:YYYY/M/D}}
 ---@return string
-M.daily_fm_2 = function ()
-end
+M.daily_fm_2 = function() end
 
 -- {{date:YYYY年MM月DD日}}
 ---@return string
-M.daily_fm_3 = function ()
-end
+M.daily_fm_3 = function() end
 
 -- {{date:YYYY年M月D日}}
 ---@return string
-M.daily_fm_4 = function ()
-end
+M.daily_fm_4 = function() end
 
 -- {{date:YYYY-MM-DD}}
 ---@return string
-M.daily_fm_5 = function ()
-end
+M.daily_fm_5 = function() end
 
 -- {{date:YYYY-M-D}}
 ---@return string
-M.daily_fm_6 = function ()
-end
+M.daily_fm_6 = function() end
 
 -- 翌日
 ---@return table
@@ -83,43 +77,35 @@ end
 
 -- {{date:YYYY/MM}}
 ---@return string
-M.monthly_fm_1 = function ()
-end
+M.monthly_fm_1 = function() end
 
 -- {{date:YYYY/M}}
 ---@return string
-M.monthly_fm_2 = function ()
-end
+M.monthly_fm_2 = function() end
 
 -- {{date:YYYY-MM}}
 ---@return string
-M.monthly_fm_3 = function ()
-end
+M.monthly_fm_3 = function() end
 
 -- {{date:YYYY-M}}
 ---@return string
-M.monthly_fm_4 = function ()
-end
+M.monthly_fm_4 = function() end
 
 -- {{date:YYYY年MM月}}
 ---@return string
-M.monthly_fm_5 = function ()
-end
+M.monthly_fm_5 = function() end
 
 -- {{date:YYYY年M月}}
 ---@return string
-M.monthly_fm_6 = function ()
-end
+M.monthly_fm_6 = function() end
 
 -- {{date:YYYYMM}}
 ---@return string
-M.monthly_fm_7 = function ()
-end
+M.monthly_fm_7 = function() end
 
 -- {{date:YYYYM}}
 ---@return string
-M.monthly_fm_8 = function ()
-end
+M.monthly_fm_8 = function() end
 
 -- 翌月
 ---@return table
