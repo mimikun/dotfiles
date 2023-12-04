@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.12.04]
+
+### Added - 新機能について
+
+- Add neovim utils: obsidian_helper.lua
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update windows_cargo_packages.txt
+- Update rtx fish completion
+- Update GitHub CLI config
+- Update asdf tools version
+    - vim 9.0.2146
+- Update neovim config: obsidian.nvim
+- Update neovim utils: func.lua
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.12.03]
 
 ### Added - 新機能について
