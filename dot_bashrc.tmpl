@@ -80,10 +80,12 @@ if ! shopt -oq posix; then
 fi
 #--------------------------------------------------------------------------------------
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-export STARSHIP_CACHE=~/.config/starship/cache
+# neovim
 export NVIM_APPNAME=nvim
 export NVIM_CONFIG=~/.config/nvim
+
+# chezmoi
+export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
 # asdf
 . "$HOME"/.asdf/asdf.sh
@@ -106,6 +108,8 @@ fi
 eval "$(zoxide init bash)"
 
 # starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CACHE=~/.config/starship/cache
 eval "$(starship init bash)"
 
 # fly.io
@@ -200,6 +204,12 @@ export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/bash"
 export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/bash"
 
 eval "$(sheldon source)"
+
+# PHP composer
+export COMPOSER_CONFIG_HOME="$XDG_CONFIG_HOME/composer"
+export COMPOSER_BIN_DIR="$COMPOSER_CONFIG_HOME/vendor/bin"
+
+export PATH="$COMPOSER_BIN_DIR:$PATH"
 
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSのとき

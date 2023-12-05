@@ -42,9 +42,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-export STARSHIP_CACHE="$HOME/.config/starship/cache"
-
 #Ubuntu
 export PATH="/bin:$PATH"
 export PATH="/usr/games:$PATH"
@@ -66,7 +63,12 @@ alias pip="python3 -m pip"
 alias vim="nvim"
 . $HOME/.asdf/asdf.sh
 
+# chezmoi
+export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
+
 # starship config
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export STARSHIP_CACHE="$HOME/.config/starship/cache"
 eval "$(starship init zsh)"
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
@@ -161,6 +163,12 @@ export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/zsh"
 export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/zsh"
 
 eval "$(sheldon source)"
+
+# PHP composer
+export COMPOSER_CONFIG_HOME="$XDG_CONFIG_HOME/composer"
+export COMPOSER_BIN_DIR="$COMPOSER_CONFIG_HOME/vendor/bin"
+
+export PATH="$COMPOSER_BIN_DIR:$PATH"
 
 # zeno.zsh
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"

@@ -41,6 +41,8 @@ set -x obsidian_vault_path $obsidian_vault_root_path
 set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
 set -x obsidian $obsidian_dailynote_path
 
+set -x CHEZMOI_DIR "$XDG_DATA_HOME/chezmoi"
+
 # aliases
 alias rm "rm -i"
 alias mkdir "mkdir -p"
@@ -272,6 +274,12 @@ set -x SHELDON_CONFIG_DIR $XDG_CONFIG_HOME/sheldon/fish
 set -x SHELDON_DATA_DIR $XDG_DATA_HOME/sheldon/fish
 
 # eval "$(sheldon source)"
+
+# PHP composer
+set -x COMPOSER_CONFIG_HOME $XDG_CONFIG_HOME/composer
+set -x COMPOSER_BIN_DIR $COMPOSER_CONFIG_HOME/vendor/bin
+
+set -x PATH $COMPOSER_BIN_DIR $PATH
 
 # cache
 # thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
