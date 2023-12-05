@@ -20,14 +20,14 @@ function global:load_variables()
     self.is_unix = vim.fn.has("unix") == 1
     self.is_human_rights = global:is_human_rights()
     self.vim_path = vim.fn.stdpath("config")
-    local path_sep = self.is_windows and "\\" or "/"
+    self.path_sep = self.is_windows and "\\" or "/"
     local home = self.is_windows and os.getenv("USERPROFILE") or os.getenv("HOME")
-    self.cache_dir = home .. path_sep .. ".cache" .. path_sep .. "nvim" .. path_sep
-    self.plugins_dir = self.vim_path .. path_sep .. "plugins"
+    self.cache_dir = home .. self.path_sep .. ".cache" .. self.path_sep .. "nvim" .. self.path_sep
+    self.plugins_dir = self.vim_path .. self.path_sep .. "plugins"
     self.home = home
     self.data_dir = string.format("%s/site/", vim.fn.stdpath("data"))
     -- NOTE: themery file
-    self.themery_config = self.vim_path .. path_sep .. "lua" .. path_sep .. "core" .. path_sep .. "colorscheme.lua"
+    self.themery_config = self.vim_path .. self.path_sep .. "lua" .. self.path_sep .. "core" .. self.path_sep .. "colorscheme.lua"
 end
 
 global:load_variables()
