@@ -31,7 +31,7 @@ set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f
 set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}
 {{ end }}
 
-set -x WORKSPACE "$GHQ_ROOT/$GITHUB_USERNAME"
+set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 set -x windl "$WIN_HOME/Downloads"
 set -x WIN_DESKTOP "$WIN_HOME/Desktop"
 set -x WIN_DOCUMENTS "$WIN_HOME/Documents"

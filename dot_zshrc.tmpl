@@ -18,7 +18,7 @@ export GITHUB_USERNAME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed30
 export WIN_HOME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
 {{ end }}
 
-export WORKSPACE="$GHQ_ROOT/$GITHUB_USERNAME"
+export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 
 alias f="fuck"
 alias mkdir="mkdir -p"

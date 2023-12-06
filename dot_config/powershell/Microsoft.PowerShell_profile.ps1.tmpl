@@ -173,7 +173,8 @@ $env:WIN_DESKTOP = Join-Path -Path $env:WIN_HOME -ChildPath "Desktop"
 $env:win_desktop = $env:WIN_DESKTOP
 $win_desktop = $env:win_desktop
 
-$env:WORKSPACE = Join-Path -Path $env:GHQ_ROOT -ChildPath $env:GITHUB_USERNAME
+$tmp = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com"
+$env:WORKSPACE = Join-Path -Path $tmp -ChildPath $env:GITHUB_USERNAME
 $WORKSPACE = $env:WORKSPACE
 
 # Obsidian
