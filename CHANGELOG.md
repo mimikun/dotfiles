@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.12.06]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2153
+- Update rtx config
+- Update deno fish completion
+- Update lazy-lock.json
+- Update rtx fish completion
+- Update STARTUPTIME.md
+- Update neovim config: obsidian.nvim
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix WORKSPACE env
+- Fix maskfile task error
+
 ## [v2023.12.05]
 
 ### Added - 新機能について
