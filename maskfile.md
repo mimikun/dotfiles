@@ -93,7 +93,7 @@ else
     done
 fi
 
-if $gpg; then
+if [[ "$gpg" == "true" ]]; then
     GPG_PATCH_NAME+=$PATCH_NAME
     GPG_PATCH_NAME+=".gpg"
     echo "gpg patch file name: $GPG_PATCH_NAME"
@@ -429,7 +429,7 @@ mask fixencoding
     * desc: Use GPG encrypt
 
 ```bash
-if $gpg; then
+if [[ "$gpg" == "true" ]]; then
     cp *.patch.gpg $$WIN_HOME/Downloads/
 else
     cp *.patch $WIN_HOME/Downloads/
