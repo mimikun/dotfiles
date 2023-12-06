@@ -27,7 +27,13 @@ function global:load_variables()
     self.home = home
     self.data_dir = string.format("%s/site/", vim.fn.stdpath("data"))
     -- NOTE: themery file
-    self.themery_config = self.vim_path .. self.path_sep .. "lua" .. self.path_sep .. "core" .. self.path_sep .. "colorscheme.lua"
+    self.themery_config = self.vim_path
+        .. self.path_sep
+        .. "lua"
+        .. self.path_sep
+        .. "core"
+        .. self.path_sep
+        .. "colorscheme.lua"
 end
 
 global:load_variables()
