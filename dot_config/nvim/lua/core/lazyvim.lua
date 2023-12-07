@@ -1,6 +1,23 @@
 local global = require("core.global")
 local iconsets = require("utils.icons")
 
+local is_windows = global.is_windows
+local is_human_rights = global.is_human_rights
+
+-- Limit the number of concurrent task depending on human rights or OS
+---@type any limit the maximum amount of concurrent tasks
+local concurrency_limit_check = function()
+    local limit
+    if is_human_rights then
+        limit = is_windows and (vim.loop.available_parallelism() * 2) or nil
+    else
+        limit = is_windows and 1 or nil
+    end
+    return limit
+end
+
+local concurrency = concurrency_limit_check()
+
 -- ~/.local/share/nvim
 local data_dir = global.data_dir
 -- ~/.local/share/nvim/lazy/lazy.nvim
@@ -35,6 +52,7 @@ function Lazy:load_lazy()
             lazy = true,
             cond = true,
         },
+        concurrency = concurrency,
         git = {
             timeout = 300,
         },
