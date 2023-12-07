@@ -24,6 +24,7 @@ function global:load_variables()
     local home = self.is_windows and os.getenv("USERPROFILE") or os.getenv("HOME")
     self.cache_dir = home .. self.path_sep .. ".cache" .. self.path_sep .. "nvim" .. self.path_sep
     self.plugins_dir = self.vim_path .. self.path_sep .. "plugins"
+    self.snippets_dir = self.vim_path .. self.path_sep .. "snippets"
     self.home = home
     self.data_dir = string.format("%s/site/", vim.fn.stdpath("data"))
     -- NOTE: themery file

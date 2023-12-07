@@ -211,6 +211,26 @@ local opts = {
         template = "dailyNoteTemplateFromObsidianNvim.md",
     },
 
+    completion = {
+        nvim_cmp = true,
+        min_chars = 2,
+        new_notes_location = "subdir",
+        -- Control how wiki links are completed with these (mutually exclusive) options:
+        --
+        -- 1. Whether to add the note ID during completion.
+        -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
+        -- Mutually exclusive with 'prepend_note_path' and 'use_path_only'.
+        --prepend_note_id = true,
+        -- 2. Whether to add the note path during completion.
+        -- E.g. "[[Foo" completes to "[[notes/foo|Foo]]" assuming "notes/foo.md" is the path of the note.
+        -- Mutually exclusive with 'prepend_note_id' and 'use_path_only'.
+        --prepend_note_path = true,
+        -- 3. Whether to only use paths during completion.
+        -- E.g. "[[Foo" completes to "[[notes/foo]]" assuming "notes/foo.md" is the path of the note.
+        -- Mutually exclusive with 'prepend_note_id' and 'prepend_note_path'.
+        use_path_only = true,
+    },
+
     -- Set to true if you use the Obsidian Advanced URI plugin.
     -- https://github.com/Vinzent03/obsidian-advanced-uri
     use_advanced_uri = true,
