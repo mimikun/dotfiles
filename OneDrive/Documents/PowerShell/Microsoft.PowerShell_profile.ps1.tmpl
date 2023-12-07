@@ -55,9 +55,9 @@ $env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
 $env:GITHUB_USERNAME = $GITHUB_USERNAME
 
 if ($IsLinux) {
-    $env:GHQ_ROOT = Join-Path -Path $env:HOME -ChildPath "ghq/github.com/$env:GITHUB_USERNAME"
+    $env:GHQ_ROOT = Join-Path -Path $env:HOME -ChildPath "ghq"
 } else {
-    $env:GHQ_ROOT = Join-Path -Path $env:USERPROFILE -ChildPath "ghq/github.com/$env:GITHUB_USERNAME"
+    $env:GHQ_ROOT = Join-Path -Path $env:USERPROFILE -ChildPath "ghq"
 }
 
 $GHQ_ROOT = $env:GHQ_ROOT
