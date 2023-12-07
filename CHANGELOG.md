@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.12.07]
+
+### Added - 新機能について
+
+- Add neovim plugins: LSP, cmp, snippets
+- Add neovim plugin: nvim-lspconfig
+- Add neovim plugin: crates.nvim
+- Add some envs to zshrc
+- Add some envs to bashrc
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update rtx fish completion
+- Update rtx config
+- Update lazy.nvim concurrency
+    - Limit the number of concurrency depending on human rights or OS
+- Improved neovim plugin config: coc-nvim
+- Disable coc-nvim
+
+### Removed - 今回で削除された機能について
+
+- Remove neovim file: plugins/lsp.lua
+
+### Fixed - 不具合修正について
+
+- Fix WORKSPACE env in PowerShell config
+
 ## [v2023.12.06]
 
 ### Added - 新機能について
