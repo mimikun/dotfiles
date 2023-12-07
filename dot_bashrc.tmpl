@@ -99,7 +99,24 @@ if [ -z "$RUNNING" ]; then
     sudo dockerd > /dev/null 2>&1 &
     disown
 fi
+export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+export WIN_HOME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}"
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+{{ else }}
+export GITHUB_USERNAME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
+export WIN_HOME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}"
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
 {{ end }}
+
+export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
+export windl="$WIN_HOME/Downloads"
+export WIN_DESKTOP="$WIN_HOME/Desktop"
+export WIN_DOCUMENTS="$WIN_HOME/Documents"
+
+export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
+export obsidian_vault_path=$obsidian_vault_root_path
+export obsidian_dailynote_path=$obsidian_vault_path/001_DailyNotes
+export obsidian=$obsidian_dailynote_path
 
 # Nix
 . "$HOME"/.nix-profile/etc/profile.d/nix.sh
