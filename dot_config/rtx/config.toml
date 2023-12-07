@@ -8,7 +8,6 @@ experimental = false
 jobs = 1
 legacy_version_file = true
 legacy_version_file_disable_tools = []
-missing_runtime_behavior = "warn"
 plugin_autoupdate_last_check_duration = 10080
 raw = false
 trusted_config_paths = []
