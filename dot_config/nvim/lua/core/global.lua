@@ -2,15 +2,11 @@
 
 local global = {}
 local os_name = vim.loop.os_uname().sysname
-local hostname = vim.loop.os_gethostname()
 local total_memory = vim.loop.get_total_memory()
--- 7GB
-local human_rights_memory_size = 7516192768
-
-function global:is_human_rights()
-    -- total_memory > 7GB
-    return total_memory > human_rights_memory_size
-end
+-- 4GB
+local linux_human_rights_memory_size = 4294967296
+-- 9GB
+local windows_human_rights_memory_size = 9663676416
 
 function global:load_variables()
     ---@type boolean
@@ -27,7 +23,16 @@ function global:load_variables()
 
     ---@type boolean
     self.is_unix = vim.fn.has("unix") == 1
-    self.is_human_rights = global:is_human_rights()
+
+    local human_rights
+    if self.is_windows then
+        human_rights = (total_memory > windows_human_rights_memory_size)
+    else
+        human_rights = (total_memory > linux_human_rights_memory_size)
+    end
+
+    ---@type boolean
+    self.is_human_rights = human_rights
 
     ---@type string
     self.vim_path = vim.fn.stdpath("config")
