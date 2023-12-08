@@ -5,7 +5,19 @@ local settings = require("core.settings")
 local iconsets = require("utils.icons")
 
 local is_human_rights = global.is_human_rights
+local is_windows = global.is_windows
+
 local lsp_servers = settings["lsp_servers"]
+if is_windows then
+    -- Windows
+    -- NOTE: Exclude csharp-language-server, gopls, jqls, esbonio
+    for i, v in ipairs(lsp_servers) do
+        if (v == "csharp-language-server") or (v == "gopls") or (v == "jqls") or (v == "esbonio") then
+            table.remove(lsp_servers, i)
+        end
+    end
+end
+
 local icons = {
     kind = iconsets.get("kind"),
     documents = iconsets.get("documents"),
