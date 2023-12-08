@@ -3,160 +3,196 @@ local M = {}
 local day_sec = 86400
 local month_sec = 2592000
 local year_sec = 31536000
+local tmp_today = os.date("*t", os.time())
 
--- 今日
----@return table
+-- Summarizing various elements of today's date
+---@type table
+local today_tbl = {
+    year = tmp_today.year,
+    month = tmp_today.month,
+    day = tmp_today.day,
+    -- zero padding
+    z_month = string.format("%02d", tmp_today.month),
+    -- zero padding
+    z_day = string.format("%02d", tmp_today.day),
+}
+
+--------------------------------------------------------
+-- 999_Templates/dailyNoteTemplateFromObsidianNvim.md --
+--------------------------------------------------------
+
+-- This today
+-- YYYY年MM月DD日
+---@return string
 M.today = function()
-    local tmp = os.date("*t", os.time())
-    local today = {
-        year = tmp.year,
-        month = tmp.month,
-        day = tmp.day,
-    }
-    return today
+    local year = today_tbl.year
+    local month = today_tbl.z_month
+    local day = today_tbl.z_day
+    return (year .. "年" .. month .. "月" .. day .. "日")
 end
 
--- {{date:YYYY/MM/DD}}
+-- YYYY/MM/DD
 ---@return string
-M.daily_fm_1 = function() end
+M.daily_fm_1 = function()
+    local year = today_tbl.year
+    local month = today_tbl.z_month
+    local day = today_tbl.z_day
+    return (year .. "/" .. month .. "/" .. day)
+end
 
--- {{date:YYYY/M/D}}
+-- YYYY/M/D
 ---@return string
-M.daily_fm_2 = function() end
+M.daily_fm_2 = function()
+    local year = today_tbl.year
+    local month = today_tbl.month
+    local day = today_tbl.day
+    return (year .. "/" .. month .. "/" .. day)
+end
 
--- {{date:YYYY年MM月DD日}}
+-- YYYY年M月D日
 ---@return string
-M.daily_fm_3 = function() end
+M.daily_fm_3 = function()
+    local year = today_tbl.year
+    local month = today_tbl.month
+    local day = today_tbl.day
+    return (year .. "年" .. month .. "月" .. day .. "日")
+end
 
--- {{date:YYYY年M月D日}}
+-- YYYY-MM-DD
 ---@return string
-M.daily_fm_4 = function() end
+M.daily_fm_4 = function()
+    local year = today_tbl.year
+    local month = today_tbl.z_month
+    local day = today_tbl.z_day
+    return (year .. "-" .. month .. "-" .. day)
+end
 
--- {{date:YYYY-MM-DD}}
+-- YYYY-M-D
 ---@return string
-M.daily_fm_5 = function() end
+M.daily_fm_5 = function()
+    local year = today_tbl.year
+    local month = today_tbl.month
+    local day = today_tbl.day
+    return (year .. "-" .. month .. "-" .. day)
+end
 
--- {{date:YYYY-M-D}}
+-- Tomorrow
 ---@return string
-M.daily_fm_6 = function() end
-
--- 翌日
----@return table
 M.tomorrow = function()
     local tmp = os.date("*t", os.time() + day_sec)
-    local tomorrow = {
-        year = tmp.year,
-        month = tmp.month,
-        day = tmp.day,
-    }
-    return tomorrow
+    local year = tmp.year
+    local month = string.format("%02d", tmp.month)
+    local day = string.format("%02d", tmp.day)
+    return (year .. "年" .. month .. "月" .. day .. "日")
 end
 
--- 前日
----@return table
+-- Yesterday
+---@return string
 M.yesterday = function()
     local tmp = os.date("*t", os.time() - day_sec)
-    local yesterday = {
-        year = tmp.year,
-        month = tmp.month,
-        day = tmp.day,
-    }
-    return yesterday
+    local year = tmp.year
+    local month = string.format("%02d", tmp.month)
+    local day = string.format("%02d", tmp.day)
+    return (year .. "年" .. month .. "月" .. day .. "日")
 end
 
--- 今月
----@return table
-M.current_month = function()
-    local tmp = os.date("*t", os.time())
-    local current_month = {
-        year = tmp.year,
-        month = tmp.month,
-    }
-    return current_month
+----------------------------------------------------------
+-- 999_Templates/monthlyNoteTemplateFromObsidianNvim.md --
+----------------------------------------------------------
+
+-- This month
+-- YYYY年MM月
+---@return string
+M.this_month = function()
+    local year = today_tbl.year
+    local month = today_tbl.z_month
+    return (year .. "年" .. month .. "月")
 end
 
--- {{date:YYYY/MM}}
+-- YYYY/MM
 ---@return string
-M.monthly_fm_1 = function() end
+M.monthly_fm_1 = function()
+    local year = today_tbl.year
+    local month = today_tbl.z_month
+    return (year .. "/" .. month)
+end
 
--- {{date:YYYY/M}}
+-- YYYY/M
 ---@return string
-M.monthly_fm_2 = function() end
+M.monthly_fm_2 = function()
+    local year = today_tbl.year
+    local month = today_tbl.month
+    return (year .. "/" .. month)
+end
 
--- {{date:YYYY-MM}}
+-- YYYY-MM
 ---@return string
-M.monthly_fm_3 = function() end
+M.monthly_fm_3 = function()
+    local year = today_tbl.year
+    local month = today_tbl.z_month
+    return (year .. "-" .. month)
+end
 
--- {{date:YYYY-M}}
+-- YYYY-M
 ---@return string
-M.monthly_fm_4 = function() end
+M.monthly_fm_4 = function()
+    local year = today_tbl.year
+    local month = today_tbl.month
+    return (year .. "-" .. month)
+end
 
--- {{date:YYYY年MM月}}
+-- YYYY年M月
 ---@return string
-M.monthly_fm_5 = function() end
+M.monthly_fm_5 = function()
+    local year = today_tbl.year
+    local month = today_tbl.month
+    return (year .. "年" .. month .. "月")
+end
 
--- {{date:YYYY年M月}}
+-- Next month
 ---@return string
-M.monthly_fm_6 = function() end
-
--- {{date:YYYYMM}}
----@return string
-M.monthly_fm_7 = function() end
-
--- {{date:YYYYM}}
----@return string
-M.monthly_fm_8 = function() end
-
--- 翌月
----@return table
 M.next_month = function()
     local tmp = os.date("*t", os.time() + month_sec + day_sec)
-    local next_month = {
-        year = tmp.year,
-        month = tmp.month,
-    }
-    return next_month
+    local year = tmp.year
+    local month = string.format("%02d", tmp.month)
+    return (year .. "年" .. month .. "月")
 end
 
--- 前月
----@return table
+-- Last month
+---@return string
 M.last_month = function()
     local tmp = os.date("*t", os.time() - month_sec)
-    local last_month = {
-        year = tmp.year,
-        month = tmp.month,
-    }
-    return last_month
+    local year = tmp.year
+    local month = string.format("%02d", tmp.month)
+    return (year .. "年" .. month .. "月")
 end
 
--- 今年
----@return table
-M.current_year = function()
-    local tmp = os.date("*t", os.time())
-    local current_year = {
-        year = tmp.year,
-    }
-    return current_year
+---------------------------------------------------------
+-- 999_Templates/yearlyNoteTemplateFromObsidianNvim.md --
+---------------------------------------------------------
+
+-- This year
+-- YYYY年
+---@return string
+M.this_year = function()
+    local year = today_tbl.year
+    return (year .. "年")
 end
 
--- 翌年
----@return table
+-- Next year
+---@return string
 M.next_year = function()
     local tmp = os.date("*t", os.time() + year_sec)
-    local next_year = {
-        year = tmp.year,
-    }
-    return next_year
+    local year = tmp.year
+    return (year .. "年")
 end
 
--- 前年
----@return table
+-- Last year
+---@return string
 M.last_year = function()
     local tmp = os.date("*t", os.time() - year_sec)
-    local last_year = {
-        year = tmp.year,
-    }
-    return last_year
+    local year = tmp.year
+    return (year .. "年")
 end
 
 return M
