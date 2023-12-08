@@ -13,7 +13,7 @@ local concurrency_limit_check = function()
     if is_human_rights then
         limit = is_windows and (vim.loop.available_parallelism() * 2) or nil
     else
-        limit = is_windows and 1 or nil
+        limit = 1
     end
     return limit
 end
