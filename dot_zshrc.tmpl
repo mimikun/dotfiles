@@ -67,7 +67,10 @@ export PATH="$HOME/.gem/ruby/2.7.0/bin/:$PATH"
 export PATH="$HOME/depot_tools:$PATH"
 export EDITOR=nvim
 export NVIM_APPNAME=nvim
-export NVIM_CONFIG="$HOME/.config/nvim"
+export NVIM_CONFIG="$XDG_CONFIG_HOME/$NVIM_APPNAME"
+export NVIM_DATA="$XDG_DATA_HOME/$NVIM_APPNAME"
+export NVIM_STATE="$XDG_STATE_HOME/$NVIM_APPNAME"
+export NVIM_CACHE="$XDG_CACHE_HOME/$NVIM_APPNAME"
 
 alias pip="python3 -m pip"
 alias vim="nvim"

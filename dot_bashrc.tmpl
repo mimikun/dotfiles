@@ -82,7 +82,11 @@ fi
 
 # neovim
 export NVIM_APPNAME=nvim
-export NVIM_CONFIG=~/.config/nvim
+
+export NVIM_CONFIG="$XDG_CONFIG_HOME/$NVIM_APPNAME"
+export NVIM_DATA="$XDG_DATA_HOME/$NVIM_APPNAME"
+export NVIM_STATE="$XDG_STATE_HOME/$NVIM_APPNAME"
+export NVIM_CACHE="$XDG_CACHE_HOME/$NVIM_APPNAME"
 
 # chezmoi
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"

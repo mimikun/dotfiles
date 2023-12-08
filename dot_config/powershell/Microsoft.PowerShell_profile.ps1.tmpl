@@ -143,18 +143,34 @@ if ($isMSWindows) {
     Import-Module $scoopCompletionPath
 }
 
+$env:EDITOR = "nvim"
+
+$env:NVIM_APPNAME = "nvim"
+
 if ($isMSWindows) {
-    $env:NeovimConfig = Join-Path $env:USERPROFILE -ChildPath "AppData\Local\nvim"
+    $env:NVIM_CONFIG = Join-Path $env:LOCALAPPDATA -ChildPath $env:NVIM_APPNAME
+    $env:NVIM_DATA = Join-Path $env:LOCALAPPDATA -ChildPath "$env:NVIM_APPNAME-data"
+    $env:NVIM_STATE = $env:NVIM_DATA
+    $env:NVIM_CACHE = Join-Path $env:LOCALAPPDATA -ChildPath "Temp/$env:NVIM_APPNAME-data"
+
     $env:VimConfig = Join-Path $env:USERPROFILE -ChildPath "vimfiles"
     $env:CHEZMOI_DIR = Join-Path $env:USERPROFILE -ChildPath ".local\share\chezmoi"
     $env:WIN_HOME = $env:USERPROFILE
 } else {
-    $env:NeovimConfig = Join-Path $env:HOME -ChildPath ".config/nvim/"
+    $env:NVIM_CONFIG = Join-Path $env:HOME -ChildPath ".config/$env:NVIM_APPNAME"
+    $env:NVIM_DATA = Join-Path $env:HOME -ChildPath ".local/share/$env:NVIM_APPNAME"
+    $env:NVIM_STATE = Join-Path $env:HOME -ChildPath ".local/state/$env:NVIM_APPNAME"
+    $env:NVIM_CACHE = Join-Path $env:HOME -ChildPath ".cache/$env:NVIM_APPNAME"
+
     $env:VimConfig = Join-Path $env:HOME -ChildPath ".vim"
     $env:CHEZMOI_DIR = Join-Path $env:HOME -ChildPath ".local\share\chezmoi"
 }
 
-$env:EDITOR = "nvim"
+$NVIM_APPNAME = $env:NVIM_APPNAME
+$NVIM_CONFIG = $env:NVIM_CONFIG
+$NVIM_DATA = $env:NVIM_DATA
+$NVIM_STATE = $env:NVIM_STATE
+$NVIM_CACHE = $env:NVIM_CACHE
 
 # Windows Documents folder
 $env:WIN_DOCUMENTS = Join-Path -Path $env:WIN_HOME -ChildPath "Documents"
