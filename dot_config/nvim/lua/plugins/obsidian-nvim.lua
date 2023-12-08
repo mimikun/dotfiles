@@ -34,19 +34,19 @@ local cmds = {
 local day_sec = 86400
 local month_sec = 2592000
 local year_sec = 31536000
+local tmp_today = os.date("*t", os.time())
 
----@return table
-local today_helper = function()
-    local tmp = os.date("*t", os.time())
-    local tbl = {
-        year = tmp.year,
-        month = tmp.month,
-        day = tmp.day,
-        z_month = string.format("%02d", tmp.month),
-        z_day = string.format("%02d", tmp.day),
-    }
-    return tbl
-end
+-- Summarizing various elements of today's date
+---@type table
+local today = {
+    year = tmp_today.year,
+    month = tmp_today.month,
+    day = tmp_today.day,
+    -- zero padding
+    z_month = string.format("%02d", tmp_today.month),
+    -- zero padding
+    z_day = string.format("%02d", tmp_today.day),
+}
 
 local opts = {
     workspaces = vaults,
@@ -63,7 +63,6 @@ local opts = {
             -- 999_Templates/dailyNoteTemplateFromObsidianNvim.md
             -- YYYY年MM月DD日
             today = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.z_month
                 local day = today.z_day
@@ -71,7 +70,6 @@ local opts = {
             end,
             -- YYYY/MM/DD
             today_fm_1 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.z_month
                 local day = today.z_day
@@ -79,7 +77,6 @@ local opts = {
             end,
             -- YYYY/M/D
             today_fm_2 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.month
                 local day = today.day
@@ -87,7 +84,6 @@ local opts = {
             end,
             -- YYYY年M月D日
             today_fm_3 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.month
                 local day = today.day
@@ -95,7 +91,6 @@ local opts = {
             end,
             -- YYYY-MM-DD
             today_fm_4 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.z_month
                 local day = today.z_day
@@ -103,7 +98,6 @@ local opts = {
             end,
             -- YYYY-M-D
             today_fm_5 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.month
                 local day = today.day
@@ -128,42 +122,36 @@ local opts = {
             -- 999_Templates/monthlyNoteTemplateFromObsidianNvim.md
             -- YYYY年MM月
             current_month = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.z_month
                 return (year .. "年" .. month .. "月")
             end,
             -- YYYY/MM
             month_fm_1 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.z_month
                 return (year .. "/" .. month)
             end,
             -- YYYY/M
             month_fm_2 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.month
                 return (year .. "/" .. month)
             end,
             -- YYYY-MM
             month_fm_3 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.z_month
                 return (year .. "-" .. month)
             end,
             -- YYYY-M
             month_fm_4 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.month
                 return (year .. "-" .. month)
             end,
             -- YYYY年M月
             month_fm_5 = function()
-                local today = today_helper()
                 local year = today.year
                 local month = today.month
                 return (year .. "年" .. month .. "月")
@@ -185,7 +173,6 @@ local opts = {
             -- 999_Templates/yearlyNoteTemplateFromObsidianNvim.md
             -- YYYY年
             current_year = function()
-                local today = today_helper()
                 local year = today.year
                 return (year .. "年")
             end,
@@ -269,7 +256,7 @@ return {
         -- Must
         "nvim-lua/plenary.nvim",
         -- Completion
-        --"hrsh7th/nvim-cmp",
+        "hrsh7th/nvim-cmp",
         -- Search functionality
         "junegunn/fzf",
         "junegunn/fzf.vim",
