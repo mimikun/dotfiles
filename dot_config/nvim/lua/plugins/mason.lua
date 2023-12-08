@@ -15,7 +15,7 @@ local icons = {
 }
 
 -- Limit the number of concurrent task depending on human rights or OS
----@type any limit the maximum amount of concurrent tasks
+---@type number|function limit the maximum amount of concurrent tasks
 local concurrency_limit_check = function()
     local limit
     if is_human_rights then
@@ -26,6 +26,7 @@ local concurrency_limit_check = function()
     return limit
 end
 
+---@type number
 local concurrency = concurrency_limit_check()
 
 return {

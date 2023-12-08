@@ -2,13 +2,19 @@
 -- https://trap.jp/post/524/
 
 local global = require("core.global")
+---@type boolean
 local is_unix = global.is_unix
+---@type boolean
 local is_windows = global.is_windows
+---@type boolean
 local is_linux = global.is_linux
+---@type boolean
 local is_human_rights = global.is_human_rights
+---@type boolean
 local is_wsl = global.is_wsl
 
 -- マウス操作を有効にする
+---@type string
 vim.opt.mouse = "a"
 
 -- 使用可能性のある改行コードを指定
@@ -22,6 +28,7 @@ vim.opt.fileencodings = { "utf-8", "cp932", "ucs-bombs", "euc-jp" }
 vim.opt.ambiwidth = "double"
 
 -- スワップファイルを作成しないようにする
+---@type boolean
 vim.opt.swapfile = false
 
 -- :q したときにバッファを消さず隠して保持しておくようにする
@@ -30,22 +37,28 @@ if is_unix then
 end
 
 -- 行番号を絶対値で表示する
+---@type boolean
 vim.opt.number = true
 
 -- 行番号を相対値で表示する
+---@type boolean
 vim.opt.relativenumber = true
 
 -- 空白文字を可視化する
+---@type boolean
 vim.opt.list = true
 vim.opt.listchars = { tab = ">-", trail = "*", nbsp = "+", space = "⋅" }
 
 -- 良い感じにインデントしてくれるようにする
+---@type boolean
 vim.opt.smartindent = true
 
 -- ビープ音を画面フラッシュで代替
+---@type boolean
 vim.opt.visualbell = true
 
 -- TABキーを押したときにtab文字ではなくスペースを入力するようにする
+---@type boolean
 vim.opt.expandtab = true
 
 -- TABキーを押したときのインデントのスペース個数を指定する
@@ -56,12 +69,15 @@ vim.opt.shiftwidth = 4
 
 ---- 検索関係の設定
 -- 大文字小文字の区別をなくす
+---@type boolean
 vim.opt.ignorecase = true
 
 -- 検索単語に大文字が含まれていた場合特別な意味があると解釈させる
+---@type boolean
 vim.opt.smartcase = true
 
 -- 一番下の単語まで行ったら一番上に戻るようにさせる
+---@type boolean
 vim.opt.wrapscan = true
 
 ---- lightline.vim 用
@@ -69,6 +85,7 @@ vim.opt.wrapscan = true
 vim.opt.showtabline = 2
 
 -- モードの表記を消す
+---@type boolean
 vim.opt.showmode = false
 
 --ある行の行頭から前の行の行末に移動したり, 逆に行末から次の行の行頭に移動できるようにする
@@ -88,6 +105,7 @@ vim.opt.helplang = { "ja", "en" }
 vim.cmd("syntax enable")
 
 -- True Colorでのシンタックスハイライト
+---@type boolean
 vim.opt.termguicolors = true
 vim.cmd([[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]])
 vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])

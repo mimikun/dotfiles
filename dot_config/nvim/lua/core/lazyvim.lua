@@ -1,11 +1,13 @@
 local global = require("core.global")
 local iconsets = require("utils.icons")
 
+---@type boolean
 local is_windows = global.is_windows
+---@type boolean
 local is_human_rights = global.is_human_rights
 
 -- Limit the number of concurrent task depending on human rights or OS
----@type any limit the maximum amount of concurrent tasks
+---@type number|function limit the maximum amount of concurrent tasks
 local concurrency_limit_check = function()
     local limit
     if is_human_rights then
@@ -19,8 +21,10 @@ end
 local concurrency = concurrency_limit_check()
 
 -- ~/.local/share/nvim
+---@type string
 local data_dir = global.data_dir
 -- ~/.local/share/nvim/lazy/lazy.nvim
+---@type string
 local lazy_path = data_dir .. "lazy/lazy.nvim"
 
 local icons = {
