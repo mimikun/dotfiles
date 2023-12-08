@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2023.12.08]
+
+### Added - 新機能について
+
+- Add some type annotations in neovim lua files
+- Add process to exclude LS that cannot be used with Windows
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update rtx fish completion
+- Update config.fish
+- Update neovim env-vars in bash, powershell and zsh
+- Update neovim config: obsidian.nvim
+- Update neovim config: gitsigns.nvim
+- Update neovim config: mason.nvim
+- Improved neovim config: nvim-treesitter
+- Improved neovim util: obsidian_helper.lua
+- If no human rights, concurrency is 1 in lazy.nvim
+- Improved the human rights check process
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Ignore `undefined global vim` warning
+
 ## [v2023.12.07]
 
 ### Added - 新機能について
