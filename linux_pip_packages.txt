@@ -22,9 +22,10 @@ packaging
 parsedatetime
 pipupgrade
 pipx
+platformdirs
 psutil
 pur
-pynvim @ git+https://github.com/neovim/pynvim@71d2d65f21eb1b3faa91addaa3a18d985bd48b99
+pynvim @ git+https://github.com/neovim/pynvim@c4197f13fe405b039a6acbe63076f3edade30fbb
 pyte
 python-slugify
 pytimeparse
