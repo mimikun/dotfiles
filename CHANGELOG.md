@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.12.11]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update neovim config: telescope.nvim
+- Update neovim config: lualine.nvim
+- Update neovim README.md
+- Update asdf tools version
+    - python 3.12.1
+- Update linux_pip_packages.txt
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin config: LuaSnip
+- Fix neovim plugin config: mason.nvim
+
 ## [v2023.12.10]
 
 ### Added - 新機能について
