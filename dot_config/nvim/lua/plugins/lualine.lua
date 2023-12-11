@@ -1,4 +1,13 @@
 -- thx: https://raw.githubusercontent.com/numToStr/dotfiles/master/neovim/.config/nvim/lua/numToStr/plugins/lualine.lua
+local iconsets = require("utils.icons")
+local diagnostics = iconsets.get("diagnostics", true)
+
+local icon = {
+    error = diagnostics.Error,
+    warn = diagnostics.Warning,
+    info = diagnostics.Information,
+    hint = diagnostics.Hint,
+}
 
 local options = {
     theme = "auto",
@@ -15,41 +24,22 @@ local options = {
 
 local sections = {
     lualine_a = {
-        {
-            "mode",
-            color = {
-                gui = "bold",
-            },
-        },
+        { "mode", color = { gui = "bold" } },
     },
     lualine_b = {
-        {
-            "branch",
-        },
-        {
-            "diff",
-            colored = false,
-        },
+        { "branch" },
+        { "diff", colored = false },
     },
     lualine_c = {
-        {
-            -- NOTE: filename component has bug
-            -- https://github.com/nvim-lualine/lualine.nvim/issues/1097
-            -- NOTE: filename component document
-            -- https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#filename-component-options
-            "filename",
-            file_status = true,
-            path = function()
-                local file = vim.fn.expand("%:p")
-                if vim.fn.filereadable(file) == 1 then
-                    return 0
-                else
-                    return 0
-                end
-            end,
-        },
+        -- NOTE: filename component has bug
+        -- https://github.com/nvim-lualine/lualine.nvim/issues/1097
+        -- https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#filename-component-options
+        { "filename", file_status = true },
         {
             "diagnostics",
+            sources = { "nvim_diagnostic", "nvim_lsp" },
+            sections = { "error", "warn", "info", "hint" },
+            symbols = { error = icon.error, warn = icon.warn, info = icon.info, hint = icon.hint },
         },
     },
     lualine_x = {
@@ -57,16 +47,9 @@ local sections = {
         "encoding",
         "fileformat",
     },
-    lualine_y = {
-        "progress",
-    },
+    lualine_y = { "progress" },
     lualine_z = {
-        {
-            "location",
-            color = {
-                gui = "bold",
-            },
-        },
+        { "location", color = { gui = "bold" } },
     },
 }
 
@@ -79,6 +62,10 @@ local tabline = {
             },
         },
     },
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
     lualine_z = {
         {
             "tabs",
