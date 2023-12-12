@@ -7,7 +7,7 @@ local cpu_name = cpu_info[1].model
 local CPU_WITH_HUMAN_RIGHTS = { "Ryzen 9 3900X" }
 -- 24
 local PARALLELISM_WITH_HUMAN_RIGHTS = 20
-local available_parallelism  = vim.loop.available_parallelism()
+local available_parallelism = vim.loop.available_parallelism()
 -- TODO:Harddisk human rights
 -- local device_info = vim.fn.system("lsblk")
 
