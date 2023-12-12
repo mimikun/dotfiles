@@ -201,7 +201,7 @@ local opts = {
     completion = {
         nvim_cmp = true,
         min_chars = 2,
-        new_notes_location = "subdir",
+        new_notes_location = "000_Inbox",
         -- Control how wiki links are completed with these (mutually exclusive) options:
         --
         -- 1. Whether to add the note ID during completion.
