@@ -1,4 +1,7 @@
+local global = require("core.global")
 local settings = require("core.settings")
+
+local is_human_rights = global.is_human_rights
 local need_parsers = settings["treesitter_parsers"]
 
 return {
@@ -21,6 +24,7 @@ return {
                     disable = {},
                 },
                 ensure_installed = need_parsers,
+                sync_install = not is_human_rights,
             })
         end,
         --cond = false,

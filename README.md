@@ -91,3 +91,8 @@ WIP
 - [~/.local/bin](private_dot_local/bin/README.md)
 - [Changelog](CHANGELOG.md)
 - [Startup time Log](STARTUPTIME.md)
+
+## Glossary
+
+- `human rights`
+    - e.g. RAM 32GB, Ryzen 9 3900X and 1TB SSD
