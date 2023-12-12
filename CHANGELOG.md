@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2023.12.12]
+
+### Added - 新機能について
+
+- Add an util to check human rights
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update eza fish completion
+- Update asdf tools version
+    - vim 9.0.2158
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix an issue where parser download would fail in environments without human rights.
+
 ## [v2023.12.11]
 
 ### Added - 新機能について
