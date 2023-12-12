@@ -201,7 +201,11 @@ local opts = {
     completion = {
         nvim_cmp = true,
         min_chars = 2,
-        new_notes_location = "000_Inbox",
+        -- Where to put new notes created from completion. Valid options are
+        --  * "current_dir" - put new notes in same directory as the current buffer.
+        --  * "notes_subdir" - put new notes in the default notes subdirectory.
+        new_notes_location = "notes_subdir",
+
         -- Control how wiki links are completed with these (mutually exclusive) options:
         --
         -- 1. Whether to add the note ID during completion.
