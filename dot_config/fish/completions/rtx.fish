@@ -2,9 +2,9 @@ set -l fssf "__fish_seen_subcommand_from"
 
 # rtx
 complete -xc rtx -s j -l jobs -d 'Number of plugins and runtimes to install in parallel'
-complete -xc rtx -l log-level -a "error warn info debug trace" -d 'Set the log output verbosity'
+complete -xc rtx -s q -l quiet -d 'Suppress output'
 complete -xc rtx -s r -l raw -d 'Directly pipe stdin/stdout/stderr to user.'
-complete -xc rtx -s v -l verbose -d 'Show installation output'
+complete -xc rtx -s v -l verbose -d 'Show extra output (use -vv for even more)'
 complete -xc rtx -s y -l yes -d 'Answer yes to all prompts'
 set -l others activate alias bin-paths cache completion current deactivate direnv doctor env env-vars exec implode install latest link ls ls-remote outdated plugins prune reshim self-update settings shell sync trust uninstall upgrade use version where which
 complete -xc rtx -n "not $fssf $others" -a activate -d 'Initializes rtx in the current shell'
@@ -255,7 +255,7 @@ complete -xc rtx -n "$fssf upgrade" -s n -l dry-run -d 'Just print what would be
 complete -xc rtx -n "$fssf upgrade" -a "(__rtx_tool_versions)" -d 'Tool(s) to upgrade'
 
 # use
-complete -xc rtx -n "$fssf use" -s e -l env -d '[experimental] Modify an environment-specific config file like .rtx.<env>.toml'
+complete -xc rtx -n "$fssf use" -s e -l env -d 'Modify an environment-specific config file like .rtx.<env>.toml'
 complete -xc rtx -n "$fssf use" -l fuzzy -d 'Save fuzzy version to config file'
 complete -xc rtx -n "$fssf use" -s g -l global -d 'Use the global config file (~/.config/rtx/config.toml) instead of the local one'
 complete -xc rtx -n "$fssf use" -s p -l path -a "(__fish_complete_path)" -d 'Specify a path to a config file or directory If a directory is specified, it will look for .rtx.toml (default) or .tool-versions'
