@@ -9,6 +9,24 @@ local icon = {
     hint = diagnostics.Hint,
 }
 
+local function improved_encoding()
+    local encoding = vim.opt.fileencoding:get()
+    if encoding == "utf-8" then
+        encoding = "UTF-8"
+    elseif encoding == "cp932" then
+        encoding = "SHIFT-JIS"
+    elseif encoding == "euc-jp" then
+        encoding = "EUC-JP"
+    else
+        encoding = encoding
+    end
+    return encoding
+end
+
+local function special_notice()
+    return "コロナを忘れるな！"
+end
+
 local options = {
     theme = "auto",
     component_separators = "",
@@ -44,7 +62,7 @@ local sections = {
     },
     lualine_x = {
         "filetype",
-        "encoding",
+        improved_encoding,
         "fileformat",
     },
     lualine_y = { "progress" },
@@ -65,7 +83,7 @@ local tabline = {
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = {},
+    lualine_y = { special_notice },
     lualine_z = {
         {
             "tabs",
