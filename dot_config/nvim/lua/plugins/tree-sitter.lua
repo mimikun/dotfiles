@@ -10,6 +10,11 @@ return {
         build = ":TSUpdate",
         --lazy = false,
         event = "VeryLazy",
+        dependencies = {
+            "windwp/nvim-ts-autotag",
+            "IndianBoy42/tree-sitter-just",
+            "LhKipp/nvim-nu",
+        },
         config = function()
             -- TODO:setting
             -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Extra-modules-and-plugins
@@ -26,36 +31,9 @@ return {
                 ensure_installed = need_parsers,
                 sync_install = not is_human_rights,
             })
-        end,
-        --cond = false,
-    },
-    {
-        "windwp/nvim-ts-autotag",
-        --lazy = false,
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        cond = false,
-    },
-    {
-        "IndianBoy42/tree-sitter-just",
-        --lazy = false,
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        --cond = false,
-    },
-    {
-        "LhKipp/nvim-nu",
-        build = ":TSInstall nu",
-        --lazy = false,
-        event = "VeryLazy",
-        ft = "nu",
-        config = function()
+
             require("nu").setup({})
         end,
-        cond = false,
+        --cond = false,
     },
 }
