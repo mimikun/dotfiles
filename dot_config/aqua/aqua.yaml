@@ -43,7 +43,7 @@ packages:
 - name: golang/tools/goimports@v0.16.0
 - name: golang/tools/gorename@v0.16.0
 - name: hherman1/gq@v0.0.3
-- name: golang/tools/guru@v0.16.0
+- name: golang/tools/guru@v0.16.1
 - name: itchyny/json2yaml@v0.1.4
 - name: koki-develop/sheep@v0.4.0
 - name: rhysd/vim-startuptime@v1.3.1
