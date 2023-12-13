@@ -1,4 +1,10 @@
-local is_git = require("utils.func").is_git
+local is_git = false
+local build_cmd = {
+    make = "make",
+    cmake = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release &&\
+        cmake --build build --config Release &&\
+        cmake --install build --prefix build",
+}
 
 return {
     -- TODO: setting
@@ -11,21 +17,29 @@ return {
     keys = {
         { "<C-p>", desc = "Open file search" },
         { "<C-g>", desc = "Open string search" },
+        { "fb", desc = "Open buffer search" },
+        { "fm", desc = "Open mark search" },
+        { "fh", desc = "Open file history search" },
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
+        { "nvim-telescope/telescope-fzf-native.nvim", build = build_cmd.make },
     },
     config = function()
+        local telescope = require("telescope")
         local builtin = require("telescope.builtin")
+
+        telescope.setup({})
+        telescope.load_extension("fzf")
 
         -- Ctrl+pでファイル検索を開く
         vim.keymap.set("n", "<C-p>", function()
             -- git管理されていれば:Telescope git_files
             -- そうでなければ:Telescope find_files
             if is_git then
-                vim.cmd(":Telescope git_files")
+                builtin.git_files()
             else
-                vim.cmd(":Telescope find_files")
+                builtin.find_files()
             end
         end, {})
 
