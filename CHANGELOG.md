@@ -1,5 +1,40 @@
 # Changelog
 
+## [v2023.12.13]
+
+### Added - 新機能について
+
+- Add neovim autocmd define file
+- Add more-options.lua.tmpl
+- Add new neovim plugin: SmoothCursor.nvim
+- Add new neovim plugin: accelerated-jk.nvim
+- Add new neovim plugin: neoscroll.nvim
+- Add new neovim plugin: nvim-autopairs
+- Add new neovim plugins: ccc.nvim
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update rtx fish completion
+- Update asdf tools version
+    - vim 9.0.2160
+- Rename file
+    - neovim: utils/obsidian_helper.lua to utils/obsidian.lua
+- Update neovim plugin config: telescope.nvim
+- Update neovim plugin config: lualine.nvim
+- Update neovim plugin config: treesitter
+- Improved neovim config: human_rights.lua
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin config: obsidian.nvim
+- Fix stylua error
+
 ## [v2023.12.12]
 
 ### Added - 新機能について
