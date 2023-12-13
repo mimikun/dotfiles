@@ -12,8 +12,8 @@ local load_core = function()
     -- colorscheme を読み込む
     require("core.colorscheme")
 
-    -- user func を読み込む
-    --require("core.userfunc")
+    -- autocmd を読み込む
+    --require("core.autocmds")
 end
 
 load_core()
