@@ -1,3 +1,16 @@
+local iconsets = require("utils.icons")
+local icons = {
+    ui = iconsets.get("ui", true),
+    dap = iconsets.get("dap", true),
+}
+local recent_files = icons.ui.History .. " Recent files"
+local quick_links = icons.ui.List .. " Quick links"
+local new_file = icons.ui.NewFile .. " New file"
+local update_plugins = icons.dap.RunLast .. " Update plugins"
+local open_mason_window = icons.ui.Gear .. " Open Mason Window"
+local run_checkhealth = icons.ui.Accepted .. " Run checkhealth"
+local quit_nvim = icons.ui.Close_alt .. " Quit NVIM"
+
 return {
     "goolord/alpha-nvim",
     lazy = false,
@@ -26,7 +39,7 @@ return {
             val = {
                 {
                     type = "text",
-                    val = "  Recent files",
+                    val = recent_files,
                     opts = {
                         hl = "SpecialComment",
                         shrink_margin = false,
@@ -52,13 +65,13 @@ return {
         local buttons = {
             type = "group",
             val = {
-                { type = "text", val = "󰍜  Quick links", opts = { hl = "SpecialComment", position = "center" } },
+                { type = "text", val = quick_links, opts = { hl = "SpecialComment", position = "center" } },
                 { type = "padding", val = 1 },
-                dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-                dashboard.button("u", "  Update plugins", "<cmd>Lazy sync<CR>"),
-                dashboard.button("m", "  Open Mason Window", "<cmd>Mason<CR>"),
-                dashboard.button("c", "  Run checkhealth", "<cmd>checkhealth<CR>"),
-                dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
+                dashboard.button("e", new_file, ":ene <BAR> startinsert <CR>"),
+                dashboard.button("u", update_plugins, "<cmd>Lazy sync<CR>"),
+                dashboard.button("m", open_mason_window, "<cmd>Mason<CR>"),
+                dashboard.button("c", run_checkhealth, "<cmd>checkhealth<CR>"),
+                dashboard.button("q", quit_nvim, ":qa<CR>"),
             },
             position = "center",
         }

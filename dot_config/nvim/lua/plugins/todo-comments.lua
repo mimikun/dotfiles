@@ -1,3 +1,10 @@
+local iconsets = require("utils.icons")
+local icons = {
+    ui = iconsets.get("ui"),
+    diagnostics = iconsets.get("diagnostics"),
+    misc = iconsets.get("misc"),
+}
+
 return {
     "folke/todo-comments.nvim",
     --lazy = false,
@@ -13,16 +20,16 @@ return {
         sign_priority = 8,
         keywords = {
             FIX = {
-                icon = "",
+                icon = icons.ui.Bug,
                 color = "error",
                 alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
             },
-            TODO = { icon = "", color = "info" },
-            HACK = { icon = "", color = "warning" },
-            WARN = { icon = "", color = "warning", alt = { "WARNING", "XXX" } },
-            PERF = { icon = "", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-            NOTE = { icon = "", color = "hint", alt = { "INFO" } },
-            TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+            TODO = { icon = icons.ui.Accepted, color = "info" },
+            HACK = { icon = icons.ui.Fire, color = "warning" },
+            WARN = { icon = icons.diagnostics.Warning, color = "warning", alt = { "WARNING", "XXX" } },
+            PERF = { icon = icons.ui.Perf, alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+            NOTE = { icon = icons.ui.Note, color = "hint", alt = { "INFO" } },
+            TEST = { icon = icons.misc.Watch, color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
         },
         gui_style = {
             fg = "NONE",

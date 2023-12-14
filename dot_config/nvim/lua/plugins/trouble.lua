@@ -1,3 +1,6 @@
+local iconsets = require("utils.icons")
+local icon = iconsets.get("diagnostics")
+
 local cmds = {
     "Trouble",
     "TroubleClose",
@@ -93,11 +96,11 @@ local options = {
     include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" },
     signs = {
         -- icons / text used for a diagnostic
-        error = "",
-        warning = "",
-        hint = "",
-        information = "",
-        other = "",
+        error = icon.Error,
+        warning = icon.Warning,
+        hint = icon.Hint,
+        information = icon.Information,
+        other = icon.Question,
     },
     -- enabling this will use the signs defined in your lsp client
     use_diagnostic_signs = false,
