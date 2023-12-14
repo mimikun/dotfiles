@@ -230,10 +230,10 @@ local opts = {
 
     -- Setting the finder to use
     -- Comment out what you don't use
-    --finder = "telescope.nvim",
+    finder = "telescope.nvim",
     --finder = "fzf-lua",
     --finder = "fzf.nvim",
-    finder = "fzf.vim",
+    --finder = "fzf.vim",
 
     -- Sort search results by "path", "modified", "accessed", or "created".
     sort_by = "modified",
@@ -262,9 +262,9 @@ return {
         -- Completion
         "hrsh7th/nvim-cmp",
         -- Search functionality
-        "junegunn/fzf",
-        "junegunn/fzf.vim",
-        --"nvim-telescope/telescope.nvim",
+        --"junegunn/fzf",
+        --"junegunn/fzf.vim",
+        "nvim-telescope/telescope.nvim",
         --"ibhagwan/fzf-lua",
         -- Syntax highlighting
         "nvim-treesitter/nvim-treesitter",

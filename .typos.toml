@@ -14,6 +14,8 @@ sur = "sur"
 chec = "chec"
 # Linux OS name
 Siduction = "Siduction"
+# key mapping in dot_config/nvim/lua/plugins/telescope-nvim.lua
+fo = "fo"
 
 [files]
 extend-exclude = [

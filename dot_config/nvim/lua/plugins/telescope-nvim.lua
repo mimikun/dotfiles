@@ -17,9 +17,12 @@ return {
     keys = {
         { "<C-p>", desc = "Open file search" },
         { "<C-g>", desc = "Open string search" },
+        { "fr", desc = "Open grep string search" },
         { "fb", desc = "Open buffer search" },
         { "fm", desc = "Open mark search" },
-        { "fh", desc = "Open file history search" },
+        { "fo", desc = "Open file history search" },
+        { "fc", desc = "Open git-commit log search" },
+        { "fh", desc = "Open helptags search" },
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -28,6 +31,7 @@ return {
     config = function()
         local telescope = require("telescope")
         local builtin = require("telescope.builtin")
+        local themes = require("telescope.themes")
 
         telescope.setup({})
         telescope.load_extension("fzf")
@@ -46,29 +50,25 @@ return {
         -- Ctrl+gで文字列検索を開く
         vim.keymap.set("n", "<C-g>", builtin.live_grep)
 
-        -- frでカーソル位置の単語をファイル検索する
-        -- frで選択した単語をファイル検索する
+        -- frでカーソル位置, または選択した範囲の単語をファイル検索する
         vim.keymap.set("n", "fr", builtin.grep_string)
 
         -- fbでバッファ検索を開く
         vim.keymap.set("n", "fb", builtin.buffers)
 
-        -- fpでバッファの中で1つ前に開いたファイルを開く
-        -- TODO:
-
-        -- flで開いているファイルの文字列検索を開く
-        -- TODO:
-        -- vim.keymap.set("n", "fl", ":BLines<CR>")
-
         -- fmでマーク検索を開く
         vim.keymap.set("n", "fm", builtin.marks)
 
-        -- fhでファイル閲覧履歴検索を開く
-        vim.keymap.set("n", "fh", builtin.oldfiles)
+        -- foでファイル閲覧履歴検索を開く
+        vim.keymap.set("n", "fo", builtin.oldfiles)
 
         -- fcでコミット履歴検索を開く
-        -- TODO:
-        -- vim.keymap.set("n", "fc", ":Commits<CR>")
+        vim.keymap.set("n", "fc", builtin.git_commits)
+
+        -- fhでヘルプ検索を開く
+        vim.keymap.set("n", "fh", function()
+            builtin.help_tags(themes.get_ivy())
+        end)
     end,
-    cond = false,
+    --cond = false,
 }
