@@ -1,3 +1,6 @@
+-- Invalidate if there are no human rights
+local cond = require("core.global").is_human_rights
+
 return {
     "skanehira/denops-translate.vim",
     --lazy = false,

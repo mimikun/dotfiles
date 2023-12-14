@@ -1,3 +1,6 @@
+-- Invalidate if there are no human rights
+local cond = require("core.global").is_human_rights
+
 return {
     "willelz/skk-tutorial.vim",
     --lazy = false,
@@ -7,5 +10,5 @@ return {
         "vim-denops/denops.vim",
         "vim-skk/skkeleton",
     },
-    --cond = false,
+    cond = cond,
 }

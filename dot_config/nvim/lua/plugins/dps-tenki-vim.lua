@@ -1,3 +1,6 @@
+-- Invalidate if there are no human rights
+local cond = require("core.global").is_human_rights
+
 local repo = vim.fn.expand("$GHQ_ROOT/github.com/mimikun/dps-tenki-vim")
 
 --local events = {}

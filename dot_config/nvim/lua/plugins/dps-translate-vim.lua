@@ -1,3 +1,6 @@
+-- Invalidate if there are no human rights
+local cond = require("core.global").is_human_rights
+
 return {
     "Omochice/dps-translate-vim",
     --lazy = false,
@@ -12,5 +15,5 @@ return {
         vim.g.dps_translate_source = "en"
         vim.g.dps_translate_target = "ja"
     end,
-    --cond = false,
+    cond = cond,
 }

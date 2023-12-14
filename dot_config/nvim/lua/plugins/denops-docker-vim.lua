@@ -1,3 +1,6 @@
+-- Invalidate if there are no human rights
+local cond = require("core.global").is_human_rights
+
 local cmds = {
     "Docker",
     "DockerImages",
@@ -17,5 +20,5 @@ return {
     dependencies = {
         "vim-denops/denops.vim",
     },
-    --cond = false,
+    cond = cond,
 }

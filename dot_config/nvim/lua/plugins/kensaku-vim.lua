@@ -1,3 +1,6 @@
+-- Invalidate if there are no human rights
+local cond = require("core.global").is_human_rights
+
 return {
     {
         "lambdalisue/kensaku.vim",
@@ -6,7 +9,7 @@ return {
         dependencies = {
             "vim-denops/denops.vim",
         },
-        --cond = false,
+        cond = cond,
     },
     {
         "lambdalisue/kensaku-command.vim",
@@ -15,7 +18,7 @@ return {
         dependencies = {
             "lambdalisue/kensaku.vim",
         },
-        --cond = false,
+        cond = cond,
     },
     {
         "lambdalisue/kensaku-search.vim",
@@ -24,6 +27,6 @@ return {
         dependencies = {
             "lambdalisue/kensaku.vim",
         },
-        --cond = false,
+        cond = cond,
     },
 }

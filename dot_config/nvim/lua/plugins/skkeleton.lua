@@ -1,3 +1,6 @@
+-- Invalidate if there are no human rights
+local cond = require("core.global").is_human_rights
+
 local keymaps = {
     { "<C-j>", desc = "Toggle Kana-mode skkeleton" },
 }
@@ -16,5 +19,5 @@ return {
         vim.keymap.set("i", "<C-j>", [[<Plug>(skkeleton-toggle)]])
         vim.keymap.set("c", "<C-j>", [[<Plug>(skkeleton-toggle)]])
     end,
-    --cond = false,
+    cond = cond,
 }

@@ -78,5 +78,5 @@ return {
             vim.cmd(":Commits<CR>")
         end)
     end,
-    --cond = false,
+    cond = false,
 }
