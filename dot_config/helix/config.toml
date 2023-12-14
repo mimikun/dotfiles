@@ -1,31 +1,143 @@
 #https://docs.helix-editor.com/configuration.html#configuration
 theme = "tokyonight"
 
-[editor]
+##################
+# Editor configs #
+##################
 #https://docs.helix-editor.com/configuration.html#editor-section
+[editor]
+scrolloff = 5
+mouse = true
+middle-click-paste = true
+scroll-lines = 3
+# Linux
+shell = ["sh", "-c"]
+# Windows
+#shell = ["cmd", "/c"]
+line-number = "absolute"
+# or relative
+#line-number = "relative"
+cursorline = false
+cursorcolumn = false
+auto-completion = true
+auto-format = true
+auto-save = false
+idle-timeout = 400
+preview-completion-insert = true
+completion-trigger-len = 2
+completion-replace = false
+auto-info = true
+true-color = false
+undercurl = false
+rulers = []
+bufferline = "never"
 color-modes = true
+text-width = 80
+workspace-lsp-roots = []
+default-line-ending = "native"
+insert-final-newline = true
 
-[editor.statusline]
 #https://docs.helix-editor.com/configuration.html#editorstatusline-section
-left = ["mode", "spinner", "file-name"]
-center = []
-right = ["diagnostics", "selections", "position", "file-encoding"]
+[editor.statusline]
+left = ["mode", "version-control", "file-name" ]
+center = ["diagnostics"]
+right = ["file-type", "file-encoding", "file-line-ending", "position-percentage", "position", "total-line-numbers"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
-[editor.whitespace.render]
+#https://docs.helix-editor.com/configuration.html#editorlsp-section
+[editor.lsp]
+enable = true
+display-messages = false
+auto-signature-help = true
+display-inlay-hints = false
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+#https://docs.helix-editor.com/configuration.html#editorcursor-shape-section
+[editor.cursor-shape]
+normal = "block"
+insert = "block"
+select = "block"
+
+#https://docs.helix-editor.com/configuration.html#editorfile-picker-section
+[editor.file-picker]
+hidden = true
+follow-symlinks = true
+deduplicate-links = true
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true
+max-depth = "None"
+
+#https://docs.helix-editor.com/configuration.html#editorauto-pairs-section
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+#https://docs.helix-editor.com/configuration.html#editorsearch-section
+[editor.search]
+smart-case = true
+wrap-around = true
+
 #https://docs.helix-editor.com/configuration.html#editorwhitespace-section
-space = "all"
-nbsp = "all"
-tab = "all"
-newline = "all"
+[editor.whitespace]
+render = "all"
 
 [editor.whitespace.characters]
-#https://docs.helix-editor.com/configuration.html#editorwhitespace-section
 space = "·"
 nbsp = "+"
 tab = "→"
 newline = "⏎"
-tabpad = "·" # Tabs will look like "→···" (depending on tab width)
+# Tabs will look like "→···" (depending on tab width)
+tabpad = "·"
+
+#https://docs.helix-editor.com/configuration.html#editorindent-guides-section
+[editor.indent-guides]
+render = false
+# Some characters that work well: "╎", "┆", "┊", "⸽"
+character = "▏"
+skip-levels = 0
+
+#https://docs.helix-editor.com/configuration.html#editorgutters-section
+[editor.gutters]
+layout = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
+
+#https://docs.helix-editor.com/configuration.html#editorguttersline-numbers-section
+[editor-gutters-line-numbers]
+min-width = 3
+
+#https://docs.helix-editor.com/configuration.html#editorsoft-wrap-section
+[editor.soft-wrap]
+enable = false
+# increase value to reduce forced mid-word wrapping
+max-wrap = 20
+max-indent-retain = 40
+wrap-indicator = "↪"
+wrap-at-text-width = false
+
+#https://docs.helix-editor.com/configuration.html#editorsmart-tab-section
+[editor.smart-tab]
+enable = true
+supersede-menu = false
+
+###############
+# Keybindings #
+###############
+
+############
+# language #
+############
+
+###############
+# tree-sitter #
+###############
