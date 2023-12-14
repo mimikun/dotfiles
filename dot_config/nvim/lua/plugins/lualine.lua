@@ -1,12 +1,17 @@
 -- thx: https://raw.githubusercontent.com/numToStr/dotfiles/master/neovim/.config/nvim/lua/numToStr/plugins/lualine.lua
 local iconsets = require("utils.icons")
 local diagnostics = iconsets.get("diagnostics", true)
+local git = iconsets.get("git")
 
 local icon = {
     error = diagnostics.Error,
     warn = diagnostics.Warning,
     info = diagnostics.Information,
     hint = diagnostics.Hint,
+    branch = git.Branch,
+    add = git.Add,
+    mod = git.Mod_alt,
+    remove = git.Remove,
 }
 
 local function improved_encoding()
@@ -27,6 +32,17 @@ local function special_notice()
     return "コロナを忘れるな！"
 end
 
+local function diff_source()
+    local gitsigns = vim.b.gitsigns_status_dict
+    if gitsigns then
+        return {
+            added = gitsigns.added,
+            modified = gitsigns.changed,
+            removed = gitsigns.removed,
+        }
+    end
+end
+
 local options = {
     theme = "auto",
     component_separators = "",
@@ -45,8 +61,8 @@ local sections = {
         { "mode", color = { gui = "bold" } },
     },
     lualine_b = {
-        { "branch" },
-        { "diff", colored = false },
+        { "b:gitsigns_head", icon = icon.branch },
+        { "diff", symbols = { added = icon.add, modified = icon.mod, removed = icon.remove }, source = diff_source },
     },
     lualine_c = {
         -- NOTE: filename component has bug
@@ -109,6 +125,7 @@ return {
     },
     dependencies = {
         { "nvim-tree/nvim-web-devicons", opt = true },
+        { "lewis6991/gitsigns.nvim", opt = true },
     },
     config = function()
         require("lualine").setup(opts)
