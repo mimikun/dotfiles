@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.12.14]
+
+### Added - 新機能について
+
+- Add neovim plugin: nvim-scrollbar
+- Add neovim plugin: nvim-hlslens.lua
+- Add neovim plugin: none-ls.nvim
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update deno fish completion
+- Update rtx fish completion
+- Update STARTUPTIME.md
+- Update helix config
+- Update neovim plugin config: lualine.nvim
+- Update neovim plugin configs: telescope.nvim
+- Use utils/icons.lua
+- Disable denops plugin in non-human rights env
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin config: alpha
+
 ## [v2023.12.13]
 
 ### Added - 新機能について
