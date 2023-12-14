@@ -4,9 +4,9 @@ local icons = {
     dap = iconsets.get("dap", true),
 }
 local recent_files = icons.ui.History .. " Recent files"
-local quick_links = icons.ui.List .. " Quick links"
+local quick_links = icons.ui.List .. "Quick links"
 local new_file = icons.ui.NewFile .. " New file"
-local update_plugins = icons.dap.RunLast .. " Update plugins"
+local update_plugins = icons.dap.RunLast .. "  Update plugins"
 local open_mason_window = icons.ui.Gear .. " Open Mason Window"
 local run_checkhealth = icons.ui.Accepted .. " Run checkhealth"
 local quit_nvim = icons.ui.Close_alt .. " Quit NVIM"
