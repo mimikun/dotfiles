@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2023.12.15]
+
+### Added - 新機能について
+
+- Add neovim plugins: translate plugin
+
+### Changed - 既存機能の変更について
+
+- Update CHANGELOG.md
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.0.2167
+- Update neovim utils: obsidian.lua
+- Update neovim plugin config: telescope.nvim
+- Update rtx fish completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.12.14]
 
 ### Added - 新機能について
