@@ -33,7 +33,7 @@ end
 
 -- YYYY/MM/DD
 ---@return string
-M.daily_fm_1 = function()
+M.today_fm_1 = function()
     local year = today_tbl.year
     local month = today_tbl.z_month
     local day = today_tbl.z_day
@@ -42,7 +42,7 @@ end
 
 -- YYYY/M/D
 ---@return string
-M.daily_fm_2 = function()
+M.today_fm_2 = function()
     local year = today_tbl.year
     local month = today_tbl.month
     local day = today_tbl.day
@@ -51,7 +51,7 @@ end
 
 -- YYYY年M月D日
 ---@return string
-M.daily_fm_3 = function()
+M.today_fm_3 = function()
     local year = today_tbl.year
     local month = today_tbl.month
     local day = today_tbl.day
@@ -60,7 +60,7 @@ end
 
 -- YYYY-MM-DD
 ---@return string
-M.daily_fm_4 = function()
+M.today_fm_4 = function()
     local year = today_tbl.year
     local month = today_tbl.z_month
     local day = today_tbl.z_day
@@ -69,7 +69,7 @@ end
 
 -- YYYY-M-D
 ---@return string
-M.daily_fm_5 = function()
+M.today_fm_5 = function()
     local year = today_tbl.year
     local month = today_tbl.month
     local day = today_tbl.day
@@ -103,7 +103,7 @@ end
 -- This month
 -- YYYY年MM月
 ---@return string
-M.this_month = function()
+M.current_month = function()
     local year = today_tbl.year
     local month = today_tbl.z_month
     return (year .. "年" .. month .. "月")
@@ -111,7 +111,7 @@ end
 
 -- YYYY/MM
 ---@return string
-M.monthly_fm_1 = function()
+M.month_fm_1 = function()
     local year = today_tbl.year
     local month = today_tbl.z_month
     return (year .. "/" .. month)
@@ -119,7 +119,7 @@ end
 
 -- YYYY/M
 ---@return string
-M.monthly_fm_2 = function()
+M.month_fm_2 = function()
     local year = today_tbl.year
     local month = today_tbl.month
     return (year .. "/" .. month)
@@ -127,7 +127,7 @@ end
 
 -- YYYY-MM
 ---@return string
-M.monthly_fm_3 = function()
+M.month_fm_3 = function()
     local year = today_tbl.year
     local month = today_tbl.z_month
     return (year .. "-" .. month)
@@ -135,7 +135,7 @@ end
 
 -- YYYY-M
 ---@return string
-M.monthly_fm_4 = function()
+M.month_fm_4 = function()
     local year = today_tbl.year
     local month = today_tbl.month
     return (year .. "-" .. month)
@@ -143,7 +143,7 @@ end
 
 -- YYYY年M月
 ---@return string
-M.monthly_fm_5 = function()
+M.month_fm_5 = function()
     local year = today_tbl.year
     local month = today_tbl.month
     return (year .. "年" .. month .. "月")
@@ -174,7 +174,7 @@ end
 -- This year
 -- YYYY年
 ---@return string
-M.this_year = function()
+M.current_year = function()
     local year = today_tbl.year
     return (year .. "年")
 end
