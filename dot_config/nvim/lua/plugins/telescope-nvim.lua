@@ -1,14 +1,19 @@
+local global = require("core.global")
+local is_windows = global.is_windows
+
 local is_git = false
-local build_cmd = {
+local build_cmds = {
     make = "make",
     cmake = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release &&\
         cmake --build build --config Release &&\
         cmake --install build --prefix build",
 }
+local build_cmd = build_cmds.make
+if is_windows then
+    build_cmd = build_cmds.cmake
+end
 
 return {
-    -- TODO: setting
-    -- https://github.com/nvim-telescope/telescope.nvim
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     lazy = false,
@@ -17,6 +22,7 @@ return {
     keys = {
         { "<C-p>", desc = "Open file search" },
         { "<C-g>", desc = "Open string search" },
+        -- TODO: Fix which-key conflict error
         { "fr", desc = "Open grep string search" },
         { "fb", desc = "Open buffer search" },
         { "fm", desc = "Open mark search" },
@@ -26,7 +32,7 @@ return {
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", build = build_cmd.make },
+        { "nvim-telescope/telescope-fzf-native.nvim", build = build_cmd },
     },
     config = function()
         local telescope = require("telescope")
