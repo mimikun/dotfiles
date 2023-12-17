@@ -114,7 +114,11 @@ config.keys = keymaps.keys
 -- フォントを FiraCode Nerd Font Mono にする
 config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = 450, stretch = "Normal", style = "Normal" })
 -- フォントサイズを 12 にする
-config.font_size = 12
+if is_azusa then
+    config.font_size = 16
+else
+    config.font_size = 12
+end
 -- 行の高さを 1 にする
 config.line_height = 1
 config.use_fancy_tab_bar = false
@@ -126,54 +130,56 @@ config.inactive_pane_hsb = {
     brightness = 1,
 }
 
-local wsl_domain
-if is_human_rights then
-    -- Home PC
-    wsl_domain = "WSL:Ubuntu"
-else
-    -- Work PC
-    wsl_domain = "WSL:Ubuntu-20.04"
+if not is_azusa then
+    local wsl_domain
+    if is_human_rights then
+        -- Home PC
+        wsl_domain = "WSL:Ubuntu"
+    else
+        -- Work PC
+        wsl_domain = "WSL:Ubuntu-20.04"
+    end
+
+    -- デフォルトで開かれるものを決める
+    config.default_domain = wsl_domain
+
+    -- ランチャーメニュー(+ ボタン右クリックで出る) を設定する
+    config.launch_menu = {
+        {
+            label = "WSL Ubuntu",
+            domain = {
+                DomainName = wsl_domain,
+            },
+        },
+        {
+            label = "Windows PowerShell v5",
+            domain = {
+                DomainName = "local",
+            },
+            args = { "powershell.exe" },
+        },
+        {
+            label = "Windows PowerShell v7",
+            domain = {
+                DomainName = "local",
+            },
+            args = { "pwsh.exe" },
+        },
+        {
+            label = "Windows cmd.exe",
+            domain = {
+                DomainName = "local",
+            },
+        },
+        {
+            label = "nyagos - Nihongo Yet Another GOing Shell",
+            domain = {
+                DomainName = "local",
+            },
+            args = { "nyagos.exe" },
+        },
+    }
 end
-
--- デフォルトで開かれるものを決める
-config.default_domain = wsl_domain
-
--- ランチャーメニュー(+ ボタン右クリックで出る) を設定する
-config.launch_menu = {
-    {
-        label = "WSL Ubuntu",
-        domain = {
-            DomainName = wsl_domain,
-        },
-    },
-    {
-        label = "Windows PowerShell v5",
-        domain = {
-            DomainName = "local",
-        },
-        args = { "powershell.exe" },
-    },
-    {
-        label = "Windows PowerShell v7",
-        domain = {
-            DomainName = "local",
-        },
-        args = { "pwsh.exe" },
-    },
-    {
-        label = "Windows cmd.exe",
-        domain = {
-            DomainName = "local",
-        },
-    },
-    {
-        label = "nyagos - Nihongo Yet Another GOing Shell",
-        domain = {
-            DomainName = "local",
-        },
-        args = { "nyagos.exe" },
-    },
-}
 
 -- 画面の初期サイズを決める
 -- https://wezfurlong.org/wezterm/config/lua/config/initial_rows.html

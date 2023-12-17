@@ -11,6 +11,8 @@ function global:is_human_rights()
         return true
     elseif hostname == "TanakaPC" then
         return false
+    elseif hostname == "azusa" then
+        return true
     else
         return false
     end
@@ -24,6 +26,7 @@ function global:load_variables()
     self.is_linux = os_name == "x86_64-unknown-linux-gnu"
     self.is_windows = os_name == "x86_64-pc-windows-msvc"
     self.is_wsl = is_wsl
+    self.is_azusa = hostname == "azusa"
     self.is_human_rights = global:is_human_rights()
     self.path_sep = self.is_windows and "\\" or "/"
 end
