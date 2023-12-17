@@ -1,0 +1,8 @@
+!! Set DPI
+Xft.dpi: 140
+Xft.auohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.antialias: 1
+Xft.rgba: rgb
+Xcursor.size: 32
