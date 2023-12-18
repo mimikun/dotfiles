@@ -10,6 +10,7 @@ end
 local global = require("global")
 local hostname = global.hostname
 local is_wsl = global.is_wsl
+local is_azusa = global.is_azusa
 local is_human_rights = global.is_human_rights
 
 -- デバッグ用
