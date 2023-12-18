@@ -25,6 +25,8 @@ set -x CACHE_CONFIG_FISH $FISH_CACHE_DIR/config.fish
 set -x GITHUB_USERNAME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
 set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
+{{ else if (eq .chezmoi.hostname "azusa") }}
+set -x GITHUB_USERNAME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}
 {{ else }}
 set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
@@ -36,10 +38,13 @@ set -x windl "$WIN_HOME/Downloads"
 set -x WIN_DESKTOP "$WIN_HOME/Desktop"
 set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
 
+# TODO:
+{{ if (ne .chezmoi.hostname "azusa") }}
 set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 set -x obsidian_vault_path $obsidian_vault_root_path
 set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
 set -x obsidian $obsidian_dailynote_path
+{{ end }}
 
 set -x CHEZMOI_DIR "$XDG_DATA_HOME/chezmoi"
 
@@ -152,20 +157,23 @@ set -x NI_CONFIG_FILE $XDG_CONFIG_HOME/ni/.nirc
 set -x PATH $HOME/.codon/bin $PATH
 
 # ls alias
-alias ls eza
+type -q eza
+if test $status -eq 0
+    alias ls eza
 
-# ls abbr
-abbr -a ll "ls -l"
-abbr -a la "ls -a"
-abbr -a lla "ls -l -a"
-abbr -a l1 "ls -1"
-abbr -a ll1 "ls -l -1"
-abbr -a lt "ls --tree"
-abbr -a lta "ls --tree -a"
-abbr -a llt "ls -l --tree"
-abbr -a ll1 "ls -l -1"
-abbr -a lt1 "ls --tree -1"
-abbr -a lat "ls -a --tree"
+    # ls abbr
+    abbr -a ll "ls -l"
+    abbr -a la "ls -a"
+    abbr -a lla "ls -l -a"
+    abbr -a l1 "ls -1"
+    abbr -a ll1 "ls -l -1"
+    abbr -a lt "ls --tree"
+    abbr -a lta "ls --tree -a"
+    abbr -a llt "ls -l --tree"
+    abbr -a ll1 "ls -l -1"
+    abbr -a lt1 "ls --tree -1"
+    abbr -a lat "ls -a --tree"
+end
 
 # Rye
 set -x PATH $HOME/.rye/shims $PATH
@@ -261,8 +269,11 @@ if test $status -eq 0
 end
 
 # wsl2-ssh-agent
-wsl2-ssh-agent > /dev/null 2>&1
-set -x SSH_AUTH_SOCK $HOME/.ssh/wsl2-ssh-agent.sock
+type -q wsl2-ssh-agent
+if test $status -eq 0
+    wsl2-ssh-agent > /dev/null 2>&1
+    set -x SSH_AUTH_SOCK $HOME/.ssh/wsl2-ssh-agent.sock
+end
 
 # inshellisense
 if test -f ~/.inshellisense/key-bindings.fish
@@ -288,24 +299,36 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     echo "" > $CACHE_CONFIG_FISH
 
     # Linuxbrew
-    echo "# cache linuxbrew config" >> $CACHE_CONFIG_FISH
-    /home/linuxbrew/.linuxbrew/bin/brew shellenv fish >> $CACHE_CONFIG_FISH
+    type -q brew
+    if test $status -eq 0
+        echo "# cache linuxbrew config" >> $CACHE_CONFIG_FISH
+        /home/linuxbrew/.linuxbrew/bin/brew shellenv fish >> $CACHE_CONFIG_FISH
+    end
 
     # rtx config
     #echo "# cache rtx shell-integration script" >> $CACHE_CONFIG_FISH
     #rtx activate fish >> $CACHE_CONFIG_FISH
 
     # starship config
-    echo "# cache starship config" >> $CACHE_CONFIG_FISH
-    starship init fish --print-full-init >> $CACHE_CONFIG_FISH
+    type -q starship
+    if test $status -eq 0
+        echo "# cache starship config" >> $CACHE_CONFIG_FISH
+        starship init fish --print-full-init >> $CACHE_CONFIG_FISH
+    end
 
     # navi
-    echo "# cache navi config" >> $CACHE_CONFIG_FISH
-    cat $XDG_CONFIG_HOME/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
+    type -q navi
+    if test $status -eq 0
+        echo "# cache navi config" >> $CACHE_CONFIG_FISH
+        cat $XDG_CONFIG_HOME/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
+    end
 
     # pnpm
-    echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
-    cat $XDG_CONFIG_HOME/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
+    type -q pnpm
+    if test $status -eq 0
+        echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
+        cat $XDG_CONFIG_HOME/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
+    end
 
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") }}
