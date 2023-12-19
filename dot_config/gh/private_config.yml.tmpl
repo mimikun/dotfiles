@@ -17,7 +17,7 @@ http_unix_socket:
 {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").gh_config_browser_path.value }}
 {{ else if (eq .chezmoi.hostname "azusa") }}
 # azusa用設定
-{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").azusa_gh_config_browser_path.value }}
+browser: "/sbin/vivaldi"
 {{ else }}
 # 自宅PC用設定
 {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").gh_config_browser_path.value }}
