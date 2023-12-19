@@ -21,6 +21,12 @@ set -x FISH_CACHE_DIR $XDG_CACHE_HOME/fish
 set -x CONFIG_FISH $FISH_CONFIG_DIR/config.fish
 set -x CACHE_CONFIG_FISH $FISH_CACHE_DIR/config.fish
 
+{{ if (eq .chezmoi.hostname "azusa") }}
+set -x GTK_IM_MODULE "fcitx"
+set -x QT_IM_MODULE "fcitx"
+set -x XMODIFIERS "@im=fcitx"
+{{ end }}
+
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
 set -x GITHUB_USERNAME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
