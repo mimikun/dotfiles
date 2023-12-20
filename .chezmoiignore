@@ -79,6 +79,12 @@ AppData
 .glaze-wm
 .config/winfetch
 
+## 特定ホスト以外でのignoreパターン
+{{ if ne .chezmoi.hostname "azusa" }}
+.config/i3/*
+.Xresources
+{{ end }}
+
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSの場合のignoreパターン
 {{ else if eq .chezmoi.os "windows" }}
@@ -111,6 +117,7 @@ Brewfile
 .nanorc
 .rtx.toml
 aqua.yaml
+.Xresources
 
 ### directory
 utils
@@ -130,6 +137,7 @@ asdf_plugin_list.txt
 .config/pueue
 .config/zellij
 .config/nvim
+.config/i3
 .vim
 
 ### 非自宅PCではignoreしたい
