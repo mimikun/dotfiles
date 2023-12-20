@@ -41,10 +41,12 @@ set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f
 set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}
 {{ end }}
 
+{{ if (ne .chezmoi.hostname "azusa") }}
 set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 set -x windl "$WIN_HOME/Downloads"
 set -x WIN_DESKTOP "$WIN_HOME/Desktop"
 set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
+{{ end }}
 
 # TODO:
 {{ if (ne .chezmoi.hostname "azusa") }}
@@ -52,6 +54,8 @@ set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 set -x obsidian_vault_path $obsidian_vault_root_path
 set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
 set -x obsidian $obsidian_dailynote_path
+set dailynote_slug (date +"%Y年%m月%d日")
+set -x today_dailynote "$obsidian_dailynote_path/$dailynote_slug.md"
 {{ end }}
 
 set -x CHEZMOI_DIR "$XDG_DATA_HOME/chezmoi"
@@ -60,7 +64,6 @@ set -x CHEZMOI_DIR "$XDG_DATA_HOME/chezmoi"
 alias rm "rm -i"
 alias mkdir "mkdir -p"
 alias untar "tar xvf"
-alias rm gomi
 alias patch "patch -p1 <"
 alias imgcat "wezterm imgcat"
 
@@ -123,7 +126,9 @@ set -x NVIM_CACHE $XDG_CACHE_HOME/$NVIM_APPNAME
 alias pip "python3 -m pip"
 alias pipx "python3 -m pipx"
 
+{{ if (ne .chezmoi.hostname "azusa") }}
 abbr -a open wsl-open
+{{ end }}
 abbr -a zel zellij
 alias pueuexec "pueue add --"
 
@@ -208,7 +213,11 @@ set -x LUA_CPATH "./?.so" $LUA_CPATH
 set -x LUA_CPATH "$HOME/.luarocks/lib/lua/5.3/?.so" $LUA_CPATH
 
 # dotnet-core completions
-complete -f -c dotnet -a "(dotnet complete)"
+type -q dotnet
+if test $status -eq 0
+    complete -f -c dotnet -a "(dotnet complete)"
+end
+
 
 # asdf
 set -x ASDF_DIR $HOME/.asdf
@@ -336,6 +345,13 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     if test $status -eq 0
         echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
         cat $XDG_CONFIG_HOME/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
+    end
+
+    # thefuck
+    type -q thefuck
+    if test $status -eq 0
+        echo "# cache thefuck config" >> $CACHE_CONFIG_FISH
+        echo "thefuck --alias | source" >> $CACHE_CONFIG_FISH
     end
 
     # work pc only tools
