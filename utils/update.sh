@@ -68,3 +68,7 @@ chezmoi add ~/.local/bin/update_twitch_cli
 chezmoi add ~/.local/bin/vup
 chezmoi add ~/.local/bin/vupueue
 chezmoi add ~/.local/bin/wsl-open
+
+# ArchLinux configs
+chezmoi add ~/.config/i3/config
+chezmoi add ~/.Xresources
