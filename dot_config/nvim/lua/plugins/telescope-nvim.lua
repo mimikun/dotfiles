@@ -32,7 +32,16 @@ return {
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
-        { "nvim-telescope/telescope-fzf-native.nvim", build = build_cmd },
+        {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            build = function()
+                if not is_windows then
+                    return build_cmd
+                else
+                    return nil
+                end
+            end,
+        },
     },
     config = function()
         local telescope = require("telescope")
@@ -40,7 +49,9 @@ return {
         local themes = require("telescope.themes")
 
         telescope.setup({})
-        telescope.load_extension("fzf")
+        if not is_windows then
+            telescope.load_extension("fzf")
+        end
 
         -- Ctrl+pでファイル検索を開く
         vim.keymap.set("n", "<C-p>", function()

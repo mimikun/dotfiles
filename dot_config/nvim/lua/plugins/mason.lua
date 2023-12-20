@@ -12,7 +12,7 @@ if is_windows then
     -- Windows
     -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio
     for i, v in ipairs(lsp_servers) do
-        if (v == "csharp_ls") or (v == "gopls") or (v == "jqls") or (v == "esbonio") then
+        if (v == "csharp_ls") or (v == "gopls") or (v == "jqls") or (v == "esbonio") or (v == "solargraph") then
             table.remove(lsp_servers, i)
         end
     end
