@@ -1,0 +1,73 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "linux" }}
+    # Debian base
+    {{ if eq .chezmoi.osRelease.idLike "debian" }}
+        # Ubuntu
+        {{ if eq .chezmoi.osRelease.id "ubuntu" }}
+            echo "sudo apt install..."
+        # Debian
+        {{ else if eq .chezmoi.osRelease.id "debian" }}
+            echo "sudo dpkg -i..."
+        # Other debian base
+        {{ else }}
+            echo "Please manual setting!"
+        {{ end }}
+    # Arch base
+    {{ else if eq .chezmoi.osRelease.idLike "arch" }}
+        # Arch
+        {{ if eq .chezmoi.osRelease.id "arch" }}
+            echo "sudo pacman -S ..."
+        # EndeavourOS
+        {{ else if eq .chezmoi.osRelease.id "endeavouros" }}
+            echo "sudo pacman -S ..."
+        # Manjaro
+        {{ else if eq .chezmoi.osRelease.id "manjaro" }}
+            echo "sudo pacman -S ..."
+        # Other arch base
+        {{ else }}
+            echo "Please manual setting!"
+        {{ end }}
+    # Fedora base
+    {{ else if eq .chezmoi.osRelease.idLike "fedora" }}
+        # Fedora
+        {{ if eq .chezmoi.osRelease.id "fedora" }}
+            echo "dnf install ..."
+        # RHEL
+        {{ else if eq .chezmoi.osRelease.id "rhel" }}
+            echo "dnf install ..."
+        # CentOS
+        {{ else if eq .chezmoi.osRelease.id "centos" }}
+            echo "dnf install ..."
+        # AlmaLinux
+        {{ else if eq .chezmoi.osRelease.id "almalinux" }}
+            echo "dnf install ..."
+        # RockyLinux
+        {{ else if eq .chezmoi.osRelease.id "rockylinux" }}
+            echo "dnf install ..."
+        # Other fedora base
+        {{ else }}
+            echo "Please manual setting!"
+        {{ end }}
+    # Gentoo base
+    {{ else if eq .chezmoi.osRelease.idLike "gentoo" }}
+        # Gentoo
+        {{ if eq .chezmoi.osRelease.id "gentoo" }}
+            echo "emerge ..."
+        # ChromeOS
+        {{ if eq .chezmoi.osRelease.id "chromeos" }}
+            echo "WIP..."
+        # ChromiumOS
+        {{ if eq .chezmoi.osRelease.id "chromiumos" }}
+            echo "WIP..."
+        # Other gentoo base
+        {{ else }}
+            echo "Please manual setting!"
+        {{ end }}
+    # Other
+    {{ else }}
+        echo "Please manual setting!"
+    {{ end }}
+{{ else }}
+    echo "This os is not Linux!"
+{{ end }}
