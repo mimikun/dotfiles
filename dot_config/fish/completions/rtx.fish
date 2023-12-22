@@ -1,7 +1,7 @@
 set -l fssf "__fish_seen_subcommand_from"
 
 # rtx
-complete -kxc rtx -s q -l quiet -d 'Suppress output'
+complete -kxc rtx -s q -l quiet -d 'Suppress warnings and other non-error messages'
 complete -kxc rtx -s v -l verbose -d 'Show extra output (use -vv for even more)'
 complete -kxc rtx -s y -l yes -d 'Answer yes to all prompts'
 set -l others activate alias bin-paths cache completion config current deactivate direnv doctor env env-vars exec implode install latest link ls ls-remote outdated plugins prune reshim self-update settings shell sync trust uninstall upgrade use version where which
@@ -41,6 +41,7 @@ complete -xc rtx -n "not $fssf $others" -a where -d 'Display the installation pa
 complete -xc rtx -n "not $fssf $others" -a which -d 'Shows the path that a bin name points to'
 
 # activate
+complete -kxc rtx -n "$fssf activate" -s q -l quiet -d 'Hide warnings such as when a tool is not installed'
 complete -kxc rtx -n "$fssf activate" -a "bash fish nu xonsh zsh" -d 'Shell type to generate the script for'
 complete -kxc rtx -n "$fssf activate" -l status -d 'Show "rtx: <PLUGIN>@<VERSION>" message when changing directories'
 
@@ -171,8 +172,7 @@ complete -kxc rtx -n "$fssf outdated" -a "(__rtx_tool_versions)" -d 'Tool(s) to 
 
 # plugins
 complete -kxc rtx -n "$fssf plugins" -s c -l core -d 'The built-in plugins only'
-complete -kxc rtx -n "$fssf plugins" -l refs -d 'show the git refs for each plugin'
-complete -kxc rtx -n "$fssf plugins" -s u -l urls -d 'show the git url for each plugin'
+complete -kxc rtx -n "$fssf plugins" -s u -l urls -d 'Show the git url for each plugin'
 complete -kxc rtx -n "$fssf plugins" -l user -d 'List installed plugins'
 set -l others install link ls ls-remote uninstall update
 complete -xc rtx -n "$fssf plugins; and not $fssf $others" -a install -d 'Install a plugin'
@@ -196,7 +196,6 @@ complete -kxc rtx -n "$fssf plugins; and $fssf link" -a "(__fish_complete_direct
 
 # plugins ls
 complete -kxc rtx -n "$fssf plugins; and $fssf ls" -s c -l core -d 'The built-in plugins only'
-complete -kxc rtx -n "$fssf plugins; and $fssf ls" -l refs -d 'Show the git refs for each plugin'
 complete -kxc rtx -n "$fssf plugins; and $fssf ls" -s u -l urls -d 'Show the git url for each plugin'
 complete -kxc rtx -n "$fssf plugins; and $fssf ls" -l user -d 'List installed plugins'
 
@@ -277,6 +276,7 @@ complete -kxc rtx -n "$fssf uninstall" -a "(__rtx_installed_tool_versions)" -d '
 
 # upgrade
 complete -kxc rtx -n "$fssf upgrade" -s n -l dry-run -d 'Just print what would be done, don'\''t actually do it'
+complete -kxc rtx -n "$fssf upgrade" -s i -l interactive -d 'Display multiselect menu to choose which tools to upgrade'
 complete -kxc rtx -n "$fssf upgrade" -s j -l jobs -d 'Number of jobs to run in parallel'
 complete -kxc rtx -n "$fssf upgrade" -l raw -d 'Directly pipe stdin/stdout/stderr from plugin to user Sets --jobs=1'
 complete -kxc rtx -n "$fssf upgrade" -a "(__rtx_tool_versions)" -d 'Tool(s) to upgrade'
