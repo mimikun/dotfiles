@@ -1,5 +1,7 @@
 #!/bin/bash
 
+host_name=$(cat /etc/hostname)
+
 # fish
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/
 cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
@@ -70,5 +72,8 @@ chezmoi add ~/.local/bin/vupueue
 chezmoi add ~/.local/bin/wsl-open
 
 # ArchLinux configs
-chezmoi add ~/.config/i3/config
-chezmoi add ~/.Xresources
+# HOSTNAME = azusa ONLY
+if [ "$host_name" = "azusa" ]; then
+    chezmoi add ~/.config/i3/config
+    chezmoi add ~/.Xresources
+fi
