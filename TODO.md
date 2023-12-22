@@ -4,13 +4,56 @@
 
 ## Issue list
 
+### 128. [gitのpagerを設定する](https://github.com/mimikun/dotfiles/issues/128)
+
+Archでいい感じ™に表示されなかったので
+https://git-scm.com/docs/git-config#Documentation/git-config.txt-corepager
+
+参考:
+[GitのPagerの設定](https://rcmdnk.com/blog/2018/08/26/computer-git/)
+
 ### 127. [i3の設定](https://github.com/mimikun/dotfiles/issues/127)
 
 i3-wmの様々なツールを導入する
 
-スクショ
+#### スクショ
+
 [flameshot-org/flameshot: Powerful yet simple to use screenshot software :camera_flash:](https://github.com/flameshot-org/flameshot)
 [Flameshot - ArchWiki](https://wiki.archlinux.org/title/Flameshot#Troubleshooting)
+
+#### ロック画面
+
+[Raymo111/i3lock-color: The world's most popular non-default computer lockscreen.](https://github.com/Raymo111/i3lock-color)
+[meskarune/i3lock-fancy: i3lock script that takes a screenshot of the desktop, blurs the background and adds a lock icon and text](https://github.com/meskarune/i3lock-fancy)
+[i3/i3lock: improved screen locker](https://github.com/i3/i3lock)
+
+#### ランチャー(Mod-d)
+
+[fdw/rofimoji: Emoji, unicode and general character picker for rofi and rofi-likes](https://github.com/fdw/rofimoji)
+[enkore/j4-dmenu-desktop: A fast desktop menu](https://github.com/enkore/j4-dmenu-desktop)
+[P3rf/rofi-network-manager: A manager for network connections using bash, rofi, nmcli,qrencode.](https://github.com/P3rf/rofi-network-manager)
+[davatorium/rofi: Rofi: A window switcher, application launcher and dmenu replacement](https://github.com/davatorium/rofi)
+
+#### ステータスバー
+
+[vivien/i3blocks: The hacker-friendly status_command for Sway and i3](https://github.com/vivien/i3blocks)
+[greshake/i3status-rust: Very resourcefriendly and feature-rich replacement for i3status, written in pure Rust](https://github.com/greshake/i3status-rust)
+
+#### ファイラー
+
+[cococry/Ragnar: Minimal, flexible & user-friendly X tiling window manager](https://github.com/cococry/Ragnar)
+
+#### 壁紙マネージャー
+
+[xyproto/wallutils: :city_sunset: Utilities for handling monitors, resolutions, wallpapers and timed wallpapers](https://github.com/xyproto/wallutils)
+[nwg-piotr/azote: Wallpaper manager for wlroots-based compositors and some other WMs](https://github.com/nwg-piotr/azote)
+[l3ib/nitrogen: Background browser and setter for X windows.](https://github.com/l3ib/nitrogen)
+こちらはエタってそう
+
+#### その他(未分類)
+
+[altdesktop/i3-style: 🎨 Make your i3 config a little more stylish.](https://github.com/altdesktop/i3-style)
+[stav121/i3wm-themer: 🎨 Theme collection manager for i3-wm](https://github.com/stav121/i3wm-themer)
 
 ### 120. [Improve LOCALBIN/vup for arch linux](https://github.com/mimikun/dotfiles/issues/120)
 
