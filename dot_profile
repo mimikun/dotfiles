@@ -36,4 +36,7 @@ export PATH="$PATH:$HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openj
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
 # Linuxbrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+BREW_BIN="/home/linuxbrew/.linuxbrew/bin/brew"
+if [ -e "$BREW_BIN" ]; then
+    eval "$($BREW_BIN shellenv)"
+fi
