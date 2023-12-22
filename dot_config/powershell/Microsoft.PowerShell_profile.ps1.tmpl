@@ -178,6 +178,7 @@ $NVIM_DATA = $env:NVIM_DATA
 $NVIM_STATE = $env:NVIM_STATE
 $NVIM_CACHE = $env:NVIM_CACHE
 
+{{ if (ne .chezmoi.hostname "azusa") }}
 # Windows Documents folder
 $env:WIN_DOCUMENTS = Join-Path -Path $env:WIN_HOME -ChildPath "Documents"
 $env:win_documents = $env:WIN_DOCUMENTS
@@ -194,6 +195,7 @@ $windl = $env:windl
 $env:WIN_DESKTOP = Join-Path -Path $env:WIN_HOME -ChildPath "Desktop"
 $env:win_desktop = $env:WIN_DESKTOP
 $win_desktop = $env:win_desktop
+{{ end }}
 
 $tmp = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com"
 $env:WORKSPACE = Join-Path -Path $tmp -ChildPath $env:GITHUB_USERNAME

@@ -46,12 +46,18 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
 {{ if eq .chezmoi.hostname "TanakaPC" }}
 $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+{{ else if (ne .chezmoi.hostname "azusa") }}
+$OBSIDIAN_VAULT_ROOT = ""
+$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
 {{ else }}
 $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
 {{ end }}
 
+{{ if (ne .chezmoi.hostname "azusa") }}
 $env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
+{{ end }}
+
 $env:GITHUB_USERNAME = $GITHUB_USERNAME
 
 if ($IsLinux) {
@@ -172,6 +178,7 @@ $NVIM_DATA = $env:NVIM_DATA
 $NVIM_STATE = $env:NVIM_STATE
 $NVIM_CACHE = $env:NVIM_CACHE
 
+{{ if (ne .chezmoi.hostname "azusa") }}
 # Windows Documents folder
 $env:WIN_DOCUMENTS = Join-Path -Path $env:WIN_HOME -ChildPath "Documents"
 $env:win_documents = $env:WIN_DOCUMENTS
@@ -188,12 +195,14 @@ $windl = $env:windl
 $env:WIN_DESKTOP = Join-Path -Path $env:WIN_HOME -ChildPath "Desktop"
 $env:win_desktop = $env:WIN_DESKTOP
 $win_desktop = $env:win_desktop
+{{ end }}
 
 $tmp = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com"
 $env:WORKSPACE = Join-Path -Path $tmp -ChildPath $env:GITHUB_USERNAME
 $WORKSPACE = $env:WORKSPACE
 
 # Obsidian
+{{ if (ne .chezmoi.hostname "azusa") }}
 $env:obsidian_vault_root_path = Join-Path -Path $env:WIN_DOCUMENTS -ChildPath "$env:obsidian_vault_root"
 $obsidian_vault_root_path = $env:obsidian_vault_root_path
 
@@ -205,6 +214,7 @@ $obsidian_dailynote_path = $env:obsidian_dailynote_path
 
 $env:obsidian = $env:obsidian_dailynote_path
 $obsidian = $env:obsidian
+{{ end }}
 
 # alias bd
 function Set-ParentLocation() {
