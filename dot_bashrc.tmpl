@@ -7,6 +7,12 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+{{ if (eq .chezmoi.hostname "azusa") }}
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+export XMODIFIERS="@im=fcitx"
+{{ end }}
+
 {{ if eq .chezmoi.os "linux" }}
 # Linuxのとき
 case $- in
@@ -92,8 +98,10 @@ export NVIM_CACHE="$XDG_CACHE_HOME/$NVIM_APPNAME"
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
 # asdf
-. "$HOME"/.asdf/asdf.sh
-. "$HOME"/.asdf/completions/asdf.bash
+if command -v asdf >/dev/null 2>&1; then
+    . "$HOME"/.asdf/asdf.sh
+    . "$HOME"/.asdf/completions/asdf.bash
+fi
 
 # 仕事PCでのみdockerd実行チェックをする
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
@@ -103,9 +111,16 @@ if [ -z "$RUNNING" ]; then
     sudo dockerd > /dev/null 2>&1 &
     disown
 fi
+{{ end }}
+
+# env-vars
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
 export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
 export WIN_HOME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}"
 export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+{{ else if (eq .chezmoi.hostname "azusa") }}
+export GITHUB_USERNAME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
+export OBSIDIAN_VAULT_ROOT=""
 {{ else }}
 export GITHUB_USERNAME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
 export WIN_HOME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}"
@@ -113,6 +128,8 @@ export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-
 {{ end }}
 
 export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
+
+{{ if (ne .chezmoi.hostname "azusa") }}
 export windl="$WIN_HOME/Downloads"
 export WIN_DESKTOP="$WIN_HOME/Desktop"
 export WIN_DOCUMENTS="$WIN_HOME/Documents"
@@ -121,40 +138,47 @@ export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 export obsidian_vault_path=$obsidian_vault_root_path
 export obsidian_dailynote_path=$obsidian_vault_path/001_DailyNotes
 export obsidian=$obsidian_dailynote_path
-
-# Nix
-. "$HOME"/.nix-profile/etc/profile.d/nix.sh
+{{ end }}
 
 # zoxide
-eval "$(zoxide init bash)"
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
 
 # starship
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-export STARSHIP_CACHE=~/.config/starship/cache
-eval "$(starship init bash)"
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+export STARSHIP_CACHE="$XDG_CONFIG_HOME/.config/starship/cache"
+
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init bash)"
+fi
 
 # fly.io
 export FLYCTL_INSTALL="$HOME/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-if test -f ~/.config/tabtab/bash/__tabtab.bash
-then
-    . ~/.config/tabtab/bash/__tabtab.bash
-else
-    true
+PNPM_COMPLETE="$XDG_CONFIG_HOME/tabtab/bash/__tabtab.bash"
+if test -f "$PNPM_COMPLETE"; then
+    . "$PNPM_COMPLETE"
 fi
 
 # broot
-source "$HOME/.config/broot/launcher/bash/br"
+if command -v broot >/dev/null 2>&1; then
+    source "$XDG_CONFIG_HOME/broot/launcher/bash/br"
+fi
 
 # Rye
-source "$HOME/.rye/env"
+if command -v rye >/dev/null 2>&1; then
+    source "$HOME/.rye/env"
+fi
 
 # Linuxbrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if command -v brew >/dev/null 2>&1; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # walk
 function lk {
@@ -180,8 +204,7 @@ export AQUA_BIN="$AQUA_ROOT_DIR/bin"
 
 export PATH="$AQUA_BIN:$PATH"
 
-type aqua > /dev/null 2>&1
-if test $? -eq 0; then
+if command -v aqua >/dev/null 2>&1; then
     # Log level
     #set -x AQUA_LOG_LEVEL "info"
     # configuration file path
@@ -224,7 +247,9 @@ fi
 export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/bash"
 export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/bash"
 
-eval "$(sheldon source)"
+if command -v sheldon >/dev/null 2>&1; then
+    eval "$(sheldon source)"
+fi
 
 # PHP composer
 export COMPOSER_CONFIG_HOME="$XDG_CONFIG_HOME/composer"
