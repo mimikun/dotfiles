@@ -134,6 +134,11 @@ shell-format :
 benchmark :
 	bash utils/benchmark.sh
 
+## Add commit message up to `origin/master` to CHANGELOG.md
+.PHONY : changelog
+changelog :
+	bash utils/changelog.sh
+
 ## Show help
 .PHONY : help
 help :
