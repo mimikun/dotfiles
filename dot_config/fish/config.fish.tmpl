@@ -33,7 +33,6 @@ set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d
 set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
 {{ else if (eq .chezmoi.hostname "azusa") }}
 set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
-set -x WIN_HOME ""
 set -x OBSIDIAN_VAULT_ROOT ""
 {{ else }}
 set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
@@ -46,10 +45,7 @@ set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 set -x windl "$WIN_HOME/Downloads"
 set -x WIN_DESKTOP "$WIN_HOME/Desktop"
 set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
-{{ end }}
 
-# TODO:
-{{ if (ne .chezmoi.hostname "azusa") }}
 set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 set -x obsidian_vault_path $obsidian_vault_root_path
 set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
@@ -68,7 +64,9 @@ alias patch "patch -p1 <"
 alias imgcat "wezterm imgcat"
 
 # abbrs
-abbr -a f fuck
+if command -v fuck >/dev/null 2>&1
+    abbr -a f fuck
+end
 abbr -a pueued_enable "systemctl --user enable pueue"
 abbr -a pueued_start "systemctl --user start pueue"
 abbr -a pueued_restart "systemctl --user restart pueue"
@@ -83,7 +81,9 @@ abbr -a puc "pueue clean -s"
 abbr -a pucf "pueue clean"
 abbr -a puf "pueue follow"
 abbr -a pul "pueue log"
-abbr -a trash "trashy"
+if command -v trashy >/dev/null 2>&1
+    abbr -a trash "trashy"
+end
 
 set -x LOCALBIN $HOME/.local/bin
 
@@ -161,17 +161,23 @@ set -x PATH $HOME/.cabal/bin $PATH
 set -x PATH $HOME/.ghcup/bin $PATH
 
 # wsl2-ssh-agent
-set -x SSH_AUTH_SOCK $HOME/.ssh/wsl2-ssh-agent.sock
+set WSL2_SSH_AGENT_SOCK "$HOME/.ssh/wsl2-ssh-agent.sock"
+if test -e "$WSL2_SSH_AGENT_SOCK"
+    set -x SSH_AUTH_SOCK "$WSL2_SSH_AGENT_SOCK"
+end
 
 # https://github.com/antfu/ni config
-set -x NI_CONFIG_FILE $XDG_CONFIG_HOME/ni/.nirc
+if command -v ni >/dev/null 2>&1
+    set -x NI_CONFIG_FILE $XDG_CONFIG_HOME/ni/.nirc
+end
 
 # codon config
-set -x PATH $HOME/.codon/bin $PATH
+if command -v codon >/dev/null 2>&1
+    set -x PATH $HOME/.codon/bin $PATH
+end
 
 # ls alias
-type -q eza
-if test $status -eq 0
+if command -v eza >/dev/null 2>&1
     alias ls eza
 
     # ls abbr
@@ -213,8 +219,7 @@ set -x LUA_CPATH "./?.so" $LUA_CPATH
 set -x LUA_CPATH "$HOME/.luarocks/lib/lua/5.3/?.so" $LUA_CPATH
 
 # dotnet-core completions
-type -q dotnet
-if test $status -eq 0
+if command -v dotnet >/dev/null 2>&1
     complete -f -c dotnet -a "(dotnet complete)"
 end
 
@@ -230,8 +235,7 @@ set -x PATH $ASDF_BIN $PATH
 set -x PATH $ASDF_SHIMS $PATH
 
 # vim
-type -q asdf
-if test $status -eq 0
+if command -v asdf >/dev/null 2>&1
     # alias
     alias paleovim $ASDF_SHIMS/vim
     alias neovim $ASDF_SHIMS/nvim
@@ -251,8 +255,7 @@ set -x AQUA_CONFIG_DIR $XDG_CONFIG_HOME/aqua/
 set -x AQUA_BIN $AQUA_ROOT_DIR/bin
 
 set -x PATH $AQUA_BIN $PATH
-type -q aqua
-if test $status -eq 0
+if command -v aqua >/dev/null 2>&1
     # Log level
     #set -x AQUA_LOG_LEVEL "info"
     # configuration file path
@@ -286,22 +289,23 @@ if test $status -eq 0
 end
 
 # wsl2-ssh-agent
-type -q wsl2-ssh-agent
-if test $status -eq 0
+if command -v wsl2-ssh-agent >/dev/null 2>&1
     wsl2-ssh-agent > /dev/null 2>&1
     set -x SSH_AUTH_SOCK $HOME/.ssh/wsl2-ssh-agent.sock
 end
 
 # inshellisense
-if test -f ~/.inshellisense/key-bindings.fish
-    source ~/.inshellisense/key-bindings.fish
+if test -f "$HOME/.inshellisense/key-bindings.fish"
+    source "$HOME/.inshellisense/key-bindings.fish"
 end
 
 # sheldon
 set -x SHELDON_CONFIG_DIR $XDG_CONFIG_HOME/sheldon/fish
 set -x SHELDON_DATA_DIR $XDG_DATA_HOME/sheldon/fish
 
-# eval "$(sheldon source)"
+if command -v sheldon >/dev/null 2>&1
+    #eval "$(sheldon source)"
+end
 
 # PHP composer
 set -x COMPOSER_CONFIG_HOME $XDG_CONFIG_HOME/composer
@@ -316,40 +320,37 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     echo "" > $CACHE_CONFIG_FISH
 
     # Linuxbrew
-    type -q brew
-    if test $status -eq 0
+    if command -v brew >/dev/null 2>&1
         echo "# cache linuxbrew config" >> $CACHE_CONFIG_FISH
         /home/linuxbrew/.linuxbrew/bin/brew shellenv fish >> $CACHE_CONFIG_FISH
     end
 
     # rtx config
+    if command -v rtx >/dev/null 2>&1
     #echo "# cache rtx shell-integration script" >> $CACHE_CONFIG_FISH
     #rtx activate fish >> $CACHE_CONFIG_FISH
+    end
 
     # starship config
-    type -q starship
-    if test $status -eq 0
+    if command -v starship >/dev/null 2>&1
         echo "# cache starship config" >> $CACHE_CONFIG_FISH
         starship init fish --print-full-init >> $CACHE_CONFIG_FISH
     end
 
     # navi
-    type -q navi
-    if test $status -eq 0
+    if command -v navi >/dev/null 2>&1
         echo "# cache navi config" >> $CACHE_CONFIG_FISH
         cat $XDG_CONFIG_HOME/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
     end
 
     # pnpm
-    type -q pnpm
-    if test $status -eq 0
+    if command -v pnpm >/dev/null 2>&1
         echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
         cat $XDG_CONFIG_HOME/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
     end
 
     # thefuck
-    type -q thefuck
-    if test $status -eq 0
+    if command -v thefuck >/dev/null 2>&1
         echo "# cache thefuck config" >> $CACHE_CONFIG_FISH
         echo "thefuck --alias | source" >> $CACHE_CONFIG_FISH
     end
