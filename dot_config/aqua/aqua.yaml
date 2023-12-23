@@ -14,7 +14,7 @@ registries:
   path: ./registry.yaml
 packages:
 # Previously managed with asdf
-- name: bitwarden/clients@cli-v2023.12.0
+- name: bitwarden/clients@cli-v2023.12.1
 - name: twpayne/chezmoi@v2.42.3
 - name: direnv/direnv@v2.33.0
 - name: muesli/duf@v0.8.1
