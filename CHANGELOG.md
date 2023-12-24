@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2023.12.24]
+
+### Added - 新機能について
+
+- Add .xmodmap
+- Add .xinitrc
+- Add rofi config
+- Add wallpaper setting in i3-wm config
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2185
+- Update lazy-lock.json
+- Update rtx fish completion
+- Update .chezmoiignore
+- Update LOCALBINS
+
+### Removed - 今回で削除された機能について
+
+- Remove .config/fcitx5/conf directory
+
+### Fixed - 不具合修正について
+
+- CapsLock to Ctrl in azusa
+- Fix README images
+- Fix lint error
+
 ## [v2023.12.23]
 
 ### Added - 新機能について
