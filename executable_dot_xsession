@@ -1,0 +1,2 @@
+! CapsLock to Ctrl
+xmodmap ~/.xmodmap

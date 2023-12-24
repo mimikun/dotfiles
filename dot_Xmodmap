@@ -1,6 +1,0 @@
-! CapsLock to Control
-remove lock = Eisu_toggle
-keycode 66 = Control_L
-add control = Control_L
-! Henkan to IME on
-! Muhenkan to IME off

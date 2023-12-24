@@ -83,6 +83,9 @@ AppData
 {{ if ne .chezmoi.hostname "azusa" }}
 .config/i3/*
 .Xresources
+.xsession
+.xmodmap
+.xinitrc
 {{ end }}
 
 {{ else if eq .chezmoi.os "darwin" }}
@@ -118,6 +121,9 @@ Brewfile
 .rtx.toml
 aqua.yaml
 .Xresources
+.xsession
+.xmodmap
+.xinitrc
 
 ### directory
 utils

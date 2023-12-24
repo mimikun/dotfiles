@@ -25,7 +25,8 @@ set -x CACHE_CONFIG_FISH $FISH_CACHE_DIR/config.fish
 set -x GTK_IM_MODULE "fcitx"
 set -x QT_IM_MODULE "fcitx"
 set -x XMODIFIERS "@im=fcitx"
-xmodmap ~/.Xmodmap
+# CapsLock to Ctrl
+setxkbmap -option ctrl:nocaps
 {{ end }}
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}

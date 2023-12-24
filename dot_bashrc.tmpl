@@ -11,7 +11,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
-xmodmap ~/.Xmodmap
+# CapsLock to Ctrl
+setxkbmap -option ctrl:nocaps
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
