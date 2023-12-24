@@ -1,10 +1,10 @@
 set -l fssf "__fish_seen_subcommand_from"
 
 # rtx
-complete -kxc rtx -s q -l quiet -d 'Suppress warnings and other non-error messages'
+complete -kxc rtx -s q -l quiet -d 'Suppress non-error messages'
 complete -kxc rtx -s v -l verbose -d 'Show extra output (use -vv for even more)'
 complete -kxc rtx -s y -l yes -d 'Answer yes to all prompts'
-set -l others activate alias bin-paths cache completion config current deactivate direnv doctor env env-vars exec implode install latest link ls ls-remote outdated plugins prune reshim self-update settings shell sync trust uninstall upgrade use version where which
+set -l others activate alias bin-paths cache completion config current deactivate direnv doctor env env-vars exec implode install latest link ls ls-remote outdated plugins prune reshim run self-update settings shell sync task trust uninstall upgrade use version where which
 complete -xc rtx -n "not $fssf $others" -a activate -d 'Initializes rtx in the current shell session'
 complete -xc rtx -n "not $fssf $others" -a alias -d 'Manage aliases'
 complete -xc rtx -n "not $fssf $others" -a bin-paths -d 'List all the active runtime bin paths'
@@ -28,10 +28,12 @@ complete -xc rtx -n "not $fssf $others" -a outdated -d 'Shows outdated tool vers
 complete -xc rtx -n "not $fssf $others" -a plugins -d 'Manage plugins'
 complete -xc rtx -n "not $fssf $others" -a prune -d 'Delete unused versions of tools'
 complete -xc rtx -n "not $fssf $others" -a reshim -d 'rebuilds the shim farm'
+complete -xc rtx -n "not $fssf $others" -a run -d '[experimental] Run a task'
 complete -xc rtx -n "not $fssf $others" -a self-update -d 'Updates rtx itself'
 complete -xc rtx -n "not $fssf $others" -a settings -d 'Manage settings'
 complete -xc rtx -n "not $fssf $others" -a shell -d 'Sets a tool version for the current shell session'
 complete -xc rtx -n "not $fssf $others" -a sync -d 'Add tool versions from external tools to rtx'
+complete -xc rtx -n "not $fssf $others" -a task -d '[experimental] Manage tasks'
 complete -xc rtx -n "not $fssf $others" -a trust -d 'Marks a config file as trusted'
 complete -xc rtx -n "not $fssf $others" -a uninstall -d 'Removes runtime versions'
 complete -xc rtx -n "not $fssf $others" -a upgrade -d 'Upgrades outdated tool versions'
@@ -41,7 +43,7 @@ complete -xc rtx -n "not $fssf $others" -a where -d 'Display the installation pa
 complete -xc rtx -n "not $fssf $others" -a which -d 'Shows the path that a bin name points to'
 
 # activate
-complete -kxc rtx -n "$fssf activate" -s q -l quiet -d 'Hide warnings such as when a tool is not installed'
+complete -kxc rtx -n "$fssf activate" -s q -l quiet -d 'Suppress non-error messages'
 complete -kxc rtx -n "$fssf activate" -a "bash fish nu xonsh zsh" -d 'Shell type to generate the script for'
 complete -kxc rtx -n "$fssf activate" -l status -d 'Show "rtx: <PLUGIN>@<VERSION>" message when changing directories'
 
@@ -113,9 +115,7 @@ complete -xc rtx -n "$fssf direnv; and not $fssf $others" -a activate -d 'Output
 # doctor
 
 # env
-complete -kxc rtx -n "$fssf env" -s j -l jobs -d 'Number of jobs to run in parallel'
 complete -kxc rtx -n "$fssf env" -s J -l json -d 'Output in JSON format'
-complete -kxc rtx -n "$fssf env" -l raw -d 'Directly pipe stdin/stdout/stderr from plugin to user Sets --jobs=1'
 complete -kxc rtx -n "$fssf env" -s s -l shell -a "bash fish nu xonsh zsh" -d 'Shell type to generate environment variables for'
 complete -kxc rtx -n "$fssf env" -a "(__rtx_tool_versions)" -d 'Tool(s) to use'
 
@@ -219,6 +219,18 @@ complete -kxc rtx -n "$fssf prune" -a "(__rtx_plugins)" -d 'Prune only versions 
 
 # reshim
 
+# run
+complete -kxc rtx -n "$fssf run" -d 'Arguments to pass to the task'
+complete -kxc rtx -n "$fssf run" -s C -l cd -a "(__fish_complete_directories)" -d 'Change to this directory before executing the command'
+complete -kxc rtx -n "$fssf run" -s n -l dry-run -d 'Don'\''t actually run the task(s), just print them in order of execution'
+complete -kxc rtx -n "$fssf run" -s f -l force -d 'Force the task to run even if outputs are up to date'
+complete -kxc rtx -n "$fssf run" -s i -l interleave -d 'Print directly to stdout/stderr instead of by line'
+complete -kxc rtx -n "$fssf run" -s j -l jobs -d 'Number of tasks to run in parallel'
+complete -kxc rtx -n "$fssf run" -s p -l prefix -d 'Print stdout/stderr by line, prefixed with the task'\''s label'
+complete -kxc rtx -n "$fssf run" -s r -l raw -d 'Read/write directly to stdin/stdout/stderr instead of by line'
+complete -kxc rtx -n "$fssf run" -a "(__rtx_tasks)" -d 'Task to run Can specify multiple tasks by separating with `:::` e.g.: rtx run task1 arg1 arg2 ::: task2 arg1 arg2'
+complete -kxc rtx -n "$fssf run" -s t -l tool -a "(__rtx_tool_versions)" -d 'Tool(s) to also add e.g.: node@20 python@3.10'
+
 # self-update
 complete -kxc rtx -n "$fssf self-update" -s f -l force -d 'Update even if already up to date'
 complete -kxc rtx -n "$fssf self-update" -l no-plugins -d 'Disable auto-updating plugins'
@@ -265,7 +277,36 @@ complete -kxc rtx -n "$fssf sync; and $fssf node" -l nvm -d 'Get tool versions f
 complete -kxc rtx -n "$fssf sync; and $fssf python" -l pyenv -d 'Get tool versions from pyenv'
 
 
+# task
+complete -kxc rtx -n "$fssf task" -l hidden -d 'Show hidden tasks'
+complete -kxc rtx -n "$fssf task" -l no-header -d 'Do not print table header'
+set -l others edit ls run
+complete -xc rtx -n "$fssf task; and not $fssf $others" -a edit -d '[experimental] Edit a task with $EDITOR'
+complete -xc rtx -n "$fssf task; and not $fssf $others" -a ls -d '[experimental] List config files currently in use'
+complete -xc rtx -n "$fssf task; and not $fssf $others" -a run -d '[experimental] Run a task'
+
+# task edit
+complete -kxc rtx -n "$fssf task; and $fssf edit" -a "(__rtx_tasks)" -d 'Task to edit'
+
+# task ls
+complete -kxc rtx -n "$fssf task; and $fssf ls" -l hidden -d 'Show hidden tasks'
+complete -kxc rtx -n "$fssf task; and $fssf ls" -l no-header -d 'Do not print table header'
+
+# task run
+complete -kxc rtx -n "$fssf task; and $fssf run" -d 'Arguments to pass to the task'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s C -l cd -a "(__fish_complete_directories)" -d 'Change to this directory before executing the command'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s n -l dry-run -d 'Don'\''t actually run the task(s), just print them in order of execution'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s f -l force -d 'Force the task to run even if outputs are up to date'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s i -l interleave -d 'Print directly to stdout/stderr instead of by line'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s j -l jobs -d 'Number of tasks to run in parallel'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s p -l prefix -d 'Print stdout/stderr by line, prefixed with the task'\''s label'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s r -l raw -d 'Read/write directly to stdin/stdout/stderr instead of by line'
+complete -kxc rtx -n "$fssf task; and $fssf run" -a "(__rtx_tasks)" -d 'Task to run Can specify multiple tasks by separating with `:::` e.g.: rtx run task1 arg1 arg2 ::: task2 arg1 arg2'
+complete -kxc rtx -n "$fssf task; and $fssf run" -s t -l tool -a "(__rtx_tool_versions)" -d 'Tool(s) to also add e.g.: node@20 python@3.10'
+
+
 # trust
+complete -kxc rtx -n "$fssf trust" -s a -l all -d 'Trust all config files in the current directory and its parents'
 complete -kxc rtx -n "$fssf trust" -a "(__fish_complete_path)" -d 'The config file to trust'
 complete -kxc rtx -n "$fssf trust" -l untrust -d 'No longer trust this config'
 
@@ -331,10 +372,7 @@ function __rtx_tool_versions
     end
 end
 function __rtx_installed_tool_versions
-    if test -z "$__rtx_installed_tool_versions_cache"
-        set -g __rtx_installed_tool_versions_cache (rtx ls --installed | awk '{print $1 "@" $2}')
-    end
-    for tv in $__rtx_installed_tool_versions_cache
+    for tv in (rtx ls --installed | awk '{print $1 "@" $2}')
         echo $tv
     end
 end
@@ -344,6 +382,11 @@ function __rtx_aliases
     end
     for a in $__rtx_aliases_cache
         echo $a
+    end
+end
+function __rtx_tasks
+    for tv in (rtx task ls --no-header | awk '{print $1}')
+        echo $tv
     end
 end
 function __rtx_settings
