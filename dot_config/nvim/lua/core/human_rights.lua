@@ -115,6 +115,6 @@ Mac: 人権しか存在しない
 
 ThinkPad E14 Gen5 Intel: 人権未確認
 16
-unknown(Intel(R) Core(TM) i5-13500H)
+13th Gen Intel(R) Core(TM) i5-13500H
 SSD
 ]]
