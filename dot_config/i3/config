@@ -36,6 +36,7 @@ exec --no-startup-id nm-applet
 
 # Other autostart applications
 exec --no-startup-id fcitx5
+exec --no-startup-id ~/.fehbg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
