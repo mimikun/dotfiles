@@ -82,6 +82,8 @@ AppData
 ## 特定ホスト以外でのignoreパターン
 {{ if ne .chezmoi.hostname "azusa" }}
 .config/i3/*
+.config/rofi/*
+.config/fcitx5/*
 .Xresources
 .xsession
 .xmodmap
@@ -144,6 +146,8 @@ asdf_plugin_list.txt
 .config/zellij
 .config/nvim
 .config/i3
+.config/rofi
+.config/fcitx5
 .vim
 
 ### 非自宅PCではignoreしたい
