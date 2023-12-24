@@ -14,6 +14,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
+xmodmap ~/.Xmodmap
 {{ end }}
 
 {{ if (eq .chezmoi.hostname "TanakaPC") }}
