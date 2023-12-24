@@ -4,13 +4,12 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.7.0"
+readonly PRODUCT_VERSION="0.8.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
 readonly UBUNTU_OS="OS type: Ubuntu"
 readonly ARCH_OS="OS type: Arch Linux"
-readonly ENDEAVOUR_OS="OS type: EndeavourOS"
 readonly MAC_OS="OS type: Mac OS"
 
 #=======================
@@ -62,8 +61,7 @@ ubuntu() {
 
 # Arch Linux
 arch() {
-  yay
-  yay -Sc
+  paru -Syu
 }
 
 # Mac
@@ -128,6 +126,10 @@ other_tools() {
   gup update
   # Create golang package list
   gup export
+  # Install aqua tools
+  aqua i -a
+  # Update aqua tools
+  aqua up
 }
 
 #=======================
@@ -156,7 +158,6 @@ case "$OS_INFO" in
 "$UBUNTU_OS") ubuntu ;;
 "$MAC_OS") mac ;;
 "$ARCH_OS") arch ;;
-"$ENDEAVOUR_OS") arch ;;
 *) echo "This distro NOT support." ;;
 esac
 

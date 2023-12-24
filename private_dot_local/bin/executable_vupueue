@@ -4,13 +4,12 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.8.0"
+readonly PRODUCT_VERSION="0.9.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
 readonly UBUNTU_OS="OS type: Ubuntu"
 readonly ARCH_OS="OS type: Arch Linux"
-readonly ENDEAVOUR_OS="OS type: EndeavourOS"
 readonly MAC_OS="OS type: Mac OS"
 
 #=======================
@@ -62,9 +61,7 @@ ubuntu() {
 
 # Arch Linux
 arch() {
-  echo "Run yay..."
-  pueue add -- "yay"
-  pueue add -- "yay -Sc"
+  paru -Syu
 }
 
 # Mac
@@ -162,6 +159,12 @@ no_pueue_other_tools() {
   echo "gup export"
   pueue add -- "gup export"
 
+  echo "aqua i -a"
+  pueue add -- "aqua i -a"
+
+  echo "aqua up"
+  pueue add -- "aqua up"
+
   # Upgrade docker-compose
   echo "update_docker_compose"
   update_docker_compose
@@ -209,7 +212,6 @@ case "$OS_INFO" in
 "$UBUNTU_OS") ubuntu ;;
 "$MAC_OS") mac ;;
 "$ARCH_OS") arch ;;
-"$ENDEAVOUR_OS") arch ;;
 *) echo "This distro NOT support." ;;
 esac
 
