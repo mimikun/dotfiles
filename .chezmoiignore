@@ -1,162 +1,93 @@
-# All Platform ignoreパターン
-## root
+# See: https://github.com/mimikun/pvim-migrate2dpp.git
+.vim/**
+
+## All
 .editorconfig
-.github
+.github/**
 .gitignore
-CHANGELOG.md
-LICENSE.txt
-Makefile
-*maskfile.md
-README.md
-TODO.md
-*.patch
-*.patch.gpg
-*.zip
-stylua.toml
-.textlintrc.json
 .textlintcache
-package.json
-pnpm-lock.yaml
-PSScriptAnalyzerSettings.psd1
-typos.toml
-node_modules
-wsl.conf
-WSLInterop.conf
-tasks.ps1
-images
-STARTUPTIME.md
-vim.yaml
-nyagos.yaml
-selene.toml
-renovate.json5
-
-{{ if eq .chezmoi.os "linux" }}
-# Linuxの場合のignoreパターン
-## root
-setup.sh
-
-## READMEs
+.textlintrc.json
+.typos.toml
 .config/README.md
 .config/fish/README.md
 .config/nvim/README.md
-.local/bin/README.md
 .vim/README.md
 
-## .config/fish/completions
-.config/fish/completions/bd.fish
-.config/fish/completions/docker-compose.fish
-.config/fish/completions/docker.fish
-.config/fish/completions/fisher.fish
-.config/fish/completions/ghq.fish
-.config/fish/completions/gitignore.fish
-.config/fish/completions/hwm.fish
-.config/fish/completions/poetry.fish
-.config/fish/completions/spin.fish
+CHANGELOG.md
+LICENSE.txt
+Makefile
+maskfile.md
+README.md
+STARTUPTIME.md
+TODO.md
+node_modules
+WSLInterop.conf
+wsl.conf
+tasks.ps1
+renovate.json5
+selene.toml
+stylua.toml
+vim.yaml
+nyagos.yaml
+package.json
+pnpm-lock.yaml
+PSScriptAnalyzerSettings.psd1
+images/**
+utils/**
 
-## *.zip
-.config/nvim/nvim-conf.zip
-.vim/vim-conf.zip
-
-## others
-utils
-
-## Windows only file
-### textfiles
-.wslconfig
-macros.txt
-komorebi.json
-applications.yaml
-.config/whkdrc
-windows_cargo_packages.txt
-windows_pip_packages.txt
-
-### directory
-vimfiles
-utilities
-OneDrive
-Documents
-AppData
-.glaze-wm
-.config/winfetch
-
-## 特定ホスト以外でのignoreパターン
+# If not archlinux
 {{ if ne .chezmoi.hostname "azusa" }}
-.config/i3/*
-.config/rofi/*
-.config/fcitx5/*
 .Xresources
-.xsession
-.xmodmap
 .xinitrc
+.xmodmap
+.xsession
+.config/i3/**
+.config/fcitx5/**
+.config/rofi/**
 {{ end }}
 
-{{ else if eq .chezmoi.os "darwin" }}
-# macOSの場合のignoreパターン
+## Linux
+{{ if eq .chezmoi.os "linux" }}
+.config/winfetch/**
+.config/whkdrc
+.glaze-wm/**
+.wslconfig.tmpl
+
+vimfiles/**
+komorebi.json
+macros.txt
+applications.yaml
+utilities/**
+windows_cargo_packages.txt
+AppData/**
+Documents/**
+OneDrive/**
+## Windows
 {{ else if eq .chezmoi.os "windows" }}
-# Windowsの場合のignoreパターン
-
-## zip
-AppData/Local/nvim/*.zip
-vimfiles/Makefile/*.zip
-
-## Makefiles
-AppData/Local/nvim/Makefile
-vimfiles/Makefile
-
-## keep file
-Documents/PowerShell/.keep
-Documents/WindowsPowerShell/.keep
-OneDrive/Documents/WindowsPowerShell/.keep
-
-## Linux only file
-### root
-.zshrc
-.exrc
-Brewfile
-.vuerc
-.tool-versions
+.actrc
 .asdfrc
-.tmux.conf
-.profile
-.npmrc
+.exrc
 .nanorc
-.rtx.toml
-aqua.yaml
-.Xresources
-.xsession
-.xmodmap
-.xinitrc
+.zshrc
+.config/fish/**
+.config/neofetch/**
+.config/nvim/**
+.config/powershell/**
+.config/zeno/**
+.ghcup/**
+.local/bin/**
+.vim/**
 
-### directory
-utils
-.ghcup
-.local
-
-### textfiles
-linux_pip_packages.txt
-gh_extension_list.txt
-linux_cargo_packages.txt
-get_ipv4.sh
 asdf_plugin_list.txt
-
-### .config
-.config/fish
-.config/powershell
-.config/pueue
-.config/zellij
-.config/nvim
-.config/i3
-.config/rofi
-.config/fcitx5
-.vim
-
-### 非自宅PCではignoreしたい
+Brewfile
+linux_cargo_packages.txt
+linux_pip_packages.txt
 {{ if eq .chezmoi.hostname "TanakaPC" }}
+utilities/StopTrex.ps1
 utilities/GamingMode.bat
 utilities/Mining.bat
 utilities/MiningMode.bat
 utilities/StopTrex.bat
-utilities/StopTrex.ps1
 utilities/dual-gminer-mining.bat
 utilities/gminer-flux-mining.bat
 utilities/gminer-mining.bat
@@ -165,5 +96,4 @@ utilities/miniz-flux-mining.bat
 utilities/t-rex-mining.bat
 {{ end }}
 {{ else }}
-# その他のOS
 {{ end }}
