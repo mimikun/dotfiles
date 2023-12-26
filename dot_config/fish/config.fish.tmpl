@@ -118,6 +118,9 @@ set -x PATH $HOME/depot_tools $PATH
 set -x PATH /usr/local/go/bin/ $PATH
 
 set -x EDITOR nvim
+set -x PAGER less
+set -x GIT_PAGER less
+
 set -x NVIM_APPNAME nvim
 
 set -x NVIM_CONFIG $XDG_CONFIG_HOME/$NVIM_APPNAME
