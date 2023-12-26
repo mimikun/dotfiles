@@ -14,14 +14,14 @@ return {
             "windwp/nvim-ts-autotag",
             "IndianBoy42/tree-sitter-just",
             "LhKipp/nvim-nu",
+            "Fymyte/tree-sitter-rasi",
         },
         config = function()
-            -- TODO:setting
-            -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Extra-modules-and-plugins
-            -- "LhKipp/nvim-nu"
-            -- "IndianBoy42/tree-sitter-just"
-            -- "windwp/nvim-ts-autotag"
             local configs = require("nvim-treesitter.configs")
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+            local nvim_nu = require("nu")
+            local nvim_ts_autotag = require("nvim-ts-autotag")
 
             configs.setup({
                 highlight = {
@@ -32,7 +32,37 @@ return {
                 sync_install = not is_human_rights,
             })
 
-            require("nu").setup({})
+            parser_config.powershell = {
+                install_info = {
+                    url = "https://github.com/mimikun/tree-sitter-PowerShell",
+                    files = { "src/parser.c" },
+                    branch = "test",
+                },
+                filetype = { "ps1", "psd1" },
+            }
+
+            parser_config.rasi = {
+                install_info = {
+                    url = "https://github.com/Fymyte/tree-sitter-rasi",
+                    files = { "src/parser.c" },
+                    branch = "main",
+                },
+                filetype = { "rasi" },
+            }
+
+            parser_config.just = {
+                install_info = {
+                    url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
+                    files = { "src/parser.c", "src/scanner.cc" },
+                    branch = "main",
+                    -- use_makefile = true -- this may be necessary on MacOS (try if you see compiler errors)
+                },
+                filetype = { "just", "Justfile" },
+                maintainers = { "@IndianBoy42" },
+            }
+
+            nvim_nu.setup({})
+            nvim_ts_autotag.setup({})
         end,
         --cond = false,
     },
