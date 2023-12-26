@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2023.12.26]
+
+### Added - 新機能について
+
+- Set PAGER env-vars
+    - Fix #128
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update neovim plugin config: tree-sitter
+- Update rofi config
+- Update i3-wm config
+- Update rtx fish completion
+- Update .editorconfig
+- Update .chezmoiignore
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.12.24]
 
 ### Added - 新機能について
