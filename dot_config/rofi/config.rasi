@@ -149,3 +149,5 @@ configuration {
       sorting-method:    "name";
   }
 }
+
+// vim:ft=rasi
