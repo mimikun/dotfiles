@@ -25,3 +25,6 @@ indent_size = 2
 [*.{ps1,psd1}]
 charset = utf-8-bom
 end_of_line = crlf
+
+[dot_gitconfig.tmpl]
+indent_style = tab
