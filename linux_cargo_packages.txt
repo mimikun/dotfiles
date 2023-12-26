@@ -47,6 +47,7 @@ hexyl
 ht
 hyperfine
 hysp
+i3-style
 just
 lsd
 mask
