@@ -1,41 +1,16 @@
----@diagnostic disable:undefined-global
--- local vars
-local os_name = nyagos.goos
-local hostname = nyagos.eval("hostname")
-local uname_r = nyagos.eval("uname", "-r")
+local global = require("global")
+local today = require("utils").today()
+local path_sep = global.path_sep
+local home = global.home
+local is_linux = global.is_linux
+local is_windows = global.is_windows
+local is_not_human_rights = global.is_not_human_rights
 
-local is_linux = os_name == "linux"
-local is_windows = os_name == "windows"
-local is_human_rights = hostname == "YutoWindows"
-local is_not_human_rights = hostname == "TanakaPC"
-
-local path_sep = is_windows and "\\" or "/"
-
-local home = nyagos.getenv("HOME") or nyagos.getenv("USERPROFILE")
 local xdg_config_home = home .. path_sep .. ".config"
 local xdg_cache_home = home .. path_sep .. ".cache"
 local dot_local = home .. path_sep .. ".local"
 local xdg_data_home = dot_local .. path_sep .. "share"
 local xdg_state_home = dot_local .. path_sep .. "state"
-
--- function
-local today = function()
-    local date = os.date("*t")
-    local year = date.year
-    local month = date.month
-    local day = date.day
-
-    if month < 10 then
-        month = "0" .. month
-    end
-
-    if day < 10 then
-        day = "0" .. day
-    end
-
-    local formatted_date = tostring(year) .. tostring(month) .. tostring(day)
-    return formatted_date
-end
 
 -- config
 nyagos.envadd("HOME", home)
@@ -80,34 +55,6 @@ nyagos.envadd("WIN_DESKTOP", win_home_path .. "Desktop")
 nyagos.envadd("WIN_DOCUMENTS", win_home_path .. "Documents")
 nyagos.envadd("obsidian_vault_path", obsidian_dailynotes_path:format("001_dailyNotes", ""))
 
--- alias
-if is_linux then
-    nyagos.alias.f = "fuck"
-    nyagos.alias.rm = "gomi"
-    nyagos.alias.rm = "rm -i"
-    nyagos.alias.mkdir = "mkdir -p"
-    nyagos.alias.untar = "tar xvf"
-    nyagos.alias.pueued_enable = "systemctl --user enable pueue"
-    nyagos.alias.pueued_start = "systemctl --user start pueue"
-    nyagos.alias.pueued_restart = "systemctl --user restart pueue"
-    nyagos.alias.patch = "patch -p1 <"
-    nyagos.alias.imgcat = "wezterm imgcat"
-    nyagos.alias.pip = "python3 -m pip"
-    nyagos.alias.pipx = "python3 -m pipx"
-    nyagos.alias.open = "wsl-open"
-    nyagos.alias.zel = "zellij"
-    nyagos.alias.pueuexec = "pueue add --"
-end
-
--- alias eza
-nyagos.alias.ls = "eza"
-nyagos.alias.ll = "ls -l"
-nyagos.alias.la = "ls -la"
-nyagos.alias.l1 = "ls -1"
-nyagos.alias.lt = "ls --tree"
-nyagos.alias.lat = "ls -l -a --tree"
-nyagos.alias.lta = "ls --tree -a"
-
 -- set PATHs
 local cargo_path = home .. path_sep .. ".cargo"
 local deno_path = home .. path_sep .. ".deno"
@@ -140,10 +87,6 @@ if is_linux then
         home .. path_sep .. ".dotnet" .. path_sep .. "tools"
     )
 end
-
--- Windows tools
--- TODO: settings
-nyagos.envadd("PATH", "")
 
 -- neovim vars
 local windows_nvim_config = home .. path_sep .. "AppData" .. path_sep .. "Local" .. path_sep .. "nvim"
@@ -248,55 +191,17 @@ nyagos.envadd(
     "$HOME/.luarocks/lib/lua/5.3/?.so"
 )
 
--- asdf
-local asdf_dir = home .. path_sep .. ".asdf"
-local asdf_bin = asdf_dir .. path_sep .. "bin"
-local asdf_shims = asdf_dir .. path_sep .. "shims"
-nyagos.envadd("PATH", asdf_bin, asdf_shims)
-nyagos.envadd("ASDF_DIR", nyagos.getenv("ASDF_DIR") or asdf_dir)
-nyagos.envadd("ASDF_DATA_DIR", nyagos.getenv("ASDF_DATA_DIR") or asdf_dir)
-nyagos.envadd("ASDF_CONFIG_FILE", nyagos.getenv("ASDF_CONFIG_FILE") or home .. path_sep .. ".asdfrc")
-
--- vim alias
-nyagos.alias.paleovim = asdf_shims .. path_sep .. "vim"
-nyagos.alias.pvim = paleovim
-nyagos.alias.neovim = asdf_shims .. path_sep .. "nvim"
-nyagos.alias.vim = neovim
+if is_linux then
+    -- asdf
+    local asdf_dir = home .. path_sep .. ".asdf"
+    local asdf_bin = asdf_dir .. path_sep .. "bin"
+    local asdf_shims = asdf_dir .. path_sep .. "shims"
+    nyagos.envadd("PATH", asdf_bin, asdf_shims)
+    nyagos.envadd("ASDF_DIR", nyagos.getenv("ASDF_DIR") or asdf_dir)
+    nyagos.envadd("ASDF_DATA_DIR", nyagos.getenv("ASDF_DATA_DIR") or asdf_dir)
+    nyagos.envadd("ASDF_CONFIG_FILE", nyagos.getenv("ASDF_CONFIG_FILE") or home .. path_sep .. ".asdfrc")
+end
 
 -- aqua
 nyagos.envadd("AQUA_ROOT_DIR", nyagos.getenv("AQUA_ROOT_DIR") or xdg_data_home .. path_sep .. "aquaproj-aqua")
 nyagos.envadd("PATH", nyagos.getenv("AQUA_ROOT_DIR") .. path_sep .. "bin")
-
--- Prompt
-nyagos.prompt = function(this)
-    local prompt = ""
-    if nyagos.which("starship") then
-        prompt = prompt .. nyagos.eval("starship prompt 2> nul") .. "$e[37;1m" .. " "
-        return nyagos.default_prompt(prompt, "")
-    end
-    return nyagos.default_prompt("$e[49;36;1m" .. this .. "$e[37;1m", "")
-end
-
--- keybindings
-nyagos.key["C_G"] = function()
-    -- TODO: implement lua
-    local ghq_path = nyagos.eval("ghq list -p | fzf")
-    nyagos.chdir(ghq_path)
-end
-
--- thx:
--- https://github.com/DeaR/dotfiles/blob/master/.nyagos
--- https://zenn.dev/tkm/scraps/8ad2a85ca44b33
--- documents:
--- https://github.com/nyaosorg/nyagos/blob/master/docs/01-Install_ja.md
--- https://github.com/nyaosorg/nyagos/blob/master/docs/02-Options_ja.md
--- https://github.com/nyaosorg/nyagos/blob/master/docs/04-Commands_ja.md
--- https://github.com/nyaosorg/nyagos/blob/master/docs/05-Startup_ja.md
--- https://github.com/nyaosorg/nyagos/blob/master/docs/06-Substitution_ja.md
--- https://github.com/nyaosorg/nyagos/blob/master/docs/07-LuaFunctions_ja.md
--- sample:
--- https://github.com/leviosa42/dotfiles/blob/main/.config/nyagos/dot.nyagos
--- https://github.com/DeaR/dotfiles/blob/master/.nyagos
---nyagos.envadd("", nyagos.getenv("") or "")
-
--- vim:set ft=lua: --
