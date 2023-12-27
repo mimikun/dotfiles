@@ -83,6 +83,7 @@ asdf_plugin_list.txt
 Brewfile
 linux_cargo_packages.txt
 linux_pip_packages.txt
+linux_rubygem_list.txt
 {{ if eq .chezmoi.hostname "TanakaPC" }}
 utilities/StopTrex.ps1
 utilities/GamingMode.bat
