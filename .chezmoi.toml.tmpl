@@ -20,3 +20,5 @@ args = ["-c", "& {Invoke-RunAfterChezmoiApply}"]
 {{ else if eq .chezmoi.os "darwin" }}
 {{ else }}
 {{ end }}
+[diff]
+    command = "delta"
