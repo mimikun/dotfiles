@@ -2,15 +2,9 @@
 
 ## Unissued and Not Updated
 
+### 119. のタイトル変更
+
 ## Issue list
-
-### 128. [gitのpagerを設定する](https://github.com/mimikun/dotfiles/issues/128)
-
-Archでいい感じ™に表示されなかったので
-https://git-scm.com/docs/git-config#Documentation/git-config.txt-corepager
-
-参考:
-[GitのPagerの設定](https://rcmdnk.com/blog/2018/08/26/computer-git/)
 
 ### 127. [i3の設定](https://github.com/mimikun/dotfiles/issues/127)
 
@@ -57,13 +51,11 @@ i3-wmの様々なツールを導入する
 
 ### 120. [Improve LOCALBIN/vup for arch linux](https://github.com/mimikun/dotfiles/issues/120)
 
-### 119. [Add kabegami tools](https://github.com/mimikun/dotfiles/issues/119)
+### 119. [Add kabegami download tools](https://github.com/mimikun/dotfiles/issues/119)
 
 e.g. `./kabegami.sh setup`
 
 ### 118. [Improve .Xresources config for archlinux](https://github.com/mimikun/dotfiles/issues/118)
-
-### 117. [Improve .chezmoiignore for arch linux"](https://github.com/mimikun/dotfiles/issues/117)
 
 ### 116. [Improve utils/update.sh for arch linux](https://github.com/mimikun/dotfiles/issues/116)
 
@@ -176,7 +168,9 @@ READMEはこれ
 
 fzf-vim.lua を全部Luaで書く
 
-#### モチベーション\n\n全部Luaで書いてあるとナウい
+#### モチベーション
+
+全部Luaで書いてあるとナウい
 
 ### 12. [tree-sitter-powershellの設定を書く](https://github.com/mimikun/dotfiles/issues/12)
 
