@@ -11,7 +11,7 @@
 	editor = nvim
 	quotepath = false
 	excludesfile = ~/.gitignore_global
-	pager = less
+	pager = delta
 	{{ if eq .chezmoi.os "windows" }}
 	filemode = false
 	{{ end }}
@@ -39,7 +39,20 @@
 	verbose = true
 {{ if eq .chezmoi.os "windows" }}
 [winUpdater]
-        recentlySeenVersion = 2.25.0.windows.1
+	recentlySeenVersion = 2.25.0.windows.1
 [credential "helperselector"]
-        selected = manager
+	selected = manager
 {{ end }}
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+[delta]
+	plus-style = "syntax #012800"
+	minus-style = "syntax #340001"
+	syntax-theme = Monokai Extended
+	navigate = true
+	light = false
+[interactive]
+	diffFilter = delta --color-only
