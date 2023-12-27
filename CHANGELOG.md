@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2023.12.27]
+
+### Added - 新機能について
+
+- Add linux_rubygem_list.txt
+- Add .luarc.json to chezmoi root
+- Use delta in diff
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update asdf tools version
+    - ruby 3.3.0
+- Update nyagos configs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix gitconfig
+- Fix chezmoi diff broken
+- Fix TODO.md
+    - Issue #128 Closed
+- Fix rofi config
+
 ## [v2023.12.26]
 
 ### Added - 新機能について
