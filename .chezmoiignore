@@ -8,6 +8,7 @@
 .textlintcache
 .textlintrc.json
 .typos.toml
+.luarc.json
 .config/README.md
 .config/fish/README.md
 .config/nvim/README.md
