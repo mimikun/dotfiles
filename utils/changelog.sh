@@ -6,9 +6,14 @@ BRANCH_NAME="master"
 RESULT_FILE="CHANGELOG.md"
 
 {
+    echo "## run"
+    echo ""
+    echo '```bash'
+    git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d'
+    echo '```'
+    echo ""
     echo "## [v$TODAY]"
     echo ""
-    git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d'
     echo "### Added - 新機能について"
     echo ""
     echo "なし"
