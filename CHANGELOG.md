@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2023.12.28]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2188
+- Update STARTUPTIME.md
+- Improved changelog.sh
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix benchmark.sh
+- Fix nyagos config
+
 ## [v2023.12.27]
 
 ### Added - 新機能について
