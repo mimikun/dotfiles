@@ -31,18 +31,20 @@ export WIN_HOME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f
 export OBSIDIAN_VAULT_ROOT={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}
 {{ end }}
 
-set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
+export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 
-{{ if (ne .chezmoi.hostname "azusa") }}
-set -x windl "$WIN_HOME/Downloads"
-set -x WIN_DESKTOP "$WIN_HOME/Desktop"
-set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
-
-set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
-set -x obsidian_vault_path $obsidian_vault_root_path
-set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
-set -x obsidian $obsidian_dailynote_path
+{{ if (eq .chezmoi.hostname "azusa") }}
+export obsidian_vault_root_path="$OBSIDIAN_VAULT_ROOT"
+{{ else }}
+export windl="$WIN_HOME/Downloads"
+export WIN_DESKTOP= "$WIN_HOME/Desktop"
+export WIN_DOCUMENTS= "$WIN_HOME/Documents"
+export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 {{ end }}
+
+export obsidian_vault_path="$obsidian_vault_root_path"
+export obsidian_dailynote_path="$obsidian_vault_path/001_DailyNotes"
+export obsidian="$obsidian_dailynote_path"
 
 alias f="fuck"
 alias mkdir="mkdir -p"
@@ -163,7 +165,7 @@ export PATH="$AQUA_BIN:$PATH"
 
 if command -v aqua>/dev/null 2>&1; then
     # Log level
-    #set -x AQUA_LOG_LEVEL "info"
+    #export AQUA_LOG_LEVEL="info"
     # configuration file path
     export AQUA_CONFIG="$AQUA_CONFIG_DIR/aqua.yaml"
     # global configuration file paths separated by semicolon :
