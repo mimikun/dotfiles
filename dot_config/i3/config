@@ -5,7 +5,7 @@
 set $mod Mod4
 
 # Set window title font
-font pango:monospace 16
+font pango:monospace 20
 #font pango:DejaVu Sans Mono 8
 
 # Set autostart apps
