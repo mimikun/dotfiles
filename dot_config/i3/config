@@ -43,7 +43,8 @@ bindsym $mod+Shift+q kill
 
 #bindsym $mod+d exec --no-startup-id dmenu_run
 # Start a program launcher(e.g. PT Run, Alfred)
-bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
+#bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun"
+bindsym $mod+d exec --no-startup-id "bash ~/.config/rofi/scripts/launcher_t7"
 
 # change focus
 bindsym $mod+h focus left
