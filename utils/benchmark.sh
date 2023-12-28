@@ -34,7 +34,7 @@ TODAY=$(date "+%Y.%m.%d")
     echo "### Paleovim(vim)"
     echo ""
     echo '```shell'
-    echo '❯ vim-startuptime -vimpathvim | head -n 6' >>$RESULT_FILE
+    echo '❯ vim-startuptime -vimpath vim | head -n 6'>> $RESULT_FILE
     vim-startuptime -vimpath vim | head -n 6
     echo '```'
     echo ""
