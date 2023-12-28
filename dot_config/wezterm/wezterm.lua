@@ -114,9 +114,10 @@ config.keys = keymaps.keys
 
 -- フォントを FiraCode Nerd Font Mono にする
 config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = 450, stretch = "Normal", style = "Normal" })
--- フォントサイズを 12 にする
+-- フォントサイズ
+-- azusa の場合は少し大きくする
 if is_azusa then
-    config.font_size = 16
+    config.font_size = 22
 else
     config.font_size = 12
 end
