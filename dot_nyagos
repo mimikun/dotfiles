@@ -1,5 +1,0 @@
-package.path = nyagos.pathjoin(os.getenv("HOME"), ".config/nyagos/?.lua")
-
-require("nyagos")
-
--- vim:ft=lua

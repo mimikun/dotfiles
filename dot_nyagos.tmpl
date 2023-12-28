@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "linux" }}
+package.path = nyagos.pathjoin(os.getenv("HOME"), ".config/nyagos/?.lua")
+{{ else }}
+package.path = nyagos.pathjoin(os.getenv("USERPROFILE"), ".config/nyagos/?.lua")
+{{ end }}
+
+
+require("nyagos")
+
+-- vim:ft=lua.chezmoitmpl
