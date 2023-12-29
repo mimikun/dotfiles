@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2023.12.29]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update asdf tools version
+    - vim 9.0.2189
+- Update lazy-lock.json
+- Set new format in i3status-rust
+- Update i3 i3bar config
+- Update i3 M-d menu
+- Update wezterm fontsize
+- Update i3 kabegami
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix syntax in zshrc
+- Fix i3 fontsize
+- Fix azusa dpi
+
 ## [v2023.12.28]
 
 ### Added - 新機能について
