@@ -1,5 +1,23 @@
 # Changelog
 
+## [v2024.01.01]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Bump aqua tools version
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2023.12.30]
 
 ### Added - 新機能について
