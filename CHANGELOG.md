@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.01.04]
+
+### Added - 新機能について
+
+- Add mise fish completion
+
+### Changed - 既存機能の変更について
+
+- rtx to mise
+    - Fix #147
+- Update update_fish_completions
+- Update lazy-lock.json
+- Update asdf tools version
+    - vim 9.1.0
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.01.01]
 
 ### Added - 新機能について
