@@ -51,6 +51,7 @@ i3-style
 just
 lsd
 mask
+mise
 monolith
 natls
 navi
@@ -65,7 +66,6 @@ rana
 ripgrep
 ripgrep_all
 rrc
-rtx-cli
 sd
 selene
 sheldon

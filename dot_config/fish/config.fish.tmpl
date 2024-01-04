@@ -203,9 +203,9 @@ end
 # Rye
 set -x PATH $HOME/.rye/shims $PATH
 
-# rtx PATHs
-set -x RTX_DATA_DIR $HOME/.rtx
-set -x RTX_CACHE_DIR $RTX_DATA_DIR/cache
+# mise PATHs
+set -x MISE_DATA_DIR $HOME/.mise
+set -x MISE_CACHE_DIR $MISE_DATA_DIR/cache
 
 # luarocks
 set -x PATH $HOME/.luarocks/bin $PATH
@@ -331,10 +331,10 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         /home/linuxbrew/.linuxbrew/bin/brew shellenv fish >> $CACHE_CONFIG_FISH
     end
 
-    # rtx config
-    if command -v rtx >/dev/null 2>&1
-    #echo "# cache rtx shell-integration script" >> $CACHE_CONFIG_FISH
-    #rtx activate fish >> $CACHE_CONFIG_FISH
+    # mise config
+    if command -v mise >/dev/null 2>&1
+    #echo "# cache mise shell-integration script" >> $CACHE_CONFIG_FISH
+    #mise activate fish >> $CACHE_CONFIG_FISH
     end
 
     # starship config
