@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.01.07]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update ripgrep fish completion
+- Update lazy-lock.json
+- Bump aqua tools version
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.01.06]
 
 ### Added - 新機能について
