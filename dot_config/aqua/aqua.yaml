@@ -73,7 +73,7 @@ packages:
 - name: github.com/fatih/gomodifytags
   registry: custom
   version: 'v1.16.0'
-- name: mgechev/revive@v1.3.5
+- name: mgechev/revive@v1.3.6
   registry: custom
 - name: klauspost/asmfmt@v1.3.2
   registry: custom
