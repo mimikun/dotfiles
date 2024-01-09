@@ -122,8 +122,7 @@ end
 
 -- LinuxではPythonのパスを指定する
 if is_linux then
-    vim.g.python_host_prog = "~/.asdf/shims/python2"
-    vim.g.python3_host_prog = "~/.asdf/shims/python3"
+    vim.g.python3_host_prog = "~/.local/share/mise/shims/python"
 end
 
 -- TODO: improve clipboard config

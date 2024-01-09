@@ -1,0 +1,25 @@
+#:schema https://mise.jdx.dev/schema/settings.json
+all_compile = false
+always_keep_download = false
+always_keep_install = false
+asdf_compat = true
+color = true
+disable_default_shorthands = false
+disable_tools = []
+experimental = false
+jobs = 1
+legacy_version_file = true
+legacy_version_file_disable_tools = []
+node_compile = false
+not_found_auto_install = true
+paranoid = false
+plugin_autoupdate_last_check_duration = "7d"
+python_compile = false
+python_venv_auto_create = false
+quiet = false
+raw = false
+#shorthands_file = null
+#task_output = null
+trusted_config_paths = []
+verbose = false
+yes = false

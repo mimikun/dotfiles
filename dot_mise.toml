@@ -4,30 +4,13 @@ lua = "latest"
 luajit = "latest"
 tig = "latest"
 vim = "latest"
-ruby = [
-  "latest",
-]
-neovim = [
-  "nightly",
-  "ref:master",
-  "stable",
-  "latest",
-]
-node = [
-  # lts = 20
-  "20",
-  "21",
-]
-powershell-core = [
-  "latest",
-  "7.4",
-]
-python = [
-  "latest",
-  "2",
-  "3",
-]
-zig = [
-  "master",
-  "latest"
-]
+ruby = "latest"
+neovim = "nightly"
+node = "20"
+powershell-core = "7.4"
+python = "3"
+zig = "master"
+
+[plugins]
+luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
+tig = "https://github.com/koketani/asdf-tig.git"

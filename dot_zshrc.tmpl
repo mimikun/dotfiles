@@ -93,9 +93,6 @@ export NVIM_CACHE="$XDG_CACHE_HOME/$NVIM_APPNAME"
 
 alias pip="python3 -m pip"
 alias vim="nvim"
-if command -v asdf >/dev/null 2>&1; then
-    . $HOME/.asdf/asdf.sh
-fi
 
 # chezmoi
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
@@ -145,8 +142,33 @@ function lk {
 }
 
 # mise
-#export MISE_DATA_DIR=$HOME/.mise
-#export MISE_CACHE_DIR=$MISE_DATA_DIR/cache
+export MISE_CONFIG_DIR="$XDG_CONFIG_HOME/mise"
+export MISE_DATA_DIR="$XDG_DATA_HOME/mise"
+export MISE_CACHE_DIR="$XDG_CACHE_HOME/mise"
+export MISE_GLOBAL_CONFIG_FILE="$MISE_CONFIG_DIR/config.toml"
+export MISE_USE_VERSIONS_HOST=true
+export MISE_LEGACY_VERSION_FILE=1
+export MISE_LOG_FILE="$MISE_CACHE_DIR/mise.log"
+export MISE_ASDF_COMPAT=1
+# If not human rights, MISE_JOBS = 1.
+{{ if (eq .chezmoi.hostname "TanakaPC") }}
+export MISE_JOBS=1
+{{ else }}
+export MISE_JOBS=4
+{{ end }}
+export MISE_SHORTHANDS_FILE="$MISE_CONFIG_DIR/shorthands.toml"
+export MISE_YES=1
+export MISE_NOT_FOUND_AUTO_INSTALL=false
+export MISE_EXPERIMENTAL=1
+export MISE_FISH_AUTO_ACTIVATE=1
+mise activate bash
+export "$XDG_DATA_HOME/mise/shims:$PATH"
+# alias
+alias paleovim="$XDG_DATA_HOME/mise/installs/vim/latest/bin/vim"
+alias neovim="$XDG_DATA_HOME/mise/installs/neovim/nightly/bin/nvim"
+alias pvim=paleovim
+alias nvim=neovim
+alias vim=nvim
 
 # luarocks
 export PATH="$HOME/.luarocks/bin:$PATH"

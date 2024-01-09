@@ -22,8 +22,6 @@
 - [re_boot](https://github.com/mimikun/re_boot)
 - [shut_down](https://github.com/mimikun/shut_down)
 - [supersync](https://github.com/mimikun/supersync)
-- [update_asdf_neovim](https://github.com/mimikun/update_asdf_neovim)
-- [update_asdf_zig_master](https://github.com/mimikun/update_asdf_zig_master)
 - [update_bw](https://github.com/mimikun/update_bw)
 - [update_chromedriver](https://github.com/mimikun/update_chromedriver)
 - [update_completions](https://github.com/mimikun/update_completions)

@@ -1,15 +1,35 @@
-[settings]
-always_keep_download = false
-always_keep_install = false
-asdf_compat = true
-disable_default_shorthands = false
-disable_tools = []
-experimental = false
-jobs = 1
-legacy_version_file = true
-legacy_version_file_disable_tools = []
-plugin_autoupdate_last_check_duration = 10080
-raw = false
-trusted_config_paths = []
-verbose = false
-yes = false
+[tools]
+dotnet-core = "latest"
+lua = "latest"
+luajit = "latest"
+tig = "latest"
+vim = "latest"
+ruby = "latest"
+neovim = [
+  "nightly",
+  "ref:master",
+  "stable",
+  "latest",
+]
+node = [
+  # lts = 20
+  "20",
+  "21",
+]
+powershell-core = [
+  "latest",
+  "7.4",
+]
+python = [
+  "latest",
+  "2",
+  "3",
+]
+zig = [
+  "master",
+  "latest"
+]
+
+[plugins]
+luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
+tig = "https://github.com/koketani/asdf-tig.git"

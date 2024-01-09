@@ -6,9 +6,10 @@ host_name=$(cat /etc/hostname)
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/
 cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
 
-# asdf-vm
-chezmoi add ~/.tool-versions
-chezmoi add ~/asdf_plugin_list.txt
+# mise
+chezmoi add ~/.mise.toml
+chezmoi add ~/.config/mise/config.toml
+chezmoi add ~/.config/mise/settings.toml
 
 # cargo packages
 chezmoi add ~/linux_cargo_packages.txt
@@ -34,28 +35,23 @@ chezmoi add ~/.config/nvim/lazy-lock.json
 chezmoi add ~/.local/bin/chezmoi_post_apply_hook
 chezmoi add ~/.local/bin/chezmoi_pre_apply_hook
 chezmoi add ~/.local/bin/editorconfig
-chezmoi add ~/.local/bin/generate_asdf_plugin_list
 chezmoi add ~/.local/bin/generate_cargo_package_list
 chezmoi add ~/.local/bin/generate_pip_package_list
 chezmoi add ~/.local/bin/git-amend-commit
 chezmoi add ~/.local/bin/git-browse
 chezmoi add ~/.local/bin/git-hash
 chezmoi add ~/.local/bin/git-ignore
-chezmoi add ~/.local/bin/install_asdf_plugins
 chezmoi add ~/.local/bin/install_cargo_packages
 chezmoi add ~/.local/bin/install_gh_extensions
 chezmoi add ~/.local/bin/install_pip_packages
 chezmoi add ~/.local/bin/lk
 chezmoi add ~/.local/bin/numeronym
 chezmoi add ~/.local/bin/pcd
-chezmoi add ~/.local/bin/pueue_update_asdf_zig_master
 chezmoi add ~/.local/bin/pueue_update_cargo_packages
 chezmoi add ~/.local/bin/pueue_update_pip_packages
 chezmoi add ~/.local/bin/re_boot
 chezmoi add ~/.local/bin/read_confirm
 chezmoi add ~/.local/bin/shut_down
-chezmoi add ~/.local/bin/update_asdf_neovim
-chezmoi add ~/.local/bin/update_asdf_zig_master
 chezmoi add ~/.local/bin/update_bat_fish_completion
 chezmoi add ~/.local/bin/update_cargo_packages
 chezmoi add ~/.local/bin/update_chromedriver

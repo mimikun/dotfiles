@@ -54,12 +54,6 @@ github = "mimikun/shut_down"
 [plugins.supersync]
 github = "mimikun/supersync"
 
-[plugins.update_asdf_neovim]
-github = "mimikun/update_asdf_neovim"
-
-[plugins.update_asdf_zig_master]
-github = "mimikun/update_asdf_zig_master"
-
 [plugins.update_bw]
 github = "mimikun/update_bw"
 

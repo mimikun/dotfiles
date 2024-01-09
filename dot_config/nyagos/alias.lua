@@ -21,20 +21,19 @@ if is_linux then
     nyagos.alias.zel = "zellij"
     nyagos.alias.pueuexec = "pueue add --"
 
-    -- asdf
-    local asdf_dir = home .. path_sep .. ".asdf"
-    local asdf_bin = asdf_dir .. path_sep .. "bin"
-    local asdf_shims = asdf_dir .. path_sep .. "shims"
-    nyagos.envadd("PATH", asdf_bin, asdf_shims)
-    nyagos.envadd("ASDF_DIR", nyagos.getenv("ASDF_DIR") or asdf_dir)
-    nyagos.envadd("ASDF_DATA_DIR", nyagos.getenv("ASDF_DATA_DIR") or asdf_dir)
-    nyagos.envadd("ASDF_CONFIG_FILE", nyagos.getenv("ASDF_CONFIG_FILE") or home .. path_sep .. ".asdfrc")
+    -- mise
+    -- TODO: Run mise_activate_nyagos
+    local mise_dir = home .. path_sep .. ".local" .. path_sep .. "share" .. path_sep .. "mise"
+    local mise_shims = mise_dir .. path_sep .. "shims"
+    -- Add mise shims to path
+    nyagos.envadd("PATH", mise_shims)
 
-    -- vim alias
-    local paleovim = asdf_shims .. path_sep .. "vim"
+    -- paleovim alias
+    local paleovim = mise_shims .. path_sep .. "vim"
     nyagos.alias.paleovim = paleovim
     nyagos.alias.pvim = paleovim
-    local neovim = asdf_shims .. path_sep .. "nvim"
+    -- neovim alias
+    local neovim = mise_shims .. path_sep .. "nvim"
     nyagos.alias.neovim = neovim
     nyagos.alias.vim = neovim
 end
