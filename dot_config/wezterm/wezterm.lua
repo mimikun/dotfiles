@@ -113,13 +113,19 @@ config.leader = keymaps.leader
 config.keys = keymaps.keys
 
 -- フォントを FiraCode Nerd Font Mono にする
-config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = 450, stretch = "Normal", style = "Normal" })
+config.font = wezterm.font_with_fallback({
+    { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
+})
+--config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = 450, stretch = "Normal", style = "Normal" })
+--config.font = wezterm.font("Cica", {weight="Regular", stretch="Normal", style="Normal"})
+
 -- フォントサイズ
 -- azusa の場合は少し大きくする
 if is_azusa then
     config.font_size = 22
 else
-    config.font_size = 12
+    config.font_size = 14
 end
 -- 行の高さを 1 にする
 config.line_height = 1
