@@ -8,6 +8,8 @@ RESULT_FILE="CHANGELOG.md"
 {
     echo "## run"
     echo ""
+    git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d' | sed -e 's/^/- /g'
+    echo ""
     echo '```bash'
     git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d'
     echo '```'
