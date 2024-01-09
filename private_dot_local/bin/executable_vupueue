@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.9.0"
+readonly PRODUCT_VERSION="0.10.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -69,18 +69,6 @@ mac() {
   brew_update
 }
 
-update_asdf_tools() {
-  for i in $(asdf plugin list); do
-    echo "asdf install $i latest"
-    pueue add -- "asdf install $i latest"
-  done
-}
-
-pueue_update_asdf_nodejs_lts() {
-  nodejs_lts_ver=$(asdf nodejs resolve lts --latest-available)
-  pueue add -- "asdf install nodejs $nodejs_lts_ver"
-}
-
 # other
 other_tools() {
   # Upgrade Rust toolchains
@@ -95,9 +83,9 @@ other_tools() {
   echo "bun upgrade"
   pueue add -- "bun upgrade"
 
-  # Upgrade asdf
-  echo "asdf update"
-  pueue add -- "asdf update"
+  # Upgrade mise
+  echo "mise upgrade"
+  pueue add -- "mise upgrade"
 
   # tldr update
   echo "tldr --update"
@@ -120,24 +108,6 @@ no_pueue_other_tools() {
   # Upgrade fisher
   fish -c 'fisher update'
 
-  asdf plugin update --all
-  update_asdf_tools
-
-  echo "asdf install neovim ref:master"
-  update_asdf_neovim master --use-pueue
-
-  echo "asdf install neovim stable"
-  update_asdf_neovim stable --use-pueue
-
-  echo "asdf install neovim nightly"
-  update_asdf_neovim nightly --use-pueue
-
-  echo "asdf install zig master"
-  pueue_update_asdf_zig_master
-
-  echo "asdf install nodejs lts"
-  pueue_update_asdf_nodejs_lts
-
   # Update rust tools
   echo "update_cargo_packages"
   pueue_update_cargo_packages
@@ -145,10 +115,6 @@ no_pueue_other_tools() {
   # Create cargo_packages.txt
   echo "generate_cargo_package_list"
   generate_cargo_package_list
-
-  # Create asdf_plugin_list.txt
-  echo "generate_asdf_plugin_list"
-  generate_asdf_plugin_list
 
   echo "update_fish_completions"
   update_fish_completions

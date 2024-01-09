@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.8.0"
+readonly PRODUCT_VERSION="0.9.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -69,16 +69,6 @@ mac() {
   brew_update
 }
 
-update_asdf_tools() {
-  for i in $(asdf plugin list); do
-    asdf install "$i" latest
-  done
-}
-
-update_asdf_nodejs_lts() {
-  asdf install nodejs "$(asdf nodejs resolve lts --latest-available)"
-}
-
 # other
 other_tools() {
   # Upgrade Rust toolchains
@@ -87,8 +77,8 @@ other_tools() {
   deno upgrade
   # Upgrade bun
   bun upgrade
-  # Upgrade asdf
-  asdf update
+  # Upgrade mise
+  mise upgrade
   # Upgrade docker-compose
   update_docker_compose
   # Upgrade chromedriver
@@ -107,18 +97,10 @@ other_tools() {
   flyctl version upgrade
   # Upgrade fisher
   fish -c 'fisher update'
-  asdf plugin update --all
-  update_asdf_tools
-  update_asdf_neovim master
-  update_asdf_neovim stable
-  update_asdf_neovim nightly
-  update_asdf_zig_master
   # Update rust tools
   update_cargo_packages
   # Create cargo_packages.txt
   generate_cargo_package_list
-  # Create asdf_plugin_list.txt
-  generate_asdf_plugin_list
   # Update pnpm
   update_pnpm
   update_fish_completions
