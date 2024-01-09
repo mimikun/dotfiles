@@ -1,4 +1,5 @@
 return {
+    -- Lua themes
     {
         "projekt0n/github-nvim-theme",
         lazy = false,
@@ -8,6 +9,50 @@ return {
         config = function()
             require("github-theme").setup({})
         end,
+        --cond = false,
+    },
+    {
+        "scottmckendry/cyberdream.nvim",
+        --lazy = false,
+        --event = "VeryLazy",
+        --priority = 1000,
+
+        config = function()
+            local cyberdream = require("cyberdream")
+            cyberdream.setup({
+                -- Enable transparent background
+                transparent = true,
+                -- Enable italics comments
+                italic_comments = true,
+                -- Replace all fillchars with ' ' for the ultimate clean look
+                hide_fillchars = true,
+                -- Modern borderless telescope theme
+                borderless_telescope = true,
+            })
+        end,
+        --cond = false,
+    },
+    {
+        "crispybaccoon/evergarden",
+        --lazy = false,
+        --event = "VeryLazy",
+        --priority = 1000,
+
+        opts = {
+            transparent_background = true,
+            -- 'hard'|'medium'|'soft'
+            contrast_dark = "medium",
+            override_terminal = true,
+            style = {
+                tabline = { reverse = true, color = "green" },
+                search = { reverse = false, inc_reverse = true },
+                types = { italic = true },
+                keyword = { italic = true },
+                comment = { italic = false },
+            },
+            -- add custom overrides
+            overrides = {},
+        },
         --cond = false,
     },
     {
@@ -82,6 +127,27 @@ return {
         --cond = false,
     },
     {
+        "shaunsingh/nord.nvim",
+        --lazy = false,
+        --event = "VeryLazy",
+        --priority = 1000,
+
+        --cond = false,
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        --lazy = false,
+        --event = "VeryLazy",
+        priority = 1000,
+
+        config = function()
+            require("catppuccin").setup({})
+        end,
+        --cond = false,
+    },
+    -- VimScript themes
+    {
         -- NOTE: duplicate
         "crusoexia/vim-monokai",
         --lazy = false,
@@ -108,26 +174,6 @@ return {
         --event = "VeryLazy",
         --priority = 1000,
 
-        --cond = false,
-    },
-    {
-        "shaunsingh/nord.nvim",
-        --lazy = false,
-        --event = "VeryLazy",
-        --priority = 1000,
-
-        --cond = false,
-    },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        --lazy = false,
-        --event = "VeryLazy",
-        priority = 1000,
-
-        config = function()
-            require("catppuccin").setup({})
-        end,
         --cond = false,
     },
     {
