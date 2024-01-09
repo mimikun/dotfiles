@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.01.09]
+
+### Added - 新機能について
+
+- Add new neovim plugin: hawtkeys.nvim
+- Use mise
+- Add new neovim themes: evergarden, cyberdream.nvim
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update utils/changelog.sh
+- Change wezterm font
+- Update neovim themes
+- Sort themes
+- Update vup(ueue) command
+- Update update_fish_completions command
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+- Remove asdf
+
+### Fixed - 不具合修正について
+
+- Fix utils/benchmark.sh
+- Code cleanup
+
 ## [v2024.01.08]
 
 ### Added - 新機能について
