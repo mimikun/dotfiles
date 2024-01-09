@@ -19,10 +19,6 @@ for cmd in "poetry" "rustup" "starship" "deno"; do
   fi
 done
 
-if command_exist asdf; then
-  pueue add -- "cp ${HOME}/.asdf/completions/asdf.fish ${COMPLETIONS_DIR}/asdf.fish"
-fi
-
 if command_exist bun; then
   pueue add -- "bun completions"
 fi
