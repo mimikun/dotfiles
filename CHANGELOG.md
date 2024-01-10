@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.01.10]
+
+### Added - 新機能について
+
+- Add new rust tool: sshx
+- Add some aqua packages
+    - actionlint, clive, ttyd, vhs
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update .chezmoiignore
+- Update utils/changelog.sh
+- Improved wezterm config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix config.fish
+
 ## [v2024.01.09]
 
 ### Added - 新機能について
