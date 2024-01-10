@@ -72,6 +72,7 @@ sheldon
 shellharden
 silicon
 skim
+sshx
 starship
 stylua
 taplo-cli
