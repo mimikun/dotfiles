@@ -1,5 +1,7 @@
--- 参考: https://karukichi-blog.netlify.app/blogs/wezterm
 local wezterm = require("wezterm")
+local global = require("global")
+local keybinds = require("keybinds")
+local mousebinds = require("mousebinds")
 
 local config = {}
 
@@ -7,136 +9,45 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-local global = require("global")
 local hostname = global.hostname
 local is_wsl = global.is_wsl
 local is_azusa = global.is_azusa
 local is_human_rights = global.is_human_rights
 
--- デバッグ用
-local function debug_log_print()
-    --wezterm.log_info("Default hyperlink rules " .. wezterm.default_hyperlink_rules())
-    --wezterm.log_info("Default ssh domains" .. wezterm.default_ssh_domains())
-    --wezterm.log_info("Default wsl domains" .. wezterm.default_wsl_domains())
-    wezterm.log_info("Config Dir " .. wezterm.config_dir)
-    wezterm.log_info("Config file " .. wezterm.config_file)
-    wezterm.log_info("Version " .. wezterm.version)
-    wezterm.log_info("Exe dir " .. wezterm.executable_dir)
-    wezterm.log_info("Hostname " .. hostname)
-    wezterm.log_info("Running under wsl" .. tostring(is_wsl))
-    config.debug_key_events = true
+local base_font_size = 14
+local wf_font_size = 10
+
+if is_azusa then
+    base_font_size = 22
+    wf_font_size = 12
 end
 
--- os.dateによって返却された数値から曜日を判定し、漢字に変換する
--- (曜日, 1–7, 日曜日が 1)
-local day_of_week_ja = { "日", "月", "火", "水", "木", "金", "土" }
+require("format")
+require("status")
+require("event")
 
--- 年月日と時間をステータスバーに表示する
--- ノートPCの場合はバッテリーも表示する
--- ウィンドウが最初に表示されてから1秒後に開始され、1秒に1回トリガーされるイベント
-wezterm.on("update-status", function(window, pane)
-    -- 日付のtableを作成する方法じゃないと曜日の取得がうまくいかなかった
-    -- NOTE: https://www.lua.org/pil/22.1.html
-    local wday = os.date("*t").wday
-    -- 指定子の後に半角スペースをつけないと正常に表示されなかった
-    local wday_ja = string.format("(%s)", day_of_week_ja[wday])
-    local date = wezterm.strftime("📆 %Y-%m-%d " .. wday_ja .. " ⏰ %H:%M:%S")
-
-    -- バッテリー型PCのみ
-    local bat = ""
-
-    for _, b in ipairs(wezterm.battery_info()) do
-        local battery_state_of_charge = b.state_of_charge * 100
-        local battery_icon = ""
-
-        -- Use https://www.nerdfonts.com/cheat-sheet
-        if battery_state_of_charge >= 90 then
-            -- nf-md-battery
-            battery_icon = "󰁹  "
-        elseif battery_state_of_charge >= 80 then
-            -- nf-md-battery_90
-            battery_icon = "󰂂  "
-        elseif battery_state_of_charge >= 70 then
-            -- nf-md-battery_80
-            battery_icon = "󰂁  "
-        elseif battery_state_of_charge >= 60 then
-            -- nf-md-battery_70
-            battery_icon = "󰂀  "
-        elseif battery_state_of_charge >= 50 then
-            -- nf-md-battery_60
-            battery_icon = "󰁿  "
-        elseif battery_state_of_charge >= 40 then
-            -- nf-md-battery_50
-            battery_icon = "󰁾  "
-        elseif battery_state_of_charge >= 30 then
-            -- nf-md-battery_40
-            battery_icon = "󰁽  "
-        elseif battery_state_of_charge >= 20 then
-            -- nf-md-battery_30
-            battery_icon = "󰁼  "
-        elseif battery_state_of_charge >= 10 then
-            -- nf-md-battery_20
-            battery_icon = "󰁻  "
-        else
-            -- nf-md-battery_outline
-            battery_icon = "󰂎  "
-        end
-
-        bat = string.format("%s%.0f%% ", battery_icon, battery_state_of_charge)
-    end
-
-    window:set_right_status(wezterm.format({
-        { Text = date .. "  " .. bat },
-    }))
-end)
-
--- タブの表示をカスタマイズ
-wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-    local tab_index = tab.tab_index + 1
-
-    -- Copymode時のみ、"Copymode..."というテキストを表示
-    if tab.is_active and string.match(tab.active_pane.title, "Copy mode:") ~= nil then
-        return string.format(" %d %s ", tab_index, "Copy mode...")
-    end
-
-    return string.format(" %d ", tab_index)
-end)
-
-local colors = require("colors")
--- カラースキームを GitHub Dark にする
-config.color_scheme = colors.color_scheme
-config.colors = colors.colors
-
--- キーバインドの設定
-local keymaps = require("keymaps")
-config.leader = keymaps.leader
-config.keys = keymaps.keys
-
--- フォントを FiraCode Nerd Font Mono にする
+config.color_scheme = "GitHub Dark"
+config.window_background_opacity = 0.93
 config.font = wezterm.font_with_fallback({
     { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
 })
---config.font = wezterm.font("FiraCode Nerd Font Mono", { weight = 450, stretch = "Normal", style = "Normal" })
---config.font = wezterm.font("Cica", {weight="Regular", stretch="Normal", style="Normal"})
 
--- フォントサイズ
--- azusa の場合は少し大きくする
-if is_azusa then
-    config.font_size = 22
-else
-    config.font_size = 14
-end
--- 行の高さを 1 にする
-config.line_height = 1
-config.use_fancy_tab_bar = false
--- IME を使用する
-config.use_ime = true
--- アクティブではないペインの彩度を変更しない
-config.inactive_pane_hsb = {
-    saturation = 1,
-    brightness = 1,
+config.font_size = base_font_size
+config.window_frame = {
+    font = wezterm.font({ family = "Roboto", weight = "Bold" }),
+    font_size = wf_font_size,
 }
+config.leader = keybinds.leader
+config.keys = keybinds.keys
+config.key_tables = keybinds.key_tables
+config.mouse_bindings = mousebinds.mouse_bindings
+config.disable_default_key_bindings = true
+config.line_height = 1
+config.use_ime = true
+config.initial_rows = 30
+config.initial_cols = 120
+config.window_decorations = "RESIZE"
 
 if not is_azusa then
     local wsl_domain
@@ -148,10 +59,8 @@ if not is_azusa then
         wsl_domain = "WSL:Ubuntu-20.04"
     end
 
-    -- デフォルトで開かれるものを決める
     config.default_domain = wsl_domain
 
-    -- ランチャーメニュー(+ ボタン右クリックで出る) を設定する
     config.launch_menu = {
         {
             label = "WSL Ubuntu",
@@ -189,17 +98,19 @@ if not is_azusa then
     }
 end
 
--- 画面の初期サイズを決める
--- https://wezfurlong.org/wezterm/config/lua/config/initial_rows.html
--- https://wezfurlong.org/wezterm/config/lua/config/initial_cols.html
-config.initial_rows = 30
-config.initial_cols = 120
+local function debug_log_print()
+    --wezterm.log_info("Default hyperlink rules " .. wezterm.default_hyperlink_rules())
+    --wezterm.log_info("Default ssh domains" .. wezterm.default_ssh_domains())
+    --wezterm.log_info("Default wsl domains" .. wezterm.default_wsl_domains())
+    wezterm.log_info("Config Dir " .. wezterm.config_dir)
+    wezterm.log_info("Config file " .. wezterm.config_file)
+    wezterm.log_info("Version " .. wezterm.version)
+    wezterm.log_info("Exe dir " .. wezterm.executable_dir)
+    wezterm.log_info("Hostname " .. hostname)
+    wezterm.log_info("Running under wsl" .. tostring(is_wsl))
+    config.debug_key_events = true
+end
 
--- Unicode のバージョンを指定する
--- https://wezfurlong.org/wezterm/config/lua/config/unicode_version.html
---config.unicode_version = 9
-
--- Print debug log
 debug_log_print()
 
 return config
