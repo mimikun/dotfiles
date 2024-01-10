@@ -66,11 +66,16 @@ OneDrive/**
 ## Windows
 {{ else if eq .chezmoi.os "windows" }}
 .actrc
-.asdfrc
 .exrc
 .nanorc
+.mise.toml
 .zshrc
+.config/emacs/**
 .config/fish/**
+.config/i3status-rust/**
+.config/ion/**
+.config/neofetch/**
+.config/mise/**
 .config/neofetch/**
 .config/nvim/**
 .config/powershell/**
@@ -79,7 +84,6 @@ OneDrive/**
 .local/bin/**
 .vim/**
 
-asdf_plugin_list.txt
 Brewfile
 linux_cargo_packages.txt
 linux_pip_packages.txt
