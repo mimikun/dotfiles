@@ -303,7 +303,7 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     if command -v mise >/dev/null 2>&1
         echo "# cache mise shell-integration script" >> $CACHE_CONFIG_FISH
         mise activate fish >> $CACHE_CONFIG_FISH
-        echo "# Add mise shims to path"
+        echo "# Add mise shims to path" >> $CACHE_CONFIG_FISH
         echo 'set -x PATH "$XDG_DATA_HOME/mise/shims" $PATH' >> $CACHE_CONFIG_FISH
         echo "# alias" >> $CACHE_CONFIG_FISH
         echo 'alias paleovim "$XDG_DATA_HOME/mise/installs/vim/latest/bin/vim"' >> $CACHE_CONFIG_FISH
