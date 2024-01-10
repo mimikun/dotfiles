@@ -11,6 +11,8 @@ RESULT_FILE="CHANGELOG.md"
     git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d' | sed -e 's/^/- /g'
     echo ""
     echo '```bash'
+    echo 'git commit -m "WIP:'
+    echo '" --allow-empty'
     git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d'
     echo '```'
     echo ""
