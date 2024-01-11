@@ -19,7 +19,8 @@ exec --no-startup-id nm-applet
 # Auto-Launch Japanese IME
 exec --no-startup-id fcitx5
 # Set wallpaper
-exec --no-startup-id setwallpaper ~/.kabegami/azusa_02.jpg
+#exec --no-startup-id setwallpaper ~/.kabegami/azusa/azusa_02.jpg
+exec --no-startup-id setrandom ~/.kabegami/random
 
 # pactl を使用して PulseAudio の音量を調整します。
 set $refresh_i3status killall -SIGUSR1 i3status
