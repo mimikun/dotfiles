@@ -1,4 +1,16 @@
 local wezterm = require("wezterm")
+local nf = wezterm.nerdfonts
+local console_icon = "" .. " "
+console_icon = nf.md_console_line .. " "
+local zoom_icon = "🔎" .. " "
+--TODO: choice icon
+zoom_icon = nf.cod_zoom_in .. " "
+zoom_icon = nf.oct_zoom_in .. " "
+zoom_icon = nf.md_magnify .. " "
+zoom_icon = nf.md_magnify_plus .. " "
+zoom_icon = nf.fa_expand .. " "
+zoom_icon = nf.md_arrow_expand_all .. " "
+zoom_icon = nf.md_arrow_expand .. " "
 
 local function BaseName(s)
     return string.gsub(s, "(.*[/\\])(.*)", "%2")
@@ -8,7 +20,7 @@ wezterm.on("format-window-title", function(tab)
     return BaseName(tab.active_pane.foreground_process_name)
 end)
 
-local HEADER = ""
+local HEADER = console_icon
 
 local SYMBOL_COLOR = { "#ffb2cc", "#a4a4a4" }
 local FONT_COLOR = { "#dddddd", "#888888" }
@@ -19,7 +31,7 @@ wezterm.on("format-tab-title", function(tab, hover)
     local index = tab.is_active and 1 or 2
 
     local bg = hover and HOVER_COLOR or BACK_COLOR
-    local zoomed = tab.active_pane.is_zoomed and "🔎 " or " "
+    local zoomed = tab.active_pane.is_zoomed and zoom_icon or " "
 
     return {
         { Foreground = { Color = SYMBOL_COLOR[index] } },

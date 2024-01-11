@@ -1,4 +1,42 @@
 local wezterm = require("wezterm")
+local nf = wezterm.nerdfonts
+
+-- Right icons
+local normal_key_icon = "" .. " "
+normal_key_icon = nf.md_alphabetical_variant .. " "
+local leader_key_icon = "" .. " "
+leader_key_icon = nf.fa_keyboard_o .. " "
+local ime_icon = "あ" .. " "
+ime_icon = nf.md_syllabary_hiragana .. " "
+
+-- Left icons
+local host_icon = "" .. " "
+host_icon = nf.md_monitor .. " "
+local date_icon = "󱪺" .. " "
+date_icon = nf.fa_calendar .. " "
+local battery_icon = "" .. " "
+battery_icon = nf.fa_battery_three_quarters .. " "
+
+-- TODO: choice icon
+local cwd_icon = "" .. " "
+cwd_icon = nf.cod_folder_opened .. " "
+cwd_icon = nf.custom_folder_open .. " "
+cwd_icon = nf.fa_folder_open .. " "
+cwd_icon = nf.fa_folder_open_o .. " "
+cwd_icon = nf.md_folder_open .. " "
+cwd_icon = nf.md_folder_open_outline .. " "
+cwd_icon = nf.oct_file_directory_fill .. " "
+cwd_icon = nf.oct_file_directory .. " "
+cwd_icon = nf.oct_file_directory_open_fill .. " "
+
+-- TODO: choice icon
+local time_icon = "" .. " "
+time_icon = nf.fa_clock_o .. " "
+time_icon = nf.md_clock .. " "
+time_icon = nf.md_clock_outline .. " "
+time_icon = nf.oct_clock_fill .. " "
+time_icon = nf.oct_clock .. " "
+time_icon = nf.seti_clock .. " "
 
 local DEFAULT_FG = { Color = "#9a9eab" }
 local DEFAULT_BG = { Color = "#333333" }
@@ -7,9 +45,9 @@ local SPACE_1 = " "
 local SPACE_3 = "   "
 
 -- Left Status
-local HEADER_KEY_NORMAL = { Foreground = DEFAULT_FG, Text = " " }
-local HEADER_LEADER = { Foreground = { Color = "#ffffff" }, Text = " " }
-local HEADER_IME = { Foreground = DEFAULT_FG, Text = "あ " }
+local HEADER_KEY_NORMAL = { Foreground = DEFAULT_FG, Text = normal_key_icon }
+local HEADER_LEADER = { Foreground = { Color = "#ffffff" }, Text = leader_key_icon }
+local HEADER_IME = { Foreground = DEFAULT_FG, Text = ime_icon }
 
 local function AddIcon(elems, icon)
     table.insert(elems, { Foreground = icon.Foreground })
@@ -33,11 +71,11 @@ local function LeftUpdate(window)
 end
 
 -- Right Status
-local HEADER_HOST = { Foreground = { Color = "#75b1a9" }, Text = " " }
-local HEADER_CWD = { Foreground = { Color = "#92aac7" }, Text = " " }
-local HEADER_DATE = { Foreground = { Color = "#ffccac" }, Text = "󱪺 " }
-local HEADER_TIME = { Foreground = { Color = "#bcbabe" }, Text = " " }
-local HEADER_BATTERY = { Foreground = { Color = "#dfe166" }, Text = " " }
+local HEADER_HOST = { Foreground = { Color = "#75b1a9" }, Text = host_icon }
+local HEADER_CWD = { Foreground = { Color = "#92aac7" }, Text = cwd_icon }
+local HEADER_DATE = { Foreground = { Color = "#ffccac" }, Text = date_icon }
+local HEADER_TIME = { Foreground = { Color = "#bcbabe" }, Text = time_icon }
+local HEADER_BATTERY = { Foreground = { Color = "#dfe166" }, Text = battery_icon }
 
 local function AddElement(elems, header, str)
     table.insert(elems, { Foreground = header.Foreground })
@@ -90,41 +128,40 @@ local function GetBatteryWithIcon(elems)
 
     for _, b in ipairs(wezterm.battery_info()) do
         local battery_state_of_charge = b.state_of_charge * 100
-        local battery_icon = ""
-        -- Use https://www.nerdfonts.com/cheat-sheet
+        local battery_charge_icon = ""
         if battery_state_of_charge >= 90 then
-            -- nf-md-battery
-            battery_icon = "󰁹 "
+            battery_charge_icon = nf.md_battery .. " "
+            battery_charge_icon = nf.md_battery_charging_100 .. " "
         elseif battery_state_of_charge >= 80 then
-            -- nf-md-battery_90
-            battery_icon = "󰂂 "
+            battery_charge_icon = nf.md_battery_90 .. " "
+            battery_charge_icon = nf.md_battery_charging_90 .. " "
         elseif battery_state_of_charge >= 70 then
-            -- nf-md-battery_80
-            battery_icon = "󰂁 "
+            battery_charge_icon = nf.md_battery_80 .. " "
+            battery_charge_icon = nf.md_battery_charging_80 .. " "
         elseif battery_state_of_charge >= 60 then
-            -- nf-md-battery_70
-            battery_icon = "󰂀 "
+            battery_charge_icon = nf.md_battery_70 .. " "
+            battery_charge_icon = nf.md_battery_charging_70 .. " "
         elseif battery_state_of_charge >= 50 then
-            -- nf-md-battery_60
-            battery_icon = "󰁿 "
+            battery_charge_icon = nf.md_battery_60 .. " "
+            battery_charge_icon = nf.md_battery_charging_60 .. " "
         elseif battery_state_of_charge >= 40 then
-            -- nf-md-battery_50
-            battery_icon = "󰁾 "
+            battery_charge_icon = nf.md_battery_50 .. " "
+            battery_charge_icon = nf.md_battery_charging_50 .. " "
         elseif battery_state_of_charge >= 30 then
-            -- nf-md-battery_40
-            battery_icon = "󰁽 "
+            battery_charge_icon = nf.md_battery_40 .. " "
+            battery_charge_icon = nf.md_battery_charging_40 .. " "
         elseif battery_state_of_charge >= 20 then
-            -- nf-md-battery_30
-            battery_icon = "󰁼 "
+            battery_charge_icon = nf.md_battery_30 .. " "
+            battery_charge_icon = nf.md_battery_charging_30 .. " "
         elseif battery_state_of_charge >= 10 then
-            -- nf-md-battery_20
-            battery_icon = "󰁻 "
+            battery_charge_icon = nf.md_battery_20 .. " "
+            battery_charge_icon = nf.md_battery_charging_20 .. " "
         else
-            -- nf-md-battery_outline
-            battery_icon = "󰂎 "
+            battery_charge_icon = nf.md_battery_outline .. " "
+            battery_charge_icon = nf.md_battery_charging_outline .. " "
         end
 
-        local HEADER_BATTERY_ICON = { Foreground = { Color = "#dfe166" }, Text = battery_icon }
+        local HEADER_BATTERY_ICON = { Foreground = { Color = "#dfe166" }, Text = battery_charge_icon }
         bat = string.format("%s%.0f%% ", battery_state_of_charge)
         AddElement(elems, HEADER_BATTERY_ICON, bat)
     end
