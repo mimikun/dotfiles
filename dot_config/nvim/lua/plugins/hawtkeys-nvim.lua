@@ -8,6 +8,6 @@ return {
         "HawtkeysDupes",
     },
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = {},
+    opts = {},
     --cond = false,
 }
