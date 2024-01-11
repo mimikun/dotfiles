@@ -22,7 +22,8 @@ powershell-core = [
 ]
 python = [
   "latest",
-  "2",
+  # mise cannot install python v2
+  #"2",
   "3",
 ]
 zig = [
