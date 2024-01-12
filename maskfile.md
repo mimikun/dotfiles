@@ -310,7 +310,6 @@ chezmoi add ~/.local/bin/update_pnpm
 chezmoi add ~/.local/bin/update_poetry
 chezmoi add ~/.local/bin/update_twitch_cli
 chezmoi add ~/.local/bin/vup
-chezmoi add ~/.local/bin/vupueue
 chezmoi add ~/.local/bin/wsl-open
 ```
 

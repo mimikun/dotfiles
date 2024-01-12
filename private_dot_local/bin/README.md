@@ -39,7 +39,6 @@
     - install_gh_extensions
 - [vup](https://github.com/mimikun/vup)
     - vup
-    - vupueue
 - [walk](https://github.com/antonmedv/walk)
     - lk
 - [wsl-open](https://gitlab.com/4U6U57/wsl-open)
