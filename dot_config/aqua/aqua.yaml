@@ -20,7 +20,7 @@ packages:
 - name: muesli/duf@v0.8.1
 - name: junegunn/fzf@0.45.0
 - name: x-motemen/ghq@v1.4.2
-- name: cli/cli@v2.41.0
+- name: cli/cli@v2.42.0
 - name: jqlang/jq@jq-1.7.1
 - name: peco/peco@v0.5.11
 - name: koalaman/shellcheck@v0.9.0
@@ -31,7 +31,7 @@ packages:
 - name: editorconfig-checker/editorconfig-checker@2.7.2
 - name: osteele/gojekyll@v0.2.9
 - name: golangci/golangci-lint@v1.55.2
-- name: tdewolff/minify@v2.20.12
+- name: tdewolff/minify@v2.20.13
 - name: sheepla/pingu@v0.0.5
 - name: stateful/runme@v2.2.0
 - name: bronze1man/yaml2json@v1.3
@@ -40,10 +40,10 @@ packages:
 - name: mattn/algia@v0.0.54
 - name: chriswalz/bit@v1.1.2
 - name: koki-develop/gat@v0.15.1
-- name: golang/tools/goimports@v0.16.1
-- name: golang/tools/gorename@v0.16.1
+- name: golang/tools/goimports@v0.17.0
+- name: golang/tools/gorename@v0.17.0
 - name: hherman1/gq@v0.0.3
-- name: golang/tools/guru@v0.16.1
+- name: golang/tools/guru@v0.17.0
 - name: itchyny/json2yaml@v0.1.4
 - name: koki-develop/sheep@v0.4.0
 - name: rhysd/vim-startuptime@v1.3.1
