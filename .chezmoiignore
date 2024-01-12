@@ -1,6 +1,9 @@
 # See: https://github.com/mimikun/pvim-migrate2dpp.git
 .vim/**
 
+# rofi customize now
+.config/rofi/**
+
 ## All
 .editorconfig
 .github/**
@@ -42,8 +45,12 @@ utils/**
 .xinitrc
 .xmodmap
 .xsession
+
 .config/i3/**
+.config/i3status-rust/**
 .config/fcitx5/**
+.config/betterlockscreen/**
+.config/polybar/**
 .config/rofi/**
 {{ end }}
 
@@ -72,6 +79,7 @@ OneDrive/**
 .zshrc
 .config/emacs/**
 .config/fish/**
+.config/flameshot/**
 .config/i3status-rust/**
 .config/ion/**
 .config/neofetch/**
