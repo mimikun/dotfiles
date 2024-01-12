@@ -40,6 +40,8 @@ export windl="$WIN_HOME/Downloads"
 export WIN_DESKTOP= "$WIN_HOME/Desktop"
 export WIN_DOCUMENTS= "$WIN_HOME/Documents"
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
+
+export DISPLAY="$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0"
 {{ end }}
 
 export obsidian_vault_path="$obsidian_vault_root_path"

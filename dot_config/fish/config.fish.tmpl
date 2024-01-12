@@ -54,6 +54,8 @@ set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
 set -x obsidian $obsidian_dailynote_path
 set dailynote_slug (date +"%Y年%m月%d日")
 set -x today_dailynote "$obsidian_dailynote_path/$dailynote_slug.md"
+
+set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 {{ end }}
 
 set -x CHEZMOI_DIR "$XDG_DATA_HOME/chezmoi"
