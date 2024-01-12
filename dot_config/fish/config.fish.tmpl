@@ -287,6 +287,9 @@ set -x COMPOSER_BIN_DIR $COMPOSER_CONFIG_HOME/vendor/bin
 
 set -x PATH $COMPOSER_BIN_DIR $PATH
 
+# Julia
+set -x PATH "$HOME/.juliaup/bin" $PATH
+
 # cache
 # thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH

@@ -260,6 +260,9 @@ export COMPOSER_BIN_DIR="$COMPOSER_CONFIG_HOME/vendor/bin"
 
 export PATH="$COMPOSER_BIN_DIR:$PATH"
 
+# Julia
+export PATH="$HOME/.juliaup/bin:$PATH"
+
 {{ else if eq .chezmoi.os "darwin" }}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" }}
