@@ -2549,3 +2549,49 @@ Total Min:     125.203000 msec
 ❯ vim-startuptime -vimpathvim | head -n 6
 ```
 
+## 2024.01.12
+
+### Neovim
+
+```shell
+❯ vim-startuptime -vimpath nvim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 437.824000 msec
+Total Max:     623.183000 msec
+Total Min:     262.725000 msec
+```
+
+### Fish-shell
+
+```shell
+❯ hyperfine -w 5 -r 50 "fish -i -c exit"
+Benchmark 1: fish -i -c exit
+  Time (mean ± σ):     144.7 ms ±   5.7 ms    [User: 125.0 ms, System: 26.2 ms]
+  Range (min … max):   133.1 ms … 163.2 ms    50 runs
+ 
+```
+
+### PowerShell Core(Linux) (pwsh)
+
+```powershell
+❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
+Benchmark 1: pwsh -i -c exit
+  Time (mean ± σ):      1.912 s ±  0.348 s    [User: 1.099 s, System: 0.369 s]
+  Range (min … max):    1.702 s …  3.407 s    50 runs
+ 
+```
+
+### Paleovim(vim)
+
+```shell
+❯ vim-startuptime -vimpath vim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 11.695100 msec
+Total Max:     12.989000 msec
+Total Min:     11.010000 msec
+```
+
