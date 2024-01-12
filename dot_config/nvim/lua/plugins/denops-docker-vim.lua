@@ -1,4 +1,4 @@
--- Invalidate if there are no human rights
+-- Disable if there are no human rights
 local cond = require("core.global").is_human_rights
 
 local cmds = {
