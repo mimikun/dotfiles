@@ -266,13 +266,6 @@ if (Test-Path($env:UpdateCargoPackagePath)) {
     Set-Alias -Name update_cargo_package -Value Invoke-UpdateCargoPackage
 }
 
-# alias vup
-$env:VupPath = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com/mimikun/vup/Invoke-Vup.ps1"
-if (Test-Path($env:VupPath)) {
-    . $env:VupPath
-    Set-Alias -Name vup -Value Invoke-Vup
-}
-
 if ($isMSWindows) {
     # pueued auto start
     Get-Process pueued -ErrorAction Ignore | Out-Null
