@@ -1,5 +1,37 @@
 # Changelog
 
+## [v2024.01.12]
+
+### Added - 新機能について
+
+- Add betterlockscreen config
+- Add polybar config
+- Add rofi config
+- Add flameshot config
+- Add DISPLAY env-var in not azusa
+- Add julia PATH
+- Add new neovim plugin: eskk.vim
+- Add new neovim plugin: migemo-search.vim
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Bump aqua tools version
+- Update .chezmoiignore
+- Update utils/update.sh
+- Set i3 wallpaper random
+
+### Removed - 今回で削除された機能について
+
+- Remove fish version vup
+- Remove vupueue
+- Remove powershell version vup
+
+### Fixed - 不具合修正について
+
+- Fix word in neovim plugins
+
 ## [v2024.01.11]
 
 ### Added - 新機能について
