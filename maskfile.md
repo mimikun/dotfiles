@@ -248,6 +248,9 @@ if ($env:COMPUTERNAME -eq "TANAKAPC") {
 
 ```bash
 mask clean
+
+host_name=$(cat /etc/hostname)
+
 # fish
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/
 cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
@@ -311,6 +314,22 @@ chezmoi add ~/.local/bin/update_poetry
 chezmoi add ~/.local/bin/update_twitch_cli
 chezmoi add ~/.local/bin/vup
 chezmoi add ~/.local/bin/wsl-open
+
+# ArchLinux configs
+# HOSTNAME = azusa ONLY
+if [ "$host_name" = "azusa" ]; then
+    chezmoi add ~/.config/i3/config
+    chezmoi add ~/.config/i3status-rust/config.toml
+    chezmoi add ~/.config/fcitx5/config
+    chezmoi add ~/.config/betterlockscreen/betterlockscreenrc
+    chezmoi add ~/.config/polybar/config.ini
+    #chezmoi add ~/.config/rofi/config.rasi
+    chezmoi add ~/.config/flameshot/flameshot.ini
+
+    chezmoi add ~/.xinitrc
+    chezmoi add ~/.xmodmap
+    chezmoi add ~/.Xresources
+fi
 ```
 
 ```powershell

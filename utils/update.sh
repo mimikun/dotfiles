@@ -70,5 +70,14 @@ chezmoi add ~/.local/bin/wsl-open
 # HOSTNAME = azusa ONLY
 if [ "$host_name" = "azusa" ]; then
     chezmoi add ~/.config/i3/config
+    chezmoi add ~/.config/i3status-rust/config.toml
+    chezmoi add ~/.config/fcitx5/config
+    chezmoi add ~/.config/betterlockscreen/betterlockscreenrc
+    chezmoi add ~/.config/polybar/config.ini
+    #chezmoi add ~/.config/rofi/config.rasi
+    chezmoi add ~/.config/flameshot/flameshot.ini
+
+    chezmoi add ~/.xinitrc
+    chezmoi add ~/.xmodmap
     chezmoi add ~/.Xresources
 fi
