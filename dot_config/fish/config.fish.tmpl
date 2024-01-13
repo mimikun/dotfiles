@@ -35,7 +35,7 @@ set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d
 set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
 {{ else if (eq .chezmoi.hostname "azusa") }}
 set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
-set -x OBSIDIAN_VAULT_ROOT ""
+set -x OBSIDIAN_VAULT_ROOT "$HOME/Documents/Obsidian/mimikun"
 {{ else }}
 set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
 set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
@@ -49,14 +49,17 @@ set -x WIN_DESKTOP "$WIN_HOME/Desktop"
 set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
 
 set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
+
+set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+{{ else }}
+set -x obsidian_vault_root_path "$OBSIDIAN_VAULT_ROOT"
+{{ end }}
+
 set -x obsidian_vault_path $obsidian_vault_root_path
 set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
 set -x obsidian $obsidian_dailynote_path
 set dailynote_slug (date +"%Y年%m月%d日")
 set -x today_dailynote "$obsidian_dailynote_path/$dailynote_slug.md"
-
-set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-{{ end }}
 
 set -x CHEZMOI_DIR "$XDG_DATA_HOME/chezmoi"
 

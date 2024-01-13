@@ -47,17 +47,13 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
 $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
 {{ else if (ne .chezmoi.hostname "azusa") }}
-$OBSIDIAN_VAULT_ROOT = ""
+$OBSIDIAN_VAULT_ROOT = Join-Path -Path $env:HOME -ChildPath "Documents/Obsidian/mimikun"
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
 {{ else }}
 $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
 {{ end }}
-
-{{ if (ne .chezmoi.hostname "azusa") }}
 $env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
-{{ end }}
-
 $env:GITHUB_USERNAME = $GITHUB_USERNAME
 
 if ($IsLinux) {

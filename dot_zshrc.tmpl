@@ -24,7 +24,7 @@ export WIN_HOME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d
 export OBSIDIAN_VAULT_ROOT={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
 {{ else if (eq .chezmoi.hostname "azusa") }}
 export GITHUB_USERNAME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
-export OBSIDIAN_VAULT_ROOT=""
+export OBSIDIAN_VAULT_ROOT="$HOME/Documents/Obsidian/mimikun"
 {{ else }}
 export GITHUB_USERNAME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
 export WIN_HOME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
@@ -33,15 +33,15 @@ export OBSIDIAN_VAULT_ROOT={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-a
 
 export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 
-{{ if (eq .chezmoi.hostname "azusa") }}
-export obsidian_vault_root_path="$OBSIDIAN_VAULT_ROOT"
-{{ else }}
+{{ if (ne .chezmoi.hostname "azusa") }}
 export windl="$WIN_HOME/Downloads"
 export WIN_DESKTOP= "$WIN_HOME/Desktop"
 export WIN_DOCUMENTS= "$WIN_HOME/Documents"
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 
 export DISPLAY="$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0"
+{{ else }}
+export obsidian_vault_root_path="$OBSIDIAN_VAULT_ROOT"
 {{ end }}
 
 export obsidian_vault_path="$obsidian_vault_root_path"
