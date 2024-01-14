@@ -53,6 +53,11 @@ clean :
 update : clean
 	bash utils/update.sh
 
+## Copy game settings(Windows only)
+.PHONY : copy-windows-game-settings
+copy-windows-game-settings :
+	bash utils/copy-windows-game-settings.sh
+
 ## Copy patch to Windows
 .PHONY : copy2win-patch-raw
 copy2win-patch-raw :

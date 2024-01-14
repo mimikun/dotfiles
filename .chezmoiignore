@@ -38,6 +38,7 @@ pnpm-lock.yaml
 PSScriptAnalyzerSettings.psd1
 images/**
 utils/**
+game_settings/**
 
 # If not archlinux
 {{ if ne .chezmoi.hostname "azusa" }}
