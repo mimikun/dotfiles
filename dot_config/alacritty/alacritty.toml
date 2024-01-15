@@ -1,0 +1,30 @@
+import = [
+  # general
+  "~/.config/alacritty/general.toml",
+  # env
+  "~/.config/alacritty/env.toml",
+  # window
+  "~/.config/alacritty/window.toml",
+  # scrolling
+  "~/.config/alacritty/scrolling.toml",
+  # font
+  "~/.config/alacritty/font.toml",
+  # colors
+  "~/.config/alacritty/colors.toml",
+  # bell
+  "~/.config/alacritty/bell.toml",
+  # selection
+  "~/.config/alacritty/selection.toml",
+  # cursor
+  "~/.config/alacritty/cursor.toml",
+  # terminal
+  "~/.config/alacritty/terminal.toml",
+  # mouse
+  "~/.config/alacritty/mouse.toml",
+  # hints
+  "~/.config/alacritty/hints.toml",
+  # keyboard
+  "~/.config/alacritty/keyboard.toml",
+  # debug
+  "~/.config/alacritty/debug.toml",
+]

@@ -1,0 +1,2 @@
+[mouse]
+bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]

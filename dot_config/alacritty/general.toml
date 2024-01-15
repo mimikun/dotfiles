@@ -1,0 +1,9 @@
+import = [
+  # Windows
+  "~/AppData/Roaming/alacritty/themes/themes/github_dark.toml",
+  # Linux
+  "~/.config/alacritty/themes/themes/github_dark.toml",
+]
+working_directory = "None"
+live_config_reload = true
+ipc_socket = true
