@@ -39,9 +39,16 @@ insert-final-newline = true
 
 #https://docs.helix-editor.com/configuration.html#editorstatusline-section
 [editor.statusline]
-left = ["mode", "version-control", "file-name" ]
+left = ["mode", "version-control", "file-name"]
 center = ["diagnostics"]
-right = ["file-type", "file-encoding", "file-line-ending", "position-percentage", "position", "total-line-numbers"]
+right = [
+  "file-type",
+  "file-encoding",
+  "file-line-ending",
+  "position-percentage",
+  "position",
+  "total-line-numbers",
+]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -73,7 +80,7 @@ ignore = true
 git-ignore = true
 git-global = true
 git-exclude = true
-max-depth = "None"
+#max-depth = "None"
 
 #https://docs.helix-editor.com/configuration.html#editorauto-pairs-section
 [editor.auto-pairs]
@@ -113,8 +120,8 @@ skip-levels = 0
 layout = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
 
 #https://docs.helix-editor.com/configuration.html#editorguttersline-numbers-section
-[editor-gutters-line-numbers]
-min-width = 3
+#[editor-gutters-line-numbers]
+#min-width = 3
 
 #https://docs.helix-editor.com/configuration.html#editorsoft-wrap-section
 [editor.soft-wrap]
