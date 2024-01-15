@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.01.15]
+
+### Added - 新機能について
+
+- Add comment to i3-config
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update alacritty fish completion
+- Update mise fish completion
+- Update neovim plugin config: eskk.vim
+- Update alacritty config
+- Update typos.toml
+- Update starship config
+- Run taplo format
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix helix config
+
 ## [v2024.01.14]
 
 ### Added - 新機能について
