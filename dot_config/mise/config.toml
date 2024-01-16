@@ -11,7 +11,8 @@ node = [
   "20",
   "21",
 ]
-powershell-core = ["latest", "7.4"]
+# powershell-core plugin cannot be used with mise
+#powershell-core = ["latest", "7.4"]
 python = [
   "latest",
   # mise cannot install python v2

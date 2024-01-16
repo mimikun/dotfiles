@@ -7,7 +7,8 @@ vim = "latest"
 ruby = "latest"
 neovim = "nightly"
 node = "20"
-powershell-core = "7.4"
+# powershell-core plugin cannot be used with mise
+#powershell-core = "7.4"
 python = "3"
 zig = "master"
 
