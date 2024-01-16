@@ -386,10 +386,3 @@ packages:
   - type: go_install
     path: github.com/kisielk/errcheck
     description: errcheck checks that you checked errors.
-
-# TODO: Cannot manage by aqua
-
-#fillstruct
-#https://github.com/davidrjenni/reftools/cmd/fillstruct
-#iferr
-#https://github.com/koron/iferr
