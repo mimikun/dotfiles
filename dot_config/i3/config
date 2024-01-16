@@ -12,8 +12,10 @@ font pango:DejaVu Sans Mono 20
 
 # See also https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
-# Set lock screen
+# TODO: Set lock screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# Screen Lock: Mod+Alt+L
+bindsym $mod+Mod1+l exec betterlockscreen -l
 # Start NetworkManager
 exec --no-startup-id nm-applet
 # Auto-Launch Japanese IME
@@ -170,9 +172,6 @@ bindsym $mod+r mode "resize"
 
 # TODO: Open File-Browser
 # Mod + e
-
-# TODO: Lock PC
-# Mod + l
 
 # TODO: Open ScreenShot Menu
 # Mod + Shift + s
