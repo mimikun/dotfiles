@@ -105,6 +105,11 @@ fi
 if command_exist hx; then
   pueue add -- "update_helix_fish_completion"
 fi
+
 if command_exist hyperfine; then
   pueue add -- "update_hyperfine_fish_completion"
+fi
+
+if command_exist alacritty; then
+  pueue add -- "curl -L https://raw.githubusercontent.com/alacritty/alacritty/master/extra/completions/alacritty.fish -o '${COMPLETIONS_DIR}'/alacritty.fish"
 fi
