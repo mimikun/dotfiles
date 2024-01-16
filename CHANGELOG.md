@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.01.16]
+
+### Added - 新機能について
+
+- Set azusa's Obsidian vault path
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update aqua configs
+- Update STARTUPTIME.md
+- Update mise configs
+- Update mise fish completion
+- Move files that cannot be managed with chezmoi to misc dir
+
+### Removed - 今回で削除された機能について
+
+- Remove unused fish completions
+
+### Fixed - 不具合修正について
+
+- Fix alacritty configs
+
 ## [v2024.01.15]
 
 ### Added - 新機能について
