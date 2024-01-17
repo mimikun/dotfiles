@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.01.17]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update update_fish_completions
+- i3-wm: Set screen lock keybind
+
+### Removed - 今回で削除された機能について
+
+- Remove TODO.md
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.01.16]
 
 ### Added - 新機能について
