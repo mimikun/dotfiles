@@ -53,6 +53,7 @@ pipr
 procs
 pueue
 rana
+rbw
 ripgrep
 rrc
 sd

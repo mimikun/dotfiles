@@ -63,6 +63,7 @@ procs
 pueue
 pylyzer
 rana
+rbw
 ripgrep
 ripgrep_all
 rrc
