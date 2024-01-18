@@ -89,6 +89,7 @@ OneDrive/**
 .config/neofetch/**
 .config/nvim/**
 .config/powershell/**
+.config/pueue/**
 .config/zeno/**
 .ghcup/**
 .local/bin/**
