@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.01.18]
+
+### Added - 新機能について
+
+- Add new rust tool: rbw
+- Add rbw fish completion
+- Add rbw powershell completion
+- Add rbw config
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update zellij configs
+- Update alacritty configs
+- Update update_fish_completions
+- Use rbwFields in tmpl
+- Improved pueue config
+- chezmoi: Ignore pueue configs in windows
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.01.17]
 
 ### Added - 新機能について
