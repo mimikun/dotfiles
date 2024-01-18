@@ -127,6 +127,13 @@ if ($cond) {
         ForEach-Object { $_ -replace $namespace1, "" } |
         ForEach-Object { $_ -replace $namespace2, "" }
     Write-Output $ripgrep_completion >> $env:CACHE_PROFILE
+
+    # rbw completion
+    Write-Output "# cache rbw completion" >> $env:CACHE_PROFILE
+    $rbw_completion = rbw gen-completions powershell |
+        ForEach-Object { $_ -replace $namespace1, "" } |
+        ForEach-Object { $_ -replace $namespace2, "" }
+    Write-Output $rbw_completion >> $env:CACHE_PROFILE
 }
 
 # Loading from cache profile
