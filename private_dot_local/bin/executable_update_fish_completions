@@ -73,6 +73,10 @@ if command_exist sheldon; then
   pueue add -- "sheldon completions --shell fish > '${COMPLETIONS_DIR}'/sheldon.fish"
 fi
 
+if command_exist rbw; then
+  pueue add -- "rbw gen-completions fish > '${COMPLETIONS_DIR}'/rbw.fish"
+fi
+
 if command_exist brew; then
   pueue add -- "cp $(brew --prefix)/Homebrew/completions/fish/brew.fish ${COMPLETIONS_DIR}/brew.fish"
 fi
