@@ -29,17 +29,12 @@ set -x XMODIFIERS "@im=fcitx"
 setxkbmap -option ctrl:nocaps
 {{ end }}
 
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
-set -x GITHUB_USERNAME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}
-set -x WIN_HOME {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
-set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
-{{ else if (eq .chezmoi.hostname "azusa") }}
-set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
+set -x GITHUB_USERNAME {{ (rbwFields "dotfiles-chezmoi").github_username.value }}
+{{ if (eq .chezmoi.hostname "azusa") }}
 set -x OBSIDIAN_VAULT_ROOT "$HOME/Documents/Obsidian/mimikun"
 {{ else }}
-set -x GITHUB_USERNAME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
-set -x WIN_HOME {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
-set -x OBSIDIAN_VAULT_ROOT {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}
+set -x WIN_HOME {{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}
+set -x OBSIDIAN_VAULT_ROOT {{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}
 {{ end }}
 
 {{ if (ne .chezmoi.hostname "azusa") }}
@@ -350,7 +345,7 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") }}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
-    cat $XDG_CONFIG_HOME/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
+    cat $XDG_CONFIG_HOME/{{ (rbwFields "dotfiles-chezmoi").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
     {{ end }}
 end
 source $CACHE_CONFIG_FISH

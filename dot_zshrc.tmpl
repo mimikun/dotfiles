@@ -18,17 +18,12 @@ export XMODIFIERS="@im=fcitx"
 setxkbmap -option ctrl:nocaps
 {{ end }}
 
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
-export GITHUB_USERNAME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}
-export WIN_HOME={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}
-export OBSIDIAN_VAULT_ROOT={{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}
-{{ else if (eq .chezmoi.hostname "azusa") }}
-export GITHUB_USERNAME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
+export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
+{{ if (eq .chezmoi.hostname "azusa") }}
 export OBSIDIAN_VAULT_ROOT="$HOME/Documents/Obsidian/mimikun"
 {{ else }}
-export GITHUB_USERNAME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}
-export WIN_HOME={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}
-export OBSIDIAN_VAULT_ROOT={{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}
+export WIN_HOME="{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}"
+export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
 {{ end }}
 
 export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
