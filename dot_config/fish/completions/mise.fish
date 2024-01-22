@@ -48,6 +48,7 @@ complete -xc mise -n "not $fssf $others" -a which -d 'Shows the path that a bin 
 # activate
 complete -kxc mise -n "$fssf activate" -s q -l quiet -d 'Suppress non-error messages'
 complete -kxc mise -n "$fssf activate" -a "bash fish nu xonsh zsh" -d 'Shell type to generate the script for'
+complete -kxc mise -n "$fssf activate" -l shims -d 'Use shims instead of modifying PATH'
 complete -kxc mise -n "$fssf activate" -l status -d 'Show "mise: <PLUGIN>@<VERSION>" message when changing directories'
 
 # alias
@@ -383,7 +384,8 @@ function __mise_plugins
 end
 function __mise_tool_versions
     if test -z "$__mise_tool_versions_cache"
-        set -g __mise_tool_versions_cache (mise plugins --core --user) (mise ls-remote --all | tac)
+        # sed madness reverses the input-but works on linux/bsd
+        set -g __mise_tool_versions_cache (mise plugins --core --user) (mise ls-remote --all | sed '1!G;h;$!d')
     end
     for tv in $__mise_tool_versions_cache
         echo $tv
