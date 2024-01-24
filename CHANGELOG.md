@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.01.24]
+
+### Added - 新機能について
+
+- Add new rust tool: csvlens
+- Add TerminalOne config
+- Add bitwardenFields template
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update bitwardenFields item_ids
+- Update Windows PowerShell config
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+- Remove chezmoi templates whitespaces
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.01.22]
 
 ### Added - 新機能について
