@@ -25,6 +25,7 @@ choose
 colorgen-nvim
 create-tauri-app
 csview
+csvlens
 desed
 diskonaut
 du-dust
