@@ -16,15 +16,29 @@ export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
 # CapsLock to Ctrl
 setxkbmap -option ctrl:nocaps
-{{ end }}
+{{ end -}}
 
+# env-vars
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
+export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+export WIN_HOME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}"
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+{{ else -}}
+    {{ if eq .chezmoi.os "linux" -}}
 export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
-{{ if (eq .chezmoi.hostname "azusa") }}
+        {{ if eq .chezmoi.hostname "azusa" -}}
 export OBSIDIAN_VAULT_ROOT="$HOME/Documents/Obsidian/mimikun"
-{{ else }}
+        {{ else -}}
 export WIN_HOME="{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}"
 export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
-{{ end }}
+        {{ end -}}
+    {{ else -}}
+# TODO: ITEM_ID
+export GITHUB_USERNAME="{{ (bitwardenFields "item" "ITEM_ID").github_username.value }}"
+export WIN_HOME="{{ (bitwardenFields "item" "ITEM_ID").win_home_path.value }}"
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ITEM_ID").obsidian_vault_root_path.value }}"
+    {{ end -}}
+{{ end -}}
 
 export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 

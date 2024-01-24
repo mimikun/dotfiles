@@ -41,16 +41,27 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
     $cond = $false
 }
 
-# Obsidian vault
-# GitHub username
+# env-var
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
+$GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+$WIN_HOME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}"
+$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+{{ else -}}
+    {{ if eq .chezmoi.os "linux" -}}
 $GITHUB_USERNAME = "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
-{{ if (eq .chezmoi.hostname "azusa") }}
-$OBSIDIAN_VAULT_ROOT = Join-Path -Path $env:HOME -ChildPath "Documents/Obsidian/mimikun"
-{{ else }}
+        {{ if eq .chezmoi.hostname "azusa" -}}
+$OBSIDIAN_VAULT_ROOT = "$HOME/Documents/Obsidian/mimikun"
+        {{ else -}}
+$WIN_HOME = "{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}"
 $OBSIDIAN_VAULT_ROOT = "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
-{{ end }}
-$env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
-$env:GITHUB_USERNAME = $GITHUB_USERNAME
+        {{ end -}}
+    {{ else -}}
+# TODO: ITEM_ID
+$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ITEM_ID").github_username.value }}"
+$WIN_HOME = "{{ (bitwardenFields "item" "ITEM_ID").win_home_path.value }}"
+$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ITEM_ID").obsidian_vault_root_path.value }}"
+    {{ end -}}
+{{ end -}}
 
 if ($IsLinux) {
     $env:GHQ_ROOT = Join-Path -Path $env:HOME -ChildPath "ghq"

@@ -1,5 +1,14 @@
 [user]
+	{{ if eq .chezmoi.hostname "TanakaPC" -}}
+	email = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").gitconfig_email.value }}
+	{{ else -}}
+		{{ if eq .chezmoi.os "linux" -}}
 	email = {{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}
+		{{ else -}}
+		# TODO: ITEM_ID
+	email = {{ (bitwardenFields "item" "ITEM_ID").gitconfig_email.value }}
+		{{ end -}}
+	{{ end -}}
 	name = Yuto Tanaka
 [core]
 	autocrlf = false
