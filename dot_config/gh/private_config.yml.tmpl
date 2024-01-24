@@ -19,8 +19,7 @@ browser: {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").gh_c
 browser: {{ (rbwFields "dotfiles-chezmoi").azusa_gh_config_browser_path.value }}
   {{ else -}}
     {{ if eq .chezmoi.os "windows" -}}
-# TODO: ITEM_ID
-browser: {{ (bitwardenFields "item" "ITEM_ID").gh_config_browser_path.value }}
+browser: {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").gh_config_browser_path.value }}
     {{ else -}}
 browser: {{ (rbwFields "dotfiles-chezmoi").gh_config_browser_path.value }}
     {{ end -}}

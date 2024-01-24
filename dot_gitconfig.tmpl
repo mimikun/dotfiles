@@ -5,8 +5,7 @@
 		{{ if eq .chezmoi.os "linux" -}}
 	email = {{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}
 		{{ else -}}
-		# TODO: ITEM_ID
-	email = {{ (bitwardenFields "item" "ITEM_ID").gitconfig_email.value }}
+	email = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").gitconfig_email.value }}
 		{{ end -}}
 	{{ end -}}
 	name = Yuto Tanaka

@@ -56,10 +56,9 @@ $WIN_HOME = "{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}"
 $OBSIDIAN_VAULT_ROOT = "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
         {{ end -}}
     {{ else -}}
-# TODO: ITEM_ID
-$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ITEM_ID").github_username.value }}"
-$WIN_HOME = "{{ (bitwardenFields "item" "ITEM_ID").win_home_path.value }}"
-$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ITEM_ID").obsidian_vault_root_path.value }}"
+$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
+$WIN_HOME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}"
+$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
     {{ end -}}
 {{ end -}}
 
