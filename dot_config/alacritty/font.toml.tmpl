@@ -4,11 +4,11 @@ normal = { family = "Cica", style = "Regular" }
 bold = { style = "Bold" }
 italic = { style = "Italic" }
 bold_italic = { style = "Bold Italic" }
-{{ if (eq .chezmoi.hostname "azusa") }}
+{{ if (eq .chezmoi.hostname "azusa") -}}
 size = 22.00
-{{ else }}
+{{ else -}}
 size = 14.00
-{{ end }}
+{{ end -}}
 offset = { x = 0, y = 0 }
 glyph_offset = { x = 0, y = 0 }
 builtin_box_drawing = true

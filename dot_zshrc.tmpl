@@ -10,7 +10,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-{{ if (eq .chezmoi.hostname "azusa") }}
+{{ if (eq .chezmoi.hostname "azusa") -}}
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
@@ -28,16 +28,16 @@ export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_roo
 
 export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 
-{{ if (ne .chezmoi.hostname "azusa") }}
+{{ if (ne .chezmoi.hostname "azusa") -}}
 export windl="$WIN_HOME/Downloads"
 export WIN_DESKTOP= "$WIN_HOME/Desktop"
 export WIN_DOCUMENTS= "$WIN_HOME/Documents"
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 
 export DISPLAY="$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0"
-{{ else }}
+{{ else -}}
 export obsidian_vault_root_path="$OBSIDIAN_VAULT_ROOT"
-{{ end }}
+{{ end -}}
 
 export obsidian_vault_path="$obsidian_vault_root_path"
 export obsidian_dailynote_path="$obsidian_vault_path/001_DailyNotes"
@@ -148,11 +148,11 @@ export MISE_LEGACY_VERSION_FILE=1
 export MISE_LOG_FILE="$MISE_CACHE_DIR/mise.log"
 export MISE_ASDF_COMPAT=1
 # If not human rights, MISE_JOBS = 1.
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
+{{ if (eq .chezmoi.hostname "TanakaPC") -}}
 export MISE_JOBS=1
-{{ else }}
+{{ else -}}
 export MISE_JOBS=4
-{{ end }}
+{{ end -}}
 export MISE_SHORTHANDS_FILE="$MISE_CONFIG_DIR/shorthands.toml"
 export MISE_YES=1
 export MISE_NOT_FOUND_AUTO_INSTALL=false
@@ -187,11 +187,11 @@ if command -v aqua >/dev/null 2>&1; then
     # If true, Policy is disabled
     # NOTE: It's just idiot to care about security.
     export AQUA_DISABLE_POLICY=true
-    {{ if (eq .chezmoi.hostname "TanakaPC") }}
+    {{ if (eq .chezmoi.hostname "TanakaPC") -}}
     export AQUA_MAX_PARALLELISM=1
-    {{ else }}
+    {{ else -}}
     export AQUA_MAX_PARALLELISM=5
-    {{ end }}
+    {{ end -}}
     export AQUA_PROGRESS_BAR=true
 fi
 

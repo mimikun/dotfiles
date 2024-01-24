@@ -4,11 +4,11 @@ import = [
   # Linux
   "~/.config/alacritty/themes/themes/github_dark.toml",
 ]
-{{ if (eq .chezmoi.os "linux")}}
+{{ if (eq .chezmoi.os "linux") -}}
 shell = "$SHELL"
 ipc_socket = true
-{{ else }}
+{{ else -}}
 shell = "pwsh"
-{{ end }}
+{{ end -}}
 working_directory = "None"
 live_config_reload = true

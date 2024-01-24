@@ -21,7 +21,7 @@ set -x FISH_CACHE_DIR $XDG_CACHE_HOME/fish
 set -x CONFIG_FISH $FISH_CONFIG_DIR/config.fish
 set -x CACHE_CONFIG_FISH $FISH_CACHE_DIR/config.fish
 
-{{ if (eq .chezmoi.hostname "azusa") }}
+{{ if (eq .chezmoi.hostname "azusa") -}}
 set -x GTK_IM_MODULE "fcitx"
 set -x QT_IM_MODULE "fcitx"
 set -x XMODIFIERS "@im=fcitx"
@@ -46,9 +46,9 @@ set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
 set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 
 set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-{{ else }}
+{{ else -}}
 set -x obsidian_vault_root_path "$OBSIDIAN_VAULT_ROOT"
-{{ end }}
+{{ end -}}
 
 set -x obsidian_vault_path $obsidian_vault_root_path
 set -x obsidian_dailynote_path $obsidian_vault_path/001_DailyNotes
@@ -132,9 +132,9 @@ set -x NVIM_CACHE $XDG_CACHE_HOME/$NVIM_APPNAME
 alias pip "python3 -m pip"
 alias pipx "python3 -m pipx"
 
-{{ if (ne .chezmoi.hostname "azusa") }}
+{{ if (ne .chezmoi.hostname "azusa") -}}
 abbr -a open wsl-open
-{{ end }}
+{{ end -}}
 abbr -a zel zellij
 alias pueuexec "pueue add --"
 
@@ -151,7 +151,7 @@ set -x PNPM_HOME $XDG_DATA_HOME/pnpm
 set -x PATH "$PNPM_HOME" $PATH
 
 # work pc only tools?
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
+{{ if (eq .chezmoi.hostname "TanakaPC") -}}
 # JVM path
 set -x JAVA_HOME $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10
 set -x PATH $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin $PATH
@@ -160,7 +160,7 @@ set -x PATH $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-
 set -x PATH $XDG_DATA_HOME/coursier/bin $PATH
 # windowsのpathとかぶる問題防止
 alias cs $XDG_DATA_HOME/coursier/bin/cs
-{{ end }}
+{{ end -}}
 
 # cabal config
 set -x PATH $HOME/.cabal/bin $PATH
@@ -229,11 +229,11 @@ set -x MISE_LEGACY_VERSION_FILE 1
 set -x MISE_LOG_FILE "$MISE_CACHE_DIR/mise.log"
 set -x MISE_ASDF_COMPAT 1
 # If not human rights, MISE_JOBS = 1.
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
+{{ if (eq .chezmoi.hostname "TanakaPC") -}}
 set -x MISE_JOBS 1
-{{ else }}
+{{ else -}}
 set -x MISE_JOBS 4
-{{ end }}
+{{ end -}}
 set -x MISE_SHORTHANDS_FILE "$MISE_CONFIG_DIR/shorthands.toml"
 set -x MISE_YES 1
 set -x MISE_NOT_FOUND_AUTO_INSTALL false
@@ -255,11 +255,11 @@ set -x AQUA_POLICY_CONFIG $AQUA_CONFIG_DIR/policy.yaml
 set -x AQUA_DISABLE_POLICY true
 # The maximum number of packages which are installed in parallel at the same time
 # If not human rights, AQUA_MAX_PARALLELISM = 1.
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
+{{ if (eq .chezmoi.hostname "TanakaPC") -}}
 set -x AQUA_MAX_PARALLELISM 1
-{{ else }}
+{{ else -}}
 set -x AQUA_MAX_PARALLELISM 5
-{{ end }}
+{{ end -}}
 set -x AQUA_PROGRESS_BAR true
 
 # wsl2-ssh-agent
@@ -343,9 +343,10 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     end
 
     # work pc only tools
-    {{ if (eq .chezmoi.hostname "TanakaPC") }}
+    # TODO: 
+    {{ if (eq .chezmoi.hostname "TanakaPC") -}}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
     cat $XDG_CONFIG_HOME/{{ (rbwFields "dotfiles-chezmoi").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
-    {{ end }}
+    {{ end -}}
 end
 source $CACHE_CONFIG_FISH

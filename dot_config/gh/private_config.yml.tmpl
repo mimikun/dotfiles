@@ -16,5 +16,7 @@ http_unix_socket:
 browser: {{ (rbwFields "dotfiles-chezmoi").azusa_gh_config_browser_path.value }}
 {{ else -}}
 browser: {{ (rbwFields "dotfiles-chezmoi").gh_config_browser_path.value }}
-{{ end -}}
+    {{ end -}}
+  {{ end -}}
+{{ end }}
 version: "1"

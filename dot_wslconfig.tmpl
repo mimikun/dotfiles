@@ -1,16 +1,16 @@
 # Settings apply across all Linux distros running on WSL 2
 [wsl2]
-{{ if (eq .chezmoi.hostname "TanakaPC") }}
+{{ if (eq .chezmoi.hostname "TanakaPC") -}}
 # Limits VM memory to use no more than 3 GB
 memory=3GB
 # Sets amount of swap storage space to 8GB
 swap=8GB
-{{ else }}
+{{ else -}}
 # Limits VM memory to use no more than 8 GB
 memory=8GB
 # Sets amount of swap storage space to 0GB
 swap=0
-{{ end }}
+{{ end -}}
 
 # Specify a custom Linux kernel to use with your installed distros.
 # The default kernel used can be found at https://github.com/microsoft/WSL2-Linux-Kernel

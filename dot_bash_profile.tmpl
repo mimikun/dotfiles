@@ -1,7 +1,7 @@
 # All platform 共通
 
-{{ if eq .chezmoi.os "linux" }}
-{{ if eq .chezmoi.hostname "TanakaPC" }}
+{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
 # Linuxのとき
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
@@ -15,15 +15,15 @@ export PATH="$PATH:$HOME/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
 source $HOME/.config/broot/launcher/bash/br
-{{ end }}
-{{ else if eq .chezmoi.os "darwin" }}
+{{ end -}}
+{{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
-{{ else if eq .chezmoi.os "windows" }}
+{{ else if eq .chezmoi.os "windows" -}}
 # Windowsのとき
 # System-wide bashrc file
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
-{{ else }}
+{{ else -}}
 #その他のOSのとき
-{{ end }}
+{{ end -}}

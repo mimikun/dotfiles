@@ -8,17 +8,17 @@
 	quotepath = false
 	excludesfile = ~/.gitignore_global
 	pager = delta
-	{{ if eq .chezmoi.os "windows" }}
+	{{ if eq .chezmoi.os "windows" -}}
 	filemode = false
-	{{ end }}
+	{{ end -}}
 [color]
 	ui = true
 [credential]
-	{{ if eq .chezmoi.os "windows" }}
+	{{ if eq .chezmoi.os "windows" -}}
 	helper = manager
-	{{ else }}
+	{{ else -}}
 	helper = cache --timeout=86400
-	{{ end }}
+	{{ end -}}
 [alias]
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 	ls = "ls-files"
@@ -33,12 +33,12 @@
 	sort = -version:refname
 [commit]
 	verbose = true
-{{ if eq .chezmoi.os "windows" }}
+{{ if eq .chezmoi.os "windows" -}}
 [winUpdater]
 	recentlySeenVersion = 2.25.0.windows.1
 [credential "helperselector"]
 	selected = manager
-{{ end }}
+{{ end -}}
 [pager]
 	diff = delta
 	log = delta

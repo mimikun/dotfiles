@@ -1,9 +1,8 @@
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 package.path = nyagos.pathjoin(os.getenv("HOME"), ".config/nyagos/?.lua")
-{{ else }}
+{{ else -}}
 package.path = nyagos.pathjoin(os.getenv("USERPROFILE"), ".config/nyagos/?.lua")
-{{ end }}
-
+{{ end -}}
 
 require("nyagos")
 
