@@ -41,24 +41,27 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
     $cond = $false
 }
 
-# Obsidian vault
-# GitHub username
-{{ if eq .chezmoi.hostname "TanakaPC" }}
-$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+# env-var
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
-{{ else if (ne .chezmoi.hostname "azusa") }}
-$OBSIDIAN_VAULT_ROOT = ""
-$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
-{{ else }}
-$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
-$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
-{{ end }}
-
-{{ if (ne .chezmoi.hostname "azusa") }}
-$env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
-{{ end }}
-
-$env:GITHUB_USERNAME = $GITHUB_USERNAME
+$WIN_HOME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}"
+$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+{{ else -}}
+    {{ if eq .chezmoi.os "linux" -}}
+$GITHUB_USERNAME = "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
+        {{ if eq .chezmoi.hostname "azusa" -}}
+$OBSIDIAN_VAULT_ROOT = "$HOME/Documents/Obsidian/mimikun"
+        {{ else -}}
+$WIN_HOME = "{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}"
+$OBSIDIAN_VAULT_ROOT = "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+        {{ end -}}
+    {{ else -}}
+# TODO: ITEM_ID
+$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ITEM_ID").github_username.value }}"
+$WIN_HOME = "{{ (bitwardenFields "item" "ITEM_ID").win_home_path.value }}"
+$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ITEM_ID").obsidian_vault_root_path.value }}"
+    {{ end -}}
+{{ end -}}
 
 if ($IsLinux) {
     $env:GHQ_ROOT = Join-Path -Path $env:HOME -ChildPath "ghq"
@@ -131,6 +134,13 @@ if ($cond) {
         ForEach-Object { $_ -replace $namespace1, "" } |
         ForEach-Object { $_ -replace $namespace2, "" }
     Write-Output $ripgrep_completion >> $env:CACHE_PROFILE
+
+    # rbw completion
+    Write-Output "# cache rbw completion" >> $env:CACHE_PROFILE
+    $rbw_completion = rbw gen-completions powershell |
+        ForEach-Object { $_ -replace $namespace1, "" } |
+        ForEach-Object { $_ -replace $namespace2, "" }
+    Write-Output $rbw_completion >> $env:CACHE_PROFILE
 }
 
 # Loading from cache profile
