@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.01.25]
+
+### Added - 新機能について
+
+- Add Windows Alacritty configs
+- Add new neovim plugin: csvlens.nvim
+- Add prettier config
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update deno fish completion
+- Update lazy-lock.json
+- Update linter and formatter deps
+- Update TerminalOne config
+- Improved Hyper config
+- Improved neovim luarc for windows
+- Improved textlint task
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix alacritty config
+- Fix PowerShell config
+
 ## [v2024.01.24]
 
 ### Added - 新機能について
