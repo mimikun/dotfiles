@@ -5,11 +5,14 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  prettier:
+    specifier: 3.2.4
+    version: 3.2.4
   textlint:
     specifier: ^13.4.1
     version: 13.4.1
   textlint-rule-preset-ja-technical-writing:
-    specifier: ^10.0.0
+    specifier: ^10.0.1
     version: 10.0.1(textlint@13.4.1)
 
 packages:
@@ -39,16 +42,16 @@ packages:
     engines: {node: '>=6.9.0'}
     dev: true
 
-  /@babel/parser@7.23.5:
-    resolution: {integrity: sha512-hOOqoiNXrmGdFbhgCzu6GiURxUgM27Xwd/aPuu8RfHEZPBzL1Z54okAHAQjXfcQNwvrlkAmAp4SlRTZ45vlthQ==}
+  /@babel/parser@7.23.6:
+    resolution: {integrity: sha512-Z2uID7YJ7oNvAI20O9X0bblw7Qqs8Q2hFy0R9tAfnfLkp5MW0UH9eUvnDSnFwKZ0AvgS1ucqR4KzvVHgnke1VQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.23.5
+      '@babel/types': 7.23.6
     dev: true
 
-  /@babel/types@7.23.5:
-    resolution: {integrity: sha512-ON5kSOJwVO6xXVRTvOI0eOnWe7VdUcIpsovGo9U/Br4Ie4UVFQTboO2cYnDhAGU6Fp+UxSiT+pMft0SMHfuq6w==}
+  /@babel/types@7.23.6:
+    resolution: {integrity: sha512-+uarb83brBzPKN38NX1MkB6vb6+mwvR6amUulqAE7ccQw1pEl+bCia9TbdG1lsnFP7lZySvUn37CHyXQdfTwzg==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/helper-string-parser': 7.23.4
@@ -171,7 +174,7 @@ packages:
       remark-frontmatter: 3.0.0
       remark-gfm: 1.0.0
       remark-parse: 9.0.0
-      traverse: 0.6.7
+      traverse: 0.6.8
       unified: 9.2.2
     transitivePeerDependencies:
       - supports-color
@@ -259,43 +262,6 @@ packages:
       uri-js: 4.4.1
     dev: true
 
-  /amp-create-callback@1.0.1:
-    resolution: {integrity: sha512-6VunSFZ+GbIDWi/Vdeb1dgToRmbKfrfi3mzjC1c8QDUTgk7tx8JpUz5yJL8r/Jhgg5bH0eOCkQWCTQ++ipVcrw==}
-    dev: true
-
-  /amp-each@1.0.1:
-    resolution: {integrity: sha512-FdRP/SerovbQc91xmpF2Ud0CTKQ8QW89wvPf5hQ/JnndUicfx9PrGYuxRvzckeoRhC/38XEoLC6XYNVdFpJm0Q==}
-    dependencies:
-      amp-create-callback: 1.0.1
-      amp-keys: 1.0.1
-    dev: true
-
-  /amp-has@1.0.1:
-    resolution: {integrity: sha512-KcFsv9i9VVyc9VvMT30Fr0SnJQbOFrtCHMDAGjkD2dvYcygxUviEoUH7pWvpnoonrSeWcj7WS/NuO3gx/vyyUw==}
-    dev: true
-
-  /amp-index-of@1.1.0:
-    resolution: {integrity: sha512-8ZVB+BOAe1cPSOU2MvPiaSzGD71T8tuY6cf+JTZRA4F7oZFSYvjyhNGYTvrpRcmFaFmapqM8f0dmLLfm2HcjjA==}
-    dependencies:
-      amp-is-number: 1.0.1
-    dev: true
-
-  /amp-is-number@1.0.1:
-    resolution: {integrity: sha512-qfMX1U6Z126J6mn3Sq3olrD73As8FSHEW3+d5mR6PIht9m/AeFelcmUw5Fk0EqBxzYVEjA5t0wAQRhGjnXGbfQ==}
-    dev: true
-
-  /amp-is-object@1.0.1:
-    resolution: {integrity: sha512-oZ6BelObhLMcbk2+Qho1qIMWcsBfAf+BMsqusOWyWVDB4rtq4ERx85wZBYIFiaKjrMOH0BKfjJHim0h+XlEd3g==}
-    dev: true
-
-  /amp-keys@1.0.1:
-    resolution: {integrity: sha512-2oFXnlyfOzNY1AMfQdzwolYfCKDeK2YF9zPEfUGCswGC29sa7jQJ6alZpKoPzIpvLcd/JH6LKrSjzFbDAxYtaw==}
-    dependencies:
-      amp-has: 1.0.1
-      amp-index-of: 1.1.0
-      amp-is-object: 1.0.1
-    dev: true
-
   /analyze-desumasu-dearu@2.1.5:
     resolution: {integrity: sha512-4YPL7IRAuaZflE10+BVhKr6k5KQl/DiLeNCIF7ISqKr0ogM2hqm9ztRNCPqL/xYDI7hfuIHR8T+U7mIDRLQNXw==}
     dev: true
@@ -368,7 +334,7 @@ packages:
     dependencies:
       function-bind: 1.1.2
       get-intrinsic: 1.2.2
-      set-function-length: 1.1.1
+      set-function-length: 1.2.0
     dev: true
 
   /ccount@1.1.0:
@@ -418,10 +384,6 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       is-regexp: 2.1.0
-    dev: true
-
-  /code-point@1.1.0:
-    resolution: {integrity: sha512-L9JOfOolA/Y/YKVO+WUscMXuYUcHmkleTJkvl1G0XaGFj5JDXl02BobH8avoI/pjWvgOLivs2bizA0N6g8gM9Q==}
     dev: true
 
   /color-convert@2.0.1:
@@ -835,10 +797,6 @@ packages:
 
   /japanese-numerals-to-number@1.0.2:
     resolution: {integrity: sha512-rgs/V7G8Gfy8Z4XtnVBYXzWMAb9oUWp1pDdRmwHmh0hcjcy1kOu+DOpC5rwoHUAN4TqANwb7WD6z5W2v7v7PQQ==}
-    dev: true
-
-  /joyo-kanji@0.2.1:
-    resolution: {integrity: sha512-bRx8wMjrZQDfAQIQXVDYRcznafdmB/0uIy+/PORguEO1vkV5GJVEWLZDPAHL5eM8liCIYDVAdNURV7WEjzMvUw==}
     dev: true
 
   /js-yaml@3.14.1:
@@ -1328,6 +1286,12 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
+  /prettier@3.2.4:
+    resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
   /prh@5.4.4:
     resolution: {integrity: sha512-UATF+R/2H8owxwPvF12Knihu9aYGTuZttGHrEEq5NBWz38mREh23+WvCVKX3fhnIZIMV7ye6E1fnqAl+V6WYEw==}
     hasBin: true
@@ -1496,11 +1460,12 @@ packages:
       structured-source: 4.0.0
     dev: true
 
-  /set-function-length@1.1.1:
-    resolution: {integrity: sha512-VoaqjbBJKiWtg4yRcKBQ7g7wnGnLV3M8oLvVWwOk2PdYY6PEFegR1vezXR0tw6fZGF9csVakIRjrJiy2veSBFQ==}
+  /set-function-length@1.2.0:
+    resolution: {integrity: sha512-4DBHDoyHlM1IRPGYcoxexgh67y4ueR53FKV1yyxwFMY7aCqcN/38M1+SwZ/qJQ8iLv7+ck385ot4CcisOAPT9w==}
     engines: {node: '>= 0.4'}
     dependencies:
       define-data-property: 1.1.1
+      function-bind: 1.1.2
       get-intrinsic: 1.2.2
       gopd: 1.0.1
       has-property-descriptors: 1.0.1
@@ -1524,20 +1489,6 @@ packages:
       is-fullwidth-code-point: 3.0.0
     dev: true
 
-  /sorted-array@2.0.4:
-    resolution: {integrity: sha512-58INzrX0rL6ttCfsGoFmOuQY5AjR6A5E/MmGKJ5JvWHOey6gOEOC6vO8K6C0Y2bQR6KJ8o8aFwHjp/mJ/HcYsQ==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    dev: true
-
-  /sorted-joyo-kanji@0.2.0:
-    resolution: {integrity: sha512-zTEYyDjGqVBdotkM9ElCglxtiji6tqxLAHQinTm3+SZaMvvHjGdeVVopfra99IbZbeH++t0vii8IxbE8qW34zg==}
-    dependencies:
-      amp-each: 1.0.1
-      code-point: 1.1.0
-      joyo-kanji: 0.2.1
-      sorted-array: 2.0.4
-    dev: true
-
   /space-separated-tokens@1.1.5:
     resolution: {integrity: sha512-q/JSVd1Lptzhf5bkYm4ob4iWPjx0KiRe3sRFBNrVqbJkFaBm5vbbowy1mymoPNLRa52+oadOhJ+K49wsSeSjTA==}
     dev: true
@@ -1549,14 +1500,14 @@ packages:
       spdx-license-ids: 3.0.16
     dev: true
 
-  /spdx-exceptions@2.3.0:
-    resolution: {integrity: sha512-/tTrYOC7PPI1nUAgx34hUpqXuyJG+DTHJTnIULG4rDygi4xu/tfgmq1e1cIRwRzwZgo4NLySi+ricLkZkw4i5A==}
+  /spdx-exceptions@2.4.0:
+    resolution: {integrity: sha512-hcjppoJ68fhxA/cjbN4T8N6uCUejN8yFw69ttpqtBeCbF3u13n7mb31NB9jKwGTTWWnt9IbRA/mf1FprYS8wfw==}
     dev: true
 
   /spdx-expression-parse@3.0.1:
     resolution: {integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==}
     dependencies:
-      spdx-exceptions: 2.3.0
+      spdx-exceptions: 2.4.0
       spdx-license-ids: 3.0.16
     dev: true
 
@@ -1732,8 +1683,8 @@ packages:
       textlint-util-to-string: 3.3.4
     dev: true
 
-  /textlint-rule-no-doubled-joshi@5.0.0:
-    resolution: {integrity: sha512-1GvkK10T+UFkpUzzGUE3f2orAbaEAPQFWuKWNV//H+ksIhq4QKj7CVEfOXXw4kyDzQkETnh5bKpQW4kwQa+ooA==}
+  /textlint-rule-no-doubled-joshi@5.1.0:
+    resolution: {integrity: sha512-2KkzlSlGZSM9W44SqYgtJYf1qOCBnzHS8Xs4LEZkgY78+TFsPg5kSLnC/PaAI6KdBDZJY0aI/yyAFZ7MJp/caw==}
     dependencies:
       kuromojin: 3.0.0
       sentence-splitter: 5.0.0
@@ -1801,22 +1752,22 @@ packages:
       textlint-rule-no-double-negative-ja: 2.0.1
       textlint-rule-no-doubled-conjunction: 3.0.0
       textlint-rule-no-doubled-conjunctive-particle-ga: 3.0.0
-      textlint-rule-no-doubled-joshi: 5.0.0
+      textlint-rule-no-doubled-joshi: 5.1.0
       textlint-rule-no-dropping-the-ra: 3.0.0
       textlint-rule-no-exclamation-question-mark: 1.1.0
       textlint-rule-no-hankaku-kana: 2.0.1
       textlint-rule-no-mix-dearu-desumasu: 6.0.2
       textlint-rule-no-nfd: 2.0.2
       textlint-rule-no-zero-width-spaces: 1.0.1
-      textlint-rule-preset-jtf-style: 2.3.13(textlint@13.4.1)
+      textlint-rule-preset-jtf-style: 2.3.14(textlint@13.4.1)
       textlint-rule-sentence-length: 5.0.0
     transitivePeerDependencies:
       - supports-color
       - textlint
     dev: true
 
-  /textlint-rule-preset-jtf-style@2.3.13(textlint@13.4.1):
-    resolution: {integrity: sha512-DH5V00hOCXK1BLG4/MfxXSFGKzruEQ/fzQG396CwiDK8LB0cMS1Z0O8JYRXMFDbmHRtR7LVXL8/3L1OwQ4TunQ==}
+  /textlint-rule-preset-jtf-style@2.3.14(textlint@13.4.1):
+    resolution: {integrity: sha512-xkVclRrC921eejsDP79dt7UhwT15825etgQSQx8SvOqaPRNwDdQ7kzep4LIyrdLgPm/3k/gX8qyw0BrN02U27w==}
     peerDependencies:
       textlint: '>= 5.6.0'
     dependencies:
@@ -1826,7 +1777,6 @@ packages:
       moji: 0.5.1
       regexp.prototype.flags: 1.5.1
       regx: 1.0.4
-      sorted-joyo-kanji: 0.2.0
       textlint: 13.4.1
       textlint-rule-helper: 2.3.1
       textlint-rule-prh: 5.3.0
@@ -1835,7 +1785,7 @@ packages:
   /textlint-rule-prh@5.3.0:
     resolution: {integrity: sha512-gdod+lL1SWUDyXs1ICEwvQawaSshT3mvPGufBIjF2R5WFPdKQDMsiuzsjkLm+aF+9d97dA6pFsiyC8gSW7mSgg==}
     dependencies:
-      '@babel/parser': 7.23.5
+      '@babel/parser': 7.23.6
       prh: 5.4.4
       textlint-rule-helper: 2.3.1
       untildify: 3.0.3
@@ -1920,8 +1870,9 @@ packages:
       safe-regex: 1.1.0
     dev: true
 
-  /traverse@0.6.7:
-    resolution: {integrity: sha512-/y956gpUo9ZNCb99YjxG7OaslxZWHfCHAUUfshwqOXmxUIvqLjVO581BT+gM59+QV9tFe6/CGG53tsA1Y7RSdg==}
+  /traverse@0.6.8:
+    resolution: {integrity: sha512-aXJDbk6SnumuaZSANd21XAo15ucCDE38H4fkqiGsc3MhCK+wOlZvLP9cB/TvpHT0mOyWgC4Z8EwRlzqYSUzdsA==}
+    engines: {node: '>= 0.4'}
     dev: true
 
   /trough@1.0.5:
