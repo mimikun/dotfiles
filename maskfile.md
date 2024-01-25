@@ -551,11 +551,11 @@ selene .
 > Run textlint
 
 ```bash
-pnpm run lint
+pnpm run textlint
 ```
 
 ```powershell
-pnpm run lint
+pnpm run textlint
 ```
 
 ## typo-check

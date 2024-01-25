@@ -98,7 +98,7 @@ selene-lint :
 ## Run textlint
 .PHONY : textlint
 textlint :
-	pnpm run lint
+	pnpm run textlint
 
 ## Run typos
 .PHONY : typo-check

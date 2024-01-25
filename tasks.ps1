@@ -270,7 +270,7 @@ function Invoke-PwshTest() {
 ## textlint
 function Invoke-Textlint() {
     Write-Output "Run textlint"
-    pnpm run lint
+    pnpm run textlint
 }
 
 ## typo-check
