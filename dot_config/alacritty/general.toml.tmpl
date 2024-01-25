@@ -6,13 +6,9 @@ import = [
 ]
 working_directory = "None"
 live_config_reload = true
-{{ if (eq .chezmoi.os "linux") -}}
-ipc_socket = true
-{{ end }}
-
+{{ if (eq .chezmoi.os "windows") -}}
 [shell]
-{{ if (eq .chezmoi.os "linux") -}}
-program = "$SHELL"
-{{ else -}}
 program = "pwsh"
+{{ else if (eq .chezmoi.os "linux") -}}
+ipc_socket = true
 {{ end }}
