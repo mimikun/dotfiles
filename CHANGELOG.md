@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.01.26]
+
+### Added - 新機能について
+
+- Add .chezmoiexternal
+- Add new neovim plugin: vim-kitty
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update kitty config
+- Update deno fish completion
+- Update .prettierignore
+- Update Hyper config
+- Update README.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix alacritty config
+- Fix TerminalOne config
+
 ## [v2024.01.25]
 
 ### Added - 新機能について
