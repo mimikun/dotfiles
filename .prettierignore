@@ -1,4 +1,3 @@
 *
-!dot_config/Hyper/dot_hyper.js
-!dot_config/TerminalOne/config.js
-!dot_config/TerminalOne/global.js
+!dot_config/Hyper/*
+!dot_config/TerminalOne/*
