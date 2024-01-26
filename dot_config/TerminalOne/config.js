@@ -1,9 +1,13 @@
 /* eslint multiline-ternary: "off" */
 const os = require('os')
+const global = require('./global')
+const os_name = global.OS_NAME
+const os_release = global.OS_RELEASE
+const os_hostname = global.HOST_NAME
 
 module.exports = {
   // ウィンドウの背景にアクリル効果を使用するかどうか。これは Mac と Win 11 でのみサポートされます。
-  acrylic: (os.platform() === 'win32' && os.release().startsWith('11')) || os.platform() === 'darwin',
+  acrylic: (os_name === 'win32' && os_release.startsWith('11')) || os_name === 'darwin',
 
   // スクロールバック バッファーに保持する行数。
   scrollback: 10000,
@@ -21,7 +25,7 @@ module.exports = {
   cursorWidth: 1,
 
   // ピクセル単位のフォント サイズ。
-  fontSize: os.hostname() === 'azusa' ? 22 : 14,
+  fontSize: os_hostname === 'azusa' ? 22 : 14,
 
   // フォントファミリー。 CSS構文に従います。
   fontFamily: 'Cica, FiraCode Nerd Font Mono, monospace',
@@ -98,7 +102,7 @@ module.exports = {
       startupDirectory: ''
     },
     ...(
-      os.platform() === 'win32' ? [
+      os_name === 'win32' ? [
         {
           name: 'pwsh',
           // command: "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
@@ -126,7 +130,7 @@ module.exports = {
   ],
 
   // 使用するデフォルトのシェルの名前。これは、「シェル」で定義された名前のいずれかと一致する必要があります。
-  defaultShellName: os.platform() === 'win32' ? 'pwsh' : 'Default',
+  defaultShellName: os_name === 'win32' ? 'pwsh' : 'Default',
 
   // リーダーキーとして使用するキーバインド
   // このキーバインドは、他のすべてのキーバインドをトリガーするために使用される
