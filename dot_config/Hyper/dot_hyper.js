@@ -1,18 +1,21 @@
-// Future versions of Hyper may add additional config options,
-// which will not automatically be merged into this file.
+// Future versions of Hyper may add additional config options, which will not automatically be merged into this file.
+// Hyper の将来のバージョンでは、追加の構成オプションが追加される可能性がありますが、それらはこのファイルに自動的にはマージされません。
 // See https://hyper.is#cfg for all currently supported options.
+// 現在サポートされているすべてのオプションについては、https://hyper.is#cfg を参照してください。
+const global = require("./global")
+const os_hostname = global.HOST_NAME
+const os_name = global.OS_NAME
 
 module.exports = {
   config: {
-    // choose either `'stable'` for receiving highly polished,
-    // or `'canary'` for less polished but more frequent updates
+    // 'stable' or 'canary'
     updateChannel: 'stable',
 
-    // default font size in pixels for all tabs
-    fontSize: 12,
+    // default font size
+    fontSize: os_hostname === 'azusa' ? 22 : 14,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace, "FiraCode Nerd Font"',
+    fontFamily: 'Cica, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace, "FiraCode Nerd Font"',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
@@ -69,9 +72,7 @@ module.exports = {
     // custom padding (CSS format, i.e.: `top right bottom left`)
     padding: '12px 14px',
 
-    // the full list. if you're going to provide the full color palette,
-    // including the 6 x 6 color cubes and the grayscale map, just provide
-    // an array here instead of a color map object
+    // the full list. if you're going to provide the full color palette, including the 6 x 6 color cubes and the grayscale map, just provide an array here instead of a color map object
     colors: {
       black: '#000000',
       red: '#C51E14',
@@ -91,19 +92,8 @@ module.exports = {
       lightWhite: '#FFFFFF'
     },
 
-    // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
-    // if left empty, your system's login shell will be used by default
-    //
-    // Windows
-    // - Make sure to use a full path if the binary name doesn't work
-    // - Remove `--login` in shellArgs
-    //
-    // Bash on Windows
-    // - Example: `C:\\Windows\\System32\\bash.exe`
-    //
-    // PowerShell on Windows
-    // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    shell: 'C:\\Windows\\System32\\wsl.exe',
+    // if windows use pwsh, else use default shell
+    shell: os_name === 'win32' ? 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' : '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -125,16 +115,13 @@ module.exports = {
     // selection is present (`true` by default on Windows and disables the context menu feature)
     quickEdit: false,
 
-    // choose either `'vertical'`, if you want the column mode when Option key is hold during selection (Default)
-    // or `'force'`, if you want to force selection regardless of whether the terminal is in mouse events mode
-    // (inside tmux or vim with mouse mode enabled for example).
+    // choose either `'vertical'`, if you want the column mode when Option key is hold during selection (Default) or `'force'`, if you want to force selection regardless of whether the terminal is in mouse events mode (inside tmux or vim with mouse mode enabled for example).
     macOptionSelectionMode: 'vertical',
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
-    // Whether to use the WebGL renderer. Set it to false to use canvas-based
-    // rendering (slower, but supports transparent backgrounds)
+    // Whether to use the WebGL renderer. Set it to false to use canvas-based rendering (slower, but supports transparent backgrounds)
     webGLRenderer: true
 
     // for advanced config flags please refer to https://hyper.is/#cfg
@@ -148,9 +135,7 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [],
 
-  // in development, you can create a directory under
-  // `~/.hyper_plugins/local/` and include it here
-  // to load it and avoid it being `npm install`ed
+  // in development, you can create a directory under `~/.hyper_plugins/local/` and include it here to load it and avoid it being `npm install`ed
   localPlugins: [],
 
   keymaps: {
