@@ -60,25 +60,6 @@ make install-skk-jisyo
 chezmoi init --apply --verbose https://github.com/mimikun/dotfiles.git
 ```
 
-#### `C:\Program Files\Git\etc\bash.bashrc`
-
-Append to the end of the file:
-
-```bash
-# System-wide bashrc file
-if [ -f ~/.bashrc ]; then
-    source ~/.bashrc
-fi
-```
-
-#### Place it in `/etc/wsl.conf` of WSL
-
-- `wsl.conf`
-
-#### Place it in `/usr/lib/binfmt.d/WSLInterop.conf` of WSL
-
-- `WSLInterop.conf`
-
 ### macOS
 
 WIP
