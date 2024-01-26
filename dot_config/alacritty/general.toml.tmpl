@@ -1,10 +1,4 @@
-import = [
-  # Windows
-  "~/AppData/Roaming/alacritty/themes/themes/github_dark.toml",
-  # Linux
-  "~/.config/alacritty/themes/themes/github_dark.toml",
-]
-working_directory = "None"
+working_directory = "$HOME"
 live_config_reload = true
 {{ if (eq .chezmoi.os "windows") -}}
 [shell]

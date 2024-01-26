@@ -1,18 +1,17 @@
 [window]
-dimensions = { columns = 0, lines = 0 }
+dimensions = { columns = 120, lines = 30 }
 position = "None"
 padding = { x = 0, y = 0 }
 decorations = "Full"
-opacity = 1.0
+opacity = 0.93
 blur = false
 startup_mode = "Windowed"
 title = "Alacritty"
 dynamic_title = true
-{{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "bsd")) -}}
-class = { instance = "Alacritty", general = "Alacritty" }
-{{ end -}}
 decorations_theme_variant = "None"
 resize_increments = false
-{{ if (eq .chezmoi.os "darwin") -}}
+{{ if (or (eq .chezmoi.os "linux") (eq .chezmoi.os "bsd")) -}}
+class = { instance = "Alacritty", general = "Alacritty" }
+{{ else if (eq .chezmoi.os "darwin") -}}
 option_as_alt = "None"
 {{ end -}}
