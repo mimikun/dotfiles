@@ -4,7 +4,7 @@ return {
     --event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-        local none_ls = require("none-ls")
+        local none_ls = require("null-ls")
         local sources = {
             -- Code Actions
             none_ls.builtins.code_actions.gitsigns,
@@ -42,5 +42,5 @@ return {
         }
         none_ls.setup({ sources = sources })
     end,
-    cond = false,
+    --cond = false,
 }
