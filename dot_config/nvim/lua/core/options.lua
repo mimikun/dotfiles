@@ -125,23 +125,19 @@ if is_linux then
     vim.g.python3_host_prog = "~/.local/share/mise/shims/python"
 end
 
--- TODO: improve clipboard config
--- 人権環境でのみ有効
-if is_human_rights then
-    -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
-    vim.opt.clipboard = "unnamedplus"
-    if is_wsl then
-        vim.g.clipboard = {
-            name = "win32yank-wsl",
-            copy = {
-                ["+"] = "win32yank -i --crlf",
-                ["*"] = "win32yank -i --crlf",
-            },
-            paste = {
-                ["+"] = "win32yank -o --lf",
-                ["*"] = "win32yank -o --lf",
-            },
-            cache_enabled = 0,
-        }
-    end
+-- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
+vim.opt.clipboard = "unnamedplus"
+if is_wsl then
+    vim.g.clipboard = {
+        name = "win32yank-wsl",
+        copy = {
+            ["+"] = "win32yank -i --crlf",
+            ["*"] = "win32yank -i --crlf",
+        },
+        paste = {
+            ["+"] = "win32yank -o --lf",
+            ["*"] = "win32yank -o --lf",
+        },
+        cache_enabled = 0,
+    }
 end
