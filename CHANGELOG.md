@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.01.29]
+
+### Added - 新機能について
+
+- Add new neovim plugin: wttr.nvim
+- Add new neovim plugin: vim-kitty
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update vup command
+- Improved neovim clipboard feature
+- Enable neovim plugin: none-ls
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.01.28]
 
 ### Added - 新機能について
