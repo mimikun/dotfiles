@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.0.0"
+readonly PRODUCT_VERSION="1.1.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -80,7 +80,7 @@ os_pkg_update() {
 
 use_pueue() {
   echo "rustup update"
-  pueue add -- "rustup update"
+  rust_task_id=$(pueue add -p -- "rustup update")
 
   echo "deno upgrade"
   pueue add -- "deno upgrade"
@@ -107,25 +107,32 @@ use_pueue() {
   fish -c 'fisher update'
 
   echo "update_cargo_packages"
-  pueue_update_cargo_packages
+  cargo_outdated_pkgs=$(cargo install-update -l | grep "Yes" | cut -d " " -f 1)
+  for i in $cargo_outdated_pkgs; do
+    task_id=$(pueue add -p --after "$rust_task_id" -- "cargo install $i")
+  done
 
   echo "generate_cargo_package_list"
-  generate_cargo_package_list
+  if [ -n "$task_id" ]; then
+    pueue add --after "$task_id" -- "generate_cargo_package_list"
+  else
+    pueue add -- "generate_cargo_package_list"
+  fi
 
   echo "update_fish_completions"
   update_fish_completions
 
   echo "gup update"
-  pueue add -- "gup update"
+  task_id=$(pueue add -p -- "gup update")
 
   echo "gup export"
-  pueue add -- "gup export"
+  pueue add --after "$task_id" -- "gup export"
 
   echo "aqua i -a"
-  pueue add -- "aqua i -a"
+  task_id=$(pueue add -p -- "aqua i -a")
 
   echo "aqua up"
-  pueue add -- "aqua up"
+  pueue add --after "$task_id" -- "aqua up"
 }
 
 no_pueue() {
