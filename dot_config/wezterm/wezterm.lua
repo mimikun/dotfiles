@@ -14,13 +14,8 @@ local is_wsl = global.is_wsl
 local is_azusa = global.is_azusa
 local is_human_rights = global.is_human_rights
 
-local base_font_size = 14
-local wf_font_size = 10
-
-if is_azusa then
-    base_font_size = 22
-    wf_font_size = 12
-end
+local base_font_size = is_azusa and 22 or 14
+local wf_font_size = is_azusa and 12 or 10
 
 require("format")
 require("status")
@@ -50,16 +45,13 @@ config.initial_cols = 120
 config.window_decorations = "RESIZE"
 
 if not is_azusa then
-    local wsl_domain
-    if is_human_rights then
-        -- Home PC
-        wsl_domain = "WSL:Ubuntu"
-    else
-        -- Work PC
-        wsl_domain = "WSL:Ubuntu-20.04"
-    end
+    local wsl_domain = is_human_rights and "WSL:Ubuntu" or "WSL:Ubuntu-20.04"
 
-    config.default_domain = wsl_domain
+    if is_human_rights then
+        config.default_domain = wsl_domain
+    else
+        config.default_prog = { "pwsh.exe" }
+    end
 
     config.launch_menu = {
         {
