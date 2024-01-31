@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.1.0"
+readonly PRODUCT_VERSION="1.2.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -89,7 +89,7 @@ use_pueue() {
   pueue add -- "bun upgrade"
 
   echo "mise upgrade"
-  pueue add -- "mise upgrade"
+  mise_task_id=$(pueue add -p -- "mise upgrade")
 
   echo "tldr --update"
   pueue add -- "tldr --update"
@@ -102,6 +102,12 @@ use_pueue() {
 
   echo "update_pnpm"
   pueue add -- "update_pnpm"
+
+  echo "update mise tools"
+  nvim_task_id=$(pueue add -p --after "$mise_task_id" -- "update_mise neovim-master --use-pueue")
+  nvim_task_id=$(pueue add -p --after "$nvim_task_id" -- "update_mise neovim-stable --use-pueue")
+  pueue add --after "$nvim_task_id" -- "update_mise neovim-nightly --use-pueue"
+  pueue add --after "$mise_task_id" -- "update_mise zig-master --use-pueue"
 
   echo "fisher update"
   fish -c 'fisher update'
