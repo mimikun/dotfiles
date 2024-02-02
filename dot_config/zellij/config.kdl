@@ -1,6 +1,6 @@
 on_force_close "detach"
 simplified_ui false
-default_shell "$SHELL"
+//default_shell "$SHELL"
 //default_cwd ""
 pane_frames true
 theme "tokyo-night"
@@ -13,8 +13,8 @@ copy_clipboard "system"
 copy_on_select true
 scrollback_editor "$EDITOR"
 mirror_session false
-//layout_dir "/path/to/my/layout_dir"
-//theme_dir "/path/to/my/theme_dir"
+//layout_dir "layouts"
+//theme_dir "themes"
 /*
 env {
 }
