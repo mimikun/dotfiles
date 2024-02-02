@@ -13,23 +13,25 @@ if is_windows then
     build_cmd = build_cmds.cmake
 end
 
+local keymaps = {
+    { "<C-p>", desc = "Open file search" },
+    { "<C-g>", desc = "Open string search" },
+    -- TODO: Fix which-key conflict error
+    { "fr", desc = "Open grep string search" },
+    { "fb", desc = "Open buffer search" },
+    { "fm", desc = "Open mark search" },
+    { "fo", desc = "Open file history search" },
+    { "fc", desc = "Open git-commit log search" },
+    { "fh", desc = "Open helptags search" },
+}
+
 return {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     lazy = false,
     --event = "VimEnter",
     --cmd = "",
-    keys = {
-        { "<C-p>", desc = "Open file search" },
-        { "<C-g>", desc = "Open string search" },
-        -- TODO: Fix which-key conflict error
-        { "fr", desc = "Open grep string search" },
-        { "fb", desc = "Open buffer search" },
-        { "fm", desc = "Open mark search" },
-        { "fo", desc = "Open file history search" },
-        { "fc", desc = "Open git-commit log search" },
-        { "fh", desc = "Open helptags search" },
-    },
+    keys = keymaps,
     dependencies = {
         "nvim-lua/plenary.nvim",
         {

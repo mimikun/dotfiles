@@ -1,13 +1,23 @@
 local is_git = require("utils.func").is_git
 
+local keymaps = {
+    { "<C-p>", desc = "Open file search" },
+    { "<C-g>", desc = "Open string search" },
+    { "fr", desc = "Open grep string search" },
+    { "fr y", desc = "Open grep selected string search" },
+    { "fb", desc = "Open buffer search" },
+    { "fp", desc = "Open previous buffer search" },
+    { "fm", desc = "Open mark search" },
+    { "fh", desc = "Open file history search" },
+    { "fc", desc = "Open git-commit log search" },
+    { "fl", desc = "Open current buffer lines search" },
+}
+
 return {
     "junegunn/fzf.vim",
     --lazy = false,
     --event = "VeryLazy",
-    keys = {
-        { "<C-p>", desc = "Open file search" },
-        { "<C-g>", desc = "Open string search" },
-    },
+    keys = keymaps,
     dependencies = {
         "junegunn/fzf",
     },

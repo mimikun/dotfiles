@@ -3,10 +3,6 @@ local is_not_human_rights = not require("core.global").is_human_rights
 local has_cmigemo = (1 == vim.fn.executable("cmigemo")) and true or false
 local cond = is_not_human_rights and has_cmigemo
 
-local keymaps = {
-    { "<C-j>", desc = "Toggle Kana-mode eskk.vim" },
-}
-
 return {
     "rhysd/migemo-search.vim",
     lazy = false,

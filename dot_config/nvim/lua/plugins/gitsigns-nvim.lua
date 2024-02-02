@@ -1,6 +1,14 @@
+local keymaps = {
+    { "g[", desc = "Jump to the previous hunk in the current buffer." },
+    { "g]", desc = "Jump to the next hunk in the current buffer." },
+    { "gh", desc = "Toggle diff highlights" },
+    { "gp", desc = "Preview the hunk at the cursor position inline in the buffer." },
+}
+
 return {
     "lewis6991/gitsigns.nvim",
     --lazy = false,
+    keys = keymaps,
     event = { "VimEnter" },
     config = function()
         local gitsigns = require("gitsigns")

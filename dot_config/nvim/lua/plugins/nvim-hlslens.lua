@@ -1,8 +1,12 @@
+local keymaps = {
+    { "<Leader>L", desc = "run `:nohlsearch` and export results to quickfix" },
+}
+
 return {
     "kevinhwang91/nvim-hlslens",
     lazy = false,
     --event = "VeryLazy",
-
+    keys = keymaps,
     config = function()
         local hlslens = require("hlslens")
         hlslens.setup({})

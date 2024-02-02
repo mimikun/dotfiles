@@ -22,10 +22,17 @@ local cmds = {
     "CocWatch",
 }
 
+local keymaps = {
+    { "<TAB>", desc = "Select next suggestion" },
+    { "<S-TAB>", desc = "Select previous suggestion" },
+    { "<cr>", desc = "Decide on suggestion" },
+}
+
 return {
     "neoclide/coc.nvim",
     branch = "release",
     --lazy = false,
+    keys = keymaps,
     event = "BufRead",
     cmd = cmds,
     build = ":CocUpdate",

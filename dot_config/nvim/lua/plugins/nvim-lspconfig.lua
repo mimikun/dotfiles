@@ -1,8 +1,28 @@
 -- thx: https://coralpink.github.io/commentary/neovim/lsp/nvim-lspconfig.html
+local keymaps = {
+    { "<space>e", desc = "vim.diagnostic.open_float" },
+    { "[d", desc = "vim.diagnostic.goto_prev" },
+    { "]d", desc = "vim.diagnostic.goto_next" },
+    { "<space>q", desc = "vim.diagnostic.setloclist" },
+    { "gD", desc = "vim.lsp.buf.declaration" },
+    { "gd", desc = "vim.lsp.buf.definition" },
+    { "K", desc = "vim.lsp.buf.hover" },
+    { "gi", desc = "vim.lsp.buf.implementation" },
+    { "<C-k>", desc = "vim.lsp.buf.signature_help" },
+    { "<space>wa", desc = "vim.lsp.buf.add_workspace_folder" },
+    { "<space>wr", desc = "vim.lsp.buf.remove_workspace_folder" },
+    { "<space>wl", desc = "vim.inspect(vim.lsp.buf.list_workspace_folders())" },
+    { "<space>D", desc = "vim.lsp.buf.type_definition" },
+    { "<space>rn", desc = "vim.lsp.buf.rename" },
+    { "<space>ca", desc = "vim.lsp.buf.code_action" },
+    { "gr", desc = "vim.lsp.buf.references" },
+    { "<space>f", desc = "vim.lsp.buf.format({ async = true })" },
+}
 
 return {
     "neovim/nvim-lspconfig",
     lazy = false,
+    keys = keymaps,
     config = function()
         -- Global mappings.
         -- See `:help vim.diagnostic.*` for documentation on any of the below functions

@@ -1,14 +1,22 @@
 local fzf_opts = { ["--scrollbar"] = "█" }
 local is_git = require("utils.func").is_git
 
+local keymaps = {
+    { "<C-p>", desc = "Open file search" },
+    { "<C-g>", desc = "Open string search" },
+    { "fr", desc = "Open grep string search" },
+    { "fb", desc = "Open buffer search" },
+    { "fm", desc = "Open mark search" },
+    { "fh", desc = "Open history search" },
+    { "fc", desc = "Open git-commit log search" },
+    { "fl", desc = "Open current buffer lines search" },
+}
+
 return {
     "ibhagwan/fzf-lua",
     --lazy = false,
     --event = "VeryLazy",
-    keys = {
-        { "<C-p>", desc = "Open file search" },
-        { "<C-g>", desc = "Open string search" },
-    },
+    keys = keymaps,
     dependencies = {
         { "nvim-tree/nvim-web-devicons" },
     },

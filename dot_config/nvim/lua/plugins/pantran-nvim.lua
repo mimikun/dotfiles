@@ -1,7 +1,13 @@
+local keymaps = {
+    { "tr", desc = "Run Translate" },
+    { "trr", desc = "Run Translate" },
+}
+
 return {
     "potamides/pantran.nvim",
     --lazy = false,
     --event = "VeryLazy",
+    keys = keymaps,
     cmd = "Pantran",
     config = function()
         local pantran = require("pantran")

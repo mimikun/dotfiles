@@ -1,7 +1,15 @@
+local keymaps = {
+    { "g[", desc = "Jump to the previous [count] hunk." },
+    { "g]", desc = "Jump to the next [count] hunk." },
+    { "gh", desc = "Turn line highlighting on or off." },
+    { "gp", desc = "Preview the hunk the cursor is in." },
+}
+
 return {
     "airblade/vim-gitgutter",
     --lazy = false,
     --event = "VeryLazy",
+    keys = keymaps,
     config = function()
         -- g]で前の変更箇所へ移動する
         vim.keymap.set("n", "g[", ":GitGutterPrevHunk<CR>")

@@ -1,12 +1,14 @@
 -- ref: https://github.com/yuucu/dotfiles/blob/main/config/nvim/lua/plugins/fern.lua
+local keymaps = {
+    { "<C-n>", desc = "Toggle Fern" },
+}
+
 return {
     "lambdalisue/fern.vim",
     branch = "main",
     --lazy = false,
     --event = "VeryLazy",
-    keys = {
-        { "<C-n>", ":Fern . -reveal=% -drawer -toggle -width=40<CR>", desc = "Toggle Fern" },
-    },
+    keys = keymaps,
     dependencies = {
         { "lambdalisue/nerdfont.vim" },
         {
