@@ -1,8 +1,14 @@
-working_directory = "~"
 live_config_reload = true
+
 {{ if (eq .chezmoi.os "windows") -}}
+    {{ if (eq .chezmoi.hostname "TanakaPC") -}}
+working_directory = "C:\\Users\\{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").alacritty_wd.value }}"
+    {{ else }}
+working_directory = "C:\\Users\\{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").alacritty_wd.value }}"
+    {{ end }}
 [shell]
-program = "pwsh"
+program = "pwsh.exe"
 {{ else if (eq .chezmoi.os "linux") -}}
+working_directory = "~"
 ipc_socket = true
 {{ end }}
