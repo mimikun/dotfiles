@@ -50,7 +50,9 @@ return {
 
         telescope.setup({})
         if not is_windows then
-            telescope.load_extension("fzf")
+            return nil
+            -- NOTE: Workaround
+            --telescope.load_extension("fzf")
         end
 
         -- Ctrl+pでファイル検索を開く
