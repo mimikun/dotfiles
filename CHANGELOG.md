@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.02.02]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update mise fish completion
+- Update deno fish completion
+- Update .chezmoiignore
+
+### Removed - 今回で削除された機能について
+
+- Remove unused windows files
+
+### Fixed - 不具合修正について
+
+- WIP: Fix neovim keymap error
+- Fix neovim plugin config: telescope.nvim
+- Fix zellij config
+- Fix alacritty config
+
 ## [v2024.01.31]
 
 ### Added - 新機能について
