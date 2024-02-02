@@ -1,8 +1,0 @@
-working_directory = "$HOME"
-live_config_reload = true
-{{ if (eq .chezmoi.os "windows") -}}
-[shell]
-program = "pwsh"
-{{ else if (eq .chezmoi.os "linux") -}}
-ipc_socket = true
-{{ end }}
