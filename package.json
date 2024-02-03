@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "prettier": "3.2.4",
-    "textlint": "^13.4.1",
+    "textlint": "^14.0.0",
     "textlint-rule-preset-ja-technical-writing": "^10.0.1"
   },
   "scripts": {
