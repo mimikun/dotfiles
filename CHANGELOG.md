@@ -1,5 +1,23 @@
 # Changelog
 
+## [v2024.02.04]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+- Disable neovim plugin: wttr.nvim
+
+### Fixed - 不具合修正について
+
+- Fix alacritty config
+
 ## [v2024.02.02]
 
 ### Added - 新機能について
