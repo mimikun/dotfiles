@@ -14,5 +14,5 @@ return {
         lang = "ja",
         forecast_type = "rich_text",
     },
-    --cond = false,
+    cond = false,
 }
