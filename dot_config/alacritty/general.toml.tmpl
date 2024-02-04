@@ -9,6 +9,12 @@ working_directory = "C:\\Users\\{{ (bitwardenFields "item" "ec557677-82d9-4a61-a
 [shell]
 program = "pwsh.exe"
 {{ else if (eq .chezmoi.os "linux") -}}
-working_directory = "~"
+    {{ if (eq .chezmoi.hostname "azusa") -}}
+working_directory = "/home/mimikun"
+    {{ else if (eq .chezmoi.hostname "TanakaPC") -}}
+working_directory = "/home/USERNAME"
+    {{ else -}}
+working_directory = "/home/USERNAME"
+    {{ end }}
 ipc_socket = true
 {{ end }}
