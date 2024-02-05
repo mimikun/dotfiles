@@ -15,6 +15,11 @@ return {
             "IndianBoy42/tree-sitter-just",
             "LhKipp/nvim-nu",
             "Fymyte/tree-sitter-rasi",
+            "mimikun/tree-sitter-PowerShell",
+            {
+                "apple/pkl-neovim",
+                build = ":TSInstall! pkl",
+            },
         },
         config = function()
             local configs = require("nvim-treesitter.configs")
