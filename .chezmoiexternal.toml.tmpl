@@ -1,14 +1,5 @@
-{{ if eq .chezmoi.os "windows" -}}
-["AppData/Roaming/alacritty/themes"]
-    type = "git-repo"
-    url = "https://github.com/alacritty/alacritty-theme"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-{{ end }}
-{{ if eq .chezmoi.os "linux" -}}
 [".config/alacritty/themes"]
     type = "git-repo"
     url = "https://github.com/alacritty/alacritty-theme"
     refreshPeriod = "24h"
     clone.args = ["--filter=blob:none"]
-{{ end }}
