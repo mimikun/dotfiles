@@ -61,6 +61,24 @@ return {
                     capabilities = cmp_nvim_lsp.default_capabilities(),
                 })
             end,
+
+            ["lua_ls"] = function()
+                nvim_lspconfig.lua_ls.setup({
+                    settings = {
+                        Lua = {
+                            runtime = {
+                                version = "LuaJIT",
+                            },
+                            workspace = {
+                                checkThirdParty = false,
+                                library = {
+                                    vim.env.VIMRUNTIME,
+                                },
+                            },
+                        },
+                    },
+                })
+            end,
         }
 
         mason.setup({
