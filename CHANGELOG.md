@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.02.05]
+
+### Added - 新機能について
+
+- Windows: Add some neovim plugins
+- Add new neovim plugin: pkl-neovim
+- Add new neovim plugin: open-github-repo
+- Add new neovim plugin: mason-null-ls
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update .chezmoiexternal
+- Update wezterm fish completion
+- Update neovim plugin config: mason.nvim
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.04]
 
 ### Added - 新機能について
