@@ -31,4 +31,4 @@ jobs:
 
       - name: Run textlint
         run: |
-          pnpm run lint
+          pnpm run textlint
