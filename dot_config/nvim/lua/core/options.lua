@@ -126,18 +126,20 @@ if is_linux then
 end
 
 -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
-vim.opt.clipboard = "unnamedplus"
-if is_wsl then
-    vim.g.clipboard = {
-        name = "win32yank-wsl",
-        copy = {
-            ["+"] = "win32yank -i --crlf",
-            ["*"] = "win32yank -i --crlf",
-        },
-        paste = {
-            ["+"] = "win32yank -o --lf",
-            ["*"] = "win32yank -o --lf",
-        },
-        cache_enabled = 0,
-    }
+if is_human_rights then
+    vim.opt.clipboard = "unnamedplus"
+    if is_wsl then
+        vim.g.clipboard = {
+            name = "win32yank-wsl",
+            copy = {
+                ["+"] = "win32yank -i --crlf",
+                ["*"] = "win32yank -i --crlf",
+            },
+            paste = {
+                ["+"] = "win32yank -o --lf",
+                ["*"] = "win32yank -o --lf",
+            },
+            cache_enabled = 0,
+        }
+    end
 end
