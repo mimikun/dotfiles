@@ -238,6 +238,18 @@ Set-Alias -Name bd -Value Set-ParentLocation
 # alias touch
 Set-Alias -Name touch -Value New-Item
 
+# alias chezmoi cd
+function ChezmoiCd {
+    chezmoi cd
+}
+Set-Alias -Name chec -Value ChezmoiCd
+
+# alias chezmoi apply
+function ChezmoiApply {
+    chezmoi apply
+}
+Set-Alias -Name chep -Value ChezmoiApply
+
 # alias ls eza
 Get-Command eza -ErrorAction Ignore | Out-Null
 $res = $?
