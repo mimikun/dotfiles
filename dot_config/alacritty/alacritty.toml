@@ -11,9 +11,6 @@ import = [
   "~/.config/alacritty/font.toml",
   # colorscheme
   #"~/.config/alacritty/colors.toml",
-  # Windows
-  "~/AppData/Roaming/alacritty/themes/themes/github_dark.toml",
-  # Linux
   "~/.config/alacritty/themes/themes/github_dark.toml",
   # bell
   "~/.config/alacritty/bell.toml",
