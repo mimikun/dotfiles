@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.02.06]
+
+### Added - 新機能について
+
+- Add new neovim plugin: lspsaga.nvim
+- Add keybind C-d to exit in PowerShell
+- Add some alias in PowerShell
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Improved neovim plugin config: nvim-lspconfig
+- Improved neovim plugin config: telescope.nvim
+- Update alacritty config
+- Update textlint github workflow
+- Update misc
+- Don't use clipboard in neovim if you don't have human rights
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.05]
 
 ### Added - 新機能について
