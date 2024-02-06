@@ -16,6 +16,8 @@ chec = "chec"
 Siduction = "Siduction"
 # key mapping in dot_config/nvim/lua/plugins/telescope-nvim.lua
 fo = "fo"
+# telescope-nvim
+tabe = "tabe"
 
 [files]
 extend-exclude = [
