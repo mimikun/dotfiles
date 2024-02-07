@@ -1,5 +1,5 @@
--- Disable if there are no human rights
-local cond = require("core.global").is_human_rights
+local global = require("core.global")
+local is_human_rights = global.is_human_rights
 
 return {
     "skanehira/denops-translate.vim",
@@ -14,5 +14,7 @@ return {
         -- ref: https://github.com/skanehira/denops-translate.vim/issues/66
         vim.g.translate_border_chars = { "+", "-", "+", "|", "+", "-", "+", "|" }
     end,
+    -- Disable if there are no human rights
+    --cond = is_human_rights,
     cond = false,
 }

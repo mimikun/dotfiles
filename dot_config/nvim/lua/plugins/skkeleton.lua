@@ -1,5 +1,5 @@
--- Disable if there are no human rights
-local cond = require("core.global").is_human_rights
+local global = require("core.global")
+local is_human_rights = global.is_human_rights
 
 local keymaps = {
     { "<C-j>", desc = "Toggle Kana-mode skkeleton" },
@@ -16,8 +16,8 @@ return {
     config = function()
         -- TODO: setting
         -- https://github.com/vim-skk/skkeleton/blob/main/doc/skkeleton.jax
-        vim.keymap.set("i", "<C-j>", [[<Plug>(skkeleton-toggle)]])
-        vim.keymap.set("c", "<C-j>", [[<Plug>(skkeleton-toggle)]])
     end,
-    cond = cond,
+    -- Disable if there are no human rights
+    --cond = is_human_rights,
+    cond = false,
 }

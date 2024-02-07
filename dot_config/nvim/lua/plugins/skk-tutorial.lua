@@ -1,5 +1,5 @@
--- Disable if there are no human rights
-local cond = require("core.global").is_human_rights
+local global = require("core.global")
+local is_human_rights = global.is_human_rights
 
 return {
     "willelz/skk-tutorial.vim",
@@ -10,5 +10,7 @@ return {
         "vim-denops/denops.vim",
         "vim-skk/skkeleton",
     },
-    cond = cond,
+    -- Disable if there are no human rights
+    --cond = is_human_rights,
+    cond = false,
 }
