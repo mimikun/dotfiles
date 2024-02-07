@@ -50,7 +50,6 @@ local today = {
 
 local opts = {
     workspaces = vaults,
-    detect_cwd = false,
     -- Default save location for newly created notes
     notes_subdir = "000_Inbox",
     log_level = vim.log.levels.DEBUG,
