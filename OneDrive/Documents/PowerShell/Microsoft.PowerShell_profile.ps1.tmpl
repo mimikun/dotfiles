@@ -238,6 +238,18 @@ Set-Alias -Name bd -Value Set-ParentLocation
 # alias touch
 Set-Alias -Name touch -Value New-Item
 
+# alias chezmoi cd
+function ChezmoiCd {
+    chezmoi cd
+}
+Set-Alias -Name chec -Value ChezmoiCd
+
+# alias chezmoi apply
+function ChezmoiApply {
+    chezmoi apply
+}
+Set-Alias -Name chep -Value ChezmoiApply
+
 # alias ls eza
 Get-Command eza -ErrorAction Ignore | Out-Null
 $res = $?
@@ -309,15 +321,6 @@ function Invoke-GenerateEditorConfig() {
     }
 }
 Set-Alias -Name editorconfig Invoke-GenerateEditorConfig
-
-# PSReadLine settings
-Set-PSReadLineKeyHandler `
-    -Key Ctrl+g `
-    -BriefDescription "Run ghq cd" `
-    -LongDescription "Run ghq cd" `
-    -ScriptBlock {
-        Set-GhqLocation
-    }
 
 if ($IsLinux) {
     # alias chezmoi_cd
@@ -402,3 +405,9 @@ if ($res) {
     # If true, aqua outputs additional information such as description and link #2027 #2062 (aqua >= v2.9.0)
     #$env:AQUA_GENERATE_WITH_DETAIL = $False
 }
+
+# PSReadLine settings
+# C-g gcd
+Set-PSReadLineKeyHandler -Key Ctrl+g -ScriptBlock { Set-GhqLocation }
+# C-d exit
+Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
