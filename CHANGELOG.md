@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.02.07]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update neovim plugin config: obsidian.nvim
+    - Remove deprecated option
+- Improved denops depend plugins
+- Improved neovim plugin config: kensaku.vim
+
+### Removed - 今回で削除された機能について
+
+- Remove unused neovim plugins
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.06]
 
 ### Added - 新機能について
