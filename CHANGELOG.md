@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.02.08]
+
+### Added - 新機能について
+
+- Add new neovim plugin: template.nvim
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update mise fish completion
+- Update starship config
+- Bump aqua tools version
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.07]
 
 ### Added - 新機能について
