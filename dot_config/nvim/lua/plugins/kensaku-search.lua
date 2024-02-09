@@ -1,7 +1,7 @@
 local global = require("core.global")
 local is_human_rights = global.is_human_rights
 local keymaps = {
-    { "<CR>", desc = "kensaku-search-replace"},
+    { "<CR>", desc = "kensaku-search-replace" },
 }
 
 return {
