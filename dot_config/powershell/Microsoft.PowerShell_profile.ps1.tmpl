@@ -62,6 +62,10 @@ $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed3
     {{ end -}}
 {{ end -}}
 
+$env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
+$env:obsidian_vault_root = $OBSIDIAN_VAULT_ROOT
+$obsidian_vault_root = $OBSIDIAN_VAULT_ROOT
+
 if ($IsLinux) {
     $env:GHQ_ROOT = Join-Path -Path $env:HOME -ChildPath "ghq"
 } else {
