@@ -1,5 +1,5 @@
 local fzf_opts = { ["--scrollbar"] = "█" }
-local is_git = require("utils.func").is_git
+local is_git = false
 
 local keymaps = {
     { "<C-p>", desc = "Open file search" },
@@ -18,7 +18,7 @@ return {
     --event = "VeryLazy",
     keys = keymaps,
     dependencies = {
-        { "nvim-tree/nvim-web-devicons" },
+        "nvim-tree/nvim-web-devicons",
     },
     config = function()
         local fzf_lua = require("fzf-lua")
@@ -31,13 +31,15 @@ return {
         -- Ctrl+pでファイル検索を開く
         -- git管理されていればgit_files
         -- そうでなければfilesを実行する
-        vim.keymap.set("n", "<C-p>", function()
-            if is_git then
+        if is_git then
+            vim.keymap.set("n", "<C-p>", function()
                 fzf_lua.git_files({ fzf_opts = fzf_opts })
-            else
+            end, {})
+        else
+            vim.keymap.set("n", "<C-p>", function()
                 fzf_lua.files({ fzf_opts = fzf_opts })
-            end
-        end, {})
+            end, {})
+        end
 
         -- Ctrl+gで文字列検索を開く
         -- <S-?>でプレビューを表示/非表示する?
