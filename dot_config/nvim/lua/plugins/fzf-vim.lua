@@ -1,4 +1,4 @@
-local is_git = require("utils.func").is_git
+local is_git = false
 
 local keymaps = {
     { "<C-p>", desc = "Open file search" },
@@ -24,13 +24,15 @@ return {
     config = function()
         -- Ctrl+pでファイル検索を開く
         -- git管理されていれば:GFiles、そうでなければ:Filesを実行する
-        vim.keymap.set("n", "<C-p>", function()
-            if is_git then
+        if is_git then
+            vim.keymap.set("n", "<C-p>", function()
                 vim.cmd(":GFiles")
-            else
+            end, {})
+        else
+            vim.keymap.set("n", "<C-p>", function()
                 vim.cmd(":Files")
-            end
-        end, {})
+            end, {})
+        end
 
         -- Ctrl+gで文字列検索を開く
         -- <S-?>でプレビューを表示/非表示する
