@@ -4,16 +4,15 @@ TODAY=$(date "+%Y.%m.%d")
 REMOTE_NAME="origin"
 BRANCH_NAME="master"
 RESULT_FILE="CHANGELOG.md"
+GIT_LOG=$(git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B")
 
 {
     echo "## run"
     echo ""
-    git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d' | sed -e 's/^/- /g'
+    echo "$GIT_LOG" | sed -e '/^$/d' | sed -e 's/^/- /g'
     echo ""
     echo '```bash'
-    echo 'git commit -m "WIP:'
-    echo '" --allow-empty'
-    git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B" | sed -e '/^$/d'
+    echo "$GIT_LOG" | sed -e '/^$/d' | sed -e 's/^/git commit -m "WIP:/g' | sed -e 's/$/" --allow-empty/g'
     echo '```'
     echo ""
     echo "## [v$TODAY]"
