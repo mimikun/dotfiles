@@ -123,6 +123,8 @@ end
 -- LinuxではPythonのパスを指定する
 if is_linux then
     vim.g.python3_host_prog = "~/.local/share/mise/shims/python"
+    vim.g.ruby_host_prog = "~/.local/share/mise/shims/ruby"
+    vim.g.node_host_prog = "~/.local/share/mise/shims/node"
 end
 
 -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
