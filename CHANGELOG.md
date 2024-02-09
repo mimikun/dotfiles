@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2024.02.09]
+
+### Added - 新機能について
+
+- Set host_prog in neovim
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update neovim plugin config: skkeleton
+- Update neovim plugin config: fzf.lua
+- Update neovim plugin config: fzf.vim
+- Update deno fish completion
+- Improved utils/changelog.sh
+    - Fix #135
+- Improved Invoke-RunAfterChezmoiApply.ps1
+    - Fix #223
+
+### Removed - 今回で削除された機能について
+
+- Remove unused code
+
+### Fixed - 不具合修正について
+
+- Run stylua format
+- Fix PowerShell config
+    - Fix #218
+- Workaround for a FXXING SHXT BUG caused by the combination of vimdoc-ja and lazy.nvim
+
 ## [v2024.02.08]
 
 ### Added - 新機能について
