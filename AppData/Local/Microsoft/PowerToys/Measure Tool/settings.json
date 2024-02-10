@@ -1,0 +1,1 @@
+{"properties":{"ActivationShortcut":{"win":true,"ctrl":false,"alt":false,"shift":true,"code":77,"key":""},"ContinuousCapture":{"value":true},"DrawFeetOnCross":{"value":true},"PerColorChannelEdgeDetection":{"value":false},"UnitsOfMeasure":{"value":0},"PixelTolerance":{"value":30},"MeasureCrossColor":{"value":"#FF4500"}},"name":"Measure Tool","version":"1"}

@@ -1,0 +1,1 @@
+{"properties":{"hotkey":{"value":{"win":true,"ctrl":true,"alt":false,"shift":false,"code":84,"key":""}},"frame-enabled":{"value":true},"frame-thickness":{"value":15},"frame-color":{"value":"#0099cc"},"sound-enabled":{"value":true},"do-not-activate-on-game-mode":{"value":true},"excluded-apps":{"value":""}},"name":"AlwaysOnTop","version":"0.0.1"}
