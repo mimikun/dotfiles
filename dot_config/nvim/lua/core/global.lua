@@ -46,7 +46,7 @@ function global:load_variables()
     self.home = uv.os_homedir()
 
     ---@type string
-    self.cache_dir = home .. self.path_sep .. ".cache" .. self.path_sep .. "nvim" .. self.path_sep
+    self.cache_dir = self.home .. self.path_sep .. ".cache" .. self.path_sep .. "nvim" .. self.path_sep
 
     ---@type string
     self.plugins_dir = self.vim_path .. self.path_sep .. "plugins"
