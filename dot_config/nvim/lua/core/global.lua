@@ -42,8 +42,8 @@ function global:load_variables()
     ---@type string
     self.path_sep = self.is_windows and "\\" or "/"
 
-    local home = self.is_windows and os.getenv("USERPROFILE") or os.getenv("HOME")
-    self.home = home
+    ---@type string
+    self.home = uv.os_homedir()
 
     ---@type string
     self.cache_dir = home .. self.path_sep .. ".cache" .. self.path_sep .. "nvim" .. self.path_sep
