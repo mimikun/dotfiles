@@ -1,4 +1,5 @@
 local global = require("core.global")
+local uv = vim.uv and vim.uv or vim.loop
 
 local is_windows = global.is_windows
 local is_mac = global.is_mac
@@ -35,12 +36,12 @@ end
 ---------
 -- RAM --
 ---------
-local total_memory = vim.loop.get_total_memory()
+local total_memory = uv.get_total_memory()
 
 ---------
 -- CPU --
 ---------
-local cpu_info = vim.loop.cpu_info()
+local cpu_info = uv.cpu_info()
 local cpu_name = cpu_info[1].model
 local cpu = find(HUMAN_RIGHTS.cpu, cpu_name)
 
@@ -69,7 +70,7 @@ end
 -----------------
 -- Parallelism --
 -----------------
-local available_parallelism = vim.loop.available_parallelism()
+local available_parallelism = uv.available_parallelism()
 
 local human_rights = {}
 

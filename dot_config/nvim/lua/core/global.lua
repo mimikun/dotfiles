@@ -1,8 +1,10 @@
 -- thx: https://github.com/ayamir/nvimdots/blob/main/lua/core/global.lua
 
 local global = {}
-local os_name = vim.loop.os_uname().sysname
-local total_memory = vim.loop.get_total_memory()
+local uv = vim.uv and vim.uv or vim.loop
+
+local os_name = uv.os_uname().sysname
+local total_memory = uv.get_total_memory()
 -- 4GB
 local linux_human_rights_memory_size = 4294967296
 -- 9GB

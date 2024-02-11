@@ -1,5 +1,6 @@
 local global = require("core.global")
 local iconsets = require("utils.icons")
+local uv = vim.uv and vim.uv or vim.loop
 
 ---@type boolean
 local is_windows = global.is_windows
@@ -11,7 +12,7 @@ local is_human_rights = global.is_human_rights
 local concurrency_limit_check = function()
     local limit
     if is_human_rights then
-        limit = is_windows and (vim.loop.available_parallelism() * 2) or nil
+        limit = is_windows and (uv.available_parallelism() * 2) or nil
     else
         limit = 1
     end
@@ -39,7 +40,7 @@ local Lazy = {}
 
 function Lazy:load_lazy()
     -- Lazy.nvimでのプラグイン管理
-    if not vim.loop.fs_stat(lazy_path) then
+    if not uv.fs_stat(lazy_path) then
         vim.fn.system({
             "git",
             "clone",
