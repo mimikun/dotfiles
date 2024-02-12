@@ -1,5 +1,6 @@
 local global = require("core.global")
 local is_human_rights = global.is_human_rights
+
 local keymaps = {
     { "<CR>", desc = "kensaku-search-replace" },
 }
@@ -17,6 +18,5 @@ return {
         vim.set.keymap("c", "<CR>", "<Plug>(kensaku-search-replace)<CR>", { noremap = true })
     end,
     -- Disable if there are no human rights
-    --cond = is_human_rights,
-    cond = false,
+    cond = is_human_rights,
 }
