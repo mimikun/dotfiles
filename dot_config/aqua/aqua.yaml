@@ -46,7 +46,7 @@ packages:
 - name: golang/tools/guru@v0.17.0
 - name: itchyny/json2yaml@v0.1.4
 - name: koki-develop/sheep@v0.4.0
-- name: rhysd/vim-startuptime@v1.3.1
+- name: rhysd/vim-startuptime@v1.3.2
 - name: antonmedv/walk@v1.7.0
 - name: dominikh/go-tools/staticcheck@2023.1.6
 # Previously managed with gup, but use custom registry
