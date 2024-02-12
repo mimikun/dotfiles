@@ -21,6 +21,5 @@ return {
         "vim-denops/denops.vim",
     },
     -- Disable if there are no human rights
-    --cond = is_human_rights,
-    cond = false,
+    cond = is_human_rights,
 }
