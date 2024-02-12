@@ -1,5 +1,5 @@
 return {
-    "narutoxy/silicon.lua",
+    "0oAstro/silicon.lua",
     --lazy = false,
     --event = "VimEnter",
     --cmd = "",
@@ -10,5 +10,5 @@ return {
             --font = "monospace",
         })
     end,
-    cond = false,
+    --cond = false,
 }
