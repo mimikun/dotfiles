@@ -12,6 +12,5 @@ return {
     },
     config = true,
     -- Disable if there are no human rights
-    --cond = is_human_rights,
-    cond = false,
+    cond = is_human_rights,
 }
