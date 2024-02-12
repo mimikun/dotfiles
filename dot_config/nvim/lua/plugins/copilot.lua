@@ -1,12 +1,12 @@
+local settings = require("core.settings")
+
 return {
     "zbirenbaum/copilot.lua",
     --lazy = false,
     event = "InsertEnter",
-    cmd = {
-        "Copilot",
-    },
+    cmd = "Copilot",
     config = function()
         require("copilot").setup({})
     end,
-    cond = false,
+    cond = settings.use_copilot,
 }
