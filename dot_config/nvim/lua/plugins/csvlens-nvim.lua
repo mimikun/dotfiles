@@ -1,7 +1,6 @@
 -- Enable if executable csvlens command
 local has_csvlens = (1 == vim.fn.executable("csvlens")) and true or false
 local cond = has_csvlens
-cond = false
 
 return {
     "theKnightsOfRohan/csvlens.nvim",
