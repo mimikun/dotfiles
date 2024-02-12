@@ -101,6 +101,9 @@ vim.opt.updatetime = 250
 -- ヘルプ日本語化
 vim.opt.helplang = { "ja", "en" }
 
+-- editorconfig
+vim.g.editorconfig = true
+
 -- シンタックスハイライトを有効にする
 vim.cmd("syntax enable")
 
