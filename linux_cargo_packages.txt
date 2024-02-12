@@ -87,6 +87,7 @@ trashy
 tree-sitter-cli
 treefmt
 typos-cli
+usage-cli
 watchexec-cli
 xh
 xsv
