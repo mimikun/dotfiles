@@ -39,5 +39,5 @@ return {
         end, opts)
         vim.keymap.set("x", "tr", pantran.motion_translate, opts)
     end,
-    cond = false,
+    --cond = false,
 }
