@@ -1,5 +1,65 @@
 # Changelog
 
+## [v2024.02.12]
+
+### Added - 新機能について
+
+- Add new rust tool: usage-cli
+- Add TODO comments
+- Add new fish abbr: ghview
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update mise fish completion
+- Update eza fish completion
+- Update neovim plugin config: nvim-surround
+- Enable neovim editorconfig integration
+- Enable neovim plugin: copilot.lua
+- Enable neovim plugin: pantran.nvim
+- Enable neovim plugin: kensaku-search.vim
+- Enable neovim plugin: kensaku-command.vim
+- Enable neovim plugin: denops-docker.vim
+- Enable neovim plugin: csvlens.nvim
+- Use vim.uv.os_homedir()
+- Use vim.uv
+    - vim.loop is deprecated
+- Use `table.concat()` in neovim config
+    - Fix #244
+
+### Removed - 今回で削除された機能について
+
+- Remove wsl2-ssh-agent config & command
+- Remove unused neovim plugin: confirm-quit.nvim
+- Remove unused neovim plugin: dashboard-nvim
+- Remove unused neovim plugin: copilot.vim
+- Remove unused neovim plugin: gin.vim
+- Remove unused neovim plugin: vim-gitgutter
+- Remove unused neovim plugin: vim-translator
+- Remove unused neovim plugin: fzf.vim
+- Remove unused neovim plugin: fzf-lua
+- Remove unused neovim plugin: coc.nvim
+- Remove unused neovim plugin: scrollbar.nvim
+- Remove unused neovim plugin: jaq-nvim
+- Remove unused neovim plugin: neogit
+- Remove unused neovim plugin: open-github-repo
+- Remove unused neovim plugin: readablefold.vim
+- Remove unused neovim plugin: startup.nvim
+- Remove unused neovim plugin: denops-translate.vim
+- Remove unused neovim plugin: neo-tree.nvim
+- Remove unused neovim plugin: vim-silicon
+- Remove unused neovim plugin: wttr.nvim
+- Remove unused neovim plugin: editorconfig.nvim
+    - Fix #242
+
+### Fixed - 不具合修正について
+
+- Fix neovim config: core/global.lua
+- Fix azusa's less command mojibake
+    - Fix #240
+- Fix neovim plugin config: silicon.lua
+    - namespace changed
+
 ## [v2024.02.09]
 
 ### Added - 新機能について
