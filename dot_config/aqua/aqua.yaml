@@ -52,8 +52,6 @@ packages:
 # Previously managed with gup, but use custom registry
 - name: mikuta0407/misskey-cli@v0.3
   registry: custom
-- name: mame/wsl2-ssh-agent@v0.9.4
-  registry: custom
 - name: mattn/sleepy@v0.0.3
   registry: custom
 - name: b4b4r07/gomi@v1.1.6
