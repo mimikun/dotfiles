@@ -3,7 +3,7 @@ local M = {}
 local global = require("core.global")
 local path_sep = global.path_sep
 
-local file_name = vim.fn.expand("$obsidian_vault_path") .. path_sep .. "tasks.md"
+local file_name = table.concat({ vim.fn.expand("$obsidian_vault_path"), "tasks.md" }, path_sep)
 local task_file = io.open(file_name, "r")
 if not task_file then
     return error("Unable to open" .. file_name)
@@ -19,7 +19,7 @@ task_file:close()
 return M
 
 --[[
-TODO: 
+TODO:
 
 繰り返しタスク
 

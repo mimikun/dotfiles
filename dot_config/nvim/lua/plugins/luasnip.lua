@@ -3,7 +3,7 @@ local is_windows = global.is_windows
 local data_dir = global.data_dir
 local path_sep = global.path_sep
 local my_snippets_dir = global.snippets_dir
-local friendly_snippets = data_dir .. path_sep .. "lazy" .. path_sep .. "friendly-snippets"
+local friendly_snippets = table.concat({ data_dir, "lazy", "friendly-snippets" }, path_sep)
 
 local build = is_windows and "" or "make install_jsregexp"
 

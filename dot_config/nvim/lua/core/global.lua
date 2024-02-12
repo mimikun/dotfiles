@@ -46,25 +46,19 @@ function global:load_variables()
     self.home = uv.os_homedir()
 
     ---@type string
-    self.cache_dir = self.home .. self.path_sep .. ".cache" .. self.path_sep .. "nvim" .. self.path_sep
+    self.cache_dir = table.concat({ self.home, ".cache", "nvim" }, self.path_sep)
 
     ---@type string
-    self.plugins_dir = self.vim_path .. self.path_sep .. "plugins"
+    self.plugins_dir = table.concat({ self.vim_path, "plugins" }, self.path_sep)
 
     ---@type string
-    self.snippets_dir = self.vim_path .. self.path_sep .. "snippets"
+    self.snippets_dir = table.concat({ self.vim_path, "snippets" }, self.path_sep)
 
     ---@type string
     self.data_dir = string.format("%s/site/", vim.fn.stdpath("data"))
 
     ---@type string
-    self.themery_config = self.vim_path
-        .. self.path_sep
-        .. "lua"
-        .. self.path_sep
-        .. "core"
-        .. self.path_sep
-        .. "colorscheme.lua"
+    self.themery_config = table.concat({ self.vim_path, "lua", "core", "colorscheme.lua" }, self.path_sep)
 end
 
 global:load_variables()
