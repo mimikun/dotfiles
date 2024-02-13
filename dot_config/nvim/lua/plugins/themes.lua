@@ -146,6 +146,15 @@ return {
         end,
         --cond = false,
     },
+    {
+        "pauchiner/pastelnight.nvim",
+        --lazy = false,
+        --event = "VeryLazy",
+        priority = 1000,
+        opts = {},
+
+        --cond = false,
+    },
     -- VimScript themes
     {
         -- NOTE: duplicate
