@@ -13,6 +13,10 @@ function global:load_variables()
     self.is_windows = is_windows
 
     ---@type boolean
+    local is_azusa = hostname == "azusa"
+    self.is_azusa = is_azusa
+
+    ---@type boolean
     local is_not_human_rights = hostname == "TanakaPC"
     self.is_not_human_rights = is_not_human_rights
 
@@ -24,7 +28,7 @@ function global:load_variables()
     self.home = home
 
     ---@type string
-    local nyagos_path = home .. path_sep .. ".config" .. path_sep .. "nyagos"
+    local nyagos_path = table.concat({ home, ".config", "nyagos" }, path_sep)
     self.nyagos_path = nyagos_path
 end
 

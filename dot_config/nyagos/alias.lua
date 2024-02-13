@@ -1,6 +1,7 @@
 local global = require("global")
 local home = global.home
 local is_linux = global.is_linux
+local is_azusa = global.is_azusa
 local path_sep = global.path_sep
 
 -- alias
@@ -17,23 +18,25 @@ if is_linux then
     nyagos.alias.imgcat = "wezterm imgcat"
     nyagos.alias.pip = "python3 -m pip"
     nyagos.alias.pipx = "python3 -m pipx"
-    nyagos.alias.open = "wsl-open"
     nyagos.alias.zel = "zellij"
     nyagos.alias.pueuexec = "pueue add --"
+    if not is_azusa then
+        nyagos.alias.open = "wsl-open"
+    end
 
     -- mise
     -- TODO: Run mise_activate_nyagos
-    local mise_dir = home .. path_sep .. ".local" .. path_sep .. "share" .. path_sep .. "mise"
-    local mise_shims = mise_dir .. path_sep .. "shims"
+    local mise_dir = table.concat({ home, ".local", "share", "mise" }, path_sep)
+    local mise_shims = table.concat({ mise_dir, "shims" }, path_sep)
     -- Add mise shims to path
     nyagos.envadd("PATH", mise_shims)
 
     -- paleovim alias
-    local paleovim = mise_shims .. path_sep .. "vim"
+    local paleovim = table.concat({ mise_shims, "vim" }, path_sep)
     nyagos.alias.paleovim = paleovim
     nyagos.alias.pvim = paleovim
     -- neovim alias
-    local neovim = mise_shims .. path_sep .. "nvim"
+    local neovim = table.concat({ mise_shims, "nvim" }, path_sep)
     nyagos.alias.neovim = neovim
     nyagos.alias.vim = neovim
 end
