@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.02.13]
+
+### Added - 新機能について
+
+- Add dependencies: zapling/mason-lock.nvim
+- Add new task to maskfile.md
+- Add new neovim colorscheme: pastelnight.nvim
+- Add new neovim plugin: dotfyle-metadata.nvim
+- Add new neovim plugin: 2048.nvim
+- Add mattn/bsky command by aqua
+- Add neoivm dotfyle.json
+- Add neoivm mason-lock.json
+
+### Changed - 既存機能の変更について
+
+- Update zoxide fish completion
+- Update STARTUPTIME.md
+- Update neovim plugin config: mason.nvim
+- Improved neovim plugin config: vimdoc-ja
+- Improved neovim core/lazyvim.lua
+- Update nyagos configs
+    - Fix #57
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.12]
 
 ### Added - 新機能について
