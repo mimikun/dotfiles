@@ -1,6 +1,11 @@
 local global = require("core.global")
 local iconsets = require("utils.icons")
+
 local uv = vim.uv and vim.uv or vim.loop
+
+local data_dir = global.data_dir
+local cache_dir = global.cache_dir
+local path_sep = global.path_sep
 
 ---@type boolean
 local is_windows = global.is_windows
@@ -21,12 +26,9 @@ end
 
 local concurrency = concurrency_limit_check()
 
--- ~/.local/share/nvim
----@type string
-local data_dir = global.data_dir
--- ~/.local/share/nvim/lazy/lazy.nvim
----@type string
-local lazy_path = data_dir .. "lazy/lazy.nvim"
+local lazy_root = table.concat({ data_dir, "lazy" }, path_sep)
+local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, path_sep)
+local lazy_cache = table.concat({ cache_dir, "lazy", "cache" }, path_sep)
 
 local icons = {
     kind = iconsets.get("kind"),
@@ -52,7 +54,7 @@ function Lazy:load_lazy()
     end
 
     local lazy_settings = {
-        root = data_dir .. "lazy",
+        root = lazy_root,
         defaults = {
             lazy = true,
             cond = true,
@@ -93,7 +95,7 @@ function Lazy:load_lazy()
         performance = {
             cache = {
                 enabled = true,
-                path = vim.fn.stdpath("cache") .. "/lazy/cache",
+                path = lazy_cache,
                 -- Once one of the following events triggers, caching will be disabled.
                 -- To cache all modules, set this to `{}`, but that is not recommended.
                 disable_events = { "UIEnter", "BufReadPre" },

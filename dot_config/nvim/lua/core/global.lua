@@ -55,7 +55,7 @@ function global:load_variables()
     self.snippets_dir = table.concat({ self.vim_path, "snippets" }, self.path_sep)
 
     ---@type string
-    self.data_dir = string.format("%s/site/", vim.fn.stdpath("data"))
+    self.data_dir = string.format("%s/site", vim.fn.stdpath("data"))
 
     ---@type string
     self.themery_config = table.concat({ self.vim_path, "lua", "core", "colorscheme.lua" }, self.path_sep)
