@@ -705,3 +705,27 @@ TODAY=$(date +'%Y%m%d')
 ```powershell
 Write-Output "Windows is not support!"
 ```
+
+## pab
+
+> Create a patch branch (alias)
+
+```bash
+mask patch-branch
+```
+
+```powershell
+mask patch-branch
+```
+
+## deleb
+
+> Delete patch branch (alias)
+
+```bash
+mask delete-branch
+```
+
+```powershell
+mask delete-branch
+```
