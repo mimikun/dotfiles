@@ -283,6 +283,9 @@ chezmoi add ~/.config/nvim/lazy-lock.json
 # mason.nvim lockfile (mason-lock.nvim)
 chezmoi add ~/.config/nvim/mason-lock.json
 
+# dotfyle.json
+chezmoi add ~/.config/nvim/dotfyle.json
+
 # ~/.local/bin/*
 chezmoi add ~/.local/bin/chezmoi_post_apply_hook
 chezmoi add ~/.local/bin/chezmoi_pre_apply_hook
