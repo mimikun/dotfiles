@@ -6,6 +6,8 @@ local iconsets = require("utils.icons")
 
 local is_human_rights = global.is_human_rights
 local is_windows = global.is_windows
+local vim_path = global.vim_path
+local path_sep = global.path_sep
 
 local lsp_servers = settings["lsp_servers"]
 if is_windows then
@@ -41,17 +43,21 @@ end
 ---@type number
 local concurrency = concurrency_limit_check()
 
+local mason_lockfile = table.concat({ vim_path, "mason-lock.json" }, path_sep)
+
 return {
     "williamboman/mason.nvim",
     lazy = false,
     dependencies = {
         "williamboman/mason-lspconfig.nvim",
+        "zapling/mason-lock.nvim",
         "neovim/nvim-lspconfig",
         "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
+        local mason_lock = require("mason-lock")
         local nvim_lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -98,6 +104,9 @@ return {
         mason_lspconfig.setup({
             ensure_installed = lsp_servers,
             handlers = handlers,
+        })
+        mason_lock.setup({
+            lockfile_path = mason_lockfile,
         })
     end,
     --cond = false,
