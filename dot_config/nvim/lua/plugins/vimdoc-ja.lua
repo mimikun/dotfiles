@@ -1,4 +1,8 @@
-local vimdoc_repo = vim.fn.expand("$XDG_DATA_HOME/nvim/site/lazy/vimdoc-ja/")
+local global = require("core.global")
+local data_dir = global.data_dir
+local path_sep = global.path_sep
+
+local vimdoc_repo = table.concat({ data_dir, "lazy", "vimdoc-ja" }, path_sep)
 
 -- NOTE: Workaround for a FXXING SHXT BUG caused by the combination of vimdoc-ja and lazy.nvim
 -- thx: https://github.com/delphinus/dotfiles/blob/master/.config/nvim/lua/core/lazy/init.lua
