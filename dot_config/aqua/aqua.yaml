@@ -41,7 +41,7 @@ packages:
 - name: chriswalz/bit@v1.1.2
 - name: koki-develop/gat@v0.15.1
 - name: golang/tools/goimports@v0.18.0
-- name: golang/tools/gorename@v0.17.0
+- name: golang/tools/gorename@v0.18.0
 - name: hherman1/gq@v0.0.3
 - name: golang/tools/guru@v0.17.0
 - name: itchyny/json2yaml@v0.1.4
