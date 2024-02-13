@@ -31,6 +31,9 @@ chezmoi add ~/.config/aqua/registry.yaml
 # lazy.nvim lockfile
 chezmoi add ~/.config/nvim/lazy-lock.json
 
+# mason.nvim lockfile (mason-lock.nvim)
+chezmoi add ~/.config/nvim/mason-lock.json
+
 # ~/.local/bin/*
 chezmoi add ~/.local/bin/chezmoi_post_apply_hook
 chezmoi add ~/.local/bin/chezmoi_pre_apply_hook
