@@ -80,3 +80,4 @@ packages:
 - name: koki-develop/clive@v0.12.9
 - name: tsl0922/ttyd@1.7.4
 - name: charmbracelet/vhs@v0.7.1
+- name: mattn/bsky@v0.0.49
