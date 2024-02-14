@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.02.14]
+
+### Added - 新機能について
+
+- Add changelog task to maskfile.md
+
+### Changed - 既存機能の変更について
+
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+- Update mise fish completion
+- Update i3-wm config
+- Improved utils/changelog.sh
+    - Add divider line
+- Improved utils/update.sh
+    - Run format dotfyle.json
+- Improved lua_ls config
+- Bump aqua.yaml
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.13]
 
 ### Added - 新機能について
