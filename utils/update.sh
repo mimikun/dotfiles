@@ -36,6 +36,7 @@ chezmoi add ~/.config/nvim/mason-lock.json
 
 # dotfyle.json
 chezmoi add ~/.config/nvim/dotfyle.json
+deno fmt dot_config/nvim/dotfyle.json
 
 # ~/.local/bin/*
 chezmoi add ~/.local/bin/chezmoi_post_apply_hook
