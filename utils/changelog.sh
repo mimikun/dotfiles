@@ -12,6 +12,8 @@ GIT_LOG=$(git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B")
     echo "$GIT_LOG" | sed -e '/^$/d' | sed -e 's/^/- /g'
     echo ""
     echo '```bash'
+    echo 'git commit -m "WIP:--------------------------------------------------------------------------" --allow-empty'
+    echo 'git commit -m "WIP:--------------------------------------------------------------------------" --allow-empty'
     echo "$GIT_LOG" | sed -e '/^$/d' | sed -e 's/^/git commit -m "WIP:/g' | sed -e 's/$/" --allow-empty/g'
     echo '```'
     echo ""
