@@ -12,6 +12,7 @@ return {
     keys = keymaps,
     dependencies = {
         "vim-denops/denops.vim",
+        "yuki-yano/denops-lazy.nvim",
         "delphinus/skkeleton_indicator.nvim",
         {
             "willelz/skk-tutorial.vim",
@@ -19,7 +20,11 @@ return {
         },
     },
     config = function()
+        local denops_lazy = require("denops-lazy")
         local skkeleton_indicator = require("skkeleton_indicator")
+
+        denops_lazy.load("skkeleton")
+
         skkeleton_indicator.setup({
             eijiHlName = "SkkeletonIndicatorEiji",
             hiraHlName = "SkkeletonIndicatorHira",

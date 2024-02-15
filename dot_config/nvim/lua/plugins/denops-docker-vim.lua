@@ -19,7 +19,12 @@ return {
     cmd = cmds,
     dependencies = {
         "vim-denops/denops.vim",
+        "yuki-yano/denops-lazy.nvim",
     },
+    config = function()
+        local denops_lazy = require("denops-lazy")
+        denops_lazy.load("denops-docker.vim")
+    end,
     -- Disable if there are no human rights
     cond = is_human_rights,
 }
