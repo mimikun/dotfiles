@@ -1,5 +1,37 @@
 # Changelog
 
+## [v2024.02.15]
+
+### Added - 新機能について
+
+- Use denops-lazy.nvim
+- Add pip fish completion
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update mason-lock.json
+- Update lazy-lock.json
+- Update deno fish completion
+- Update update_mise command
+- Improved neovim plugin config: fern.vim
+    - Add nvim-tree/nvim-web-devicons , TheLeoP/fern-renderer-web-devicons.nvim
+- Improved neovim plugin config: alpha.lua
+- Update neovim utils/icons.lua
+    - Add and use new icon
+- Update neovim core/settings.lua
+- Update bat config: use tokyonight theme
+    - Add some bat themes
+
+### Removed - 今回で削除された機能について
+
+- Remove unused code
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin configs: depend denops plugins
+    - cond = is_human_rights
+
 ## [v2024.02.14]
 
 ### Added - 新機能について
