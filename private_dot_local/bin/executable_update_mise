@@ -4,8 +4,12 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.1.0"
+readonly PRODUCT_VERSION="0.2.0"
 PRODUCT_NAME="$(basename "${0}")"
+readonly MISE_NEOVIM_BINDIR="$MISE_DATA_DIR/installs/neovim"
+readonly BIN_NVIM="bin/nvim"
+readonly MISE_ZIG_BINDIR="$MISE_DATA_DIR/installs/zig"
+readonly BIN_ZIG="bin/zig"
 
 #=======================
 # 関数定義
@@ -45,9 +49,6 @@ function _neovim_master() {
     NVIM_MASTER_COMMIT_HASH=$(cat "$NVIM_MASTER_COMMIT_HASH_FILE")
     NVIM_MASTER_NEW_COMMIT_HASH=$(git ls-remote --heads --tags https://github.com/neovim/neovim.git | grep refs/heads/master | cut -f 1)
 
-    mise use neovim@ref:master
-    mise reshim
-    sleep 5
     if [ "$NVIM_MASTER_COMMIT_HASH" != "$NVIM_MASTER_NEW_COMMIT_HASH" ]; then
         echo "neovim (latest)master found!"
         echo "$NVIM_MASTER_NEW_COMMIT_HASH" >"$NVIM_MASTER_COMMIT_HASH_FILE"
@@ -65,12 +66,9 @@ function _neovim_master() {
 }
 
 function _neovim_nightly() {
-    NVIM_NIGHTLY_VERSION=$(nvim --version | head -n 1 | tr " " "\n" | sed -n '2p')
+    NVIM_NIGHTLY_VERSION=$("$MISE_NEOVIM_BINDIR/nightly/$BIN_NVIM" --version | head -n 1 | tr " " "\n" | sed -n '2p')
     NVIM_NIGHTLY_NEW_VERSION=$(curl --silent https://api.github.com/repos/neovim/neovim/releases/tags/nightly | jq .body | tr " " "\n" | sed -n 2p | sed -e "s/\\\nBuild//g")
 
-    mise use neovim@nightly
-    mise reshim
-    sleep 5
     if [ "$NVIM_NIGHTLY_VERSION" != "$NVIM_NIGHTLY_NEW_VERSION" ]; then
         echo "neovim (latest)nightly found!"
         if [ "$opt" == "--use-pueue" ]; then
@@ -87,12 +85,9 @@ function _neovim_nightly() {
 }
 
 function _neovim_stable() {
-    NVIM_STABLE_VERSION=$("$ASDF_DIR/installs/neovim/stable/bin/nvim" --version | head -n 1 | tr " " "\n" | sed -n '2p')
+    NVIM_STABLE_VERSION=$("$MISE_NEOVIM_BINDIR/stable/$BIN_NVIM" --version | head -n 1 | tr " " "\n" | sed -n '2p')
     NVIM_STABLE_NEW_VERSION=$(curl --silent https://api.github.com/repos/neovim/neovim/releases/tags/stable | jq .body | tr " " "\n" | sed -n 2p | sed -e "s/\\\nBuild//g")
 
-    mise use neovim@stable
-    mise reshim
-    sleep 5
     if [ "$NVIM_STABLE_VERSION" != "$NVIM_STABLE_NEW_VERSION" ]; then
         echo "neovim (latest)stable found!"
         if [ "$opt" == "--use-pueue" ]; then
@@ -109,12 +104,9 @@ function _neovim_stable() {
 }
 
 function _zig_master() {
-    ZIG_VERSION=$(zig version)
+    ZIG_VERSION=$("$MISE_ZIG_BINDIR/master/$BIN_ZIG" version)
     ZIG_NEW_VERSION=$(curl -sSL https://ziglang.org/download/index.json | jq .master.version --raw-output)
 
-    mise use zig@master
-    mise reshim
-    sleep 5
     if [ "$ZIG_VERSION" != "$ZIG_NEW_VERSION" ]; then
         echo "zig (latest)master found!"
         if [ "$opt" == "--use-pueue" ]; then
