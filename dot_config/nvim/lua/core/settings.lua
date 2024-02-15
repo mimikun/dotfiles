@@ -4,6 +4,12 @@ local settings = {}
 ---@type boolean
 settings["use_copilot"] = false
 
+-- Set to `true` to FORCE denops to be enabled no human rights
+-- DO NOT use `chezmoi add` when set to `true`
+-- default: `false`
+---@type boolean
+settings["use_denops"] = false
+
 -- Required lsp servers
 ---@type table
 settings["lsp_servers"] = {
