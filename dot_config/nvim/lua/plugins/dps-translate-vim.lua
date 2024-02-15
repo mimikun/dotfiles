@@ -14,6 +14,5 @@ return {
         vim.g.dps_translate_target = "ja"
     end,
     -- Disable if there are no human rights
-    --cond = is_human_rights,
-    cond = false,
+    cond = is_human_rights,
 }

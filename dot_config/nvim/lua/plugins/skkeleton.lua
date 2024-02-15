@@ -178,6 +178,5 @@ return {
         vim.keymap.set("c", "<C-j>", "<Plug>(skkeleton-toggle)")
     end,
     -- Disable if there are no human rights
-    --cond = is_human_rights,
-    cond = false,
+    cond = is_human_rights,
 }
