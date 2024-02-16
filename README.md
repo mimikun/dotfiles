@@ -61,5 +61,4 @@ WIP (I have not mac now)
 
 ## Glossary
 
-- `human rights`
-    - e.g. RAM 32GB, Ryzen 9 3900X and 1TB SSD
+- [Glossary](docs/GLOSSARY.md)
