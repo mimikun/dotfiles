@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.02.16]
+
+### Added - 新機能について
+
+- Add new neovim plugin: human-rights.nvim
+- Add some abbr in fish-shell
+- Add docs/GLOSSARY.md
+    - Fix #264
+
+### Changed - 既存機能の変更について
+
+- Update mason-lock.json
+- Update lazy-lock.json
+- Update dotfyle.json
+- Update README.md
+- Update STARTUPTIME.md
+- Update emacs config
+- Rename images to docs/images
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.15]
 
 ### Added - 新機能について
