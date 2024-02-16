@@ -38,7 +38,7 @@ nyagos.yaml
 package.json
 pnpm-lock.yaml
 PSScriptAnalyzerSettings.psd1
-images/**
+docs/**
 utils/**
 game_settings/**
 misc/**

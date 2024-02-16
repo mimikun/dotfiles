@@ -16,8 +16,8 @@ managed by [chezmoi](https://www.chezmoi.io/).
 
 ## Screenshots
 
-![my neovim dashboard](images/neovim-dashboard.png)
-![my neovim editor](images/neovim-editor.png)
+![my neovim dashboard](docs/images/neovim-dashboard.png)
+![my neovim editor](docs/images/neovim-editor.png)
 
 ## Setup
 
