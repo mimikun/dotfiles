@@ -2,29 +2,12 @@
 
 ![GitHub tag (with filter)](https://img.shields.io/github/v/tag/mimikun/dotfiles)
 
-![GitHub commit activity total](https://img.shields.io/github/commit-activity/t/mimikun/dotfiles)
-
-![GitHub commit activity of 1 year](https://img.shields.io/github/commit-activity/y/mimikun/dotfiles)
-![GitHub commit activity of 1 month](https://img.shields.io/github/commit-activity/m/mimikun/dotfiles)
 ![GitHub commit activity of 1 week](https://img.shields.io/github/commit-activity/w/mimikun/dotfiles)
-
-![GitHub top language](https://img.shields.io/github/languages/top/mimikun/dotfiles)
-![GitHub language count](https://img.shields.io/github/languages/count/mimikun/dotfiles)
 
 ![GitHub Workflow Status (textlint)](https://img.shields.io/github/actions/workflow/status/mimikun/dotfiles/textlint.yml?label=textlint)
 ![GitHub Workflow Status (stylua)](https://img.shields.io/github/actions/workflow/status/mimikun/dotfiles/stylua-lint.yml?label=stylua)
 ![GitHub Workflow Status (spellcheck)](https://img.shields.io/github/actions/workflow/status/mimikun/dotfiles/spell-check.yml?label=SpellCheck)
 ![GitHub Workflow Status (PSSA)](https://img.shields.io/github/actions/workflow/status/mimikun/dotfiles/script-analyze.yml?label=PSSA)
-
-![LICENSE](https://img.shields.io/github/license/mimikun/dotfiles)
-
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mimikun/dotfiles)
-![GitHub repo size](https://img.shields.io/github/repo-size/mimikun/dotfiles)
-
-![GitHub Repo stars](https://img.shields.io/github/stars/mimikun/dotfiles)
-![GitHub watchers](https://img.shields.io/github/watchers/mimikun/dotfiles)
-
-[![Total Lines](https://tokei.rs/b1/github/mimikun/dotfiles)](https://github.com/mimikun/dotfiles)
 
 ## Overview
 
@@ -62,17 +45,19 @@ chezmoi init --apply --verbose https://github.com/mimikun/dotfiles.git
 
 ### macOS
 
-WIP
+WIP (I have not mac now)
 
 ## Others
 
-- [neovim config](dot_config/nvim/README.md)
-- [paleovim(vim) config](dot_vim/README.md)
-- [config](dot_config/README.md)
-- [Fish-shell config](dot_config/fish/README.md)
-- [~/.local/bin](private_dot_local/bin/README.md)
 - [Changelog](CHANGELOG.md)
 - [Startup time Log](STARTUPTIME.md)
+- [various configs](dot_config/README.md)
+- [Fish-shell config](dot_config/fish/README.md)
+- [neovim config](dot_config/nvim/README.md)
+- [paleovim(vim) config](dot_vim/README.md)
+- [Game settings](game_settings/README.md)
+- [Files that cannot be managed with chezmoi](misc/README.md)
+- [~/.local/bin](private_dot_local/bin/README.md)
 
 ## Glossary
 
