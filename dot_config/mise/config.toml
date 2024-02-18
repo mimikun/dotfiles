@@ -11,8 +11,7 @@ node = [
   "20",
   "21",
 ]
-# powershell-core plugin cannot be used with mise
-#powershell-core = ["latest", "7.4"]
+powershell-core = ["latest", "7.4"]
 python = [
   "latest",
   # mise cannot install python v2
@@ -23,4 +22,5 @@ zig = ["master", "latest"]
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
+powershell-core = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
 tig = "https://github.com/koketani/asdf-tig.git"
