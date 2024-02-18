@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2024.02.18]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update dotfyle.json
+- Update lazy-lock.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.16]
 
 ### Added - 新機能について
