@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.02.19]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update lazy-lock.json
+- Update dotfyle.json
+- Update vup command
+- Update update_cargo_packages command
+- Update pueue_update_cargo_packages command
+- Update neovim plugin config: human-rights.nvim
+    - dev = true
+- Improved neovim lazy.nvim config
+
+### Removed - 今回で削除された機能について
+
+- Remove env-var: MISE_SHORTHANDS_FILE
+
+### Fixed - 不具合修正について
+
+- Fix README.md
+- Fix vimdoc-ja #279
+- Fixed asdf-powershell-core #2
+
 ## [v2024.02.18]
 
 ### Added - 新機能について
