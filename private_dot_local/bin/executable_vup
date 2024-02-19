@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.2.0"
+readonly PRODUCT_VERSION="1.3.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -114,6 +114,8 @@ use_pueue() {
 
   echo "update_cargo_packages"
   cargo_outdated_pkgs=$(cargo install-update -l | grep "Yes" | cut -d " " -f 1)
+  echo "Update these packages:"
+  echo "$cargo_outdated_pkgs"
   for i in $cargo_outdated_pkgs; do
     task_id=$(pueue add -p --after "$rust_task_id" -- "cargo install $i")
   done
