@@ -11,8 +11,7 @@
 
 ## Overview
 
-mimikun's dotfiles.
-managed by [chezmoi](https://www.chezmoi.io/).
+mimikun's dotfiles. managed by [chezmoi](https://www.chezmoi.io/).
 
 ## Screenshots
 
