@@ -13,5 +13,4 @@ zig = "master"
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
-powershell-core = "https://github.com/mimikun/asdf-powershell-core.git"
 tig = "https://github.com/koketani/asdf-tig.git"
