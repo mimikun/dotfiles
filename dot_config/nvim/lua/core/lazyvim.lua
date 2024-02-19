@@ -3,8 +3,8 @@ local iconsets = require("utils.icons")
 
 local uv = vim.uv and vim.uv or vim.loop
 
+local home = global.home
 local data_dir = global.data_dir
-local cache_dir = global.cache_dir
 local path_sep = global.path_sep
 
 ---@type boolean
@@ -28,7 +28,7 @@ local concurrency = concurrency_limit_check()
 
 local lazy_root = table.concat({ data_dir, "lazy" }, path_sep)
 local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, path_sep)
-local lazy_cache = table.concat({ cache_dir, "lazy", "cache" }, path_sep)
+local dev_path = table.concat({ home, "ghq", "github.com", "mimikun", "dev-plugins" }, path_sep)
 
 local icons = {
     kind = iconsets.get("kind"),
@@ -63,6 +63,10 @@ function Lazy:load_lazy()
         git = {
             timeout = 300,
         },
+        dev = {
+            path = dev_path,
+            fallback = true,
+        },
         ui = {
             -- a number <1 is a percentage., >1 is a fixed size
             size = { width = 0.88, height = 0.8 },
@@ -95,12 +99,6 @@ function Lazy:load_lazy()
         performance = {
             cache = {
                 enabled = true,
-                path = lazy_cache,
-                -- Once one of the following events triggers, caching will be disabled.
-                -- To cache all modules, set this to `{}`, but that is not recommended.
-                disable_events = { "UIEnter", "BufReadPre" },
-                -- keep unused modules for up to 2 days
-                ttl = 3600 * 24 * 2,
             },
             -- reset the package path to improve startup time
             reset_packpath = true,
