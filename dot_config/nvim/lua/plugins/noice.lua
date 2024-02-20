@@ -1,4 +1,5 @@
 return {
+    -- TODO: setting
     "folke/noice.nvim",
     --lazy = false,
     event = "VeryLazy",
