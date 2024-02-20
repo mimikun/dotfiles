@@ -33,7 +33,7 @@ packages:
 - name: golangci/golangci-lint@v1.56.2
 - name: tdewolff/minify@v2.20.17
 - name: sheepla/pingu@v0.0.5
-- name: stateful/runme@v3.0.1
+- name: stateful/runme@v3.0.2
 - name: bronze1man/yaml2json@v1.3
 - name: sclevine/yj@v5.1.0
 - name: FiloSottile/age@v1.1.1
