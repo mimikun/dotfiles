@@ -37,7 +37,7 @@ return {
         },
         merge_keywords = true,
         highlight = {
-            multiline = true,
+            multiline = false,
             multiline_pattern = "^.",
             multiline_context = 10,
             before = "",
