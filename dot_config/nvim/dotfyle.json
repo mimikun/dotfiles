@@ -1,5 +1,5 @@
 {
-  "distribution": "Custom",
+  "distribution": "custom",
   "masonTools": [
     "bash-language-server",
     "clangd",
