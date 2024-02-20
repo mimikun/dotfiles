@@ -28,46 +28,34 @@ us-east-2 = "oh"
 us-west-1 = "ca"
 # us-west-2 oregon
 us-west-2 = "or"
-
 # af-south-1 cape-town
 af-south-1 = "za"
-
 # ap-east-1 hong-kong
 ap-east-1 = "hk"
-
 # ap-south-1 india (mumbai)
-#TODO:
 ap-south-1 = "mumbai"
 # ap-south-2 india (hyderabad)
-#TODO:
 ap-south-2 = "hyderabad"
-
 # ap-southeast-1 singapore
 ap-southeast-1 = "sg"
 # ap-southeast-2 sydney
-#TODO:
 ap-southeast-2 = "sydney"
 # ap-southeast-3 jakarta
 ap-southeast-3 = "jk"
 # ap-southeast-4 melbourne
-#TODO:
 ap-southeast-4 = "melbourne"
 
 # ap-northeast-1 japan (tokyo)
-#TODO:
 ap-northeast-1 = "tokyo"
 # ap-northeast-2 korea (seoul)
 ap-northeast-2 = "kr"
 # ap-northeast-3 japan (osaka)
-#TODO:
 ap-northeast-3 = "osaka"
 
 # ca-central-1 canada central
-#TODO:
 ca-central-1 = "canada"
 
 # ca-west-1 calgary
-#TODO:
 ca-west-1 = "calgary"
 
 # eu-central-1 germany (frankfurt)
@@ -382,48 +370,47 @@ style = "bold blue"
 disabled = false
 detect_env_vars = []
 
-#TODO:
 # https://cloud.google.com/compute/docs/regions-zones?hl=ja
 [gcloud.region_aliases]
-asia-east1 = ""
-asia-east2 = ""
-asia-northeast1 = ""
-asia-northeast2 = ""
-asia-northeast3 = ""
-asia-south1 = ""
-asia-south2 = ""
-asia-southeast1 = ""
-asia-southeast2 = ""
-australia-southeast1 = ""
-australia-southeast2 = ""
-europe-north1 = ""
-europe-central2 = ""
-europe-southwest1 = ""
-europe-west1 = ""
-europe-west2 = ""
-europe-west3 = ""
-europe-west4 = ""
-europe-west6 = ""
-europe-west8 = ""
-europe-west9 = ""
-europe-west10 = ""
-europe-west12 = ""
-northamerica-northeast1 = ""
-northamerica-northeast2 = ""
-southamerica-east1 = ""
-southamerica-west1 = ""
-us-central1 = ""
-us-east1 = ""
-us-east4 = ""
-us-east5 = ""
-us-west1 = ""
-us-west2 = ""
-us-west3 = ""
-us-west4 = ""
-us-south1 = ""
-me-central1 = ""
-me-central2 = ""
-me-west1 = ""
+asia-east1 = "ae1"
+asia-east2 = "ae1"
+asia-northeast1 = "ane1"
+asia-northeast2 = "ane2"
+asia-northeast3 = "ane3"
+asia-south1 = "as1"
+asia-south2 = "as1"
+asia-southeast1 = "ase1"
+asia-southeast2 = "ase2"
+australia-southeast1 = "ause1"
+australia-southeast2 = "ause2"
+europe-north1 = "en1"
+europe-central2 = "ec1"
+europe-southwest1 = "esw1"
+europe-west1 = "ew1"
+europe-west2 = "ew2"
+europe-west3 = "e2e"
+europe-west4 = "ew4"
+europe-west6 = "ew5"
+europe-west8 = "ew8"
+europe-west9 = "ew9"
+europe-west10 = "ew10"
+europe-west12 = "ew12"
+northamerica-northeast1 = "nane1"
+northamerica-northeast2 = "nane2"
+southamerica-east1 = "sae1"
+southamerica-west1 = "saw1"
+us-central1 = "usc1"
+us-east1 = "use1"
+us-east4 = "use4"
+us-east5 = "use5"
+us-west1 = "usw1"
+us-west2 = "usw2"
+us-west3 = "usw3"
+us-west4 = "usw4"
+us-south1 = "uss1"
+me-central1 = "mec1"
+me-central2 = "mec2"
+me-west1 = "mew1"
 
 [gcloud.project_aliases]
 

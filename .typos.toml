@@ -8,6 +8,8 @@ iterm = "iterm"
 # starship config
 edn = "edn"
 esy = "esy"
+ane = "ane"
+nane = "nane"
 # macOS Big Sur
 sur = "sur"
 # fish abbr `chezmoi cd`
