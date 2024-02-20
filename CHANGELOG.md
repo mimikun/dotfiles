@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.02.20]
+
+### Added - 新機能について
+
+- Add todo comment: noice.nvim
+
+### Changed - 既存機能の変更について
+
+- Update mason-lock.json
+- Update lazy-lock.json
+- Update dotfyle.json
+- Update neovim config: todo-comments.nvim
+    - disable multi line todo comments
+- Update starship config
+    - and update .typos.toml
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.19]
 
 ### Added - 新機能について
