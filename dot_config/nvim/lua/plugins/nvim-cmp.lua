@@ -11,6 +11,7 @@ return {
         "hrsh7th/cmp-emoji",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        "nvim-orgmode/orgmode",
     },
     config = function()
         local cmp = require("cmp")
@@ -61,6 +62,7 @@ return {
                 { name = "buffer" },
                 { name = "path" },
                 { name = "emoji" },
+                { name = "orgmode" },
             }),
             snippet = {
                 expand = function(args)

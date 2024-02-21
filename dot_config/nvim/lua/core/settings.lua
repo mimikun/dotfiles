@@ -118,6 +118,7 @@ settings["treesitter_parsers"] = {
     "nix",
     "ocaml",
     "ocaml_interface",
+    "org",
     "pkl",
     "python",
     "regex",

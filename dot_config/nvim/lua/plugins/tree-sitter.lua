@@ -16,6 +16,7 @@ return {
             "LhKipp/nvim-nu",
             "Fymyte/tree-sitter-rasi",
             "mimikun/tree-sitter-PowerShell",
+            "nvim-orgmode/orgmode",
             {
                 "apple/pkl-neovim",
                 build = ":TSInstall! pkl",
@@ -27,6 +28,9 @@ return {
 
             local nvim_nu = require("nu")
             local nvim_ts_autotag = require("nvim-ts-autotag")
+            local orgmode = require("orgmode")
+
+            orgmode.setup_ts_grammar()
 
             configs.setup({
                 highlight = {
