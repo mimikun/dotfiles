@@ -216,7 +216,12 @@ $win_desktop = $env:win_desktop
 
 $tmp = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com"
 $env:WORKSPACE = Join-Path -Path $tmp -ChildPath $env:GITHUB_USERNAME
+$env:WORKSPACE_MIMIKUN = Join-Path -Path $tmp -ChildPath "mimikun"
+$env:NVIM_DEV_PLUGINS = Join-Path $env:WORKSPACE_MIMIKUN -ChildPath "dev-plugins"
+
 $WORKSPACE = $env:WORKSPACE
+$WORKSPACE_MIMIKUN = $env:WORKSPACE_MIMIKUN
+$NVIM_DEV_PLUGINS = $env:NVIM_DEV_PLUGINS
 
 # Obsidian
 {{ if (ne .chezmoi.hostname "azusa") }}

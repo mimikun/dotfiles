@@ -50,8 +50,11 @@ set -x OBSIDIAN_VAULT_ROOT "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-
     {{ end -}}
 {{ end -}}
 
-{{ if (ne .chezmoi.hostname "azusa") -}}
 set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
+set -x WORKSPACE_MIMIKUN "$GHQ_ROOT/github.com/mimikun"
+set -x NVIM_DEV_PLUGINS "$WORKSPACE_MIMIKUN/nvim-plugins"
+
+{{ if (ne .chezmoi.hostname "azusa") -}}
 set -x windl "$WIN_HOME/Downloads"
 set -x WIN_DESKTOP "$WIN_HOME/Desktop"
 set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
