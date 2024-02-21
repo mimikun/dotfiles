@@ -7,7 +7,7 @@
 - Add new neovim plugin: orgmode
 - Add some envs
 - Add ShowStdPaths usercommand in neovim
-    - enable autocmds.lua
+  - enable autocmds.lua
 
 ### Changed - 既存機能の変更について
 
@@ -35,9 +35,9 @@
 - Update lazy-lock.json
 - Update dotfyle.json
 - Update neovim config: todo-comments.nvim
-    - disable multi line todo comments
+  - disable multi line todo comments
 - Update starship config
-    - and update .typos.toml
+  - and update .typos.toml
 - Update STARTUPTIME.md
 
 ### Removed - 今回で削除された機能について
@@ -63,7 +63,7 @@
 - Update update_cargo_packages command
 - Update pueue_update_cargo_packages command
 - Update neovim plugin config: human-rights.nvim
-    - dev = true
+  - dev = true
 - Improved neovim lazy.nvim config
 
 ### Removed - 今回で削除された機能について
@@ -102,7 +102,7 @@
 - Add new neovim plugin: human-rights.nvim
 - Add some abbr in fish-shell
 - Add docs/GLOSSARY.md
-    - Fix #264
+  - Fix #264
 
 ### Changed - 既存機能の変更について
 
@@ -137,13 +137,13 @@
 - Update deno fish completion
 - Update update_mise command
 - Improved neovim plugin config: fern.vim
-    - Add nvim-tree/nvim-web-devicons , TheLeoP/fern-renderer-web-devicons.nvim
+  - Add nvim-tree/nvim-web-devicons , TheLeoP/fern-renderer-web-devicons.nvim
 - Improved neovim plugin config: alpha.lua
 - Update neovim utils/icons.lua
-    - Add and use new icon
+  - Add and use new icon
 - Update neovim core/settings.lua
 - Update bat config: use tokyonight theme
-    - Add some bat themes
+  - Add some bat themes
 
 ### Removed - 今回で削除された機能について
 
@@ -152,7 +152,7 @@
 ### Fixed - 不具合修正について
 
 - Fix neovim plugin configs: depend denops plugins
-    - cond = is_human_rights
+  - cond = is_human_rights
 
 ## [v2024.02.14]
 
@@ -167,9 +167,9 @@
 - Update mise fish completion
 - Update i3-wm config
 - Improved utils/changelog.sh
-    - Add divider line
+  - Add divider line
 - Improved utils/update.sh
-    - Run format dotfyle.json
+  - Run format dotfyle.json
 - Improved lua_ls config
 - Bump aqua.yaml
 
@@ -202,7 +202,7 @@
 - Improved neovim plugin config: vimdoc-ja
 - Improved neovim core/lazyvim.lua
 - Update nyagos configs
-    - Fix #57
+  - Fix #57
 
 ### Removed - 今回で削除された機能について
 
@@ -235,9 +235,9 @@
 - Enable neovim plugin: csvlens.nvim
 - Use vim.uv.os_homedir()
 - Use vim.uv
-    - vim.loop is deprecated
+  - vim.loop is deprecated
 - Use `table.concat()` in neovim config
-    - Fix #244
+  - Fix #244
 
 ### Removed - 今回で削除された機能について
 
@@ -262,15 +262,15 @@
 - Remove unused neovim plugin: vim-silicon
 - Remove unused neovim plugin: wttr.nvim
 - Remove unused neovim plugin: editorconfig.nvim
-    - Fix #242
+  - Fix #242
 
 ### Fixed - 不具合修正について
 
 - Fix neovim config: core/global.lua
 - Fix azusa's less command mojibake
-    - Fix #240
+  - Fix #240
 - Fix neovim plugin config: silicon.lua
-    - namespace changed
+  - namespace changed
 
 ## [v2024.02.09]
 
@@ -287,9 +287,9 @@
 - Update neovim plugin config: fzf.vim
 - Update deno fish completion
 - Improved utils/changelog.sh
-    - Fix #135
+  - Fix #135
 - Improved Invoke-RunAfterChezmoiApply.ps1
-    - Fix #223
+  - Fix #223
 
 ### Removed - 今回で削除された機能について
 
@@ -299,8 +299,9 @@
 
 - Run stylua format
 - Fix PowerShell config
-    - Fix #218
-- Workaround for a FXXING SHXT BUG caused by the combination of vimdoc-ja and lazy.nvim
+  - Fix #218
+- Workaround for a FXXING SHXT BUG caused by the combination of vimdoc-ja and
+  lazy.nvim
 
 ## [v2024.02.08]
 
@@ -335,7 +336,7 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update neovim plugin config: obsidian.nvim
-    - Remove deprecated option
+  - Remove deprecated option
 - Improved denops depend plugins
 - Improved neovim plugin config: kensaku.vim
 
@@ -751,7 +752,6 @@
 - Update mise fish completion
 - Update deno fish completion
 
-
 ### Removed - 今回で削除された機能について
 
 なし
@@ -841,7 +841,7 @@
 
 - Add new rust tool: sshx
 - Add some aqua packages
-    - actionlint, clive, ttyd, vhs
+  - actionlint, clive, ttyd, vhs
 
 ### Changed - 既存機能の変更について
 
@@ -973,11 +973,11 @@
 ### Changed - 既存機能の変更について
 
 - rtx to mise
-    - Fix #147
+  - Fix #147
 - Update update_fish_completions
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.1.0
+  - vim 9.1.0
 
 ### Removed - 今回で削除された機能について
 
@@ -1033,7 +1033,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2189
+  - vim 9.0.2189
 - Update lazy-lock.json
 - Set new format in i3status-rust
 - Update i3 i3bar config
@@ -1060,7 +1060,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2188
+  - vim 9.0.2188
 - Update STARTUPTIME.md
 - Improved changelog.sh
 - Update lazy-lock.json
@@ -1086,7 +1086,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - ruby 3.3.0
+  - ruby 3.3.0
 - Update nyagos configs
 
 ### Removed - 今回で削除された機能について
@@ -1098,7 +1098,7 @@
 - Fix gitconfig
 - Fix chezmoi diff broken
 - Fix TODO.md
-    - Issue #128 Closed
+  - Issue #128 Closed
 - Fix rofi config
 
 ## [v2023.12.26]
@@ -1106,7 +1106,7 @@
 ### Added - 新機能について
 
 - Set PAGER env-vars
-    - Fix #128
+  - Fix #128
 
 ### Changed - 既存機能の変更について
 
@@ -1139,7 +1139,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2185
+  - vim 9.0.2185
 - Update lazy-lock.json
 - Update rtx fish completion
 - Update .chezmoiignore
@@ -1189,9 +1189,9 @@
 - Update utils/lint.sh
 - Update utils/format.sh
 - Improved utils/update.sh
-    - Fix #116
+  - Fix #116
 - Update asdf tools version
-    - vim 9.0.2184
+  - vim 9.0.2184
 - Improved config.fish
 - Update .profile
 - Improved bashrc
@@ -1240,7 +1240,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2181
+  - vim 9.0.2181
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Unmanaged fcitx5/profile by chezmoi
@@ -1290,7 +1290,7 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.2175
+  - vim 9.0.2175
 - Update wezterm config
 - Improve wezterm config for archlinux
 - Improve fish config for archlinux
@@ -1334,7 +1334,7 @@
 - Update CHANGELOG.md
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2167
+  - vim 9.0.2167
 - Update neovim utils: obsidian.lua
 - Update neovim plugin config: telescope.nvim
 - Update rtx fish completion
@@ -1393,9 +1393,9 @@
 - Update STARTUPTIME.md
 - Update rtx fish completion
 - Update asdf tools version
-    - vim 9.0.2160
+  - vim 9.0.2160
 - Rename file
-    - neovim: utils/obsidian_helper.lua to utils/obsidian.lua
+  - neovim: utils/obsidian_helper.lua to utils/obsidian.lua
 - Update neovim plugin config: telescope.nvim
 - Update neovim plugin config: lualine.nvim
 - Update neovim plugin config: treesitter
@@ -1422,7 +1422,7 @@
 - Update lazy-lock.json
 - Update eza fish completion
 - Update asdf tools version
-    - vim 9.0.2158
+  - vim 9.0.2158
 
 ### Removed - 今回で削除された機能について
 
@@ -1430,7 +1430,8 @@
 
 ### Fixed - 不具合修正について
 
-- Fix an issue where parser download would fail in environments without human rights.
+- Fix an issue where parser download would fail in environments without human
+  rights.
 
 ## [v2023.12.11]
 
@@ -1444,7 +1445,7 @@
 - Update neovim config: lualine.nvim
 - Update neovim README.md
 - Update asdf tools version
-    - python 3.12.1
+  - python 3.12.1
 - Update linux_pip_packages.txt
 - Update STARTUPTIME.md
 - Update lazy-lock.json
@@ -1487,7 +1488,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2155
+  - vim 9.0.2155
 - Update lazy-lock.json
 - Update GitHub CLI config
 
@@ -1545,7 +1546,7 @@
 - Update rtx fish completion
 - Update rtx config
 - Update lazy.nvim concurrency
-    - Limit the number of concurrency depending on human rights or OS
+  - Limit the number of concurrency depending on human rights or OS
 - Improved neovim plugin config: coc-nvim
 - Disable coc-nvim
 
@@ -1566,7 +1567,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2153
+  - vim 9.0.2153
 - Update rtx config
 - Update deno fish completion
 - Update lazy-lock.json
@@ -1598,7 +1599,7 @@
 - Update neovim config: core/global.lua
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2149
+  - vim 9.0.2149
 
 ### Removed - 今回で削除された機能について
 
@@ -1622,7 +1623,7 @@
 - Update rtx fish completion
 - Update GitHub CLI config
 - Update asdf tools version
-    - vim 9.0.2146
+  - vim 9.0.2146
 - Update neovim config: obsidian.nvim
 - Update neovim utils: func.lua
 - Improved PowerShell config
@@ -1672,7 +1673,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2143
+  - vim 9.0.2143
 - aqua: Bump version
 - Update lazy-lock.json
 - Update JohnnyMorganz/stylua-action action to v3
@@ -1709,7 +1710,7 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.2138
+  - vim 9.0.2138
 - Update textlint deps
 - Rename renovate.json
 
@@ -1735,8 +1736,8 @@
 - Update lazy-lock.json
 - Update rtx config
 - Manage what was managed with gup with aqua
-    - gomi
-    - misskey-cli
+  - gomi
+  - misskey-cli
 - Disable bw-zsh-plugin
 - Update aqua configs
 - Update .config/README.md
@@ -1759,11 +1760,11 @@
 ### Changed - 既存機能の変更について
 
 - Disable aqua security policy
-    - It's just idiot to care about security.
+  - It's just idiot to care about security.
 - Update chezmoi by aqua
 - Manage what was managed with gup and asdf with aqua
 - Update asdf tools version
-    - vim 9.0.2136
+  - vim 9.0.2136
 - Update zellij fish completion
 - Update runme fish completion
 - Update pueue fish completion
@@ -1790,8 +1791,8 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.2134
-    - github-cli 2.39.2
+  - vim 9.0.2134
+  - github-cli 2.39.2
 - Update neovim-dashboard.png
 - Update ripgrep fish completion
 
@@ -1815,7 +1816,7 @@
 - Update STARTUPTIME.md
 - Update lazy-lock.json
 - Update asdf tools version
-    - chezmoi 2.42.0
+  - chezmoi 2.42.0
 - Update update_fish_completions command
 - Update ripgrep fish completion
 - Update vupueue command
@@ -1837,9 +1838,9 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - nodejs 20.10.0
-    - yq 4.40.3
-    - vim 9.0.2130
+  - nodejs 20.10.0
+  - yq 4.40.3
+  - vim 9.0.2130
 - Update lazy-lock.json
 - Update eza fish completion
 - Update deno fish completion
@@ -1864,7 +1865,7 @@
 - Update lazy-lock.json
 - Update textlint deps
 - Update asdf tools version
-    - vim 9.0.2120
+  - vim 9.0.2120
 
 ### Removed - 今回で削除された機能について
 
@@ -1883,7 +1884,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - yarn 1.22.21
+  - yarn 1.22.21
 - Update lazy-lock.json
 - Update yq fish completion
 - Update runme fish completion
@@ -1903,8 +1904,8 @@
 ### Added - 新機能について
 
 - Add sheldon env-vars
-    - SHELDON_CONFIG_DIR
-    - SHELDON_DATA_DIR
+  - SHELDON_CONFIG_DIR
+  - SHELDON_DATA_DIR
 - Add zsh plugin: zeno.zsh
 
 ### Changed - 既存機能の変更について
@@ -1953,7 +1954,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - yq 4.40.2
+  - yq 4.40.2
 - Update yq fish completion
 - Update lazy-lock.json
 
@@ -1977,9 +1978,9 @@
 - Update lazy-lock.json
 - Update deno fish completion
 - Update asdf tools version
-    - vim 9.0.2112
-    - powershell-core 7.4.0
-    - fzf 0.44.1
+  - vim 9.0.2112
+  - powershell-core 7.4.0
+  - fzf 0.44.1
 
 ### Removed - 今回で削除された機能について
 
@@ -2032,9 +2033,9 @@
 - Update rtx fish completion
 - Update chezmoi fish completion
 - Update asdf tools version
-    - dotnet-core 8.0.100
-    - github-cli 2.39.1
-    - vim 9.0.2105
+  - dotnet-core 8.0.100
+  - github-cli 2.39.1
+  - vim 9.0.2105
 
 ### Removed - 今回で削除された機能について
 
@@ -2061,9 +2062,9 @@
 - Update lazy-lock.json
 - Update typos.toml
 - Update asdf tools version
-    - fzf 0.44.0
-    - chezmoi 2.41.0
-    - github-cli 2.39.0
+  - fzf 0.44.0
+  - chezmoi 2.41.0
+  - github-cli 2.39.0
 
 ### Removed - 今回で削除された機能について
 
@@ -2083,7 +2084,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2103
+  - vim 9.0.2103
 
 ### Removed - 今回で削除された機能について
 
@@ -2102,7 +2103,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2101
+  - vim 9.0.2101
 - Update deno fish completion
 - Update lazy-lock.json
 
@@ -2148,7 +2149,7 @@
 - Update rtx fish completion
 - Update eza fish completion
 - Update asdf tools version
-    - vim 9.0.2095
+  - vim 9.0.2095
 - Improved version detection in Windows PowerShell config
 
 ### Removed - 今回で削除された機能について
@@ -2169,7 +2170,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - yq 4.40.1
+  - yq 4.40.1
 - Update rtx fish completion
 - Update zellij fish completion
 - Update STARTUPTIME.md
@@ -2190,7 +2191,7 @@
 - Use abbr in fish
 - Use inshellisense
 - Add new command: bit
-    - github.com/chriswalz/bit
+  - github.com/chriswalz/bit
 
 ### Changed - 既存機能の変更について
 
@@ -2199,7 +2200,7 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update TODO.md
-    - Fixed #60
+  - Fixed #60
 - Update neovim config: obsidian.nvim
 - Improved version detection in Linux PowerShell
 - Improved version detection in Windows PowerShell
@@ -2217,7 +2218,7 @@
 ### Added - 新機能について
 
 - Add more neovim options
-    - Fix #30
+  - Fix #30
 - Add new command: update_pkgx
 
 ### Changed - 既存機能の変更について
@@ -2228,8 +2229,8 @@
 - Update STARTUPTIME.md
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2092
-    - python 3.12.0
+  - vim 9.0.2092
+  - python 3.12.0
 
 ### Removed - 今回で削除された機能について
 
@@ -2249,7 +2250,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2091
+  - vim 9.0.2091
 
 ### Removed - 今回で削除された機能について
 
@@ -2269,7 +2270,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2090
+  - vim 9.0.2090
 
 ### Removed - 今回で削除された機能について
 
@@ -2288,7 +2289,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2087
+  - vim 9.0.2087
 - Update lazy-lock.json
 - Update typos.toml
 
@@ -2310,15 +2311,15 @@
 
 - Update deno fish completion
 - Improved paleovim config
-    - Fix #28
+  - Fix #28
 - Update .wslconfig
 - Update wsl.conf
 - Update STARTUPTIME.md
 - Update lazy-lock.json
 - Update .config/nvim/Makefile
 - Update asdf tools version
-    - github-cli 2.38.0
-    - bitwarden 2023.10.0
+  - github-cli 2.38.0
+  - bitwarden 2023.10.0
 - Update .vim/Makefile
 
 ### Removed - 今回で削除された機能について
@@ -2378,9 +2379,9 @@
 - Update neovim plugin config: vimdoc-ja.lua
 - Update lazy-lock.json
 - Update asdf tools version
-    - nodejs 20.9.0
-    - vim 9.0.2081
-    - chezmoi 2.40.4
+  - nodejs 20.9.0
+  - vim 9.0.2081
+  - chezmoi 2.40.4
 
 ### Removed - 今回で削除された機能について
 
@@ -2400,7 +2401,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2077
+  - vim 9.0.2077
 
 ### Removed - 今回で削除された機能について
 
@@ -2421,12 +2422,12 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.2073
-    - powershell-core 7.3.9
+  - vim 9.0.2073
+  - powershell-core 7.3.9
 - Improved Windows PowerShell config
-    - Fix #58
+  - Fix #58
 - Improved Linux PowerShell config
-    - Fix #52
+  - Fix #52
 
 ### Removed - 今回で削除された機能について
 
@@ -2447,7 +2448,7 @@
 - Update eza fish completion
 - Update wezterm config
 - Update asdf tools version
-    - vim 9.0.2067
+  - vim 9.0.2067
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 
@@ -2468,7 +2469,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - dotnet-core 7.0.403
+  - dotnet-core 7.0.403
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -2490,8 +2491,8 @@
 - Update STARTUPTIME.md
 - Update lazy-lock.json
 - Update asdf tools version
-    - nodejs 20.8.1
-    - vim 9.0.2063
+  - nodejs 20.8.1
+  - vim 9.0.2063
 - Update brew fish completion
 
 ### Removed - 今回で削除された機能について
@@ -2511,7 +2512,7 @@
 ### Changed - 既存機能の変更について
 
 - Update neovim plugin config: vimdoc-ja.lua
-    - Use `vim-jp/vimdoc-ja` repo
+  - Use `vim-jp/vimdoc-ja` repo
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 
@@ -2532,11 +2533,11 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2059
+  - vim 9.0.2059
 - Update some fish completions
-    - fd
-    - pueue
-    - rtx
+  - fd
+  - pueue
+  - rtx
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -2556,7 +2557,7 @@
 ### Changed - 既存機能の変更について
 
 - Update gup config
-    - Add wsl2-ssh-agent
+  - Add wsl2-ssh-agent
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -2573,13 +2574,13 @@
 
 - Add neovim file: userfunc.lua
 - Use wsl2-ssh-agent
-    - Delete keychain config
+  - Delete keychain config
 
 ### Changed - 既存機能の変更について
 
 - Update neovim option: `relativenumber = true`
 - Update asdf tools version
-    - vim 9.0.2056
+  - vim 9.0.2056
 - Update lazy-lock.json
 - Update eza fish completion
 - Update STARTUPTIME.md
@@ -2623,8 +2624,8 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.2048
-    - github-cli 2.37.0
+  - vim 9.0.2048
+  - github-cli 2.37.0
 - Update nyagos config
 - Update vup(ueue)
 
@@ -2648,7 +2649,7 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.2040
+  - vim 9.0.2040
 
 ### Removed - 今回で削除された機能について
 
@@ -2664,9 +2665,9 @@
 
 - Add new make task: show help
 - Add some golang tools
-    - checkmake
-    - editorconfig-checker
-    - make2help
+  - checkmake
+  - editorconfig-checker
+  - make2help
 
 ### Changed - 既存機能の変更について
 
@@ -2674,8 +2675,8 @@
 - Update STARTUPTIME.md
 - Update TODO.md
 - Update asdf tools version
-    - nodejs 18.18.2
-    - vim 9.0.203
+  - nodejs 18.18.2
+  - vim 9.0.203
 - Update vup(ueue)
 
 ### Removed - 今回で削除された機能について
@@ -2695,8 +2696,8 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2032
-    - fzf 0.43.0
+  - vim 9.0.2032
+  - fzf 0.43.0
 - Update lazy-lock.json
 - Update eza fish completion
 - Update lazy-lock.json
@@ -2725,8 +2726,8 @@
 - Update deno fish completion
 - Update wezterm launch_menu config
 - Update asdf tools version
-    - chezmoi 2.40.3
-    - nodejs 18.18.1
+  - chezmoi 2.40.3
+  - nodejs 18.18.1
 
 ### Removed - 今回で削除された機能について
 
@@ -2749,8 +2750,8 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.2018
-    - bitwarden 2023.9.1
+  - vim 9.0.2018
+  - bitwarden 2023.9.1
 
 ### Removed - 今回で削除された機能について
 
@@ -2776,8 +2777,8 @@
 - Update STARTUPTIME.md
 - Update lazy-lock.json
 - Update asdf tools version
-    - dotnet-core 7.0.402
-    - powershell-core 7.3.8
+  - dotnet-core 7.0.402
+  - powershell-core 7.3.8
 
 ### Removed - 今回で削除された機能について
 
@@ -2785,8 +2786,7 @@
 
 ### Fixed - 不具合修正について
 
-- Fix yank bug
-    Fix #56
+- Fix yank bug Fix #56
 
 ## [v2023.10.10]
 
@@ -2798,8 +2798,8 @@
 
 - Improved neovim config
 - Update asdf tools version
-    - vim 9.0.2009
-    - chezmoi 2.40.2
+  - vim 9.0.2009
+  - chezmoi 2.40.2
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update update_asdf_neovim
@@ -2821,7 +2821,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.2004
+  - vim 9.0.2004
 
 ### Removed - 今回で削除された機能について
 
@@ -2841,7 +2841,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.2001
+  - vim 9.0.2001
 
 ### Removed - 今回で削除された機能について
 
@@ -2863,8 +2863,8 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Update asdf tools version
-    - vim 9.0.1999
-    - python 3.11.6
+  - vim 9.0.1999
+  - python 3.11.6
 
 ### Removed - 今回で削除された機能について
 
@@ -2906,9 +2906,9 @@
 - Update utils/benchmark.sh
 - Update typos.toml
 - Update neovim plugin config: alpha-nvim
-    - Add open Mason window shortcut button
+  - Add open Mason window shortcut button
 - Update Linux wezterm config
-    - Use nerdfont in Battery icon
+  - Use nerdfont in Battery icon
 - Update neovim plugin configs: themes
 - Update neovim plugin config: themery.nvim
 - Update hyperfine fish completion
@@ -2937,7 +2937,7 @@
 - Update typos.toml
 - Update rye fish completion
 - Update asdf tools version
-    - python 3.12.0
+  - python 3.12.0
 
 ### Removed - 今回で削除された機能について
 
@@ -2959,8 +2959,8 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1976
-    - github-cli 2.36.0
+  - vim 9.0.1976
+  - github-cli 2.36.0
 - Update TODO.md
 - Update lazy-lock.json
 - Update STARTUPTIME.md
@@ -2984,7 +2984,7 @@
 - Update TODO.md
 - Update ~/.config/nvim/README.md
 - Update asdf tools version
-    - vim 9.0.1968
+  - vim 9.0.1968
 - Update lazy-lock.json
 - Update eza fish completion
 
@@ -3023,7 +3023,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1959
+  - vim 9.0.1959
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -3045,7 +3045,7 @@
 - Update lazy-lock.json
 - Update README.md
 - Update asdf tools version
-    - vim 9.0.1950
+  - vim 9.0.1950
 
 ### Removed - 今回で削除された機能について
 
@@ -3065,10 +3065,10 @@
 
 - Update neovim plugin config: obsidian.nvim
 - Update asdf tools version
-    - vim 9.0.1946
+  - vim 9.0.1946
 - Update fish completions
-    - deno
-    - runme
+  - deno
+  - runme
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -3084,8 +3084,8 @@
 ### Added - 新機能について
 
 - Add new rust tools
-    - cargo-wipe
-    - rrc
+  - cargo-wipe
+  - rrc
 
 ### Changed - 既存機能の変更について
 
@@ -3111,8 +3111,8 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1943
-    - yq 4.35.2
+  - vim 9.0.1943
+  - yq 4.35.2
 - Update vup and vupueue command
 
 ### Removed - 今回で削除された機能について
@@ -3134,7 +3134,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1941
+  - vim 9.0.1941
 - Update update_asdf_neovim command
 - Update README.md
 - Update TODO.md
@@ -3196,9 +3196,9 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1927
+  - vim 9.0.1927
 - Improved config.fish
-    - direnv and linuxbrew is now cached
+  - direnv and linuxbrew is now cached
 - Improved asdf path definition
 
 ### Removed - 今回で削除された機能について
@@ -3218,8 +3218,8 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - bitwarden 2023.9.0
-    - vim 9.0.1922
+  - bitwarden 2023.9.0
+  - vim 9.0.1922
 
 ### Removed - 今回で削除された機能について
 
@@ -3241,13 +3241,13 @@
 - Update lazy-lock.json
 - Update STARTUPTIME.md
 - Improved config.fish
-    - Use cache
+  - Use cache
 - Update asdf tools version
-    - vim 9.0.1916
-    - chezmoi 2.40.0
-    - powershell-core 7.3.7
+  - vim 9.0.1916
+  - chezmoi 2.40.0
+  - powershell-core 7.3.7
 - Update rtx config
-    - asdf_compat = true
+  - asdf_compat = true
 - Update deno fish completion
 
 ### Removed - 今回で削除された機能について
@@ -3265,16 +3265,16 @@
 - Add new rust tool: taplo-cli
 - Add NOTE in config.fish
 - Add dotfyle command
-    - https://github.com/RoryNesbitt/dotfyle-cli
+  - <https://github.com/RoryNesbitt/dotfyle-cli>
 - Add some neovim plugins
-    - vim-skk/skkeleton
-    - willelz/skk-tutorial.vim
+  - vim-skk/skkeleton
+  - willelz/skk-tutorial.vim
 - Add new neovim colorschemes
-    - https://github.com/kyoh86/momiji
-    - https://github.com/sainnhe/edge
+  - <https://github.com/kyoh86/momiji>
+  - <https://github.com/sainnhe/edge>
 - Add make task: install-skk-jisyo
-    - Add utils/install-skk-jisyo.sh
-    - Update README.md and some utils
+  - Add utils/install-skk-jisyo.sh
+  - Update README.md and some utils
 - Add STARTUPTIME.md
 - Add hyperfine completion update process
 - Add update_hyperfine_fish_completion command
@@ -3288,13 +3288,13 @@
 - Improved bun PATH definition
 - Improved defining fish paths
 - Update fzf-lua config
-    - Use fzf-opts
-    - Improve fzf(bin) scrollbar
+  - Use fzf-opts
+  - Improve fzf(bin) scrollbar
 - Update brew fish completion
 - Update asdf tools version
-    - vim 9.0.1910
-    - github-cli 2.35.0
-    - nodejs 18.18.0
+  - vim 9.0.1910
+  - github-cli 2.35.0
+  - nodejs 18.18.0
 - Update update_fish_completion command
 
 ### Removed - 今回で削除された機能について
@@ -3304,7 +3304,7 @@
 ### Fixed - 不具合修正について
 
 - Revert "Fix dps-translate-vim error"
-    - This reverts commit 539b0c51fc1c9dae2384150a68b5f92724af6eca.
+  - This reverts commit 539b0c51fc1c9dae2384150a68b5f92724af6eca.
 
 ## [v2023.09.18]
 
@@ -3316,7 +3316,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1907
+  - vim 9.0.1907
 
 ### Removed - 今回で削除された機能について
 
@@ -3331,13 +3331,13 @@
 ### Added - 新機能について
 
 - Add new neovim plugin: vim-ambiwidth
-    - https://github.com/rbtnn/vim-ambiwidth
+  - <https://github.com/rbtnn/vim-ambiwidth>
 
 ### Changed - 既存機能の変更について
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1903
+  - vim 9.0.1903
 
 ### Removed - 今回で削除された機能について
 
@@ -3357,7 +3357,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1901
+  - vim 9.0.1901
 
 ### Removed - 今回で削除された機能について
 
@@ -3372,8 +3372,8 @@
 ### Added - 新機能について
 
 - Add utils.lua
-    - Add many bannars
-    - Add is_git() function
+  - Add many bannars
+  - Add is_git() function
 - Add new neovim plugin: denops-translate.vim
 
 ### Changed - 既存機能の変更について
@@ -3381,21 +3381,21 @@
 - Update lazy-lock.json
 - Update TODO.md
 - Update telescope.nvim config
-    - Use utils.lua
+  - Use utils.lua
 - Update fzf.vim config
-    - Use utils.lua
+  - Use utils.lua
 - Update fzf-lua config
-    - Use utils.lua
+  - Use utils.lua
 - Update dashboard.nvim config
-    - Use utils.lua
+  - Use utils.lua
 - Update alpha-nvim config
-    - Use utils.lua
+  - Use utils.lua
 - Use `bannars["remember_covid_19"]`
 
 ### Removed - 今回で削除された機能について
 
 - Disable nvim-surround
-    - Fix #36
+  - Fix #36
 
 ### Fixed - 不具合修正について
 
@@ -3406,7 +3406,7 @@
 ### Added - 新機能について
 
 - Add utils/create-patch.sh
-    - Create the patch using a shell script
+  - Create the patch using a shell script
 - Add shell-format task
 - Add shell-lint task
 
@@ -3415,14 +3415,14 @@
 - Update lazy-lock.json
 - Update fzf-lua config
 - Update fzf.vim config
-    - <C-p> process rewrite in Lua
+  - <C-p> process rewrite in Lua
 - Update neogit config
-    - Fix #44
+  - Fix #44
 - Update rtx fish completion
 - Update TODO.md
 - Update some $LOCALBINs
-    - vup
-    - vupueue
+  - vup
+  - vupueue
 
 ### Removed - 今回で削除された機能について
 
@@ -3443,11 +3443,11 @@
 - Update some neovim plugins config
 - Update lazy-lock.json
 - Update asdf tools version
-    - dotnet-core 7.0.401
+  - dotnet-core 7.0.401
 - Update todo-comments.nvim config
-    - Fix #40
+  - Fix #40
 - Update trouble.nvim config
-    - Fix #39
+  - Fix #39
 - Update telescope.nvim config
 - Update TODO.md
 
@@ -3466,31 +3466,31 @@
 - Add cargo-msrv
 - Add neovim screenshot in README.md
 - Add Invoke-FixEncode.ps1
-    - Fix Linux PowerShell config-file encode
+  - Fix Linux PowerShell config-file encode
 
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1897
+  - vim 9.0.1897
 - Update TODO.md
 - Update ls aliases
-    - zsh
-    - fish
+  - zsh
+  - fish
 - Update lazy-lock.json
 - Update some fish completions
-    - brew
-    - eza
+  - brew
+  - eza
 - Bump actions/checkout from 3 to 4
 - Update dial.nvim config
-    - Fix #43
+  - Fix #43
 - Update gitsigns.nvim config
-    - Fix #45
+  - Fix #45
 - Update nvim-nu config
-    - Fix #42
+  - Fix #42
 - Update scrollbar.nvim config
-    - Fix #38
+  - Fix #38
 - Update neo-tree.nvim config
-    - Fix #37
+  - Fix #37
 
 ### Removed - 今回で削除された機能について
 
@@ -3506,23 +3506,23 @@
 
 - Add update_asdf_neovim command
 - Use eza
-    - exa is finished.
-    - https://github.com/ogham/exa/issues/1243
+  - exa is finished.
+  - <https://github.com/ogham/exa/issues/1243>
 - Add some neovim plugins
-    - dps-tenki-vim.lua
-    - tenki.lua
+  - dps-tenki-vim.lua
+  - tenki.lua
 
 ### Changed - 既存機能の変更について
 
 - Update TODO.md
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1894
+  - vim 9.0.1894
 
 ### Removed - 今回で削除された機能について
 
 - Use eza
-    - Remove exa completion
+  - Remove exa completion
 
 ### Fixed - 不具合修正について
 
@@ -3533,8 +3533,8 @@
 ### Added - 新機能について
 
 - Add some LOCALBINs
-    - pueue_update_asdf_neovim_stable
-    - update_asdf_neovim_stable
+  - pueue_update_asdf_neovim_stable
+  - update_asdf_neovim_stable
 
 ### Changed - 既存機能の変更について
 
@@ -3548,10 +3548,10 @@
 ### Fixed - 不具合修正について
 
 - Fix tasks.ps1 some error
-    - Invoke-FixEncoding
-    - Invoke-FileUpdate
-    - Invoke-FileClean
-    - Invoke-SyncConf
+  - Invoke-FixEncoding
+  - Invoke-FileUpdate
+  - Invoke-FileClean
+  - Invoke-SyncConf
 
 ## [v2023.09.09]
 
@@ -3563,7 +3563,7 @@
 
 - Update nvim plugin config: obsidian.nvim
 - Update asdf tools version
-    - vim 9.0.1888
+  - vim 9.0.1888
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -3587,7 +3587,8 @@
 ### Changed - 既存機能の変更について
 
 - Update lazy-lock.json
-- Copy of `OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1` to the other 3 setting files
+- Copy of `OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1` to
+  the other 3 setting files
 - Change PowerShell config file to chezmoi template
 
 ### Removed - 今回で削除された機能について
@@ -3611,9 +3612,9 @@
 - Update tasks.ps1
 - Update windows pvim coc-settings.json
 - Update asdf tools version
-    - vim 9.0.1882
-    - chezmoi 2.39.1
-    - github-cli 2.34.0
+  - vim 9.0.1882
+  - chezmoi 2.39.1
+  - github-cli 2.34.0
 
 ### Removed - 今回で削除された機能について
 
@@ -3628,8 +3629,8 @@
 ### Added - 新機能について
 
 - Add some asdf plugins
-    - lua
-    - luaJIT
+  - lua
+  - luaJIT
 - Add new nvim plugin: themery.nvim
 - Add obsidian-nvim.lua.tmpl
 
@@ -3637,11 +3638,11 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - Update
-        - vim 9.0.1876
-    - Add
-        - lua 5.4.6
-        - luajit 2.0.5--2.4.4
+  - Update
+    - vim 9.0.1876
+  - Add
+    - lua 5.4.6
+    - luajit 2.0.5--2.4.4
 - Update some nvim plugin configs
 - Update nvim plugin manager config
 
@@ -3653,7 +3654,7 @@
 
 - Fix filetypes can't detected on chezmoi-vim
 - Update nvim plugin config: coc.nvim
-    - Fix #18
+  - Fix #18
 
 ## [v2023.09.05]
 
@@ -3666,7 +3667,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1872
+  - vim 9.0.1872
 - Update update_fish_completions
 - Update nvim plugin config: tree-sitter
 - Update brew fish completion
@@ -3693,8 +3694,8 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1863
-    - chezmoi 2.39.0
+  - vim 9.0.1863
+  - chezmoi 2.39.0
 - Update update_fish_completions
 
 ### Removed - 今回で削除された機能について
@@ -3715,7 +3716,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1854
+  - vim 9.0.1854
 - Update linux_cargo_packages.txt
 - Update utils/update.sh
 - Update Linux cargo_packages.txt
@@ -3744,14 +3745,14 @@
 - Update pip_packages.txt
 - Update cargo_packages.txt
 - Update asdf tools version
-    - vim 9.0.1839
+  - vim 9.0.1839
 - Update Windows chezmoi_apply hook scripts
 - Update deno fish completion
 - Update LOCALBINs
-    - generate_cargo_package_list
-    - generate_pip_package_list
-    - install_cargo_packages
-    - install_pip_packages
+  - generate_cargo_package_list
+  - generate_pip_package_list
+  - install_cargo_packages
+  - install_pip_packages
 
 ### Removed - 今回で削除された機能について
 
@@ -3782,7 +3783,7 @@
 - Update editorconfig
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1833
+  - vim 9.0.1833
 - Update utils/clean.sh
 
 ### Removed - 今回で削除された機能について
@@ -3795,7 +3796,8 @@
 - Fix typos.toml
 - Fix textlint error
 - Revert "[NEED REVERT] Use dashboard-nvim"
-    - Fix: [nvimのダッシュボードが表示されない(alpha.nvim) Issue #33](https://github.com/mimikun/dotfiles/issues/33)
+  - Fix:
+    [nvimのダッシュボードが表示されない(alpha.nvim) Issue #33](https://github.com/mimikun/dotfiles/issues/33)
 
 ## [v2023.08.31]
 
@@ -3810,7 +3812,7 @@
 - Update nvim README
 - Update dashboard-nvim config
 - Update asdf tools version
-    - vim 9.0.1826
+  - vim 9.0.1826
 
 ### Removed - 今回で削除された機能について
 
@@ -3819,39 +3821,39 @@
 ### Fixed - 不具合修正について
 
 - alpha.nvim がNeovimのHEADで動かない問題への暫定対策
-    - [NEED REVERT] Use dashboard-nvim
+  - [NEED REVERT] Use dashboard-nvim
 
 ## [v2023.08.30]
 
 ### Added - 新機能について
 
 - Add some nvim plugins
-    - scrollbar.nvim
-    - nvim-ts-autotag
-    - dial.nvim
-    - vim-silicon
-    - telescope.nvim
-    - silicon.lua
-    - readablefold.vim
-    - neo-tree.nvim
-    - neogit
-    - git.nvim
-    - gitsigns.nvim
-    - Comment.nvim
+  - scrollbar.nvim
+  - nvim-ts-autotag
+  - dial.nvim
+  - vim-silicon
+  - telescope.nvim
+  - silicon.lua
+  - readablefold.vim
+  - neo-tree.nvim
+  - neogit
+  - git.nvim
+  - gitsigns.nvim
+  - Comment.nvim
 
 ### Changed - 既存機能の変更について
 
 - Update lazy-lock.json
 - Update github-copilot.lua
 - Update asdf tools version
-    - vim 9.0.1822
+  - vim 9.0.1822
 - Update rye fish completion
 
 ### Removed - 今回で削除された機能について
 
 - Disable some nvim plugins
-    - gin.vim
-    - vim-gitgutter
+  - gin.vim
+  - vim-gitgutter
 
 ### Fixed - 不具合修正について
 
@@ -3877,8 +3879,8 @@
 - Update README.md
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1815
-    - bitwarden 2023.8.2
+  - vim 9.0.1815
+  - bitwarden 2023.8.2
 
 ### Removed - 今回で削除された機能について
 
@@ -3901,10 +3903,10 @@
 
 - Update lazy-lock.json
 - Update some fish completion
-    - rye
-    - zellij
+  - rye
+  - zellij
 - Update asdf tools version
-    - vim 9.0.1811
+  - vim 9.0.1811
 - Update alpha.nvim config
 
 ### Removed - 今回で削除された機能について
@@ -3925,7 +3927,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1792
+  - vim 9.0.1792
 - Update alpha.nvim config
 
 ### Removed - 今回で削除された機能について
@@ -3969,7 +3971,7 @@
 - Update lazy-lock.json
 - Update deno fish completion
 - Update asdf tools version
-    - python 3.11.5
+  - python 3.11.5
 
 ### Removed - 今回で削除された機能について
 
@@ -3990,8 +3992,8 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1787
-    - powershell-core 7.3.6
+  - vim 9.0.1787
+  - powershell-core 7.3.6
 - Update ~/.local/bin/README.md
 - Update alpha-nvim config
 - Copy config from nvim to pvim
@@ -4004,7 +4006,7 @@
 
 - Fix stylua error
 - Fix neovim options
-    - Windowsではない時のみpythonのパスを指定する
+  - Windowsではない時のみpythonのパスを指定する
 
 ## [v2023.08.23]
 
@@ -4012,15 +4014,15 @@
 
 - Add ~/.local/bin/README.md
 - Add wsl-open
-    - gitlab.com/4U6U57/wsl-open
-    - Version 2.2.2
+  - gitlab.com/4U6U57/wsl-open
+  - Version 2.2.2
 - Add neovim userfunc
 
 ### Changed - 既存機能の変更について
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1783
+  - vim 9.0.1783
 
 ### Removed - 今回で削除された機能について
 
@@ -4035,22 +4037,22 @@
 ### Added - 新機能について
 
 - Add some coc extensions
-    - coc-zig
-    - @yaegassy/coc-nginx
-    - @yaegassy/coc-mypy
-    - coc-explorer
-    - coc-marketplace
-    - coc-highlight
-    - coc-toml
-    - coc-html-css-support
-    - coc-spell-checker
-    - coc-deepl
-    - @yaegassy/coc-black-formatter
-    - coc-lists
-    - coc-pairs
+  - coc-zig
+  - @yaegassy/coc-nginx
+  - @yaegassy/coc-mypy
+  - coc-explorer
+  - coc-marketplace
+  - coc-highlight
+  - coc-toml
+  - coc-html-css-support
+  - coc-spell-checker
+  - coc-deepl
+  - @yaegassy/coc-black-formatter
+  - coc-lists
+  - coc-pairs
 - Add editorconfig command
 - Use walk command
-    - github.com/antonmedv/walk
+  - github.com/antonmedv/walk
 
 ### Changed - 既存機能の変更について
 
@@ -4060,15 +4062,15 @@
 - Update ~/.config/nvim/README.md
 - Update deno fish completion
 - Update asdf tools version
-    - chezmoi 2.38.0
-    - github-cli 2.33.0
+  - chezmoi 2.38.0
+  - github-cli 2.33.0
 - Update .editorconfig-template
 
 ### Removed - 今回で削除された機能について
 
 - [NEED REVERT] coc-prettier is not maintained
-    - エタったのか更新されていないので別のを使う
-    - Use "@raidou/coc-prettier-v3
+  - エタったのか更新されていないので別のを使う
+  - Use "@raidou/coc-prettier-v3
 - Remove coc-prettier
 - Remove coc-zls
 
@@ -4081,14 +4083,14 @@
 ### Added - 新機能について
 
 - Add kensaku.vim
-    - lambdalisue/kensaku.vim
-    - lambdalisue/kensaku-command.vim
-    - lambdalisue/kensaku-search.vim
+  - lambdalisue/kensaku.vim
+  - lambdalisue/kensaku-command.vim
+  - lambdalisue/kensaku-search.vim
 - Add align.nvim
-    - Vonr/align.nvim
+  - Vonr/align.nvim
 - Add new colorscheme
-    - catppuccin/nvim
-    - shaunsingh/nord.nvim
+  - catppuccin/nvim
+  - shaunsingh/nord.nvim
 - Add update_poetry command
 - Add commit.verbose git config
 - Add XDG Base directory config
@@ -4097,13 +4099,13 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1778
+  - vim 9.0.1778
 
 ### Removed - 今回で削除された機能について
 
 - Remove ~/.config/nvim/event_learn_support.lua
 - Remove Justfile
-    - 遅すぎて使い物にならないので削除
+  - 遅すぎて使い物にならないので削除
 
 ### Fixed - 不具合修正について
 
@@ -4118,7 +4120,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1757
+  - vim 9.0.1757
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -4138,7 +4140,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1745
+  - vim 9.0.1745
 - Update lazy-lock.json
 - Update neovim base options
 - Update coc-settings.json
@@ -4160,7 +4162,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1736
+  - vim 9.0.1736
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -4180,7 +4182,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1721
+  - vim 9.0.1721
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -4200,7 +4202,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1719
+  - vim 9.0.1719
 - Update lazy-lock.json
 
 ### Removed - 今回で削除された機能について
@@ -4240,7 +4242,7 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1712
+  - vim 9.0.1712
 
 ### Removed - 今回で削除された機能について
 
@@ -4260,8 +4262,8 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - nodejs 18.17.1
-    - vim 9.0.1702
+  - nodejs 18.17.1
+  - vim 9.0.1702
 
 ### Removed - 今回で削除された機能について
 
@@ -4281,8 +4283,8 @@
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1696
-    - yq 4.35.1
+  - vim 9.0.1696
+  - yq 4.35.1
 - Update deno fish completion
 
 ### Removed - 今回で削除された機能について
@@ -4298,30 +4300,30 @@
 ### Added - 新機能について
 
 - Add some nvim plugin
-    - Rename fzf.lua to fzf-vim.lua
-    - Add fzf.lua
-    - Add startup.nvim
-    - Add image-preview.nvim
-    - Add dressing.nvim
-    - Add editorconfig.nvim
+  - Rename fzf.lua to fzf-vim.lua
+  - Add fzf.lua
+  - Add startup.nvim
+  - Add image-preview.nvim
+  - Add dressing.nvim
+  - Add editorconfig.nvim
 - Add some vim colorschemes
-    - voidekh/kyotonight.vim
-    - sainnhe/sonokai
-    - loctvl842/monokai-pro.nvim
-    - crusoexia/vim-monokai
+  - voidekh/kyotonight.vim
+  - sainnhe/sonokai
+  - loctvl842/monokai-pro.nvim
+  - crusoexia/vim-monokai
 - Add some neovim colorschemes
-    - tiagovla/tokyodark.nvim
-    - loctvl842/monokai-pro.nvim
-    - crusoexia/vim-monokai
-    - sainnhe/sonokai
-    - voidekh/kyotonight.vim
+  - tiagovla/tokyodark.nvim
+  - loctvl842/monokai-pro.nvim
+  - crusoexia/vim-monokai
+  - sainnhe/sonokai
+  - voidekh/kyotonight.vim
 
 ### Changed - 既存機能の変更について
 
 - Update lazy-lock.json
 - Update asdf tools version
-    - vim 9.0.1679
-    - dotnet-core 7.0.400
+  - vim 9.0.1679
+  - dotnet-core 7.0.400
 
 ### Removed - 今回で削除された機能について
 
@@ -4341,7 +4343,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - vim 9.0.1678
+  - vim 9.0.1678
 - Update lazy-lock.json
 - Update Linux PowerShell config
 - Update .config/nvim/Makefile
@@ -4369,21 +4371,21 @@
 - Update asdf tools version
 - Update lazy-lock.json
 - Update vim config
-    - Set colorscheme
+  - Set colorscheme
 - Update neovim config
-    - Use zbirenbaum/copilot.lua
+  - Use zbirenbaum/copilot.lua
 - Update brew fish completion
 
 ### Removed - 今回で削除された機能について
 
 - Remove windows config
-    - [dotfiles-windows](https://github.com/mimikun/dotfiles-windows) があるため
+  - [dotfiles-windows](https://github.com/mimikun/dotfiles-windows) があるため
 - Remove `.vim/colors`
 
 ### Fixed - 不具合修正について
 
 - Fix "Azia/Tokyo" to "Asia/Tokyo"
-    - タイムゾーンのミスによる時間取得誤りを修正
+  - タイムゾーンのミスによる時間取得誤りを修正
 
 ## [v2023.08.05]
 
@@ -4408,10 +4410,10 @@
 ### Added - 新機能について
 
 - Add some environments variables in config.fish
-    - TZ "Azia/Tokyo"
-    - obsidian /path/to/001_DailyNotes
-    - XDG_CONFIG_HOME $HOME/.config
-    - LOCALBIN $HOME/.local/bin
+  - TZ "Azia/Tokyo"
+  - obsidian /path/to/001_DailyNotes
+  - XDG_CONFIG_HOME $HOME/.config
+  - LOCALBIN $HOME/.local/bin
 
 ### Changed - 既存機能の変更について
 
@@ -4420,8 +4422,8 @@
 - Use double quote in config.fish
 - Update neovim coc.nvim config
 - Update fish completions
-    - exa
-    - deno
+  - exa
+  - deno
 
 ### Removed - 今回で削除された機能について
 
@@ -4513,7 +4515,7 @@
 
 - Chezmoi Ignore stylua.toml
 - Update asdf tools version
-    - chezmoi 2.36.1
+  - chezmoi 2.36.1
 
 ### Removed - 今回で削除された機能について
 
@@ -4528,7 +4530,7 @@
 ### Changed - 既存機能の変更について
 
 - Update asdf tools version
-    - chezmoi 2.36.0
+  - chezmoi 2.36.0
 
 ### Removed - 今回で削除された機能について
 
@@ -4569,8 +4571,8 @@
 ### Changed - 既存機能の変更について
 
 - Update fish completions
-    - brew
-    - deno
+  - brew
+  - deno
 
 - neovim sppedup?
 
@@ -4654,4 +4656,3 @@
 ### Fixed - 不具合修正について
 
 なし
-
