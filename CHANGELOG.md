@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.02.21]
+
+### Added - 新機能について
+
+- Add new neovim plugin: orgmode
+- Add some envs
+- Add ShowStdPaths usercommand in neovim
+    - enable autocmds.lua
+
+### Changed - 既存機能の変更について
+
+- Update dotfyle.json
+- Update lazy-lock.json
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix test error
+
 ## [v2024.02.20]
 
 ### Added - 新機能について
