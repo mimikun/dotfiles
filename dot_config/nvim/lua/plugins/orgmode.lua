@@ -4,7 +4,7 @@ return {
     lazy = false,
     --event = "VeryLazy",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function ()
+    config = function()
         -- TODO: setting
         local orgmode = require("orgmode")
         orgmode.setup({
