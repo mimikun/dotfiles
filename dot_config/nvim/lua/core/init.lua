@@ -13,7 +13,7 @@ local load_core = function()
     require("core.colorscheme")
 
     -- autocmd を読み込む
-    --require("core.autocmds")
+    require("core.autocmds")
 end
 
 load_core()
