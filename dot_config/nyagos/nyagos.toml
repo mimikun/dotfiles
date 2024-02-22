@@ -1,0 +1,6 @@
+[selene]
+base = "lua51"
+name = "nyagos"
+
+[nyagos]
+any = true
