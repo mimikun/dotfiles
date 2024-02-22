@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.02.22]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update mason-lock.json
+- Update lazy-lock.json
+- Update dotfyle.json
+- Update deno fish completion
+- Update selene config
+
+### Removed - 今回で削除された機能について
+
+- Remove NVIM envs
+
+### Fixed - 不具合修正について
+
+- Fix indent error in CHANGELOG.md
+
 ## [v2024.02.21]
 
 ### Added - 新機能について
@@ -4656,3 +4679,4 @@
 ### Fixed - 不具合修正について
 
 なし
+
