@@ -24,6 +24,7 @@
   "rust-analyzer": "2024-02-19",
   "solargraph": "0.50.0",
   "taplo": "0.8.1",
+  "textlint": "14.0.3",
   "typescript-language-server": "4.3.3",
   "typos-lsp": "v0.1.12",
   "vim-language-server": "2.3.1",
