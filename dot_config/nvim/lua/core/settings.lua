@@ -25,8 +25,6 @@ settings["lsp_servers"] = {
     "neocmake",
     -- CSS
     "cssls",
-    -- deno
-    "denols",
     -- Docker
     "dockerls",
     -- docker-compose
@@ -66,8 +64,6 @@ settings["lsp_servers"] = {
     -- SQL
     -- Sphinx
     "esbonio",
-    -- TOML
-    "taplo",
     -- VimL
     "vimls",
     -- YAML
