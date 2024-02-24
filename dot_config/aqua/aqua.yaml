@@ -76,7 +76,7 @@ packages:
 - name: klauspost/asmfmt@v1.3.2
   registry: custom
 # TODO: Organize the bottom from here
-- name: rhysd/actionlint@v1.6.26
+- name: rhysd/actionlint@v1.6.27
 - name: koki-develop/clive@v0.12.9
 - name: tsl0922/ttyd@1.7.4
 - name: charmbracelet/vhs@v0.7.1
