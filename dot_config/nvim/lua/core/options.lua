@@ -147,4 +147,7 @@ if is_human_rights then
             cache_enabled = 0,
         }
     end
+else
+    -- Disable clipboard when no human rights
+    vim.g.loaded_clipboard_provider = 0
 end
