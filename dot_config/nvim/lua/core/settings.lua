@@ -115,7 +115,6 @@ settings["treesitter_parsers"] = {
     "ocaml",
     "ocaml_interface",
     "org",
-    "pkl",
     "python",
     "regex",
     "rst",

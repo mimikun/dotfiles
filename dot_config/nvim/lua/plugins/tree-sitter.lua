@@ -17,10 +17,6 @@ return {
             "Fymyte/tree-sitter-rasi",
             "mimikun/tree-sitter-PowerShell",
             "nvim-orgmode/orgmode",
-            {
-                "apple/pkl-neovim",
-                build = ":TSInstall! pkl",
-            },
         },
         config = function()
             local configs = require("nvim-treesitter.configs")
