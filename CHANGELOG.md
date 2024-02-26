@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.02.26]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update mason-lock.json
+- Update dotfyle.json
+- Update lazy-lock.json
+- Improved utils/create-patch.sh
+
+### Removed - 今回で削除された機能について
+
+- Disable clipboard when no human rights
+- Disable neovim plugin: petertriho/nvim-scrollbar
+  - WORKAROUND: Crash by ui_comp_raw_line
+- Remove neovim plugin: thinca/vim-scouter
+- Remove neovim plugin: apple/pkl-neovim
+- Remove neovim plugin: dstein64/vim-startuptime
+  - using golang version
+
+### Fixed - 不具合修正について
+
+- Fix checkhealth warning
+
 ## [v2024.02.25]
 
 ### Added - 新機能について
@@ -19,7 +47,7 @@
 ### Fixed - 不具合修正について
 
 - Fix deperacation warning
-    - Fix #290
+  - Fix #290
 
 ## [v2024.02.23]
 
@@ -4721,4 +4749,3 @@
 ### Fixed - 不具合修正について
 
 なし
-
