@@ -11,5 +11,6 @@ return {
         require("scrollbar.handlers.search").setup({})
         require("scrollbar.handlers.gitsigns").setup({})
     end,
-    --cond = false,
+    -- WORKAROUND: crash by ui_comp_raw_line
+    cond = false,
 }
