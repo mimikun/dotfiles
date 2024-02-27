@@ -1,5 +1,3 @@
--- thx: https://coralpink.github.io/commentary/neovim/lsp/nvim-cmp.html
-
 return {
     "hrsh7th/nvim-cmp",
     lazy = false,
