@@ -24,12 +24,17 @@ local concurrency_limit_check = function()
     return limit
 end
 
+---@type number
 local concurrency = concurrency_limit_check()
 
+---@type string
 local lazy_root = table.concat({ data_dir, "lazy" }, path_sep)
+---@type string
 local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, path_sep)
+---@type string
 local dev_path = table.concat({ home, "ghq", "github.com", "mimikun", "dev-plugins" }, path_sep)
 
+---@type table
 local icons = {
     kind = iconsets.get("kind"),
     documents = iconsets.get("documents"),
@@ -53,6 +58,7 @@ function Lazy:load_lazy()
         })
     end
 
+    ---@type table
     local lazy_settings = {
         root = lazy_root,
         defaults = {

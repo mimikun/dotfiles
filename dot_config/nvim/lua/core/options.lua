@@ -1,6 +1,3 @@
--- ref:
--- https://trap.jp/post/524/
-
 local global = require("core.global")
 ---@type boolean
 local is_unix = global.is_unix
@@ -18,13 +15,16 @@ local is_wsl = global.is_wsl
 vim.opt.mouse = "a"
 
 -- 使用可能性のある改行コードを指定
+---@type table
 vim.opt.fileformats = { "unix", "dos", "mac" }
 
 -- ファイル読み込むときのエンコード
 -- 左から順に試す
+---@type table
 vim.opt.fileencodings = { "utf-8", "cp932", "ucs-bombs", "euc-jp" }
 
---" 全角文字の表示に2文字分使うようにする
+-- 全角文字の表示に2文字分使うようにする
+---@type string
 vim.opt.ambiwidth = "double"
 
 -- スワップファイルを作成しないようにする
@@ -47,6 +47,7 @@ vim.opt.relativenumber = true
 -- 空白文字を可視化する
 ---@type boolean
 vim.opt.list = true
+---@type table
 vim.opt.listchars = { tab = ">-", trail = "*", nbsp = "+", space = "⋅" }
 
 -- 良い感じにインデントしてくれるようにする
@@ -62,9 +63,11 @@ vim.opt.visualbell = true
 vim.opt.expandtab = true
 
 -- TABキーを押したときのインデントのスペース個数を指定する
+---@type number
 vim.opt.tabstop = 4
 
 -- 自動インデントのスペース個数を指定する
+---@type number
 vim.opt.shiftwidth = 4
 
 ---- 検索関係の設定
@@ -82,6 +85,7 @@ vim.opt.wrapscan = true
 
 ---- lightline.vim 用
 -- 常にタブページのラベル(各タブのファイル名)を表示
+---@type number
 vim.opt.showtabline = 2
 
 -- モードの表記を消す
@@ -96,12 +100,15 @@ vim.opt.showmode = false
 --vim.opt.whichwrap = {"b", "s", "<", ">", "[", "]"}
 
 -- 反映時間を短くする(デフォルトは4000ms)
+---@type number
 vim.opt.updatetime = 250
 
 -- ヘルプ日本語化
+---@type table
 vim.opt.helplang = { "ja", "en" }
 
 -- editorconfig
+---@type boolean
 vim.g.editorconfig = true
 
 -- シンタックスハイライトを有効にする
@@ -113,22 +120,15 @@ vim.opt.termguicolors = true
 vim.cmd([[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]])
 vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
 
--- Perl Providerを無効にする
+-- Disable providers
+---@type number
 vim.g.loaded_perl_provider = 0
-
--- Windowsでは各種プロバイダを無効にする
-if is_windows then
-    vim.g.loaded_python3_provider = 0
-    vim.g.loaded_ruby_provider = 0
-    vim.g.loaded_node_provider = 0
-end
-
--- LinuxではPythonのパスを指定する
-if is_linux then
-    vim.g.python3_host_prog = "~/.local/share/mise/shims/python"
-    vim.g.ruby_host_prog = "~/.local/share/mise/shims/ruby"
-    vim.g.node_host_prog = "~/.local/share/mise/shims/node"
-end
+---@type number
+vim.g.loaded_python3_provider = 0
+---@type number
+vim.g.loaded_ruby_provider = 0
+---@type number
+vim.g.loaded_node_provider = 0
 
 -- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
 if is_human_rights then
@@ -149,5 +149,6 @@ if is_human_rights then
     end
 else
     -- Disable clipboard when no human rights
+    ---@type number
     vim.g.loaded_clipboard_provider = 0
 end

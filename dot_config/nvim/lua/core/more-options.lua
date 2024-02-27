@@ -39,6 +39,7 @@ vim.opt.autowriteall = false
 vim.opt.background = "dark"
 
 -- https://neovim.io/doc/user/options.html#'backspace'
+---@type table
 vim.opt.backspace = { "indent,eol,start" }
 
 -- https://neovim.io/doc/user/options.html#'backup'
@@ -145,9 +146,11 @@ vim.opt.cinscopedecls = "public,protected,private"
 vim.opt.cinwords = "if,else,while,do,for,switch"
 
 -- https://neovim.io/doc/user/options.html#'cmdheight'
+---@type number
 vim.opt.cmdheight = 1
 
 -- https://neovim.io/doc/user/options.html#'cmdwinheight'
+---@type number
 vim.opt.cmdwinheight = 7
 
 -- https://neovim.io/doc/user/options.html#'colorcolumn'
@@ -155,6 +158,7 @@ vim.opt.cmdwinheight = 7
 vim.opt.colorcolumn = ""
 
 -- https://neovim.io/doc/user/options.html#'columns'
+---@type number
 vim.opt.columns = 80
 
 -- https://neovim.io/doc/user/options.html#'comments'
@@ -186,7 +190,8 @@ vim.opt.completeopt = "menu,preview"
 vim.opt.concealcursor = ""
 
 -- https://neovim.io/doc/user/options.html#'conceallevel'
-vim.opt.conceallevel = 0
+---@type number
+--vim.opt.conceallevel = 0
 
 -- https://neovim.io/doc/user/options.html#'confirm'
 ---@type boolean
@@ -349,6 +354,7 @@ vim.opt.foldexpr = "0"
 vim.opt.foldignore = "#"
 
 -- https://neovim.io/doc/user/options.html#'foldlevel'
+---@type number
 vim.opt.foldlevel = 0
 
 -- TODO
@@ -364,9 +370,11 @@ vim.opt.foldmarker = "{{{,}}}"
 vim.opt.foldmethod = "manual"
 
 -- https://neovim.io/doc/user/options.html#'foldminlines'
+---@type number
 vim.opt.foldminlines = 1
 
 -- https://neovim.io/doc/user/options.html#'foldnestmax'
+---@type number
 vim.opt.foldnestmax = 20
 
 -- https://neovim.io/doc/user/options.html#'foldopen'
@@ -438,9 +446,11 @@ vim.opt.guifontwide = ""
 --'helpfile' 'hf'  string (default (MS-Windows) "$VIMRUNTIME\doc\help.txt"
 
 -- https://neovim.io/doc/user/options.html#'helpheight'
+---@type number
 vim.opt.helpheight = 20
 
 -- https://neovim.io/doc/user/options.html#'history'
+---@type number
 vim.opt.history = 10000
 
 -- https://neovim.io/doc/user/options.html#'hlsearch'
@@ -462,6 +472,7 @@ vim.opt.iconstring = ""
 --vim.opt.imdisable = false
 
 -- https://neovim.io/doc/user/options.html#'iminsert'
+---@type number
 vim.opt.iminsert = 0
 
 -- TODO
@@ -547,6 +558,7 @@ vim.opt.langmenu = ""
 vim.opt.langremap = false
 
 -- https://neovim.io/doc/user/options.html#'laststatus'
+---@type number
 vim.opt.laststatus = 2
 
 -- https://neovim.io/doc/user/options.html#'lazyredraw'
@@ -558,9 +570,11 @@ vim.opt.lazyredraw = false
 vim.opt.linebreak = false
 
 -- https://neovim.io/doc/user/options.html#'lines'
+---@type number
 vim.opt.lines = 24
 
 -- https://neovim.io/doc/user/options.html#'linespace'
+---@type number
 vim.opt.linespace = 0
 
 -- https://neovim.io/doc/user/options.html#'lisp'
@@ -600,18 +614,23 @@ vim.opt.makeprg = "make"
 vim.opt.matchpairs = "(:),{:},[:]"
 
 -- https://neovim.io/doc/user/options.html#'matchtime'
+---@type number
 vim.opt.matchtime = 5
 
 -- https://neovim.io/doc/user/options.html#'maxfuncdepth'
+---@type number
 vim.opt.maxfuncdepth = 100
 
 -- https://neovim.io/doc/user/options.html#'maxmapdepth'
+---@type number
 vim.opt.maxmapdepth = 1000
 
 -- https://neovim.io/doc/user/options.html#'maxmempattern'
+---@type number
 vim.opt.maxmempattern = 1000
 
 -- https://neovim.io/doc/user/options.html#'menuitems'
+---@type number
 vim.opt.menuitems = 25
 
 -- https://neovim.io/doc/user/options.html#'mkspellmem'
@@ -628,6 +647,7 @@ vim.opt.modelineexpr = false
 --'modeline' 'ml'  boolean (default on (off for root))
 
 -- https://neovim.io/doc/user/options.html#'modelines'
+---@type number
 vim.opt.modelines = 5
 
 -- https://neovim.io/doc/user/options.html#'modifiable'
@@ -667,6 +687,7 @@ vim.opt.mousescroll = "ver:3,hor:6"
 --'mouseshape' 'mouses' string (default "i:beam,r:beam,s:updown,sd:cross,
 
 -- https://neovim.io/doc/user/options.html#'mousetime'
+---@type number
 vim.opt.mousetime = 500
 
 -- https://neovim.io/doc/user/options.html#'nrformats'
@@ -713,6 +734,7 @@ vim.opt.path = ".,,"
 vim.opt.preserveindent = false
 
 -- https://neovim.io/doc/user/options.html#'previewheight'
+---@type number
 vim.opt.previewheight = 12
 
 -- https://neovim.io/doc/user/options.html#'previewwindow'
@@ -720,15 +742,19 @@ vim.opt.previewheight = 12
 vim.opt.previewwindow = false
 
 -- https://neovim.io/doc/user/options.html#'pumblend'
+---@type number
 vim.opt.pumblend = 0
 
 -- https://neovim.io/doc/user/options.html#'pumheight'
+---@type number
 vim.opt.pumheight = 0
 
 -- https://neovim.io/doc/user/options.html#'pumwidth'
+---@type number
 vim.opt.pumwidth = 15
 
 -- https://neovim.io/doc/user/options.html#'pyxversion'
+---@type number
 vim.opt.pyxversion = 3
 
 -- https://neovim.io/doc/user/options.html#'quickfixtextfunc'
@@ -748,12 +774,15 @@ vim.opt.readonly = false
 vim.opt.redrawdebug = ""
 
 -- https://neovim.io/doc/user/options.html#'redrawtime'
+---@type number
 vim.opt.redrawtime = 2000
 
 -- https://neovim.io/doc/user/options.html#'regexpengine'
+---@type number
 vim.opt.regexpengine = 0
 
 -- https://neovim.io/doc/user/options.html#'report'
+---@type number
 vim.opt.report = 2
 
 -- https://neovim.io/doc/user/options.html#'revins'
@@ -781,6 +810,7 @@ vim.opt.ruler = true
 --'runtimepath' 'rtp' string (default "$XDG_CONFIG_HOME/nvim,
 
 -- https://neovim.io/doc/user/options.html#'scrollback'
+---@type number
 vim.opt.scrollback = 10000
 
 -- https://neovim.io/doc/user/options.html#'scrollbind'
@@ -788,9 +818,11 @@ vim.opt.scrollback = 10000
 vim.opt.scrollbind = false
 
 -- https://neovim.io/doc/user/options.html#'scrolljump'
+---@type number
 vim.opt.scrolljump = 1
 
 -- https://neovim.io/doc/user/options.html#'scrolloff'
+---@type number
 vim.opt.scrolloff = 0
 
 -- https://neovim.io/doc/user/options.html#'scrollopt'
@@ -890,9 +922,11 @@ vim.opt.showfulltag = false
 vim.opt.showmatch = false
 
 -- https://neovim.io/doc/user/options.html#'sidescrolloff'
+---@type number
 vim.opt.sidescrolloff = 0
 
 -- https://neovim.io/doc/user/options.html#'sidescroll'
+---@type number
 vim.opt.sidescroll = 1
 
 -- https://neovim.io/doc/user/options.html#'signcolumn'
@@ -908,6 +942,7 @@ vim.opt.smarttab = true
 vim.opt.smoothscroll = false
 
 -- https://neovim.io/doc/user/options.html#'softtabstop'
+---@type number
 vim.opt.softtabstop = 0
 
 -- https://neovim.io/doc/user/options.html#'spell'
@@ -971,6 +1006,7 @@ vim.opt.suffixes = ".bak,~,.o,.h,.info,.swp,.obj"
 vim.opt.switchbuf = "uselast"
 
 -- https://neovim.io/doc/user/options.html#'synmaxcol'
+---@type number
 vim.opt.synmaxcol = 3000
 
 -- https://neovim.io/doc/user/options.html#'syntax'
@@ -982,6 +1018,7 @@ vim.opt.syntax = ""
 vim.opt.tabline = ""
 
 -- https://neovim.io/doc/user/options.html#'tabpagemax'
+---@type number
 vim.opt.tabpagemax = 50
 
 -- https://neovim.io/doc/user/options.html#'tagbsearch'
@@ -997,6 +1034,7 @@ vim.opt.tagcase = "followic"
 vim.opt.tagfunc = ""
 
 -- https://neovim.io/doc/user/options.html#'taglength'
+---@type number
 vim.opt.taglength = 0
 
 -- https://neovim.io/doc/user/options.html#'tagrelative'
@@ -1020,6 +1058,7 @@ vim.opt.termbidi = false
 vim.opt.termpastefilter = "BS,HT,ESC,DEL"
 
 -- https://neovim.io/doc/user/options.html#'textwidth'
+---@type number
 vim.opt.textwidth = 0
 
 -- https://neovim.io/doc/user/options.html#'thesaurusfunc'
@@ -1035,6 +1074,7 @@ vim.opt.thesaurus = ""
 vim.opt.tildeop = false
 
 -- https://neovim.io/doc/user/options.html#'timeoutlen'
+---@type number
 vim.opt.timeoutlen = 1000
 
 -- https://neovim.io/doc/user/options.html#'timeout'
@@ -1046,6 +1086,7 @@ vim.opt.timeout = true
 vim.opt.title = false
 
 -- https://neovim.io/doc/user/options.html#'titlelen'
+---@type number
 vim.opt.titlelen = 85
 
 -- https://neovim.io/doc/user/options.html#'titleold'
@@ -1061,6 +1102,7 @@ vim.opt.titlestring = ""
 vim.opt.ttimeout = true
 
 -- https://neovim.io/doc/user/options.html#'ttimeoutlen'
+---@type number
 vim.opt.ttimeoutlen = 50
 
 -- https://neovim.io/doc/user/options.html#'undodir'
@@ -1072,12 +1114,15 @@ vim.opt.undodir = "$XDG_STATE_HOME/nvim/undo//"
 vim.opt.undofile = false
 
 -- https://neovim.io/doc/user/options.html#'undolevels'
+---@type number
 vim.opt.undolevels = 1000
 
 -- https://neovim.io/doc/user/options.html#'undoreload'
+---@type number
 vim.opt.undoreload = 10000
 
 -- https://neovim.io/doc/user/options.html#'updatecount'
+---@type number
 vim.opt.updatecount = 200
 
 -- https://neovim.io/doc/user/options.html#'varsofttabstop'
@@ -1093,6 +1138,7 @@ vim.opt.vartabstop = ""
 vim.opt.verbosefile = ""
 
 -- https://neovim.io/doc/user/options.html#'verbose'
+---@type number
 vim.opt.verbose = 0
 
 -- https://neovim.io/doc/user/options.html#'viewdir'
@@ -1112,6 +1158,7 @@ vim.opt.virtualedit = ""
 vim.opt.warn = true
 
 -- https://neovim.io/doc/user/options.html#'wildcharm'
+---@type number
 vim.opt.wildcharm = 0
 
 -- TODO
@@ -1147,6 +1194,7 @@ vim.opt.winaltkeys = "menu"
 vim.opt.winbar = ""
 
 -- https://neovim.io/doc/user/options.html#'winblend'
+---@type number
 vim.opt.winblend = 0
 
 -- TODO
@@ -1162,6 +1210,7 @@ vim.opt.winfixheight = false
 vim.opt.winfixwidth = false
 
 -- https://neovim.io/doc/user/options.html#'winheight'
+---@type number
 vim.opt.winheight = 1
 
 -- https://neovim.io/doc/user/options.html#'winhighlight'
@@ -1169,12 +1218,15 @@ vim.opt.winheight = 1
 vim.opt.winhighlight = ""
 
 -- https://neovim.io/doc/user/options.html#'winminheight'
+---@type number
 vim.opt.winminheight = 1
 
 -- https://neovim.io/doc/user/options.html#'winminwidth'
+---@type number
 vim.opt.winminwidth = 1
 
 -- https://neovim.io/doc/user/options.html#'winwidth'
+---@type number
 vim.opt.winwidth = 20
 
 -- https://neovim.io/doc/user/options.html#'wrap'
@@ -1182,6 +1234,7 @@ vim.opt.winwidth = 20
 vim.opt.wrap = true
 
 -- https://neovim.io/doc/user/options.html#'wrapmargin'
+---@type number
 vim.opt.wrapmargin = 0
 
 -- https://neovim.io/doc/user/options.html#'writeany'
@@ -1197,4 +1250,5 @@ vim.opt.writebackup = true
 vim.opt.write = true
 
 -- https://neovim.io/doc/user/options.html#'writedelay'
+---@type number
 vim.opt.writedelay = 0
