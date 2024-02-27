@@ -3,12 +3,20 @@ local icons = {
     ui = iconsets.get("ui", true),
     misc = iconsets.get("misc", true),
 }
+
+---@type string
 local quick_links = icons.ui.List .. "Quick links"
+---@type string
 local new_file = icons.ui.NewFile .. " New file"
+---@type string
 local update_plugins = icons.misc.Update .. " Update plugins"
+---@type string
 local open_mason_window = icons.ui.Gear .. " Open Mason Window"
+---@type string
 local run_checkhealth = icons.ui.Accepted .. " Run checkhealth"
+---@type string
 local quit_nvim = icons.ui.Close_alt .. " Quit NVIM"
+---@type string
 local recent_files = icons.ui.History .. " Recent files"
 
 return {
@@ -34,34 +42,6 @@ return {
             },
         }
 
-        local section_mru = {
-            type = "group",
-            val = {
-                {
-                    type = "text",
-                    val = recent_files,
-                    opts = {
-                        hl = "SpecialComment",
-                        shrink_margin = false,
-                        position = "center",
-                    },
-                },
-                {
-                    type = "padding",
-                    val = 1,
-                },
-                {
-                    type = "group",
-                    val = function()
-                        return { theta.mru(0, vim.fn.getcwd(), 10) }
-                    end,
-                    opts = {
-                        shrink_margin = false,
-                    },
-                },
-            },
-        }
-
         local buttons = {
             type = "group",
             val = {
@@ -83,7 +63,6 @@ return {
                 { type = "padding", val = 1 },
                 buttons,
                 { type = "padding", val = 1 },
-                section_mru,
             },
             opts = {
                 margin = 5,
