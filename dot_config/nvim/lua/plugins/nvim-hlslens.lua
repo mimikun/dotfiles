@@ -1,3 +1,4 @@
+---@type table
 local keymaps = {
     { "<Leader>L", desc = "run `:nohlsearch` and export results to quickfix" },
 }

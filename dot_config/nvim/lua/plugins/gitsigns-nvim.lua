@@ -1,3 +1,4 @@
+---@type table
 local keymaps = {
     { "g[", desc = "Jump to the previous hunk in the current buffer." },
     { "g]", desc = "Jump to the next hunk in the current buffer." },

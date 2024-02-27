@@ -1,10 +1,16 @@
 local global = require("core.global")
+---@type boolean
 local is_windows = global.is_windows
+---@type string
 local data_dir = global.data_dir
+---@type string
 local path_sep = global.path_sep
+---@type string
 local my_snippets_dir = global.snippets_dir
+---@type string
 local friendly_snippets = table.concat({ data_dir, "lazy", "friendly-snippets" }, path_sep)
 
+---@type string
 local build = is_windows and "" or "make install_jsregexp"
 
 return {

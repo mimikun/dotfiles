@@ -1,3 +1,4 @@
+---@type table
 local cmds = {
     "MastodonTootMessage",
     "MastodonAddAccount",

@@ -1,3 +1,4 @@
+---@type table
 local keymaps = {
     { "<C-a>", desc = "<C-a> increment" },
     { "<C-x>", desc = "<C-x> decrement" },

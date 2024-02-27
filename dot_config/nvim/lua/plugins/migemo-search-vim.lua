@@ -1,6 +1,9 @@
 -- Enable if there are no human rights and if executable cmigemo command
+---@type boolean
 local is_not_human_rights = not require("core.global").is_human_rights
+---@type boolean
 local has_cmigemo = (1 == vim.fn.executable("cmigemo")) and true or false
+---@type boolean
 local cond = is_not_human_rights and has_cmigemo
 
 return {

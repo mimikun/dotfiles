@@ -1,4 +1,5 @@
 -- thx: https://coralpink.github.io/commentary/neovim/lsp/nvim-lspconfig.html
+---@type table
 local keymaps = {
     { "<space>e", desc = "vim.diagnostic.open_float" },
     { "[d", desc = "vim.diagnostic.goto_prev" },

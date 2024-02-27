@@ -1,5 +1,7 @@
 -- Enable if executable csvlens command
+---@type boolean
 local has_csvlens = (1 == vim.fn.executable("csvlens")) and true or false
+---@type boolean
 local cond = has_csvlens
 
 return {

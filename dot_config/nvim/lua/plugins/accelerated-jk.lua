@@ -1,3 +1,4 @@
+---@type table
 local keymaps = {
     { "j", desc = "accelerated_jk_gj" },
     { "k", desc = "accelerated_jk_gk" },

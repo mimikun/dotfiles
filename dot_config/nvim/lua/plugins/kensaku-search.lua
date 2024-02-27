@@ -1,4 +1,5 @@
 local global = require("core.global")
+---@type boolean
 local is_human_rights = global.is_human_rights
 
 local keymaps = {

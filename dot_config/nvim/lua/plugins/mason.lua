@@ -1,14 +1,17 @@
--- thx: https://coralpink.github.io/commentary/neovim/lsp/mason.html
-
 local global = require("core.global")
 local settings = require("core.settings")
 local iconsets = require("utils.icons")
 
+---@type boolean
 local is_human_rights = global.is_human_rights
+---@type boolean
 local is_windows = global.is_windows
+---@type string
 local vim_path = global.vim_path
+---@type string
 local path_sep = global.path_sep
 
+---@type table
 local lsp_servers = settings["lsp_servers"]
 if is_windows then
     -- Windows
@@ -20,6 +23,7 @@ if is_windows then
     end
 end
 
+---@type table
 local icons = {
     kind = iconsets.get("kind"),
     documents = iconsets.get("documents"),
@@ -43,9 +47,9 @@ end
 ---@type number
 local concurrency = concurrency_limit_check()
 
+---@type string
 local mason_lockfile = table.concat({ vim_path, "mason-lock.json" }, path_sep)
 
----@type LazySpec
 return {
     "williamboman/mason.nvim",
     lazy = false,

@@ -3,6 +3,7 @@ local iconsets = require("utils.icons")
 local diagnostics = iconsets.get("diagnostics", true)
 local git = iconsets.get("git")
 
+---@type table
 local icon = {
     error = diagnostics.Error,
     warn = diagnostics.Warning,
@@ -14,6 +15,7 @@ local icon = {
     remove = git.Remove,
 }
 
+---@return string
 local function improved_encoding()
     local encoding = vim.opt.fileencoding:get()
     if encoding == "utf-8" then
@@ -28,6 +30,7 @@ local function improved_encoding()
     return encoding
 end
 
+---@return string
 local function special_notice()
     return "コロナを忘れるな！"
 end
@@ -43,6 +46,7 @@ local function diff_source()
     end
 end
 
+---@type table
 local options = {
     theme = "auto",
     component_separators = "",
@@ -56,6 +60,7 @@ local options = {
     },
 }
 
+---@type table
 local sections = {
     lualine_a = {
         { "mode", color = { gui = "bold" } },
@@ -87,6 +92,7 @@ local sections = {
     },
 }
 
+---@type table
 local tabline = {
     lualine_a = {
         {
@@ -110,6 +116,7 @@ local tabline = {
     },
 }
 
+---@type table
 local opts = {
     options = options,
     sections = sections,
