@@ -1,5 +1,6 @@
 local icons = {}
 
+---@type table
 local data = {
     kind = {
         Class = "󰠱",

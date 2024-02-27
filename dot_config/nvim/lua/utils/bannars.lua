@@ -86,6 +86,7 @@ local remember_covid_19_en_ua = {
     [[=================================================]],
 }
 
+---@type table
 local data = {
     logo = {
         Neovim = neovim_header,
