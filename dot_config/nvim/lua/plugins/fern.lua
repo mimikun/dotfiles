@@ -1,7 +1,4 @@
--- thx: https://github.com/yuucu/dotfiles/blob/d31fbb387fd0e08f168b366de8aa763b5b0ac769/.config/nvim/lua/plugins/fern.lua
--- thx: https://qiita.com/matoruru/items/b5ad6e0f1ef6c804378d
--- thx: https://qiita.com/youichiro/items/b4748b3e96106d25c5bc
-
+---@type table
 local keymaps = {
     { "<C-n>", desc = "Toggle Fern" },
 }
