@@ -16,9 +16,9 @@ return {
     --event = "VeryLazy",
     cmd = cmds,
     dependencies = {
-        { "nvim-lua/plenary.nvim" },
-        { "rcarriga/nvim-notify" },
-        { "kkharji/sqlite.lua" },
+        "nvim-lua/plenary.nvim",
+        "rcarriga/nvim-notify",
+        "kkharji/sqlite.lua",
     },
     config = true,
     --cond = false,

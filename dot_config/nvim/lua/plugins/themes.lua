@@ -30,7 +30,6 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
         opts = {
             transparent_background = true,
             -- 'hard'|'medium'|'soft'
@@ -77,7 +76,6 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
         --cond = false,
     },
     {
@@ -109,7 +107,6 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
         --cond = false,
     },
     {
@@ -127,7 +124,6 @@ return {
         --event = "VeryLazy",
         priority = 1000,
         opts = {},
-
         --cond = false,
     },
     -- VimScript themes
@@ -146,7 +142,6 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
         config = function()
             vim.g.sonokai_style = "default"
         end,
@@ -157,7 +152,6 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
         --cond = false,
     },
     {
@@ -165,7 +159,6 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
         --cond = false,
     },
     {
@@ -173,7 +166,6 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
         config = function()
             vim.g.edge_style = "default"
             vim.g.edge_better_performance = 1
