@@ -5,7 +5,6 @@ return {
         lazy = false,
         --event = "VeryLazy",
         priority = 1000,
-        config = true,
         --cond = false,
     },
     {
