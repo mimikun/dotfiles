@@ -128,16 +128,6 @@ return {
     },
     -- VimScript themes
     {
-        -- NOTE: duplicate
-        "crusoexia/vim-monokai",
-        --lazy = false,
-        --event = "VeryLazy",
-        --priority = 1000,
-
-        config = function() end,
-        cond = false,
-    },
-    {
         "sainnhe/sonokai",
         --lazy = false,
         --event = "VeryLazy",
