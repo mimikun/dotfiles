@@ -1,7 +1,9 @@
 local global = require("core.global")
 local settings = require("core.settings")
 
+---@type boolean
 local is_human_rights = global.is_human_rights
+---@type table
 local need_parsers = settings["treesitter_parsers"]
 
 return {

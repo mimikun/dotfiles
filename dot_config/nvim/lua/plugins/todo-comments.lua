@@ -1,4 +1,6 @@
 local iconsets = require("utils.icons")
+
+---@type table
 local icons = {
     ui = iconsets.get("ui"),
     diagnostics = iconsets.get("diagnostics"),

@@ -1,3 +1,4 @@
+---@type table
 local keymaps = {
     { "tr", desc = "Run Translate" },
     { "trr", desc = "Run Translate" },

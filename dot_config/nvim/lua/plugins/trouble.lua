@@ -1,6 +1,7 @@
 local iconsets = require("utils.icons")
 local icon = iconsets.get("diagnostics")
 
+---@type table
 local cmds = {
     "Trouble",
     "TroubleClose",

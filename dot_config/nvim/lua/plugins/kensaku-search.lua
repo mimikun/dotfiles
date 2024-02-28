@@ -2,6 +2,7 @@ local global = require("core.global")
 ---@type boolean
 local is_human_rights = global.is_human_rights
 
+---@type table
 local keymaps = {
     { "<CR>", desc = "kensaku-search-replace" },
 }

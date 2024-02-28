@@ -1,5 +1,7 @@
+---@type boolean
 local is_git = false
 
+---@type table
 local keymaps = {
     { "<C-p>", desc = "Open file search" },
     { "<C-g>", desc = "Open string search" },
