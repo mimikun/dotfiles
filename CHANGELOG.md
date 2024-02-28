@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.02.27]
+
+### Added - 新機能について
+
+- Add docs/THANKS.md
+- Add type annotation
+
+### Changed - 既存機能の変更について
+
+- Update neovim plugin config: nvim-cmp
+- Update neovim plugin config: fern.lua
+- Update neovim plugin config: alpha-nvim
+- Update neovim init.lua
+- Update neovim utils
+- Update neovim options
+
+### Removed - 今回で削除された機能について
+
+- Remove neovim core/human-rights.lua
+    - use mimikun/human-rights.nvim
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.26]
 
 ### Added - 新機能について
