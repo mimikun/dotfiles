@@ -13,15 +13,12 @@
     "jq-lsp",
     "lua-language-server",
     "luau-lsp",
-    "markdownlint",
     "marksman",
     "neocmakelsp",
-    "prettier",
     "pyright",
     "pyright-langserver",
     "rust-analyzer",
     "solargraph",
-    "textlint",
     "typescript-language-server",
     "typos-lsp",
     "vim-language-server",
@@ -30,8 +27,120 @@
     "vscode-html-language-server",
     "vscode-json-language-server",
     "yaml-language-server",
-    "yamllint",
     "zls"
+  ],
+  "plugins": [
+    "0oAstro/silicon.lua",
+    "Allianaab2m/penumbra.nvim",
+    "EdenEast/nightfox.nvim",
+    "Fymyte/tree-sitter-rasi",
+    "IndianBoy42/tree-sitter-just",
+    "L3MON4D3/LuaSnip",
+    "LhKipp/nvim-nu",
+    "NStefan002/2048.nvim",
+    "NoahTheDuke/vim-just",
+    "Omochice/dps-translate-vim",
+    "TheLeoP/fern-renderer-web-devicons.nvim",
+    "Vonr/align.nvim",
+    "akinsho/toggleterm.nvim",
+    "alker0/chezmoi.vim",
+    "aspeddro/pandoc.nvim",
+    "barrett-ruth/live-server.nvim",
+    "catppuccin/nvim",
+    "cespare/vim-toml",
+    "creativenull/dotfyle-metadata.nvim",
+    "crispybaccoon/evergarden",
+    "delphinus/skkeleton_indicator.nvim",
+    "dinhhuy258/git.nvim",
+    "ellisonleao/glow.nvim",
+    "epwalsh/obsidian.nvim",
+    "fladson/vim-kitty",
+    "folke/lazy.nvim",
+    "folke/todo-comments.nvim",
+    "folke/tokyonight.nvim",
+    "folke/trouble.nvim",
+    "folke/which-key.nvim",
+    "gen740/SmoothCursor.nvim",
+    "godlygeek/tabular",
+    "goolord/alpha-nvim",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-emoji",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/nvim-cmp",
+    "imsnif/kdl.vim",
+    "j-hui/fidget.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    "jghauser/mkdir.nvim",
+    "karb94/neoscroll.nvim",
+    "kevinhwang91/nvim-hlslens",
+    "kihachi2000/yash.nvim",
+    "kkharji/sqlite.lua",
+    "kode-team/mastodon.nvim",
+    "kyoh86/momiji",
+    "lambdalisue/fern-git-status.vim",
+    "lambdalisue/fern.vim",
+    "lambdalisue/glyph-palette.vim",
+    "lambdalisue/kensaku-command.vim",
+    "lambdalisue/kensaku-search.vim",
+    "lambdalisue/kensaku.vim",
+    "lewis6991/gitsigns.nvim",
+    "loctvl842/monokai-pro.nvim",
+    "mattn/calendar-vim",
+    "mimikun/human-rights.nvim",
+    "mimikun/tree-sitter-PowerShell",
+    "monaqa/dial.nvim",
+    "nastevens/vim-cargo-make",
+    "nastevens/vim-duckscript",
+    "neovim/nvim-lspconfig",
+    "numToStr/Comment.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-lualine/lualine.nvim",
+    "nvim-orgmode/orgmode",
+    "nvim-telescope/telescope.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "nvim-treesitter/nvim-treesitter",
+    "nvimdev/lspsaga.nvim",
+    "nvimdev/template.nvim",
+    "nvimtools/none-ls.nvim",
+    "pauchiner/pastelnight.nvim",
+    "poljar/typos.nvim",
+    "potamides/pantran.nvim",
+    "preservim/vim-markdown",
+    "projekt0n/github-nvim-theme",
+    "rafamadriz/friendly-snippets",
+    "rainbowhxch/accelerated-jk.nvim",
+    "rbtnn/vim-ambiwidth",
+    "rcarriga/nvim-notify",
+    "ron-rs/ron.vim",
+    "saadparwaiz1/cmp_luasnip",
+    "saecki/crates.nvim",
+    "sainnhe/edge",
+    "sainnhe/sonokai",
+    "scottmckendry/cyberdream.nvim",
+    "shaunsingh/nord.nvim",
+    "skanehira/denops-docker.vim",
+    "stevearc/dressing.nvim",
+    "tanvirtin/monokai.nvim",
+    "theKnightsOfRohan/csvlens.nvim",
+    "thinca/vim-quickrun",
+    "tiagovla/tokyodark.nvim",
+    "tris203/hawtkeys.nvim",
+    "uga-rosa/ccc.nvim",
+    "vim-denops/denops-shared-server.vim",
+    "vim-denops/denops.vim",
+    "vim-jp/vimdoc-ja",
+    "vim-skk/skkeleton",
+    "voidekh/kyotonight.vim",
+    "willelz/skk-tutorial.vim",
+    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    "windwp/nvim-autopairs",
+    "windwp/nvim-ts-autotag",
+    "yuki-yano/denops-lazy.nvim",
+    "zaldih/themery.nvim",
+    "zapling/mason-lock.nvim"
   ],
   "keymaps": [
     {
@@ -69,8 +178,8 @@
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "!iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "!aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "!iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "!Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -83,15 +192,15 @@
       "desc": "",
       "noremap": true,
       "lhs": "\"",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"v\", auto = true})<CR>"
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"n\", auto = true})<CR>"
     },
     {
       "desc": "",
       "noremap": true,
       "lhs": "\"",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"n\", auto = true})<CR>"
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"v\", auto = true})<CR>"
     },
     {
       "desc": ":help v_#-default",
@@ -134,6 +243,67 @@
       "lhs": "*",
       "mode": "x",
       "rhs": "<function>"
+    },
+    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space><Space>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silentÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silenÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<sileÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"n\", auto = true})<CR>"
     },
     {
       "desc": "",
@@ -194,67 +364,6 @@
       "mode": "x",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"v\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<silent><Space><Space>Þ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<silent><Space>Þ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<silent>Þ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<silentÞ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<silenÞ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<sileÞ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<silÞ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"n\", auto = true})<CR>"
-    },
     {
       "desc": "",
       "noremap": true,
@@ -283,8 +392,8 @@
       "mode": "n",
       "rhs": ":.w !win32yank.exe -i<CR><CR>"
     },
-    { "desc": "", "noremap": true, "lhs": ">iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": ">aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": ">iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": ">Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -314,14 +423,6 @@
       "mode": "n",
       "rhs": "y$"
     },
-    { "desc": "", "noremap": true, "lhs": "[Þ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "[",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"[\", {mode = \"v\", auto = true})<CR>"
-    },
     { "desc": "", "noremap": true, "lhs": "[Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -329,6 +430,14 @@
       "lhs": "[",
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"[\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "[Þ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "[",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"[\", {mode = \"v\", auto = true})<CR>"
     },
     {
       "desc": "",
@@ -351,14 +460,6 @@
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "\\Þ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "\\",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\\\", {mode = \"v\", auto = true})<CR>"
-    },
     { "desc": "", "noremap": true, "lhs": "\\oÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "\\Þ", "mode": "n", "rhs": "<Nop>" },
     {
@@ -368,12 +469,13 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\\\", {mode = \"n\", auto = true})<CR>"
     },
+    { "desc": "", "noremap": true, "lhs": "\\Þ", "mode": "x", "rhs": "<Nop>" },
     {
-      "desc": "org capture",
+      "desc": "",
       "noremap": true,
-      "lhs": "\\oc",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"orgmode\").action(\"capture.prompt\")<CR>"
+      "lhs": "\\",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\\\", {mode = \"v\", auto = true})<CR>"
     },
     {
       "desc": "org agenda",
@@ -383,6 +485,13 @@
       "rhs": "<Cmd>lua require(\"orgmode\").action(\"agenda.prompt\")<CR>"
     },
     {
+      "desc": "org capture",
+      "noremap": true,
+      "lhs": "\\oc",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"orgmode\").action(\"capture.prompt\")<CR>"
+    },
+    {
       "desc": "",
       "noremap": true,
       "lhs": "\\L",
@@ -395,14 +504,6 @@
       "lhs": "\\L",
       "mode": "n",
       "rhs": "<function>"
-    },
-    { "desc": "", "noremap": true, "lhs": "]Þ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "]",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"]\", {mode = \"v\", auto = true})<CR>"
     },
     { "desc": "", "noremap": true, "lhs": "]Þ", "mode": "n", "rhs": "<Nop>" },
     {
@@ -411,6 +512,14 @@
       "lhs": "]",
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"]\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "]Þ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "]",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"]\", {mode = \"v\", auto = true})<CR>"
     },
     {
       "desc": "",
@@ -447,8 +556,8 @@
       "mode": "x",
       "rhs": "<Plug>(MatchitVisualTextObject)"
     },
-    { "desc": "", "noremap": true, "lhs": "ciÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "caÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "ciÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "cÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -457,8 +566,8 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"c\", {mode = \"n\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "diÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "daÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "diÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "dÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -509,23 +618,15 @@
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "g",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"v\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -533,6 +634,14 @@
       "lhs": "g",
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "g",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"v\", auto = true})<CR>"
     },
     {
       "desc": "",
@@ -618,8 +727,8 @@
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "viÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "vaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "viÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "vÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -628,8 +737,8 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"v\", {mode = \"n\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "yiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "yaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "yiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "yÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -638,16 +747,8 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"y\", {mode = \"n\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "z",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"v\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "zfiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "zfaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "zfiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "zfÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "n", "rhs": "<Nop>" },
     {
@@ -657,19 +758,27 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"n\", auto = true})<CR>"
     },
+    { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "x", "rhs": "<Nop>" },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "zb",
+      "lhs": "z",
       "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').zb(250)<CR>"
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"v\", auto = true})<CR>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "zb",
+      "lhs": "zt",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zt",
       "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').zb(250)<CR>"
+      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
     },
     {
       "desc": "",
@@ -688,16 +797,16 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "zt",
+      "lhs": "zb",
       "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
+      "rhs": "<Cmd>lua require('neoscroll').zb(250)<CR>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "zt",
+      "lhs": "zb",
       "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
+      "rhs": "<Cmd>lua require('neoscroll').zb(250)<CR>"
     },
     {
       "desc": "",
@@ -730,34 +839,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-U>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-U>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-B>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-B>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<C-F>",
       "mode": "x",
       "rhs": "<Cmd>lua require('neoscroll').scroll(vim.fn.winheight(0), true, 450)<CR>"
@@ -800,6 +881,20 @@
     {
       "desc": "",
       "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "n",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
       "lhs": "<C-D>",
       "mode": "x",
       "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
@@ -810,6 +905,20 @@
       "lhs": "<C-D>",
       "mode": "n",
       "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-B>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-B>",
+      "mode": "n",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
     },
     {
       "desc": "",
@@ -826,16 +935,16 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Toggle Fern",
+      "desc": "Toggle Kana-mode skkeleton",
       "noremap": true,
-      "lhs": "<C-N>",
+      "lhs": "<C-J>",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Toggle Kana-mode skkeleton",
+      "desc": "Toggle Fern",
       "noremap": true,
-      "lhs": "<C-J>",
+      "lhs": "<C-N>",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -868,121 +977,6 @@
       "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
     }
   ],
-  "plugins": [
-    "0oAstro/silicon.lua",
-    "Allianaab2m/penumbra.nvim",
-    "EdenEast/nightfox.nvim",
-    "Fymyte/tree-sitter-rasi",
-    "IndianBoy42/tree-sitter-just",
-    "L3MON4D3/LuaSnip",
-    "LhKipp/nvim-nu",
-    "NStefan002/2048.nvim",
-    "NoahTheDuke/vim-just",
-    "Omochice/dps-translate-vim",
-    "TheLeoP/fern-renderer-web-devicons.nvim",
-    "Vonr/align.nvim",
-    "akinsho/toggleterm.nvim",
-    "alker0/chezmoi.vim",
-    "aspeddro/pandoc.nvim",
-    "barrett-ruth/live-server.nvim",
-    "catppuccin/nvim",
-    "cespare/vim-toml",
-    "creativenull/dotfyle-metadata.nvim",
-    "crispybaccoon/evergarden",
-    "delphinus/skkeleton_indicator.nvim",
-    "dinhhuy258/git.nvim",
-    "dstein64/vim-startuptime",
-    "ellisonleao/glow.nvim",
-    "epwalsh/obsidian.nvim",
-    "fladson/vim-kitty",
-    "folke/lazy.nvim",
-    "folke/todo-comments.nvim",
-    "folke/tokyonight.nvim",
-    "folke/trouble.nvim",
-    "folke/which-key.nvim",
-    "gen740/SmoothCursor.nvim",
-    "godlygeek/tabular",
-    "goolord/alpha-nvim",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-emoji",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
-    "hrsh7th/nvim-cmp",
-    "imsnif/kdl.vim",
-    "j-hui/fidget.nvim",
-    "jay-babu/mason-null-ls.nvim",
-    "jghauser/mkdir.nvim",
-    "karb94/neoscroll.nvim",
-    "kevinhwang91/nvim-hlslens",
-    "kihachi2000/yash.nvim",
-    "kkharji/sqlite.lua",
-    "kode-team/mastodon.nvim",
-    "kyoh86/momiji",
-    "lambdalisue/fern-git-status.vim",
-    "lambdalisue/fern.vim",
-    "lambdalisue/glyph-palette.vim",
-    "lambdalisue/kensaku-command.vim",
-    "lambdalisue/kensaku-search.vim",
-    "lambdalisue/kensaku.vim",
-    "lewis6991/gitsigns.nvim",
-    "loctvl842/monokai-pro.nvim",
-    "mattn/calendar-vim",
-    "mimikun/human-rights.nvim",
-    "mimikun/tree-sitter-PowerShell",
-    "monaqa/dial.nvim",
-    "nastevens/vim-cargo-make",
-    "nastevens/vim-duckscript",
-    "neovim/nvim-lspconfig",
-    "nvim-lua/plenary.nvim",
-    "nvim-lualine/lualine.nvim",
-    "nvim-orgmode/orgmode",
-    "nvim-telescope/telescope.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "nvim-treesitter/nvim-treesitter",
-    "nvimdev/lspsaga.nvim",
-    "nvimdev/template.nvim",
-    "nvimtools/none-ls.nvim",
-    "pauchiner/pastelnight.nvim",
-    "poljar/typos.nvim",
-    "potamides/pantran.nvim",
-    "preservim/vim-markdown",
-    "projekt0n/github-nvim-theme",
-    "rafamadriz/friendly-snippets",
-    "rainbowhxch/accelerated-jk.nvim",
-    "rbtnn/vim-ambiwidth",
-    "rcarriga/nvim-notify",
-    "ron-rs/ron.vim",
-    "saadparwaiz1/cmp_luasnip",
-    "saecki/crates.nvim",
-    "sainnhe/edge",
-    "sainnhe/sonokai",
-    "scottmckendry/cyberdream.nvim",
-    "shaunsingh/nord.nvim",
-    "skanehira/denops-docker.vim",
-    "stevearc/dressing.nvim",
-    "tanvirtin/monokai.nvim",
-    "theKnightsOfRohan/csvlens.nvim",
-    "thinca/vim-quickrun",
-    "thinca/vim-scouter",
-    "tiagovla/tokyodark.nvim",
-    "tris203/hawtkeys.nvim",
-    "uga-rosa/ccc.nvim",
-    "vim-denops/denops-shared-server.vim",
-    "vim-denops/denops.vim",
-    "vim-jp/vimdoc-ja",
-    "vim-skk/skkeleton",
-    "voidekh/kyotonight.vim",
-    "willelz/skk-tutorial.vim",
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason.nvim",
-    "windwp/nvim-autopairs",
-    "windwp/nvim-ts-autotag",
-    "yuki-yano/denops-lazy.nvim",
-    "zaldih/themery.nvim",
-    "zapling/mason-lock.nvim"
-  ],
-  "pluginManager": "lazy.nvim",
   "treesitterParsers": [
     "bash",
     "c",
@@ -1043,6 +1037,8 @@
     "yaml",
     "zig"
   ],
+  "pluginManager": "lazy.nvim",
+  "leaderKey": "\\",
   "lspServers": [
     "bashls",
     "clangd",
@@ -1071,6 +1067,5 @@
     "vimls",
     "yamlls",
     "zls"
-  ],
-  "leaderKey": "\\"
+  ]
 }
