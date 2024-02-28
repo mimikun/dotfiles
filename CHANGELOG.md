@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2024.02.28]
+
+### Added - 新機能について
+
+- Add type annotation
+
+### Changed - 既存機能の変更について
+
+- Update mason-lock.json
+- Update lazy-lock.json
+- Update dotfyle.json
+- Update neofetch config
+- Bump aqua tools version
+- Code cleanup
+- Update neovim plugin configs
+- Use lazy.nvim "config = true" feature
+- Use lazy.nvim opts feature
+- Enable neovim plugin: comment.nvim
+- Update docs/THANKS.md
+
+### Removed - 今回で削除された機能について
+
+- Remove neovim plugin: clock.nvim
+- Remove neovim colorscheme: crusoexia/vim-monokai
+
+### Fixed - 不具合修正について
+
+- Fix error
+- Fix where syntax was not highlighted
+
 ## [v2024.02.27]
 
 ### Added - 新機能について
