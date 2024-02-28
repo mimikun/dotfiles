@@ -9,8 +9,6 @@ return {
     --lazy = false,
     --event = "VeryLazy",
     cmd = cmds,
-    config = function()
-        require("live-server").setup({})
-    end,
+    config = true,
     --cond = false,
 }

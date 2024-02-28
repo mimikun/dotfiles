@@ -15,8 +15,6 @@ return {
     --lazy = false,
     --event = "VeryLazy",
     cmd = cmds,
-    config = function()
-        require("git").setup({})
-    end,
+    config = true,
     --cond = false,
 }

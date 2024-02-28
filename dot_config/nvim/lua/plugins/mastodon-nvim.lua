@@ -20,8 +20,6 @@ return {
         { "rcarriga/nvim-notify" },
         { "kkharji/sqlite.lua" },
     },
-    config = function()
-        require("mastodon").setup({})
-    end,
+    config = true,
     --cond = false,
 }

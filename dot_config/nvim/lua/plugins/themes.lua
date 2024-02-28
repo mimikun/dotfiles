@@ -5,10 +5,7 @@ return {
         lazy = false,
         --event = "VeryLazy",
         priority = 1000,
-
-        config = function()
-            require("github-theme").setup({})
-        end,
+        config = true,
         --cond = false,
     },
     {
@@ -56,10 +53,7 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
-        config = function()
-            require("monokai").setup({})
-        end,
+        config = true,
         --cond = false,
     },
     {
@@ -67,10 +61,7 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
-        config = function()
-            require("penumbra").setup({})
-        end,
+        config = true,
         --cond = false,
     },
     {
@@ -94,10 +85,7 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
-        config = function()
-            require("nightfox").setup({})
-        end,
+        config = true,
         --cond = false,
     },
     {
@@ -105,10 +93,7 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
-        config = function()
-            require("tokyodark").setup({})
-        end,
+        config = true,
         --cond = false,
     },
     {
@@ -116,10 +101,7 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
-        config = function()
-            require("monokai-pro").setup({})
-        end,
+        config = true,
         --cond = false,
     },
     {
@@ -136,10 +118,7 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         priority = 1000,
-
-        config = function()
-            require("catppuccin").setup({})
-        end,
+        config = true,
         --cond = false,
     },
     {
