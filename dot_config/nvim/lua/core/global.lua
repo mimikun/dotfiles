@@ -1,5 +1,3 @@
--- thx: https://github.com/ayamir/nvimdots/blob/main/lua/core/global.lua
-
 local global = {}
 local uv = vim.uv and vim.uv or vim.loop
 

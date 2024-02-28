@@ -1,7 +1,5 @@
 -- ファイル上の1行が画面上では複数行にわたっているとき
 -- NORMALモード時の j/kで見た目通りに移動できるようにする
--- ref:
--- https://zenn.dev/slin/articles/2020-11-03-neovim-lua2#%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 

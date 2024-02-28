@@ -298,7 +298,6 @@ set -x PATH $COMPOSER_BIN_DIR $PATH
 set -x PATH "$HOME/.juliaup/bin" $PATH
 
 # cache
-# thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR
     echo "" > $CACHE_CONFIG_FISH

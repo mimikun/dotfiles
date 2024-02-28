@@ -1,4 +1,3 @@
--- thx: https://raw.githubusercontent.com/numToStr/dotfiles/master/neovim/.config/nvim/lua/numToStr/plugins/lualine.lua
 local iconsets = require("utils.icons")
 local diagnostics = iconsets.get("diagnostics", true)
 local git = iconsets.get("git")

@@ -1,7 +1,3 @@
--- ref:
--- https://trap.jp/post/524/
--- https://neovim.io/doc/user/options.html#option-summary
-
 -- https://neovim.io/doc/user/options.html#'allowrevins'
 ---@type boolean
 vim.opt.allowrevins = false
