@@ -5,10 +5,8 @@ return {
     lazy = false,
     cmd = "Template",
     --ft="",
-    config = function()
-        require("template").setup({
-            temp_dir = template_dir,
-        })
-    end,
+    opts = {
+        temp_dir = template_dir,
+    },
     --cond = false,
 }

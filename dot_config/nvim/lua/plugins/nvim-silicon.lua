@@ -4,11 +4,9 @@ return {
     --event = "VimEnter",
     --cmd = "",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-        require("silicon").setup({
-            theme = "GitHub",
-            --font = "monospace",
-        })
-    end,
+    opts = {
+        theme = "GitHub",
+        --font = "monospace",
+    },
     --cond = false,
 }

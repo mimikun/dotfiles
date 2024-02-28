@@ -16,20 +16,16 @@ return {
         --lazy = false,
         --event = "VeryLazy",
         --priority = 1000,
-
-        config = function()
-            local cyberdream = require("cyberdream")
-            cyberdream.setup({
-                -- Enable transparent background
-                transparent = true,
-                -- Enable italics comments
-                italic_comments = true,
-                -- Replace all fillchars with ' ' for the ultimate clean look
-                hide_fillchars = true,
-                -- Modern borderless telescope theme
-                borderless_telescope = true,
-            })
-        end,
+        opts = {
+            -- Enable transparent background
+            transparent = true,
+            -- Enable italics comments
+            italic_comments = true,
+            -- Replace all fillchars with ' ' for the ultimate clean look
+            hide_fillchars = true,
+            -- Modern borderless telescope theme
+            borderless_telescope = true,
+        },
         --cond = false,
     },
     {
