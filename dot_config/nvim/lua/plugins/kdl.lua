@@ -2,8 +2,6 @@ return {
     "imsnif/kdl.vim",
     --lazy = false,
     --event = "VeryLazy",
-    ft = {
-        "kdl",
-    },
+    ft = "kdl",
     --cond = false,
 }

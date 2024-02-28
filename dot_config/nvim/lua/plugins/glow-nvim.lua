@@ -2,9 +2,7 @@ return {
     "ellisonleao/glow.nvim",
     --lazy = false,
     --event = "VeryLazy",
-    cmd = {
-        "Glow",
-    },
+    cmd = "Glow",
     config = true,
     --cond = false,
 }

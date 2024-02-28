@@ -2,8 +2,6 @@ return {
     "thinca/vim-quickrun",
     --lazy = false,
     --event = "VeryLazy",
-    cmd = {
-        "QuickRun",
-    },
+    cmd = "QuickRun",
     --cond = false,
 }

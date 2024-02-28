@@ -2,8 +2,6 @@ return {
     "fladson/vim-kitty",
     --lazy = false,
     --event = "VeryLazy",
-    ft = {
-        "kitty",
-    },
+    ft = "kitty",
     --cond = false,
 }
