@@ -72,7 +72,7 @@ settings["lsp_servers"] = {
     "zls",
 }
 
--- Required coc extensions
+-- Required nvim-treesitter parsers
 ---@type table
 settings["treesitter_parsers"] = {
     "bash",
@@ -114,7 +114,6 @@ settings["treesitter_parsers"] = {
     "nix",
     "ocaml",
     "ocaml_interface",
-    "org",
     "python",
     "regex",
     "rst",
