@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.02.29]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Rename none-ls to null-ls
+- Update neovim plugin config: tree-sitter.lua
+- Update mason-lock.json
+- Update lazy-lock.json
+- Update dotfyle.json
+- Update core/settings.lua
+
+### Removed - 今回で削除された機能について
+
+- Disable none-ls(null-ls) plugins
+- Remove unused files
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.28]
 
 ### Added - 新機能について
