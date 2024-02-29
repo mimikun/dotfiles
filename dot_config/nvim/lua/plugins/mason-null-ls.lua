@@ -9,5 +9,6 @@ return {
     opts = {
         handlers = {},
     },
-    --cond = false,
+    -- TODO: settings
+    cond = false,
 }

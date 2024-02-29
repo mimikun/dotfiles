@@ -27,5 +27,6 @@ return {
         }
         none_ls.setup({ sources = sources })
     end,
-    --cond = false,
+    -- TODO: settings
+    cond = false,
 }
