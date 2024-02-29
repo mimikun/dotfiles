@@ -8,6 +8,7 @@ local treesitter_parsers = settings["treesitter_parsers"]
 
 return {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
     --lazy = false,
     event = "VeryLazy",
