@@ -4,7 +4,7 @@ local settings = require("core.settings")
 ---@type boolean
 local is_human_rights = global.is_human_rights
 ---@type table
-local need_parsers = settings["treesitter_parsers"]
+local treesitter_parsers = settings["treesitter_parsers"]
 
 return {
     "nvim-treesitter/nvim-treesitter",
@@ -17,7 +17,9 @@ return {
         "LhKipp/nvim-nu",
         "Fymyte/tree-sitter-rasi",
         "mimikun/tree-sitter-PowerShell",
-        "nvim-orgmode/orgmode",
+        { "nvim-orgmode/orgmode", build = ":TSInstall! org" },
+        -- NOTE: has bug
+        --{ "apple/pkl-neovim", build = ":TSInstall! pkl" },
     },
     config = function()
         local configs = require("nvim-treesitter.configs")
@@ -27,7 +29,13 @@ return {
         local nvim_ts_autotag = require("nvim-ts-autotag")
         local orgmode = require("orgmode")
 
+        nvim_nu.setup({})
+        nvim_ts_autotag.setup({})
         orgmode.setup_ts_grammar()
+
+        local need_parsers = treesitter_parsers
+        table.insert(need_parsers, "org")
+        --table.insert(need_parsers, "pkl")
 
         configs.setup({
             highlight = {
@@ -66,9 +74,6 @@ return {
             filetype = { "just", "Justfile" },
             maintainers = { "@IndianBoy42" },
         }
-
-        nvim_nu.setup({})
-        nvim_ts_autotag.setup({})
     end,
     --cond = false,
 }
