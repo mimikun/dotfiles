@@ -11,8 +11,42 @@ local vim_path = global.vim_path
 ---@type string
 local path_sep = global.path_sep
 
+--local lsp_servers = settings["lsp_servers"]
 ---@type table
-local lsp_servers = settings["lsp_servers"]
+local lsp_servers = {
+    -- OK Lsp
+    "lua_ls",
+    "marksman",
+    "efm",
+    "jsonls",
+    -- NG Lsp
+    "typos_lsp",
+    -- Not tested Lsp
+    "bashls",
+    "clangd",
+    "csharp_ls",
+    "neocmake",
+    "cssls",
+    "denols",
+    "dockerls",
+    "docker_compose_language_service",
+    "eslint",
+    "gopls",
+    "graphql",
+    "html",
+    "tsserver",
+    "jqls",
+    "luau_lsp",
+    "powershell_es",
+    "pyright",
+    "solargraph",
+    "rust_analyzer",
+    "esbonio",
+    "taplo",
+    "vimls",
+    "yamlls",
+    "zls",
+}
 if is_windows then
     -- Windows
     -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio

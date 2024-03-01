@@ -28,5 +28,5 @@ return {
         null_ls.setup({ sources = sources })
     end,
     -- TODO: settings
-    cond = false,
+    --cond = false,
 }

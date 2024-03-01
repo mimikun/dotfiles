@@ -10,5 +10,5 @@ return {
         handlers = {},
     },
     -- TODO: settings
-    cond = false,
+    --cond = false,
 }
