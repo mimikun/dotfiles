@@ -1,0 +1,32 @@
+{
+  "active_pane_magnification": 1.0,
+  "autosave": "on_focus_change",
+  "auto_update": false,
+  "buffer_font_family": "Zed Mono",
+  "buffer_font_features": null,
+  "buffer_font_size": 24,
+  "confirm_quit": false,
+
+
+
+  "theme": "cave-light",
+  "tab_size": 2,
+  "preferred_line_length": 80,
+  "soft_wrap": "none",
+
+
+  "format_on_save": "off",
+  "vim_mode": false,
+  "projects_online_by_default": true,
+  "terminal": {
+    "font_family": "FiraCode Nerd Font Mono",
+    "blinking": "off"
+  },
+  "language_overrides": {
+    "C": {
+      "format_on_save": "language_server",
+      "preferred_line_length": 64,
+      "soft_wrap": "preferred_line_length"
+    }
+  }
+}
