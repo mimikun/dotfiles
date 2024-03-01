@@ -1,0 +1,13 @@
+#!/bin/bash
+
+read -n1 -p "Do you want to delete neovim data? (y/N): " yn_first
+if [[ $yn_first = [yY] ]]; then
+    echo
+    read -n1 -p "Is it really good? It takes a ridiculously long time. (y/N): " yn_last
+    if [[ $yn_last = [yY] ]]; then
+        rm -rf ~/.config/nvim
+        rm -rf ~/.cache/nvim
+        rm -rf ~/.local/share/nvim
+        rm -rf ~/.local/state/nvim
+    fi
+fi
