@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.03.01]
+
+### Added - 新機能について
+
+- Add zed editor configs
+- Add comment
+- Add remove_neovim_data command
+
+### Changed - 既存機能の変更について
+
+- Update deno fish completion
+- Enable mason and null-ls
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.02.29]
 
 ### Added - 新機能について
