@@ -3,6 +3,7 @@
   "clangd": "17.0.3",
   "csharp-language-server": "0.11.0",
   "css-lsp": "4.8.0",
+  "deno": "v1.41.1",
   "docker-compose-language-service": "0.2.0",
   "dockerfile-language-server": "0.11.0",
   "efm": "v0.0.50",
@@ -21,8 +22,9 @@
   "pyright": "1.1.352",
   "rust-analyzer": "2024-02-26",
   "solargraph": "0.50.0",
+  "taplo": "0.8.1",
   "typescript-language-server": "4.3.3",
-  "typos-lsp": "v0.1.13",
+  "typos-lsp": "v0.1.15",
   "vim-language-server": "2.3.1",
   "yaml-language-server": "1.14.0",
   "zls": "0.11.0"
