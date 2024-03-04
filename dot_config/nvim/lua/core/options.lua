@@ -130,25 +130,19 @@ vim.g.loaded_ruby_provider = 0
 ---@type number
 vim.g.loaded_node_provider = 0
 
--- NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
-if is_human_rights then
-    vim.opt.clipboard = "unnamedplus"
-    if is_wsl then
-        vim.g.clipboard = {
-            name = "win32yank-wsl",
-            copy = {
-                ["+"] = "win32yank -i --crlf",
-                ["*"] = "win32yank -i --crlf",
-            },
-            paste = {
-                ["+"] = "win32yank -o --lf",
-                ["*"] = "win32yank -o --lf",
-            },
-            cache_enabled = 0,
-        }
-    end
-else
-    -- Disable clipboard when no human rights
-    ---@type number
-    vim.g.loaded_clipboard_provider = 0
+-- clipboard integration
+vim.opt.clipboard = "unnamedplus"
+if is_wsl then
+    vim.g.clipboard = {
+        name = "wl-clipboard",
+        copy = {
+            ["+"] = { "wl-copy", "--type", "text/plain" },
+            ["*"] = { "wl-copy", "--primary", "--type", "text/plain" },
+        },
+        paste = {
+            ["+"] = { "wl-paste", "--no-newline" },
+            ["*"] = { "wl-paste", "--no-newline", "--primary" },
+        },
+        cache_enabled = true,
+    }
 end
