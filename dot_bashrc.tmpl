@@ -136,7 +136,7 @@ export WIN_DESKTOP="$WIN_HOME/Desktop"
 export WIN_DOCUMENTS="$WIN_HOME/Documents"
 
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
-export DISPLAY="$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0"
+export DISPLAY=":0"
 {{ else -}}
 export obsidian_vault_root_path="$OBSIDIAN_VAULT_ROOT"
 {{ end -}}

@@ -61,7 +61,7 @@ set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
 
 set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 
-set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+set -x DISPLAY ":0"
 {{ else -}}
 set -x obsidian_vault_root_path "$OBSIDIAN_VAULT_ROOT"
 {{ end -}}
