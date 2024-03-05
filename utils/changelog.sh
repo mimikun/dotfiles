@@ -5,6 +5,8 @@ REMOTE_NAME="origin"
 BRANCH_NAME="master"
 RESULT_FILE="CHANGELOG.md"
 GIT_LOG=$(git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B")
+LATEST_GIT_TAG=$(git tag | head -n 1)
+GIT_TAG_LOG=$(git log "$GIT_TAG..HEAD" --pretty=format:"%B")
 
 {
     echo "## run"
