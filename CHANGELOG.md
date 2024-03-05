@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.03.05]
+
+### Added - 新機能について
+
+- Add nvim-scrollbar alternative plugins
+- Use satellite.nvim
+    - remove some plugins
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update neovim lockfiles
+- Run stylua format
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix cannot use wslg in work-pc
+
 ## [v2024.03.04]
 
 ### Added - 新機能について
