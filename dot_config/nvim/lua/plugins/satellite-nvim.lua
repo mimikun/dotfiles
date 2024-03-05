@@ -1,8 +1,8 @@
--- nvim-scrollbar alternative plugins
 return {
     "lewis6991/satellite.nvim",
     lazy = false,
     --event = "VeryLazy",
+    -- TODO: settings
     opts = {
         current_only = false,
         winblend = 50,
@@ -60,5 +60,5 @@ return {
             },
         },
     },
-    cond = false,
+    --cond = false,
 }
