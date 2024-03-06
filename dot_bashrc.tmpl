@@ -210,8 +210,8 @@ export MISE_YES=1
 export MISE_NOT_FOUND_AUTO_INSTALL=false
 export MISE_EXPERIMENTAL=1
 export MISE_FISH_AUTO_ACTIVATE=1
-mise activate bash
-export "$XDG_DATA_HOME/mise/shims:$PATH"
+eval "$(mise activate bash)"
+export PATH="$XDG_DATA_HOME/mise/shims:$PATH"
 # alias
 alias paleovim="$XDG_DATA_HOME/mise/installs/vim/latest/bin/vim"
 alias neovim="$XDG_DATA_HOME/mise/installs/neovim/nightly/bin/nvim"
