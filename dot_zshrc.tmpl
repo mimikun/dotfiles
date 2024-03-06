@@ -45,8 +45,8 @@ export NVIM_DEV_PLUGINS="$WORKSPACE_MIMIKUN/nvim-plugins"
 
 {{ if (ne .chezmoi.hostname "azusa") -}}
 export windl="$WIN_HOME/Downloads"
-export WIN_DESKTOP= "$WIN_HOME/Desktop"
-export WIN_DOCUMENTS= "$WIN_HOME/Documents"
+export WIN_DESKTOP="$WIN_HOME/Desktop"
+export WIN_DOCUMENTS="$WIN_HOME/Documents"
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 
 export DISPLAY=":0"
@@ -115,7 +115,7 @@ fi
 # zoxide
 if command -v zoxide>/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
-end
+fi
 
 # fly.io
 export FLYCTL_INSTALL="$HOME/.fly"
@@ -129,6 +129,7 @@ if test -f "$XDG_CONFIG_HOME/tabtab/zsh/__tabtab.zsh"; then
 fi
 
 # broot
+# TODO: Use zsh integration
 if command -v broot>/dev/null 2>&1; then
     source "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 fi
@@ -168,8 +169,8 @@ export MISE_YES=1
 export MISE_NOT_FOUND_AUTO_INSTALL=false
 export MISE_EXPERIMENTAL=1
 export MISE_FISH_AUTO_ACTIVATE=1
-mise activate bash
-export "$XDG_DATA_HOME/mise/shims:$PATH"
+eval "$(mise activate zsh)"
+export PATH="$XDG_DATA_HOME/mise/shims:$PATH"
 # alias
 alias paleovim="$XDG_DATA_HOME/mise/installs/vim/latest/bin/vim"
 alias neovim="$XDG_DATA_HOME/mise/installs/neovim/nightly/bin/nvim"
@@ -250,7 +251,7 @@ export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
 export ZENO_GIT_CAT="bat --color=always"
 
 # default
-export ZENO_GIT_TREE="exa --tree"
+export ZENO_GIT_TREE="eza --tree"
 
 if [[ -n $ZENO_LOADED ]]; then
   bindkey ' '  zeno-auto-snippet
