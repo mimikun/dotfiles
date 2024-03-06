@@ -719,10 +719,9 @@ Write-Output "Windows is not support!"
 
 ```bash
 TODAY=$(date "+%Y.%m.%d")
-REMOTE_NAME="origin"
-BRANCH_NAME="master"
 RESULT_FILE="CHANGELOG.md"
-GIT_LOG=$(git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B")
+LATEST_GIT_TAG=$(git tag | head -n 1)
+GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
 
 {
     echo "## run"
@@ -754,7 +753,6 @@ GIT_LOG=$(git log "$REMOTE_NAME/$BRANCH_NAME"..HEAD --pretty=format:"%B")
     echo "なし"
     echo ""
 } >>$RESULT_FILE
-
 ```
 
 ```powershell
