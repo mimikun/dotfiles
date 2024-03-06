@@ -5,20 +5,20 @@ on:
     branches:
       - master
     paths:
-      - '**.ps1'
-      - '**.psd1'
+      - "**.ps1"
+      - "**.psd1"
 
 jobs:
   lint:
     name: Run PSSA
     runs-on: ubuntu-latest
     steps:
-        - name: Checkout Actions Repository
-          uses: actions/checkout@v4
+      - name: Checkout Actions Repository
+        uses: actions/checkout@v4
 
-        - name: Run PSSA
-          uses: devblackops/github-action-psscriptanalyzer@master
-          with:
-            failOnErrors: true
-            failOnWarnings: true
-            failOnInfos: true
+      - name: Run PSSA
+        uses: devblackops/github-action-psscriptanalyzer@master
+        with:
+          failOnErrors: true
+          failOnWarnings: true
+          failOnInfos: true
