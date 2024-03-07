@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.03.07]
+
+### Added - 新機能について
+
+- Manage nyagos with aqua
+- Add utils/neovim_readme_generator.ts
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update neovim lockfiles
+- Bump aqua tools version
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix nyagos error
+    - Fix #321
+- Fix nushell error
+    - Fix #320
+
 ## [v2024.03.06]
 
 ### Added - 新機能について
