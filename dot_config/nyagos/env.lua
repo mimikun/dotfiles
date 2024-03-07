@@ -48,47 +48,50 @@ if is_azusa then
     nyagos.envadd("QT_IM_MODULE", nyagos.getenv("QT_IM_MODULE") or "fcitx")
     nyagos.envadd("XMODIFIERS", nyagos.getenv("XMODIFIERS") or "@im=fcitx")
     -- CapsLock to Ctrl
-    -- TODO: Run it
-
-    --setxkbmap -option ctrl:nocaps
+    nyagos.eval("setxkbmap -option ctrl:nocaps")
 end
 
 local github_username
 local win_home
 local obsidian_vault_root
 
---{{ if eq .chezmoi.hostname "TanakaPC" -}}
--- Work envs
-github_username = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}'
-win_home = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}'
-obsidian_vault_root =
-    '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}'
---{{ else -}}
--- Home envs
---{{ if eq .chezmoi.os "linux" -}}
--- Home Linux envs
-github_username = '{{ (rbwFields "dotfiles-chezmoi").github_username.value }}'
---{{ if eq .chezmoi.hostname "azusa" -}}
--- Home azusa envs
-obsidian_vault_root = table.concat({ home, "Documents", "Obsidian", "mimikun" }, path_sep)
---{{ else -}}
--- Home wsl envs
-win_home = '{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}'
-obsidian_vault_root = '{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}'
---{{ end -}}
---{{ else -}}
--- Home windows envs
-github_username = '{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}'
-win_home = home
-obsidian_vault_root =
-    '{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}'
---{{ end -}}
---{{ end -}}
+if is_not_human_rights then
+    -- Work envs
+    github_username = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}'
+    win_home = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}'
+    obsidian_vault_root =
+        '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}'
+else
+    -- Home envs
+    if is_linux then
+        -- home-wsl envs
+        github_username = '{{ (rbwFields "dotfiles-chezmoi").github_username.value }}'
+        if is_azusa then
+            -- Home azusa envs
+            obsidian_vault_root = table.concat({ home, "Documents", "Obsidian", "mimikun" }, path_sep)
+        else
+            -- home-wsl envs
+            win_home = '{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}'
+            obsidian_vault_root = '{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}'
+        end
+    elseif is_windows then
+        -- home-windows envs
+        github_username = '{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}'
+        win_home = home
+        obsidian_vault_root =
+            '{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}'
+    end
+end
 
 nyagos.envadd("GITHUB_USERNAME", github_username)
 nyagos.envadd("OBSIDIAN_VAULT_ROOT", obsidian_vault_root)
+local obsidian_vault_root_path = nil
 
 if not is_azusa then
+    if is_linux then
+        nyagos.envadd("DISPLAY", nyagos.getenv("DISPLAY" or ":0"))
+    end
+
     nyagos.envadd("WIN_HOME", win_home)
 
     -- workspace
@@ -114,34 +117,21 @@ if not is_azusa then
     local win_documents = table.concat({ win_home, "Documents" }, path_sep)
     nyagos.envadd("WIN_DOCUMENTS", win_documents)
 
-    -- obsidian_vault_root_path
-    local obsidian_vault_root_path = table.concat({ win_documents, obsidian_vault_root }, path_sep)
-    nyagos.envadd("OBSIDIAN_VAULT_ROOT_PATH", obsidian_vault_root_path)
-    nyagos.envadd("obsidian_vault_root_path", obsidian_vault_root_path)
-    nyagos.envadd("obsidian_vault_path", obsidian_vault_root_path)
-    local obsidian_dailynote_path = table.concat({ obsidian_vault_root_path, "001_DailyNotes" }, path_sep)
-    nyagos.envadd("obsidian_dailynote_path", obsidian_dailynote_path)
-    nyagos.envadd("obsidian", obsidian_dailynote_path)
-    local dailynote_slug = nil
-    --local dailynote_slug (date +"%Y年%m月%d日")
-    local today_dailynote = obsidian_dailynote_path .. path_sep .. (dailynote_slug .. ".md")
-    nyagos.envadd("today_dailynote", today_dailynote)
-
-    --nyagos.envadd("DISPLAY", nyagos.getenv("DISPLAY" or ":0"))
+    -- home or work obsidian_vault_root_path
+    obsidian_vault_root_path = table.concat({ win_documents, obsidian_vault_root }, path_sep)
 else
-    -- azusa_obsidian_vault_root_path
-    local obsidian_vault_root_path = obsidian_vault_root
-    nyagos.envadd("OBSIDIAN_VAULT_ROOT_PATH", obsidian_vault_root_path)
-    nyagos.envadd("obsidian_vault_root_path", obsidian_vault_root_path)
-    nyagos.envadd("obsidian_vault_path", obsidian_vault_root_path)
-    local obsidian_dailynote_path = table.concat({ obsidian_vault_root_path, "001_DailyNotes" }, path_sep)
-    nyagos.envadd("obsidian_dailynote_path", obsidian_dailynote_path)
-    nyagos.envadd("obsidian", obsidian_dailynote_path)
-    local dailynote_slug = nil
-    --local dailynote_slug (date +"%Y年%m月%d日")
-    local today_dailynote = obsidian_dailynote_path .. path_sep .. (dailynote_slug .. ".md")
-    nyagos.envadd("today_dailynote", today_dailynote)
+    -- azusa obsidian_vault_root_path
+    obsidian_vault_root_path = obsidian_vault_root
 end
+
+local obsidian_dailynote_path = table.concat({ obsidian_vault_root_path, "001_DailyNotes" }, path_sep)
+local today_dailynote = obsidian_dailynote_path .. path_sep .. (today .. ".md")
+nyagos.envadd("OBSIDIAN_VAULT_ROOT_PATH", obsidian_vault_root_path)
+nyagos.envadd("obsidian_vault_root_path", obsidian_vault_root_path)
+nyagos.envadd("obsidian_vault_path", obsidian_vault_root_path)
+nyagos.envadd("obsidian_dailynote_path", obsidian_dailynote_path)
+nyagos.envadd("obsidian", obsidian_dailynote_path)
+nyagos.envadd("today_dailynote", today_dailynote)
 
 -- Linux only tools
 if is_linux then

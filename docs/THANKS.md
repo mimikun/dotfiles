@@ -18,6 +18,10 @@ thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 
 thx: https://zenn.dev/ryoppippi/articles/de6c931cc1028f
 
+### dot_config/nyagos/prompt.lua
+
+thx: https://github.com/nyaosorg/nyagos/issues/379#issuecomment-622785421
+
 ## References
 
 ### dot_config/nvim/lua/core/global.lua
