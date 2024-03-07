@@ -372,3 +372,8 @@ packages:
   - type: go_install
     path: github.com/kisielk/errcheck
     description: errcheck checks that you checked errors.
+#nyagos
+#https://github.com/nyaosorg/nyagos
+  - type: go_install
+    path: github.com/nyaosorg/nyagos
+    description: NYAGOS - The hybrid Commandline Shell between UNIX & DOS
