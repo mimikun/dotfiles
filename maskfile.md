@@ -759,6 +759,23 @@ GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
 Write-Output "Windows is not support now!"
 ```
 
+## morning-routine
+
+> Run workday morning routine
+
+```bash
+git cleanfetch
+mask delete-branch
+git pull
+mask patch-branch
+```
+
+```powershell
+git cleanfetch
+mask delete-branch
+git pull
+```
+
 ## pab
 
 > Create a patch branch (alias)
