@@ -997,7 +997,7 @@ complete -c deno -n "__fish_seen_subcommand_from publish" -s q -l quiet -d 'Supp
 complete -c deno -n "__fish_seen_subcommand_from publish" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from publish" -l dry-run -d 'Prepare the package for publishing performing all checks and validations without uploading'
 complete -c deno -n "__fish_seen_subcommand_from publish" -l allow-slow-types -d 'Allow publishing with slow types'
-complete -c deno -n "__fish_seen_subcommand_from publish" -l allow-dirty -d 'Allow publishing if the repository has uncommited changed'
+complete -c deno -n "__fish_seen_subcommand_from publish" -l allow-dirty -d 'Allow publishing if the repository has uncommitted changed'
 complete -c deno -n "__fish_seen_subcommand_from publish" -l no-provenance -d 'Disable provenance attestation. Enabled by default on Github actions, publicly links the package to where it was built and published from.'
 complete -c deno -n "__fish_seen_subcommand_from publish" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l env -d 'Load .env file' -r -F
