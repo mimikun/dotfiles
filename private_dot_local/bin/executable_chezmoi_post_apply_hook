@@ -1,4 +1,5 @@
 #!/bin/bash
 
 echo "chezmoi post apply hook"
-echo "THIS IS WIP"
+echo "Run aqua install"
+aqua install --all
