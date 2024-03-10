@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2024.03.10]
+
+### Added - 新機能について
+
+- Add morning-routine task to Makefile
+
+### Changed - 既存機能の変更について
+
+- Update neovim lockfiles
+- Update chezmoi_post_apply_hook command
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix typo: deno fish completion(workaround)
+
 ## [v2024.03.09]
 
 ### Added - 新機能について
