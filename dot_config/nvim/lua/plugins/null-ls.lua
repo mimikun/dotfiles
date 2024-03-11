@@ -5,25 +5,36 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         local null_ls = require("null-ls")
+        local code_actions = null_ls.builtins.code_actions
+        local diagnostics = null_ls.builtins.diagnostics
+        local formatting = null_ls.builtins.formatting
+        --local completion = null_ls.builtins.completion
+        --local hover = null_ls.builtins.hover
+
         local sources = {
             -- Code Actions
-            null_ls.builtins.code_actions.gitsigns,
+            code_actions.gitsigns,
             -- Completion
+            --completion.NAME
             -- Diagnostics
-            null_ls.builtins.diagnostics.actionlint,
-            null_ls.builtins.diagnostics.checkmake,
-            null_ls.builtins.diagnostics.markdownlint,
-            null_ls.builtins.diagnostics.selene,
-            null_ls.builtins.diagnostics.textlint,
-            null_ls.builtins.diagnostics.yamllint,
+            diagnostics.actionlint,
+            diagnostics.checkmake,
+            diagnostics.selene,
             -- Formatting
-            null_ls.builtins.formatting.just,
-            null_ls.builtins.formatting.markdownlint,
-            null_ls.builtins.formatting.prettier,
-            null_ls.builtins.formatting.shfmt,
-            null_ls.builtins.formatting.stylua,
-            null_ls.builtins.formatting.textlint,
+            formatting.just,
+            formatting.shfmt,
+            formatting.stylua,
             -- Hover
+            -- hover.NAME
+            -- TODO: Fix checkhealth error
+            --[[
+            --diagnostics.markdownlint,
+            --diagnostics.textlint,
+            --diagnostics.yamllint,
+            --formatting.textlint,
+            --formatting.markdownlint,
+            --formatting.prettier,
+            ]]
         }
         null_ls.setup({ sources = sources })
     end,
