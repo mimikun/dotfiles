@@ -1,4 +1,4 @@
-return {
+local spec = {
     "uga-rosa/ccc.nvim",
     --lazy = false,
     event = "BufRead",
@@ -12,3 +12,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

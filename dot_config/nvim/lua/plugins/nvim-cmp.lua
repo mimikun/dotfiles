@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "hrsh7th/nvim-cmp",
     lazy = false,
     dependencies = {
@@ -89,3 +90,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

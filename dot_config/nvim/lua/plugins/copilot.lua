@@ -1,6 +1,7 @@
 local settings = require("core.settings")
 
-return {
+---@type LazySpec
+local spec = {
     "zbirenbaum/copilot.lua",
     --lazy = false,
     event = "InsertEnter",
@@ -8,3 +9,5 @@ return {
     config = true,
     cond = settings.use_copilot,
 }
+
+return spec

@@ -5,7 +5,8 @@ local cmds = {
     "HawtkeysDupes",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "tris203/hawtkeys.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -14,3 +15,5 @@ return {
     opts = {},
     --cond = false,
 }
+
+return spec

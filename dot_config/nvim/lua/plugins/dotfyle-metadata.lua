@@ -4,7 +4,8 @@ local cmds = {
     "DotfyleOpen",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "creativenull/dotfyle-metadata.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -12,3 +13,5 @@ return {
     --config = function() end,
     --cond = false,
 }
+
+return spec

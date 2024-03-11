@@ -7,7 +7,8 @@ local icons = {
     misc = iconsets.get("misc"),
 }
 
-return {
+---@type LazySpec
+local spec = {
     "folke/todo-comments.nvim",
     --lazy = false,
     event = {
@@ -73,3 +74,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

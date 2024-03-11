@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "nvimtools/none-ls.nvim",
     lazy = false,
     --event = "VeryLazy",
@@ -41,3 +42,5 @@ return {
     -- TODO: settings
     --cond = false,
 }
+
+return spec

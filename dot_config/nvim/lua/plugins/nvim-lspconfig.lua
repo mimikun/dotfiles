@@ -19,7 +19,8 @@ local keymaps = {
     { "<space>f", desc = "vim.lsp.buf.format({ async = true })" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "neovim/nvim-lspconfig",
     lazy = false,
     keys = keymaps,
@@ -258,3 +259,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

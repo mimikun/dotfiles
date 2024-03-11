@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "vim-jp/vimdoc-ja",
     --lazy = false,
     --event = "VeryLazy",
@@ -7,3 +8,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

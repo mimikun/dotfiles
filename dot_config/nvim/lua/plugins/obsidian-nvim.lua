@@ -284,7 +284,8 @@ local opts = {
     yaml_parser = "native",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "epwalsh/obsidian.nvim",
     --lazy = false,
     event = events,
@@ -296,3 +297,5 @@ return {
     opts = opts,
     --cond = false,
 }
+
+return spec

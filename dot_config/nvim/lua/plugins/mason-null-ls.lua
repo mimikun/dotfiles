@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "jay-babu/mason-null-ls.nvim",
     --lazy = false,
     event = { "BufReadPre", "BufNewFile" },
@@ -12,3 +13,5 @@ return {
     -- TODO: settings
     --cond = false,
 }
+
+return spec

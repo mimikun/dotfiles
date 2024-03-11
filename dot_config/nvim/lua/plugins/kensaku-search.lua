@@ -7,7 +7,8 @@ local keymaps = {
     { "<CR>", desc = "kensaku-search-replace" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "lambdalisue/kensaku-search.vim",
     --lazy = false,
     --event = "VeryLazy",
@@ -26,3 +27,5 @@ return {
     -- Disable if there are no human rights
     cond = is_human_rights,
 }
+
+return spec

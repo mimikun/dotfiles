@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "petertriho/nvim-scrollbar",
     lazy = false,
     --event = "VeryLazy",
@@ -14,3 +15,5 @@ return {
     -- WORKAROUND: crash by ui_comp_raw_line
     cond = false,
 }
+
+return spec

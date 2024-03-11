@@ -1,5 +1,5 @@
 ---@type LazySpec
-return {
+local spec = {
     "nvim-orgmode/orgmode",
     lazy = false,
     --event = "VeryLazy",
@@ -14,3 +14,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

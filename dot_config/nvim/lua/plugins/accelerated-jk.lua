@@ -4,7 +4,8 @@ local keymaps = {
     { "k", desc = "accelerated_jk_gk" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "rainbowhxch/accelerated-jk.nvim",
     --lazy = false,
     event = "BufRead",
@@ -15,3 +16,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

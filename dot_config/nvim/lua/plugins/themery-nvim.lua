@@ -1,6 +1,7 @@
 local themery_config = require("core.global").themery_config
 
-return {
+---@type LazySpec
+local spec = {
     "zaldih/themery.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -69,3 +70,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

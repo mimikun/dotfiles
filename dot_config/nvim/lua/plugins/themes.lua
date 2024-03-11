@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     -- Lua themes
     {
         "projekt0n/github-nvim-theme",
@@ -162,3 +163,5 @@ return {
         --cond = false,
     },
 }
+
+return spec

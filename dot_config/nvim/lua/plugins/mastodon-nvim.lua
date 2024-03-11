@@ -10,7 +10,8 @@ local cmds = {
     "MastodonReload",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "kode-team/mastodon.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -23,3 +24,5 @@ return {
     config = true,
     --cond = false,
 }
+
+return spec

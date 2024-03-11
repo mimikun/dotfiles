@@ -3,7 +3,8 @@ local keymaps = {
     { "<C-n>", desc = "Toggle Fern" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "lambdalisue/fern.vim",
     branch = "main",
     --lazy = false,
@@ -39,3 +40,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

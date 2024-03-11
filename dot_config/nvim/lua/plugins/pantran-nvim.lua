@@ -4,7 +4,8 @@ local keymaps = {
     { "trr", desc = "Run Translate" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "potamides/pantran.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -42,3 +43,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

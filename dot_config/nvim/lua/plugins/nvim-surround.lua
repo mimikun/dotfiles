@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "kylechui/nvim-surround",
     version = "*",
     --lazy = false,
@@ -21,3 +22,5 @@ return {
     -- TODO: enable
     cond = false,
 }
+
+return spec

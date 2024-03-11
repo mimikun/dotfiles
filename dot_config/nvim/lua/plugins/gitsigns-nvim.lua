@@ -6,7 +6,8 @@ local keymaps = {
     { "gp", desc = "Preview the hunk at the cursor position inline in the buffer." },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "lewis6991/gitsigns.nvim",
     --lazy = false,
     keys = keymaps,
@@ -74,3 +75,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "rbtnn/vim-ambiwidth",
     lazy = false,
     --event = "VeryLazy",
@@ -11,3 +12,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

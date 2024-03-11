@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "preservim/vim-markdown",
     --lazy = false,
     --event = "VeryLazy",
@@ -14,3 +15,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

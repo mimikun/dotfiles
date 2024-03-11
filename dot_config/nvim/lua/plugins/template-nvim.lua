@@ -1,6 +1,7 @@
 local template_dir = vim.fn.expand("~/.config/nvim/templates")
 
-return {
+---@type LazySpec
+local spec = {
     "nvimdev/template.nvim",
     lazy = false,
     cmd = "Template",
@@ -10,3 +11,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

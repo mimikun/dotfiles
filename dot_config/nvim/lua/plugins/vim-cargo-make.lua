@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "nastevens/vim-cargo-make",
     --lazy = false,
     --event = "VeryLazy",
@@ -9,3 +10,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

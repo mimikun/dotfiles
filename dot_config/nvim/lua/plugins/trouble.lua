@@ -9,7 +9,8 @@ local cmds = {
     "TroubleRefresh",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "folke/trouble.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -117,3 +118,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

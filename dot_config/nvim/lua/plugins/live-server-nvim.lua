@@ -4,7 +4,8 @@ local cmds = {
     "LiveServerStop",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "barrett-ruth/live-server.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -12,3 +13,5 @@ return {
     config = true,
     --cond = false,
 }
+
+return spec

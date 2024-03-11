@@ -14,7 +14,8 @@ local keymaps = {
     { "fh", desc = "Open helptags search" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     lazy = false,
@@ -63,3 +64,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

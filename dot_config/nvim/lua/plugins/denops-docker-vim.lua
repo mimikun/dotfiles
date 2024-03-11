@@ -14,7 +14,8 @@ local cmds = {
     "DockerEditFile",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "skanehira/denops-docker.vim",
     --lazy = false,
     --event = "VeryLazy",
@@ -30,3 +31,5 @@ return {
     -- Disable if there are no human rights
     cond = is_human_rights,
 }
+
+return spec

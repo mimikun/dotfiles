@@ -2,7 +2,8 @@ local global = require("core.global")
 ---@type boolean
 local is_human_rights = global.is_human_rights
 
-return {
+---@type LazySpec
+local spec = {
     "Omochice/dps-translate-vim",
     --lazy = false,
     --event = "VeryLazy",
@@ -21,3 +22,5 @@ return {
     -- Disable if there are no human rights
     cond = is_human_rights,
 }
+
+return spec

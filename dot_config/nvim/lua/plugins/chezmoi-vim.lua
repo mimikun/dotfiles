@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "alker0/chezmoi.vim",
     -- this plugin DO NOT lazy loading
     -- see: https://github.com/alker0/chezmoi.vim#install
@@ -10,3 +11,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

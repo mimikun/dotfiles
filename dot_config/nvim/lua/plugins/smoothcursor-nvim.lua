@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "gen740/SmoothCursor.nvim",
     --lazy = false,
     event = "BufRead",
@@ -93,3 +94,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

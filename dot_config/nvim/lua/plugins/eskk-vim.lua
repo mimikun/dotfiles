@@ -7,7 +7,8 @@ local keymaps = {
     { "<C-j>", desc = "Toggle Kana-mode eskk.vim" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "vim-skk/eskk.vim",
     lazy = false,
     --event = "VeryLazy",
@@ -45,3 +46,5 @@ return {
     end,
     cond = cond,
 }
+
+return spec

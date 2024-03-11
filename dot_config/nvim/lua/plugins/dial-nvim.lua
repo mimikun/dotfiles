@@ -4,7 +4,8 @@ local keymaps = {
     { "<C-x>", desc = "<C-x> decrement" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "monaqa/dial.nvim",
     --lazy = false,
     event = "VimEnter",
@@ -19,3 +20,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

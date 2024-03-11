@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "0oAstro/silicon.lua",
     --lazy = false,
     --event = "VimEnter",
@@ -10,3 +11,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

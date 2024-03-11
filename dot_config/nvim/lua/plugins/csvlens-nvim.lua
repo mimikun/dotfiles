@@ -4,7 +4,8 @@ local has_csvlens = (1 == vim.fn.executable("csvlens")) and true or false
 ---@type boolean
 local cond = has_csvlens
 
-return {
+---@type LazySpec
+local spec = {
     "theKnightsOfRohan/csvlens.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -22,3 +23,5 @@ return {
     },
     cond = cond,
 }
+
+return spec

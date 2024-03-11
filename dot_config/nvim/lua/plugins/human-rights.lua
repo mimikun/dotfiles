@@ -6,7 +6,8 @@ local cmds = {
     "ShowDisk",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "mimikun/human-rights.nvim",
     dev = true,
     --lazy = false,
@@ -29,3 +30,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

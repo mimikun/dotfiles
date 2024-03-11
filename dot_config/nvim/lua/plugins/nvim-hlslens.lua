@@ -3,7 +3,8 @@ local keymaps = {
     { "<Leader>L", desc = "run `:nohlsearch` and export results to quickfix" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "kevinhwang91/nvim-hlslens",
     lazy = false,
     --event = "VeryLazy",
@@ -26,3 +27,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

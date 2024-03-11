@@ -7,7 +7,8 @@ local keymaps = {
     { "<C-j>", desc = "Toggle Kana-mode skkeleton" },
 }
 
-return {
+---@type LazySpec
+local spec = {
     "vim-skk/skkeleton",
     --lazy = false,
     --event = "VeryLazy",
@@ -187,3 +188,5 @@ return {
     -- Disable if there are no human rights
     cond = is_human_rights,
 }
+
+return spec

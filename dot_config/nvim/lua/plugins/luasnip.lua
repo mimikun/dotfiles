@@ -13,7 +13,8 @@ local friendly_snippets = table.concat({ data_dir, "lazy", "friendly-snippets" }
 ---@type string
 local build = is_windows and "" or "make install_jsregexp"
 
-return {
+---@type LazySpec
+local spec = {
     "L3MON4D3/LuaSnip",
     lazy = false,
     dependencies = {
@@ -33,3 +34,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

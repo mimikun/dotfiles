@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "numToStr/Comment.nvim",
     --lazy = false,
     event = "BufRead",
@@ -48,3 +49,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

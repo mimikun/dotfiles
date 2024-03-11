@@ -6,7 +6,8 @@ local is_human_rights = global.is_human_rights
 ---@type table
 local treesitter_parsers = settings["treesitter_parsers"]
 
-return {
+---@type LazySpec
+local spec = {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     --lazy = false,
@@ -77,3 +78,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

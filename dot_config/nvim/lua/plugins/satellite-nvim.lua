@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "lewis6991/satellite.nvim",
     lazy = false,
     --event = "VeryLazy",
@@ -62,3 +63,5 @@ return {
     },
     --cond = false,
 }
+
+return spec

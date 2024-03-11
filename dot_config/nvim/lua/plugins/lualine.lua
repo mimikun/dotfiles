@@ -122,7 +122,8 @@ local opts = {
     tabline = tabline,
 }
 
-return {
+---@type LazySpec
+local spec = {
     "nvim-lualine/lualine.nvim",
     --lazy = false,
     event = {
@@ -138,3 +139,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

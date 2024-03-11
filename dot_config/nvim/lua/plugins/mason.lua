@@ -84,7 +84,8 @@ local concurrency = concurrency_limit_check()
 ---@type string
 local mason_lockfile = table.concat({ vim_path, "mason-lock.json" }, path_sep)
 
-return {
+---@type LazySpec
+local spec = {
     "williamboman/mason.nvim",
     lazy = false,
     dependencies = {
@@ -185,3 +186,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

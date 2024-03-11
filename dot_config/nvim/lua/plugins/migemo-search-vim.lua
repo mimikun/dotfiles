@@ -6,7 +6,8 @@ local has_cmigemo = (1 == vim.fn.executable("cmigemo")) and true or false
 ---@type boolean
 local cond = is_not_human_rights and has_cmigemo
 
-return {
+---@type LazySpec
+local spec = {
     "rhysd/migemo-search.vim",
     lazy = false,
     --event = "VeryLazy",
@@ -17,3 +18,5 @@ return {
     end,
     cond = cond,
 }
+
+return spec

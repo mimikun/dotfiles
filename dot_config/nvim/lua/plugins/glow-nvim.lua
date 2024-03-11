@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     "ellisonleao/glow.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -6,3 +7,5 @@ return {
     config = true,
     --cond = false,
 }
+
+return spec

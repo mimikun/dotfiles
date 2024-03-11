@@ -10,7 +10,8 @@ local cmds = {
     "GitRevertFile",
 }
 
-return {
+---@type LazySpec
+local spec = {
     "dinhhuy258/git.nvim",
     --lazy = false,
     --event = "VeryLazy",
@@ -18,3 +19,5 @@ return {
     config = true,
     --cond = false,
 }
+
+return spec

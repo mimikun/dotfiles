@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     -- TODO: setting
     "folke/noice.nvim",
     --lazy = false,
@@ -10,3 +11,5 @@ return {
     opts = {},
     cond = false,
 }
+
+return spec

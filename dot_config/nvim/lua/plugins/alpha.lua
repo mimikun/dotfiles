@@ -17,7 +17,8 @@ local run_checkhealth = icons.ui.Accepted .. " Run checkhealth"
 ---@type string
 local quit_nvim = icons.ui.Close_alt .. " Quit NVIM"
 
-return {
+---@type LazySpec
+local spec = {
     "goolord/alpha-nvim",
     lazy = false,
     event = "VimEnter",
@@ -78,3 +79,5 @@ return {
     end,
     --cond = false,
 }
+
+return spec

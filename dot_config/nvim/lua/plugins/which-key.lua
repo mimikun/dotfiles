@@ -1,4 +1,5 @@
-return {
+---@type LazySpec
+local spec = {
     -- TODO: setting
     -- https://github.com/folke/which-key.nvim/blob/main/README.md
     "folke/which-key.nvim",
@@ -11,3 +12,5 @@ return {
     opts = {},
     --cond = false,
 }
+
+return spec
