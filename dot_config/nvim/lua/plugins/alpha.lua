@@ -16,8 +16,6 @@ local open_mason_window = icons.ui.Gear .. " Open Mason Window"
 local run_checkhealth = icons.ui.Accepted .. " Run checkhealth"
 ---@type string
 local quit_nvim = icons.ui.Close_alt .. " Quit NVIM"
----@type string
-local recent_files = icons.ui.History .. " Recent files"
 
 return {
     "goolord/alpha-nvim",
@@ -29,7 +27,6 @@ return {
     config = function()
         local alpha = require("alpha")
         local dashboard = require("alpha.themes.dashboard")
-        local theta = require("alpha.themes.theta")
         local bannars = require("utils.bannars")
         local bannar = bannars.get("covid_19").Japan
 
