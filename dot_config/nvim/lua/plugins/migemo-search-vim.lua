@@ -13,8 +13,7 @@ return {
     --keys = keymaps,
     config = function()
         -- TODO: config use lua
-        -- sample:
-        -- vim.g["fern#default_hidden"] = 1
+        vim.cmd([[cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"]])
     end,
     cond = cond,
 }
