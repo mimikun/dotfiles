@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.03.11]
+
+### Added - 新機能について
+
+- Add type annotation: LazySpec
+
+### Changed - 既存機能の変更について
+
+- Update STARTUPTIME.md
+- Update neovim lockfiles
+- Update neovim plugin config: migemo-search.vim
+
+### Removed - 今回で削除された機能について
+
+- Remove unused code: alpha.lua
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin config: vim-ambiwidth
+- Fix neovim plugin config: null-ls(none-ls)
+
 ## [v2024.03.10]
 
 ### Added - 新機能について
