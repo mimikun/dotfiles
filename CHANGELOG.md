@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.03.12]
+
+### Added - 新機能について
+
+- Set neovim LEADER key
+
+### Changed - 既存機能の変更について
+
+- Update utils/changelog.sh
+- Update neovim plugin config: noice.nvim
+- Update neovim plugin config: satellite.nvim
+    - Fix #297
+- Update neovim lockfiles
+- Update rustup fish completion
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin config: null-ls.nvim
+
 ## [v2024.03.11]
 
 ### Added - 新機能について
