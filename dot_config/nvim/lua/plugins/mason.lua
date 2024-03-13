@@ -93,6 +93,8 @@ local spec = {
         "zapling/mason-lock.nvim",
         "neovim/nvim-lspconfig",
         "hrsh7th/cmp-nvim-lsp",
+        "folke/neoconf.nvim",
+        "folke/neodev.nvim",
     },
     config = function()
         local mason = require("mason")
@@ -100,6 +102,8 @@ local spec = {
         local mason_lock = require("mason-lock")
         local nvim_lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local neoconf = require("neoconf")
+        local neodev = require("neodev")
 
         ---@param names string[]
         ---@return string[]
@@ -162,6 +166,8 @@ local spec = {
             end,
         }
 
+        neoconf.setup({})
+        neodev.setup({})
         mason.setup({
             max_concurrent_installers = concurrency,
             ui = {
