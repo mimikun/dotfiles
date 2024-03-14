@@ -259,7 +259,7 @@ require("jetpack.packer").add({
     { "tani/vim-jetpack" },
     {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
+        cmd = ":TSUpdate",
         config = function()
             local parser_install_dir = vim.fn.stdpath("data") .. "/treesitter"
             vim.opt.runtimepath:append(parser_install_dir)
@@ -273,7 +273,13 @@ require("jetpack.packer").add({
         end,
     },
     { "projekt0n/github-nvim-theme" },
-    { "folke/tokyonight.nvim" },
+    {
+        "folke/tokyonight.nvim",
+        config = function()
+            vim.cmd.colorscheme("tokyonight-storm")
+        end,
+    },
+    { "is0n/jaq-nvim" },
 })
 
 -- Automatic plugin installation on startup
@@ -284,7 +290,5 @@ for _, name in ipairs(jetpack.names()) do
         break
     end
 end
-
-vim.cmd.colorscheme("tokyonight-storm")
 
 vim.cmd("filetype plugin indent on")
