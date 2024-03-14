@@ -1,6 +1,6 @@
 ---@type LazySpec
 local spec = {
-    "0oAstro/silicon.lua",
+    "mimikun/silicon.lua",
     --lazy = false,
     --event = "VimEnter",
     --cmd = "",
