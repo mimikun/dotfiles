@@ -100,6 +100,7 @@ settings["treesitter_parsers"] = {
     "jq",
     "jsdoc",
     "json",
+    "jsonc",
     "json5",
     "kdl",
     "latex",
