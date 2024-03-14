@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.03.14]
+
+### Added - 新機能について
+
+- Add new neovim plugin: oil.nvim
+- Add new neovim plugin: nvim-tree
+- Add jsonc tree-sitter parser
+
+### Changed - 既存機能の変更について
+
+- Update neovim lockfiles
+- Update nvim-mini configs
+- Update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+- Remove nvim-scrollbar.lua.tmpl
+
+### Fixed - 不具合修正について
+
+- Fix neovim plugin config: silicon.lua
+    - 0oAstro/silicon.lua was archived
+
 ## [v2024.03.12]
 
 ### Added - 新機能について
