@@ -2,13 +2,13 @@
 local spec = {
     "stevearc/oil.nvim",
     lazy = false,
+    cmd = "Oil",
     --event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
     end,
-    -- TODO: settings
     opts = {
         -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
         -- Set to false if you still want to use netrw.
