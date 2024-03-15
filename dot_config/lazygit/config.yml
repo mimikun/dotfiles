@@ -1,0 +1,329 @@
+# stuff relating to the UI
+gui:
+  # one of 'normal' | 'half' | 'full' default is 'normal'
+  windowSize: "normal"
+  # how many lines you scroll by
+  scrollHeight: 2
+  # enable scrolling past the bottom
+  scrollPastBottom: true
+  # how many lines to keep before/after the cursor when it reaches the top/bottom of the view; see 'Scroll-off Margin' section below
+  scrollOffMargin: 2
+  # one of 'margin' | 'jump'; see 'Scroll-off Margin' section below
+  scrollOffBehavior: "margin"
+  # number from 0 to 1
+  sidePanelWidth: 0.3333
+  expandFocusedSidePanel: false
+  # one of 'horizontal' | 'flexible' | 'vertical'
+  mainPanelSplitMode: "flexible"
+  # one of 'left' | 'top'
+  enlargedSideViewLocation: "left"
+  # one of 'auto' | 'en' | 'zh-CN' | 'zh-TW' | 'pl' | 'nl' | 'ja' | 'ko' | 'ru'
+  language: "auto"
+  # https://pkg.go.dev/time#Time.Format
+  timeFormat: "02 Jan 06"
+  shortTimeFormat: "3:04PM"
+  theme:
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - white
+    searchingActiveBorderColor:
+      - cyan
+      - bold
+    optionsTextColor:
+      - blue
+      # set to `default` to have no background colour
+    selectedLineBgColor:
+      - blue
+    cherryPickedCommitBgColor:
+      - cyan
+    cherryPickedCommitFgColor:
+      - blue
+    unstagedChangesColor:
+      - red
+    defaultFgColor:
+      - default
+  commitLength:
+    show: true
+  mouseEvents: true
+  skipDiscardChangeWarning: false
+  skipStashWarning: false
+  # for rendering changes files in a tree format
+  showFileTree: true
+  # for seeing the '5 of 20' message in list panels
+  showListFooter: true
+  showRandomTip: true
+  # show commit hashes alongside branch names
+  showBranchCommitHash: false
+  # for hiding the bottom information line (unless it has important information to tell you)
+  showBottomLine: true
+  # for showing the jump-to-panel keybindings as panel subtitles
+  showPanelJumps: true
+  showCommandLog: true
+  # deprecated: use nerdFontsVersion instead
+  showIcons: false
+  # nerd fonts version to use ("2" or "3"); empty means don't show nerd font icons
+  nerdFontsVersion: "3"
+  # for hiding file icons in the file views
+  showFileIcons: true
+  commandLogSize: 8
+  # one of 'auto' | 'always'
+  splitDiff: "auto"
+  # for skipping the confirmation before launching the reword editor
+  skipRewordInEditorWarning: false
+  # one of 'single' | 'double' | 'rounded' | 'hidden'
+  border: "rounded"
+  # shows an explosion animation when nuking the working tree
+  animateExplosion: true
+  # one of 'auto' | 'never' | 'always'
+  portraitMode: "auto"
+git:
+  paging:
+    colorArg: always
+    useConfig: false
+  commit:
+    signOff: false
+    # automatic WYSIWYG wrapping of the commit message as you type
+    autoWrapCommitMessage: true
+    # if autoWrapCommitMessage is true, the width to wrap to
+    autoWrapWidth: 72
+  merging:
+    # only applicable to unix users
+    manualCommit: false
+    # extra args passed to `git merge`, e.g. --no-ff
+    args: ""
+  log:
+    # one of date-order, author-date-order, topo-order or default.
+    # topo-order makes it easier to read the git log graph, but commits may not
+    # appear chronologically. See https://git-scm.com/docs/git-log#_commit_ordering
+    #
+    # Deprecated: Configure this with `Log menu -> Commit sort order` (<c-l> in the commits window by default).
+    order: "topo-order"
+    # one of always, never, when-maximised
+    # this determines whether the git graph is rendered in the commits panel
+    #
+    # Deprecated: Configure this with `Log menu -> Show git graph` (<c-l> in the commits window by default).
+    showGraph: "always"
+    # displays the whole git graph by default in the commits panel (equivalent to passing the `--all` argument to `git log`)
+    showWholeGraph: false
+  skipHookPrefix: WIP
+  # The main branches. We colour commits green if they belong to one of these branches,
+  # so that you can easily see which commits are unique to your branch (coloured in yellow)
+  mainBranches: [master, main]
+  autoFetch: true
+  autoRefresh: true
+  # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
+  fetchAll: true
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --"
+  allBranchesLogCmd: "git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium"
+  # prevents lazygit from spawning a separate process when using GPG
+  overrideGpg: false
+  disableForcePushing: false
+  parseEmoji: false
+os:
+  # See 'Custom Command for Copying to Clipboard' section
+  copyToClipboardCmd: ""
+  # see 'Configuring File Editing' section
+  editPreset: "nvim"
+  edit: ""
+  editAtLine: ""
+  editAtLineAndWait: ""
+  # TODO:
+  # Linux
+  #open: "xdg-open {{filename}} >/dev/null"
+  # WSL
+  #open: "wsl-open {{filename}}"
+  openLink: ""
+refresher:
+  # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
+  refreshInterval: 10
+  # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
+  fetchInterval: 60
+update:
+  # can be: prompt | background | never
+  method: prompt
+  # how often an update is checked for
+  days: 14
+confirmOnQuit: false
+# determines whether hitting 'esc' will quit the application when there is nothing to cancel/close
+quitOnTopLevelReturn: false
+disableStartupPopups: false
+# one of: 'prompt' | 'create' | 'skip' | 'quit'
+notARepository: "prompt"
+# display confirmation when subprocess terminates
+promptToReturnFromSubprocess: true
+keybinding:
+  universal:
+    quit: "q"
+    # alternative/alias of quit
+    quit-alt1: "<c-c>"
+    # return to previous menu, will quit if there's nowhere to return
+    return: "<esc>"
+    quitWithoutChangingDirectory: "Q"
+    # goto the next panel
+    togglePanel: "<tab>"
+    # go one line up
+    prevItem: "<up>"
+    # go one line down
+    nextItem: "<down>"
+    # go one line up
+    prevItem-alt: "k"
+    # go one line down
+    nextItem-alt: "j"
+    # go to next page in list
+    nextPage: "."
+    # go to previous page in list
+    prevPage: ","
+    # go to top of list
+    gotoTop: "<"
+    # go to bottom of list
+    gotoBottom: ">"
+    # scroll left within list view
+    scrollLeft: "H"
+    # scroll right within list view
+    scrollRight: "L"
+    # goto the previous block / panel
+    prevBlock: "<left>"
+    # goto the next block / panel
+    nextBlock: "<right>"
+    # goto the previous block / panel
+    prevBlock-alt: "h"
+    # goto the next block / panel
+    nextBlock-alt: "l"
+    # goto the Nth block / panel
+    jumpToBlock: ["1", "2", "3", "4", "5"]
+    nextMatch: "n"
+    prevMatch: "N"
+    # show help menu
+    # TODO: An error occurs. Issue or PR chance?
+    #optionMenu: <disabled>
+    # show help menu
+    optionMenu-alt1: "?"
+    select: "<space>"
+    goInto: "<enter>"
+    openRecentRepos: "<c-r>"
+    confirm: "<enter>"
+    remove: "d"
+    new: "n"
+    edit: "e"
+    openFile: "o"
+    # main panel scroll up
+    scrollUpMain: "<pgup>"
+    # main panel scroll down
+    scrollDownMain: "<pgdown>"
+    # main panel scroll up
+    scrollUpMain-alt1: "K"
+    # main panel scroll down
+    scrollDownMain-alt1: "J"
+    # main panel scroll up
+    scrollUpMain-alt2: "<c-u>"
+    # main panel scroll down
+    scrollDownMain-alt2: "<c-d>"
+    executeCustomCommand: ":"
+    createRebaseOptionsMenu: "m"
+    pushFiles: "P"
+    pullFiles: "p"
+    refresh: "R"
+    createPatchOptionsMenu: "<c-p>"
+    nextTab: "]"
+    prevTab: "["
+    nextScreenMode: "+"
+    prevScreenMode: "_"
+    undo: "z"
+    redo: "<c-z>"
+    filteringMenu: "<c-s>"
+    diffingMenu: "W"
+    # deprecated
+    diffingMenu-alt: "<c-e>"
+    copyToClipboard: "<c-o>"
+    submitEditorText: "<enter>"
+    extrasMenu: "@"
+    toggleWhitespaceInDiffView: "<c-w>"
+    increaseContextInDiffView: "}"
+    decreaseContextInDiffView: "{"
+    toggleRangeSelect: "v"
+    rangeSelectUp: "<s-up>"
+    rangeSelectDown: "<s-down>"
+  status:
+    checkForUpdate: "u"
+    recentRepos: "<enter>"
+  files:
+    commitChanges: "c"
+    # commit changes without pre-commit hook
+    commitChangesWithoutHook: "w"
+    amendLastCommit: "A"
+    commitChangesWithEditor: "C"
+    findBaseCommitForFixup: "<c-f>"
+    confirmDiscard: "x"
+    ignoreFile: "i"
+    refreshFiles: "r"
+    stashAllChanges: "s"
+    viewStashOptions: "S"
+    # stage/unstage all
+    toggleStagedAll: "a"
+    viewResetOptions: "D"
+    fetch: "f"
+    toggleTreeView: "`"
+    openMergeTool: "M"
+    openStatusFilter: "<c-b>"
+  branches:
+    createPullRequest: "o"
+    viewPullRequestOptions: "O"
+    checkoutBranchByName: "c"
+    forceCheckoutBranch: "F"
+    rebaseBranch: "r"
+    renameBranch: "R"
+    mergeIntoCurrentBranch: "M"
+    viewGitFlowOptions: "i"
+    # fast-forward this branch from its upstream
+    fastForward: "f"
+    createTag: "T"
+    pushTag: "P"
+    # set as upstream of checked-out branch
+    setUpstream: "u"
+    fetchRemote: "f"
+  commits:
+    squashDown: "s"
+    renameCommit: "r"
+    renameCommitWithEditor: "R"
+    viewResetOptions: "g"
+    markCommitAsFixup: "f"
+    # create fixup commit for this commit
+    createFixupCommit: "F"
+    squashAboveCommits: "S"
+    # move commit down one
+    moveDownCommit: "<c-j>"
+    # move commit up one
+    moveUpCommit: "<c-k>"
+    amendToCommit: "A"
+    amendAttributeMenu: "a"
+    # pick commit (when mid-rebase)
+    pickCommit: "p"
+    revertCommit: "t"
+    cherryPickCopy: "C"
+    pasteCommits: "V"
+    tagCommit: "T"
+    checkoutCommit: "<space>"
+    resetCherryPick: "<c-R>"
+    copyCommitMessageToClipboard: "<c-y>"
+    openLogMenu: "<c-l>"
+    viewBisectOptions: "b"
+  stash:
+    popStash: "g"
+    renameStash: "r"
+  commitFiles:
+    checkoutCommitFile: "c"
+  main:
+    toggleSelectHunk: "a"
+    pickBothHunks: "b"
+  submodules:
+    init: "i"
+    update: "u"
+    bulkMenu: "b"
+  commitMessage:
+    commitMenu: "<c-o>"
+  amendAttribute:
+    addCoAuthor: "c"
+    resetAuthor: "a"
+    setAuthor: "A"

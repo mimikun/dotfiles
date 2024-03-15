@@ -51,9 +51,16 @@ if is_azusa then
     nyagos.eval("setxkbmap -option ctrl:nocaps")
 end
 
+local lg_conf = {
+    win = table.concat({ home, "AppData", "Local", "lazygit", "config.yml" }, path_sep),
+    wsl = table.concat({ xdg_config_home, "lazygit", "wsl_config.yml" }, path_sep),
+    linux = table.concat({ xdg_config_home, "lazygit", "linux_config.yml" }, path_sep),
+}
+
 local github_username
 local win_home
 local obsidian_vault_root
+local lg_config_file
 
 if is_not_human_rights then
     -- Work envs
@@ -61,6 +68,11 @@ if is_not_human_rights then
     win_home = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}'
     obsidian_vault_root =
         '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}'
+    if is_linux then
+        lg_config_file = lg_conf.wsl
+    else
+        lg_config_file = lg_conf.win
+    end
 else
     -- Home envs
     if is_linux then
@@ -69,10 +81,12 @@ else
         if is_azusa then
             -- Home azusa envs
             obsidian_vault_root = table.concat({ home, "Documents", "Obsidian", "mimikun" }, path_sep)
+            lg_config_file = lg_conf.linux
         else
             -- home-wsl envs
             win_home = '{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}'
             obsidian_vault_root = '{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}'
+            lg_config_file = lg_conf.wsl
         end
     elseif is_windows then
         -- home-windows envs
@@ -80,11 +94,14 @@ else
         win_home = home
         obsidian_vault_root =
             '{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}'
+        lg_config_file = lg_conf.windows
     end
 end
 
 nyagos.envadd("GITHUB_USERNAME", github_username)
 nyagos.envadd("OBSIDIAN_VAULT_ROOT", obsidian_vault_root)
+nyagos.envadd("LG_CONFIG_FILE", lg_config_file)
+
 local obsidian_vault_root_path = nil
 
 if not is_azusa then
