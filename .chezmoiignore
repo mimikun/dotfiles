@@ -93,6 +93,7 @@ OneDrive/**
 .config/rbw/**
 .config/sheldon/**
 .config/yazi/**
+.config/gitu/**
 .ghcup/**
 .local/bin/**
 .vim/**

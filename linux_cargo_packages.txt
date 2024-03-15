@@ -40,6 +40,7 @@ genact
 git-delta
 git-graph
 git-interactive-rebase-tool
+gitu
 gitui
 glitchcat
 gping
