@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.03.15]
+
+### Added - 新機能について
+
+- Add new neovim plugin: lazygit.nvim
+- Add new tool by aqua: lazygit
+- Add new tool by cargo: gitu
+
+### Changed - 既存機能の変更について
+
+- Update deno fish completion
+- Update STARTUPTIME.md
+- Update neovim lockfiles
+- Update neovim plugin config: oil.nvim
+- Update neovim plugin config: nvim-tree
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.03.14]
 
 ### Added - 新機能について
