@@ -75,18 +75,18 @@
       "rhs": "<Cmd>lua require(\"which-key\").show(\" \", {mode = \"v\", auto = true})<CR>"
     },
     {
-      "desc": "org agenda",
-      "noremap": true,
-      "lhs": "<Space>oa",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"orgmode\").action(\"agenda.prompt\")<CR>"
-    },
-    {
       "desc": "org capture",
       "noremap": true,
       "lhs": "<Space>oc",
       "mode": "n",
       "rhs": "<Cmd>lua require(\"orgmode\").action(\"capture.prompt\")<CR>"
+    },
+    {
+      "desc": "org agenda",
+      "noremap": true,
+      "lhs": "<Space>oa",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"orgmode\").action(\"agenda.prompt\")<CR>"
     },
     {
       "desc": "",
@@ -182,8 +182,6 @@
       "mode": "x",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
       "noremap": true,
@@ -235,6 +233,8 @@
     },
     { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -511,15 +511,15 @@
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -661,20 +661,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "zt",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zt",
-      "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "zz",
       "mode": "x",
       "rhs": "<Cmd>lua require('neoscroll').zz(250)<CR>"
@@ -685,6 +671,20 @@
       "lhs": "zz",
       "mode": "n",
       "rhs": "<Cmd>lua require('neoscroll').zz(250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zt",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zt",
+      "mode": "n",
+      "rhs": "<Cmd>lua require('neoscroll').zt(250)<CR>"
     },
     {
       "desc": "",
@@ -1032,16 +1032,16 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-U>",
+      "lhs": "<C-Y>",
       "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-U>",
+      "lhs": "<C-Y>",
       "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR>"
     },
     {
       "desc": "",
@@ -1074,20 +1074,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-Y>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-Y>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-0.10, false, 100)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<C-E>",
       "mode": "x",
       "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
@@ -1098,6 +1084,20 @@
       "lhs": "<C-E>",
       "mode": "n",
       "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "n",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
     },
     {
       "desc": "",
@@ -1128,16 +1128,16 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Toggle Kana-mode skkeleton",
+      "desc": "Toggle Fern",
       "noremap": true,
-      "lhs": "<C-J>",
+      "lhs": "<C-N>",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Toggle Fern",
+      "desc": "Toggle Kana-mode skkeleton",
       "noremap": true,
-      "lhs": "<C-N>",
+      "lhs": "<C-J>",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1235,7 +1235,7 @@
     "loctvl842/monokai-pro.nvim",
     "mattn/calendar-vim",
     "mimikun/human-rights.nvim",
-    "mimikun/silicon.lua",
+    "mimikun/silicon.nvim",
     "mimikun/tree-sitter-PowerShell",
     "monaqa/dial.nvim",
     "nastevens/vim-cargo-make",
