@@ -1,3 +1,294 @@
 # My neovim configuration
 
-WIP
+## Plugins
+
+### Denops Plugins
+- [denops-docker.vim](https://github.com/skanehira/denops-docker.vim.git)
+    - [denops.vim](https://github.com/vim-denops/denops.vim.git)
+    - [denops-lazy.nvim](https://github.com/yuki-yano/denops-lazy.nvim.git)
+- [dps-translate-vim](https://github.com/Omochice/dps-translate-vim.git)
+    - [denops.vim](https://github.com/vim-denops/denops.vim.git)
+    - [denops-lazy.nvim](https://github.com/yuki-yano/denops-lazy.nvim.git)
+- [kensaku-command.vim](https://github.com/lambdalisue/kensaku-command.vim.git)
+    - [denops.vim](https://github.com/vim-denops/denops.vim.git)
+    - [denops-lazy.nvim](https://github.com/yuki-yano/denops-lazy.nvim.git)
+    - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim.git)
+- [kensaku-search.vim](https://github.com/lambdalisue/kensaku-search.vim.git)
+    - [denops.vim](https://github.com/vim-denops/denops.vim.git)
+    - [denops-lazy.nvim](https://github.com/yuki-yano/denops-lazy.nvim.git)
+    - [kensaku.vim](https://github.com/lambdalisue/kensaku.vim.git)
+- [denops.vim](https://github.com/vim-denops/denops.vim.git)
+    - [denops-shared-server.vim](https://github.com/vim-denops/denops-shared-server.vim.git)
+    - [denops-lazy.nvim](https://github.com/yuki-yano/denops-lazy.nvim.git)
+- [skkeleton](https://github.com/vim-skk/skkeleton.git)
+    - [denops.vim](https://github.com/vim-denops/denops.vim.git)
+    - [denops-lazy.nvim](https://github.com/yuki-yano/denops-lazy.nvim.git)
+    - [skkeleton_indicator.nvim](https://github.com/delphinus/skkeleton_indicator.nvim.git)
+    - [skk-tutorial.vim](https://github.com/willelz/skk-tutorial.vim.git)
+
+### Vim Script Plugins
+- [kdl.vim](https://github.com/imsnif/kdl.vim.git)
+- [vim-quickrun](https://github.com/thinca/vim-quickrun.git)
+- [vim-kitty](https://github.com/fladson/vim-kitty.git)
+- [vim-cargo-make](https://github.com/nastevens/vim-cargo-make.git)
+    - [vim-toml](https://github.com/cespare/vim-toml.git)
+    - [vim-duckscript](https://github.com/nastevens/vim-duckscript.git)
+- [vim-markdown](https://github.com/preservim/vim-markdown.git)
+    - [tabular](https://github.com/godlygeek/tabular.git)
+- [ron.vim](https://github.com/ron-rs/ron.vim.git)
+- [calendar-vim](https://github.com/mattn/calendar-vim.git)
+- [kyotonight.vim](https://github.com/voidekh/kyotonight.vim.git)
+- [vim-ambiwidth](https://github.com/rbtnn/vim-ambiwidth.git)
+- [momiji](https://github.com/kyoh86/momiji.git)
+- [chezmoi.vim](https://github.com/alker0/chezmoi.vim.git)
+- [vim-just](https://github.com/NoahTheDuke/vim-just.git)
+- [vimdoc-ja](https://github.com/vim-jp/vimdoc-ja.git)
+- [fern.vim](https://github.com/lambdalisue/fern.vim.git)
+    - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
+    - [fern-renderer-web-devicons.nvim](https://github.com/TheLeoP/fern-renderer-web-devicons.nvim.git)
+    - [glyph-palette.vim](https://github.com/lambdalisue/glyph-palette.vim.git)
+    - [fern-git-status.vim](https://github.com/lambdalisue/fern-git-status.vim.git)
+
+### Lua Plugins
+- [orgmode](https://github.com/nvim-orgmode/orgmode.git)
+    - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.git)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.git)
+    - [nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag.git)
+    - [nvim-nu](https://github.com/LhKipp/nvim-nu.git)
+    - [tree-sitter-PowerShell](https://github.com/mimikun/tree-sitter-PowerShell.git)
+    - [tree-sitter-rasi](https://github.com/Fymyte/tree-sitter-rasi.git)
+    - [tree-sitter-just](https://github.com/IndianBoy42/tree-sitter-just.git)
+    - [orgmode](https://github.com/nvim-orgmode/orgmode.git)
+- [human-rights.nvim](https://github.com/mimikun/human-rights.nvim.git)
+- [live-server.nvim](https://github.com/barrett-ruth/live-server.nvim.git)
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip.git)
+    - [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip.git)
+    - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets.git)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp.git)
+    - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp.git)
+    - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer.git)
+    - [cmp-cmdline](https://github.com/hrsh7th/cmp-cmdline.git)
+    - [cmp-path](https://github.com/hrsh7th/cmp-path.git)
+    - [cmp-emoji](https://github.com/hrsh7th/cmp-emoji.git)
+    - [LuaSnip](https://github.com/L3MON4D3/LuaSnip.git)
+    - [cmp_luasnip](https://github.com/saadparwaiz1/cmp_luasnip.git)
+    - [orgmode](https://github.com/nvim-orgmode/orgmode.git)
+- [hawtkeys.nvim](https://github.com/tris203/hawtkeys.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+- [noice.nvim](https://github.com/folke/noice.nvim.git)
+    - [nui.nvim](https://github.com/MunifTanjim/nui.nvim.git)
+    - [nvim-notify](https://github.com/rcarriga/nvim-notify.git)
+    - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp.git)
+- [crates.nvim](https://github.com/saecki/crates.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+- [trouble.nvim](https://github.com/folke/trouble.nvim.git)
+    - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
+- [mason-null-ls.nvim](https://github.com/jay-babu/mason-null-ls.nvim.git)
+    - [mason.nvim](https://github.com/williamboman/mason.nvim.git)
+    - [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim.git)
+- [todo-comments.nvim](https://github.com/folke/todo-comments.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+- [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+- [mastodon.nvim](https://github.com/kode-team/mastodon.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+    - [nvim-notify](https://github.com/rcarriga/nvim-notify.git)
+    - [sqlite.lua](https://github.com/kkharji/sqlite.lua.git)
+- [Comment.nvim](https://github.com/numToStr/Comment.nvim.git)
+- [glow.nvim](https://github.com/ellisonleao/glow.nvim.git)
+- [lazy.nvim](https://github.com/folke/lazy.nvim.git)
+- [template.nvim](https://github.com/nvimdev/template.nvim.git)
+- [satellite.nvim](https://github.com/lewis6991/satellite.nvim.git)
+- [dial.nvim](https://github.com/monaqa/dial.nvim.git)
+- [ccc.nvim](https://github.com/uga-rosa/ccc.nvim.git)
+- [pantran.nvim](https://github.com/potamides/pantran.nvim.git)
+- [edge](https://github.com/sainnhe/edge.git)
+- [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens.git)
+- [sonokai](https://github.com/sainnhe/sonokai.git)
+- [pastelnight.nvim](https://github.com/pauchiner/pastelnight.nvim.git)
+- [catppuccin](https://github.com/catppuccin/nvim.git)
+- [typos.nvim](https://github.com/poljar/typos.nvim.git)
+- [pandoc.nvim](https://github.com/aspeddro/pandoc.nvim.git)
+- [evergarden](https://github.com/crispybaccoon/evergarden.git)
+- [csvlens.nvim](https://github.com/theKnightsOfRohan/csvlens.nvim.git)
+    - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim.git)
+- [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim.git)
+- [accelerated-jk.nvim](https://github.com/rainbowhxch/accelerated-jk.nvim.git)
+- [yash.nvim](https://github.com/kihachi2000/yash.nvim.git)
+- [github-nvim-theme](https://github.com/projekt0n/github-nvim-theme.git)
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim.git)
+- [tokyodark.nvim](https://github.com/tiagovla/tokyodark.nvim.git)
+- [cyberdream.nvim](https://github.com/scottmckendry/cyberdream.nvim.git)
+- [nvim-autopairs](https://github.com/windwp/nvim-autopairs.git)
+- [penumbra.nvim](https://github.com/Allianaab2m/penumbra.nvim.git)
+- [nord.nvim](https://github.com/shaunsingh/nord.nvim.git)
+- [SmoothCursor.nvim](https://github.com/gen740/SmoothCursor.nvim.git)
+- [dressing.nvim](https://github.com/stevearc/dressing.nvim.git)
+- [git.nvim](https://github.com/dinhhuy258/git.nvim.git)
+- [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+- [alpha-nvim](https://github.com/goolord/alpha-nvim.git)
+    - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
+- [monokai.nvim](https://github.com/tanvirtin/monokai.nvim.git)
+- [monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim.git)
+- [oil.nvim](https://github.com/stevearc/oil.nvim.git)
+    - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
+- [align.nvim](https://github.com/Vonr/align.nvim.git)
+- [fidget.nvim](https://github.com/j-hui/fidget.nvim.git)
+- [2048.nvim](https://github.com/NStefan002/2048.nvim.git)
+- [which-key.nvim](https://github.com/folke/which-key.nvim.git)
+- [themery.nvim](https://github.com/zaldih/themery.nvim.git)
+- [silicon.nvim](https://github.com/mimikun/silicon.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim.git)
+    - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
+    - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim.git)
+- [dotfyle-metadata.nvim](https://github.com/creativenull/dotfyle-metadata.nvim.git)
+- [mason.nvim](https://github.com/williamboman/mason.nvim.git)
+    - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim.git)
+    - [mason-lock.nvim](https://github.com/zapling/mason-lock.nvim.git)
+    - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig.git)
+    - [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp.git)
+    - [neoconf.nvim](https://github.com/folke/neoconf.nvim.git)
+    - [neodev.nvim](https://github.com/folke/neodev.nvim.git)
+- [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim.git)
+- [mkdir.nvim](https://github.com/jghauser/mkdir.nvim.git)
+- [obsidian.nvim](https://github.com/epwalsh/obsidian.nvim.git)
+    - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim.git)
+    - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp.git)
+    - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim.git)
+    - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.git)
+    - [vim-markdown](https://github.com/preservim/vim-markdown.git)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig.git)
+    - [lspsaga.nvim](https://github.com/nvimdev/lspsaga.nvim.git)
+    - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter.git)
+    - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
+    - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons.git)
+
+## nvim-treesitter parsers
+
+- bash
+- c
+- c_sharp
+- cmake
+- cpp
+- css
+- dockerfile
+- fish
+- git_config
+- git_rebase
+- gitattributes
+- gitcommit
+- gitignore
+- go
+- gomod
+- gosum
+- gowork
+- graphql
+- html
+- ini
+- java
+- javascript
+- jq
+- jsdoc
+- json
+- json5
+- jsonc
+- kdl
+- latex
+- lua
+- luadoc
+- luap
+- luau
+- make
+- markdown
+- markdown_inline
+- ninja
+- nix
+- ocaml
+- ocaml_interface
+- org
+- python
+- regex
+- rst
+- ruby
+- rust
+- scala
+- scss
+- sql
+- svelte
+- swift
+- toml
+- tsx
+- typescript
+- vim
+- vimdoc
+- vue
+- yaml
+- zig
+
+## Mason managed tools
+
+- bash-language-server
+- clangd
+- csharp-language-server
+- css-lsp
+- deno
+- docker-compose-language-service
+- dockerfile-language-server
+- efm
+- esbonio
+- eslint-lsp
+- gopls
+- graphql-language-service-cli
+- html-lsp
+- jq-lsp
+- json-lsp
+- lua-language-server
+- luau-lsp
+- marksman
+- neocmakelsp
+- powershell-editor-services
+- pyright
+- rust-analyzer
+- solargraph
+- taplo
+- typescript-language-server
+- typos-lsp
+- vim-language-server
+- yaml-language-server
+- zls
+
+## LSP servers
+
+- bashls
+- clangd
+- csharp_ls
+- cssls
+- denols
+- docker_compose_language_service
+- dockerls
+- efm
+- esbonio
+- eslint
+- gopls
+- graphql
+- html
+- jqls
+- jsonls
+- lua_ls
+- luau_lsp
+- marksman
+- neocmake
+- powershell_es
+- pyright
+- rust_analyzer
+- solargraph
+- taplo
+- tsserver
+- typos_lsp
+- vimls
+- yamlls
+- zls
