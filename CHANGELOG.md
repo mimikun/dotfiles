@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.03.17]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update neovim lockfiles
+- Update mise fish completion
+- Update neovim_readme_generator.lua
+- Update neovim README
+- Update neovim plugin config: silicon.nvim
+    - rename: silicon.lua to silicon.nvim
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.03.15]
 
 ### Added - 新機能について
