@@ -24,7 +24,7 @@ highest human rights, but almost disk full.
 
 ### `Home-azusa`
 
-better human rights machine
+better human rights
 
 ThinkPad E14
 
@@ -39,7 +39,7 @@ ThinkPad E14
 
 ### `Work-Windows`
 
-No human rights machine
+No human rights
 
 - CPU:
     - Intel(R) Core(TM) i5-9400F
@@ -52,7 +52,7 @@ No human rights machine
 
 ### `Work-WSL`
 
-No human rights machine
+No human rights
 
 - RAM
     - 3GB(swap 8GB)
