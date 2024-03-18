@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.03.18]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- Update neovim lockfiles
+- Update i3-wm config
+    - add Ctrl+Alt+Delete menu
+- Update STARTUPTIME.md
+- Update GLOSSARY.md
+- Update neovim plugin config: nvim-tree
+
+### Removed - 今回で削除された機能について
+
+- Remove neovim plugin: fern.vim
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.03.17]
 
 ### Added - 新機能について
