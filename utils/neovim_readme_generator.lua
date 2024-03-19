@@ -4,29 +4,29 @@ local uv = vim.uv
 local data = {}
 
 local install_plugins = function()
-	local plugins = {}
+    local plugins = {}
 
-	for _, plugin in pairs(require("lazy").plugins()) do
-		local name = plugin.name
-		local url = plugin.url
-		local deps = plugin.dependencies
-		local repo = string.format("- [%s](%s)", name, url)
-		table.insert(data, repo)
-		if deps then
-			table.insert(data, "dependencies")
-			for _, d_plugin in pairs(deps) do
-				table.insert(data, d_plugin)
-			end
-		end
-	end
+    for _, plugin in pairs(require("lazy").plugins()) do
+        local name = plugin.name
+        local url = plugin.url
+        local deps = plugin.dependencies
+        local repo = string.format("- [%s](%s)", name, url)
+        table.insert(data, repo)
+        if deps then
+            table.insert(data, "dependencies")
+            for _, d_plugin in pairs(deps) do
+                table.insert(data, d_plugin)
+            end
+        end
+    end
 
-	table.sort(plugins)
-	return plugins
+    table.sort(plugins)
+    return plugins
 end
 
 table.insert(data, "## Plugins")
 for _, value in pairs(install_plugins()) do
-	table.insert(data, string.format("- %s", value))
+    table.insert(data, string.format("- %s", value))
 end
 
 -- OUTPUT
