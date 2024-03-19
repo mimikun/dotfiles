@@ -6,7 +6,7 @@
   "deno": "v1.41.3",
   "docker-compose-language-service": "0.2.0",
   "dockerfile-language-server": "0.11.0",
-  "efm": "v0.0.50",
+  "efm": "v0.0.53",
   "esbonio": "0.16.4",
   "eslint-lsp": "4.8.0",
   "gopls": "v0.15.2",
