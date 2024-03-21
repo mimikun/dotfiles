@@ -26,6 +26,7 @@ home() {
     echo "### Fixed - 不具合修正について"
     echo ""
     echo "なし"
+    echo ""
 }
 
 work() {
