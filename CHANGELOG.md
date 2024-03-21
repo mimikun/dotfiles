@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.03.21]
+
+### Added - 新機能について
+
+- Add new neovim plugin: garbage-day.nvim
+- Add new neovim plugin: nvim-asciidoc-preview
+- Add new neovim plugin: 15puzzle.nvim
+- Add new neovim colorscheme: kurayami.nvim
+- Add plugin spec copy file: spec-template.lua
+
+### Changed - 既存機能の変更について
+
+- Update neovim lockfiles
+- Update STARTUPTIME.md
+- Improved i3 config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Fix utils/changelog.sh
+
 ## [v2024.03.20]
 
 ### Added - 新機能について
