@@ -126,6 +126,13 @@ local spec = {
         opts = {},
         --cond = false,
     },
+    {
+        "kevinm6/kurayami.nvim",
+        --lazy = false,
+        --event = "VimEnter",
+        priority = 1000,
+        --cond = false,
+    },
     -- VimScript themes
     {
         "sainnhe/sonokai",
