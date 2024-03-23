@@ -50,6 +50,7 @@ ht
 hyperfine
 hysp
 i3-style
+jnv
 just
 lsd
 mask
