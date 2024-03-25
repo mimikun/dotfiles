@@ -37,7 +37,7 @@ packages:
 - name: bronze1man/yaml2json@v1.3
 - name: sclevine/yj@v5.1.0
 - name: FiloSottile/age@v1.1.1
-- name: mattn/algia@v0.0.68
+- name: mattn/algia@v0.0.69
 - name: chriswalz/bit@v1.1.2
 - name: koki-develop/gat@v0.17.0
 - name: golang/tools/goimports@v0.19.0
