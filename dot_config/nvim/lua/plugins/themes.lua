@@ -133,6 +133,35 @@ local spec = {
         priority = 1000,
         --cond = false,
     },
+    {
+        "b0o/lavi.nvim",
+        --lazy = false,
+        --event = "VimEnter",
+        dependencies = { "rktjmp/lush.nvim" },
+        --priority = 1000,
+        --cond = false,
+    },
+    {
+        -- XXX: name duplicate
+        "comfysage/evergarden",
+        --lazy = false,
+        --event = "VimEnter",
+        opts = {
+            transparent_background = true,
+            contrast_dark = "medium", -- 'hard'|'medium'|'soft'
+            overrides = {}, -- add custom overrides
+        },
+        --priority = 1000,
+        cond = false,
+    },
+    {
+        "loganswartz/sunburn.nvim",
+        --lazy = false,
+        --event = "VimEnter",
+        dependencies = { "loganswartz/polychrome.nvim" },
+        --priority = 1000,
+        --cond = false,
+    },
     -- VimScript themes
     {
         "sainnhe/sonokai",
