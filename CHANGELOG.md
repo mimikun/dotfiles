@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.03.26]
+
+### Added - 新機能について
+
+- feat: add some neovim plugins in windows
+- feat: add developing neovim plugin spec
+- feat: add lazydocker by aqua
+- feat: add husky
+- feat: add commitlint
+- feat: add lazydocker by aqua
+- feat: add horcrux by aqua
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore: update npm deps
+- chore: update neovim lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.03.25]
 
 ### Added - 新機能について
