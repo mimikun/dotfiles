@@ -94,6 +94,7 @@ OneDrive/**
 .config/sheldon/**
 .config/yazi/**
 .config/gitu/**
+.config/lazydocker/**
 .config/lazygit/**
 .ghcup/**
 .local/bin/**
