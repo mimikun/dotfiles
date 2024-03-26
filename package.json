@@ -3,6 +3,7 @@
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@commitlint/types": "^19.0.3",
+    "husky": "^9.0.11",
     "prettier": "3.2.5",
     "textlint": "^14.0.0",
     "textlint-rule-preset-ja-technical-writing": "^10.0.1"
@@ -10,6 +11,7 @@
   "scripts": {
     "textlint": "textlint --cache ./*.md",
     "lint:prettier": "prettier --check .",
-    "fmt:prettier": "prettier --write ."
+    "fmt:prettier": "prettier --write .",
+    "prepare": "husky"
   }
 }

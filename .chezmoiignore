@@ -19,6 +19,7 @@
 .config/nvim/README.md
 .vim/README.md
 commitlint.config.ts
+.husky/**
 
 CHANGELOG.md
 LICENSE.txt
