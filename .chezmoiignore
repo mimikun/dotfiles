@@ -18,6 +18,7 @@
 .config/fish/README.md
 .config/nvim/README.md
 .vim/README.md
+commitlint.config.ts
 
 CHANGELOG.md
 LICENSE.txt
