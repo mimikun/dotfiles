@@ -84,3 +84,4 @@ packages:
 - name: github.com/nyaosorg/nyagos@4.4.14_0
   registry: custom
 - name: jesseduffield/lazygit@v0.41.0
+- name: jesseduffield/horcrux@v0.2
