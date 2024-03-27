@@ -1,3 +1,5 @@
+local is_windows = require("core.global").is_windows
+
 ---@type boolean
 local is_git = false
 
@@ -15,6 +17,44 @@ local keymaps = {
 }
 
 ---@type LazySpec
+local fzy_sorter = {
+    "nvim-telescope/telescope-fzy-native.nvim",
+}
+
+---@type LazySpec
+local fzf_sorter = {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+}
+
+local sorter = is_windows and fzy_sorter or fzf_sorter
+
+---@type LazySpec[]
+local smart_open_deps = {
+    "kkharji/sqlite.lua",
+    sorter,
+}
+
+---@type LazySpec
+local smart_open = {
+    "danielfalk/smart-open.nvim",
+    branch = "0.2.x",
+    dependencies = smart_open_deps,
+}
+
+---@type LazySpec[]
+local telescope_deps = {
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-frecency.nvim",
+    smart_open,
+    "ghassan0/telescope-glyph.nvim",
+    "xiyaowong/telescope-emoji.nvim",
+    "tsakirist/telescope-lazy.nvim",
+    "fdschmidt93/telescope-egrepify.nvim",
+    "nvim-telescope/telescope-file-browser.nvim",
+}
+
+---@type LazySpec
 local spec = {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
@@ -22,9 +62,7 @@ local spec = {
     --event = "VimEnter",
     --cmd = "",
     keys = keymaps,
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-    },
+    dependencies = telescope_deps,
     config = function()
         local telescope = require("telescope")
         local builtin = require("telescope.builtin")
@@ -61,6 +99,15 @@ local spec = {
         vim.keymap.set("n", "fh", function()
             builtin.help_tags(themes.get_ivy())
         end, {})
+
+        -- Load some extensions
+        telescope.load_extension("frecency")
+        telescope.load_extension("smart_open")
+        telescope.load_extension("glyph")
+        telescope.load_extension("emoji")
+        telescope.load_extension("lazy")
+        telescope.load_extension("file_browser")
+        telescope.load_extension("egrepify")
     end,
     --cond = false,
 }
