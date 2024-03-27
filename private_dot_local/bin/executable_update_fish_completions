@@ -117,3 +117,7 @@ fi
 if command_exist alacritty; then
   pueue add -- "curl -L https://raw.githubusercontent.com/alacritty/alacritty/master/extra/completions/alacritty.fish -o '${COMPLETIONS_DIR}'/alacritty.fish"
 fi
+
+if command_exist uv; then
+  pueue add -- "uv --generate-shell-completion fish > '${COMPLETIONS_DIR}'/uv.fish"
+fi
