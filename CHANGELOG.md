@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.03.27]
+
+### Added - 新機能について
+
+- feat!: add uv by aqua
+- feat!: add uv fish completion
+- feat!: add new neovim plugin: no-neck-pain.nvim
+
+### Changed - 既存機能の変更について
+
+- chore: update neovim lockfiles
+- chore: update STARTUPTIME.md
+- refactor!: improved colorscheme plugins config
+- feat!: update update_fish_completions
+- feat!: update neovim plugin config: telescope.nvim
+- feat!: improved utils/changelog.sh
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix: chezmoi config
+
 ## [v2024.03.26]
 
 ### Added - 新機能について
