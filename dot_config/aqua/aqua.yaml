@@ -78,7 +78,7 @@ packages:
 # TODO: Organize the bottom from here
 - name: rhysd/actionlint@v1.6.27
 - name: koki-develop/clive@v0.12.9
-- name: tsl0922/ttyd@1.7.4
+- name: tsl0922/ttyd@1.7.5
 - name: charmbracelet/vhs@v0.7.1
 - name: mattn/bsky@v0.0.49
 - name: github.com/nyaosorg/nyagos@4.4.14_0
