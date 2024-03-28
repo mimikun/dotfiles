@@ -3,7 +3,7 @@
   "clangd": "17.0.3",
   "csharp-language-server": "0.11.0",
   "css-lsp": "4.8.0",
-  "deno": "v1.41.3",
+  "deno": "v1.42.0",
   "docker-compose-language-service": "0.2.0",
   "dockerfile-language-server": "0.11.0",
   "efm": "v0.0.53",
