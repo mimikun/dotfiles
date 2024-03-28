@@ -55,73 +55,73 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l lock -d 'Check the spec
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-read -d 'Deny file system read access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-read
   --deny-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-write -d 'Deny file system write access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-write
   --deny-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-net
   --deny-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-env
   --deny-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-sys
   --deny-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-run
   --deny-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-ffi
   --deny-ffi="./libfoo.so"' -r -F
@@ -134,6 +134,7 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l seed -d 'Set the random
 complete -c deno -n "__fish_seen_subcommand_from run" -l strace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from run" -l watch -d 'Watch for file changes and restart automatically' -r -F
+complete -c deno -n "__fish_seen_subcommand_from run" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l unstable-hmr -d 'UNSTABLE: Watch for file changes and hot replace modules' -r -F
 complete -c deno -n "__fish_seen_subcommand_from run" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	'',tsx	'',js	'',jsx	''}"
 complete -c deno -n "__fish_seen_subcommand_from run" -l env -d 'Load .env file' -r -F
@@ -144,13 +145,13 @@ complete -c deno -n "__fish_seen_subcommand_from run" -l no-config -d 'Disable a
 complete -c deno -n "__fish_seen_subcommand_from run" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from run" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from run" -l deny-hrtime -d 'Deny high-resolution time measurement. Note: this can prevent timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from run" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.41.3/basics/permissions
+https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from run" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from run" -l cached-only -d 'Require that remote dependencies are already cached'
@@ -203,73 +204,73 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l lock -d 'Check the sp
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-read -d 'Deny file system read access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-read
   --deny-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-write -d 'Deny file system write access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-write
   --deny-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-net
   --deny-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-env
   --deny-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-sys
   --deny-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-run
   --deny-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-ffi
   --deny-ffi="./libfoo.so"' -r -F
@@ -280,6 +281,7 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l strace-ops -d 'Trace 
 complete -c deno -n "__fish_seen_subcommand_from bench" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l ignore -d 'Ignore files' -r
 complete -c deno -n "__fish_seen_subcommand_from bench" -l filter -d 'Run benchmarks with this string or pattern in the bench name' -r
+complete -c deno -n "__fish_seen_subcommand_from bench" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l env -d 'Load .env file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bench" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -303,13 +305,13 @@ complete -c deno -n "__fish_seen_subcommand_from bench" -l no-config -d 'Disable
 complete -c deno -n "__fish_seen_subcommand_from bench" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from bench" -l deny-hrtime -d 'Deny high-resolution time measurement. Note: this can prevent timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from bench" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.41.3/basics/permissions
+https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from bench" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from bench" -l cached-only -d 'Require that remote dependencies are already cached'
@@ -331,6 +333,7 @@ complete -c deno -n "__fish_seen_subcommand_from bundle" -l lock -d 'Check the s
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l check -d 'Type-check modules' -r
+complete -c deno -n "__fish_seen_subcommand_from bundle" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	'',tsx	'',js	'',jsx	''}"
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from bundle" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -436,73 +439,73 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l lock -d 'Check the 
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-read -d 'Deny file system read access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-read
   --deny-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-write -d 'Deny file system write access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-write
   --deny-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-net
   --deny-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-env
   --deny-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-sys
   --deny-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-run
   --deny-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-ffi
   --deny-ffi="./libfoo.so"' -r -F
@@ -538,13 +541,13 @@ complete -c deno -n "__fish_seen_subcommand_from compile" -l no-config -d 'Disab
 complete -c deno -n "__fish_seen_subcommand_from compile" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from compile" -l deny-hrtime -d 'Deny high-resolution time measurement. Note: this can prevent timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from compile" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.41.3/basics/permissions
+https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from compile" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from compile" -l cached-only -d 'Require that remote dependencies are already cached'
@@ -678,6 +681,7 @@ complete -c deno -n "__fish_seen_subcommand_from fmt" -s L -l log-level -d 'Set 
 complete -c deno -n "__fish_seen_subcommand_from fmt" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts	'',tsx	'',js	'',jsx	'',md	'',json	'',jsonc	'',ipynb	''}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l ignore -d 'Ignore formatting particular source files' -r -F
+complete -c deno -n "__fish_seen_subcommand_from fmt" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l use-tabs -d 'Use tabs instead of spaces for indentation. Defaults to false.' -r -f -a "{true	'',false	''}"
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l line-width -d 'Define maximum line width. Defaults to 80.' -r
 complete -c deno -n "__fish_seen_subcommand_from fmt" -l indent-width -d 'Define indentation width. Defaults to 2.' -r
@@ -771,73 +775,73 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l lock -d 'Check the 
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-read -d 'Deny file system read access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-read
   --deny-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-write -d 'Deny file system write access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-write
   --deny-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-net
   --deny-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-env
   --deny-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-sys
   --deny-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-run
   --deny-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-ffi
   --deny-ffi="./libfoo.so"' -r -F
@@ -851,6 +855,7 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l strace-ops -d 'Trac
 complete -c deno -n "__fish_seen_subcommand_from install" -l check -d 'Type-check modules' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -s n -l name -d 'Executable file name' -r
 complete -c deno -n "__fish_seen_subcommand_from install" -l root -d 'Installation root' -r -f -a "(__fish_complete_directories)"
+complete -c deno -n "__fish_seen_subcommand_from install" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_seen_subcommand_from install" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from install" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_seen_subcommand_from install" -l unstable-byonm -d 'Enable unstable \'bring your own node_modules\' feature'
@@ -873,13 +878,13 @@ complete -c deno -n "__fish_seen_subcommand_from install" -l no-config -d 'Disab
 complete -c deno -n "__fish_seen_subcommand_from install" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from install" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from install" -l deny-hrtime -d 'Deny high-resolution time measurement. Note: this can prevent timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from install" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.41.3/basics/permissions
+https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from install" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from install" -l cached-only -d 'Require that remote dependencies are already cached'
@@ -925,6 +930,7 @@ complete -c deno -n "__fish_seen_subcommand_from uninstall" -l unstable-unsafe-p
 complete -c deno -n "__fish_seen_subcommand_from uninstall" -l unstable-webgpu -d 'Enable unstable `WebGPU` API'
 complete -c deno -n "__fish_seen_subcommand_from uninstall" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_seen_subcommand_from uninstall" -s g -l global -d 'Remove globally installed package or module'
 complete -c deno -n "__fish_seen_subcommand_from uninstall" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c deno -n "__fish_seen_subcommand_from lsp" -s L -l log-level -d 'Set log level' -r -f -a "{trace	'',debug	'',info	''}"
 complete -c deno -n "__fish_seen_subcommand_from lsp" -l unstable -d 'Enable unstable features and APIs'
@@ -950,6 +956,7 @@ complete -c deno -n "__fish_seen_subcommand_from lint" -l rules-include -d 'Incl
 complete -c deno -n "__fish_seen_subcommand_from lint" -l rules-exclude -d 'Exclude lint rules' -r
 complete -c deno -n "__fish_seen_subcommand_from lint" -s c -l config -d 'Specify the configuration file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from lint" -l ignore -d 'Ignore linting particular source files' -r -F
+complete -c deno -n "__fish_seen_subcommand_from lint" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable -d 'Enable unstable features and APIs'
 complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable-byonm -d 'Enable unstable \'bring your own node_modules\' feature'
@@ -966,6 +973,7 @@ complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable-unsafe-proto 
 complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable-webgpu -d 'Enable unstable `WebGPU` API'
 complete -c deno -n "__fish_seen_subcommand_from lint" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_seen_subcommand_from lint" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_seen_subcommand_from lint" -l fix -d 'Fix any linting errors for rules that support it'
 complete -c deno -n "__fish_seen_subcommand_from lint" -l rules -d 'List available rules'
 complete -c deno -n "__fish_seen_subcommand_from lint" -l no-config -d 'Disable automatic loading of the configuration file.'
 complete -c deno -n "__fish_seen_subcommand_from lint" -l json -d 'Output lint result in JSON format'
@@ -1013,73 +1021,73 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l lock -d 'Check the spe
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-read -d 'Deny file system read access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-read
   --deny-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-write -d 'Deny file system write access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-write
   --deny-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-net
   --deny-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-env
   --deny-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-sys
   --deny-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-run
   --deny-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-ffi
   --deny-ffi="./libfoo.so"' -r -F
@@ -1115,13 +1123,13 @@ complete -c deno -n "__fish_seen_subcommand_from repl" -l no-config -d 'Disable 
 complete -c deno -n "__fish_seen_subcommand_from repl" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from repl" -l deny-hrtime -d 'Deny high-resolution time measurement. Note: this can prevent timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from repl" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.41.3/basics/permissions
+https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from repl" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from repl" -l cached-only -d 'Require that remote dependencies are already cached'
@@ -1159,73 +1167,73 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l lock -d 'Check the spe
 If value is not provided, defaults to "deno.lock" in the current working directory.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-read -d 'Allow file system read access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-read
   --allow-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-read -d 'Deny file system read access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-read
   --deny-read="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-write -d 'Allow file system write access. Optionally specify allowed paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-write
   --allow-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-write -d 'Deny file system write access. Optionally specify denied paths.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-write
   --deny-write="/etc,/var/log.txt"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-net
   --allow-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-net
   --deny-net="localhost:8080,deno.land"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-env
   --allow-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-env
   --deny-env="PORT,HOME,PATH"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-sys
   --allow-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-sys
   --deny-sys="systemMemoryInfo,osRelease"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-run
   --allow-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-run
   --deny-run="whoami,ps"' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --allow-ffi
   --allow-ffi="./libfoo.so"' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 Examples:
   --deny-ffi
   --deny-ffi="./libfoo.so"' -r -F
@@ -1243,6 +1251,7 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l filter -d 'Run tests w
 complete -c deno -n "__fish_seen_subcommand_from test" -l shuffle -d 'Shuffle the order in which the tests are run' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -l coverage -d 'Collect coverage profile data into DIR. If DIR is not specified, it uses \'coverage/\'.' -r
 complete -c deno -n "__fish_seen_subcommand_from test" -s j -l jobs -d 'deprecated: The `--jobs` flag is deprecated and will be removed in Deno 2.0. Use the `--parallel` flag with possibly the `DENO_JOBS` environment variable instead.' -r
+complete -c deno -n "__fish_seen_subcommand_from test" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l junit-path -d 'Write a JUnit XML test report to PATH. Use \'-\' to write to stdout which is the default when PATH is not provided.' -r -F
 complete -c deno -n "__fish_seen_subcommand_from test" -l reporter -d 'Select reporter to use. Default to \'pretty\'.' -r -f -a "{pretty	'',dot	'',junit	'',tap	''}"
 complete -c deno -n "__fish_seen_subcommand_from test" -l env -d 'Load .env file' -r -F
@@ -1268,13 +1277,13 @@ complete -c deno -n "__fish_seen_subcommand_from test" -l no-config -d 'Disable 
 complete -c deno -n "__fish_seen_subcommand_from test" -l lock-write -d 'Force overwriting the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-lock -d 'Disable auto discovery of the lock file.'
 complete -c deno -n "__fish_seen_subcommand_from test" -l allow-hrtime -d 'Allow high-resolution time measurement. Note: this can enable timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from test" -l deny-hrtime -d 'Deny high-resolution time measurement. Note: this can prevent timing attacks and fingerprinting.
-Docs: https://deno.land/manual@v1.41.3/basics/permissions
+Docs: https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from test" -s A -l allow-all -d 'Allow all permissions. Learn more about permissions in Deno:
-https://deno.land/manual@v1.41.3/basics/permissions
+https://deno.land/manual@v1.42.0/basics/permissions
 '
 complete -c deno -n "__fish_seen_subcommand_from test" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_seen_subcommand_from test" -l cached-only -d 'Require that remote dependencies are already cached'
