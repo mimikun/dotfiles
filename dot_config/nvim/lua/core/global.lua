@@ -3,10 +3,22 @@ local uv = vim.uv and vim.uv or vim.loop
 
 local os_name = uv.os_uname().sysname
 local total_memory = uv.get_total_memory()
--- 4GB
-local linux_human_rights_memory_size = 4294967296
--- 9GB
-local windows_human_rights_memory_size = 9663676416
+
+---@type table
+local human_rights = {
+    cpu = {
+        "Ryzen 9 3900X",
+        "i5-13500H",
+    },
+    memory = {
+        -- 4GB
+        linux = 4294967296,
+        -- 9GB
+        windows = 9663676416,
+    },
+    available_parallelism = 14,
+    media_type = "SSD",
+}
 
 function global:load_variables()
     ---@type boolean
@@ -24,21 +36,22 @@ function global:load_variables()
     ---@type boolean
     self.is_unix = vim.fn.has("unix") == 1
 
-    local human_rights
-    if self.is_windows then
-        human_rights = (total_memory > windows_human_rights_memory_size)
-    else
-        human_rights = (total_memory > linux_human_rights_memory_size)
-    end
-
     ---@type boolean
-    self.is_human_rights = human_rights
+    self.is_human_rights = self.is_windows and (total_memory > human_rights.memory.windows)
+        or (total_memory > human_rights.memory.linux)
 
     ---@type string
     self.vim_path = vim.fn.stdpath("config")
 
+    -- NOTE:
+    -- Windows: "\"
+    -- Linux: "/"
     ---@type string
-    self.path_sep = self.is_windows and "\\" or "/"
+    local path_sep_char = string.sub(package.config, 1, 1)
+
+    -- NOTE: self.path_sep = self.is_windows and "\\" or "/"
+    ---@type string
+    self.path_sep = self.is_windows and string.rep(path_sep_char, 2) or path_sep_char
 
     ---@type string
     self.home = uv.os_homedir()
