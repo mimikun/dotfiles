@@ -1,4 +1,7 @@
-local is_windows = require("core.global").is_windows
+local global = require("core.global")
+
+local home = global.home
+local is_windows = global.is_windows
 
 ---@type boolean
 local is_git = false
@@ -16,23 +19,23 @@ local keymaps = {
     { "fh", desc = "Open helptags search" },
 }
 
----@type LazySpec
-local fzy_sorter = {
-    "nvim-telescope/telescope-fzy-native.nvim",
+---@type table
+local fzf_sorter_build_cmd = {
+    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release",
+    "cmake --build build --config Release",
+    "cmake --install build --prefix build",
 }
 
 ---@type LazySpec
 local fzf_sorter = {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
+    build = is_windows and fzf_sorter_build_cmd or "make",
 }
-
-local sorter = is_windows and fzy_sorter or fzf_sorter
 
 ---@type LazySpec[]
 local smart_open_deps = {
     "kkharji/sqlite.lua",
-    sorter,
+    fzf_sorter,
 }
 
 ---@type LazySpec
@@ -40,6 +43,11 @@ local smart_open = {
     "danielfalk/smart-open.nvim",
     branch = "0.2.x",
     dependencies = smart_open_deps,
+    config = function()
+        if is_windows then
+            vim.g.sqlite_clib_path = table.concat({ home, "utilities", "sqlite3.dll" }, "/")
+        end
+    end,
 }
 
 ---@type LazySpec[]
@@ -52,6 +60,7 @@ local telescope_deps = {
     "tsakirist/telescope-lazy.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
+    fzf_sorter,
 }
 
 ---@type LazySpec
@@ -103,6 +112,7 @@ local spec = {
         -- Load some extensions
         telescope.load_extension("frecency")
         telescope.load_extension("smart_open")
+        telescope.load_extension("fzf")
         telescope.load_extension("glyph")
         telescope.load_extension("emoji")
         telescope.load_extension("lazy")
