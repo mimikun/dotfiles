@@ -36,9 +36,16 @@ function global:load_variables()
     ---@type boolean
     self.is_unix = vim.fn.has("unix") == 1
 
+    -- TODO: Replace mimikun/human_rights.nvim
+    local is_human_rights
+    if self.is_windows then
+        is_human_rights = total_memory > human_rights.memory.windows
+    else
+        is_human_rights = total_memory > human_rights.memory.linux
+    end
+
     ---@type boolean
-    self.is_human_rights = self.is_windows and (total_memory > human_rights.memory.windows)
-        or (total_memory > human_rights.memory.linux)
+    self.is_human_rights = is_human_rights
 
     ---@type string
     self.vim_path = vim.fn.stdpath("config")
