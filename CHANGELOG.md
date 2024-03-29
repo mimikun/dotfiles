@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.03.29]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore: update neovim lockfiles
+- chore: update uv fish completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix: telescope config in windows
+- fix: human rights check process
+- fix: selene error
+
 ## [v2024.03.28]
 
 ### Added - 新機能について
