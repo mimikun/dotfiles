@@ -19,12 +19,12 @@ local keymaps = {
     { "fh", desc = "Open helptags search" },
 }
 
----@type table
-local fzf_sorter_build_cmd = {
+---@type string
+local fzf_sorter_build_cmd = table.concat({
     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release",
     "cmake --build build --config Release",
     "cmake --install build --prefix build",
-}
+}, " && ")
 
 ---@type LazySpec
 local fzf_sorter = {
