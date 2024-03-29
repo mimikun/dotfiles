@@ -77,6 +77,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l emit-index-url -d 'Include `--index-url` and `--extra-index-url` entries in the generated output file'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l emit-find-links -d 'Include `--find-links` entries in the generated output file'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l emit-marker-expression -d 'Whether to emit a marker string indicating when it is known that the resulting set of pinned dependencies is valid'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l allow-unsafe
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-allow-unsafe
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l reuse-hashes
