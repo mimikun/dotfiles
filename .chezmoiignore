@@ -35,8 +35,9 @@ tasks.ps1
 renovate.json5
 selene.toml
 stylua.toml
-vim.toml
-nyagos.toml
+vim.yml
+nyagos.yml
+package.yml
 package.json
 pnpm-lock.yaml
 PSScriptAnalyzerSettings.psd1

@@ -1,0 +1,5 @@
+base: lua51
+name: package
+globals:
+  package:
+    any: true
