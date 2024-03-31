@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.03.31]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore: update neovim lockfiles
+- chore: update neovim lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- Revert "Improved i3 config"
+    - This reverts commit 9d70127adb15aa60635c6eeb61c7ea4d5d4b07e6.
+
 ## [v2024.03.29]
 
 ### Added - 新機能について
