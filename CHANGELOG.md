@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.04.01]
+
+### Added - 新機能について
+
+- feat!: set background image in wezterm
+- feat!: add .kabegami directory
+- feat!: add new neovim plugin: dmacro.nvim
+
+### Changed - 既存機能の変更について
+
+- chore: update neovim lockfiles
+- chore: update deno fish completion
+- chore: update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix: neovim plugin config: tree-sitter
+
 ## [v2024.03.31]
 
 ### Added - 新機能について
