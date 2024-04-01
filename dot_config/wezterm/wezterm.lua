@@ -13,22 +13,39 @@ local hostname = global.hostname
 local is_wsl = global.is_wsl
 local is_azusa = global.is_azusa
 local is_human_rights = global.is_human_rights
+local home = global.home
+local config_dir = global.config_dir
+local config_file = global.config_file
+local version = global.version
+local exec_dir = global.exec_dir
+local path_sep = global.path_sep
 
 local base_font_size = is_azusa and 22 or 14
 local wf_font_size = is_azusa and 12 or 10
+
+local kabegami_name = "Azusa_by_96ENU.png"
 
 require("format")
 require("status")
 require("event")
 
+-- appearance
 config.color_scheme = "GitHub Dark"
 config.window_background_opacity = 0.93
+config.window_background_image = table.concat({ home, ".kabegami", "random", kabegami_name }, path_sep)
+config.window_background_image_hsb = {
+    hue = 1.0,
+    saturation = 1.0,
+    brightness = 0.07,
+}
+
+-- font
 config.font = wezterm.font_with_fallback({
     { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
 })
-
 config.font_size = base_font_size
+
 config.window_frame = {
     font = wezterm.font({ family = "Roboto", weight = "Bold" }),
     font_size = wf_font_size,
@@ -161,13 +178,18 @@ local function debug_log_print()
     --wezterm.log_info("Default hyperlink rules " .. wezterm.default_hyperlink_rules())
     --wezterm.log_info("Default ssh domains" .. wezterm.default_ssh_domains())
     --wezterm.log_info("Default wsl domains" .. wezterm.default_wsl_domains())
-    wezterm.log_info("Config Dir " .. wezterm.config_dir)
-    wezterm.log_info("Config file " .. wezterm.config_file)
-    wezterm.log_info("Version " .. wezterm.version)
-    wezterm.log_info("Exe dir " .. wezterm.executable_dir)
+    wezterm.log_info("Home Dir " .. home)
+    wezterm.log_info("Config Dir " .. config_dir)
+    wezterm.log_info("Config file " .. config_file)
+    wezterm.log_info("Version " .. version)
+    wezterm.log_info("Exe dir " .. exec_dir)
     wezterm.log_info("Hostname " .. hostname)
+    wezterm.log_info("Path sep " .. path_sep)
     wezterm.log_info("Running under wsl" .. tostring(is_wsl))
     config.debug_key_events = true
+end
+
+local function debug_icon_print()
     -- zoomed 🔎,
     wezterm.log_info("cod_zoom_in " .. cod_zoom_in)
     wezterm.log_info("oct_zoom_in " .. oct_zoom_in)

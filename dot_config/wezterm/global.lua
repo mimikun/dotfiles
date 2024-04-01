@@ -28,6 +28,11 @@ function global:load_variables()
     self.is_wsl = is_wsl
     self.is_azusa = hostname == "azusa"
     self.is_human_rights = global:is_human_rights()
+    self.home = wezterm.home_dir
+    self.config_dir = wezterm.config_dir
+    self.config_file = wezterm.config_file
+    self.version = wezterm.version
+    self.exec_dir = wezterm.executable_dir
     self.path_sep = self.is_windows and "\\" or "/"
 end
 
