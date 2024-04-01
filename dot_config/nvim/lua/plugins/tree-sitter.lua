@@ -18,7 +18,6 @@ local spec = {
         "LhKipp/nvim-nu",
         "Fymyte/tree-sitter-rasi",
         "mimikun/tree-sitter-PowerShell",
-        { "nvim-orgmode/orgmode", build = ":TSInstall! org" },
         -- NOTE: has bug
         --{ "apple/pkl-neovim", build = ":TSInstall! pkl" },
     },
@@ -28,14 +27,11 @@ local spec = {
 
         local nvim_nu = require("nu")
         local nvim_ts_autotag = require("nvim-ts-autotag")
-        local orgmode = require("orgmode")
 
         nvim_nu.setup({})
         nvim_ts_autotag.setup({})
-        orgmode.setup_ts_grammar()
 
         local need_parsers = treesitter_parsers
-        table.insert(need_parsers, "org")
         --table.insert(need_parsers, "pkl")
 
         configs.setup({
