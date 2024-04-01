@@ -7,6 +7,52 @@ This is Work-PC startuptime memo
 - PowerShell Core(Linux) (pwsh)
 - Paleovim(vim)
 
+## 2024.04.01
+
+### Neovim
+
+```shell
+❯ vim-startuptime -vimpath nvim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 215.827900 msec
+Total Max:     251.029000 msec
+Total Min:     181.047000 msec
+```
+
+### Fish-shell
+
+```shell
+❯ hyperfine -w 5 -r 50 "fish -i -c exit"
+Benchmark 1: fish -i -c exit
+  Time (mean ± σ):     201.9 ms ±   7.1 ms    [User: 179.4 ms, System: 27.5 ms]
+  Range (min … max):   193.6 ms … 239.6 ms    50 runs
+ 
+```
+
+### PowerShell Core(Linux) (pwsh)
+
+```powershell
+❯ hyperfine -w 5 -r 50 pwsh -i -c exit"
+Benchmark 1: pwsh -i -c exit
+  Time (mean ± σ):      1.689 s ±  0.107 s    [User: 0.944 s, System: 0.377 s]
+  Range (min … max):    1.529 s …  2.160 s    50 runs
+ 
+```
+
+### Paleovim(vim)
+
+```shell
+❯ vim-startuptime -vimpath vim | head -n 6
+Extra options: []
+Measured: 10 times
+
+Total Average: 15.615900 msec
+Total Max:     39.278000 msec
+Total Min:     11.035000 msec
+```
+
 ## 2024.03.29
 
 ### Neovim
