@@ -19,24 +19,22 @@ local keymaps = {
     { "fh", desc = "Open helptags search" },
 }
 
----@type string
-local fzf_sorter_build_cmd = table.concat({
-    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release",
-    "cmake --build build --config Release",
-    "cmake --install build --prefix build",
-}, " && ")
-
 ---@type LazySpec
 local fzf_sorter = {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = is_windows and fzf_sorter_build_cmd or "make",
+    build = "make",
 }
 
 ---@type LazySpec[]
 local smart_open_deps = {
     "kkharji/sqlite.lua",
-    fzf_sorter,
 }
+
+-- NOTE: Add fzf_sorter if not a Windows
+-- Very difficult to build fzf on Windows
+if not is_windows then
+    table.insert(smart_open_deps, fzf_sorter)
+end
 
 ---@type LazySpec
 local smart_open = {
@@ -60,8 +58,13 @@ local telescope_deps = {
     "tsakirist/telescope-lazy.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
-    fzf_sorter,
 }
+
+-- NOTE: Add fzf_sorter if not a Windows
+-- Very difficult to build fzf on Windows
+if not is_windows then
+    table.insert(telescope_deps, fzf_sorter)
+end
 
 ---@type LazySpec
 local spec = {
@@ -110,9 +113,14 @@ local spec = {
         end, {})
 
         -- Load some extensions
+
+        -- NOTE: Add fzf_sorter if not a Windows
+        -- Very difficult to build fzf on Windows
+        if not is_windows then
+            telescope.load_extension("fzf")
+        end
         telescope.load_extension("frecency")
         telescope.load_extension("smart_open")
-        telescope.load_extension("fzf")
         telescope.load_extension("glyph")
         telescope.load_extension("emoji")
         telescope.load_extension("lazy")
