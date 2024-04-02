@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.04.02]
+
+### Added - 新機能について
+
+- feat!: manage sqlite3.dll by chezmoi in windows
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(nvim): update lockfiles
+- feat(nvim)!: update telescope config
+- feat(nvim)!: transparent background when there are human rights
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(wezterm)!: set background image when human rights are present
+
 ## [v2024.04.01]
 
 ### Added - 新機能について
