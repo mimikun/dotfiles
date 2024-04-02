@@ -28,3 +28,11 @@
     type = "file"
     url = "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el"
     refreshPeriod = "168h"
+
+{{ if eq .chezmoi.os "windows" }}
+["utilities/sqlite3.dll"]
+    type = "archive-file"
+    url = "https://www.sqlite.org/2024/sqlite-dll-win-x64-3450200.zip"
+    path = "sqlite3.dll"
+    refreshPeriod = "8760h"
+{{ end }}
