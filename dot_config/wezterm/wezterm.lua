@@ -32,12 +32,15 @@ require("event")
 -- appearance
 config.color_scheme = "GitHub Dark"
 config.window_background_opacity = 0.93
-config.window_background_image = table.concat({ home, ".kabegami", "random", kabegami_name }, path_sep)
-config.window_background_image_hsb = {
-    hue = 1.0,
-    saturation = 1.0,
-    brightness = 0.07,
-}
+
+if is_human_rights then
+    config.window_background_image = table.concat({ home, ".kabegami", "random", kabegami_name }, path_sep)
+    config.window_background_image_hsb = {
+        hue = 1.0,
+        saturation = 1.0,
+        brightness = 0.07,
+    }
+end
 
 -- font
 config.font = wezterm.font_with_fallback({
