@@ -202,6 +202,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l exclude-editable -d 'Exclude any editable packages from output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l strict -d 'Validate the virtual environment, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l system -d 'List packages for the system Python'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s q -l quiet -d 'Do not print any output'
@@ -216,9 +217,9 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l strict -d 'Validate the virtual environment, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s e -l editable -d 'Only include editable projects'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l exclude-editable -d 'Exclude any editable packages from output'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l strict -d 'Validate the virtual environment, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l system -d 'List packages for the system Python'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
