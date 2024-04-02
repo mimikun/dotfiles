@@ -1,11 +1,20 @@
-local themery_config = require("core.global").themery_config
+local global = require("core.global")
+local is_human_rights = global.is_human_rights
+local themery_config = global.themery_config
 
 ---@type LazySpec
 local github_theme = {
     "projekt0n/github-nvim-theme",
     lazy = false,
     --event = "VeryLazy",
-    priority = 1000,
+    config = function()
+        require("github-theme").setup({
+            options = {
+                transparent = is_human_rights,
+            },
+        })
+    end,
+    --priority = 1000,
     --cond = false,
 }
 
@@ -14,27 +23,25 @@ local cyberdream = {
     "scottmckendry/cyberdream.nvim",
     --lazy = false,
     --event = "VeryLazy",
-    --priority = 1000,
     opts = {
-        -- Enable transparent background
-        transparent = true,
-        -- Enable italics comments
+        transparent = is_human_rights,
         italic_comments = true,
-        -- Replace all fillchars with ' ' for the ultimate clean look
         hide_fillchars = true,
-        -- Modern borderless telescope theme
         borderless_telescope = true,
+        terminal_colors = true,
     },
+    --priority = 1000,
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local monokai = {
     "tanvirtin/monokai.nvim",
     --lazy = false,
     --event = "VeryLazy",
-    --priority = 1000,
     config = true,
+    --priority = 1000,
     --cond = false,
 }
 
@@ -43,8 +50,17 @@ local penumbra = {
     "Allianaab2m/penumbra.nvim",
     --lazy = false,
     --event = "VeryLazy",
-    --priority = 1000,
+    opts = {
+        italic_comment = false,
+        transparent_bg = is_human_rights,
+        show_end_of_buffer = false,
+        light = false,
+        contrast = nil,
+        --contrast = "plus",
+        --contrast = "plusplus",
+    },
     config = true,
+    --priority = 1000,
     --cond = false,
 }
 
@@ -53,11 +69,21 @@ local tokyonight = {
     "folke/tokyonight.nvim",
     --lazy = false,
     --event = "VeryLazy",
+    opts = {
+        style = "storm",
+        --style = "moon",
+        --style = "night",
+        --style = "day",
+        light_style = "day",
+        transparent = is_human_rights,
+        terminal_colors = true,
+    },
+    --config = true,
     --priority = 1000,
-    opts = {},
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local yash = {
     "kihachi2000/yash.nvim",
@@ -72,8 +98,13 @@ local nightfox = {
     "EdenEast/nightfox.nvim",
     --lazy = false,
     --event = "VeryLazy",
+    opts = {
+        options = {
+            transparent = is_human_rights,
+        },
+    },
+    --config = true,
     --priority = 1000,
-    config = true,
     --cond = false,
 }
 
@@ -82,8 +113,11 @@ local tokyodark = {
     "tiagovla/tokyodark.nvim",
     --lazy = false,
     --event = "VeryLazy",
+    opts = {
+        transparent_background = is_human_rights,
+    },
+    --config = true,
     --priority = 1000,
-    config = true,
     --cond = false,
 }
 
@@ -92,8 +126,11 @@ local monokai_pro = {
     "loctvl842/monokai-pro.nvim",
     --lazy = false,
     --event = "VeryLazy",
+    opts = {
+        transparent_background = is_human_rights,
+    },
+    --config = true,
     --priority = 1000,
-    config = true,
     --cond = false,
 }
 
@@ -102,6 +139,9 @@ local nord = {
     "shaunsingh/nord.nvim",
     --lazy = false,
     --event = "VeryLazy",
+    config = function()
+        vim.g.nord_disable_background = is_human_rights
+    end,
     --priority = 1000,
     --cond = false,
 }
@@ -112,8 +152,11 @@ local catppuccin = {
     name = "catppuccin",
     --lazy = false,
     --event = "VeryLazy",
+    opts = {
+        transparent_background = is_human_rights,
+    },
+    --config = true,
     priority = 1000,
-    config = true,
     --cond = false,
 }
 
@@ -122,8 +165,11 @@ local pastelnight = {
     "pauchiner/pastelnight.nvim",
     --lazy = false,
     --event = "VeryLazy",
+    opts = {
+        transparent = true,
+    },
+    --config = true,
     priority = 1000,
-    opts = {},
     --cond = false,
 }
 
@@ -132,6 +178,8 @@ local kurayami = {
     "kevinm6/kurayami.nvim",
     --lazy = false,
     --event = "VimEnter",
+    --opts = {},
+    --config = true,
     priority = 1000,
     --cond = false,
 }
@@ -152,12 +200,13 @@ local evergarden = {
     --lazy = false,
     --event = "VimEnter",
     opts = {
-        transparent_background = true,
-        -- 'hard'|'medium'|'soft'
-        contrast_dark = "medium",
-        -- add custom overrides
+        transparent_background = is_human_rights,
+        contrast_dark = "hard",
+        --contrast_dark = "medium",
+        --contrast_dark = "soft",
         overrides = {},
     },
+    --config = true,
     --priority = 1000,
     --cond = false,
 }
@@ -177,10 +226,106 @@ local sonokai = {
     "sainnhe/sonokai",
     --lazy = false,
     --event = "VeryLazy",
-    --priority = 1000,
     config = function()
         vim.g.sonokai_style = "default"
+        --vim.g.sonokai_style = "atlantis"
+        --vim.g.sonokai_style = "andromeda"
+        --vim.g.sonokai_style = "shusia"
+        --vim.g.sonokai_style = "maia"
+        --vim.g.sonokai_style = "espresso"
+        vim.g.sonokai_transparent_background = is_human_rights and 1 or 0
+        vim.g.sonokai_current_word = is_human_rights and "bold" or "grey background"
+        -- if you want more ui components to be transparent
+        --vim.g.sonokai_transparent_background = 2
+        -- when not in transparent mode,
+        --vim.g.sonokai_current_word = "grey background"
+        -- when in transparent mode.
+        --vim.g.sonokai_current_word = "bold"
+        --vim.g.sonokai_current_word = "underline"
+        --vim.g.sonokai_current_word = "italic"
+        vim.g.sonokai_better_performance = 1
+        vim.g.sonokai_disable_italic_comment = 0
+        vim.g.sonokai_enable_italic = 0
+        vim.g.sonokai_cursor = "auto"
+        --vim.g.sonokai_cursor = "red"
+        --vim.g.sonokai_cursor = "orange"
+        --vim.g.sonokai_cursor = "yellow"
+        --vim.g.sonokai_cursor = "green"
+        --vim.g.sonokai_cursor = "blue"
+        --vim.g.sonokai_cursor = "purple"
+        vim.g.sonokai_dim_inactive_windows = 0
+        vim.g.sonokai_menu_selection_background = "blue"
+        --vim.g.sonokai_menu_selection_background = "green"
+        --vim.g.sonokai_menu_selection_background = "red"
+        vim.g.sonokai_spell_foreground = "none"
+        --vim.g.sonokai_spell_foreground = "colored"
+        vim.g.sonokai_show_eob = 1
+        vim.g.sonokai_float_style = "bright"
+        --vim.g.sonokai_float_style = "dim"
+        vim.g.sonokai_diagnostic_text_highlight = 0
+        vim.g.sonokai_diagnostic_line_highlight = 0
+        vim.g.sonokai_diagnostic_virtual_text = "grey"
+        --vim.g.sonokai_diagnostic_virtual_text = "colored"
+        --vim.g.sonokai_diagnostic_virtual_text = "highlighted"
+        vim.g.sonokai_disable_terminal_colors = 0
+        vim.g.sonokai_lightline_disable_bold = 0
+        vim.g.sonokai_better_performance = 0
+        --vim.g.sonokai_colors_override = {}
     end,
+    --priority = 1000,
+    --cond = false,
+}
+
+---@type LazySpec
+local edge = {
+    "sainnhe/edge",
+    --lazy = false,
+    --event = "VeryLazy",
+    config = function()
+        vim.g.edge_style = "default"
+        --vim.g.edge_style = "aura"
+        --vim.g.edge_style = "neon"
+        vim.g.edge_transparent_background = is_human_rights and 1 or 0
+        vim.g.edge_current_word = is_human_rights and "bold" or "grey background"
+        -- if you want more ui components to be transparent
+        --vim.g.edge_transparent_background = 2
+        vim.g.edge_better_performance = 1
+        vim.g.edge_dim_foreground = 0
+        vim.g.edge_disable_italic_comment = 0
+        vim.g.edge_enable_italic = 0
+        vim.g.edge_cursor = "auto"
+        --vim.g.edge_cursor = "red"
+        --vim.g.edge_cursor = "yellow"
+        --vim.g.edge_cursor = "green"
+        --vim.g.edge_cursor = "cyan"
+        --vim.g.edge_cursor = "blue"
+        --vim.g.edge_cursor = "purple"
+        vim.g.edge_dim_inactive_windows = 0
+        vim.g.edge_menu_selection_background = "blue"
+        --vim.g.edge_menu_selection_background = "green"
+        --vim.g.edge_menu_selection_background = "purple"
+        vim.g.edge_spell_foreground = "none"
+        vim.g.edge_spell_foreground = "colored"
+        vim.g.edge_show_eob = 1
+        vim.g.edge_float_style = "bright"
+        --vim.g.edge_float_style = "dim"
+        vim.g.edge_diagnostic_text_highlight = 0
+        vim.g.edge_diagnostic_line_highlight = 0
+        vim.g.edge_diagnostic_virtual_text = "grey"
+        --vim.g.edge_diagnostic_virtual_text = "colored"
+        --vim.g.edge_diagnostic_virtual_text = "highlighted"
+        -- when not in transparent mode
+        --vim.g.edge_current_word = "grey background"
+        -- when in transparent mode
+        --vim.g.edge_current_word = "bold"
+        --vim.g.edge_current_word = "underline"
+        --vim.g.edge_current_word = "italic"
+        vim.g.edge_disable_terminal_colors = 0
+        vim.g.edge_lightline_disable_bold = 0
+        vim.g.edge_better_performance = 0
+        --vim.g.edge_colors_override = {}
+    end,
+    --priority = 1000,
     --cond = false,
 }
 
@@ -193,25 +338,13 @@ local kyotonight = {
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local momiji = {
     "kyoh86/momiji",
     --lazy = false,
     --event = "VeryLazy",
     --priority = 1000,
-    --cond = false,
-}
-
----@type LazySpec
-local edge = {
-    "sainnhe/edge",
-    --lazy = false,
-    --event = "VeryLazy",
-    --priority = 1000,
-    config = function()
-        vim.g.edge_style = "default"
-        vim.g.edge_better_performance = 1
-    end,
     --cond = false,
 }
 
@@ -349,10 +482,9 @@ local themery_selectables = {
         name = "lavi",
         colorscheme = "lavi",
     },
-    -- TODO: evergarden_2
     {
-        name = "",
-        colorscheme = "",
+        name = "evergarden",
+        colorscheme = "evergarden",
     },
     {
         name = "sunburn",
