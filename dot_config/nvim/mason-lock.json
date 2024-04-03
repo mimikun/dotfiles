@@ -17,7 +17,7 @@
   "lua-language-server": "3.7.4",
   "luau-lsp": "1.28.1",
   "marksman": "2023-12-09",
-  "neocmakelsp": "0.6.20",
+  "neocmakelsp": "0.6.22",
   "powershell-editor-services": "v3.18.1",
   "pyright": "1.1.356",
   "rust-analyzer": "2024-04-01",
