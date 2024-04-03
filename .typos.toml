@@ -20,16 +20,16 @@ Siduction = "Siduction"
 fo = "fo"
 # telescope-nvim
 tabe = "tabe"
+# word 'HD' in:
+# dot_config/fish/completions/zellij.fish
+# dot_config/neofetch/config.conf
+HD = "HD"
 
 [files]
 extend-exclude = [
   "pnpm-lock.yaml",
   "game_settings/Apex_Legends",
   "game_settings/CookieClicker",
-  # Not fixed
-  # PR sent.
-  # https://github.com/haskell/ghcup-hs/pull/943
-  "dot_ghcup/config.yaml",
   # NOTE: Unmaintained and no upstream fixes
   "dot_config/pipr/pipr.toml",
 ]
