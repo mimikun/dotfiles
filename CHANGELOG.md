@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.04.03]
+
+### Added - 新機能について
+
+- feat(rust-tool)!: add mocword
+- feat(windows-terminal)!: add configs
+- feat(shells)!: set MOCWORD_DATA envs
+- feat(neovim)!: add some colorschemes
+
+### Changed - 既存機能の変更について
+
+- chore(neovim): update lockfiles
+- chore: update STARTUPTIME.md
+- chore(readme): update images
+- feat(nyagos)!: improved path_sep
+- docs(neovim)!: update README.md
+- docs(glossary)!: update
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(typos)!: word 'HD' is correct
+- fix(ghcup)!: typo fixed
+
 ## [v2024.04.02]
 
 ### Added - 新機能について
