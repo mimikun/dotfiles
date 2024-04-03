@@ -39,7 +39,7 @@ ThinkPad E14
 
 ### `Work-Windows`
 
-No human rights
+human rights violations
 
 - CPU:
     - Intel(R) Core(TM) i5-9400F
@@ -52,7 +52,7 @@ No human rights
 
 ### `Work-WSL`
 
-No human rights
+human rights violations
 
 - RAM
     - 3GB(swap 8GB)
@@ -63,7 +63,7 @@ No human rights
 
 [Shirasu Azusa](https://bluearchive.fandom.com/wiki/Shirasu_Azusa)
 
-ᓀ‸ᓂ
+![banitasu](docs/images/banitasu.png)
 
 ### `human rights`
 
