@@ -55,6 +55,7 @@ just
 lsd
 mask
 mise
+mocword
 monolith
 natls
 navi
