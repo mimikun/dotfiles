@@ -300,6 +300,9 @@ set -x PATH $COMPOSER_BIN_DIR $PATH
 # Julia
 set -x PATH "$HOME/.juliaup/bin" $PATH
 
+# mocword dict
+set -x MOCWORD_DATA "$XDG_CACHE_HOME/mocword.sqlite"
+
 # cache
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR

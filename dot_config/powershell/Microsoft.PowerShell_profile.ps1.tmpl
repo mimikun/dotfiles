@@ -395,6 +395,15 @@ if ($res) {
     #$env:AQUA_GENERATE_WITH_DETAIL = $False
 }
 
+# mocword dict
+if ($IsLinux) {
+    $env:MOCWORD_DATA = Join-Path -Path $env:HOME -ChildPath ".cache/mocword.sqlite"
+} else {
+    $env:MOCWORD_DATA = Join-Path -Path $env:LOCALAPPDATA -ChildPath "Temp/mocword.sqlite"
+}
+
+$MOCWORD_DATA = $env:MOCWORD_DATA
+
 # PSReadLine settings
 # C-g gcd
 Set-PSReadLineKeyHandler -Key Ctrl+g -ScriptBlock { Set-GhqLocation }

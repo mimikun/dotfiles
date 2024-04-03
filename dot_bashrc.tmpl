@@ -271,6 +271,9 @@ export PATH="$COMPOSER_BIN_DIR:$PATH"
 # Julia
 export PATH="$HOME/.juliaup/bin:$PATH"
 
+# mocword dict
+export MOCWORD_DATA="$XDG_CACHE_HOME/mocword.sqlite"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
