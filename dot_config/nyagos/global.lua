@@ -20,8 +20,15 @@ function global:load_variables()
     local is_not_human_rights = hostname == "TanakaPC"
     self.is_not_human_rights = is_not_human_rights
 
+    -- NOTE:
+    -- Windows: "\"
+    -- Linux: "/"
     ---@type string
-    local path_sep = self.is_windows and "\\" or "/"
+    local path_sep_char = string.sub(package.config, 1, 1)
+
+    -- NOTE: self.path_sep = self.is_windows and "\\" or "/"
+    ---@type string
+    local path_sep = self.is_windows and string.rep(path_sep_char, 2) or path_sep_char
     self.path_sep = path_sep
 
     local home = self.is_windows and nyagos.getenv("USERPROFILE") or nyagos.getenv("HOME")
