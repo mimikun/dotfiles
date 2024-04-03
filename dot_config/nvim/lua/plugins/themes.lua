@@ -2,6 +2,10 @@ local global = require("core.global")
 local is_human_rights = global.is_human_rights
 local themery_config = global.themery_config
 
+----------------
+-- Lua Themes --
+----------------
+
 ---@type LazySpec
 local github_theme = {
     "projekt0n/github-nvim-theme",
@@ -222,6 +226,23 @@ local sunburn = {
 }
 
 ---@type LazySpec
+local eldritch = {
+    "eldritch-theme/eldritch.nvim",
+    --lazy = false,
+    --event = "VeryLazy",
+    opts = {
+        transparent = is_human_rights,
+    },
+    --config = true,
+    priority = 1000,
+    --cond = false,
+}
+
+-----------------------
+-- Vim Script Themes --
+-----------------------
+
+---@type LazySpec
 local sonokai = {
     "sainnhe/sonokai",
     --lazy = false,
@@ -348,6 +369,21 @@ local momiji = {
     --cond = false,
 }
 
+---@type LazySpec
+local gaming = {
+    "high-moctane/gaming.vim",
+    --lazy = false,
+    --event = "VeryLazy",
+    init = function()
+        -- N ms colors cycle
+        vim.g["gaming#period"] = 500
+        -- Updating colors every N ms
+        vim.g["gaming#update_time"] = 50
+    end,
+    --config = true,
+    --cond = false,
+}
+
 ---@type LazySpec[]
 local theme_specs = {
     -- Lua themes
@@ -367,11 +403,13 @@ local theme_specs = {
     lavi,
     evergarden,
     sunburn,
+    eldritch,
     -- VimScript themes
     sonokai,
     kyotonight,
     momiji,
     edge,
+    gaming,
 }
 
 ---@type table
@@ -426,6 +464,7 @@ local huez = {
 
 ---@type table
 local themery_selectables = {
+    -- Lua themes
     {
         name = "github_dark",
         colorscheme = "github_dark",
@@ -491,6 +530,11 @@ local themery_selectables = {
         colorscheme = "sunburn",
     },
     {
+        name = "eldritch",
+        colorscheme = "eldritch",
+    },
+    -- VimScript themes
+    {
         name = "sonokai",
         colorscheme = "sonokai",
     },
@@ -505,6 +549,10 @@ local themery_selectables = {
     {
         name = "edge",
         colorscheme = "edge",
+    },
+    {
+        name = "gaming",
+        colorscheme = "gaming",
     },
 }
 
