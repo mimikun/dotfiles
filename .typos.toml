@@ -24,6 +24,9 @@ tabe = "tabe"
 # dot_config/fish/completions/zellij.fish
 # dot_config/neofetch/config.conf
 HD = "HD"
+# dot_config/nvim/lua/plugins/minigames.lua
+strat = "strat"
+
 
 [files]
 extend-exclude = [
