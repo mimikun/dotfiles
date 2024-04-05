@@ -43,6 +43,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-match	'Only use results from the first index that returns a match for a given package name',unsafe-any-match	'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index urls' -r -f -a "{disabled	'Will not use keyring for authentication',subprocess	'Will use keyring CLI command for authentication'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s f -l find-links -d 'Locations to search for candidate distributions, beyond those found in the indexes' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in the existing output file' -r
@@ -104,6 +105,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s f -l find-links -d 'Locations to search for candidate distributions, beyond those found in the indexes' -r
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-match	'Only use results from the first index that returns a match for a given package name',unsafe-any-match	'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index urls' -r -f -a "{disabled	'Will not use keyring for authentication',subprocess	'Will use keyring CLI command for authentication'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-binary -d 'Don\'t install pre-built wheels' -r
@@ -127,6 +129,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-build-isolation -d 'Disable isolation when building source distributions'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l compile -d 'Compile Python files to bytecode'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-compile -d 'Don\'t compile Python files to bytecode'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l strict -d 'Validate the virtual environment after completing the installation, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s a -l ask
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l user
@@ -153,6 +156,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s f -l find-links -d 'Locations to search for candidate distributions, beyond those found in the indexes' -r
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-match	'Only use results from the first index that returns a match for a given package name',unsafe-any-match	'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index urls' -r -f -a "{disabled	'Will not use keyring for authentication',subprocess	'Will use keyring CLI command for authentication'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-binary -d 'Don\'t install pre-built wheels' -r
@@ -175,6 +179,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-build-isolation -d 'Disable isolation when building source distributions'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l compile -d 'Compile Python files to bytecode'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-compile -d 'Don\'t compile Python files to bytecode'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l strict -d 'Validate the virtual environment after completing the installation, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l dry-run -d 'Perform a dry run, i.e., don\'t actually install anything but resolve the dependencies and print the resulting plan'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Do not print any output'
@@ -264,6 +269,7 @@ complete -c uv -n "__fish_seen_subcommand_from venv" -s p -l python -d 'The Pyth
 complete -c uv -n "__fish_seen_subcommand_from venv" -l prompt -d 'Provide an alternative prompt prefix for the virtual environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from venv" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_seen_subcommand_from venv" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_seen_subcommand_from venv" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-match	'Only use results from the first index that returns a match for a given package name',unsafe-any-match	'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'}"
 complete -c uv -n "__fish_seen_subcommand_from venv" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index urls' -r -f -a "{disabled	'Will not use keyring for authentication',subprocess	'Will use keyring CLI command for authentication'}"
 complete -c uv -n "__fish_seen_subcommand_from venv" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_seen_subcommand_from venv" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
