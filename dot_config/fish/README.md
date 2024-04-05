@@ -6,7 +6,6 @@
 ## fisher plugins
 - [fish-bd](https://github.com/0rax/fish-bd)
 - [fish-spin](https://github.com/americanhanko/fish-spin)
-- [fish-ghq](https://github.com/decors/fish-ghq)
 - [penumbra-theme.fish](https://github.com/eskori/penumbra-theme.fish)
 - [fish-docker](https://github.com/halostatue/fish-docker)
 - [z](https://github.com/jethrokuan/z)

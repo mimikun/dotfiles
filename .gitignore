@@ -10,7 +10,6 @@ dot_config/fish/completions/bd.fish
 dot_config/fish/completions/docker-compose.fish
 dot_config/fish/completions/docker.fish
 dot_config/fish/completions/fisher.fish
-dot_config/fish/completions/ghq.fish
 dot_config/fish/completions/gitignore.fish
 dot_config/fish/completions/spin.fish
 dot_config/fish/completions/poetry.fish

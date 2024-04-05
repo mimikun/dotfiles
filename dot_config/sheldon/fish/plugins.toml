@@ -8,9 +8,6 @@ github = "0rax/fish-bd"
 [plugins.fish-spin]
 github = "americanhanko/fish-spin"
 
-[plugins.fish-ghq]
-github = "decors/fish-ghq"
-
 [plugins.penumbra-theme]
 github = "eskori/penumbra-theme.fish"
 
