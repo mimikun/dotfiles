@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.04.05]
+
+### Added - 新機能について
+
+- feat(nvim)!: add some minigame plugins
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore: update update_fish_completions
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update gh completion
+
+### Removed - 今回で削除された機能について
+
+- chore(fish)!: remove decors/fish-ghq
+- chore(aqua)!: guru removed
+
+### Fixed - 不具合修正について
+
+- fix(nvim): workaround failing install ocaml parser
+
 ## [v2024.04.03]
 
 ### Added - 新機能について
