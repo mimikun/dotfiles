@@ -121,3 +121,7 @@ fi
 if command_exist uv; then
   pueue add -- "uv --generate-shell-completion fish > '${COMPLETIONS_DIR}'/uv.fish"
 fi
+
+if command_exist ghq; then
+  pueue add -- "curl -L https://raw.githubusercontent.com/x-motemen/ghq/master/misc/fish/ghq.fish -o '${COMPLETIONS_DIR}'/ghq.fish"
+fi
