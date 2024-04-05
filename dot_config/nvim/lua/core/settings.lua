@@ -113,8 +113,6 @@ settings["treesitter_parsers"] = {
     "markdown_inline",
     "ninja",
     "nix",
-    "ocaml",
-    "ocaml_interface",
     "python",
     "regex",
     "rst",

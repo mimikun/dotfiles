@@ -1,5 +1,7 @@
 local global = require("core.global")
 local settings = require("core.settings")
+local is_linux = global.is_linux
+local is_wsl = global.is_wsl
 
 ---@type boolean
 local is_human_rights = global.is_human_rights
@@ -33,6 +35,11 @@ local spec = {
 
         local need_parsers = treesitter_parsers
         --table.insert(need_parsers, "pkl")
+        -- Linux or WSL
+        if is_linux or is_wsl then
+            table.insert(need_parsers, "ocaml")
+            table.insert(need_parsers, "ocaml_interface")
+        end
 
         configs.setup({
             highlight = {
