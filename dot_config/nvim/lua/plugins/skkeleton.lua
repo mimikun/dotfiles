@@ -53,9 +53,6 @@ local spec = {
             end,
         })
 
-        -- TODO: setting
-        -- https://github.com/vim-skk/skkeleton/blob/main/doc/skkeleton.jax
-
         -- config
         vim.fn["skkeleton#config"] = {
             -- このオプションを有効にすると、Microsoft IME等と同様に
