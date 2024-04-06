@@ -4,8 +4,7 @@ local spec = {
     --lazy = false,
     event = "VeryLazy",
     config = true,
-    -- TODO: support fern
-    cond = false,
+    --cond = false,
 }
 
 return spec
