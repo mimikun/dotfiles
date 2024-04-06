@@ -33,6 +33,12 @@ local spec = {
             lsp_doc_border = false,
         },
     },
+    config = function()
+        require("noice").setup({})
+        require("notify").setup({
+            background_color = "#00000"
+        })
+    end,
     --cond = false,
 }
 
