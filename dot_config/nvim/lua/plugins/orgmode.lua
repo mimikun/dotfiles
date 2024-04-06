@@ -5,7 +5,6 @@ local spec = {
     --event = "VeryLazy",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
-        -- TODO: setting
         local orgmode = require("orgmode")
         orgmode.setup({
             org_agenda_files = "~/orgfiles/**/*",
