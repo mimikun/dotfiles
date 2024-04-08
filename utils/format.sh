@@ -15,7 +15,6 @@ run_shfmt clean.sh
 run_shfmt create-patch.sh
 run_shfmt format.sh
 run_shfmt install-kabegami.sh
-run_shfmt install-skk-jisyo.sh
 run_shfmt lint.sh
 run_shfmt update.sh
 cd "$current_dir" || exit

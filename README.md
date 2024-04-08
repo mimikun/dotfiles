@@ -26,16 +26,6 @@ mimikun's dotfiles. managed by [chezmoi](https://www.chezmoi.io/).
 chezmoi init --apply --verbose https://github.com/mimikun/dotfiles.git
 ```
 
-#### SKK JISYOs
-
-File size is too large and cannot be managed by chezmoi.
-
-Must be downloaded manually. (2023.09.19 now)
-
-```shell
-make install-skk-jisyo
-```
-
 ### Windows
 
 ```shell
