@@ -35,4 +35,18 @@
     url = "https://www.sqlite.org/2024/sqlite-dll-win-x64-3450200.zip"
     path = "sqlite3.dll"
     refreshPeriod = "8760h"
+["AppData/Local/Temp/Temp/mocword.sqlite"]
+    type = "file"
+    url = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
+    filter.command = "gzip"
+    filter.args = ["-d"]
+    refreshPeriod = "168h"
+{{ end }}
+{{ if eq .chezmoi.os "linux" }}
+[".cache/mocword.sqlite"]
+    type = "file"
+    url = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
+    filter.command = "gzip"
+    filter.args = ["-d"]
+    refreshPeriod = "168h"
 {{ end }}
