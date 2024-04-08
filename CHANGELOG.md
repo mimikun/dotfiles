@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2024.04.08]
+
+### Added - 新機能について
+
+- feat(i3)!: add a super cool power menu
+- feat(fish): add ghq completion
+- feat(fish): add mimikun/fish-ghq
+- feat(nvim)!: add GhostText plugins
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(aqua): bump
+- feat(skk-dict)!: skk-dict manage by chezmoi
+- chore: mocword.sqlite manage by chezmoi
+- chore(nvim): enable image-preview.nvim
+- chore(nvim): update nvim-orgmode config
+- chore(nvim): skkeleton setup finish
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): has no background highlight
+- fix(nvim-notify): value invalid
+    - fix #380
+
 ## [v2024.04.05]
 
 ### Added - 新機能について
