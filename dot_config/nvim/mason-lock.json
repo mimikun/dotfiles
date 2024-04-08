@@ -20,11 +20,11 @@
   "neocmakelsp": "0.6.22",
   "powershell-editor-services": "v3.19.0",
   "pyright": "1.1.357",
-  "rust-analyzer": "2024-04-01",
+  "rust-analyzer": "2024-04-08",
   "solargraph": "0.50.0",
   "taplo": "0.8.1",
   "typescript-language-server": "4.3.3",
-  "typos-lsp": "v0.1.16",
+  "typos-lsp": "v0.1.17",
   "vim-language-server": "2.3.1",
   "yaml-language-server": "1.14.0",
   "zls": "0.11.0"
