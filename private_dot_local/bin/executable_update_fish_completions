@@ -23,7 +23,7 @@ if command_exist bun; then
   pueue add -- "bun completions"
 fi
 
-for cmd in "chezmoi" "flyctl" "runme" "bin" "mise" "luarocks" "gopass"; do
+for cmd in "chezmoi" "flyctl" "runme" "bin" "mise" "luarocks" "gopass" "glow"; do
   if command_exist "${cmd}"; then
     pueue add -- "'${cmd}' completion fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
   fi
