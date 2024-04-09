@@ -377,3 +377,8 @@ packages:
   - type: go_install
     path: github.com/nyaosorg/nyagos
     description: NYAGOS - The hybrid Commandline Shell between UNIX & DOS
+#pop
+#https://github.com/charmbracelet/pop
+  - type: go_install
+    path: github.com/charmbracelet/pop
+    description: Send emails from your terminal 📬
