@@ -4,31 +4,6 @@
     refreshPeriod = "24h"
     clone.args = ["--filter=blob:none"]
 
-[".config/bat/themes/tokyonight_day.tmTheme"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
-    refreshPeriod = "168h"
-
-[".config/bat/themes/tokyonight_moon.tmTheme"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_moon.tmTheme"
-    refreshPeriod = "168h"
-
-[".config/bat/themes/tokyonight_night.tmTheme"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
-    refreshPeriod = "168h"
-
-[".config/bat/themes/tokyonight_storm.tmTheme"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_storm.tmTheme"
-    refreshPeriod = "168h"
-
-[".emacs.d/themes/monokai-theme.el"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el"
-    refreshPeriod = "168h"
-
 {{ if eq .chezmoi.os "windows" }}
 ["utilities/sqlite3.dll"]
     type = "archive-file"
@@ -38,21 +13,7 @@
 ["AppData/Local/Temp/Temp/mocword.sqlite"]
     type = "file"
     url = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
-    filter.command = "gzip"
-    filter.args = ["-d"]
-    refreshPeriod = "168h"
-{{ end }}
-{{ if eq .chezmoi.os "linux" }}
-[".cache/mocword.sqlite"]
-    type = "file"
-    url = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
-    filter.command = "gzip"
-    filter.args = ["-d"]
-    refreshPeriod = "168h"
-[".skk/SKK-JISYO.L"]
-    type = "file"
-    url = "https://skk-dev.github.io/dict/SKK-JISYO.L.gz"
-    filter.command = "gzip"
-    filter.args = ["-d"]
+    filter.command = "7z"
+    filter.args = ["e"]
     refreshPeriod = "168h"
 {{ end }}

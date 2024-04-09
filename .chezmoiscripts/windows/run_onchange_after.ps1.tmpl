@@ -1,0 +1,23 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+Write-Output "WIP"
+# TARGET DIR: "utilities/sqlite3.dll"
+# DOWNLOAD URL: "https://www.sqlite.org/2024/sqlite-dll-win-x64-3450200.zip"
+# USE COMMAND: unzip
+
+# TARGET DIR: "AppData/Local/Temp/mocword.sqlite"
+# DOWNLOAD URL: "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
+# USE COMMAND: "7z e"
+
+# TARGET DIR: ".config/bat/themes/tokyonight_day.tmTheme"
+# DOWNLOAD URL: "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
+
+# TARGET DIR: ".config/bat/themes/tokyonight_moon.tmTheme"
+# DOWNLOAD URL: "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_moon.tmTheme"
+
+# TARGET DIR: ".config/bat/themes/tokyonight_night.tmTheme"
+# DOWNLOAD URL: "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
+
+# TARGET DIR: ".config/bat/themes/tokyonight_storm.tmTheme"
+# DOWNLOAD URL: "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_storm.tmTheme"
+{{ end -}}

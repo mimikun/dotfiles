@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+cd ~/.config/bat/themes
+wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
+wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_moon.tmTheme"
+wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
+wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_storm.tmTheme"
+
+cd ~/.emacs.d/themes
+wget "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el"
+
+cd ~/.cache
+wget "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
+gzip -d mocword.sqlite.gz
+
+cd ~/.skk
+wget "https://skk-dev.github.io/dict/SKK-JISYO.L.gz"
+gzip -d SKK-JISYO.L.gz
+
+{{ end -}}

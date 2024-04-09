@@ -64,6 +64,9 @@ misc/**
 
 ## Linux
 {{ if eq .chezmoi.os "linux" }}
+.chezmoiscripts/macos
+.chezmoiscripts/windows
+
 .config/winfetch/**
 .config/whkdrc
 .glaze-wm/**
@@ -80,6 +83,9 @@ Documents/**
 OneDrive/**
 ## Windows
 {{ else if eq .chezmoi.os "windows" }}
+.chezmoiscripts/linux
+.chezmoiscripts/macos
+
 .actrc
 .exrc
 .nanorc
