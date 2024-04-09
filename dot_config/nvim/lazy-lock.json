@@ -27,7 +27,6 @@
   "dial.nvim": { "branch": "master", "commit": "27eb570085db2ef44bff4f620d3806039184651c" },
   "dmacro.nvim": { "branch": "main", "commit": "c2659b9f3e250afdde0d9fa0c9a4b21b3e2bd527" },
   "dotfyle-metadata.nvim": { "branch": "main", "commit": "342ef8f3f98f3ccc451c9cf2be74e95149ced05d" },
-  "dps-ghosttext.vim": { "branch": "master", "commit": "6d92d184de685b16ef8a334c2a892183c3846232" },
   "dps-translate-vim": { "branch": "main", "commit": "0aa2030c84829452e8ad6e30cea37b2388edc97f" },
   "dressing.nvim": { "branch": "master", "commit": "18e5beb3845f085b6a33c24112b37988f3f93c06" },
   "edge": { "branch": "master", "commit": "4e2eee9fbbad1c8fdcad8acda979d3828aee538d" },
