@@ -20,6 +20,7 @@ local spec = {
         "LhKipp/nvim-nu",
         "Fymyte/tree-sitter-rasi",
         "mimikun/tree-sitter-PowerShell",
+        "charmbracelet/tree-sitter-vhs",
         -- NOTE: has bug
         --{ "apple/pkl-neovim", build = ":TSInstall! pkl" },
     },
@@ -77,6 +78,15 @@ local spec = {
             },
             filetype = { "just", "Justfile" },
             maintainers = { "@IndianBoy42" },
+        }
+
+        parser_config.vhs = {
+            install_info = {
+                url = "https://github.com/charmbracelet/tree-sitter-vhs",
+                files = { "src/parser.c" },
+                branch = "main",
+            },
+            filetype = { "tape" },
         }
     end,
     --cond = false,
