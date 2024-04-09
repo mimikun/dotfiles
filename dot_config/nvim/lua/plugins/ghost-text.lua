@@ -1,27 +1,29 @@
 local global = require("core.global")
 ---@type boolean
 local is_human_rights = global.is_human_rights
-is_human_rights = false
 
 ---@type LazySpec
 local nvim_ghost = {
     "subnut/nvim-ghost.nvim",
-    lazy = false,
-    --cmd = "CMDNAME",
+    --lazy = false,
+    cmd = "GhostTextStart",
     --event = "VeryLazy",
-    --opts = {},
     config = function()
-        -- TODO:
+        vim.g.nvim_ghost_server_port = 4001
+        -- Start manually
+        vim.g.nvim_ghost_autostart = 0
+        -- Suppressing all messages
+        --vim.g.nvim_ghost_super_quiet = 1
+        -- Disable the plugin
+        --vim.g.nvim_ghost_disabled = 1
     end,
-    cond = function()
-        return not is_human_rights
-    end,
+    --cond = false,
 }
 
 ---@type LazySpec
 local dps_ghosttext = {
     "gamoutatsumi/dps-ghosttext.vim",
-    lazy = false,
+    --lazy = false,
     cmd = "GhostStart",
     --event = "VeryLazy",
     dependencies = {
