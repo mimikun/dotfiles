@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.04.10]
+
+### Added - 新機能について
+
+- chore: add windows chezmoiscripts
+- feat(nvim)!: add markdown-oxide lsp
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore: update linux chezmoiscripts
+- chore(fish): update tldr completion
+- chore(nvim): update lockfiles
+- docs(nvim)!: update README.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.04.09]
 
 ### Added - 新機能について
