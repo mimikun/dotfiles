@@ -3,17 +3,3 @@
     url = "https://github.com/alacritty/alacritty-theme"
     refreshPeriod = "24h"
     clone.args = ["--filter=blob:none"]
-
-{{ if eq .chezmoi.os "windows" }}
-["utilities/sqlite3.dll"]
-    type = "archive-file"
-    url = "https://www.sqlite.org/2024/sqlite-dll-win-x64-3450200.zip"
-    path = "sqlite3.dll"
-    refreshPeriod = "8760h"
-["AppData/Local/Temp/Temp/mocword.sqlite"]
-    type = "file"
-    url = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
-    filter.command = "7z"
-    filter.args = ["e"]
-    refreshPeriod = "168h"
-{{ end }}
