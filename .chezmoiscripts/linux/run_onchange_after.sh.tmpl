@@ -1,21 +1,35 @@
 {{ if eq .chezmoi.os "linux" -}}
-#!/bin/bash
 
-cd ~/.config/bat/themes
-wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme"
-wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_moon.tmTheme"
-wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme"
-wget "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_storm.tmTheme"
+#!/bin/sh
 
-cd ~/.emacs.d/themes
-wget "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el"
+# bat themes
+cd ~/.config/bat/themes || exit
+curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme" \
+    -o tokyonight_day.tmTheme
+curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_moon.tmTheme" \
+    -o tokyonight_moon.tmTheme
+curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme" \
+    -o tokyonight_night.tmTheme
+curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_storm.tmTheme" \
+    -o tokyonight_storm.tmTheme
 
-cd ~/.cache
-wget "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
+# emacs themes
+cd ~/.emacs.d/themes || exit
+curl -sSL "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el" \
+    -o monokai-emacs.el
+
+# mocword.sqlite
+cd ~/.cache || exit
+
+curl -sSL "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz" \
+    -o mocword.sqlite.gz
 gzip -d mocword.sqlite.gz
 
-cd ~/.skk
-wget "https://skk-dev.github.io/dict/SKK-JISYO.L.gz"
+# skk dicts
+cd ~/.skk || exit
+
+curl -sSL "https://skk-dev.github.io/dict/SKK-JISYO.L.gz" \
+    -o SKK-JISYO.L.gz
 gzip -d SKK-JISYO.L.gz
 
 {{ end -}}
