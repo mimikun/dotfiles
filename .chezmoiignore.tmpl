@@ -46,7 +46,7 @@ utils/**
 game_settings/**
 misc/**
 
-# If not archlinux
+# If not archlinux(azusa)
 {{ if ne .chezmoi.hostname "azusa" }}
 .Xresources
 .xinitrc
@@ -62,29 +62,24 @@ misc/**
 .config/zed/**
 {{ end }}
 
-## Linux
-{{ if eq .chezmoi.os "linux" }}
-.chezmoiscripts/macos
-.chezmoiscripts/windows
+# If work-pc
+{{ if eq .chezmoi.hostname "TanakaPC" }}
+utilities/StopTrex.ps1
+utilities/GamingMode.bat
+utilities/Mining.bat
+utilities/MiningMode.bat
+utilities/StopTrex.bat
+utilities/dual-gminer-mining.bat
+utilities/gminer-flux-mining.bat
+utilities/gminer-mining.bat
+utilities/lolminer-mining.bat
+utilities/miniz-flux-mining.bat
+utilities/t-rex-mining.bat
+{{ end }}
 
-.config/winfetch/**
-.config/whkdrc
-.glaze-wm/**
-.wslconfig.tmpl
-
-vimfiles/**
-komorebi.json
-macros.txt
-applications.yaml
-utilities/**
-windows_cargo_packages.txt
-AppData/**
-Documents/**
-OneDrive/**
-## Windows
-{{ else if eq .chezmoi.os "windows" }}
-.chezmoiscripts/linux
-.chezmoiscripts/macos
+# If not Linux
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
 
 .actrc
 .exrc
@@ -113,18 +108,29 @@ Brewfile
 linux_cargo_packages.txt
 linux_pip_packages.txt
 linux_rubygem_list.txt
-{{ if eq .chezmoi.hostname "TanakaPC" }}
-utilities/StopTrex.ps1
-utilities/GamingMode.bat
-utilities/Mining.bat
-utilities/MiningMode.bat
-utilities/StopTrex.bat
-utilities/dual-gminer-mining.bat
-utilities/gminer-flux-mining.bat
-utilities/gminer-mining.bat
-utilities/lolminer-mining.bat
-utilities/miniz-flux-mining.bat
-utilities/t-rex-mining.bat
 {{ end }}
-{{ else }}
+
+# If not macOS
+{{ if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/macos/**
+{{ end }}
+
+# If not windows
+{{ if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
+
+.config/winfetch/**
+.config/whkdrc
+.glaze-wm/**
+.wslconfig.tmpl
+
+vimfiles/**
+komorebi.json
+macros.txt
+applications.yaml
+utilities/**
+windows_cargo_packages.txt
+AppData/**
+Documents/**
+OneDrive/**
 {{ end }}
