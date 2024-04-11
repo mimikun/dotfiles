@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.04.11]
+
+### Added - 新機能について
+
+- feat(nvim)!: add markdown-oxide cmp config
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update deno completion
+- feat!: improved chezmoiignore
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): mason config error
+
 ## [v2024.04.10]
 
 ### Added - 新機能について
