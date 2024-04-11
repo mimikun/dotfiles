@@ -37,7 +37,7 @@ local lsp_servers = {
     "tsserver",
     "jqls",
     "luau_lsp",
-    "markdown-oxide",
+    "markdown_oxide",
     "powershell_es",
     "pyright",
     "solargraph",
