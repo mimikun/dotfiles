@@ -1,3 +1,7 @@
 #!/bin/bash
 
-pip freeze | sed -e "s/=.*//g" >"$HOME"/linux_pip_packages.txt
+pip freeze |
+    sed \
+        -e "s/=.*//g" \
+        -e "s/ @.*//g" \
+        >"$HOME"/linux_pip_packages.txt
