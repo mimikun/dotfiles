@@ -13,23 +13,4 @@ curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/s
 curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_storm.tmTheme" \
     -o tokyonight_storm.tmTheme
 
-# emacs themes
-cd ~/.emacs.d/themes || exit
-curl -sSL "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el" \
-    -o monokai-emacs.el
-
-# mocword.sqlite
-cd ~/.cache || exit
-
-curl -sSL "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz" \
-    -o mocword.sqlite.gz
-gzip -d mocword.sqlite.gz
-
-# skk dicts
-cd ~/.skk || exit
-
-curl -sSL "https://skk-dev.github.io/dict/SKK-JISYO.L.gz" \
-    -o SKK-JISYO.L.gz
-gzip -d SKK-JISYO.L.gz
-
 {{ end -}}

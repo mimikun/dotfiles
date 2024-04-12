@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/sh
+#
+# skk dicts
+cd ~/.skk || exit
+
+curl -sSL "https://skk-dev.github.io/dict/SKK-JISYO.L.gz" \
+    -o SKK-JISYO.L.gz
+gzip -d SKK-JISYO.L.gz
+
+{{ end -}}

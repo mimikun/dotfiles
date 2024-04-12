@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/sh
+
+# mocword.sqlite
+cd ~/.cache || exit
+
+curl -sSL "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz" \
+    -o mocword.sqlite.gz
+gzip -d mocword.sqlite.gz
+
+{{ end -}}
