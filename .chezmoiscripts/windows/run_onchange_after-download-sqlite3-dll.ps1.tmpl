@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+# download sqlite3.dll
+Set-Location (Join-Path -Path $env:USERPROFILE -ChildPath "utilities")
+$sqliteDllArchive = "sqlite-dll.zip"
+Invoke-WebRequest -Uri "https://www.sqlite.org/2024/sqlite-dll-win-x64-3450200.zip" -OutFile $sqliteDllArchive
+Expand-Archive -Path $sqliteDllArchive -DestinationPath .
+Remove-Item -Path $sqliteDllArchive
+Remove-Item -Path "sqlite3.def"
+
+{{ end -}}

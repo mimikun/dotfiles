@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+# download mocword data
+Set-Location (Join-Path -Path $env:USERPROFILE -ChildPath "AppData\Local\Temp")
+$mocwordDataBaseUri = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
+$mocwordData = "mocword.sqlite.gz"
+Invoke-WebRequest -Uri $mocwordDataBaseUri -OutFile $mocwordData
+7z e $mocwordData
+
+{{ end -}}

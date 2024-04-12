@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+# download bat themes
+Set-Location (Join-Path -Path $env:USERPROFILE -ChildPath ".config\bat\themes")
+$batThemeBaseUri = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime"
+Invoke-WebRequest -Uri "$batThemeBaseUri/tokyonight_day.tmTheme" -OutFile "tokyonight_day.tmTheme"
+Invoke-WebRequest -Uri "$batThemeBaseUri/tokyonight_moon.tmTheme" -OutFile "tokyonight_moon.tmTheme"
+Invoke-WebRequest -Uri "$batThemeBaseUri/tokyonight_night.tmTheme" -OutFile "tokyonight_night.tmTheme"
+Invoke-WebRequest -Uri "$batThemeBaseUri/tokyonight_storm.tmTheme" -OutFile "tokyonight_storm.tmTheme"
+
+{{ end -}}
