@@ -25,7 +25,7 @@ pipx
 platformdirs
 psutil
 pur
-pynvim @ git+https://github.com/neovim/pynvim@c4197f13fe405b039a6acbe63076f3edade30fbb
+pynvim
 pyte
 python-slugify
 pytimeparse
@@ -33,7 +33,7 @@ setuptools
 six
 SQLAlchemy
 text-unidecode
-thefuck @ git+https://github.com/nvbn/thefuck@62e0767c5069aeee176b0fe3459068b7703aaa26
+thefuck
 typing_extensions
 userpath
 wcwidth
