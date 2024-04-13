@@ -1,6 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 
-#!/bin/sh
+#!/bin/bash
 
 base_url="https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/bin/scripts/lib/"
 scripts=(
@@ -19,11 +19,17 @@ scripts=(
     "i_seti.sh"
     "i_weather.sh"
 )
+dest_dir="$XDG_DATA_HOME/fonts"
+
+# $XDG_DATA_HOME/fonts check
+if [ ! -d "$dest_dir" ]; then
+    mkdir "$dest_dir"
+fi
 
 for script_name in "${scripts[@]}"; do
     download_url="$base_url$script_name"
     echo "Download from $download_url"
-    curl -sSL "$download_url" -o "$XDG_DATA_HOME/fonts/$script_name"
+    curl -sSL "$download_url" -o "$dest_dir/$script_name"
 done
 
 {{ end -}}
