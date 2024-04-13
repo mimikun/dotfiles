@@ -1,16 +1,25 @@
 {{ if eq .chezmoi.os "linux" -}}
 
-#!/bin/sh
+#!/bin/bash
 
-# bat themes
-cd ~/.config/bat/themes || exit
-curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_day.tmTheme" \
-    -o tokyonight_day.tmTheme
-curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_moon.tmTheme" \
-    -o tokyonight_moon.tmTheme
-curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme" \
-    -o tokyonight_night.tmTheme
-curl -sSL "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_storm.tmTheme" \
-    -o tokyonight_storm.tmTheme
+base_url="https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/"
+themes=(
+    "tokyonight_day.tmTheme"
+    "tokyonight_moon.tmTheme"
+    "tokyonight_night.tmTheme"
+    "tokyonight_storm.tmTheme"
+)
+dest_dir="$XDG_CONFIG_HOME/bat/themes"
+
+# $XDG_CONFIG_HOME/bat/themes check
+if [ ! -d "$dest_dir" ]; then
+    mkdir "$dest_dir"
+fi
+
+for theme in "${themes[@]}"; do
+    download_url="$base_url$theme"
+    echo "Download from $download_url"
+    curl -sSL "$download_url" -o "$dest_dir/$theme"
+done
 
 {{ end -}}

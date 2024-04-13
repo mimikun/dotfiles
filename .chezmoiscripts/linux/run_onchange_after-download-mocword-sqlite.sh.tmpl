@@ -1,12 +1,16 @@
 {{ if eq .chezmoi.os "linux" -}}
 
-#!/bin/sh
+#!/bin/bash
+
+mocword_sqlite="mocword.sqlite"
 
 # mocword.sqlite
-cd ~/.cache || exit
+cd "$XDG_CACHE_HOME" || exit
 
-curl -sSL "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz" \
-    -o mocword.sqlite.gz
-gzip -d mocword.sqlite.gz
+wget "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/$mocword_sqlite.gz"
+
+if [ ! -e "$mocword_sqlite" ]; then
+    gzip -d "$mocword.sqlite.gz"
+fi
 
 {{ end -}}

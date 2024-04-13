@@ -1,12 +1,15 @@
 {{ if eq .chezmoi.os "linux" -}}
 
-#!/bin/sh
-#
-# skk dicts
-cd ~/.skk || exit
+#!/bin/bash
 
-curl -sSL "https://skk-dev.github.io/dict/SKK-JISYO.L.gz" \
-    -o SKK-JISYO.L.gz
-gzip -d SKK-JISYO.L.gz
+skk_jisyo_l="SKK-JISYO.L"
+
+cd "$HOME/.skk" || exit
+
+wget "https://skk-dev.github.io/dict/$skk_jisyo_l.gz"
+
+if [ ! -e "$skk_jisyo_l" ]; then
+    gzip -d "$skk_jisyo_l.gz"
+fi
 
 {{ end -}}

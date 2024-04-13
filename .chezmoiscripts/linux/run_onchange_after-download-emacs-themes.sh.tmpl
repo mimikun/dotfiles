@@ -1,10 +1,18 @@
 {{ if eq .chezmoi.os "linux" -}}
 
-#!/bin/sh
+#!/bin/bash
+base_url="https://raw.githubusercontent.com"
+dest_dir="$HOME/.emacs.d/themes"
 
-# emacs themes
-cd ~/.emacs.d/themes || exit
-curl -sSL "https://raw.githubusercontent.com/oneKelvinSmith/monokai-emacs/master/monokai-theme.el" \
-    -o monokai-emacs.el
+# $HOME/.emacs.d/themes check
+if [ ! -d "$dest_dir" ]; then
+    mkdir "$dest_dir"
+fi
+
+monokai_emacs_repo_uri="oneKelvinSmith/monokai-emacs/master"
+monokai_emacs_theme_name="monokai-theme.el"
+download_url="$base_url/$monokai_emacs_repo_uri/$monokai_emacs_theme_name"
+echo "Download from $download_url"
+curl -sSL "$download_url" -o "$dest_dir/$monokai_emacs_theme_name"
 
 {{ end -}}
