@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.04.14]
+
+### Added - 新機能について
+
+- feat(aqua): add purl
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore: update LOCALBIN commands
+- chore: update linux_pip_packages.txt
+- chore(nvim): update lockfiles
+- chore(fish): update deno completion
+- chore(chezmoiscripts): update linux scripts
+- chore(chezmoiscripts): update windows scripts
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(chezmoiscripts): download-nerd-fonts-debug-scripts.sh
+
 ## [v2024.04.11]
 
 ### Added - 新機能について
