@@ -382,3 +382,8 @@ packages:
   - type: go_install
     path: github.com/charmbracelet/pop
     description: Send emails from your terminal 📬
+#purl
+#https://github.com/catatsuy/purl
+  - type: go_install
+    path: github.com/catatsuy/purl
+    description: Streamlining Text Processing

@@ -93,3 +93,5 @@ packages:
 - name: github.com/charmbracelet/pop@v0.2.0
   registry: custom
 - name: charmbracelet/glow@v1.5.1
+- name: github.com/catatsuy/purl@v0.0.4
+  registry: custom
