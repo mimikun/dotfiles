@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.04.15]
+
+### Added - 新機能について
+
+- feat(rust-tool)!: add nsh
+- feat(nvim)!: add five-server.nvim plugin
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim)!: remove live-server.nvim plugin
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.04.14]
 
 ### Added - 新機能について
