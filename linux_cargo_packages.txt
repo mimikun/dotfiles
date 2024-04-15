@@ -59,6 +59,7 @@ mocword
 monolith
 natls
 navi
+nsh
 nu
 onefetch
 os_info_cli
