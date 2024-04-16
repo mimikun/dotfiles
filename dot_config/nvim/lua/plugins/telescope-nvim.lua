@@ -30,6 +30,11 @@ local smart_open_deps = {
     "kkharji/sqlite.lua",
 }
 
+---@type LazySpec[]
+local telescope_media = {
+    "dharmx/telescope-media.nvim",
+}
+
 -- NOTE: Add fzf_sorter if not a Windows
 -- Very difficult to build fzf on Windows
 if not is_windows then
@@ -64,6 +69,7 @@ local telescope_deps = {
 -- Very difficult to build fzf on Windows
 if not is_windows then
     table.insert(telescope_deps, fzf_sorter)
+    table.insert(telescope_deps, telescope_media)
 end
 
 ---@type LazySpec
@@ -118,6 +124,7 @@ local spec = {
         -- Very difficult to build fzf on Windows
         if not is_windows then
             telescope.load_extension("fzf")
+            telescope.load_extension("media")
         end
         telescope.load_extension("frecency")
         telescope.load_extension("smart_open")
