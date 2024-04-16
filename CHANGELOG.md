@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.04.16]
+
+### Added - 新機能について
+
+- feat(nvim)!: add telescope-media.nvim in telescope.nvim
+- chore(linux): add new linux pvim config
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(localbin): update update_mise
+- chore(mise): use vim 9.1.0336
+- chore(utilities): update Invoke-RunAfterChezmoiApply.ps1
+- chore(chezmoiignore): update
+- docs: update README.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update deno completion
+
+### Removed - 今回で削除された機能について
+
+- chore(windows): remove vim configs
+- chore(linux): remove vim configs
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.04.15]
 
 ### Added - 新機能について
