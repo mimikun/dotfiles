@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.2.0"
+readonly PRODUCT_VERSION="0.3.0"
 PRODUCT_NAME="$(basename "${0}")"
 readonly MISE_NEOVIM_BINDIR="$MISE_DATA_DIR/installs/neovim"
 readonly BIN_NVIM="bin/nvim"
@@ -28,6 +28,8 @@ Commands:
   neovim-master                  Run update mise neovim master
   neovim-stable                  Run update mise neovim stable
   neovim-nightly                 Run update mise neovim nightly
+  paleovim-master                Run update mise paleovim master
+  paleovim-latest                Run update mise paleovim latest
   zig-master                     Run update mise zig master
 
 Command options:
@@ -103,6 +105,47 @@ function _neovim_stable() {
     fi
 }
 
+function _paleovim_master() {
+    PVIM_MASTER_COMMIT_HASH_FILE=$HOME/.cache/paleovim-master-commit-hash.txt
+    PVIM_MASTER_COMMIT_HASH=$(cat "$PVIM_MASTER_COMMIT_HASH_FILE")
+    PVIM_MASTER_NEW_COMMIT_HASH=$(git ls-remote --heads --tags https://github.com/vim/vim.git | grep refs/heads/master | cut -f 1)
+
+    if [ "$PVIM_MASTER_COMMIT_HASH" != "$PVIM_MASTER_NEW_COMMIT_HASH" ]; then
+        echo "paleovim (latest)master found!"
+        echo "$PVIM_MASTER_NEW_COMMIT_HASH" >"$PVIM_MASTER_COMMIT_HASH_FILE"
+        if [ "$opt" == "--use-pueue" ]; then
+            task_id=$(pueue add -p -- "mise uninstall vim@ref:master")
+            pueue add --after "$task_id" -- "mise install vim@ref:master"
+        else
+            mise uninstall vim@ref:master
+            mise install vim@ref:master
+        fi
+    else
+        echo "paleovim (latest)master is already installed"
+        echo "commit hash: $PVIM_MASTER_COMMIT_HASH"
+    fi
+}
+
+function _paleovim_latest() {
+    PVIM_SECOND_LATEST_VERSION_FILE=$XDG_CACHE_HOME/paleovim-second-latest-version.txt
+    PVIM_SECOND_LATEST_VERSION=$(cat "$PVIM_SECOND_LATEST_VERSION_FILE")
+    PVIM_LATEST_VERSION=$(curl --silent https://api.github.com/repos/vim/vim/tags | jq .[0].name --raw-output | sed -e "s/^v//g")
+
+    if [ "$PVIM_SECOND_LATEST_VERSION" != "$PVIM_LATEST_VERSION" ]; then
+        echo "paleovim latest version ( $PVIM_LATEST_VERSION ) found!"
+        echo "$PVIM_LATEST_VERSION" >"$PVIM_SECOND_LATEST_VERSION_FILE"
+        if [ "$opt" == "--use-pueue" ]; then
+            task_id=$(pueue add -p -- "mise uninstall vim@$PVIM_SECOND_LATEST_VERSION")
+            pueue add --after "$task_id" -- "mise install vim@$PVIM_LATEST_VERSION"
+        else
+            mise uninstall "vim@$PVIM_SECOND_LATEST_VERSION"
+            mise install "vim@$PVIM_LATEST_VERSION"
+        fi
+    else
+        echo "paleovim latest version ( $PVIM_LATEST_VERSION ) is already installed"
+    fi
+}
+
 function _zig_master() {
     ZIG_VERSION=$("$MISE_ZIG_BINDIR/master/$BIN_ZIG" version)
     ZIG_NEW_VERSION=$(curl -sSL https://ziglang.org/download/index.json | jq .master.version --raw-output)
@@ -135,7 +178,8 @@ while (("$#")); do
         version
         exit 1
         ;;
-    neovim-master | neovim-stable | neovim-nightly | zig-master)
+    neovim-master | neovim-stable | neovim-nightly | \
+        paleovim-master | paleovim-latest | zig-master)
         cmd=$1
         opt=$2
         shift
@@ -155,6 +199,12 @@ neovim-stable)
     ;;
 neovim-nightly)
     _neovim_nightly "$opt"
+    ;;
+paleovim-master)
+    _paleovim_master "$opt"
+    ;;
+paleovim-latest)
+    _paleovim_latest "$opt"
     ;;
 zig-master)
     _zig_master "$opt"
