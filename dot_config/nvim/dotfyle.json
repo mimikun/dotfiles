@@ -263,8 +263,8 @@
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "!iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "!aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "!iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "!Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -329,7 +329,6 @@
       "mode": "x",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -382,6 +381,7 @@
     },
     { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -477,8 +477,8 @@
       "mode": "n",
       "rhs": ":.w !win32yank.exe -i<CR><CR>"
     },
-    { "desc": "", "noremap": true, "lhs": ">iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": ">aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": ">iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": ">Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -596,8 +596,8 @@
       "mode": "x",
       "rhs": "<Plug>(MatchitVisualTextObject)"
     },
-    { "desc": "", "noremap": true, "lhs": "ciÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "caÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "ciÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "cÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -606,8 +606,8 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"c\", {mode = \"n\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "diÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "daÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "diÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "dÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -658,15 +658,15 @@
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -777,19 +777,19 @@
     {
       "desc": "Run Translate",
       "noremap": true,
-      "lhs": "trr",
+      "lhs": "tr",
       "mode": "n",
       "rhs": "<function>"
     },
     {
       "desc": "Run Translate",
       "noremap": true,
-      "lhs": "tr",
+      "lhs": "trr",
       "mode": "n",
       "rhs": "<function>"
     },
-    { "desc": "", "noremap": true, "lhs": "viÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "vaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "viÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "vÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -798,8 +798,8 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"v\", {mode = \"n\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "yiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "yaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "yiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "yÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -808,8 +808,8 @@
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"y\", {mode = \"n\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "zfiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "zfaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "zfiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -1186,6 +1186,13 @@
     {
       "desc": "",
       "noremap": true,
+      "lhs": "<C-N>",
+      "mode": "n",
+      "rhs": ":NvimTreeToggle<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
       "lhs": "<LeftMouse>",
       "mode": "v",
       "rhs": "<function>"
@@ -1214,27 +1221,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-N>",
-      "mode": "n",
-      "rhs": ":NvimTreeToggle<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-D>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-D>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<C-B>",
       "mode": "x",
       "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
@@ -1277,20 +1263,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<C-U>",
       "mode": "x",
       "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
@@ -1303,16 +1275,44 @@
       "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 250)<CR>"
     },
     {
-      "desc": "Use dmacro",
+      "desc": "",
       "noremap": true,
-      "lhs": "<C-T>",
+      "lhs": "<C-D>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-D>",
       "mode": "n",
-      "rhs": "<function>"
+      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "n",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
     },
     {
       "desc": "Toggle Kana-mode skkeleton",
       "noremap": true,
       "lhs": "<C-J>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Use dmacro",
+      "noremap": true,
+      "lhs": "<C-T>",
       "mode": "n",
       "rhs": "<function>"
     },
