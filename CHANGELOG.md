@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.04.17]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(aqua): bump
+- chore(pvim): update human rights violating pvim config
+- docs(pvim): update README.md
+- chore(gitignore): update
+- chore(chezmoiignore): update
+- chore(mise): use vim 9.1.0342
+- chore(zellij)!: update config
+- chore(fish)!: update zellij completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.04.16]
 
 ### Added - 新機能について
