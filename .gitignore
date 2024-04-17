@@ -17,4 +17,3 @@ dot_config/fish/completions/hwm.fish
 
 # Windows only
 AppData/Local/nvim/Makefile
-vimfiles/Makefile
