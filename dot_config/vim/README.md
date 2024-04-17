@@ -2,6 +2,10 @@
 
 This configuration is used when [human rights] are guaranteed.
 
+## Restrictions
+
+- Write as much as possible in `Vim Script`
+
 ## Plugins
 
 WIP
