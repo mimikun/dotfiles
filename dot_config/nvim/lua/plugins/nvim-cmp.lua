@@ -9,6 +9,8 @@ local dependencies = {
     "saadparwaiz1/cmp_luasnip",
     "nvim-orgmode/orgmode",
     "onsails/lspkind.nvim",
+    --"zbirenbaum/copilot.lua",
+    --"zbirenbaum/copilot-cmp",
 }
 
 ---@type LazySpec
@@ -20,6 +22,9 @@ local spec = {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
+
+        --local copilot_cmp = require("copilot_cmp")
+        --copilot_cmp.setup({})
 
         local has_words_before = function()
             -- selene: allow(incorrect_standard_library_use)
@@ -61,6 +66,7 @@ local spec = {
                 end, { "i", "s" }),
             }),
             sources = cmp.config.sources({
+                --{ name = "copilot" },
                 {
                     name = "nvim_lsp",
                     option = {
