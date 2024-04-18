@@ -3,20 +3,20 @@ dotnet-core = "latest"
 lua = "latest"
 luajit = "latest"
 tig = "latest"
-vim = ["9.1.0342","latest"]
+vim = ["9.1.0346", "ref:master", "latest"]
 ruby = "latest"
 neovim = ["nightly", "ref:master", "stable", "latest"]
 node = [
-  # lts = 20
-  "20",
-  "21",
+    # lts = 20
+    "20",
+    "21",
 ]
 powershell-core = ["latest", "7.4"]
 python = [
-  "latest",
-  # mise cannot install python v2
-  #"2",
-  "3",
+    "latest",
+    # mise cannot install python v2
+    #"2",
+    "3",
 ]
 zig = ["master", "latest"]
 
