@@ -1,8 +1,8 @@
 local settings = {}
 
--- Set it to false if you don't use copilot
+-- Set it to false if you don't use ai assistant
 ---@type boolean
-settings["use_copilot"] = false
+settings["use_ai_assistant"] = false
 
 -- Set to `true` to FORCE denops to be enabled no human rights
 -- DO NOT use `chezmoi add` when set to `true`

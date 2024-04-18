@@ -55,7 +55,7 @@ local spec = {
     cmd = "Copilot",
     opts = opts,
     --config = true,
-    cond = settings.use_copilot,
+    cond = settings.use_ai_assistant,
 }
 
 return spec
