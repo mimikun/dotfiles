@@ -8,6 +8,7 @@ local dependencies = {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "nvim-orgmode/orgmode",
+    "onsails/lspkind.nvim",
 }
 
 ---@type LazySpec
@@ -18,6 +19,7 @@ local spec = {
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
+        local lspkind = require("lspkind")
 
         local has_words_before = function()
             -- selene: allow(incorrect_standard_library_use)
@@ -77,6 +79,16 @@ local spec = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end,
+            },
+            formatting = {
+                format = lspkind.cmp_format({
+                    -- "text" or "text_symbol", "symbol_text", "symbol"
+                    mode = "text_symbol",
+                    -- "codicons" or "default"
+                    preset = "codicons",
+                    -- TODO: use icons
+                    symbol_map = { Copilot = "" },
+                }),
             },
         })
         cmp.setup.cmdline(":", {
