@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2024.04.18]
+
+### Added - 新機能について
+
+- feat(nvim)!: add screenkey.nvim
+- feat(nvim)!: add ChatGPT.nvim
+- feat(nvim)!: add CopilotChat.nvim
+- chore(nvim): add copilot_cmp config in nvim-cmp
+- chore(nvim): add lspkind config in nvim-cmp config
+- chore(nvim): add some ollama plugins
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update plugin configs
+- chore(nvim): use use_ai_assistant instead use_copilot
+- chore(mise): use vim@9.1.0346
+- chore(localbin): update vup
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.04.17]
 
 ### Added - 新機能について
