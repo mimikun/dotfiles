@@ -1,10 +1,19 @@
 local global = require("core.global")
----@type boolean
-local is_human_rights = global.is_human_rights
 
 ---@type table
 local keymaps = {
     { "<C-j>", desc = "Toggle Kana-mode skkeleton" },
+}
+
+---@type table
+local dependencies = {
+    "vim-denops/denops.vim",
+    "yuki-yano/denops-lazy.nvim",
+    "delphinus/skkeleton_indicator.nvim",
+    {
+        "willelz/skk-tutorial.vim",
+        cmd = "SKKTutorialStart",
+    },
 }
 
 ---@type LazySpec
@@ -13,15 +22,7 @@ local spec = {
     --lazy = false,
     --event = "VeryLazy",
     keys = keymaps,
-    dependencies = {
-        "vim-denops/denops.vim",
-        "yuki-yano/denops-lazy.nvim",
-        "delphinus/skkeleton_indicator.nvim",
-        {
-            "willelz/skk-tutorial.vim",
-            cmd = "SKKTutorialStart",
-        },
-    },
+    dependencies = dependencies,
     config = function()
         local denops_lazy = require("denops-lazy")
         local skkeleton_indicator = require("skkeleton_indicator")
@@ -183,7 +184,7 @@ local spec = {
         vim.keymap.set("c", "<C-j>", "<Plug>(skkeleton-toggle)")
     end,
     -- Disable if there are no human rights
-    cond = is_human_rights,
+    cond = global.is_human_rights,
 }
 
 return spec

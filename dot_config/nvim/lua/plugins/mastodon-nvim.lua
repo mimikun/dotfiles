@@ -10,17 +10,20 @@ local cmds = {
     "MastodonReload",
 }
 
+---@type table
+local dependencies = {
+    "nvim-lua/plenary.nvim",
+    "rcarriga/nvim-notify",
+    "kkharji/sqlite.lua",
+}
+
 ---@type LazySpec
 local spec = {
     "kode-team/mastodon.nvim",
     --lazy = false,
     --event = "VeryLazy",
     cmd = cmds,
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "rcarriga/nvim-notify",
-        "kkharji/sqlite.lua",
-    },
+    dependencies = dependencies,
     config = true,
     --cond = false,
 }

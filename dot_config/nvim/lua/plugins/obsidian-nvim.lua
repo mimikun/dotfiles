@@ -22,6 +22,7 @@ local cmds = {
     "ObsidianToday",
     "ObsidianYesterday",
     "ObsidianTomorrow",
+    "ObsidianDailies",
     "ObsidianTemplate",
     "ObsidianSearch",
     "ObsidianLink",
@@ -32,6 +33,7 @@ local cmds = {
     "ObsidianPasteImg",
     "ObsidianRename",
     "ObsidianCheck",
+    "ObsidianToggleCheckbox",
 }
 
 local day_sec = 86400
@@ -186,7 +188,6 @@ local dependencies = {
     "hrsh7th/nvim-cmp",
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "preservim/vim-markdown",
 }
 
 local opts = {
@@ -279,9 +280,6 @@ local opts = {
     attachments = {
         img_folder = "998_Attachments",
     },
-
-    -- NOTE: "native" or "yq"
-    yaml_parser = "native",
 }
 
 ---@type LazySpec

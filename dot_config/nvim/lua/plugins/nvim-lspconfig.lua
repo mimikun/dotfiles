@@ -19,16 +19,19 @@ local keymaps = {
     { "<space>f", desc = "vim.lsp.buf.format({ async = true })" },
 }
 
+---@type table
+local dependencies = {
+    "nvimdev/lspsaga.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons",
+}
+
 ---@type LazySpec
 local spec = {
     "neovim/nvim-lspconfig",
     lazy = false,
     keys = keymaps,
-    dependencies = {
-        "nvimdev/lspsaga.nvim",
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-tree/nvim-web-devicons",
-    },
+    dependencies = dependencies,
     config = function()
         local lspsaga = require("lspsaga")
         lspsaga.setup({

@@ -1,6 +1,10 @@
 local global = require("core.global")
----@type boolean
-local is_human_rights = global.is_human_rights
+
+---@type table
+local dependencies = {
+    "vim-denops/denops.vim",
+    "yuki-yano/denops-lazy.nvim",
+}
 
 ---@type LazySpec
 local spec = {
@@ -8,10 +12,7 @@ local spec = {
     --lazy = false,
     --event = "VeryLazy",
     cmd = "Translate",
-    dependencies = {
-        "vim-denops/denops.vim",
-        "yuki-yano/denops-lazy.nvim",
-    },
+    dependencies = dependencies,
     config = function()
         local denops_lazy = require("denops-lazy")
         denops_lazy.load("dps-translate-vim")
@@ -20,7 +21,7 @@ local spec = {
         vim.g.dps_translate_target = "ja"
     end,
     -- Disable if there are no human rights
-    cond = is_human_rights,
+    cond = global.is_human_rights,
 }
 
 return spec

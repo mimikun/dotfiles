@@ -1,26 +1,22 @@
 local global = require("core.global")
----@type boolean
-local is_windows = global.is_windows
----@type string
-local data_dir = global.data_dir
----@type string
-local path_sep = global.path_sep
----@type string
-local my_snippets_dir = global.snippets_dir
----@type string
-local friendly_snippets = table.concat({ data_dir, "lazy", "friendly-snippets" }, path_sep)
 
 ---@type string
-local build = is_windows and "" or "make install_jsregexp"
+local friendly_snippets = table.concat({ global.data_dir, "lazy", "friendly-snippets" }, global.path_sep)
+
+---@type string
+local build = global.is_windows and "" or "make install_jsregexp"
+
+---@type table
+local dependencies = {
+    "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
+}
 
 ---@type LazySpec
 local spec = {
     "L3MON4D3/LuaSnip",
     lazy = false,
-    dependencies = {
-        "saadparwaiz1/cmp_luasnip",
-        "rafamadriz/friendly-snippets",
-    },
+    dependencies = dependencies,
     version = "v2.*",
     build = build,
     config = function()
@@ -28,7 +24,7 @@ local spec = {
             paths = {
                 --$XDG_DATA_HOME/nvim/site/lazy/friendly-snippets/
                 friendly_snippets,
-                my_snippets_dir,
+                global.snippets_dir,
             },
         })
     end,

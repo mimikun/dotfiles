@@ -116,6 +116,12 @@ local tabline = {
 }
 
 ---@type table
+local dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "lewis6991/gitsigns.nvim",
+}
+
+---@type table
 local opts = {
     options = options,
     sections = sections,
@@ -126,14 +132,8 @@ local opts = {
 local spec = {
     "nvim-lualine/lualine.nvim",
     --lazy = false,
-    event = {
-        "BufReadPre",
-        "BufNewFile",
-    },
-    dependencies = {
-        "nvim-tree/nvim-web-devicons",
-        "lewis6991/gitsigns.nvim",
-    },
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = dependencies,
     config = function()
         require("lualine").setup(opts)
     end,

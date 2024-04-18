@@ -8,22 +8,25 @@ local is_human_rights = global.is_human_rights
 ---@type table
 local treesitter_parsers = settings["treesitter_parsers"]
 
+---@type table
+local dependencies = {
+    "windwp/nvim-ts-autotag",
+    "IndianBoy42/tree-sitter-just",
+    "LhKipp/nvim-nu",
+    "Fymyte/tree-sitter-rasi",
+    "mimikun/tree-sitter-PowerShell",
+    "charmbracelet/tree-sitter-vhs",
+    -- NOTE: has bug
+    --{ "apple/pkl-neovim", build = ":TSInstall! pkl" },
+}
+
 ---@type LazySpec
 local spec = {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     --lazy = false,
     event = "VeryLazy",
-    dependencies = {
-        "windwp/nvim-ts-autotag",
-        "IndianBoy42/tree-sitter-just",
-        "LhKipp/nvim-nu",
-        "Fymyte/tree-sitter-rasi",
-        "mimikun/tree-sitter-PowerShell",
-        "charmbracelet/tree-sitter-vhs",
-        -- NOTE: has bug
-        --{ "apple/pkl-neovim", build = ":TSInstall! pkl" },
-    },
+    dependencies = dependencies,
     config = function()
         local configs = require("nvim-treesitter.configs")
         local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

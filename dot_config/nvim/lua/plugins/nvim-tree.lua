@@ -27,9 +27,7 @@ local spec = {
     keys = keymaps,
     cmd = cmds,
     --event = "VeryLazy",
-    dependencies = {
-        "nvim-tree/nvim-web-devicons",
-    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1

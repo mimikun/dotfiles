@@ -1,15 +1,6 @@
 local global = require("core.global")
-local settings = require("core.settings")
+--local settings = require("core.settings")
 local iconsets = require("utils.icons")
-
----@type boolean
-local is_human_rights = global.is_human_rights
----@type boolean
-local is_windows = global.is_windows
----@type string
-local vim_path = global.vim_path
----@type string
-local path_sep = global.path_sep
 
 --local lsp_servers = settings["lsp_servers"]
 ---@type table
@@ -48,7 +39,7 @@ local lsp_servers = {
     "yamlls",
     "zls",
 }
-if is_windows then
+if global.is_windows then
     -- Windows
     -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio
     for i, v in ipairs(lsp_servers) do
@@ -71,7 +62,7 @@ local icons = {
 ---@type number|function limit the maximum amount of concurrent tasks
 local concurrency_limit_check = function()
     local limit
-    if is_human_rights then
+    if global.is_human_rights then
         limit = 4
     else
         limit = 1
@@ -83,20 +74,23 @@ end
 local concurrency = concurrency_limit_check()
 
 ---@type string
-local mason_lockfile = table.concat({ vim_path, "mason-lock.json" }, path_sep)
+local mason_lockfile = table.concat({ global.vim_path, "mason-lock.json" }, global.path_sep)
+
+---@type table
+local dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+    "zapling/mason-lock.nvim",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "folke/neoconf.nvim",
+    "folke/neodev.nvim",
+}
 
 ---@type LazySpec
 local spec = {
     "williamboman/mason.nvim",
     lazy = false,
-    dependencies = {
-        "williamboman/mason-lspconfig.nvim",
-        "zapling/mason-lock.nvim",
-        "neovim/nvim-lspconfig",
-        "hrsh7th/cmp-nvim-lsp",
-        "folke/neoconf.nvim",
-        "folke/neodev.nvim",
-    },
+    dependencies = dependencies,
     config = function()
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
