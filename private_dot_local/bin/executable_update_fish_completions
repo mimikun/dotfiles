@@ -23,15 +23,11 @@ if command_exist bun; then
   pueue add -- "bun completions"
 fi
 
-for cmd in "chezmoi" "flyctl" "runme" "bin" "mise" "luarocks" "gopass" "glow"; do
+for cmd in "chezmoi" "flyctl" "runme" "bin" "mise" "luarocks" "gopass" "glow" "pnpm"; do
   if command_exist "${cmd}"; then
     pueue add -- "'${cmd}' completion fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
   fi
 done
-
-if command_exist pnpm; then
-  pueue add -- "pnpm install-completion fish"
-fi
 
 if command_exist yq; then
   pueue add -- "yq shell-completion fish > '${COMPLETIONS_DIR}'/yq.fish"
