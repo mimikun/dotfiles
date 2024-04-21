@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.04.21]
+
+### Added - 新機能について
+
+- feat(fish)!: add pnpm completion
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(localbin): update update_pnpm
+- chore(localbin): update update_fish_completions
+- chore(fish): update uv completion
+- chore(fish): update rbw completion
+- chore(aqua): bump
+- chore(utils): update neovim_readme_generator.lua
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix!: linux chezmoiscripts
+
 ## [v2024.04.18]
 
 ### Added - 新機能について
