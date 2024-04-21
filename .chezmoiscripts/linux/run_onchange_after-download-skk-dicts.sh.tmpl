@@ -6,10 +6,16 @@ skk_jisyo_l="SKK-JISYO.L"
 
 cd "$HOME/.skk" || exit
 
-wget "https://skk-dev.github.io/dict/$skk_jisyo_l.gz"
 
-if [ ! -e "$skk_jisyo_l" ]; then
+if [[ ! -e "$skk_jisyo_l" ]]; then
+    echo "Download from https://skk-dev.github.io/dict/$skk_jisyo_l.gz"
+    wget "https://skk-dev.github.io/dict/$skk_jisyo_l.gz"
+    sleep 3
     gzip -d "$skk_jisyo_l.gz"
+    sleep 3
+    rm -f "$skk_jisyo_l.gz"
+else
+    echo "$skk_jisyo_l is exist."
 fi
 
 {{ end -}}

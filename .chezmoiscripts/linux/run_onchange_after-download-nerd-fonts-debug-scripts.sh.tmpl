@@ -22,14 +22,20 @@ scripts=(
 dest_dir="$XDG_DATA_HOME/fonts"
 
 # $XDG_DATA_HOME/fonts check
-if [ ! -d "$dest_dir" ]; then
+if [[ ! -d "$dest_dir" ]]; then
     mkdir "$dest_dir"
 fi
 
 for script_name in "${scripts[@]}"; do
     download_url="$base_url$script_name"
-    echo "Download from $download_url"
-    curl -sSL "$download_url" -o "$dest_dir/$script_name"
+    file_path="$dest_dir/$script_name"
+
+    if [[ ! -e "$file_path" ]]; then
+        echo "Download from $download_url"
+        curl -sSL "$download_url" -o "$file_path"
+    else
+        echo "$file_path is exist."
+    fi
 done
 
 {{ end -}}

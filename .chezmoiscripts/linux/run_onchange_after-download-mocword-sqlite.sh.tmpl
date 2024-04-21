@@ -7,10 +7,15 @@ mocword_sqlite="mocword.sqlite"
 # mocword.sqlite
 cd "$XDG_CACHE_HOME" || exit
 
-wget "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/$mocword_sqlite.gz"
-
-if [ ! -e "$mocword_sqlite" ]; then
-    gzip -d "$mocword.sqlite.gz"
+if [[ ! -e "$mocword_sqlite" ]]; then
+    echo "Download from https://github.com/high-moctane/mocword-data/releases/download/eng20200217/$mocword_sqlite.gz"
+    wget "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/$mocword_sqlite.gz"
+    sleep 3
+    gzip -d "$mocword_sqlite.gz"
+    sleep 3
+    rm -f "$mocword_sqlite.gz"
+else
+    echo "$mocword_sqlite is exist."
 fi
 
 {{ end -}}

@@ -12,7 +12,13 @@ fi
 monokai_emacs_repo_uri="oneKelvinSmith/monokai-emacs/master"
 monokai_emacs_theme_name="monokai-theme.el"
 download_url="$base_url/$monokai_emacs_repo_uri/$monokai_emacs_theme_name"
-echo "Download from $download_url"
-curl -sSL "$download_url" -o "$dest_dir/$monokai_emacs_theme_name"
+file_path="$dest_dir/$monokai_emacs_theme_name"
+
+if [[ ! -e "$file_path" ]]; then
+    echo "Download from $download_url"
+    curl -sSL "$download_url" -o "$file_path"
+else
+    echo "$file_path is exist."
+fi
 
 {{ end -}}

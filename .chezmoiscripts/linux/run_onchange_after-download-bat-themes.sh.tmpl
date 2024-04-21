@@ -18,8 +18,14 @@ fi
 
 for theme in "${themes[@]}"; do
     download_url="$base_url$theme"
-    echo "Download from $download_url"
-    curl -sSL "$download_url" -o "$dest_dir/$theme"
+    file_path="$dest_dir/$theme"
+    # file check
+    if [[ ! -e "$file_path" ]]; then
+        echo "Download from $download_url"
+        curl -sSL "$download_url" -o "$file_path"
+    else
+        echo "$file_path is exist."
+    fi
 done
 
 {{ end -}}
