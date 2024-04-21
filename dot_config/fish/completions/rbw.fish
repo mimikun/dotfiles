@@ -45,6 +45,7 @@ complete -c rbw -n "__fish_seen_subcommand_from get" -l raw -d 'Display output a
 complete -c rbw -n "__fish_seen_subcommand_from get" -l clipboard -d 'Copy result to clipboard'
 complete -c rbw -n "__fish_seen_subcommand_from get" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_seen_subcommand_from code" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from code" -l clipboard -d 'Copy result to clipboard'
 complete -c rbw -n "__fish_seen_subcommand_from code" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_seen_subcommand_from add" -l uri -d 'URI for the password entry' -r
 complete -c rbw -n "__fish_seen_subcommand_from add" -l folder -d 'Folder for the password entry' -r
