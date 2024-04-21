@@ -29,7 +29,7 @@ packages:
 # Previously managed with gup
 - name: mrtazz/checkmake@0.2.2
 - name: editorconfig-checker/editorconfig-checker@v3.0.1
-- name: osteele/gojekyll@v0.2.9
+- name: osteele/gojekyll@v0.2.10
 - name: golangci/golangci-lint@v1.57.2
 - name: tdewolff/minify@v2.20.19
 - name: sheepla/pingu@v0.0.5
