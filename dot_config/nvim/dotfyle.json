@@ -242,6 +242,7 @@
       "mode": "x",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"v\", auto = true})<CR>"
     },
+    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -294,7 +295,6 @@
     },
     { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -1054,13 +1054,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-N>",
-      "mode": "n",
-      "rhs": ":NvimTreeToggle<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<C-G>",
       "mode": "n",
       "rhs": "<function>"
@@ -1075,16 +1068,23 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
+      "lhs": "<C-N>",
+      "mode": "n",
+      "rhs": ":NvimTreeToggle<CR>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-E>",
+      "lhs": "<C-B>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-B>",
       "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
+      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
     },
     {
       "desc": "",
@@ -1103,6 +1103,20 @@
     {
       "desc": "",
       "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "n",
+      "rhs": "<Cmd>lua require('neoscroll').scroll(0.10, false, 100)<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
       "lhs": "<C-D>",
       "mode": "x",
       "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
@@ -1113,20 +1127,6 @@
       "lhs": "<C-D>",
       "mode": "n",
       "rhs": "<Cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 250)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-F>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.fn.winheight(0), true, 450)<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-F>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.fn.winheight(0), true, 450)<CR>"
     },
     {
       "desc": "",
@@ -1145,28 +1145,28 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-B>",
+      "lhs": "<C-F>",
       "mode": "x",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
+      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.fn.winheight(0), true, 450)<CR>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-B>",
+      "lhs": "<C-F>",
       "mode": "n",
-      "rhs": "<Cmd>lua require('neoscroll').scroll(-vim.fn.winheight(0), true, 450)<CR>"
-    },
-    {
-      "desc": "Use dmacro",
-      "noremap": true,
-      "lhs": "<C-T>",
-      "mode": "n",
-      "rhs": "<function>"
+      "rhs": "<Cmd>lua require('neoscroll').scroll(vim.fn.winheight(0), true, 450)<CR>"
     },
     {
       "desc": "Toggle Kana-mode skkeleton",
       "noremap": true,
       "lhs": "<C-J>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Use dmacro",
+      "noremap": true,
+      "lhs": "<C-T>",
       "mode": "n",
       "rhs": "<function>"
     },
