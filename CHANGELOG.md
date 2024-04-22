@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2024.04.22]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(mise): use vim@9.1.0363
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.04.21]
 
 ### Added - 新機能について
