@@ -62,7 +62,7 @@ M.line_height = 1
 M.use_ime = true
 M.initial_rows = 30
 M.initial_cols = 120
-M.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
+M.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 if not is_azusa then
     local wsl_domain = is_human_rights and "WSL:Ubuntu" or "WSL:Ubuntu-20.04"
