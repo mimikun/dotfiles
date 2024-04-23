@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.04.23]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(wezterm): use window_decorations "INTEGRATED_BUTTONS|RESIZE"
+- chore(wezterm): improved event.lua
+- chore(wezterm): improved mousebinds.lua
+- chore(mise): use vim@9.1.0366
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix: stylua error
+
 ## [v2024.04.22]
 
 ### Added - 新機能について
