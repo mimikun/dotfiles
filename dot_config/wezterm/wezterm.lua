@@ -3,10 +3,10 @@ local global = require("global")
 local keybinds = require("keybinds")
 local mousebinds = require("mousebinds")
 
-local config = {}
+local M = {}
 
 if wezterm.config_builder then
-    config = wezterm.config_builder()
+    M = wezterm.config_builder()
 end
 
 local hostname = global.hostname
@@ -30,12 +30,12 @@ require("status")
 require("event")
 
 -- appearance
-config.color_scheme = "GitHub Dark"
-config.window_background_opacity = 0.93
+M.color_scheme = "GitHub Dark"
+M.window_background_opacity = 0.93
 
 if is_human_rights then
-    config.window_background_image = table.concat({ home, ".kabegami", "random", kabegami_name }, path_sep)
-    config.window_background_image_hsb = {
+    M.window_background_image = table.concat({ home, ".kabegami", "random", kabegami_name }, path_sep)
+    M.window_background_image_hsb = {
         hue = 1.0,
         saturation = 1.0,
         brightness = 0.07,
@@ -43,37 +43,37 @@ if is_human_rights then
 end
 
 -- font
-config.font = wezterm.font_with_fallback({
+M.font = wezterm.font_with_fallback({
     { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
 })
-config.font_size = base_font_size
+M.font_size = base_font_size
 
-config.window_frame = {
+M.window_frame = {
     font = wezterm.font({ family = "Roboto", weight = "Bold" }),
     font_size = wf_font_size,
 }
-config.leader = keybinds.leader
-config.keys = keybinds.keys
-config.key_tables = keybinds.key_tables
-config.mouse_bindings = mousebinds.mouse_bindings
-config.disable_default_key_bindings = true
-config.line_height = 1
-config.use_ime = true
-config.initial_rows = 30
-config.initial_cols = 120
-config.window_decorations = "RESIZE"
+M.leader = keybinds.leader
+M.keys = keybinds.keys
+M.key_tables = keybinds.key_tables
+M.mouse_bindings = mousebinds.mouse_bindings
+M.disable_default_key_bindings = true
+M.line_height = 1
+M.use_ime = true
+M.initial_rows = 30
+M.initial_cols = 120
+M.window_decorations = 'INTEGRATED_BUTTONS|RESIZE'
 
 if not is_azusa then
     local wsl_domain = is_human_rights and "WSL:Ubuntu" or "WSL:Ubuntu-20.04"
 
     if is_human_rights then
-        config.default_domain = wsl_domain
+        M.default_domain = wsl_domain
     else
-        config.default_prog = { "pwsh.exe" }
+        M.default_prog = { "pwsh.exe" }
     end
 
-    config.launch_menu = {
+    M.launch_menu = {
         {
             label = "WSL Ubuntu",
             domain = {
@@ -189,7 +189,7 @@ local function debug_log_print()
     wezterm.log_info("Hostname " .. hostname)
     wezterm.log_info("Path sep " .. path_sep)
     wezterm.log_info("Running under wsl" .. tostring(is_wsl))
-    config.debug_key_events = true
+    M.debug_key_events = true
 end
 
 local function debug_icon_print()
@@ -273,4 +273,4 @@ end
 
 debug_log_print()
 
-return config
+return M
