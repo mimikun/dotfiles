@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.04.24]
+
+### Added - 新機能について
+
+- feat(nvim)!: add yazi.nvim plugin
+- feat(nvim)!: add indent-blankline.nvim plugin
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(yazi): update configs
+- chore(fish): update uv completion
+- chore(mise): use vim@9.1.0368
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix: markdown_oxide remove in windows
+
 ## [v2024.04.23]
 
 ### Added - 新機能について
