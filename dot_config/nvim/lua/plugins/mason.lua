@@ -41,9 +41,16 @@ local lsp_servers = {
 }
 if global.is_windows then
     -- Windows
-    -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio
+    -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio, markdown_oxide
     for i, v in ipairs(lsp_servers) do
-        if (v == "csharp_ls") or (v == "gopls") or (v == "jqls") or (v == "esbonio") or (v == "solargraph") then
+        if
+            (v == "csharp_ls")
+            or (v == "gopls")
+            or (v == "jqls")
+            or (v == "esbonio")
+            or (v == "solargraph")
+            or (v == "markdown_oxide")
+        then
             table.remove(lsp_servers, i)
         end
     end
