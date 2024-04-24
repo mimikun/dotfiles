@@ -6,6 +6,8 @@ complete -c uv -n "__fish_use_subcommand" -s v -l verbose -d 'Use verbose output
 complete -c uv -n "__fish_use_subcommand" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_use_subcommand" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_use_subcommand" -l no-native-tls
+complete -c uv -n "__fish_use_subcommand" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_use_subcommand" -l no-preview
 complete -c uv -n "__fish_use_subcommand" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_use_subcommand" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_use_subcommand" -s V -l version -d 'Print version'
@@ -25,6 +27,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcomma
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s V -l version -d 'Print version'
@@ -117,6 +121,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s V -l version -d 'Print version'
@@ -132,6 +138,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-binary -d 'Don\'t install pre-built wheels' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l only-binary -d 'Only use pre-built wheels; don\'t build source distributions' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l python-version -d 'The minimum Python version that should be supported by the requirements (e.g., `3.7` or `3.7.9`)' -r
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "{windows	'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux	'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos	'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc	'An x86 Windows target',x86_64-unknown-linux-gnu	'An x86 Linux target',aarch64-apple-darwin	'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin	'An x86 macOS target',aarch64-unknown-linux-gnu	'An ARM64 Linux target',aarch64-unknown-linux-musl	'An ARM64 Linux target',x86_64-unknown-linux-musl	'An x86_64 Linux target'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l trusted-host -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l python-executable -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l cert -r
@@ -169,6 +177,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s V -l version -d 'Print version'
@@ -192,6 +202,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-binary -d 'Don\'t install pre-built wheels' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l only-binary -d 'Only use pre-built wheels; don\'t build source distributions' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l python-version -d 'The minimum Python version that should be supported by the requirements (e.g., `3.7` or `3.7.9`)' -r
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "{windows	'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux	'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos	'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc	'An x86 Windows target',x86_64-unknown-linux-gnu	'An x86 Linux target',aarch64-apple-darwin	'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin	'An x86 macOS target',aarch64-unknown-linux-gnu	'An ARM64 Linux target',aarch64-unknown-linux-musl	'An ARM64 Linux target',x86_64-unknown-linux-musl	'An x86_64 Linux target'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
@@ -228,6 +240,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s V -l version -d 'Print version'
@@ -247,6 +261,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s V -l version -d 'Print version'
@@ -263,6 +279,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s V -l version -d 'Print version'
@@ -283,6 +301,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -298,6 +318,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -s V -l version -d 'Print version'
@@ -311,6 +333,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s V -l version -d 'Print version'
@@ -350,6 +374,8 @@ complete -c uv -n "__fish_seen_subcommand_from venv" -s v -l verbose -d 'Use ver
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from venv" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from venv" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from venv" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from venv" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from venv" -s V -l version -d 'Print version'
@@ -360,6 +386,8 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcom
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s V -l version -d 'Print version'
@@ -374,6 +402,8 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s V -l version -d 'Print version'
@@ -384,6 +414,8 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s V -l version -d 'Print version'
@@ -394,6 +426,8 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s V -l version -d 'Print version'
@@ -408,6 +442,8 @@ complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcomm
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s V -l version -d 'Print version'
@@ -420,6 +456,8 @@ complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -432,6 +470,8 @@ complete -c uv -n "__fish_seen_subcommand_from clean" -s v -l verbose -d 'Use ve
 complete -c uv -n "__fish_seen_subcommand_from clean" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from clean" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from clean" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from clean" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s V -l version -d 'Print version'
@@ -445,6 +485,8 @@ complete -c uv -n "__fish_seen_subcommand_from run" -s v -l verbose -d 'Use verb
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from run" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from run" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from run" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from run" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from run" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from run" -s V -l version -d 'Print version'
@@ -456,6 +498,8 @@ complete -c uv -n "__fish_seen_subcommand_from version" -s v -l verbose -d 'Use 
 complete -c uv -n "__fish_seen_subcommand_from version" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from version" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from version" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from version" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from version" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from version" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from version" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from version" -s V -l version -d 'Print version'
@@ -466,6 +510,8 @@ complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s v -
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s V -l version -d 'Print version'
