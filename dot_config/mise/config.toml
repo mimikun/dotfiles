@@ -4,7 +4,7 @@ lua = "latest"
 luajit = "latest"
 tig = "latest"
 vim = [
-    "9.1.0366",
+    "9.1.0368",
     "ref:master",
     "latest"
 ]
