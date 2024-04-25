@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.3.0"
+readonly PRODUCT_VERSION="0.4.0"
 PRODUCT_NAME="$(basename "${0}")"
 readonly MISE_NEOVIM_BINDIR="$MISE_DATA_DIR/installs/neovim"
 readonly BIN_NVIM="bin/nvim"
@@ -25,19 +25,20 @@ Usage:
     $PRODUCT_NAME <COMMAND> <SUBCOMMANDS>
 
 Commands:
-  neovim-master                  Run update mise neovim master
-  neovim-stable                  Run update mise neovim stable
-  neovim-nightly                 Run update mise neovim nightly
-  paleovim-master                Run update mise paleovim master
-  paleovim-latest                Run update mise paleovim latest
-  zig-master                     Run update mise zig master
+    neovim-master                  Run update mise neovim master
+    neovim-stable                  Run update mise neovim stable
+    neovim-nightly                 Run update mise neovim nightly
+    paleovim-master                Run update mise paleovim master
+    paleovim-latest                Run update mise paleovim latest
+    zig-master                     Run update mise zig master
+    zig-latest                     Run update mise zig latest
 
 Command options:
-  --use-pueue               Run command with pueue
+    --use-pueue                    Run command with pueue
 
 Options:
-    --version, -v, version    print $PRODUCT_NAME version
-    --help, -h, help          print this help
+    --version, -v, version         print $PRODUCT_NAME version
+    --help, -h, help               print this help
 EOF
 }
 
@@ -165,6 +166,25 @@ function _zig_master() {
     fi
 }
 
+function _zig_latest() {
+    ZIG_VERSION=$("$MISE_ZIG_BINDIR/latest/$BIN_ZIG" version)
+    ZIG_NEW_VERSION=$(mise latest zig)
+
+    if [ "$ZIG_VERSION" != "$ZIG_NEW_VERSION" ]; then
+        echo "zig (latest)master found!"
+        if [ "$opt" == "--use-pueue" ]; then
+            task_id=$(pueue add -p -- "mise uninstall zig@$ZIG_VERSION")
+            pueue add --after "$task_id" -- "mise install zig@$ZIG_NEW_VERSION"
+        else
+            mise uninstall "zig@$ZIG_VERSION"
+            mise install "zig@$ZIG_NEW_VERSION"
+        fi
+    else
+        echo "zig (latest)master is already installed"
+        echo "version: $ZIG_VERSION"
+    fi
+}
+
 #=======================
 # メイン処理
 #=======================
@@ -179,7 +199,7 @@ while (("$#")); do
         exit 1
         ;;
     neovim-master | neovim-stable | neovim-nightly | \
-        paleovim-master | paleovim-latest | zig-master)
+        paleovim-master | paleovim-latest | zig-master | zig-latest)
         cmd=$1
         opt=$2
         shift
@@ -208,6 +228,9 @@ paleovim-latest)
     ;;
 zig-master)
     _zig_master "$opt"
+    ;;
+zig-latest)
+    _zig_latest "$opt"
     ;;
 *)
     usage
