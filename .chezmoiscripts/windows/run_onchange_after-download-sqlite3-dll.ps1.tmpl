@@ -1,11 +1,24 @@
 {{ if eq .chezmoi.os "windows" -}}
 
 # download sqlite3.dll
-Set-Location (Join-Path -Path $env:USERPROFILE -ChildPath "utilities")
-$sqliteDllArchive = "sqlite-dll.zip"
-Invoke-WebRequest -Uri "https://www.sqlite.org/2024/sqlite-dll-win-x64-3450200.zip" -OutFile $sqliteDllArchive
-Expand-Archive -Path $sqliteDllArchive -DestinationPath .
-Remove-Item -Path $sqliteDllArchive
-Remove-Item -Path "sqlite3.def"
+$sqlite3DllBaseDirectory = Join-Path -Path $env:USERPROFILE -ChildPath "utilities"
+
+$sqlite3Dll = "sqlite3.dll"
+$sqlite3Archive = "sqlite-dll.zip"
+$sqlite3Def = "sqlite3.def"
+
+$sqlite3DllFullPath = Join-Path -Path $sqlite3DllBaseDirectory -ChildPath $sqlite3Dll
+$sqlite3DllArchiveFullPath = Join-Path -Path $sqlite3DllBaseDirectory -ChildPath $sqlite3Archive
+$sqlite3DefFullPath = Join-Path -Path $sqlite3DllBaseDirectory -ChildPath $sqlite3Def
+
+if (-not (Test-Path -Path $sqlite3DllFullPath))
+{
+    Invoke-WebRequest -Uri "https://www.sqlite.org/2024/sqlite-dll-win-x64-3450200.zip" -OutFile $sqlite3DllArchiveFullPath
+    Expand-Archive -Path $sqlite3DllArchiveFullPath -DestinationPath $sqlite3DllBaseDirectory
+    Remove-Item -Path $sqlite3DllArchiveFullPath
+    Remove-Item -Path $sqlite3DefFullPath
+}
+
+# vim:ft=ps1.chezmoitmpl
 
 {{ end -}}

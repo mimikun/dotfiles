@@ -1,10 +1,23 @@
 {{ if eq .chezmoi.os "windows" -}}
 
-# download mocword data
-Set-Location (Join-Path -Path $env:USERPROFILE -ChildPath "AppData\Local\Temp")
+# download mocword.sqlite3
+$mocwordDataDirectory = Join-Path -Path $env:USERPROFILE -ChildPath "AppData\Local\Temp"
+$mocwordDataCompressFile = "mocword.sqlite.gz"
 $mocwordDataBaseUri = "https://github.com/high-moctane/mocword-data/releases/download/eng20200217/mocword.sqlite.gz"
-$mocwordData = "mocword.sqlite.gz"
-Invoke-WebRequest -Uri $mocwordDataBaseUri -OutFile $mocwordData
-7z e $mocwordData
+$mocwordDataFile = "mocword.sqlite"
+$mocwordDataFileFullPath = Join-Path -Path $mocwordDataDirectory -ChildPath $mocwordDataFile
+
+if (-not (Test-Path -Path $mocwordDataFileFullPath))
+{
+    $currentDir = Get-Location
+    $destPath = Join-Path -Path $mocwordDataDirectory -ChildPath $mocwordDataCompressFile
+    Invoke-WebRequest -Uri $mocwordDataBaseUri -OutFile $destPath
+    Set-Location -Path $mocwordDataDirectory
+    7z e $mocwordDataCompressFile
+    Remove-Item $mocwordDataCompressFile
+    Set-Location $currentDir
+}
+
+# vim:ft=ps1.chezmoitmpl
 
 {{ end -}}
