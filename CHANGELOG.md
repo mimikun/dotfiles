@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.04.25]
+
+### Added - 新機能について
+
+- chore(mise)!: use mimikun/asdf-vim plugin
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(deps): update
+- chore(localbin): update update_mise
+- chore(mise): use vim@9.1.0369
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update flyctl completion
+- chore(pvim): update configs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(windows)!: copy process for pvim config
+- fix!: windows chezmoiscripts
+
 ## [v2024.04.24]
 
 ### Added - 新機能について
