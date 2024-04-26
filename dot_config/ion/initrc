@@ -1,2 +1,3 @@
 echo "THIS IS WIP"
 echo "https://doc.redox-os.org/ion-manual/scripts.html?highlight=config#executing-commands-at-start-of-interactive-ion-session"
+eval $(starship init ion)
