@@ -238,6 +238,17 @@ local eldritch = {
     --cond = false,
 }
 
+---@type LazySpec
+local ariake = {
+    "jim-at-jibba/ariake.nvim",
+    --lazy = false,
+    --event = "VeryLazy",
+    --opts = {}
+    config = true,
+    --priority = 1000,
+    --cond = false,
+}
+
 -----------------------
 -- Vim Script Themes --
 -----------------------
@@ -404,6 +415,7 @@ local theme_specs = {
     evergarden,
     sunburn,
     eldritch,
+    ariake,
     -- VimScript themes
     sonokai,
     kyotonight,
@@ -532,6 +544,10 @@ local themery_selectables = {
     {
         name = "eldritch",
         colorscheme = "eldritch",
+    },
+    {
+        name = "ariake",
+        colorscheme = "ariake",
     },
     -- VimScript themes
     {
