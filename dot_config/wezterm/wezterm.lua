@@ -99,6 +99,7 @@ if not is_azusa then
             domain = {
                 DomainName = "local",
             },
+            args = { "cmd.exe" },
         },
         {
             label = "nyagos - Nihongo Yet Another GOing Shell",
