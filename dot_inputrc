@@ -1,0 +1,82 @@
+# begin clink-only section
+$if clink
+
+set colored-completion-prefix                       on
+set colored-stats                                   on
+set mark-symlinked-directories                      on
+set visible-stats                                   off
+set completion-auto-query-items                     on
+set history-point-at-end-of-anchored-search         on
+set menu-complete-wraparound                        off
+set search-ignore-case                              on
+
+set keymap vi
+
+#--------------#
+# Key bindings #
+#--------------#
+
+## Alt-Ctrl-Shift-H
+#"\e[27;8;72~":      clink-popup-show-help
+
+# Completion key bindings.
+
+## Tab
+#"\t":               old-menu-complete
+## Shift-Tab
+#"\e[Z":             old-menu-complete-backward
+## Ctrl-Space
+#"\e[27;5;32~":      clink-select-complete
+
+# Some key bindings I got used to from 4Dos/4NT/Take Command.
+
+## Ctrl-B (cleared because I redefined Ctrl-F)
+#C-b:
+## Ctrl-D (replaces `delete-char`)
+#C-d:                remove-history
+## Ctrl-F (replaces `forward-char`)
+#C-f:                clink-expand-doskey-alias
+## Ctrl-K (replaces `kill-line`)
+#C-k:                add-history
+## Up (replaces `previous-history`)
+#"\e[A":             history-search-backward
+## Down (replaces `next-history`)
+#"\e[B":             history-search-forward
+## PgUp (replaces `history-search-backward`)
+#"\e[5~":            clink-popup-history
+## PgDn (cleared because I redefined PgUp)
+#"\e[6~":
+## Ctrl-End (replaces `kill-line`)
+#"\e[1;5F":          end-of-line
+## Ctrl-Home (replaces `backward-kill-line`)
+#"\e[1;5H":          beginning-of-line
+
+# Some key bindings handy in default (conhost) console windows.
+
+## Alt-B (cleared because I redefined Alt-F)
+#M-b:
+## Alt-F for "Find..." from the console's system menu
+#M-f:                clink-find-conhost
+## Alt-M for "Mark" from the console's system menu
+#M-m:                clink-mark-conhost
+
+# Some key bindings for interrogating the Readline configuration.
+
+## Ctrl-X, Ctrl-F
+#"\C-x\C-f":         dump-functions
+## Ctrl-X, Ctrl-M
+#"\C-x\C-m":         dump-macros
+## Ctrl-X, Ctrl-V
+#"\C-x\C-v":         dump-variables
+
+# Misc other key bindings.
+
+## Shift-Space
+#"\e[27;2;32~":      clink-magic-suggest-space
+## Ctrl-Shift-PgUp
+#"\e[5;6~":          clink-popup-directories
+## Ctrl-- (replaces `undo`)
+#C-_:                kill-line
+
+# end clink-only section
+$endif
