@@ -13,6 +13,10 @@ bat = ["|E|", "|_|", "|=|", "|F|"]
 bat_charging = "|^| "
 
 [[block]]
+block = "battery"
+format = " $icon $percentage "
+
+[[block]]
 block = "cpu"
 
 [[block]]
