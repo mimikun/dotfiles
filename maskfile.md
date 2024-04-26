@@ -16,20 +16,6 @@ if (Test-Path .\.git\index.lock) {
 }
 ```
 
-## fixencoding
-
-> Fix the encoding of tasks.ps1 (Windows Only)
-
-```bash
-echo "Linux is not support!"
-```
-
-```powershell
-$taskfile_path = "tasks.ps1"
-$taskfile_file = Get-Content -Path $taskfile_path
-Set-Content -Path $taskfile_path -Value $taskfile_file -Encoding "UTF8"
-```
-
 ## patch
 
 > Create a patch and copy it to windows
@@ -435,8 +421,6 @@ if ($env:COMPUTERNAME -ne "TANAKAPC") {
             }
         }
 }
-
-mask fixencoding
 ```
 
 ## copy2win-patch
