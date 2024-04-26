@@ -842,3 +842,6 @@ $env.config = {
 
 # Loading broot
 source ~/.config/broot/launcher/nushell/br
+
+# starship config
+use ~/.cache/starship/init.nu
