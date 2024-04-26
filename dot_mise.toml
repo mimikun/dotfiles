@@ -3,15 +3,16 @@ dotnet-core = "latest"
 lua = "latest"
 luajit = "latest"
 tig = "latest"
-vim = "9.1.0369"
+vim = "latest"
 ruby = "latest"
 neovim = "nightly"
 node = "20"
 powershell-core = "7.4"
 python = "3"
-zig = "master"
+zig = "latest"
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
 tig = "https://github.com/koketani/asdf-tig.git"
+# https://github.com/tsuyoshicho/asdf-vim has bug
 vim = "https://github.com/mimikun/asdf-vim.git"

@@ -4,16 +4,15 @@ lua = "latest"
 luajit = "latest"
 tig = "latest"
 vim = [
-    "9.1.0369",
+    "latest",
     "ref:master",
-    "latest"
 ]
 ruby = "latest"
 neovim = [
     "nightly",
     "ref:master",
     "stable",
-    "latest"
+    "latest",
 ]
 node = [
     # lts = 20
@@ -31,11 +30,14 @@ python = [
     "3",
 ]
 zig = [
-    "master",
+    # mise official zig plugin has bug
+    # cannot install zig@master
+    #"master",
     "latest",
 ]
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
 tig = "https://github.com/koketani/asdf-tig.git"
+# https://github.com/tsuyoshicho/asdf-vim has bug
 vim = "https://github.com/mimikun/asdf-vim.git"
