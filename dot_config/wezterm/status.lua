@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local nf = wezterm.nerdfonts
+local human_rights = true
 
 -- Right icons
 local normal_key_icon = "" .. " "
@@ -117,6 +118,11 @@ local function GetDate(elems)
 end
 
 local function GetTime(elems)
+    -- disable clock when human rights are being violated
+    if not human_rights then
+        return
+    end
+
     local time = wezterm.strftime("%H:%M:%S")
     AddElement(elems, HEADER_TIME, time)
 end
