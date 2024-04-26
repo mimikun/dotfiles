@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.04.26]
+
+### Added - 新機能について
+
+- chore(chezmoi): add update_mise in chezmoi update process
+- feat(nvim)!: add ariake.nvim colorscheme
+- feat(nushell): add starship config
+- feat(ion): add starship config
+- feat(elvish): add starship config
+- feat(xonsh): add configs
+- feat(tcsh): add configs
+- feat(clink)!: add clink configs
+- feat(i3status-rust)!: add battery info
+    - fix #419
+- feat(wezterm)!: disable clock when human rights are being violated
+    - fix #418
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(localbin): update update_mise
+
+### Removed - 今回で削除された機能について
+
+- chore(chezmoi): remove no longer used tasks.ps1
+
+### Fixed - 不具合修正について
+
+- fix(wezterm): cannot launch cmd.exe
+- fix(mise): configs
+
 ## [v2024.04.25]
 
 ### Added - 新機能について
