@@ -28,5 +28,5 @@
   "typos-lsp": "v0.1.17",
   "vim-language-server": "2.3.1",
   "yaml-language-server": "1.14.0",
-  "zls": "0.11.0"
+  "zls": "0.12.0"
 }
