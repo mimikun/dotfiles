@@ -133,6 +133,7 @@
   "toggleterm.nvim": { "branch": "main", "commit": "066cccf48a43553a80a210eb3be89a15d789d6e6" },
   "tokyodark.nvim": { "branch": "master", "commit": "fa25db55c4ce361363a2dcd4ff20daab39a96e47" },
   "tokyonight.nvim": { "branch": "main", "commit": "67afeaf7fd6ebba000633e89f63c31694057edde" },
+  "transparent.nvim": { "branch": "main", "commit": "fd35a46f4b7c1b244249266bdcb2da3814f01724" },
   "tree-sitter-PowerShell": { "branch": "master", "commit": "5d466f18c508378ad617b9f1adf24de536fe1c37" },
   "tree-sitter-just": { "branch": "main", "commit": "6c2f018ab1d90946c0ce029bb2f7d57f56895dff" },
   "tree-sitter-rasi": { "branch": "main", "commit": "43196d934a9a6ab3c7093a8683efd0111bb03db1" },
@@ -147,7 +148,7 @@
   "vim-markdown": { "branch": "master", "commit": "a657e697376909c41475a686eeef7fc7a4972d94" },
   "vim-quickrun": { "branch": "master", "commit": "50f9ced186cf2651f4356aa3548c2306e181ec3b" },
   "vim-toml": { "branch": "main", "commit": "d36caa6b1cf508a4df1c691f915572fc02143258" },
-  "vimdoc-ja": { "branch": "master", "commit": "2973bf6d8a7628c941ee81ded37cd027808ce864" },
+  "vimdoc-ja": { "branch": "master", "commit": "3a4a282bf42dd4dad7eff0f9037666eed6ef6a66" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
   "yash.nvim": { "branch": "main", "commit": "7dc784975c45a6c917a0be090672559e4a16c058" },
   "yazi.nvim": { "branch": "master", "commit": "051bfcef27f68aa22d14fc11342d3473bae1cb78" }
