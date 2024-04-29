@@ -1,6 +1,3 @@
-local global = require("core.global")
-local is_human_rights = global.is_human_rights
-
 ----------------
 -- Lua Themes --
 ----------------
@@ -12,7 +9,7 @@ local github_theme = {
     config = function()
         require("github-theme").setup({
             options = {
-                transparent = is_human_rights,
+                transparent = vim.g.transparent_enabled,
             },
         })
     end,
@@ -24,7 +21,7 @@ local cyberdream = {
     "scottmckendry/cyberdream.nvim",
     --lazy = false,
     opts = {
-        transparent = is_human_rights,
+        transparent = vim.g.transparent_enabled,
         italic_comments = true,
         hide_fillchars = true,
         borderless_telescope = true,
@@ -48,7 +45,7 @@ local penumbra = {
     --lazy = false,
     opts = {
         italic_comment = false,
-        transparent_bg = is_human_rights,
+        transparent_bg = vim.g.transparent_enabled,
         show_end_of_buffer = false,
         light = false,
         contrast = nil,
@@ -69,7 +66,7 @@ local tokyonight = {
         --style = "night",
         --style = "day",
         light_style = "day",
-        transparent = is_human_rights,
+        transparent = vim.g.transparent_enabled,
         terminal_colors = true,
     },
     --cond = false,
@@ -89,7 +86,7 @@ local nightfox = {
     --lazy = false,
     opts = {
         options = {
-            transparent = is_human_rights,
+            transparent = vim.g.transparent_enabled,
         },
     },
     --cond = false,
@@ -100,7 +97,7 @@ local tokyodark = {
     "tiagovla/tokyodark.nvim",
     --lazy = false,
     opts = {
-        transparent_background = is_human_rights,
+        transparent_background = vim.g.transparent_enabled,
     },
     --cond = false,
 }
@@ -110,7 +107,7 @@ local monokai_pro = {
     "loctvl842/monokai-pro.nvim",
     --lazy = false,
     opts = {
-        transparent_background = is_human_rights,
+        transparent_background = vim.g.transparent_enabled,
     },
     --cond = false,
 }
@@ -120,7 +117,7 @@ local nord = {
     "shaunsingh/nord.nvim",
     --lazy = false,
     config = function()
-        vim.g.nord_disable_background = is_human_rights
+        vim.g.nord_disable_background = vim.g.transparent_enabled
     end,
     --cond = false,
 }
@@ -131,7 +128,7 @@ local catppuccin = {
     name = "catppuccin",
     --lazy = false,
     opts = {
-        transparent_background = is_human_rights,
+        transparent_background = vim.g.transparent_enabled,
     },
     priority = 1000,
     --cond = false,
@@ -142,7 +139,7 @@ local pastelnight = {
     "pauchiner/pastelnight.nvim",
     --lazy = false,
     opts = {
-        transparent = is_human_rights,
+        transparent = vim.g.transparent_enabled,
     },
     priority = 1000,
     --cond = false,
@@ -171,7 +168,7 @@ local evergarden = {
     "comfysage/evergarden",
     --lazy = false,
     opts = {
-        transparent_background = is_human_rights,
+        transparent_background = vim.g.transparent_enabled,
         contrast_dark = "hard",
         --contrast_dark = "medium",
         --contrast_dark = "soft",
@@ -194,7 +191,7 @@ local eldritch = {
     "eldritch-theme/eldritch.nvim",
     --lazy = false,
     opts = {
-        transparent = is_human_rights,
+        transparent = vim.g.transparent_enabled,
     },
     priority = 1000,
     --cond = false,
@@ -222,7 +219,7 @@ local dark_flat = {
     "sekke276/dark_flat.nvim",
     --lazy = false,
     opts = {
-        transparent = is_human_rights,
+        transparent = vim.g.transparent_enabled,
         colors = {},
         themes = function()
             return {}
@@ -239,7 +236,7 @@ local everblush = {
     --lazy = false,
     opts = {
         override = {},
-        transparent_background = is_human_rights,
+        transparent_background = vim.g.transparent_enabled,
         nvim_tree = {
             contrast = false,
         },
@@ -262,7 +259,7 @@ local mellow = {
         vim.g.mellow_bold_booleans = false
         vim.g.mellow_bold_functions = false
         vim.g.mellow_bold_variables = false
-        vim.g.mellow_transparent = is_human_rights
+        vim.g.mellow_transparent = vim.g.transparent_enabled
     end,
     --cond = false,
 }
@@ -277,7 +274,7 @@ local fluoromachine = {
         theme = "fluoromachine",
         --theme = "retrowave",
         --theme = "delta",
-        transparent = is_human_rights,
+        transparent = vim.g.transparent_enabled,
     },
     --cond = false,
 }
@@ -311,8 +308,8 @@ local sonokai = {
         --vim.g.sonokai_style = "shusia"
         --vim.g.sonokai_style = "maia"
         --vim.g.sonokai_style = "espresso"
-        vim.g.sonokai_transparent_background = is_human_rights and 1 or 0
-        vim.g.sonokai_current_word = is_human_rights and "bold" or "grey background"
+        vim.g.sonokai_transparent_background = vim.g.transparent_enabled and 1 or 0
+        vim.g.sonokai_current_word = vim.g.transparent_enabled and "bold" or "grey background"
         -- if you want more ui components to be transparent
         --vim.g.sonokai_transparent_background = 2
         -- when not in transparent mode,
@@ -361,8 +358,8 @@ local edge = {
         vim.g.edge_style = "default"
         --vim.g.edge_style = "aura"
         --vim.g.edge_style = "neon"
-        vim.g.edge_transparent_background = is_human_rights and 1 or 0
-        vim.g.edge_current_word = is_human_rights and "bold" or "grey background"
+        vim.g.edge_transparent_background = vim.g.transparent_enabled and 1 or 0
+        vim.g.edge_current_word = vim.g.transparent_enabled and "bold" or "grey background"
         -- if you want more ui components to be transparent
         --vim.g.edge_transparent_background = 2
         vim.g.edge_better_performance = 1
