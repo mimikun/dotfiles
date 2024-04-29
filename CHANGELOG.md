@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.04.29]
+
+### Added - 新機能について
+
+- feat(nvim)!: add transparent.nvim
+- feat(nvim)!: add auto-save.nvim
+- feat(nvim)!: add some colorschemes
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(nvim): write the theme switching plugin in a separate file
+- chore(fish): update uv completion
+- chore(chezmoi): ignore some files
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.04.26]
 
 ### Added - 新機能について
