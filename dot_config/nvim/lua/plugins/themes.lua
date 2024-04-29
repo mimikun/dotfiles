@@ -10,7 +10,6 @@ local themery_config = global.themery_config
 local github_theme = {
     "projekt0n/github-nvim-theme",
     lazy = false,
-    --event = "VeryLazy",
     config = function()
         require("github-theme").setup({
             options = {
@@ -18,7 +17,6 @@ local github_theme = {
             },
         })
     end,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -26,7 +24,6 @@ local github_theme = {
 local cyberdream = {
     "scottmckendry/cyberdream.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         transparent = is_human_rights,
         italic_comments = true,
@@ -34,7 +31,6 @@ local cyberdream = {
         borderless_telescope = true,
         terminal_colors = true,
     },
-    --priority = 1000,
     --cond = false,
 }
 
@@ -43,9 +39,7 @@ local cyberdream = {
 local monokai = {
     "tanvirtin/monokai.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     config = true,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -53,7 +47,6 @@ local monokai = {
 local penumbra = {
     "Allianaab2m/penumbra.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         italic_comment = false,
         transparent_bg = is_human_rights,
@@ -64,7 +57,6 @@ local penumbra = {
         --contrast = "plusplus",
     },
     config = true,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -72,7 +64,6 @@ local penumbra = {
 local tokyonight = {
     "folke/tokyonight.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         style = "storm",
         --style = "moon",
@@ -82,8 +73,6 @@ local tokyonight = {
         transparent = is_human_rights,
         terminal_colors = true,
     },
-    --config = true,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -92,8 +81,6 @@ local tokyonight = {
 local yash = {
     "kihachi2000/yash.nvim",
     --lazy = false,
-    --event = "VeryLazy",
-    --priority = 1000,
     --cond = false,
 }
 
@@ -101,14 +88,11 @@ local yash = {
 local nightfox = {
     "EdenEast/nightfox.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         options = {
             transparent = is_human_rights,
         },
     },
-    --config = true,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -116,12 +100,9 @@ local nightfox = {
 local tokyodark = {
     "tiagovla/tokyodark.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         transparent_background = is_human_rights,
     },
-    --config = true,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -129,12 +110,9 @@ local tokyodark = {
 local monokai_pro = {
     "loctvl842/monokai-pro.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         transparent_background = is_human_rights,
     },
-    --config = true,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -142,11 +120,9 @@ local monokai_pro = {
 local nord = {
     "shaunsingh/nord.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     config = function()
         vim.g.nord_disable_background = is_human_rights
     end,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -155,11 +131,9 @@ local catppuccin = {
     "catppuccin/nvim",
     name = "catppuccin",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         transparent_background = is_human_rights,
     },
-    --config = true,
     priority = 1000,
     --cond = false,
 }
@@ -168,33 +142,28 @@ local catppuccin = {
 local pastelnight = {
     "pauchiner/pastelnight.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
-        transparent = true,
+        transparent = is_human_rights,
     },
-    --config = true,
     priority = 1000,
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local kurayami = {
     "kevinm6/kurayami.nvim",
     --lazy = false,
-    --event = "VimEnter",
-    --opts = {},
-    --config = true,
     priority = 1000,
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local lavi = {
     "b0o/lavi.nvim",
     --lazy = false,
-    --event = "VimEnter",
     dependencies = { "rktjmp/lush.nvim" },
-    --priority = 1000,
     --cond = false,
 }
 
@@ -202,7 +171,6 @@ local lavi = {
 local evergarden = {
     "comfysage/evergarden",
     --lazy = false,
-    --event = "VimEnter",
     opts = {
         transparent_background = is_human_rights,
         contrast_dark = "hard",
@@ -210,18 +178,15 @@ local evergarden = {
         --contrast_dark = "soft",
         overrides = {},
     },
-    --config = true,
-    --priority = 1000,
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local sunburn = {
     "loganswartz/sunburn.nvim",
     --lazy = false,
-    --event = "VimEnter",
     dependencies = { "loganswartz/polychrome.nvim" },
-    --priority = 1000,
     --cond = false,
 }
 
@@ -229,23 +194,106 @@ local sunburn = {
 local eldritch = {
     "eldritch-theme/eldritch.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     opts = {
         transparent = is_human_rights,
     },
-    --config = true,
     priority = 1000,
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local ariake = {
     "jim-at-jibba/ariake.nvim",
     --lazy = false,
-    --event = "VeryLazy",
-    --opts = {}
     config = true,
-    --priority = 1000,
+    --cond = false,
+}
+
+-- NOTE: Not support "transparent = true"
+---@type LazySpec
+local abstract = {
+    "Abstract-IDE/Abstract-cs",
+    --lazy = false,
+    --cond = false,
+}
+
+---@type LazySpec
+local dark_flat = {
+    "sekke276/dark_flat.nvim",
+    --lazy = false,
+    opts = {
+        transparent = is_human_rights,
+        colors = {},
+        themes = function()
+            return {}
+        end,
+        italics = true,
+    },
+    --cond = false,
+}
+
+---@type LazySpec
+local everblush = {
+    "Everblush/nvim",
+    name = "everblush",
+    --lazy = false,
+    opts = {
+        override = {},
+        transparent_background = is_human_rights,
+        nvim_tree = {
+            contrast = false,
+        },
+    },
+    --cond = false,
+}
+
+---@type LazySpec
+local mellow = {
+    "mellow-theme/mellow.nvim",
+    --lazy = false,
+    init = function()
+        vim.g.mellow_italic_comments = true
+        vim.g.mellow_italic_keywords = false
+        vim.g.mellow_italic_booleans = false
+        vim.g.mellow_italic_functions = false
+        vim.g.mellow_italic_variables = false
+        vim.g.mellow_bold_comments = false
+        vim.g.mellow_bold_keywords = false
+        vim.g.mellow_bold_booleans = false
+        vim.g.mellow_bold_functions = false
+        vim.g.mellow_bold_variables = false
+        vim.g.mellow_transparent = is_human_rights
+    end,
+    --cond = false,
+}
+
+---@type LazySpec
+local fluoromachine = {
+    "maxmx03/fluoromachine.nvim",
+    --lazy = false,
+    opts = {
+        glow = false,
+        brightness = 0.05,
+        theme = "fluoromachine",
+        --theme = "retrowave",
+        --theme = "delta",
+        transparent = is_human_rights,
+    },
+    --cond = false,
+}
+
+-- NOTE: Not support "transparent = true"
+---@type LazySpec
+local srcerite = {
+    "m15a/nvim-srcerite",
+    --lazy = false,
+    dependencies = { "Iron-E/nvim-highlite" },
+    init = function()
+        vim.g.srcerite_inverse_visual = true
+        vim.g.srcerite_inverse_search = false
+        vim.g.srcerite_inverse_match_paren = false
+    end,
     --cond = false,
 }
 
@@ -257,7 +305,6 @@ local ariake = {
 local sonokai = {
     "sainnhe/sonokai",
     --lazy = false,
-    --event = "VeryLazy",
     config = function()
         vim.g.sonokai_style = "default"
         --vim.g.sonokai_style = "atlantis"
@@ -304,7 +351,6 @@ local sonokai = {
         vim.g.sonokai_better_performance = 0
         --vim.g.sonokai_colors_override = {}
     end,
-    --priority = 1000,
     --cond = false,
 }
 
@@ -312,7 +358,6 @@ local sonokai = {
 local edge = {
     "sainnhe/edge",
     --lazy = false,
-    --event = "VeryLazy",
     config = function()
         vim.g.edge_style = "default"
         --vim.g.edge_style = "aura"
@@ -357,16 +402,25 @@ local edge = {
         vim.g.edge_better_performance = 0
         --vim.g.edge_colors_override = {}
     end,
-    --priority = 1000,
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local kyotonight = {
-    "voidekh/kyotonight.vim",
+    "shrikecode/kyotonight.vim",
     --lazy = false,
-    --event = "VeryLazy",
-    --priority = 1000,
+    init = function()
+        vim.g.kyotonight_bold = 1
+        vim.g.kyotonight_underline = 1
+        vim.g.kyotonight_italic = 0
+        vim.g.kyotonight_italic_comments = 0
+        vim.g.kyotonight_uniform_status_lines = 0
+        vim.g.kyotonight_bold_vertical_split_line = 0
+        vim.g.kyotonight_cursor_line_number_background = 0
+        vim.g.kyotonight_uniform_diff_background = 0
+        vim.g.kyotonight_lualine_bold = 1
+    end,
     --cond = false,
 }
 
@@ -375,24 +429,40 @@ local kyotonight = {
 local momiji = {
     "kyoh86/momiji",
     --lazy = false,
-    --event = "VeryLazy",
-    --priority = 1000,
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local gaming = {
     "high-moctane/gaming.vim",
     --lazy = false,
-    --event = "VeryLazy",
     init = function()
         -- N ms colors cycle
         vim.g["gaming#period"] = 500
         -- Updating colors every N ms
         vim.g["gaming#update_time"] = 50
     end,
+    -- NOTE: noisy
+    cond = false,
+}
+
+-------------------------
+-- Theme spec template --
+-------------------------
+
+---@type LazySpec
+local spec_template = {
+    "mimikun/spec-template",
+    --lazy = false,
+    enabled = false,
+    --cmd = "CMDNAME",
+    --keys = "",
+    --event = "VeryLazy",
+    --dependencies = { "nvim-tree/nvim-web-devicons" },
+    --opts = {},
     --config = true,
-    --cond = false,
+    cond = false,
 }
 
 ---@type LazySpec[]
@@ -416,12 +486,20 @@ local theme_specs = {
     sunburn,
     eldritch,
     ariake,
+    abstract,
+    dark_flat,
+    everblush,
+    mellow,
+    fluoromachine,
+    srcerite,
     -- VimScript themes
     sonokai,
     kyotonight,
     momiji,
     edge,
     gaming,
+    -- theme spec template
+    spec_template,
 }
 
 ---@type table
@@ -454,7 +532,6 @@ local huez = {
     "vague2k/huez.nvim",
     --lazy = false,
     cmd = "Huez",
-    --event = "VeryLazy",
     dependencies = { "nvim-telescope/telescope.nvim" },
     config = function()
         local huez = require("huez")
@@ -549,6 +626,30 @@ local themery_selectables = {
         name = "ariake",
         colorscheme = "ariake",
     },
+    {
+        name = "abstract",
+        colorscheme = "abscs",
+    },
+    {
+        name = "dark_flat",
+        colorscheme = "dark_flat",
+    },
+    {
+        name = "everblush",
+        colorscheme = "everblush",
+    },
+    {
+        name = "mellow",
+        colorscheme = "mellow",
+    },
+    {
+        name = "fluoromachine",
+        colorscheme = "fluoromachine",
+    },
+    {
+        name = "srcerite",
+        colorscheme = "srcerite",
+    },
     -- VimScript themes
     {
         name = "sonokai",
@@ -566,16 +667,12 @@ local themery_selectables = {
         name = "edge",
         colorscheme = "edge",
     },
-    {
-        name = "gaming",
-        colorscheme = "gaming",
-    },
+    --{ name = "gaming", colorscheme = "gaming" },
 }
 
 local themery = {
     "zaldih/themery.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     cmd = "Themery",
     opts = {
         themes = themery_selectables,
