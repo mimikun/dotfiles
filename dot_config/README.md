@@ -28,8 +28,6 @@
 
 ## [navi](https://github.com/denisidoro/navi)
 
-## [neofetch](https://github.com/dylanaraps/neofetch)
-
 ## [ni](https://github.com/antfu/ni)
 
 ## [nushell](https://github.com/nushell/nushell)
