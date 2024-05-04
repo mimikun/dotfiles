@@ -205,7 +205,7 @@ packages:
   - type: github_release
     repo_owner: nao1215
     repo_name: sqly
-    description: sqly - eaisly execute SQL against CSV/TSV/LTSV/JSON with shell
+    description: sqly - eaisly execute SQL against CSV/TSV/LTSV/JSON and Microsoft Excel with shell
     version_constraint: "false"
     version_overrides:
       - version_constraint: semver("<= 0.0.4")
@@ -235,7 +235,7 @@ packages:
           type: github_release
           asset: checksums.txt
           algorithm: sha256
-      - version_constraint: "true"
+      - version_constraint: semver("<= 0.5.2")
         asset: sqly_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
         format: tar.gz
         replacements:
@@ -243,6 +243,41 @@ packages:
           linux: Linux
         supported_envs:
           - linux/amd64
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: semver("<= 0.7.0")
+        asset: sqly_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        supported_envs:
+          - linux/amd64
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: Version == "v0.8.0"
+        asset: sqly_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        rosetta2: true
+        windows_arm_emulation: true
+        overrides:
+          - goos: windows
+            format: zip
+        supported_envs:
+          - darwin
+          - windows
+          - amd64
+        checksum:
+          type: github_release
+          asset: checksums.txt
+          algorithm: sha256
+      - version_constraint: "true"
+        asset: sqly_{{trimV .Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+        format: tar.gz
+        overrides:
+          - goos: windows
+            format: zip
         checksum:
           type: github_release
           asset: checksums.txt
