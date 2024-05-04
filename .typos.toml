@@ -3,8 +3,6 @@
 noice = "noice"
 # vim keymap
 enew = "enew"
-# iterm2
-iterm = "iterm"
 # starship config
 edn = "edn"
 esy = "esy"
@@ -14,23 +12,16 @@ nane = "nane"
 sur = "sur"
 # fish abbr `chezmoi cd`
 chec = "chec"
-# Linux OS name
-Siduction = "Siduction"
 # key mapping in dot_config/nvim/lua/plugins/telescope-nvim.lua
 fo = "fo"
 # telescope-nvim
 tabe = "tabe"
-# word 'HD' in:
-# dot_config/fish/completions/zellij.fish
-# dot_config/neofetch/config.conf
-HD = "HD"
 # dot_config/nvim/lua/plugins/minigames.lua
 strat = "strat"
 
 
 [files]
 extend-exclude = [
-  "pnpm-lock.yaml",
   "game_settings/Apex_Legends",
   "game_settings/CookieClicker",
   # NOTE: Unmaintained and no upstream fixes
