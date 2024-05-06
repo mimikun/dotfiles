@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="0.5.0"
+readonly PRODUCT_VERSION="0.6.0"
 PRODUCT_NAME="$(basename "${0}")"
 readonly MISE_NEOVIM_BINDIR="$MISE_DATA_DIR/installs/neovim"
 readonly BIN_NVIM="bin/nvim"
@@ -156,22 +156,26 @@ function _paleovim_latest() {
 }
 
 function _zig_master() {
-    local version
-    version=$("$MISE_ZIG_BINDIR/master/$BIN_ZIG" version)
-    local new_version
-    new_version=$(curl -sSL https://ziglang.org/download/index.json | jq .master.version --raw-output)
+    local zig_version_file
+    zig_version_file="$HOME/.cache/zig-master-version.txt"
+    local zig_version
+    zig_version=$(cat "$zig_version_file")
+    local new_zig_version
+    new_zig_version=$(curl -sSL https://ziglang.org/download/index.json | jq .master.version --raw-output)
 
-    if [ "$version" != "$new_version" ]; then
+    if [ "$zig_version" != "$new_zig_version" ]; then
         echo "zig (latest)master found!"
+        echo "$new_zig_version" >"$zig_version_file"
         if [ "$opt" == "--use-pueue" ]; then
-            task_id=$(pueue add -p -- "mise uninstall zig@master")
-            pueue add --after "$task_id" -- "mise install zig@master"
+            task_id=$(pueue add -p -- "mise uninstall zig@ref:master")
+            pueue add --after "$task_id" -- "mise install zig@ref:master"
         else
-            mise uninstall zig@master
-            mise install zig@master
+            mise uninstall zig@ref:master
+            mise install zig@ref:master
         fi
     else
-        echo "zig (latest)master ( $version ) is already installed"
+        echo "zig (latest)master is already installed"
+        echo "version: $zig_version"
     fi
 }
 
