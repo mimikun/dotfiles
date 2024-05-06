@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.05.06]
+
+### Added - 新機能について
+
+- chore(fastfetch): add config
+- feat(nvim)!: add nvim-tree-preview.lua config
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update fd completion
+- chore(fish): update deno completion
+- chore(fish): update zellij completion
+- chore(fish): update fastfetch completion
+- chore(aqua): bump
+- chore(localbin): update update_mise
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+- chore: remove neofetch config
+    - neofetch is dead.
+
+### Fixed - 不具合修正について
+
+- fix(aqua): nao1215/sqly
+
 ## [v2024.04.29]
 
 ### Added - 新機能について
