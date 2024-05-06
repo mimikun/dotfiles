@@ -3,7 +3,7 @@ complete -c fd -s d -l max-depth -d 'Set maximum search depth (default: none)' -
 complete -c fd -l min-depth -d 'Only show search results starting at the given depth.' -r
 complete -c fd -l exact-depth -d 'Only show search results at the exact given depth' -r
 complete -c fd -s E -l exclude -d 'Exclude entries that match the given glob pattern' -r
-complete -c fd -s t -l type -d 'Filter by type: file (f), directory (d), symlink (l), executable (x), empty (e), socket (s), pipe (p), char-device (c), block-device (b)' -r -f -a "{file	'',directory	'',symlink	'',block-device	'',char-device	'',executable	'A file which is executable by the current effective user',empty	'',socket	'',pipe	''}"
+complete -c fd -s t -l type -d 'Filter by type: file (f), directory (d/dir), symlink (l), executable (x), empty (e), socket (s), pipe (p), char-device (c), block-device (b)' -r -f -a "{file	'',directory	'',symlink	'',block-device	'',char-device	'',executable	'A file which is executable by the current effective user',empty	'',socket	'',pipe	''}"
 complete -c fd -s e -l extension -d 'Filter by file extension' -r
 complete -c fd -s S -l size -d 'Limit results based on the size of files' -r
 complete -c fd -l changed-within -d 'Filter by file modification time (newer than)' -r
