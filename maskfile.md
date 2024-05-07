@@ -378,9 +378,6 @@ chezmoi add $env:USERPROFILE\komorebi.json
 # whkd config
 chezmoi add $env:USERPROFILE\.config\whkdrc
 
-# winfetch config
-chezmoi add $env:USERPROFILE\.config\winfetch\config.ps1
-
 # GlazeWM config
 chezmoi add $env:USERPROFILE\.glaze-wm\config.yaml
 
