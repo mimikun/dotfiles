@@ -13,7 +13,6 @@ registries:
   type: local
   path: ./registry.yaml
 packages:
-# Previously managed with asdf
 - name: bitwarden/clients@cli-v2024.4.0
 - name: twpayne/chezmoi@v2.48.0
 - name: direnv/direnv@v2.34.0
@@ -26,7 +25,6 @@ packages:
 - name: koalaman/shellcheck@v0.10.0
 - name: mvdan/sh@v3.8.0
 - name: mikefarah/yq@v4.43.1
-# Previously managed with gup
 - name: mrtazz/checkmake@0.2.2
 - name: editorconfig-checker/editorconfig-checker@v3.0.1
 - name: osteele/gojekyll@v0.2.10
@@ -48,16 +46,31 @@ packages:
 - name: rhysd/vim-startuptime@v1.3.2
 - name: antonmedv/walk@v1.7.0
 - name: dominikh/go-tools/staticcheck@2023.1.7
-# Previously managed with gup, but use custom registry
+- name: rhysd/actionlint@v1.6.27
+- name: koki-develop/clive@v0.12.9
+- name: tsl0922/ttyd@1.7.7
+- name: charmbracelet/vhs@v0.7.2
+- name: mattn/bsky@v0.0.49
+- name: jesseduffield/lazygit@v0.41.0
+- name: jesseduffield/horcrux@v0.2
+- name: jesseduffield/lazydocker@v0.23.1
+- name: astral-sh/uv@0.1.39
+- name: charmbracelet/freeze@v0.1.6
+- name: charmbracelet/gum@v0.14.0
+- name: charmbracelet/mods@v1.3.1
+- name: charmbracelet/skate@v0.2.2
+- name: charmbracelet/glow@v1.5.1
+- name: babarot/gomi@v1.1.6
+- name: Songmu/make2help@v0.2.1
+- name: mgechev/revive@v1.3.7
+- name: aquaproj/registry-tool@v0.2.4
+- name: suzuki-shunsuke/cmdx@v1.7.4
+# Use custom registry
 - name: mikuta0407/misskey-cli@v0.3
   registry: custom
 - name: mattn/sleepy@v0.0.3
   registry: custom
-- name: b4b4r07/gomi@v1.1.6
-  registry: custom
 - name: Mayowa-Ojo/chmod-cli@v0.2.0
-  registry: custom
-- name: Songmu/make2help@v0.2.1
   registry: custom
 - name: github.com/kisielk/errcheck
   registry: custom
@@ -70,28 +83,11 @@ packages:
 - name: github.com/fatih/gomodifytags
   registry: custom
   version: 'v1.16.0'
-- name: mgechev/revive@v1.3.7
-  registry: custom
 - name: klauspost/asmfmt@v1.3.2
   registry: custom
-# TODO: Organize the bottom from here
-- name: rhysd/actionlint@v1.6.27
-- name: koki-develop/clive@v0.12.9
-- name: tsl0922/ttyd@1.7.7
-- name: charmbracelet/vhs@v0.7.2
-- name: mattn/bsky@v0.0.49
 - name: github.com/nyaosorg/nyagos@4.4.14_0
   registry: custom
-- name: jesseduffield/lazygit@v0.41.0
-- name: jesseduffield/horcrux@v0.2
-- name: jesseduffield/lazydocker@v0.23.1
-- name: astral-sh/uv@0.1.39
-- name: charmbracelet/freeze@v0.1.6
-- name: charmbracelet/gum@v0.14.0
-- name: charmbracelet/mods@v1.3.1
-- name: charmbracelet/skate@v0.2.2
 - name: github.com/charmbracelet/pop@v0.2.0
   registry: custom
-- name: charmbracelet/glow@v1.5.1
 - name: github.com/catatsuy/purl@v0.0.4
   registry: custom
