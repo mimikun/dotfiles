@@ -79,6 +79,7 @@ else
     done
 fi
 
+# if GPG patch
 if [[ "$gpg" == "true" ]]; then
     GPG_PATCH_NAME+=$PATCH_NAME
     GPG_PATCH_NAME+=".gpg"
@@ -484,6 +485,7 @@ mask stylua-lint
 mask textlint
 mask typo-check
 mask pwsh-test
+mask shell-lint
 ```
 
 ## stylua-lint
@@ -593,6 +595,7 @@ mask shell-format
 
 ```powershell
 mask stylua-format
+mask shell-format
 ```
 
 ## stylua-format
@@ -626,7 +629,7 @@ Write-Output "Windows is not support!"
 
 ```bash
 RESULT_FILE="STARTUPTIME.md"
-TODAY=$(date +'%Y%m%d')
+TODAY=$(date "+%Y.%m.%d")
 
 {
     echo "## $TODAY"
@@ -659,7 +662,7 @@ TODAY=$(date +'%Y%m%d')
     echo "### Paleovim(vim)"
     echo ""
     echo '```shell'
-    echo '❯ vim-startuptime -vimpathvim | head -n 6' >>$RESULT_FILE
+    echo "❯ vim-startuptime -vimpath vim | head -n 6"
     vim-startuptime -vimpath vim | head -n 6
     echo '```'
     echo ""
@@ -679,19 +682,16 @@ TODAY=$(date "+%Y.%m.%d")
 RESULT_FILE="CHANGELOG.md"
 LATEST_GIT_TAG=$(git tag | head -n 1)
 GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
+HOSTNAME=$(hostname)
 
-{
-    echo "## run"
-    echo ""
-    echo "$GIT_LOG" | sed -e '/^$/d' | sed -e 's/^/- /g'
-    echo ""
-    echo '```bash'
-    echo 'git commit -m "WIP:--------------------------------------------------------------------------" --allow-empty'
-    echo 'git commit -m "WIP:--------------------------------------------------------------------------" --allow-empty'
-    echo "$GIT_LOG" | sed -e '/^$/d' | sed -e 's/^/git commit -m "WIP:/g' | sed -e 's/$/" --allow-empty/g'
-    echo '```'
-    echo ""
+home() {
     echo "## [v$TODAY]"
+    echo ""
+    echo "$GIT_LOG" |
+        # Remove blank line
+        sed -e '/^$/d' |
+        # Make list
+        sed -e 's/^/- /g'
     echo ""
     echo "### Added - 新機能について"
     echo ""
@@ -709,7 +709,33 @@ GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
     echo ""
     echo "なし"
     echo ""
-} >>$RESULT_FILE
+}
+
+work() {
+    echo "## run"
+    echo ""
+    echo '```bash'
+    echo 'git commit -m "WIP:--------------------------------------------------------------------------" --allow-empty --no-verify'
+    echo "$GIT_LOG" |
+        # Remove blank line
+        sed -e '/^$/d' |
+        # Remove STARTUPTIME.md commit msg
+        sed -e 's/.*STARTUPTIME.md.*//g' |
+        # Remove DROP commit msg
+        sed -e 's/.*DROP.*//g' |
+        # Remove blank line
+        sed -e '/^$/d' |
+        sed -e 's/^/git commit -m "WIP:/g' |
+        sed -e 's/$/" --allow-empty --no-verify/g'
+    echo 'git commit -m "WIP:--------------------------------------------------------------------------" --allow-empty --no-verify'
+    echo '```'
+}
+
+if [[ "$HOSTNAME" = "TanakaPC" ]]; then
+    work >>$RESULT_FILE
+else
+    home >>$RESULT_FILE
+fi
 ```
 
 ```powershell
