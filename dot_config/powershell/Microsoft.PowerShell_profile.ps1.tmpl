@@ -156,6 +156,17 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $glow_completion >> $env:CACHE_PROFILE
     }
+
+    # mdbook completion
+    Get-Command mdbook -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache mdbook completion" >> $env:CACHE_PROFILE
+        $mdbook_completion = mdbook completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $mdbook_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile

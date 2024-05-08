@@ -274,6 +274,11 @@ export PATH="$HOME/.juliaup/bin:$PATH"
 # mocword dict
 export MOCWORD_DATA="$XDG_CACHE_HOME/mocword.sqlite"
 
+# mdbook completion
+if command -v mdbook >/dev/null 2>&1; then
+    eval "$(mdbook completions bash)"
+fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
