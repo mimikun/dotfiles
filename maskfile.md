@@ -73,8 +73,9 @@ if [[ "$BRANCH_NAME" = "$DEFAULT_BRANCH" ]] || [[ "$BRANCH_NAME" = "patch-"* ]];
     done
 else
     echo "This branch is uniq feat branch"
+    REPLACED_BRANCH_NAME="$(sed -e "s/\//_/g" $BRANCH_NAME)"
 
-    for p in "$PRODUCT_NAME" "_" "$BRANCH_NAME" "." "$TODAY" "." "patch"; do
+    for p in "$PRODUCT_NAME" "_" "$REPLACED_BRANCH_NAME" "." "$TODAY" "." "patch"; do
         PATCH_NAME+=$p
     done
 fi
