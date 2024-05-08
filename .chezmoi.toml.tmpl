@@ -5,16 +5,14 @@
 
 [hooks.apply.pre]
 {{ if eq .chezmoi.os "linux" }}
-command = "echo"
-args = ["pre-apply-hook"]
+command = "chezmoi_pre_apply_hook"
 {{ else }}
 command = "pwsh"
 args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
 {{ end }}
 [hooks.apply.post]
 {{ if eq .chezmoi.os "linux" }}
-command = "echo"
-args = ["post-apply-hook"]
+command = "chezmoi_post_apply_hook"
 {{ else }}
 command = "pwsh"
 args = ["-c", "& {Invoke-RunAfterChezmoiApply}"]
