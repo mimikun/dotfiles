@@ -17,3 +17,6 @@ dot_config/fish/completions/hwm.fish
 
 # Windows only
 AppData/Local/nvim/Makefile
+
+# commentary of dotfiles
+docs/book

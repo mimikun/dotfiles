@@ -52,4 +52,4 @@ WIP (I have not mac now)
 
 ## Glossary
 
-- [Glossary](docs/GLOSSARY.md)
+- [Glossary](docs/src/glossary.md)

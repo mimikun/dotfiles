@@ -1,5 +1,34 @@
 # Glossary
 
+## Other
+
+### `human rights`
+
+- All Mac computer
+- A Windows or Linux computer that meets requirements
+
+#### Requirements
+
+- CPU
+    - Intel
+        - 13th Gen or later
+        - Core i5 or more
+    - AMD
+        - Ryzen 9 3th Gen or later
+        - x900X or more
+- RAM
+    - 16GB or more
+- DISK
+    - 512GB **SSD** or more
+- GPU
+    - NVIDIA RTX 20 Series or later
+
+### `azusa`
+
+[Shirasu Azusa](https://bluearchive.fandom.com/wiki/Shirasu_Azusa)
+
+![banitasu](images/banitasu.png)
+
 ## Machine name
 
 ### `Home-Windows`
@@ -56,32 +85,3 @@ human rights violations
 
 - RAM
     - 3GB(swap 8GB)
-
-## Other
-
-### `azusa`
-
-[Shirasu Azusa](https://bluearchive.fandom.com/wiki/Shirasu_Azusa)
-
-![banitasu](docs/images/banitasu.png)
-
-### `human rights`
-
-- All Mac computer
-- A Windows or Linux computer that meets requirements
-
-#### Requirements
-
-- CPU
-    - Intel
-        - 13th Gen or later
-        - Core i5 or more
-    - AMD
-        - Ryzen 9 3th Gen or later
-        - x900X or more
-- RAM
-    - 16GB or more
-- DISK
-    - 512GB **SSD** or more
-- GPU
-    - NVIDIA RTX 20 Series or later
