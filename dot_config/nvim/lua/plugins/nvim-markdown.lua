@@ -1,10 +1,9 @@
 ---@type LazySpec
 local spec = {
-    "preservim/vim-markdown",
+    "ixru/nvim-markdown",
     --lazy = false,
     --event = "VeryLazy",
     ft = "markdown",
-    dependencies = { "godlygeek/tabular" },
     config = function()
         -- 折りたたみ無効化
         vim.g.vim_markdown_folding_disabled = 1
