@@ -54,6 +54,7 @@ jnv
 just
 lsd
 mask
+mdbook
 mise
 mocword
 monolith
