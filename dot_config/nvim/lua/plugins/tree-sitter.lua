@@ -16,6 +16,7 @@ local dependencies = {
     "Fymyte/tree-sitter-rasi",
     "mimikun/tree-sitter-PowerShell",
     "charmbracelet/tree-sitter-vhs",
+    "RRethy/nvim-treesitter-textsubjects",
     -- NOTE: has bug
     --{ "apple/pkl-neovim", build = ":TSInstall! pkl" },
 }
@@ -52,6 +53,19 @@ local spec = {
             },
             ensure_installed = need_parsers,
             sync_install = not is_human_rights,
+            textsubjects = {
+                enable = true,
+                -- (Optional) keymap to select the previous selection
+                prev_selection = ",",
+                keymaps = {
+                    ["."] = "textsubjects-smart",
+                    [";"] = "textsubjects-container-outer",
+                    ["i;"] = {
+                        "textsubjects-container-inner",
+                        desc = "Select inside containers (classes, functions, etc.)",
+                    },
+                },
+            },
         })
 
         parser_config.powershell = {
