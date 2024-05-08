@@ -15,8 +15,8 @@ mimikun's dotfiles. managed by [chezmoi](https://www.chezmoi.io/).
 
 ## Screenshots
 
-![my terminal](docs/images/terminal.png)
-![my neovim dashboard](docs/images/neovim-dashboard.png)
+![my terminal](assets/images/terminal.png)
+![my neovim dashboard](assets/images/neovim-dashboard.png)
 
 ## Setup
 
