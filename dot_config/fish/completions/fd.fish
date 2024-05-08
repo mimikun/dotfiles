@@ -9,6 +9,7 @@ complete -c fd -s S -l size -d 'Limit results based on the size of files' -r
 complete -c fd -l changed-within -d 'Filter by file modification time (newer than)' -r
 complete -c fd -l changed-before -d 'Filter by file modification time (older than)' -r
 complete -c fd -s o -l owner -d 'Filter by owning user and/or group' -r
+complete -c fd -l format -d 'Print results according to template' -r
 complete -c fd -s x -l exec -d 'Execute a command for each search result' -r
 complete -c fd -s X -l exec-batch -d 'Execute a command with all search results at once' -r
 complete -c fd -l batch-size -d 'Max number of arguments to run as a batch size with -X' -r
@@ -20,6 +21,7 @@ complete -c fd -l max-results -d 'Limit the number of search results' -r
 complete -c fd -l base-directory -d 'Change current working directory' -r -F
 complete -c fd -l path-separator -d 'Set path separator when printing file paths' -r
 complete -c fd -l search-path -d 'Provides paths to search as an alternative to the positional <path> argument' -r -F
+complete -c fd -l strip-cwd-prefix -d 'By default, relative paths are prefixed with \'./\' when -x/--exec, -X/--exec-batch, or -0/--print0 are given, to reduce the risk of a path starting with \'-\' being treated as a command line option. Use this flag to change this behavior. If this flag is used without a value, it is equivalent to passing "always"' -r -f -a "{auto	'Use the default behavior',always	'Always strip the ./ at the beginning of paths',never	'Never strip the ./'}"
 complete -c fd -l gen-completions -r -f -a "{bash	'',elvish	'',fish	'',powershell	'',zsh	''}"
 complete -c fd -s H -l hidden -d 'Search hidden files and directories'
 complete -c fd -l no-hidden -d 'Overrides --hidden'
@@ -48,7 +50,6 @@ complete -c fd -l prune -d 'Do not traverse into directories that match the sear
 complete -c fd -s 1 -d 'Limit search to a single result'
 complete -c fd -s q -l quiet -d 'Print nothing, exit code 0 if match found, 1 otherwise'
 complete -c fd -l show-errors -d 'Show filesystem errors'
-complete -c fd -l strip-cwd-prefix -d 'By default, relative paths are prefixed with \'./\' when -x/--exec, -X/--exec-batch, or -0/--print0 are given, to reduce the risk of a path starting with \'-\' being treated as a command line option. Use this flag to disable this behaviour'
 complete -c fd -l one-file-system -d 'By default, fd will traverse the file system tree as far as other options dictate. With this flag, fd ensures that it does not descend into a different file system than the one it started in. Comparable to the -mount or -xdev filters of find(1)'
 complete -c fd -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c fd -s V -l version -d 'Print version'
