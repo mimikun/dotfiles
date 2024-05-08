@@ -46,7 +46,7 @@ packages:
 - name: rhysd/vim-startuptime@v1.3.2
 - name: antonmedv/walk@v1.7.0
 - name: dominikh/go-tools/staticcheck@2023.1.7
-- name: rhysd/actionlint@v1.6.27
+- name: rhysd/actionlint@v1.7.0
 - name: koki-develop/clive@v0.12.9
 - name: tsl0922/ttyd@1.7.7
 - name: charmbracelet/vhs@v0.7.2
