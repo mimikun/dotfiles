@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.05.08]
+
+### Added - 新機能について
+
+- feat(nvim)!: add plugin "Wansmer/treesj"
+- feat(nvim)!: add plugin "MeanderingProgrammer/markdown.nvim"
+- feat(nvim)!: add plugin "RRethy/nvim-treesitter-textsubjects"
+- feat(rust-tool)!: add mdbook
+- chore: add mdbook completions
+- chore(chezmoi): use chezmoi hook script
+- docs!: create document by mdbook
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(nvim): replace vim-markdown to nvim-markdown
+- chore(fish): update uv completion
+- chore(fish): update fd completion
+- chore(localbin): update update_fish_completions
+- docs!: move image file to assets dir
+- docs: update maskfile.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.07]
 
 ### Added - 新機能について
