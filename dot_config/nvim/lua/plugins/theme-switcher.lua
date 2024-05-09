@@ -150,6 +150,10 @@ local themery_selectables = {
         name = "srcerite",
         colorscheme = "srcerite",
     },
+    {
+        name = "oldworld",
+        colorscheme = "oldworld",
+    },
     -- VimScript themes
     {
         name = "sonokai",
