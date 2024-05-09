@@ -1,10 +1,21 @@
 [book]
-authors = ["mimikun"]
-language = "ja"
-multilingual = false
-src = "src"
 title = "Commentary of dotfiles"
+authors = ["mimikun"]
+description = "mimikunのdotfiles解説書"
+src = "src"
+language = "ja"
+text-direction = "ltr"
+
+[rust]
+edition = "2021"
+
+[build]
+build-dir = "book"
+create-missing = true
+use-default-preprocessors = true
+extra-watch-dirs = []
 
 [output.html]
 additional-css = ["theme/pagetoc.css"]
 additional-js = ["theme/pagetoc.js"]
+site-url = "/dotfiles/commentary/"
