@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.05.09]
+
+### Added - 新機能について
+
+- chore(commentary): add Makefile
+- feat(nvim)!: add oldworld colorscheme
+- feat(nvim-mini)!: add plugin rainbowhxch/accelerated-jk.nvim
+- feat(nvim-mini)!: add plugin stevearc/oil.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore: update STARTUPTIME.md
+- chore(fish): update deno completion
+- chore(fish): update uv completion
+- chore(nvim): rename lambdalisue's plugins
+- chore(commentary): update book.toml
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.08]
 
 ### Added - 新機能について
