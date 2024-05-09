@@ -9,19 +9,19 @@ local keymaps = {
 local dependencies = {
     "vim-denops/denops.vim",
     "yuki-yano/denops-lazy.nvim",
-    "lambdalisue/kensaku.vim",
+    "lambdalisue/vim-kensaku",
 }
 
 ---@type LazySpec
 local spec = {
-    "lambdalisue/kensaku-search.vim",
+    "lambdalisue/vim-kensaku-search",
     --lazy = false,
     --event = "VeryLazy",
     keys = keymaps,
     dependencies = dependencies,
     config = function()
         local denops_lazy = require("denops-lazy")
-        denops_lazy.load("kensaku-search.vim")
+        denops_lazy.load("vim-kensaku-search")
 
         vim.set.keymap("c", "<CR>", "<Plug>(kensaku-search-replace)<CR>", { noremap = true })
     end,

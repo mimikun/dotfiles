@@ -4,19 +4,19 @@ local global = require("core.global")
 local dependencies = {
     "vim-denops/denops.vim",
     "yuki-yano/denops-lazy.nvim",
-    "lambdalisue/kensaku.vim",
+    "lambdalisue/vim-kensaku",
 }
 
 ---@type LazySpec
 local spec = {
-    "lambdalisue/kensaku-command.vim",
+    "lambdalisue/vim-kensaku-command",
     --lazy = false,
     --event = "VeryLazy",
     cmd = "Kensaku",
     dependencies = dependencies,
     config = function()
         local denops_lazy = require("denops-lazy")
-        denops_lazy.load("kensaku-command.vim")
+        denops_lazy.load("vim-kensaku-command")
     end,
     -- Disable if there are no human rights
     cond = global.is_human_rights,
