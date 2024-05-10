@@ -490,6 +490,14 @@ local gaming = {
     cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
+---@type LazySpec
+local vim_dogrun = {
+    "wadackel/vim-dogrun",
+    --lazy = false,
+    --cond = false,
+}
+
 -------------------------
 -- Theme spec template --
 -------------------------
@@ -542,6 +550,7 @@ local theme_specs = {
     momiji,
     edge,
     gaming,
+    vim_dogrun,
     -- theme spec template
     spec_template,
 }

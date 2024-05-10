@@ -171,6 +171,10 @@ local themery_selectables = {
         name = "edge",
         colorscheme = "edge",
     },
+    {
+        name = "dogrun",
+        colorscheme = "dogrun",
+    },
     --{ name = "gaming", colorscheme = "gaming" },
 }
 
