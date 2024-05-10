@@ -19,9 +19,11 @@ tabe = "tabe"
 # dot_config/nvim/lua/plugins/minigames.lua
 strat = "strat"
 
-
 [files]
 extend-exclude = [
+  # NOTE: Experimental software and no fixes are expect
+  "dot_config/fish/completions/fish-lsp.fish",
+  # NOTE: Game settings
   "game_settings/Apex_Legends",
   "game_settings/CookieClicker",
   # NOTE: Unmaintained and no upstream fixes
