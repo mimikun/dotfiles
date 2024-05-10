@@ -102,7 +102,8 @@ local spec = {
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
         local mason_lock = require("mason-lock")
-        local nvim_lspconfig = require("lspconfig")
+        local lspconfig = require("lspconfig")
+        local configs = require("lspconfig.configs")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local neoconf = require("neoconf")
         local neodev = require("neodev")
@@ -136,13 +137,13 @@ local spec = {
 
         local handlers = {
             function(server_name)
-                nvim_lspconfig[server_name].setup({
+                lspconfig[server_name].setup({
                     capabilities = cmp_nvim_lsp.default_capabilities(),
                 })
             end,
 
             ["lua_ls"] = function()
-                nvim_lspconfig.lua_ls.setup({
+                lspconfig.lua_ls.setup({
                     settings = {
                         Lua = {
                             --diagnostics = {},
@@ -168,6 +169,38 @@ local spec = {
             end,
         }
 
+        ---@type table
+        local fish_lsp_root_files = {
+            "config.fish",
+            "$HOME/.config/fish",
+            "/usr/share/fish",
+        }
+
+        -- TODO:
+        -- NOTE: about :h lspconfig-setup
+        -- NOTE: ref: https://github.com/ndonfris/fish-lsp/issues/22
+        if not configs.fish_lsp then
+            configs.fish_lsp = {
+                default_config = {
+                    root_dir = function(fname)
+                        local root_files = lspconfig.util.root_pattern(unpack(fish_lsp_root_files))(fname)
+                        return root_files
+                    end,
+                    name = "fish-lsp",
+                    filetypes = { "fish" },
+                    autostart = true,
+                    single_file_support = true,
+                    --on_new_config = function(new_config, new_root_dir) end,
+                    --capabilities = {},
+                    cmd = { "fish-lsp", "start" },
+                    --handlers = {},
+                    --init_options = {},
+                    --on_attach = function(client, bufnr)end,
+                    settings = {},
+                },
+            }
+        end
+
         neoconf.setup({})
         neodev.setup({})
         mason.setup({
@@ -188,6 +221,7 @@ local spec = {
             ensure_installed = lsp_servers,
             handlers = handlers,
         })
+        lspconfig.fish_lsp.setup({})
         mason_lock.setup({
             lockfile_path = mason_lockfile,
         })
