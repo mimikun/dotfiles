@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.05.10]
+
+### Added - 新機能について
+
+- chore(nvim): add fish-lsp configs
+- feat(nvim)!: add new wadackel/vim-dogrun colorscheme
+- feat(fish)!: add fish-lsp completion
+
+### Changed - 既存機能の変更について
+
+- chore(typos): update config
+- chore: update deps
+- chore(nvim): update lockfiles
+- chore: update STARTUPTIME.md
+- chore(localbin): update update_fish_completions
+- chore(mise): update global config
+
+### Removed - 今回で削除された機能について
+
+- chore(localbin): remove update_helix_fish_completion
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.09]
 
 ### Added - 新機能について
