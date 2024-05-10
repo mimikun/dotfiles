@@ -301,7 +301,6 @@ chezmoi add ~/.local/bin/update_chromedriver
 chezmoi add ~/.local/bin/update_docker_compose
 chezmoi add ~/.local/bin/update_fish_completions
 chezmoi add ~/.local/bin/update_geckodriver
-chezmoi add ~/.local/bin/update_helix_fish_completion
 chezmoi add ~/.local/bin/update_mise
 chezmoi add ~/.local/bin/update_pip_packages
 chezmoi add ~/.local/bin/update_pnpm
