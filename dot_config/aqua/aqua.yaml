@@ -63,7 +63,7 @@ packages:
 - name: babarot/gomi@v1.1.6
 - name: Songmu/make2help@v0.2.1
 - name: mgechev/revive@v1.3.7
-- name: aquaproj/registry-tool@v0.2.5
+#- name: aquaproj/registry-tool@v0.2.5
 - name: suzuki-shunsuke/cmdx@v1.7.4
 # Use custom registry
 - name: mikuta0407/misskey-cli@v0.3
