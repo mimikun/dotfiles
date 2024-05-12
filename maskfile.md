@@ -683,11 +683,12 @@ RESULT_FILE="CHANGELOG.md"
 LATEST_GIT_TAG=$(git tag | head -n 1)
 GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
 HOSTNAME=$(hostname)
-
 home() {
     echo "## [v$TODAY]"
     echo ""
     echo "$GIT_LOG" |
+        # Remove renovate commit
+        sed -e 's/.*chore(deps): update dependency.*//g' |
         # Remove blank line
         sed -e '/^$/d' |
         # Make list
@@ -723,6 +724,8 @@ work() {
         sed -e 's/.*STARTUPTIME.md.*//g' |
         # Remove DROP commit msg
         sed -e 's/.*DROP.*//g' |
+        # Remove renovate commit
+        sed -e 's/.*chore(deps): update dependency.*//g' |
         # Remove blank line
         sed -e '/^$/d' |
         sed -e 's/^/git commit -m "WIP:/g' |
