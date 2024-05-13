@@ -8,7 +8,7 @@ vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
 -- ESCキー連打でハイライト解除
-vim.keymap.set("", "<Esc><Esc>", ":nohlsearch<CR><Esc>")
+vim.keymap.set("", "<Esc><Esc>", ":nohlsearch<CR><Esc>", { silent = true })
 
 -- GUI VIM用の設定
 vim.keymap.set("i", "<S-CR>", "<End><CR>")
