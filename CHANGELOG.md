@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.05.13]
+
+### Added - 新機能について
+
+- docs(misc): add sysctl.conf
+- feat(nvim)!: add hop.nvim plugin
+- feat(nvim)!: add modes.nvim plugin
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): keymap
+
 ## [v2024.05.12]
 
 ### Added - 新機能について
