@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.3.0"
+readonly PRODUCT_VERSION="1.4.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -138,14 +138,11 @@ use_pueue() {
   echo "gup export"
   pueue add --after "$task_id" -- "gup export"
 
-  echo "aqua self update"
+  echo "update aqua"
   aqua_task_id=$(pueue add -p -- "aqua update-aqua")
-
-  echo "aqua install all packages"
-  task_id=$(pueue add --after "$aqua_task_id" -- "aqua install --all")
-
-  echo "aqua update all packages"
-  pueue add --after "$task_id" -- "aqua update"
+  aqua_task_id=$(pueue add --after "$aqua_task_id" -p -- "aqua install --all")
+  aqua_task_id=$(pueue add --after "$aqua_task_id" -p -- "aqua update")
+  pueue add --after "$aqua_task_id" -- "aqua install --all"
 }
 
 no_pueue() {
@@ -191,14 +188,11 @@ no_pueue() {
   echo "gup export"
   gup export
 
-  echo "aqua self update"
+  echo "update aqua"
   aqua update-aqua
-
-  echo "aqua install all packages"
   aqua install --all
-
-  echo "aqua update all packages"
   aqua update
+  aqua install --all
 }
 
 other() {
