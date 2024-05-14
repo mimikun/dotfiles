@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.05.14]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(localbin): update vup
+- chore(nvim): update lockfiles
+- chore(aqua): bump
+- Revert "WORKAROUND: can't install aquaproj/registry-tool"
+    - This reverts commit 101d13331e774ba38ad17de3ab577140ac2be257.
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.13]
 
 ### Added - 新機能について
