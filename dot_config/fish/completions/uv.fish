@@ -8,8 +8,8 @@ complete -c uv -n "__fish_use_subcommand" -l native-tls -d 'Whether to load TLS 
 complete -c uv -n "__fish_use_subcommand" -l no-native-tls
 complete -c uv -n "__fish_use_subcommand" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_use_subcommand" -l no-preview
-complete -c uv -n "__fish_use_subcommand" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_use_subcommand" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
+complete -c uv -n "__fish_use_subcommand" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_use_subcommand" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_use_subcommand" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_use_subcommand" -f -a "pip" -d 'Resolve and install Python packages'
@@ -32,6 +32,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcomma
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s V -l version -d 'Print version'
@@ -130,6 +131,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s V -l version -d 'Print version'
@@ -189,6 +191,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s V -l version -d 'Print version'
@@ -258,6 +261,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s V -l version -d 'Print version'
@@ -280,6 +284,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s V -l version -d 'Print version'
@@ -298,6 +303,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s V -l version -d 'Print version'
@@ -320,6 +326,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -337,6 +344,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -s V -l version -d 'Print version'
@@ -352,6 +360,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s V -l version -d 'Print version'
@@ -394,6 +403,7 @@ complete -c uv -n "__fish_seen_subcommand_from venv" -l native-tls -d 'Whether t
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from venv" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from venv" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from venv" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from venv" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from venv" -s V -l version -d 'Print version'
@@ -406,6 +416,7 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcom
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s V -l version -d 'Print version'
@@ -422,6 +433,7 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s V -l version -d 'Print version'
@@ -434,6 +446,7 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s V -l version -d 'Print version'
@@ -446,6 +459,7 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s V -l version -d 'Print version'
@@ -462,6 +476,7 @@ complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcomm
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s V -l version -d 'Print version'
@@ -476,6 +491,7 @@ complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -490,6 +506,7 @@ complete -c uv -n "__fish_seen_subcommand_from clean" -l native-tls -d 'Whether 
 complete -c uv -n "__fish_seen_subcommand_from clean" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from clean" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from clean" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s V -l version -d 'Print version'
@@ -504,6 +521,7 @@ complete -c uv -n "__fish_seen_subcommand_from run" -l native-tls -d 'Whether to
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from run" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from run" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from run" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from run" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from run" -s V -l version -d 'Print version'
@@ -517,6 +535,7 @@ complete -c uv -n "__fish_seen_subcommand_from sync" -l native-tls -d 'Whether t
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from sync" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from sync" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s V -l version -d 'Print version'
@@ -530,6 +549,7 @@ complete -c uv -n "__fish_seen_subcommand_from lock" -l native-tls -d 'Whether t
 complete -c uv -n "__fish_seen_subcommand_from lock" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from lock" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from lock" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from lock" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from lock" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from lock" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from lock" -s V -l version -d 'Print version'
@@ -543,6 +563,7 @@ complete -c uv -n "__fish_seen_subcommand_from version" -l native-tls -d 'Whethe
 complete -c uv -n "__fish_seen_subcommand_from version" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from version" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from version" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from version" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from version" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from version" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from version" -s V -l version -d 'Print version'
@@ -555,6 +576,7 @@ complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l nat
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-native-tls
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s V -l version -d 'Print version'
