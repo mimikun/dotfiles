@@ -138,11 +138,14 @@ use_pueue() {
   echo "gup export"
   pueue add --after "$task_id" -- "gup export"
 
-  echo "aqua i -a"
-  task_id=$(pueue add -p -- "aqua i -a")
+  echo "aqua self update"
+  aqua_task_id=$(pueue add -p -- "aqua update-aqua")
 
-  echo "aqua up"
-  pueue add --after "$task_id" -- "aqua up"
+  echo "aqua install all packages"
+  task_id=$(pueue add --after "$aqua_task_id" -- "aqua install --all")
+
+  echo "aqua update all packages"
+  pueue add --after "$task_id" -- "aqua update"
 }
 
 no_pueue() {
@@ -188,11 +191,14 @@ no_pueue() {
   echo "gup export"
   gup export
 
-  echo "aqua i -a"
-  aqua i -a
+  echo "aqua self update"
+  aqua update-aqua
 
-  echo "aqua up"
-  aqua up
+  echo "aqua install all packages"
+  aqua install --all
+
+  echo "aqua update all packages"
+  aqua update
 }
 
 other() {
