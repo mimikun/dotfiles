@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.05.15]
+
+### Added - 新機能について
+
+- feat(htop)!: add config
+- feat(fish)!: add pastel completion
+- feat(aqua)!: add some packages
+- feat(aqua)!: add btop
+- feat(aqua)!: add gotop
+- feat(localbin)!: add update_pastel_fish_completion
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(localbin): update update_fish_completions
+- chore(utils): update update.sh
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.14]
 
 ### Added - 新機能について
