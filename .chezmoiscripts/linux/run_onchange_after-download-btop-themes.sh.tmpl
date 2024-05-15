@@ -1,0 +1,29 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/bash
+base_url="https://raw.githubusercontent.com/catppuccin/btop/main/themes/"
+themes=(
+    "catppuccin_frappe.theme"
+    "catppuccin_latte.theme"
+    "catppuccin_macchiato.theme"
+    "catppuccin_mocha.theme"
+)
+dest_dir="$XDG_CONFIG_HOME/btop/themes"
+
+if [ ! -d "$dest_dir" ]; then
+    mkdir "$dest_dir"
+fi
+
+for theme in "${themes[@]}"; do
+    download_url="$base_url$theme"
+    file_path="$dest_dir/$theme"
+    # file check
+    if [[ ! -e "$file_path" ]]; then
+        echo "Download from $download_url"
+        curl -sSL "$download_url" -o "$file_path"
+    else
+        echo "$file_path is exist."
+    fi
+done
+
+{{ end -}}
