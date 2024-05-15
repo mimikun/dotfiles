@@ -21,6 +21,9 @@ strat = "strat"
 
 [files]
 extend-exclude = [
+  # NOTE: minimum typo
+  # error: `Promethius` should be `Prometheus`
+  "dot_config/gotop/gotop.conf",
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
   # NOTE: Game settings
