@@ -64,6 +64,7 @@ nsh
 nu
 onefetch
 os_info_cli
+pastel
 pipr
 procs
 pueue
