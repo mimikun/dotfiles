@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 local global = require("global")
 local keybinds = require("keybinds")
 local mousebinds = require("mousebinds")
+local kabegami = require("kabegami")
 
 local M = {}
 
@@ -23,7 +24,9 @@ local path_sep = global.path_sep
 local base_font_size = is_azusa and 22 or 14
 local wf_font_size = is_azusa and 12 or 10
 
-local kabegami_name = "Azusa_by_96ENU.png"
+local kabegami_name
+--kabegami_name = kabegami.get("butasan").nesoberi
+kabegami_name = kabegami.get("azusa").kuroinu
 
 require("format")
 require("status")
