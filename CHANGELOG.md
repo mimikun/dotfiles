@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.05.16]
+
+### Added - 新機能について
+
+- feat!: add .mimikun-pkglists
+    - relocate some files
+- feat(wezterm)!: add kabegami.lua
+- feat(kabegami)!: add butasan.png
+- feat(aqua)!: add pkgx
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(localbin): update some tools
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.15]
 
 ### Added - 新機能について
