@@ -9,4 +9,4 @@ while read -r line; do
         echo "$line is not found"
         pueue add -- "cargo install $line"
     fi
-done <~/linux_cargo_packages.txt
+done <"$HOME/.mimikun-pkglists/linux_cargo_packages.txt"

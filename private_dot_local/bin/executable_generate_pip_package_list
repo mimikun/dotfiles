@@ -4,4 +4,4 @@ pip freeze |
     sed \
         -e "s/=.*//g" \
         -e "s/ @.*//g" \
-        >"$HOME"/linux_pip_packages.txt
+        >"$HOME/.mimikun-pkglists/linux_pip_packages.txt"

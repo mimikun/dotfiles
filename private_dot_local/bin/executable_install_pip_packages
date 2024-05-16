@@ -15,4 +15,4 @@ while read -r line; do
         pueue add -- "pip install $line"
         ;;
     esac
-done <~/linux_pip_packages.txt
+done <"$HOME/.mimikun-pkglists/linux_pip_packages.txt"

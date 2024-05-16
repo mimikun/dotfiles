@@ -4,4 +4,4 @@ cargo install-update --list |
     tail -n +4 |
     sed -e "s/ /\t/g" |
     cut -f 1 |
-    sed "/^\$/d" >"$HOME"/linux_cargo_packages.txt
+    sed "/^\$/d" >"$HOME/.mimikun-pkglists/linux_cargo_packages.txt"
