@@ -11,6 +11,22 @@ command_exist() {
   fi
 }
 
+update_sharkdp_tool_completions() {
+  CMD_NAME="$1"
+  REPO_NAME="sharkdp/$CMD_NAME"
+  CMD_VERSION=$(curl --silent "https://api.github.com/repos/$REPO_NAME/releases/latest" | jq .tag_name -r)
+  ARCHIVE_NAME="$CMD_NAME-$CMD_VERSION-x86_64-unknown-linux-gnu"
+  ARCHIVE_FORMAT="tar.gz"
+  ARCHIVE_FILE="$ARCHIVE_NAME.$ARCHIVE_FORMAT"
+  DOWNLOAD_URL="https://github.com/$REPO_NAME/releases/download/$CMD_VERSION/$ARCHIVE_FILE"
+  pushd /tmp || exit
+  USTC_TASK_ID=$(pueue add -p -- "wget $DOWNLOAD_URL")
+  USTC_TASK_ID=$(pueue add --after "$USTC_TASK_ID" -p -- "tar xvf $ARCHIVE_FILE")
+  USTC_TASK_ID=$(pueue add --after "$USTC_TASK_ID" -p -- "cp $ARCHIVE_NAME/autocomplete/$CMD_NAME.fish $COMPLETIONS_DIR/$CMD_NAME.fish")
+  pueue add --after "$USTC_TASK_ID" -- "rm -rf $ARCHIVE_FILE*"
+  popd || exit
+}
+
 pueue add -- "fish -c 'fish_update_completions'"
 
 for cmd in "poetry" "rustup" "starship" "deno" "mdbook"; do
@@ -129,3 +145,9 @@ fi
 if command_exist fish-lsp; then
   pueue add -- "fish-lsp complete --fish > '${COMPLETIONS_DIR}'/fish-lsp.fish"
 fi
+
+for cmd in "bat" "hyperfine" "pastel"; do
+  if command_exist "${cmd}"; then
+    update_sharkdp_tool_completions "${cmd}"
+  fi
+done
