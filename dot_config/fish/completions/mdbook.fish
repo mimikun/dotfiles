@@ -29,12 +29,14 @@ complete -c mdbook -n "__fish_seen_subcommand_from clean" -s V -l version -d 'Pr
 complete -c mdbook -n "__fish_seen_subcommand_from completions" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_seen_subcommand_from completions" -s V -l version -d 'Print version'
 complete -c mdbook -n "__fish_seen_subcommand_from watch" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
+complete -c mdbook -n "__fish_seen_subcommand_from watch" -l watcher -d 'The filesystem watching technique' -r -f -a "{poll	'',native	''}"
 complete -c mdbook -n "__fish_seen_subcommand_from watch" -s o -l open -d 'Opens the compiled book in a web browser'
 complete -c mdbook -n "__fish_seen_subcommand_from watch" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_seen_subcommand_from watch" -s V -l version -d 'Print version'
 complete -c mdbook -n "__fish_seen_subcommand_from serve" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
 complete -c mdbook -n "__fish_seen_subcommand_from serve" -s n -l hostname -d 'Hostname to listen on for HTTP connections' -r
 complete -c mdbook -n "__fish_seen_subcommand_from serve" -s p -l port -d 'Port to use for HTTP connections' -r
+complete -c mdbook -n "__fish_seen_subcommand_from serve" -l watcher -d 'The filesystem watching technique' -r -f -a "{poll	'',native	''}"
 complete -c mdbook -n "__fish_seen_subcommand_from serve" -s o -l open -d 'Opens the compiled book in a web browser'
 complete -c mdbook -n "__fish_seen_subcommand_from serve" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_seen_subcommand_from serve" -s V -l version -d 'Print version'
