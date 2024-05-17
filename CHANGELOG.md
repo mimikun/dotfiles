@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.05.17]
+
+### Added - 新機能について
+
+- feat(fish)!: add ryoppippi/na.fish
+- feat(aqua)!: add zf
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update deno completion
+- chore(fish): update mdbook completion
+- chore(localbin): update update_fish_completions
+
+### Removed - 今回で削除された機能について
+
+- chore(localbin): remove update_pkgx
+
+### Fixed - 不具合修正について
+
+- WORKAROUND: many nvim plugin is dead in 0.11
+- fix(stylua): error
+
 ## [v2024.05.16]
 
 ### Added - 新機能について
