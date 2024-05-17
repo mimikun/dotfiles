@@ -9,6 +9,7 @@ vim = [
     "ref:master",
 ]
 neovim = [
+    "0.10.0",
     "nightly",
     "ref:master",
     "stable",
