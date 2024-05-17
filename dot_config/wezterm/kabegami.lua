@@ -3,9 +3,9 @@ local M = {}
 ---@type table
 local data = {
     butasan = {
-        nesoberi = "butasan_nesoberi.png"
+        nesoberi = "butasan_nesoberi.png",
     },
-    azusa= {
+    azusa = {
         kuroinu = "Azusa_by_96ENU.png",
     },
 }
