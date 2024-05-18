@@ -323,14 +323,15 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo "# Add mise shims to path" >> $CACHE_CONFIG_FISH
         echo 'set -x PATH "$XDG_DATA_HOME/mise/shims" $PATH' >> $CACHE_CONFIG_FISH
         echo "# alias" >> $CACHE_CONFIG_FISH
-        echo 'alias paleovim "$XDG_DATA_HOME/mise/installs/vim/latest/bin/vim"' >> $CACHE_CONFIG_FISH
-        echo 'alias neovim "$XDG_DATA_HOME/mise/installs/neovim/nightly/bin/nvim"' >> $CACHE_CONFIG_FISH
+        echo 'alias paleovim "$XDG_DATA_HOME/mise/shims/vim"' >> $CACHE_CONFIG_FISH
         echo "# abbr" >> $CACHE_CONFIG_FISH
         echo 'abbr -a pvim paleovim' >> $CACHE_CONFIG_FISH
-        echo 'abbr -a nvim neovim' >> $CACHE_CONFIG_FISH
-        echo 'abbr -a vim nvim' >> $CACHE_CONFIG_FISH
-        echo 'abbr -a vip "nvim --headless '+Lazy! sync' +qa"' >> $CACHE_CONFIG_FISH
     end
+
+    # bob neovim version manager
+    echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
+    echo 'export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"' >> $CACHE_CONFIG_FISH
+    echo 'abbr -a vim nvim' >> $CACHE_CONFIG_FISH
 
     # starship config
     if command -v starship >/dev/null 2>&1

@@ -1,0 +1,13 @@
+enable_nightly_info = true
+enable_release_build = false
+{{ if (eq .chezmoi.hostname "TanakaPC") -}}
+downloads_location = 'C\Users\{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}\AppData\Local\bob'
+installation_location = 'C\Users\{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}\AppData\Local\bob\nvim-bin'
+version_sync_file_location = 'C\Users\{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}\.bob-version'
+{{ else -}}
+downloads_location = 'C\Users\{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}\AppData\Local\bob'
+installation_location = 'C\Users\{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}\AppData\Local\bob\nvim-bin'
+version_sync_file_location = 'C\Users\{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}\.bob-version'
+{{ end -}}
+rollback_limit = 3
+github_mirror = "https://github.com"

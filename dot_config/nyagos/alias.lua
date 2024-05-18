@@ -36,9 +36,7 @@ if is_linux then
     nyagos.alias.paleovim = paleovim
     nyagos.alias.pvim = paleovim
     -- neovim alias
-    local neovim = table.concat({ mise_shims, "nvim" }, path_sep)
-    nyagos.alias.neovim = neovim
-    nyagos.alias.vim = neovim
+    nyagos.alias.vim = "nvim"
 end
 
 -- alias eza

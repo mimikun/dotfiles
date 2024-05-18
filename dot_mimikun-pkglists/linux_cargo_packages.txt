@@ -2,6 +2,7 @@ ag
 bandwhich
 bat
 bingrep
+bob-nvim
 bottom
 broot
 cargo-about
