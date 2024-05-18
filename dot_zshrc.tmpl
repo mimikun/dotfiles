@@ -102,7 +102,6 @@ export PAGER=less
 export GIT_PAGER=less
 
 alias pip="python3 -m pip"
-alias vim="nvim"
 
 # chezmoi
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
@@ -173,12 +172,8 @@ export MISE_EXPERIMENTAL=1
 export MISE_FISH_AUTO_ACTIVATE=1
 eval "$(mise activate zsh)"
 export PATH="$XDG_DATA_HOME/mise/shims:$PATH"
-# alias
-alias paleovim="$XDG_DATA_HOME/mise/installs/vim/latest/bin/vim"
-alias neovim="$XDG_DATA_HOME/mise/installs/neovim/nightly/bin/nvim"
+alias paleovim="$MISE_DATA_DIR/shims/vim"
 alias pvim=paleovim
-alias nvim=neovim
-alias vim=nvim
 
 # luarocks
 export PATH="$HOME/.luarocks/bin:$PATH"
@@ -238,6 +233,11 @@ export MOCWORD_DATA="$XDG_CACHE_HOME/mocword.sqlite"
 if command -v mdbook>/dev/null 2>&1; then
     eval "$(mdbook completions zsh)"
 fi
+
+# bob neovim version manager
+export BOB_CONFIG="$XDG_CONFIG_HOME/bob/config.toml"
+export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
+alias vim=nvim
 
 # zeno.zsh
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"

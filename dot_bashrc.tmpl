@@ -214,12 +214,8 @@ export MISE_EXPERIMENTAL=1
 export MISE_FISH_AUTO_ACTIVATE=1
 eval "$(mise activate bash)"
 export PATH="$XDG_DATA_HOME/mise/shims:$PATH"
-# alias
-alias paleovim="$XDG_DATA_HOME/mise/installs/vim/latest/bin/vim"
-alias neovim="$XDG_DATA_HOME/mise/installs/neovim/nightly/bin/nvim"
+alias paleovim="$MISE_DATA_DIR/shims/vim"
 alias pvim=paleovim
-alias nvim=neovim
-alias vim=nvim
 
 # luarocks
 export PATH="$HOME/.luarocks/bin:$PATH"
@@ -278,6 +274,11 @@ export MOCWORD_DATA="$XDG_CACHE_HOME/mocword.sqlite"
 if command -v mdbook >/dev/null 2>&1; then
     eval "$(mdbook completions bash)"
 fi
+
+# bob neovim version manager
+export BOB_CONFIG="$XDG_CONFIG_HOME/bob/config.toml"
+export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
+alias vim=nvim
 
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき

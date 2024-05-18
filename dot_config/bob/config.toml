@@ -1,0 +1,27 @@
+# Will show new commits associated with new nightly release if enabled
+enable_nightly_info = true
+
+# Compile neovim nightly or a certain hash version as a release build (slightly improved performance, no debug info)
+enable_release_build = false
+
+# The folder in which neovim versions will be installed too, bob will error if this option is specified but the folder doesn't exist
+downloads_location = "$HOME/.local/share/bob"
+
+# The path in which the used neovim version will be located in
+# All Linux
+installation_location = "$HOME/.local/share/bob/nvim-bin"
+# TODO: `installation_location` using chezmoi template
+# Windows
+# Home-Windows
+#installation_location = 'C:\Users\USER_NAME\AppData\Local\bob\nvim-bin'
+# Work-Windows
+#installation_location = 'C:\Users\USER_NAME\AppData\Local\bob\nvim-bin'
+
+# The path to a file that will hold the neovim version string, useful for config version tracking, bob will error if the specified file is not a valid file path
+version_sync_file_location = "$HOME/.bob-version"
+
+# The amount of rollbacks before bob starts to delete older ones, can be up to 225
+rollback_limit = 3
+
+# Specify the github mirror to use instead of `https://github.com`, example: `https://mirror.ghproxy.com`
+github_mirror = "https://github.com"

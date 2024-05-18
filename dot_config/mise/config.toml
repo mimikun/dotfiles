@@ -8,13 +8,6 @@ vim = [
     "latest",
     "ref:master",
 ]
-neovim = [
-    "0.10.0",
-    "nightly",
-    "ref:master",
-    "stable",
-    "latest",
-]
 node = [
     # lts = 20
     "20",
