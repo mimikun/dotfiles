@@ -295,9 +295,6 @@ chezmoi add ~/.local/bin/pueue_update_pip_packages
 chezmoi add ~/.local/bin/re_boot
 chezmoi add ~/.local/bin/read_confirm
 chezmoi add ~/.local/bin/shut_down
-chezmoi add ~/.local/bin/update_bat_fish_completion
-chezmoi add ~/.local/bin/update_hyperfine_fish_completion
-chezmoi add ~/.local/bin/update_pastel_fish_completion
 chezmoi add ~/.local/bin/update_cargo_packages
 chezmoi add ~/.local/bin/update_chromedriver
 chezmoi add ~/.local/bin/update_docker_compose
