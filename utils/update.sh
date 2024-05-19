@@ -11,6 +11,9 @@ chezmoi add ~/.mise.toml
 chezmoi add ~/.config/mise/config.toml
 chezmoi add ~/.config/mise/settings.toml
 
+# bob
+chezmoi add ~/.bob-version
+
 # mimikun package lists
 chezmoi add ~/.mimikun-pkglists/linux_cargo_packages.txt
 chezmoi add ~/.mimikun-pkglists/linux_pip_packages.txt
