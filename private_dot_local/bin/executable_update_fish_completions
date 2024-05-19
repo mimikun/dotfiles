@@ -110,24 +110,12 @@ if command_exist http; then
   pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/https.fish"
 fi
 
-if command_exist bat; then
-  pueue add -- "update_bat_fish_completion"
-fi
-
 if command_exist rg; then
   pueue add -- "rg --generate complete-fish > '${COMPLETIONS_DIR}'/rg.fish"
 fi
 
 if command_exist hx; then
   pueue add -- "curl -L https://raw.githubusercontent.com/helix-editor/helix/master/contrib/completion/hx.fish -o '${COMPLETIONS_DIR}'/hx.fish"
-fi
-
-if command_exist hyperfine; then
-  pueue add -- "update_hyperfine_fish_completion"
-fi
-
-if command_exist pastel; then
-  pueue add -- "update_pastel_fish_completion"
 fi
 
 if command_exist alacritty; then
