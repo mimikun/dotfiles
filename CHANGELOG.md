@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.05.19]
+
+### Added - 新機能について
+
+- feat(nvim)!: use bob neovim version manager
+    - Fix #483. neovim is no longer managed by mise
+- feat(utils): update.sh: add .bob-version
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(localbin): update update_fish_completions
+- chore(localbin): update vup
+- chore(localbin): update update_mise
+- chore(fish): update deno completion
+- chore(utils): update update.sh
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.17]
 
 ### Added - 新機能について
