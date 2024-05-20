@@ -29,9 +29,7 @@ local spec = {
         -- See "Sync of buffer scrolling" section below
         scroll_sync = false,
     },
-    --config = true,
-    --config = function() require("obsidian-bridge").setup({}) end,
-    --cond = false,
+    cond = false,
 }
 
 return spec
