@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.5.0"
+readonly PRODUCT_VERSION="1.6.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -210,9 +210,6 @@ other() {
 
   echo "update_twitch_cli"
   update_twitch_cli
-
-  echo "update_pkgx"
-  update_pkgx
 }
 
 reboot_check() {
