@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.05.20]
+
+### Added - 新機能について
+
+- feat(nvim)!: add obsidian-bridge.nvim
+- feat(nvim)!: add cmp-dotenv
+- feat(nvim)!: add codeshot.nvim
+- chore(bob): use neovim nightly
+- feat(wezterm): add new kabegami path
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- refactor(chezmoi)!: use windows_user_name instead of alacritty_wd
+- refactor(chezmoi)!: use windows_user_name instead of win_home_path
+- chore(localbin): update vup
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): obsidian-bridge.nvim disable
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.19]
 
 ### Added - 新機能について
