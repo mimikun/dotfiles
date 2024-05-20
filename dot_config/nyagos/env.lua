@@ -65,7 +65,8 @@ local lg_config_file
 if is_not_human_rights then
     -- Work envs
     github_username = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}'
-    win_home = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}'
+    win_home =
+        '/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}'
     obsidian_vault_root =
         '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}'
     if is_linux then
@@ -84,7 +85,7 @@ else
             lg_config_file = lg_conf.linux
         else
             -- home-wsl envs
-            win_home = '{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}'
+            win_home = '/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}'
             obsidian_vault_root = '{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}'
             lg_config_file = lg_conf.wsl
         end

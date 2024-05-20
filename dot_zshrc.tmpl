@@ -21,7 +21,7 @@ setxkbmap -option ctrl:nocaps
 # env-vars
 {{ if eq .chezmoi.hostname "TanakaPC" -}}
 export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
-export WIN_HOME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").win_home_path.value }}"
+export WIN_HOME="/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
 export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
 {{ else -}}
     {{ if eq .chezmoi.os "linux" -}}
@@ -30,13 +30,13 @@ export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value 
 export OBSIDIAN_VAULT_ROOT="$HOME/Documents/Obsidian/mimikun"
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/linux_config.yml"
         {{ else -}}
-export WIN_HOME="{{ (rbwFields "dotfiles-chezmoi").win_home_path.value }}"
+export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
 export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
         {{ end -}}
     {{ else -}}
 export GITHUB_USERNAME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
-export WIN_HOME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").win_home_path.value }}"
+export WIN_HOME="/mnt/c/Users/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
 export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
     {{ end -}}
 {{ end -}}
