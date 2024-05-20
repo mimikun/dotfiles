@@ -9,6 +9,7 @@ local dependencies = {
     "saadparwaiz1/cmp_luasnip",
     "nvim-orgmode/orgmode",
     "onsails/lspkind.nvim",
+    "SergioRibera/cmp-dotenv",
     --"zbirenbaum/copilot.lua",
     --"zbirenbaum/copilot-cmp",
 }
@@ -80,6 +81,7 @@ local spec = {
                 { name = "path" },
                 { name = "emoji" },
                 { name = "orgmode" },
+                { name = "dotenv" },
             }),
             snippet = {
                 expand = function(args)
