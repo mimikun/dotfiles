@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2024.05.22]
+
+### Added - 新機能について
+
+- feat(nvim)!: add new button in alpha.lua
+- feat(nvim)!: add aiscript configs
+    - aiscript is misskey's unique language
+- feat(nvim)!: add vfiler.vim plugins
+- feat(nvim)!: add djot config
+- feat(nvim)!: add obsidian-kensaku.vim plugin
+- feat(cargo)!: add some tools
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(localbin): update vup
+- chore(deno): update deno completion
+- chore(fish): update bun completion
+- chore(nvim): update lockfiles
+- chore(aqua): bump
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(bob): incorrect windows bob config path
+
 ## [v2024.05.21]
 
 ### Added - 新機能について
