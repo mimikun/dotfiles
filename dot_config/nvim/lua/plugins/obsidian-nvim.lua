@@ -183,13 +183,33 @@ local substitutions = {
         return (year .. "年")
     end,
 }
+
+---@type table
+local obsidian_kensaku_opts = require("core.global").is_human_rights and {}
+    or {
+        query_filter = "cmigemo",
+        cmigemo_executable = "/bin/cmigemo",
+        --migemo_dict_path = "/path/to/migemo-dict",
+    }
+
+---@type LazySpec
+local obsidian_kensaku = {
+    "delphinus/obsidian-kensaku.nvim",
+    cmd = "ObsidianKensaku",
+    opts = obsidian_kensaku_opts,
+    --cond = false,
+}
+
+---@type LazySpec[]
 local dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter",
+    obsidian_kensaku,
 }
 
+---@type table
 local opts = {
     workspaces = vaults,
 
@@ -243,6 +263,12 @@ local opts = {
 
     -- NOTE: "current", "vsplit" or "hsplit"
     open_notes_in = "current",
+
+    callbacks = {
+        post_setup = function(client)
+            require("obsidian-kensaku")(client)
+        end,
+    },
 
     ui = {
         enable = true,
