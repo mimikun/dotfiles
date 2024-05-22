@@ -176,7 +176,7 @@ local spec = {
             "/usr/share/fish",
         }
 
-        -- TODO:
+        -- TODO: fish-lsp
         -- NOTE: about :h lspconfig-setup
         -- NOTE: ref: https://github.com/ndonfris/fish-lsp/issues/22
         if not configs.fish_lsp then
@@ -193,6 +193,27 @@ local spec = {
                     --on_new_config = function(new_config, new_root_dir) end,
                     --capabilities = {},
                     cmd = { "fish-lsp", "start" },
+                    --handlers = {},
+                    --init_options = {},
+                    --on_attach = function(client, bufnr)end,
+                    settings = {},
+                },
+            }
+        end
+
+        -- TODO: aiscript-lsp
+        -- NOTE: about :h lspconfig-setup
+        if not configs.aiscript_lsp then
+            configs.aiscript_lsp = {
+                default_config = {
+                    root_dir = lspconfig.util.root_pattern("*.is", "*.ais"),
+                    name = "aiscript-lsp",
+                    filetypes = { "is", "ais" },
+                    autostart = true,
+                    single_file_support = true,
+                    --on_new_config = function(new_config, new_root_dir) end,
+                    --capabilities = {},
+                    cmd = { "aiscript-languageserver", "--stdio" },
                     --handlers = {},
                     --init_options = {},
                     --on_attach = function(client, bufnr)end,
@@ -222,6 +243,7 @@ local spec = {
             handlers = handlers,
         })
         lspconfig.fish_lsp.setup({})
+        lspconfig.aiscript_lsp.setup({})
         mason_lock.setup({
             lockfile_path = mason_lockfile,
         })
