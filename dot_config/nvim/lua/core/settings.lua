@@ -81,6 +81,7 @@ settings["treesitter_parsers"] = {
     "cmake",
     "cpp",
     "css",
+    "djot",
     "dockerfile",
     "fish",
     "git_config",
