@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.05.23]
+
+### Added - 新機能について
+
+- feat(nvim)!: add remote-nvim.nvim plugin
+- feat(powershell)!: add bun_upgrade command for windows
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update fish-lsp completion
+- chore(fish): update uv completion
+- chore(aqua): bump
+- refactor(nvim)!: split obsidian-kensaku.nvim config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.22]
 
 ### Added - 新機能について
