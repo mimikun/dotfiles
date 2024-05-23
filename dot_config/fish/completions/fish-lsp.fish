@@ -58,15 +58,15 @@ complete -c fish-lsp -f
 
 complete -c fish-lsp -n "__fish_use_subcommand" -a "
 start\t'subcmd to start the lsp using stdin/stdout'
-bare\t'run barebones startup config'
 logger\t'test the logger by displaying it'
 info\t'show the build info of fish-lsp'
 url\t'show a helpful url related to the fish-lsp'
-complete\t'generate completions file for ~/.config/fish/completions'"
+complete\t'generate completions file for ~/.config/fish/completions'
+env\t'generate fish shell env variables to be used by lsp'"
 
-set __fish_lsp_subcommands bare min start
+set __fish_lsp_subcommands start
 
-# fish_lsp [bare|min|start] --<TAB> 
+# fish_lsp [start] --<TAB> 
 complete -c fish-lsp -n '__fish_seen_subcommand_from $__fish_lsp_subcommands' -a "
 --dump\t'dump output and stop server'
 --enable\t'enable feature'
@@ -114,8 +114,13 @@ complete -c fish-lsp -n '__fish_lsp_using_command logger; and not __fish_contain
 
 # print all $fish_lsp_submcommands
 function _fish_lsp_get_features
-  printf %b\n asciiArt formatting logging snippets completion hover rename definition references diagnostics signatureHelp codeAction index
+  printf %b\n complete hover rename reference logger formatting codeAction codeLens folding signature executeCommand inlayHint highlight diagnostic
 end
+
+# fish-lsp env --<TAB>
+complete -c fish-lsp -n __fish_use_subcommand -x -a env -d 'generate fish shell env variables to be used by lsp'
+complete -c fish-lsp -n '__fish_lsp_using_command env; and not __fish_contains_opt -s s show'    -s s -l show   -d 'show the current fish-lsp env variables'
+complete -c fish-lsp -n '__fish_lsp_using_command env; and not __fish_contains_opt -s c create'  -s c -l create -d 'build initial fish-lsp env variables'
 
 # COMPLETION: fish-lsp subcmd <option> [VALUE] (`fish-lsp start --enable ...`)
 complete -c fish-lsp -n '__fish_seen_subcommand_from $__fish_lsp_subcommands' -l enable -xa '(_fish_lsp_get_features)'
