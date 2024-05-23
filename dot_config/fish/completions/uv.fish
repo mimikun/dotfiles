@@ -6,6 +6,8 @@ complete -c uv -n "__fish_use_subcommand" -s v -l verbose -d 'Use verbose output
 complete -c uv -n "__fish_use_subcommand" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_use_subcommand" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_use_subcommand" -l no-native-tls
+complete -c uv -n "__fish_use_subcommand" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_use_subcommand" -l no-offline
 complete -c uv -n "__fish_use_subcommand" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_use_subcommand" -l no-preview
 complete -c uv -n "__fish_use_subcommand" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -13,6 +15,7 @@ complete -c uv -n "__fish_use_subcommand" -s n -l no-cache -d 'Avoid reading fro
 complete -c uv -n "__fish_use_subcommand" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_use_subcommand" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_use_subcommand" -f -a "pip" -d 'Resolve and install Python packages'
+complete -c uv -n "__fish_use_subcommand" -f -a "tool" -d 'Run and manage executable Python packages'
 complete -c uv -n "__fish_use_subcommand" -f -a "venv" -d 'Create a virtual environment'
 complete -c uv -n "__fish_use_subcommand" -f -a "cache" -d 'Manage the cache'
 complete -c uv -n "__fish_use_subcommand" -f -a "self" -d 'Manage the `uv` executable'
@@ -25,11 +28,14 @@ complete -c uv -n "__fish_use_subcommand" -f -a "generate-shell-completion" -d '
 complete -c uv -n "__fish_use_subcommand" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -77,6 +83,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l pip-args -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-all-extras
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-deps -d 'Ignore package dependencies, instead only add those packages explicitly listed on the command line to the resulting the requirements file'
@@ -88,9 +95,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l annotate
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-header -d 'Exclude the comment header at the top of the generated output file'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l header
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l offline -d 'Run offline, i.e., without accessing the network'
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-offline
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l refresh -d 'Refresh all cached data'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l refresh -d 'Run offline, i.e., without accessing the network. Refresh all cached data'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-refresh
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l system -d 'Install packages into the system Python'
@@ -129,12 +134,15 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -s V -l version -d 'Print version'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s c -l constraint -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone	'Clone (i.e., copy-on-write) packages from the wheel into the site packages',copy	'Copy packages from the wheel into the site packages',hardlink	'Hard link packages from the wheel into the site packages'}"
@@ -150,6 +158,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l python-version -d 'The minimum Python version that should be supported by the requirements (e.g., `3.7` or `3.7.9`)' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "{windows	'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux	'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos	'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc	'An x86 Windows target',x86_64-unknown-linux-gnu	'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`',aarch64-apple-darwin	'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin	'An x86 macOS target',aarch64-unknown-linux-gnu	'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`',aarch64-unknown-linux-musl	'An ARM64 Linux target',x86_64-unknown-linux-musl	'An `x86_64` Linux target',x86_64-manylinux_2_17	'An `x86_64` target for the `manylinux_2_17` platform',x86_64-manylinux_2_28	'An `x86_64` target for the `manylinux_2_28` platform',aarch64-manylinux_2_17	'An ARM64 target for the `manylinux_2_17` platform',aarch64-manylinux_2_28	'An ARM64 target for the `manylinux_2_28` platform'}"
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l trusted-host -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l python-executable -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l cert -r
@@ -158,10 +167,9 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l pip-args -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l reinstall -d 'Reinstall all packages, regardless of whether they\'re already installed'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-reinstall
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l offline
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-refresh
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
@@ -181,6 +189,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-compile-bytecode
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l strict -d 'Validate the virtual environment after completing the installation, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-strict
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l dry-run -d 'Perform a dry run, i.e., don\'t actually install anything but resolve the dependencies and print the resulting plan'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -s a -l ask
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l user
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-config
@@ -189,6 +198,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from sync" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -222,14 +233,13 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l unstable-uv-lock-file -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-all-extras
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -s U -l upgrade -d 'Allow package upgrades'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-upgrade
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l reinstall -d 'Reinstall all packages, regardless of whether they\'re already installed'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-reinstall
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l offline
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-refresh
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-deps -d 'Ignore package dependencies, instead only installing those packages explicitly listed on the command line or in the requirements files'
@@ -259,6 +269,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -271,17 +283,18 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l target -d 'Uninstall packages from the specified directory, rather than from the virtual environment or system Python interpreter' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l system -d 'Use the system Python to uninstall packages'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-system
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l break-system-packages -d 'Allow `uv` to modify an `EXTERNALLY-MANAGED` Python installation'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-break-system-packages
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l offline -d 'Run offline, i.e., without accessing the network'
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from uninstall" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -291,6 +304,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l exclude-editable -d 'Exclude any editable packages from output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l strict -d 'Validate the virtual environment, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-strict
@@ -301,6 +315,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from freeze" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -312,6 +328,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -s e -l editable -d 'Only include editable projects'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l exclude-editable -d 'Exclude any editable packages from output'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l strict -d 'Validate the virtual environment, to detect packages with missing dependencies or other issues'
@@ -324,6 +341,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from list" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -333,6 +352,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l strict -d 'Validate the virtual environment, to detect packages with missing dependencies or other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-strict
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l system -d 'List packages for the system Python'
@@ -342,6 +362,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from show" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -351,6 +373,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l system -d 'List packages for the system Python'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-system
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -s q -l quiet -d 'Do not print any output'
@@ -358,6 +381,8 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from check" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -373,6 +398,44 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -f -a "show" -d 'Show information about one or more installed packages'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -f -a "check" -d 'Verify installed packages have compatible dependencies'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -s q -l quiet -d 'Do not print any output'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l no-offline
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -s V -l version -d 'Print version'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -f -a "run" -d 'Run a tool'
+complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l from -d 'Use the given package to provide the command' -r
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s q -l quiet -d 'Do not print any output'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l no-offline
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l no-preview
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s V -l version -d 'Print version'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -f -a "run" -d 'Run a tool'
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from venv" -s p -l python -d 'The Python interpreter to use for the virtual environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from venv" -l prompt -d 'Provide an alternative prompt prefix for the virtual environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from venv" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone	'Clone (i.e., copy-on-write) packages from the wheel into the site packages',copy	'Copy packages from the wheel into the site packages',hardlink	'Hard link packages from the wheel into the site packages'}"
@@ -383,14 +446,13 @@ complete -c uv -n "__fish_seen_subcommand_from venv" -l keyring-provider -d 'Att
 complete -c uv -n "__fish_seen_subcommand_from venv" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_seen_subcommand_from venv" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from venv" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from venv" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from venv" -l system -d 'Use the system Python to uninstall packages'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-system
 complete -c uv -n "__fish_seen_subcommand_from venv" -l seed -d 'Install seed packages (`pip`, `setuptools`, and `wheel`) into the virtual environment'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l allow-existing -d 'Preserve any existing files or directories at the target path'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
-complete -c uv -n "__fish_seen_subcommand_from venv" -l offline -d 'Run offline, i.e., without accessing the network'
-complete -c uv -n "__fish_seen_subcommand_from venv" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from venv" -l clear
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-seed
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-pip
@@ -401,6 +463,8 @@ complete -c uv -n "__fish_seen_subcommand_from venv" -s v -l verbose -d 'Use ver
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from venv" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from venv" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from venv" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from venv" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from venv" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -409,11 +473,14 @@ complete -c uv -n "__fish_seen_subcommand_from venv" -s h -l help -d 'Print help
 complete -c uv -n "__fish_seen_subcommand_from venv" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -426,11 +493,14 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcom
 complete -c uv -n "__fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -439,11 +509,14 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from clean" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -452,11 +525,14 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from prune" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -469,11 +545,14 @@ complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand
 complete -c uv -n "__fish_seen_subcommand_from cache; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -484,11 +563,14 @@ complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcomm
 complete -c uv -n "__fish_seen_subcommand_from self; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from update" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -499,11 +581,14 @@ complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_
 complete -c uv -n "__fish_seen_subcommand_from self; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from update; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from clean" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from clean" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from clean" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from clean" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from clean" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from clean" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from clean" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from clean" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -514,11 +599,14 @@ complete -c uv -n "__fish_seen_subcommand_from run" -l with -d 'Run with the giv
 complete -c uv -n "__fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from run" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from run" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from run" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from run" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from run" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from run" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from run" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from run" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from run" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -528,11 +616,14 @@ complete -c uv -n "__fish_seen_subcommand_from run" -s V -l version -d 'Print ve
 complete -c uv -n "__fish_seen_subcommand_from sync" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from sync" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from sync" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from sync" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from sync" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from sync" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from sync" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from sync" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from sync" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -542,11 +633,14 @@ complete -c uv -n "__fish_seen_subcommand_from sync" -s V -l version -d 'Print v
 complete -c uv -n "__fish_seen_subcommand_from lock" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from lock" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from lock" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from lock" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from lock" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from lock" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from lock" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from lock" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from lock" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from lock" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from lock" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from lock" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from lock" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from lock" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -556,11 +650,14 @@ complete -c uv -n "__fish_seen_subcommand_from lock" -s V -l version -d 'Print v
 complete -c uv -n "__fish_seen_subcommand_from version" -l output-format -r -f -a "{text	'',json	''}"
 complete -c uv -n "__fish_seen_subcommand_from version" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from version" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from version" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from version" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from version" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from version" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from version" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from version" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from version" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from version" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from version" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from version" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from version" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
@@ -569,28 +666,32 @@ complete -c uv -n "__fish_seen_subcommand_from version" -s h -l help -d 'Print h
 complete -c uv -n "__fish_seen_subcommand_from version" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-native-tls
+complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l offline -d 'Disable network access, relying only on locally cached data and locally available files'
+complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-offline
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l preview -d 'Whether to enable experimental, preview features'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l no-preview
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file in the current directory or any parent directories'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from generate-shell-completion" -s V -l version -d 'Print version'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "pip" -d 'Resolve and install Python packages'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "venv" -d 'Create a virtual environment'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "cache" -d 'Manage the cache'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "self" -d 'Manage the `uv` executable'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "clean" -d 'Clear the cache, removing all entries or those linked to specific packages'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "run" -d 'Run a command in the project environment'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "sync" -d 'Sync the project\'s dependencies with the environment'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "lock" -d 'Resolve the project requirements into a lockfile'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "version" -d 'Display uv\'s version'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "generate-shell-completion" -d 'Generate shell completion'
-complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "pip" -d 'Resolve and install Python packages'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "tool" -d 'Run and manage executable Python packages'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "venv" -d 'Create a virtual environment'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "cache" -d 'Manage the cache'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "self" -d 'Manage the `uv` executable'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "clean" -d 'Clear the cache, removing all entries or those linked to specific packages'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "run" -d 'Run a command in the project environment'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "sync" -d 'Sync the project\'s dependencies with the environment'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "lock" -d 'Resolve the project requirements into a lockfile'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "version" -d 'Display uv\'s version'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "generate-shell-completion" -d 'Generate shell completion'
+complete -c uv -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from venv; and not __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from self; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from version; and not __fish_seen_subcommand_from generate-shell-completion; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check" -f -a "compile" -d 'Compile a `requirements.in` file to a `requirements.txt` file'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check" -f -a "sync" -d 'Sync dependencies from a `requirements.txt` file'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check" -f -a "install" -d 'Install packages into the current environment'
@@ -599,6 +700,7 @@ complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check" -f -a "list" -d 'Enumerate the installed packages in the current environment'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check" -f -a "show" -d 'Show information about one or more installed packages'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from pip; and not __fish_seen_subcommand_from compile; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from install; and not __fish_seen_subcommand_from uninstall; and not __fish_seen_subcommand_from freeze; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from check" -f -a "check" -d 'Verify installed packages have compatible dependencies'
+complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run" -f -a "run" -d 'Run a tool'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir" -f -a "clean" -d 'Clear the cache, removing all entries or those linked to specific packages'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir" -f -a "prune" -d 'Prune all unreachable objects from the cache'
 complete -c uv -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from cache; and not __fish_seen_subcommand_from clean; and not __fish_seen_subcommand_from prune; and not __fish_seen_subcommand_from dir" -f -a "dir" -d 'Show the cache directory'
