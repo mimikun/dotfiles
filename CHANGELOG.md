@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.05.24]
+
+### Added - 新機能について
+
+- feat(nvim)!: add ts-comments.nvim plugin
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore: update STARTUPTIME.md
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): ftdetect/djot.lua in Windows
+    - Fix #503
+
 ## [v2024.05.23]
 
 ### Added - 新機能について
