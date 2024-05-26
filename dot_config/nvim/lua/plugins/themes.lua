@@ -293,6 +293,7 @@ local srcerite = {
     --cond = false,
 }
 
+-- NOTE: Not support "transparent = true"
 ---@type LazySpec
 local oldworld = {
     "dgox16/oldworld.nvim",
@@ -336,6 +337,15 @@ local oldworld = {
             treesitter = true,
         },
     },
+    priority = 1000,
+    --cond = false,
+}
+
+-- NOTE: Not support "transparent = true"
+---@type LazySpec
+local lackluster = {
+    "slugbyte/lackluster.nvim",
+    --lazy = false,
     priority = 1000,
     --cond = false,
 }
@@ -544,6 +554,7 @@ local theme_specs = {
     fluoromachine,
     srcerite,
     oldworld,
+    lackluster,
     -- VimScript themes
     sonokai,
     kyotonight,
