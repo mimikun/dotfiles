@@ -49,7 +49,7 @@ local path_sep = is_windows and "\\" or "/"
 local home = uv.os_homedir()
 
 ---@type string
-local cache_dir = table.concat({ home, ".cache", "nvim" }, path_sep)
+local cache_dir = vim.fn.stdpath("cache")
 
 ---@type string
 local data_dir = string.format("%s/site", vim.fn.stdpath("data"))
