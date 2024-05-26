@@ -64,7 +64,7 @@ function global:load_variables()
     self.home = uv.os_homedir()
 
     ---@type string
-    self.cache_dir = table.concat({ self.home, ".cache", "nvim" }, self.path_sep)
+    self.cache_dir = vim.fn.stdpath("cache")
 
     ---@type string
     self.plugins_dir = table.concat({ self.vim_path, "plugins" }, self.path_sep)
