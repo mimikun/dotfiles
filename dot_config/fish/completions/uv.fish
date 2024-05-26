@@ -417,6 +417,7 @@ complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcomm
 complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -f -a "run" -d 'Run a tool'
 complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l from -d 'Use the given package to provide the command' -r
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l with -d 'Include the following extra requirements' -r
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l cache-dir -d 'Path to the cache directory' -r -F
