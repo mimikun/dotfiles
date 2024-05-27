@@ -25,6 +25,8 @@ local run_oil = icons.kind.File .. "  Oil"
 local show_mru = icons.ui.Package .. " MRU"
 ---@type string
 local dotfyle_generate = icons.ui.Gear .. " Generate Dotfyle"
+---@type string
+local ts_update = icons.ui.Gear .. " Update TreeSitter parsers"
 
 ---@type LazySpec
 local spec = {
@@ -58,6 +60,7 @@ local spec = {
                 dashboard.button(".", run_oil, "<cmd>Oil<CR>"),
                 dashboard.button("u", update_plugins, "<cmd>Lazy sync<CR>"),
                 dashboard.button("m", open_mason_window, "<cmd>Mason<CR>"),
+                dashboard.button("t", ts_update, "<cmd>TSUpdate<CR>"),
                 dashboard.button("c", run_checkhealth, "<cmd>checkhealth<CR>"),
                 dashboard.button("d", dotfyle_generate, "<cmd>DotfyleGenerate --keymaps<CR>"),
                 dashboard.button("q", quit_nvim, ":qa<CR>"),
