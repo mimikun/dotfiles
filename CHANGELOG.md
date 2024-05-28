@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.05.28]
+
+### Added - 新機能について
+
+- feat(nvim): add tree-sitter update button in alpha
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update mise completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.26]
 
 ### Added - 新機能について
