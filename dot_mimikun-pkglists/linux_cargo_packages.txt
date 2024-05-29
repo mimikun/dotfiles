@@ -55,6 +55,7 @@ hysp
 i3-style
 jnv
 just
+kbt
 lsd
 mask
 mdbook
@@ -82,6 +83,7 @@ sd
 selene
 sheldon
 shellharden
+sigrs
 silicon
 skim
 sshx
