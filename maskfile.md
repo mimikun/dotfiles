@@ -325,6 +325,10 @@ if [ "$host_name" = "azusa" ]; then
     chezmoi add ~/.xinitrc
     chezmoi add ~/.xmodmap
     chezmoi add ~/.Xresources
+# restore wezterm fish completion
+# HOSTNAME != azusa ONLY
+else
+    git restore dot_config/fish/completions/wezterm.fish
 fi
 ```
 
