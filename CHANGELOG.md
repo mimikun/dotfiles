@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.05.29]
+
+### Added - 新機能について
+
+- feat(cargo)!: add new tools
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(aqua): bump
+- feat(utils): git-restore wezterm fish completion in certain environments
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.28]
 
 ### Added - 新機能について
