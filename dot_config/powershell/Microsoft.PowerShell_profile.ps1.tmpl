@@ -327,6 +327,12 @@ if ($isMSWindows) {
     }
     Set-Alias -Name wsl_shutdown Invoke-WslTerminateUbuntu
 
+    # alias wsl_status Invoke-WslStatus
+    function Invoke-WslStatus {
+        wsl -l -v
+    }
+    Set-Alias -Name wsl_status Invoke-WslStatus
+
     # alias bun_upgrade Invoke-BunUpgrade
     function Invoke-BunUpgrade() {
         Invoke-RestMethod "bun.sh/install.ps1" | Invoke-Expression
