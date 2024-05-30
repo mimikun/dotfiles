@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.05.30]
+
+### Added - 新機能について
+
+- feat!: add Invoke-InstallCargoPackage.ps1
+- feat!: add Invoke-GenerateCargoPackageList.ps1
+- chore(pwsh)!: add wsl_status alias
+- chore(pwsh)!: add wsl_shutdown alias
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update deno completion
+- chore(utilities): update some windows utilities
+- chore(pkglist): update
+
+### Removed - 今回で削除された機能について
+
+- chore(pwsh)!: wsl_restart is deprecated
+
+### Fixed - 不具合修正について
+
+- fix(shells)!: incorrect env-vars NVIM_DEV_PLUGINS
+
 ## [v2024.05.29]
 
 ### Added - 新機能について
