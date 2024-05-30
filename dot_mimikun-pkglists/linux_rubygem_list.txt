@@ -42,9 +42,9 @@ net-protocol
 net-smtp
 nkf
 observer
-open-uri
 open3
 openssl
+open-uri
 optparse
 ostruct
 pathname

@@ -30,8 +30,8 @@ csview
 csvlens
 desed
 diskonaut
-du-dust
 dua-cli
+du-dust
 dutree
 erg
 eza
@@ -96,8 +96,8 @@ tokei
 toml2json
 topgrade
 trashy
-tree-sitter-cli
 treefmt
+tree-sitter-cli
 typos-cli
 usage-cli
 watchexec-cli
