@@ -310,7 +310,13 @@ if ($isMSWindows) {
         pueued -d
     }
 
-    # alias wsl_restart Invoke-WslTerminateUbuntu
+    # XXX: DEPRECATED
+    function Invoke-ShowDeprecateMessage() {
+        $toolName = "wsl_restart"
+        Write-Output "$toolName is deprecated."
+    }
+    Set-Alias -Name wsl_restart Invoke-ShowDeprecateMessage
+
     function Invoke-WslTerminateUbuntu() {
         if ($env:COMPUTERNAME -eq "TANAKAPC") {
             wsl --terminate Ubuntu-20.04
