@@ -317,6 +317,7 @@ if ($isMSWindows) {
     }
     Set-Alias -Name wsl_restart Invoke-ShowDeprecateMessage
 
+    # alias wsl_shutdown Invoke-WslTerminateUbuntu
     function Invoke-WslTerminateUbuntu() {
         if ($env:COMPUTERNAME -eq "TANAKAPC") {
             wsl --terminate Ubuntu-20.04
@@ -324,7 +325,7 @@ if ($isMSWindows) {
             wsl --terminate Ubuntu
         }
     }
-    Set-Alias -Name wsl_restart Invoke-WslTerminateUbuntu
+    Set-Alias -Name wsl_shutdown Invoke-WslTerminateUbuntu
 
     # alias bun_upgrade Invoke-BunUpgrade
     function Invoke-BunUpgrade() {
