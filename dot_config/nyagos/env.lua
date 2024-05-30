@@ -119,7 +119,7 @@ if not is_azusa then
     local workspace_mimikun = table.concat({ ghq_root, "github.com", "mimikun" }, path_sep)
     nyagos.envadd("WORKSPACE_MIMIKUN", workspace_mimikun)
 
-    local nvim_dev_plugins = table.concat({ workspace_mimikun, "nvim-plugins" }, path_sep)
+    local nvim_dev_plugins = table.concat({ workspace_mimikun, "dev-plugins" }, path_sep)
     nyagos.envadd("NVIM_DEV_PLUGINS", nvim_dev_plugins)
 
     -- win_dl

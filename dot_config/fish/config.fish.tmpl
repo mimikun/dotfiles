@@ -55,7 +55,7 @@ set -x OBSIDIAN_VAULT_ROOT "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-
 
 set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 set -x WORKSPACE_MIMIKUN "$GHQ_ROOT/github.com/mimikun"
-set -x NVIM_DEV_PLUGINS "$WORKSPACE_MIMIKUN/nvim-plugins"
+set -x NVIM_DEV_PLUGINS "$WORKSPACE_MIMIKUN/dev-plugins"
 
 {{ if (ne .chezmoi.hostname "azusa") -}}
 set -x windl "$WIN_HOME/Downloads"
