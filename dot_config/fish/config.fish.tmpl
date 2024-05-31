@@ -305,6 +305,54 @@ set -x PATH "$HOME/.juliaup/bin" $PATH
 # mocword dict
 set -x MOCWORD_DATA "$XDG_CACHE_HOME/mocword.sqlite"
 
+# Neovide env-vars
+## Functionality
+### Frame
+#set -x NEOVIDE_FRAME "full"
+#set -x NEOVIDE_FRAME "none"
+# macOS Only
+#set -x NEOVIDE_FRAME "transparent"
+# macOS Only
+#set -x NEOVIDE_FRAME "buttonless"
+
+### Maximized
+# NOTE: not documented
+#set -x NEOVIDE_MAXIMIZED true
+
+### Multigrid
+# NOTE: not documented
+#set -x NEOVIDE_NO_MULTIGRID true
+
+### Fork
+#set -x NEOVIDE_FORK 0
+
+### No Idle
+#set -x NEOVIDE_IDLE 0
+
+### Title
+# macOS Only
+# NOTE: not documented
+#set -x NEOVIDE_TITLE_HIDDEN false
+
+### sRGB
+#set -x NEOVIDE_SRGB 0
+
+### Tabs
+#set -x NEOVIDE_TABS 0
+
+### No VSync
+#set -x NEOVIDE_VSYNC 0
+
+### Neovim Binary
+#set -x NEOVIM_BIN "/path/to/nvim"
+
+### Wayland / X11
+# Linux Only
+# NOTE: Incomprehensible
+#set -x NEOVIDE_APP_ID "wayland_app_id"
+#set -x NEOVIDE_WM_CLASS_INSTANCE "x11_wm_class_instance"
+#set -x NEOVIDE_WM_CLASS "x11_wm_class"
+
 # cache
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR

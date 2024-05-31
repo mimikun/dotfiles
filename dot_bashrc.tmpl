@@ -280,6 +280,54 @@ export BOB_CONFIG="$XDG_CONFIG_HOME/bob/config.toml"
 export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
 alias vim=nvim
 
+# Neovide env-vars
+## Functionality
+### Frame
+#export NEOVIDE_FRAME="full"
+#export NEOVIDE_FRAME="none"
+# macOS Only
+#export NEOVIDE_FRAME="transparent"
+# macOS Only
+#export NEOVIDE_FRAME="buttonless"
+
+### Maximized
+# NOTE: not documented
+#export NEOVIDE_MAXIMIZED=true
+
+### Multigrid
+# NOTE: not documented
+#export NEOVIDE_NO_MULTIGRID=true
+
+### Fork
+#export NEOVIDE_FORK=0
+
+### No Idle
+#export NEOVIDE_IDLE=0
+
+### Title
+# macOS Only
+# NOTE: not documented
+#export NEOVIDE_TITLE_HIDDEN=false
+
+### sRGB
+#export NEOVIDE_SRGB=0
+
+### Tabs
+#export NEOVIDE_TABS=0
+
+### No VSync
+#export NEOVIDE_VSYNC=0
+
+### Neovim Binary
+#export NEOVIM_BIN="/path/to/nvim"
+
+### Wayland / X11
+# Linux Only
+# NOTE: Incomprehensible
+#export NEOVIDE_APP_ID="wayland_app_id"
+#export NEOVIDE_WM_CLASS_INSTANCE="x11_wm_class_instance"
+#export NEOVIDE_WM_CLASS="x11_wm_class"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
