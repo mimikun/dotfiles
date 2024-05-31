@@ -1,0 +1,22 @@
+# linux or macOS config
+[font]
+    # Will use the bundled Fira Code Nerd Font by default
+    normal = ["Cica"]
+{{- if (eq .chezmoi.hostname "azusa") }}
+    size = 22.0
+{{- else }}
+    size = 14.0
+{{- end }}
+
+fork = false
+frame = "full"
+idle = true
+maximized = false
+#neovim-bin = "/usr/bin/nvim"
+no-multigrid = false
+srgb = false
+tabs = true
+theme = "auto"
+title-hidden = true
+vsync = true
+wsl = false
