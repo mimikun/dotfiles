@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.05.31]
+
+### Added - 新機能について
+
+- feat!: add neovide config
+- feat(nvim)!: add neovide config
+- feat(shells)!: add neovide env-vars
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(utils): update changelog.sh
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.05.30]
 
 ### Added - 新機能について
