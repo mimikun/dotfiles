@@ -742,6 +742,8 @@ work() {
 
 if [[ "$HOSTNAME" = "TanakaPC" ]]; then
     work >>$RESULT_FILE
+    git add $RESULT_FILE
+    git commit -m "changelog" --no-verify
 else
     home >>$RESULT_FILE
 fi
