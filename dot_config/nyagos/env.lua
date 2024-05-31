@@ -151,6 +151,40 @@ nyagos.envadd("obsidian_dailynote_path", obsidian_dailynote_path)
 nyagos.envadd("obsidian", obsidian_dailynote_path)
 nyagos.envadd("today_dailynote", today_dailynote)
 
+--- Neovide env-vars
+--[[
+--- Functionality
+-- Frame
+nyagos.envadd("NEOVIDE_FRAME", nyagos.getenv("NEOVIDE_FRAME") or "full")
+nyagos.envadd("NEOVIDE_FRAME", nyagos.getenv("NEOVIDE_FRAME") or "none")
+
+-- Maximized
+-- NOTE: not documented
+nyagos.envadd("NEOVIDE_MAXIMIZED", nyagos.getenv("NEOVIDE_MAXIMIZED") or true)
+
+-- Multigrid
+-- NOTE: not documented
+nyagos.envadd("NEOVIDE_NO_MULTIGRID", nyagos.getenv("NEOVIDE_NO_MULTIGRID") or true)
+
+-- Fork
+nyagos.envadd("NEOVIDE_FORK", nyagos.getenv("NEOVIDE_FORK") or 0)
+
+-- No Idle
+nyagos.envadd("NEOVIDE_IDLE", nyagos.getenv("NEOVIDE_IDLE") or 0)
+
+-- sRGB
+nyagos.envadd("NEOVIDE_SRGB", nyagos.getenv("NEOVIDE_SRGB") or 0)
+
+-- Tabs
+nyagos.envadd("NEOVIDE_TABS", nyagos.getenv("NEOVIDE_TABS") or 0)
+
+-- No VSync
+nyagos.envadd("NEOVIDE_VSYNC", nyagos.getenv("NEOVIDE_VSYNC") or 0)
+
+-- Neovim Binary
+nyagos.envadd("NEOVIM_BIN", nyagos.getenv("NEOVIM_BIN") or "/path/to/nvim")
+]]
+
 -- Linux only tools
 if is_linux then
     local xdg_cache_home = table.concat({ home, ".cache" }, path_sep)
@@ -306,4 +340,13 @@ if is_linux then
     local bob_bin = table.concat({ xdg_data_home, "bob", "nvim-bin" }, path_sep)
     nyagos.envadd("BOB_CONFIG", bob_config)
     nyagos.envadd("PATH", bob_bin)
+
+    -- Neovide env-vars
+    --[[
+    -- Wayland / X11
+    -- NOTE: Incomprehensible
+    nyagos.envadd("NEOVIDE_APP_ID", nyagos.getenv("NEOVIDE_APP_ID") or "wayland_app_id")
+    nyagos.envadd("NEOVIDE_WM_CLASS_INSTANCE", nyagos.getenv("NEOVIDE_WM_CLASS_INSTANCE") or "x11_wm_class_instance")
+    nyagos.envadd("NEOVIDE_WM_CLASS", nyagos.getenv("NEOVIDE_WM_CLASS") or "x11_wm_class")
+    ]]
 end

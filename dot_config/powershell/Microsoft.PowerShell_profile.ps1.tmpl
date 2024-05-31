@@ -445,6 +445,48 @@ if ($IsLinux) {
 
 $MOCWORD_DATA = $env:MOCWORD_DATA
 
+# Neovide env-vars
+<#
+## Functionality
+### Frame
+$env:NEOVIDE_FRAME = "full"
+$env:NEOVIDE_FRAME = "none"
+
+### Maximized
+# NOTE: not documented
+$env:NEOVIDE_MAXIMIZED = $true
+
+### Multigrid
+# NOTE: not documented
+$env:NEOVIDE_NO_MULTIGRID = $true
+
+### Fork
+$env:NEOVIDE_FORK = 0
+
+### No Idle
+$env:NEOVIDE_IDLE = 0
+
+### sRGB
+$env:NEOVIDE_SRGB = 0
+
+### Tabs
+$env:NEOVIDE_TABS = 0
+
+### No VSync
+$env:NEOVIDE_VSYNC = 0
+
+### Neovim Binary
+$env:NEOVIM_BIN = "/path/to/nvim"
+
+if ($IsLinux) {
+### Wayland / X11
+# NOTE: Incomprehensible
+    $env:NEOVIDE_APP_ID = "wayland_app_id"
+    $env:NEOVIDE_WM_CLASS_INSTANCE = "x11_wm_class_instance"
+    $env:NEOVIDE_WM_CLASS = "x11_wm_class"
+}
+#>
+
 # PSReadLine settings
 # C-g gcd
 Set-PSReadLineKeyHandler -Key Ctrl+g -ScriptBlock { Set-GhqLocation }
