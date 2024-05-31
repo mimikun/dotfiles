@@ -14,6 +14,9 @@ local load_core = function()
 
     -- autocmd を読み込む
     require("core.autocmds")
+
+    -- neovide を読み込む
+    require("core.neovide")
 end
 
 load_core()
