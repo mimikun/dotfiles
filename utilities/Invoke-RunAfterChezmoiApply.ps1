@@ -18,6 +18,22 @@ function Invoke-RunAfterChezmoiApply() {
     Copy-Item -Path $base_profile -Destination $work_pwsh_profile
     Copy-Item -Path $base_profile -Destination $work_powershell_profile
 
+    ####################################
+    # Copy nvim (neovim) configuration #
+    ####################################
+
+    Write-Output "Copy nvim (neovim) configuration"
+    $windows_nvim_config = Join-Path -Path $env:LOCALAPPDATA -ChildPath "nvim\"
+    $linux_nvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_config\nvim\*"
+
+    # folder exist check
+    if (-not (Test-Path -Path $windows_nvim_config)) {
+        # mkdir $windows_nvim_config
+        New-Item -Path $windows_nvim_config -ItemType "directory" > $null
+    }
+
+    Copy-Item -Path $linux_nvim_config -Destination $windows_nvim_config -Recurse -Force
+
     #####################################
     # Copy vim (paleovim) configuration #
     #####################################
