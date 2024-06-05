@@ -28,7 +28,7 @@ complete -c pueue -n "__fish_use_subcommand" -f -a "parallel" -d 'Set the amount
 complete -c pueue -n "__fish_use_subcommand" -f -a "completions" -d 'Generates shell completion files. This can be ignored during normal operations'
 complete -c pueue -n "__fish_use_subcommand" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pueue -n "__fish_seen_subcommand_from add" -s w -l working-directory -d 'Specify current working directory' -r -f -a "(__fish_complete_directories)"
-complete -c pueue -n "__fish_seen_subcommand_from add" -s d -l delay -d 'Prevents the task from being enqueued until <delay> elapses. See "enqueue" for accepted formats' -r
+complete -c pueue -n "__fish_seen_subcommand_from add" -s d -l delay -d 'Prevents the task from being enqueued until \'delay\' elapses. See "enqueue" for accepted formats' -r
 complete -c pueue -n "__fish_seen_subcommand_from add" -s g -l group -d 'Assign the task to a group. Groups kind of act as separate queues. I.e. all groups run in parallel and you can specify the amount of parallel tasks for each group. If no group is specified, the default group will be used' -r
 complete -c pueue -n "__fish_seen_subcommand_from add" -s a -l after -d 'Start the task once all specified tasks have successfully finished. As soon as one of the dependencies fails, this task will fail as well' -r
 complete -c pueue -n "__fish_seen_subcommand_from add" -s o -l priority -d 'Start this task with a higher priority. The higher the number, the faster it will be processed' -r
@@ -41,7 +41,7 @@ complete -c pueue -n "__fish_seen_subcommand_from add" -s h -l help -d 'Print he
 complete -c pueue -n "__fish_seen_subcommand_from remove" -s h -l help -d 'Print help'
 complete -c pueue -n "__fish_seen_subcommand_from switch" -s h -l help -d 'Print help'
 complete -c pueue -n "__fish_seen_subcommand_from stash" -s h -l help -d 'Print help'
-complete -c pueue -n "__fish_seen_subcommand_from enqueue" -s d -l delay -d 'Delay enqueuing these tasks until <delay> elapses. See DELAY FORMAT below' -r
+complete -c pueue -n "__fish_seen_subcommand_from enqueue" -s d -l delay -d 'Delay enqueuing these tasks until \'delay\' elapses. See DELAY FORMAT below' -r
 complete -c pueue -n "__fish_seen_subcommand_from enqueue" -s h -l help -d 'Print help'
 complete -c pueue -n "__fish_seen_subcommand_from start" -s g -l group -d 'Resume a specific group and all paused tasks in it. The group will be set to running and its paused tasks will be resumed' -r
 complete -c pueue -n "__fish_seen_subcommand_from start" -s a -l all -d 'Resume all groups! All groups will be set to running and paused tasks will be resumed'
