@@ -13,7 +13,6 @@ local dependencies = {
     "windwp/nvim-ts-autotag",
     "IndianBoy42/tree-sitter-just",
     "LhKipp/nvim-nu",
-    "Fymyte/tree-sitter-rasi",
     "mimikun/tree-sitter-PowerShell",
     "charmbracelet/tree-sitter-vhs",
     "RRethy/nvim-treesitter-textsubjects",
@@ -75,15 +74,6 @@ local spec = {
                 branch = "test",
             },
             filetype = { "ps1", "psd1" },
-        }
-
-        parser_config.rasi = {
-            install_info = {
-                url = "https://github.com/Fymyte/tree-sitter-rasi",
-                files = { "src/parser.c" },
-                branch = "main",
-            },
-            filetype = { "rasi" },
         }
 
         parser_config.just = {
