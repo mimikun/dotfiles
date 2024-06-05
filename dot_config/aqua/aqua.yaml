@@ -38,8 +38,8 @@ packages:
 - name: mattn/algia@v0.0.74
 - name: chriswalz/bit@v1.1.2
 - name: koki-develop/gat@v0.17.0
-- name: golang/tools/goimports@v0.21.0
-- name: golang/tools/gorename@v0.21.0
+- name: golang/tools/goimports@v0.22.0
+- name: golang/tools/gorename@v0.22.0
 - name: hherman1/gq@v0.0.3
 - name: itchyny/json2yaml@v0.1.4
 - name: koki-develop/sheep@v0.4.0
