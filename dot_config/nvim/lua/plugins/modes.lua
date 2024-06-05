@@ -19,8 +19,7 @@ local spec = {
     --lazy = false,
     event = "BufRead",
     config = function()
-        local modes = require("modes")
-        modes.setup(opts)
+        require("modes").setup(opts)
         -- NOTE: WORKAROUND bug
         -- https://github.com/mvllow/modes.nvim/issues/50#issuecomment-2105522342
         vim.opt.guicursor:append("n-c:block-Cursor")

@@ -1,3 +1,5 @@
+local bannar = require("utils.bannars").get("covid_19").Japan
+
 local iconsets = require("utils.icons")
 local icons = {
     ui = iconsets.get("ui", true),
@@ -36,60 +38,26 @@ local spec = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local alpha = require("alpha")
+
         local dashboard = require("alpha.themes.dashboard")
-        local bannars = require("utils.bannars")
-        local bannar = bannars.get("covid_19").Japan
 
-        local header = {
-            type = "text",
-            val = bannar,
-            opts = {
-                position = "center",
-                hl = "Type",
-            },
+        dashboard.section.header.val = bannar
+
+        dashboard.section.buttons.val = {
+            { type = "text", val = quick_links, opts = { hl = "SpecialComment", position = "center" } },
+            dashboard.button("e", new_file, ":ene <BAR> startinsert <CR>"),
+            dashboard.button("f", search_files, "<cmd>Telescope smart_open<CR>"),
+            dashboard.button(".", run_oil, "<cmd>Oil<CR>"),
+            dashboard.button("r", show_mru, "<cmd>Telescope oldfiles<CR>"),
+            dashboard.button("u", update_plugins, "<cmd>Lazy sync<CR>"),
+            dashboard.button("m", open_mason_window, "<cmd>Mason<CR>"),
+            dashboard.button("d", dotfyle_generate, "<cmd>DotfyleGenerate --keymaps<CR>"),
+            dashboard.button("t", ts_update, "<cmd>TSUpdate<CR>"),
+            dashboard.button("c", run_checkhealth, "<cmd>checkhealth<CR>"),
+            dashboard.button("q", quit_nvim, ":qa<CR>"),
         }
 
-        local buttons = {
-            type = "group",
-            val = {
-                { type = "text", val = quick_links, opts = { hl = "SpecialComment", position = "center" } },
-                { type = "padding", val = 1 },
-                dashboard.button("e", new_file, ":ene <BAR> startinsert <CR>"),
-                dashboard.button("f", search_files, "<cmd>Telescope smart_open<CR>"),
-                dashboard.button("r", show_mru, "<cmd>Telescope oldfiles<CR>"),
-                dashboard.button(".", run_oil, "<cmd>Oil<CR>"),
-                dashboard.button("u", update_plugins, "<cmd>Lazy sync<CR>"),
-                dashboard.button("m", open_mason_window, "<cmd>Mason<CR>"),
-                dashboard.button("t", ts_update, "<cmd>TSUpdate<CR>"),
-                dashboard.button("c", run_checkhealth, "<cmd>checkhealth<CR>"),
-                dashboard.button("d", dotfyle_generate, "<cmd>DotfyleGenerate --keymaps<CR>"),
-                dashboard.button("q", quit_nvim, ":qa<CR>"),
-            },
-            position = "center",
-        }
-
-        local config = {
-            layout = {
-                { type = "padding", val = 1 },
-                header,
-                { type = "padding", val = 1 },
-                buttons,
-                { type = "padding", val = 1 },
-            },
-            opts = {
-                margin = 5,
-                setup = function()
-                    vim.api.nvim_create_autocmd("DirChanged", {
-                        pattern = "*",
-                        group = "alpha_temp",
-                        callback = function()
-                            require("alpha").redraw()
-                        end,
-                    })
-                end,
-            },
-        }
-        alpha.setup(config)
+        alpha.setup(dashboard.config)
     end,
     --cond = false,
 }

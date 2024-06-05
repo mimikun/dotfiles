@@ -21,7 +21,6 @@ local dependencies = {
 local spec = {
     "kode-team/mastodon.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     cmd = cmds,
     dependencies = dependencies,
     config = true,

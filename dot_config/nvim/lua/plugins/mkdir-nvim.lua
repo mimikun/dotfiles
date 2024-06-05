@@ -7,7 +7,6 @@ local keys = {
 local spec = {
     "jghauser/mkdir.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     keys = keys,
     --cond = false,
 }

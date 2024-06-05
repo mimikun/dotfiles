@@ -14,11 +14,8 @@ local spec = {
     config = function()
         -- TODO: setting
         -- https://github.com/kylechui/nvim-surround/blob/main/README.md
-        local surround = require("nvim-surround")
-        local surround_ui = require("surround-ui")
-
-        surround.setup({})
-        surround_ui.setup({
+        require("nvim-surround").setup({})
+        require("surround-ui").setup({
             root_key = "S",
         })
     end,

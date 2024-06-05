@@ -14,7 +14,6 @@ local cmds = {
 local spec = {
     "dinhhuy258/git.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     cmd = cmds,
     config = true,
     --cond = false,

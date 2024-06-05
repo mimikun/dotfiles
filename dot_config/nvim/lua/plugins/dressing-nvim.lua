@@ -2,8 +2,7 @@
 local spec = {
     "stevearc/dressing.nvim",
     --lazy = false,
-    --event = "VeryLazy",
-    opts = {},
+    config = true,
     --cond = false,
 }
 

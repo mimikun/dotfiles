@@ -1,5 +1,5 @@
 ---@type table
-local keybinds = {
+local keys = {
     { "<C-t>", desc = "Use dmacro" },
 }
 
@@ -8,13 +8,9 @@ local spec = {
     "tani/dmacro.nvim",
     --lazy = false,
     keys = keybinds,
-    --event = "VeryLazy",
-    config = function()
-        local dmacro = require("dmacro")
-        dmacro.setup({
-            dmacro_key = "<C-t>",
-        })
-    end,
+    opts = {
+        dmacro_key = "<C-t>",
+    },
 }
 
 return spec

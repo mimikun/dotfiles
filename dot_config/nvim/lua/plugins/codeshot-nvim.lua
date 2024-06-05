@@ -60,10 +60,7 @@ local opts = {
 local spec = {
     "SergioRibera/codeshot.nvim",
     --lazy = false,
-    config = function()
-        local codeshot = require("codeshot")
-        codeshot.setup(opts)
-    end,
+    opts = opts,
     --cond = false,
 }
 

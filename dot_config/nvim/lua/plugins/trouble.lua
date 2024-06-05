@@ -112,8 +112,6 @@ local opts = {
 local spec = {
     "folke/trouble.nvim",
     --lazy = false,
-    --event = "VeryLazy",
-    --keys = {},
     cmd = cmds,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = opts,

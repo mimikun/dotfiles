@@ -4,8 +4,7 @@ local spec = {
     --lazy = false,
     event = "BufRead",
     config = function()
-        local smoothcursor = require("smoothcursor")
-        smoothcursor.setup({
+        require("smoothcursor").setup({
             -- Cursor movement calculation method, choose "default", "exp" (exponential) or "matrix".
             type = "default",
             -- Cursor shape (requires Nerd Font). Disabled in fancy mode.

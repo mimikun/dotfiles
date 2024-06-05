@@ -3,7 +3,7 @@ local spec = {
     "windwp/nvim-autopairs",
     --lazy = false,
     event = "InsertEnter",
-    opts = {},
+    config = true,
     --cond = false,
 }
 

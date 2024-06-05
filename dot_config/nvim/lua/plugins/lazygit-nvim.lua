@@ -12,7 +12,6 @@ local spec = {
     "kdheepak/lazygit.nvim",
     --lazy = false,
     cmd = cmds,
-    --event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         ---@type table

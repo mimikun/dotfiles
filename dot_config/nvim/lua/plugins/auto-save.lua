@@ -4,8 +4,7 @@ local spec = {
     --lazy = false,
     cmd = "ASToggle",
     config = function()
-        local auto_save = require("auto-save")
-        auto_save.setup({
+        require("auto-save").setup({
             -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
             enabled = true,
             execution_message = {
@@ -24,10 +23,11 @@ local spec = {
             -- return true: if buffer is ok to be saved
             -- return false: if it's not ok to be saved
             condition = function(buf)
-                local fn = vim.fn
                 local utils = require("auto-save.utils.data")
 
-                if fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+                if
+                    vim.fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(vim.fn.getbufvar(buf, "&filetype"), {})
+                then
                     -- met condition(s), can save
                     return true
                 end

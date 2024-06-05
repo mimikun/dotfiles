@@ -1,45 +1,48 @@
 ---@type table
-local keymaps = {
+local keys = {
     { "tr", desc = "Run Translate" },
     { "trr", desc = "Run Translate" },
 }
+
+---@type table
+local opts = {
+    default_engine = "google",
+    engines = {
+        google = {
+            default_source = "en",
+            default_target = "ja",
+            fallback = {
+                default_source = "auto",
+                default_target = "ja",
+            },
+        },
+        -- NOTE: MUST SET `DEEPL_AUTH_KEY` env-var
+        --[[
+            deepl = {
+                default_source = "",
+                default_target = "",
+            },
+        ]]
+    },
+}
+
+---@type table
+local keymap_opts = { noremap = true, silent = true, expr = true }
 
 ---@type LazySpec
 local spec = {
     "potamides/pantran.nvim",
     --lazy = false,
-    --event = "VeryLazy",
-    keys = keymaps,
+    keys = keys,
     cmd = "Pantran",
     config = function()
-        local pantran = require("pantran")
-        pantran.setup({
-            default_engine = "google",
-            engines = {
-                google = {
-                    default_source = "en",
-                    default_target = "ja",
-                    fallback = {
-                        default_source = "auto",
-                        default_target = "ja",
-                    },
-                },
-                -- NOTE: MUST SET `DEEPL_AUTH_KEY` env-var
-                --[[
-                deepl = {
-                    default_source = "",
-                    default_target = "",
-                },
-                ]]
-            },
-        })
+        require("pantran").setup(opts)
 
-        local opts = { noremap = true, silent = true, expr = true }
-        vim.keymap.set("n", "tr", pantran.motion_translate, opts)
+        vim.keymap.set("n", "tr", pantran.motion_translate, keymap_opts)
         vim.keymap.set("n", "trr", function()
             return pantran.motion_translate() .. "_"
-        end, opts)
-        vim.keymap.set("x", "tr", pantran.motion_translate, opts)
+        end, keymap_opts)
+        vim.keymap.set("x", "tr", pantran.motion_translate, keymap_opts)
     end,
     --cond = false,
 }
