@@ -54,7 +54,7 @@ packages:
 - name: jesseduffield/lazygit@v0.42.0
 - name: jesseduffield/horcrux@v0.2
 - name: jesseduffield/lazydocker@v0.23.3
-- name: astral-sh/uv@0.2.6
+- name: astral-sh/uv@0.2.8
 - name: charmbracelet/freeze@v0.1.6
 - name: charmbracelet/gum@v0.14.1
 - name: charmbracelet/mods@v1.4.0
