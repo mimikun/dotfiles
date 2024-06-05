@@ -95,7 +95,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l annotate
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-header -d 'Exclude the comment header at the top of the generated output file'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l header
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l refresh -d 'Run offline, i.e., without accessing the network. Refresh all cached data'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-refresh
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l system -d 'Install packages into the system Python'
@@ -118,8 +118,6 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-emit-marker-expression
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l emit-index-annotation -d 'Include comment annotations indicating the index used to resolve each package (e.g., `# from https://pypi.org/simple`)'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-emit-index-annotation
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l unstable-uv-lock-file
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-unstable-uv-lock-file
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l allow-unsafe
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l no-allow-unsafe
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from compile" -l reuse-hashes
@@ -230,7 +228,6 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l python-version -d 'The minimum Python version that should be supported by the requirements (e.g., `3.7` or `3.7.9`)' -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "{windows	'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux	'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos	'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc	'An x86 Windows target',x86_64-unknown-linux-gnu	'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`',aarch64-apple-darwin	'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin	'An x86 macOS target',aarch64-unknown-linux-gnu	'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`',aarch64-unknown-linux-musl	'An ARM64 Linux target',x86_64-unknown-linux-musl	'An `x86_64` Linux target',x86_64-manylinux_2_17	'An `x86_64` target for the `manylinux_2_17` platform',x86_64-manylinux_2_28	'An `x86_64` target for the `manylinux_2_28` platform',aarch64-manylinux_2_17	'An ARM64 target for the `manylinux_2_17` platform',aarch64-manylinux_2_28	'An ARM64 target for the `manylinux_2_28` platform'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l unstable-uv-lock-file -r
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -418,10 +415,14 @@ complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcomm
 complete -c uv -n "__fish_seen_subcommand_from tool; and not __fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l from -d 'Use the given package to provide the command' -r
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l with -d 'Include the following extra requirements' -r
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s f -l find-links -d 'Locations to search for candidate distributions, beyond those found in the indexes' -r
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from tool; and __fish_seen_subcommand_from run" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
@@ -596,11 +597,26 @@ complete -c uv -n "__fish_seen_subcommand_from clean" -l isolated -d 'Avoid disc
 complete -c uv -n "__fish_seen_subcommand_from clean" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from clean" -s V -l version -d 'Print version'
+complete -c uv -n "__fish_seen_subcommand_from run" -l extra -d 'Include optional dependencies in the given extra group name; may be provided more than once' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -l with -d 'Run with the given packages installed' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -l refresh-package -d 'Refresh cached data for a specific package' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in the existing lockfile' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -s f -l find-links -d 'Locations to search for candidate distributions, beyond those found in the indexes' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -l package -d 'Run the command in a different package in the workspace' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from run" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_seen_subcommand_from run" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_seen_subcommand_from run" -l all-extras -d 'Include all optional dependencies'
+complete -c uv -n "__fish_seen_subcommand_from run" -l no-all-extras
+complete -c uv -n "__fish_seen_subcommand_from run" -l refresh -d 'Refresh all cached data'
+complete -c uv -n "__fish_seen_subcommand_from run" -l no-refresh
+complete -c uv -n "__fish_seen_subcommand_from run" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in the existing lockfile'
+complete -c uv -n "__fish_seen_subcommand_from run" -l no-upgrade
+complete -c uv -n "__fish_seen_subcommand_from run" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
 complete -c uv -n "__fish_seen_subcommand_from run" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from run" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
@@ -614,10 +630,20 @@ complete -c uv -n "__fish_seen_subcommand_from run" -l isolated -d 'Avoid discov
 complete -c uv -n "__fish_seen_subcommand_from run" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from run" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from run" -s V -l version -d 'Print version'
+complete -c uv -n "__fish_seen_subcommand_from sync" -l extra -d 'Include optional dependencies in the given extra group name; may be provided more than once' -r
+complete -c uv -n "__fish_seen_subcommand_from sync" -l refresh-package -d 'Refresh cached data for a specific package' -r
+complete -c uv -n "__fish_seen_subcommand_from sync" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_seen_subcommand_from sync" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_seen_subcommand_from sync" -s f -l find-links -d 'Locations to search for candidate distributions, beyond those found in the indexes' -r
 complete -c uv -n "__fish_seen_subcommand_from sync" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
 complete -c uv -n "__fish_seen_subcommand_from sync" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from sync" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_seen_subcommand_from sync" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_seen_subcommand_from sync" -l all-extras -d 'Include all optional dependencies'
+complete -c uv -n "__fish_seen_subcommand_from sync" -l no-all-extras
+complete -c uv -n "__fish_seen_subcommand_from sync" -l refresh -d 'Refresh all cached data'
+complete -c uv -n "__fish_seen_subcommand_from sync" -l no-refresh
+complete -c uv -n "__fish_seen_subcommand_from sync" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
@@ -631,10 +657,21 @@ complete -c uv -n "__fish_seen_subcommand_from sync" -l isolated -d 'Avoid disco
 complete -c uv -n "__fish_seen_subcommand_from sync" -s n -l no-cache -d 'Avoid reading from or writing to the cache'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c uv -n "__fish_seen_subcommand_from sync" -s V -l version -d 'Print version'
+complete -c uv -n "__fish_seen_subcommand_from lock" -l refresh-package -d 'Refresh cached data for a specific package' -r
+complete -c uv -n "__fish_seen_subcommand_from lock" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in the existing lockfile' -r
+complete -c uv -n "__fish_seen_subcommand_from lock" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_seen_subcommand_from lock" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_seen_subcommand_from lock" -s f -l find-links -d 'Locations to search for candidate distributions, beyond those found in the indexes' -r
 complete -c uv -n "__fish_seen_subcommand_from lock" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
+complete -c uv -n "__fish_seen_subcommand_from lock" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_seen_subcommand_from lock" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from lock" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_seen_subcommand_from lock" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_seen_subcommand_from lock" -l refresh -d 'Refresh all cached data'
+complete -c uv -n "__fish_seen_subcommand_from lock" -l no-refresh
+complete -c uv -n "__fish_seen_subcommand_from lock" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in the existing lockfile'
+complete -c uv -n "__fish_seen_subcommand_from lock" -l no-upgrade
+complete -c uv -n "__fish_seen_subcommand_from lock" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
 complete -c uv -n "__fish_seen_subcommand_from lock" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_seen_subcommand_from lock" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_seen_subcommand_from lock" -l no-color -d 'Disable colors; provided for compatibility with `pip`'
