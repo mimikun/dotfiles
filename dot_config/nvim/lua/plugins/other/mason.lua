@@ -7,7 +7,45 @@ local icons = {
 }
 
 ---@type table
-local need_servers = require("plugins.other.servers").servers
+local need_servers = {
+    "lua_ls",
+    "marksman",
+    "efm",
+    "jsonls",
+    "typos_lsp",
+    "bashls",
+    "clangd",
+    "neocmake",
+    "cssls",
+    "denols",
+    "dockerls",
+    "docker_compose_language_service",
+    "eslint",
+    "graphql",
+    "html",
+    "tsserver",
+    "luau_lsp",
+    "powershell_es",
+    "pyright",
+    "rust_analyzer",
+    "taplo",
+    "vimls",
+    "yamlls",
+    "zls",
+}
+
+-- Linux or WSL
+if global.is_linux or global.is_wsl then
+    table.insert(need_servers, "csharp_ls")
+    table.insert(need_servers, "gopls")
+    table.insert(need_servers, "jqls")
+    table.insert(need_servers, "esbonio")
+    table.insert(need_servers, "solargraph")
+    table.insert(need_servers, "markdown_oxide")
+end
+
+---@type table
+local lsp_servers = need_servers
 
 ---@type table
 local dependencies = {
