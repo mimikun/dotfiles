@@ -1,5 +1,37 @@
 # Changelog
 
+## [v2024.06.05] [nvim-conf-v3]
+
+### Added - 新機能について
+
+- feat!: add nvim config copy in Invoke-RunAfterChezmoiApply.ps1
+- feat!: update neovim configs to v3
+- feat(nvim)!: add lockfiles (v3)
+- feat(fish)!: add aqua completion
+
+### Changed - 既存機能の変更について
+
+- chore: update chezmoiignore
+- chore: rename nvim to nvim-old
+- chore(fish): update bun completion
+- chore(fish): update pueue completion
+- chore(fish): update uv completion
+- chore(aqua): bump
+- chore(localbin)!: update update_fish_completions
+- chore(utils): update update.sh
+- chore(nvim-old): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+- chore: remove windows nvim configs
+- chore(nvim-old)!: remove tree-sitter-rasi
+    - rasi is now supported by neovim.
+    - ref: https://github.com/neovim/neovim/commit/07af492f635c51d44d02d8012611cc5e11a4af19
+
+### Fixed - 不具合修正について
+
+- fix(nvim)!: mason
+
 ## [v2024.05.31]
 
 ### Added - 新機能について
