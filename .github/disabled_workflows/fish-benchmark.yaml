@@ -1,0 +1,73 @@
+name: Run fish benchmark
+
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
+  MY_GIST_ID: "aaaaa"
+
+jobs:
+  measure-speed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Neovim
+        id: nvim
+        uses: thinca/action-setup-vim@v2
+        with:
+          vim_version: 'nightly'
+          vim_type: 'neovim'
+          cache: 'false'
+          download: 'never'
+      - name: Show Neovim version
+        run: |
+          ${{ steps.nvim.outputs.executable }} --version
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+          # disable cache as this repository does not have go.sum.
+          cache: 'false'
+      - name: Setup vim-startuptime
+        run: |
+          go install github.com/rhysd/vim-startuptime@latest
+      - name: Setup neovim configs
+        run: |
+          cp -r ./dot_config/nvim ~/.config/nvim
+      - name: Install and Setup
+        run: |
+          ${{ steps.nvim.outputs.executable }} --headless "+Lazy! sync" +qa
+      # TODO:
+      - name: Run vim-startuptime
+        run: |
+          # shellcheck disable=SC2086
+          vim-startuptime -vimpath ${{ steps.nvim.outputs.executable }} -count 300 -warmup 50 -script >> output.txt
+          echo total_average_time=$(cat output.txt | grep 'Total Average:' | awk '{printf "%.2f %s", $3, $4}') >> $GITHUB_ENV
+      - name: Update badge
+        run: |
+          json=$(echo "{\"files\":{\"nvim-startuptime.json\":{\"content\":\"{\\\"schemaVersion\\\":1,\\\"style\\\":\\\"for-the-badge\\\",\\\"label\\\":\\\"startuptime\\\",\\\"message\\\":\\\"${{ env.total_average_time }}\\\",\\\"logoColor\\\":\\\"#019733\\\",\\\"color\\\":\\\"brightgreen\\\",\\\"namedLogo\\\":\\\"Neovim\\\"}\"}}}")
+          curl -s -L \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GIST_TOKEN}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/gists/${MY_GIST_ID}\
+            -d "$json"
+      - name: Create GitHub Step Summary
+        run: |
+          echo '### Neovim Startup Time Result 🚀' >> $GITHUB_STEP_SUMMARY
+          echo "| AVERAGE   | MAX     | MIN     | FILE        |" >> $GITHUB_STEP_SUMMARY
+          echo "|-----------|---------|---------|-------------|" >> $GITHUB_STEP_SUMMARY
+          # extract the necessary lines from the output and process them in Markdown format.
+          grep -E '^[[:space:]]*[0-9]' "output.txt" | while read -r line; do
+              echo "$line"
+              average=$(echo "$line" | awk '{print $1}')
+              max=$(echo "$line" | awk '{print $2}')
+              min=$(echo "$line" | awk '{print $3}' | sed 's/:$//')
+              file=$(echo "$line" | awk '{$1=$2=$3=""; print $0}' | sed 's/^ *//')
+              echo "| $average | $max | $min | $file |" >> $GITHUB_STEP_SUMMARY
+          done
