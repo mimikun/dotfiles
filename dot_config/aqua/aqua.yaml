@@ -69,10 +69,11 @@ packages:
 - name: aristocratos/btop@v1.3.2
 - name: antonmedv/fx@34.0.0
 - name: joerdav/xc@v0.8.0
-- name: dev.yorhel.nl/ncdu
-  version: '2.4'
 - name: pkgxdev/pkgx@v1.1.6
 - name: natecraddock/zf@0.9.1
+- name: bloznelis/typioca@2.11.2
+- name: dev.yorhel.nl/ncdu
+  version: '2.4'
 # Use custom registry
 - name: mikuta0407/misskey-cli@v0.3
   registry: custom
