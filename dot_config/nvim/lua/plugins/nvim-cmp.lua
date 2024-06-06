@@ -1,3 +1,6 @@
+---@type boolean
+local use_ai_assistant = require("config.settings").use_ai_assistant
+
 ---@type table
 local dependencies = {
     "hrsh7th/cmp-nvim-lsp",
@@ -10,9 +13,12 @@ local dependencies = {
     "nvim-orgmode/orgmode",
     "onsails/lspkind.nvim",
     "SergioRibera/cmp-dotenv",
-    --"zbirenbaum/copilot.lua",
-    --"zbirenbaum/copilot-cmp",
 }
+
+if use_ai_assistant then
+    table.insert(dependencies, "zbirenbaum/copilot.lua")
+    table.insert(dependencies, "zbirenbaum/copilot-cmp")
+end
 
 ---@type LazySpec
 local spec = {
@@ -23,7 +29,9 @@ local spec = {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 
-        --require("copilot_cmp").setup({})
+        if use_ai_assistant then
+            require("copilot_cmp").setup({})
+        end
 
         local has_words_before = function()
             -- selene: allow(incorrect_standard_library_use)
