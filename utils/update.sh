@@ -31,16 +31,14 @@ chezmoi add ~/.config/aqua/aqua.yaml
 chezmoi add ~/.config/aqua/policy.yaml
 chezmoi add ~/.config/aqua/registry.yaml
 
-# lazy.nvim lockfile
+# neovim lockfiles
 chezmoi add ~/.config/nvim/lazy-lock.json
-
-# mason.nvim lockfile (mason-lock.nvim)
 chezmoi add ~/.config/nvim/mason-lock.json
-
-# dotfyle.json
 chezmoi add ~/.config/nvim/dotfyle.json
 deno fmt dot_config/nvim/dotfyle.json
 
+chezmoi add ~/.config/nvim-old/lazy-lock.json
+chezmoi add ~/.config/nvim-old/mason-lock.json
 chezmoi add ~/.config/nvim-old/dotfyle.json
 deno fmt dot_config/nvim-old/dotfyle.json
 
