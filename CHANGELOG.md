@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.06.06]
+
+### Added - 新機能について
+
+- feat(aqua)!: add bloznelis/typioca
+- feat(github-actions)!: add benchmark actions
+    - fish, nvim, pvim, pwsh
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(nvim-old): update lockfiles
+- chore(chezmoiignore): ignore windows terminal configs
+- chore(fish): update deno completion
+- chore(utils): update update.sh
+- chore(nvim): update lsp configs
+- chore(nvim): update tree-sitter configs
+- chore(nvim): update luasnip config
+- chore(nvim): update nvim-cmp config
+- chore(nvim): update null-ls configs
+- chore(nvim): update telescope configs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.06.05] [nvim-conf-v3]
 
 ### Added - 新機能について
