@@ -1,14 +1,4 @@
 local global = require("core.global")
----@type boolean
-local is_unix = global.is_unix
----@type boolean
-local is_windows = global.is_windows
----@type boolean
-local is_linux = global.is_linux
----@type boolean
-local is_human_rights = global.is_human_rights
----@type boolean
-local is_wsl = global.is_wsl
 
 -- マウス操作を有効にする
 ---@type string
@@ -32,7 +22,7 @@ vim.opt.ambiwidth = "double"
 vim.opt.swapfile = false
 
 -- :q したときにバッファを消さず隠して保持しておくようにする
-if is_unix then
+if global.is_unix then
     vim.opt.hidden = true
 end
 
@@ -132,7 +122,7 @@ vim.g.loaded_node_provider = 0
 
 -- clipboard integration
 vim.opt.clipboard = "unnamedplus"
-if is_wsl then
+if global.is_wsl then
     vim.g.clipboard = {
         name = "wl-clipboard",
         copy = {

@@ -13,6 +13,8 @@ local spec = {
     "shortcuts/no-neck-pain.nvim",
     --lazy = false,
     cmd = cmds,
+    --keys = "",
+    --event = "VeryLazy",
     --cond = false,
 }
 

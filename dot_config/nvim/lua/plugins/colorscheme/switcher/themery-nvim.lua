@@ -136,7 +136,7 @@ local spec = {
     cmd = "Themery",
     opts = {
         themes = themery_selectables,
-        themeConfigFile = require("config.global").themery_config,
+        themeConfigFile = require("core.global").themery_config,
         livePreview = true,
     },
     --cond = false,

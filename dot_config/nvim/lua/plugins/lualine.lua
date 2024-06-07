@@ -128,19 +128,15 @@ local opts = {
     tabline = tabline,
 }
 
----@type
-local events = {
-    "BufReadPre",
-    "BufNewFile",
-}
-
 ---@type LazySpec
 local spec = {
     "nvim-lualine/lualine.nvim",
     --lazy = false,
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = dependencies,
-    event = events,
-    opts = opts,
+    config = function()
+        require("lualine").setup(opts)
+    end,
     --cond = false,
 }
 

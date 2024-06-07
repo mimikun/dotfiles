@@ -1,4 +1,4 @@
-local keys = {
+local keybinds = {
     {
         -- 👇 choose your own keymapping
         "<leader>-",
@@ -13,7 +13,8 @@ local keys = {
 local spec = {
     "mikavilpas/yazi.nvim",
     --lazy = false,
-    keys = keys,
+    --cmd = "CMDNAME",
+    keys = keybinds,
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
@@ -25,6 +26,7 @@ local spec = {
         --'none', 'rounded', 'single', 'double', 'shadow'
         yazi_floating_window_border = "rounded",
     },
+    --config = true,
     --cond = false,
 }
 

@@ -1,4 +1,4 @@
-local global = require("config.global")
+local global = require("core.global")
 
 ---@type string
 local friendly_snippets = table.concat({ global.data_dir, "lazy", "friendly-snippets" }, global.path_sep)

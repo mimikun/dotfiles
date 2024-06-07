@@ -32,180 +32,6 @@
     "yaml-language-server",
     "zls"
   ],
-  "plugins": [
-    "Abstract-IDE/Abstract-cs",
-    "AlejandroSuero/freeze-code.nvim",
-    "Allianaab2m/penumbra.nvim",
-    "Diogo-ss/five-server.nvim",
-    "EdenEast/nightfox.nvim",
-    "Everblush/nvim",
-    "IndianBoy42/tree-sitter-just",
-    "Iron-E/nvim-highlite",
-    "L3MON4D3/LuaSnip",
-    "LhKipp/nvim-nu",
-    "MeanderingProgrammer/markdown.nvim",
-    "MunifTanjim/nui.nvim",
-    "NStefan002/15puzzle.nvim",
-    "NStefan002/2048.nvim",
-    "NStefan002/screenkey.nvim",
-    "NoahTheDuke/vim-just",
-    "Omochice/dps-translate-vim",
-    "RRethy/nvim-treesitter-textsubjects",
-    "SergioRibera/cmp-dotenv",
-    "SergioRibera/codeshot.nvim",
-    "Vonr/align.nvim",
-    "Wansmer/treesj",
-    "adelarsq/image_preview.nvim",
-    "akinsho/toggleterm.nvim",
-    "alker0/chezmoi.vim",
-    "arminveres/md-pdf.nvim",
-    "aspeddro/pandoc.nvim",
-    "b0o/lavi.nvim",
-    "b0o/nvim-tree-preview.lua",
-    "catppuccin/nvim",
-    "cespare/vim-toml",
-    "charmbracelet/tree-sitter-vhs",
-    "comfysage/evergarden",
-    "creativenull/dotfyle-metadata.nvim",
-    "danielfalk/smart-open.nvim",
-    "delphinus/obsidian-kensaku.nvim",
-    "delphinus/skkeleton_indicator.nvim",
-    "dgox16/oldworld.nvim",
-    "dharmx/telescope-media.nvim",
-    "dinhhuy258/git.nvim",
-    "eldritch-theme/eldritch.nvim",
-    "ellisonleao/glow.nvim",
-    "epwalsh/obsidian.nvim",
-    "fdschmidt93/telescope-egrepify.nvim",
-    "fladson/vim-kitty",
-    "folke/lazy.nvim",
-    "folke/neoconf.nvim",
-    "folke/neodev.nvim",
-    "folke/noice.nvim",
-    "folke/todo-comments.nvim",
-    "folke/tokyonight.nvim",
-    "folke/trouble.nvim",
-    "folke/ts-comments.nvim",
-    "folke/which-key.nvim",
-    "gen740/SmoothCursor.nvim",
-    "ghassan0/telescope-glyph.nvim",
-    "goolord/alpha-nvim",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-emoji",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/nvim-insx",
-    "imsnif/kdl.vim",
-    "ixru/nvim-markdown",
-    "j-hui/fidget.nvim",
-    "jay-babu/mason-null-ls.nvim",
-    "jghauser/mkdir.nvim",
-    "jim-at-jibba/ariake.nvim",
-    "karb94/neoscroll.nvim",
-    "kdheepak/lazygit.nvim",
-    "kevinhwang91/nvim-hlslens",
-    "kevinm6/kurayami.nvim",
-    "kihachi2000/yash.nvim",
-    "kkharji/sqlite.lua",
-    "kode-team/mastodon.nvim",
-    "kyoh86/momiji",
-    "lambdalisue/vim-kensaku",
-    "lambdalisue/vim-kensaku-command",
-    "lambdalisue/vim-kensaku-search",
-    "lewis6991/gitsigns.nvim",
-    "lewis6991/satellite.nvim",
-    "loctvl842/monokai-pro.nvim",
-    "loganswartz/polychrome.nvim",
-    "loganswartz/sunburn.nvim",
-    "lukas-reineke/indent-blankline.nvim",
-    "m15a/nvim-srcerite",
-    "mattn/calendar-vim",
-    "maxmx03/fluoromachine.nvim",
-    "mellow-theme/mellow.nvim",
-    "mgierada/lazydocker.nvim",
-    "mikavilpas/yazi.nvim",
-    "mimikun/human-rights.nvim",
-    "mimikun/silicon.nvim",
-    "mimikun/tree-sitter-PowerShell",
-    "monaqa/dial.nvim",
-    "mvllow/modes.nvim",
-    "nastevens/vim-cargo-make",
-    "nastevens/vim-duckscript",
-    "neovim/nvim-lspconfig",
-    "numToStr/Comment.nvim",
-    "nvim-lua/plenary.nvim",
-    "nvim-lualine/lualine.nvim",
-    "nvim-orgmode/orgmode",
-    "nvim-telescope/telescope-file-browser.nvim",
-    "nvim-telescope/telescope-frecency.nvim",
-    "nvim-telescope/telescope-fzf-native.nvim",
-    "nvim-telescope/telescope.nvim",
-    "nvim-tree/nvim-tree.lua",
-    "nvim-tree/nvim-web-devicons",
-    "nvim-treesitter/nvim-treesitter",
-    "nvimdev/lspsaga.nvim",
-    "nvimdev/template.nvim",
-    "nvimtools/none-ls.nvim",
-    "obaland/vfiler-column-devicons",
-    "obaland/vfiler.vim",
-    "onsails/lspkind.nvim",
-    "pauchiner/pastelnight.nvim",
-    "poljar/typos.nvim",
-    "potamides/pantran.nvim",
-    "projekt0n/github-nvim-theme",
-    "rafamadriz/friendly-snippets",
-    "rainbowhxch/accelerated-jk.nvim",
-    "rbtnn/vim-ambiwidth",
-    "rcarriga/nvim-notify",
-    "refractalize/oil-git-status.nvim",
-    "rktjmp/lush.nvim",
-    "ron-rs/ron.vim",
-    "saadparwaiz1/cmp_luasnip",
-    "saecki/crates.nvim",
-    "sainnhe/edge",
-    "sainnhe/sonokai",
-    "scottmckendry/cyberdream.nvim",
-    "sekke276/dark_flat.nvim",
-    "shaunsingh/nord.nvim",
-    "shortcuts/no-neck-pain.nvim",
-    "shrikecode/kyotonight.vim",
-    "skanehira/denops-docker.vim",
-    "slugbyte/lackluster.nvim",
-    "smoka7/hop.nvim",
-    "stevearc/dressing.nvim",
-    "stevearc/oil.nvim",
-    "subnut/nvim-ghost.nvim",
-    "tani/dmacro.nvim",
-    "tanvirtin/monokai.nvim",
-    "theKnightsOfRohan/csvlens.nvim",
-    "thinca/vim-quickrun",
-    "tiagovla/tokyodark.nvim",
-    "tigion/nvim-asciidoc-preview",
-    "tris203/hawtkeys.nvim",
-    "tsakirist/telescope-lazy.nvim",
-    "uga-rosa/ccc.nvim",
-    "vague2k/huez.nvim",
-    "vim-denops/denops-shared-server.vim",
-    "vim-denops/denops.vim",
-    "vim-jp/vimdoc-ja",
-    "vim-skk/skkeleton",
-    "wadackel/vim-dogrun",
-    "willelz/skk-tutorial.vim",
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason.nvim",
-    "willothy/strat-hero.nvim",
-    "windwp/nvim-autopairs",
-    "windwp/nvim-ts-autotag",
-    "xiyaowong/telescope-emoji.nvim",
-    "xiyaowong/transparent.nvim",
-    "yuki-yano/denops-lazy.nvim",
-    "zaldih/themery.nvim",
-    "zapling/mason-lock.nvim",
-    "zeioth/garbage-day.nvim"
-  ],
-  "pluginManager": "lazy.nvim",
   "keymaps": [
     {
       "desc": "kensaku-search-replace",
@@ -301,13 +127,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>m",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<Space>s",
       "mode": "n",
       "rhs": "<function>"
@@ -320,9 +139,9 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Markdown preview",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>,",
+      "lhs": "<Space>m",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -392,7 +211,117 @@
       "mode": "x",
       "rhs": "<function>"
     },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space><Space>Þ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space>Þ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent>Þ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silentÞ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silenÞ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<sileÞ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silÞ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "x", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "x", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"v\", auto = true})<CR>"
+    },
     { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space><Space>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silentÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silenÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<sileÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
     {
@@ -401,6 +330,34 @@
       "lhs": "<",
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space><Space>p",
+      "mode": "v",
+      "rhs": ":r !win32yank.exe -o<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space><Space>p",
+      "mode": "n",
+      "rhs": ":r !win32yank.exe -o<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space><Space>y",
+      "mode": "v",
+      "rhs": ":w !win32yank.exe -i<CR><CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<silent><Space><Space>y",
+      "mode": "n",
+      "rhs": ":.w !win32yank.exe -i<CR><CR>"
     },
     { "desc": "", "noremap": true, "lhs": ">iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": ">aÞ", "mode": "n", "rhs": "<Nop>" },
@@ -418,13 +375,6 @@
       "lhs": "@",
       "mode": "x",
       "rhs": "mode() == 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "N",
-      "mode": "n",
-      "rhs": "<function>"
     },
     {
       "desc": ":help v_Q-default",
@@ -613,16 +563,16 @@
       "mode": "x",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"v\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -747,757 +697,6 @@
       "desc": "accelerated_jk_gk",
       "noremap": true,
       "lhs": "k",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    { "desc": "", "noremap": true, "lhs": "mÞ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "m",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"m\", {mode = \"v\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "mÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "m",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"m\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mz",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mz",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "my",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "my",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mx",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mx",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mw",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mw",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mv",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mv",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mu",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mu",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mt",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mt",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "ms",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "ms",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mr",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mr",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mq",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mq",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mp",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mp",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mo",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mo",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mn",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mn",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mm",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mm",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "ml",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "ml",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mk",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mk",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mj",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mj",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mi",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mi",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mh",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mh",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mg",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mg",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mf",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mf",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "me",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "me",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "md",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "md",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mc",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mb",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mb",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "ma",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "ma",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mZ",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mZ",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mY",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mY",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mX",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mX",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mW",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mW",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mV",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mV",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mU",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mU",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mT",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mT",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mS",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mS",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mR",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mR",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mQ",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mQ",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mP",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mP",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mO",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mO",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mN",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mN",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mM",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mM",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mL",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mL",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mK",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mK",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mJ",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mJ",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mI",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mI",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mH",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mH",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mG",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mG",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mF",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mF",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mE",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mE",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mD",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mD",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mC",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mC",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mB",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mB",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mA",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "mA",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "n",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1899,20 +1098,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-G>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-P>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<C-X>",
       "mode": "n",
       "rhs": "<function>"
@@ -2011,13 +1196,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-N>",
-      "mode": "n",
-      "rhs": ":NvimTreeToggle<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<LeftMouse>",
       "mode": "v",
       "rhs": "<function>"
@@ -2030,9 +1208,37 @@
       "rhs": "<function>"
     },
     {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-G>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-P>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-N>",
+      "mode": "n",
+      "rhs": ":NvimTreeToggle<CR>"
+    },
+    {
       "desc": "Toggle Kana-mode skkeleton",
       "noremap": true,
       "lhs": "<C-J>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Use dmacro",
+      "noremap": true,
+      "lhs": "<C-T>",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -2079,6 +1285,178 @@
       "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
     }
   ],
+  "plugins": [
+    "Abstract-IDE/Abstract-cs",
+    "Allianaab2m/penumbra.nvim",
+    "Diogo-ss/five-server.nvim",
+    "EdenEast/nightfox.nvim",
+    "Everblush/nvim",
+    "IndianBoy42/tree-sitter-just",
+    "Iron-E/nvim-highlite",
+    "L3MON4D3/LuaSnip",
+    "LhKipp/nvim-nu",
+    "MeanderingProgrammer/markdown.nvim",
+    "MunifTanjim/nui.nvim",
+    "NStefan002/15puzzle.nvim",
+    "NStefan002/2048.nvim",
+    "NStefan002/screenkey.nvim",
+    "NoahTheDuke/vim-just",
+    "Omochice/dps-translate-vim",
+    "RRethy/nvim-treesitter-textsubjects",
+    "SergioRibera/cmp-dotenv",
+    "SergioRibera/codeshot.nvim",
+    "Vonr/align.nvim",
+    "Wansmer/treesj",
+    "adelarsq/image_preview.nvim",
+    "akinsho/toggleterm.nvim",
+    "alker0/chezmoi.vim",
+    "aspeddro/pandoc.nvim",
+    "b0o/lavi.nvim",
+    "b0o/nvim-tree-preview.lua",
+    "catppuccin/nvim",
+    "cespare/vim-toml",
+    "charmbracelet/tree-sitter-vhs",
+    "comfysage/evergarden",
+    "creativenull/dotfyle-metadata.nvim",
+    "danielfalk/smart-open.nvim",
+    "delphinus/obsidian-kensaku.nvim",
+    "delphinus/skkeleton_indicator.nvim",
+    "dgox16/oldworld.nvim",
+    "dharmx/telescope-media.nvim",
+    "dinhhuy258/git.nvim",
+    "eldritch-theme/eldritch.nvim",
+    "ellisonleao/glow.nvim",
+    "epwalsh/obsidian.nvim",
+    "fdschmidt93/telescope-egrepify.nvim",
+    "fladson/vim-kitty",
+    "folke/lazy.nvim",
+    "folke/neoconf.nvim",
+    "folke/neodev.nvim",
+    "folke/noice.nvim",
+    "folke/todo-comments.nvim",
+    "folke/tokyonight.nvim",
+    "folke/trouble.nvim",
+    "folke/ts-comments.nvim",
+    "folke/which-key.nvim",
+    "gen740/SmoothCursor.nvim",
+    "ghassan0/telescope-glyph.nvim",
+    "goolord/alpha-nvim",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-emoji",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/nvim-insx",
+    "imsnif/kdl.vim",
+    "ixru/nvim-markdown",
+    "j-hui/fidget.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    "jghauser/mkdir.nvim",
+    "jim-at-jibba/ariake.nvim",
+    "karb94/neoscroll.nvim",
+    "kdheepak/lazygit.nvim",
+    "kevinhwang91/nvim-hlslens",
+    "kevinm6/kurayami.nvim",
+    "kihachi2000/yash.nvim",
+    "kkharji/sqlite.lua",
+    "kode-team/mastodon.nvim",
+    "kyoh86/momiji",
+    "lambdalisue/vim-kensaku",
+    "lambdalisue/vim-kensaku-command",
+    "lambdalisue/vim-kensaku-search",
+    "lewis6991/gitsigns.nvim",
+    "lewis6991/satellite.nvim",
+    "loctvl842/monokai-pro.nvim",
+    "loganswartz/polychrome.nvim",
+    "loganswartz/sunburn.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    "m15a/nvim-srcerite",
+    "mattn/calendar-vim",
+    "maxmx03/fluoromachine.nvim",
+    "mellow-theme/mellow.nvim",
+    "mgierada/lazydocker.nvim",
+    "mikavilpas/yazi.nvim",
+    "mimikun/human-rights.nvim",
+    "mimikun/silicon.nvim",
+    "mimikun/tree-sitter-PowerShell",
+    "monaqa/dial.nvim",
+    "mvllow/modes.nvim",
+    "nastevens/vim-cargo-make",
+    "nastevens/vim-duckscript",
+    "neovim/nvim-lspconfig",
+    "numToStr/Comment.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-lualine/lualine.nvim",
+    "nvim-orgmode/orgmode",
+    "nvim-telescope/telescope-file-browser.nvim",
+    "nvim-telescope/telescope-frecency.nvim",
+    "nvim-telescope/telescope-fzf-native.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-tree/nvim-tree.lua",
+    "nvim-tree/nvim-web-devicons",
+    "nvim-treesitter/nvim-treesitter",
+    "nvimdev/lspsaga.nvim",
+    "nvimdev/template.nvim",
+    "nvimtools/none-ls.nvim",
+    "obaland/vfiler-column-devicons",
+    "obaland/vfiler.vim",
+    "onsails/lspkind.nvim",
+    "pauchiner/pastelnight.nvim",
+    "poljar/typos.nvim",
+    "potamides/pantran.nvim",
+    "projekt0n/github-nvim-theme",
+    "rafamadriz/friendly-snippets",
+    "rainbowhxch/accelerated-jk.nvim",
+    "rbtnn/vim-ambiwidth",
+    "rcarriga/nvim-notify",
+    "refractalize/oil-git-status.nvim",
+    "rktjmp/lush.nvim",
+    "ron-rs/ron.vim",
+    "saadparwaiz1/cmp_luasnip",
+    "saecki/crates.nvim",
+    "sainnhe/edge",
+    "sainnhe/sonokai",
+    "scottmckendry/cyberdream.nvim",
+    "sekke276/dark_flat.nvim",
+    "shaunsingh/nord.nvim",
+    "shortcuts/no-neck-pain.nvim",
+    "shrikecode/kyotonight.vim",
+    "skanehira/denops-docker.vim",
+    "slugbyte/lackluster.nvim",
+    "smoka7/hop.nvim",
+    "stevearc/dressing.nvim",
+    "stevearc/oil.nvim",
+    "subnut/nvim-ghost.nvim",
+    "tani/dmacro.nvim",
+    "tanvirtin/monokai.nvim",
+    "theKnightsOfRohan/csvlens.nvim",
+    "thinca/vim-quickrun",
+    "tiagovla/tokyodark.nvim",
+    "tigion/nvim-asciidoc-preview",
+    "tris203/hawtkeys.nvim",
+    "tsakirist/telescope-lazy.nvim",
+    "uga-rosa/ccc.nvim",
+    "vague2k/huez.nvim",
+    "vim-denops/denops-shared-server.vim",
+    "vim-denops/denops.vim",
+    "vim-jp/vimdoc-ja",
+    "vim-skk/skkeleton",
+    "wadackel/vim-dogrun",
+    "willelz/skk-tutorial.vim",
+    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    "willothy/strat-hero.nvim",
+    "windwp/nvim-autopairs",
+    "windwp/nvim-ts-autotag",
+    "xiyaowong/telescope-emoji.nvim",
+    "xiyaowong/transparent.nvim",
+    "yuki-yano/denops-lazy.nvim",
+    "zaldih/themery.nvim",
+    "zapling/mason-lock.nvim",
+    "zeioth/garbage-day.nvim"
+  ],
+  "pluginManager": "lazy.nvim",
   "treesitterParsers": [
     "bash",
     "c",

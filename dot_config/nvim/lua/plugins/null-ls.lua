@@ -1,4 +1,5 @@
-local global = require("config.global")
+local global = require("core.global")
+local is_windows = global.is_windows
 
 ---@type LazySpec
 local spec = {
@@ -9,72 +10,51 @@ local spec = {
     -- TODO: settings
     config = function()
         local null_ls = require("null-ls")
-
         local code_actions = null_ls.builtins.code_actions
-        local completion = null_ls.builtins.completion
         local diagnostics = null_ls.builtins.diagnostics
         local formatting = null_ls.builtins.formatting
+        --local completion = null_ls.builtins.completion
         local hover = null_ls.builtins.hover
 
         ---@type table
-        local need_sources = {
-            linux = {
-                -- Code Actions
-                code_actions.gitsigns,
-                -- Diagnostics
-                diagnostics.actionlint,
-                diagnostics.checkmake,
-                diagnostics.commitlint,
-                diagnostics.editorconfig_checker.with({
-                    command = "ec",
-                }),
-                diagnostics.fish,
-                diagnostics.hadolint,
-                diagnostics.markdownlint,
-                diagnostics.phpcs,
-                diagnostics.selene,
-                diagnostics.textlint,
-                diagnostics.yamllint,
-                diagnostics.zsh,
-                -- Formatting
-                formatting.fish_indent,
-                formatting.just,
-                formatting.markdownlint,
-                formatting.phpcsfixer,
-                formatting.prettier,
-                formatting.shfmt,
-                formatting.stylua,
-                formatting.textlint,
-                formatting.yamlfmt,
-                -- Hover
-                hover.dictionary,
-                hover.printenv,
-            },
-            windows = {
-                -- Code Actions
-                code_actions.gitsigns,
-                -- Diagnostics
-                diagnostics.commitlint,
-                diagnostics.editorconfig_checker,
-                diagnostics.markdownlint,
-                diagnostics.phpcs,
-                diagnostics.selene,
-                diagnostics.textlint,
-                diagnostics.yamllint,
-                -- Formatting
-                formatting.markdownlint,
-                formatting.phpcsfixer,
-                formatting.prettier,
-                formatting.stylua,
-                formatting.textlint,
-                formatting.yamlfmt,
-                -- Hover
-                hover.dictionary,
-                hover.printenv,
-            },
+        local sources = {
+            -- Code Actions
+            code_actions.gitsigns,
+            -- Completion
+            --completion.NAME
+            -- Diagnostics
+            diagnostics.actionlint,
+            diagnostics.checkmake,
+            diagnostics.fish,
+            diagnostics.selene,
+            diagnostics.zsh,
+            -- Formatting
+            formatting.fish_indent,
+            formatting.just,
+            formatting.shfmt,
+            formatting.stylua,
+            -- Hover
+            hover.dictionary,
+            hover.printenv,
+            -- TODO: Fix checkhealth error
+            --[[
+            diagnostics.editorconfig_checker,
+            diagnostics.markdownlint,
+            diagnostics.textlint,
+            diagnostics.yamllint,
+            formatting.textlint,
+            formatting.markdownlint,
+            formatting.prettier,
+            formatting.yamlfmt,
+            ]]
         }
-
-        local sources = global.is_windows and need_sources.windows or need_sources.linux
+        if is_windows then
+            for i, v in ipairs(sources) do
+                if (v == "formatting.shfmt") or (v == "diagnostics.actionlint") or (v == "diagnostics.checkmake") then
+                    table.remove(sources, i)
+                end
+            end
+        end
 
         null_ls.setup({ sources = sources })
     end,

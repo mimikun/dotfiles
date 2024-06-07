@@ -5,6 +5,7 @@ local spec = {
     cmd = "Lazydocker",
     event = "BufRead",
     dependencies = { "akinsho/toggleterm.nvim" },
+    --opts = {},
     config = true,
     --cond = false,
 }

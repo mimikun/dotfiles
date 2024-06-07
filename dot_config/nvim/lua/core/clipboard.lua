@@ -1,4 +1,4 @@
-local is_wsl = require("config.global").is_wsl
+local is_wsl = require("core.global").is_wsl
 
 -- clipboard.lua
 if is_wsl then

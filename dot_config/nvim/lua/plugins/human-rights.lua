@@ -11,7 +11,9 @@ local spec = {
     "mimikun/human-rights.nvim",
     dev = true,
     --lazy = false,
+    --event = "VeryLazy",
     cmd = cmds,
+    --config = true,
     opts = {
         cpu = {
             "Ryzen 9 3900X",

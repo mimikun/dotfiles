@@ -1,8 +1,7 @@
 local global = {}
-local uv = vim.uv and vim.uv or vim.loop
 
-local os_name = uv.os_uname().sysname
-local total_memory = uv.get_total_memory()
+local os_name = vim.uv.os_uname().sysname
+local total_memory = vim.uv.get_total_memory()
 
 ---@type table
 local human_rights = {
@@ -47,6 +46,9 @@ function global:load_variables()
     ---@type boolean
     self.is_human_rights = is_human_rights
 
+    ---@type string|nil
+    self.app_name = vim.env.NVIM_APPNAME and vim.env.NVIM_APPNAME or "nvim"
+
     ---@type string
     self.vim_path = vim.fn.stdpath("config")
 
@@ -61,7 +63,7 @@ function global:load_variables()
     self.path_sep = self.is_windows and string.rep(path_sep_char, 2) or path_sep_char
 
     ---@type string
-    self.home = uv.os_homedir()
+    self.home = vim.uv.os_homedir()
 
     ---@type string
     self.cache_dir = vim.fn.stdpath("cache")
@@ -76,7 +78,7 @@ function global:load_variables()
     self.data_dir = string.format("%s/site", vim.fn.stdpath("data"))
 
     ---@type string
-    self.themery_config = table.concat({ self.vim_path, "lua", "core", "colorscheme.lua" }, self.path_sep)
+    self.themery_config = table.concat({ vim.fs.normalize(self.vim_path), "lua", "core", "themery.lua" }, self.path_sep)
 end
 
 global:load_variables()

@@ -62,13 +62,12 @@ local opts = {
         pattern = [[\b(KEYWORDS):]],
     },
 }
-local events = { "BufReadPost", "BufNewFile" }
 
 ---@type LazySpec
 local spec = {
     "folke/todo-comments.nvim",
-    lazy = false,
-    event = events,
+    --lazy = false,
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = opts,
     --cond = false,

@@ -1,5 +1,5 @@
 ---@type boolean
-local is_human_rights = require("config.global").is_human_rights
+local is_human_rights = require("core.global").is_human_rights
 
 ---@type table
 local keys = {

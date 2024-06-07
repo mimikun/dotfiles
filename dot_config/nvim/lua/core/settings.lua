@@ -5,7 +5,6 @@ local settings = {}
 settings["use_ai_assistant"] = false
 
 -- Set to `true` to FORCE denops to be enabled no human rights
--- DO NOT use `chezmoi add` when set to `true`
 -- default: `false`
 ---@type boolean
 settings["use_denops"] = false
@@ -133,5 +132,8 @@ settings["treesitter_parsers"] = {
     "yaml",
     "zig",
 }
+
+settings["use_theme_switcher"] = "themery"
+--settings["use_theme_switcher"] = "huez"
 
 return settings

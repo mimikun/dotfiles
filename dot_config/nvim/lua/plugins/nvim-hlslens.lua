@@ -1,5 +1,5 @@
 ---@type table
-local keys = {
+local keymaps = {
     { "<Leader>L", desc = "run `:nohlsearch` and export results to quickfix" },
 }
 
@@ -7,9 +7,11 @@ local keys = {
 local spec = {
     "kevinhwang91/nvim-hlslens",
     lazy = false,
-    keys = keys,
+    --event = "VeryLazy",
+    keys = keymaps,
     config = function()
-        require("hlslens").setup({})
+        local hlslens = require("hlslens")
+        hlslens.setup({})
 
         -- run `:nohlsearch` and export results to quickfix
         vim.keymap.set({ "n", "x" }, "<Leader>L", function()

@@ -10,7 +10,8 @@ local spec = {
     cmd = "VFiler",
     dependencies = dependencies,
     config = function()
-        require("vfiler/config").setup({
+        local vfiler_config = require("vfiler/config")
+        vfiler_config.setup({
             options = {
                 auto_cd = true,
                 auto_resize = true,

@@ -1,5 +1,5 @@
 ---@type table
-local keys = {
+local keymaps = {
     { "<C-a>", desc = "<C-a> increment" },
     { "<C-x>", desc = "<C-x> decrement" },
 }
@@ -9,7 +9,7 @@ local spec = {
     "monaqa/dial.nvim",
     --lazy = false,
     event = "VimEnter",
-    keys = keys,
+    keys = keymaps,
     config = function()
         vim.keymap.set("n", "<C-a>", function()
             require("dial.map").manipulate("increment", "normal")

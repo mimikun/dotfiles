@@ -9,9 +9,10 @@ local cmds = {
 local spec = {
     "tris203/hawtkeys.nvim",
     --lazy = false,
+    --event = "VeryLazy",
     cmd = cmds,
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,
+    opts = {},
     --cond = false,
 }
 

@@ -2,7 +2,7 @@
 local spec = {
     "j-hui/fidget.nvim",
     lazy = false,
-    config = true,
+    opts = {},
     --cond = false,
 }
 
