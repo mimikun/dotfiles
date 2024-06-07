@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.06.07]
+
+### Added - 新機能について
+
+- feat(fish)!: add mmo abbr
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(utils): update update.sh
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix!: bump nvim config to v4
+
 ## [v2024.06.06]
 
 ### Added - 新機能について
