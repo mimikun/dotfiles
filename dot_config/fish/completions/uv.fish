@@ -612,6 +612,8 @@ complete -c uv -n "__fish_seen_subcommand_from run" -l cache-dir -d 'Path to the
 complete -c uv -n "__fish_seen_subcommand_from run" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from run" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-all-extras
+complete -c uv -n "__fish_seen_subcommand_from run" -l dev -d 'Include development dependencies'
+complete -c uv -n "__fish_seen_subcommand_from run" -l no-dev
 complete -c uv -n "__fish_seen_subcommand_from run" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_seen_subcommand_from run" -l no-refresh
 complete -c uv -n "__fish_seen_subcommand_from run" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in the existing lockfile'
@@ -641,6 +643,8 @@ complete -c uv -n "__fish_seen_subcommand_from sync" -l cache-dir -d 'Path to th
 complete -c uv -n "__fish_seen_subcommand_from sync" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from sync" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-all-extras
+complete -c uv -n "__fish_seen_subcommand_from sync" -l dev -d 'Include development dependencies'
+complete -c uv -n "__fish_seen_subcommand_from sync" -l no-dev
 complete -c uv -n "__fish_seen_subcommand_from sync" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-refresh
 complete -c uv -n "__fish_seen_subcommand_from sync" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
