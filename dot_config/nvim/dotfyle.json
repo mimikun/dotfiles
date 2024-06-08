@@ -127,13 +127,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>s",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<Space>j",
       "mode": "n",
       "rhs": "<function>"
@@ -142,6 +135,13 @@
       "desc": "",
       "noremap": true,
       "lhs": "<Space>m",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>s",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -270,7 +270,6 @@
       "mode": "x",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"v\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
       "noremap": true,
@@ -323,6 +322,7 @@
     { "desc": "", "noremap": true, "lhs": "<siÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<sÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -563,16 +563,16 @@
       "mode": "x",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"v\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -1196,6 +1196,13 @@
     {
       "desc": "",
       "noremap": true,
+      "lhs": "<C-N>",
+      "mode": "n",
+      "rhs": ":NvimTreeToggle<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
       "lhs": "<LeftMouse>",
       "mode": "v",
       "rhs": "<function>"
@@ -1220,13 +1227,6 @@
       "lhs": "<C-P>",
       "mode": "n",
       "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-N>",
-      "mode": "n",
-      "rhs": ":NvimTreeToggle<CR>"
     },
     {
       "desc": "Toggle Kana-mode skkeleton",
