@@ -10,7 +10,7 @@ local dependencies = {
     "nvim-orgmode/orgmode",
     "onsails/lspkind.nvim",
     "SergioRibera/cmp-dotenv",
-    "Saecki/crates.nvim",
+    --"Saecki/crates.nvim",
     --"zbirenbaum/copilot.lua",
     --"zbirenbaum/copilot-cmp",
 }

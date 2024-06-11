@@ -2,7 +2,6 @@
 local opts = {
     null_ls = {
         enabled = true,
-        name = "crates.nvim",
     },
     open_programs = { "wsl-open", "xdg-open", "open" },
     -- TODO: Use utils/icons.lua
