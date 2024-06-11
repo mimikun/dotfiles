@@ -27,9 +27,7 @@ local spec = {
     "NStefan002/screenkey.nvim",
     --lazy = false,
     cmd = "Screenkey",
-    --event = "VeryLazy",
     opts = opts,
-    config = true,
     --cond = false,
 }
 

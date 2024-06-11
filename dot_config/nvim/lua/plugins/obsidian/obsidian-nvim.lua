@@ -1,5 +1,6 @@
 local vault_path = vim.fn.expand("$obsidian_vault_path")
 
+---@type table
 local vaults = {
     {
         name = "mimikun",
@@ -7,11 +8,13 @@ local vaults = {
     },
 }
 
+---@type table
 local events = {
     "BufReadPre " .. vault_path .. "/**.md",
     "BufNewFile " .. vault_path .. "/**.md",
 }
 
+---@type table
 local cmds = {
     "ObsidianOpen",
     "ObsidianNew",
@@ -36,9 +39,13 @@ local cmds = {
     "ObsidianToggleCheckbox",
 }
 
+---@type number
 local day_sec = 86400
+---@type number
 local month_sec = 2592000
+---@type number
 local year_sec = 31536000
+---@type table
 local tmp_today = os.date("*t", os.time())
 
 -- Summarizing various elements of today's date
@@ -53,6 +60,7 @@ local today = {
     z_day = string.format("%02d", tmp_today.day),
 }
 
+---@type table
 local substitutions = {
     -- 999_Templates/dailyNoteTemplateFromObsidianNvim.md
     -- YYYY年MM月DD日
@@ -183,6 +191,8 @@ local substitutions = {
         return (year .. "年")
     end,
 }
+
+---@type table
 local dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
@@ -190,6 +200,7 @@ local dependencies = {
     "nvim-treesitter/nvim-treesitter",
 }
 
+---@type table
 local opts = {
     workspaces = vaults,
 

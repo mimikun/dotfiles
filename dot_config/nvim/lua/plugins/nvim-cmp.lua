@@ -10,6 +10,7 @@ local dependencies = {
     "nvim-orgmode/orgmode",
     "onsails/lspkind.nvim",
     "SergioRibera/cmp-dotenv",
+    "Saecki/crates.nvim",
     --"zbirenbaum/copilot.lua",
     --"zbirenbaum/copilot-cmp",
 }
@@ -82,6 +83,7 @@ local spec = {
                 { name = "emoji" },
                 { name = "orgmode" },
                 { name = "dotenv" },
+                { name = "crates" },
             }),
             snippet = {
                 expand = function(args)
@@ -94,7 +96,7 @@ local spec = {
                     mode = "text_symbol",
                     -- "codicons" or "default"
                     preset = "codicons",
-                    -- TODO: use icons
+                    -- TODO: Use utils/icons.lua
                     symbol_map = { Copilot = "" },
                 }),
             },

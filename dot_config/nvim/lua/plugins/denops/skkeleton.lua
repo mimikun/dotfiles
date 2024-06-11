@@ -1,5 +1,6 @@
+--- Disable if there are no human rights
 ---@type boolean
-local is_human_rights = require("core.global").is_human_rights
+local cond = require("core.global").is_human_rights
 
 ---@type table
 local keys = {
@@ -21,7 +22,6 @@ local dependencies = {
 local spec = {
     "vim-skk/skkeleton",
     --lazy = false,
-    --event = "VeryLazy",
     keys = keys,
     dependencies = dependencies,
     config = function()
@@ -180,8 +180,7 @@ local spec = {
         vim.keymap.set("i", "<C-j>", "<Plug>(skkeleton-toggle)")
         vim.keymap.set("c", "<C-j>", "<Plug>(skkeleton-toggle)")
     end,
-    -- Disable if there are no human rights
-    cond = is_human_rights,
+    cond = cond,
 }
 
 return spec

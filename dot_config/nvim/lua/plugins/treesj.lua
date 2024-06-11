@@ -1,4 +1,4 @@
-local keymaps = { "<space>m", "<space>j", "<space>s" }
+local keys = { "<space>m", "<space>j", "<space>s" }
 
 local cmds = {
     "TSJToggle",
@@ -11,14 +11,10 @@ local spec = {
     "Wansmer/treesj",
     --lazy = false,
     cmd = cmds,
-    keys = keymaps,
-    --event = "VeryLazy",
+    keys = keys,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
-        local tsj = require("treesj")
-        --local langs = {}
-
-        tsj.setup({
+        require("treesj").setup({
             ---@type boolean Use default keymaps (<space>m - toggle, <space>j - join, <space>s - split)
             use_default_keymaps = true,
             ---@type boolean Node with syntax error will not be formatted

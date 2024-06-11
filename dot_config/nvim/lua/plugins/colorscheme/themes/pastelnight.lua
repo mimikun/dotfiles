@@ -1,10 +1,13 @@
+---@type table
+local opts = {
+    transparent = vim.g.transparent_enabled,
+}
+
 ---@type LazySpec
 local spec = {
     "pauchiner/pastelnight.nvim",
     --lazy = false,
-    opts = {
-        transparent = vim.g.transparent_enabled,
-    },
+    opts = opts,
     priority = 1000,
     --cond = false,
 }

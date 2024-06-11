@@ -1,3 +1,5 @@
+-- TODO:
+
 ---@type table
 local themery_selectables = {
     -- Lua themes
@@ -129,16 +131,19 @@ local themery_selectables = {
     --{ name = "gaming", colorscheme = "gaming" },
 }
 
+---@type table
+local opts = {
+    themes = themery_selectables,
+    themeConfigFile = require("core.global").themery_config,
+    livePreview = true,
+}
+
 ---@type LazySpec
 local spec = {
     "zaldih/themery.nvim",
     --lazy = false,
     cmd = "Themery",
-    opts = {
-        themes = themery_selectables,
-        themeConfigFile = require("core.global").themery_config,
-        livePreview = true,
-    },
+    opts = opts,
     --cond = false,
 }
 

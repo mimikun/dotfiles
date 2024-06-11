@@ -1,5 +1,5 @@
 ---@type table
-local keymaps = {
+local keys = {
     { "<C-n>", desc = "Toggle Fern" },
 }
 
@@ -20,7 +20,7 @@ local cmds = {
 }
 
 ---@type LazySpec[]
-local deps = {
+local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
     "b0o/nvim-tree-preview.lua",
@@ -31,20 +31,16 @@ local spec = {
     "nvim-tree/nvim-tree.lua",
     version = "*",
     lazy = false,
-    keys = keymaps,
+    keys = keys,
     cmd = cmds,
-    --event = "VeryLazy",
-    dependencies = deps,
+    dependencies = dependencies,
     init = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
     end,
     config = function()
-        local nvim_tree = require("nvim-tree")
-        local preview = require("nvim-tree-preview")
-
-        nvim_tree.setup({})
-        preview.setup({
+        require("nvim-tree").setup({})
+        require("nvim-tree-preview").setup({
             keymaps = {
                 ["<Esc>"] = { action = "close", unwatch = true },
                 ["<Tab>"] = { action = "toggle_focus" },

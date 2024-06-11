@@ -1,5 +1,6 @@
+--- Disable if there are no human rights
 ---@type boolean
-local is_human_rights = require("core.global").is_human_rights
+local cond = require("core.global").is_human_rights
 
 ---@type table
 local dependencies = {
@@ -23,8 +24,7 @@ local spec = {
             wait_server_retry_limit = 100,
         })
     end,
-    -- Disable if there are no human rights
-    cond = is_human_rights,
+    cond = cond,
 }
 
 return spec

@@ -2,6 +2,22 @@
 local spec = {
     "slugbyte/lackluster.nvim",
     --lazy = false,
+    config = function()
+        local lackluster = require("lackluster")
+
+        lackluster.setup({
+            tweek_syntax = {
+                comment = lackluster.color.gray4,
+                --comment = lackluster.color.gray5,
+            },
+            tweek_background = {
+                normal = "none",
+                telescope = "none",
+                menu = lackluster.color.gray3,
+                popup = "default",
+            },
+        })
+    end,
     priority = 1000,
     --cond = false,
 }

@@ -1,14 +1,15 @@
+---@type table
+local opts = {
+    theme = "GitHub",
+    --font = "monospace",
+}
+
 ---@type LazySpec
 local spec = {
     "mimikun/silicon.nvim",
     --lazy = false,
-    --event = "VimEnter",
-    --cmd = "",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-        theme = "GitHub",
-        --font = "monospace",
-    },
+    opts = opts,
     --cond = false,
 }
 

@@ -1,18 +1,13 @@
 local global = require("core.global")
---local settings = require("core.settings")
 local iconsets = require("utils.icons")
 
---local lsp_servers = settings["lsp_servers"]
 ---@type table
 local lsp_servers = {
-    -- OK Lsp
     "lua_ls",
     "marksman",
     "efm",
     "jsonls",
-    -- NG Lsp
     "typos_lsp",
-    -- Not tested Lsp
     "bashls",
     "clangd",
     "csharp_ls",
@@ -39,6 +34,7 @@ local lsp_servers = {
     "yamlls",
     "zls",
 }
+
 if global.is_windows then
     -- Windows
     -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio, markdown_oxide

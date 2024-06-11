@@ -2,7 +2,6 @@
 local spec = {
     "ixru/nvim-markdown",
     --lazy = false,
-    --event = "VeryLazy",
     ft = "markdown",
     config = function()
         -- 折りたたみ無効化

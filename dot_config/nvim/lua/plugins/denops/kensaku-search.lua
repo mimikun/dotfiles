@@ -1,5 +1,6 @@
+--- Disable if there are no human rights
 ---@type boolean
-local is_human_rights = require("core.global").is_human_rights
+local cond = require("core.global").is_human_rights
 
 ---@type table
 local dependencies = {
@@ -16,7 +17,6 @@ local keys = {
 local spec = {
     "lambdalisue/vim-kensaku-search",
     --lazy = false,
-    --event = "VeryLazy",
     keys = keys,
     dependencies = dependencies,
     config = function()
@@ -24,8 +24,7 @@ local spec = {
 
         vim.set.keymap("c", "<CR>", "<Plug>(kensaku-search-replace)<CR>", { noremap = true })
     end,
-    -- Disable if there are no human rights
-    cond = is_human_rights,
+    cond = cond,
 }
 
 return spec

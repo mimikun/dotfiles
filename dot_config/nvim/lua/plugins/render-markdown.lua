@@ -6,9 +6,7 @@ local spec = {
     cmd = "RenderMarkdownToggle",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
-        local render_markdown = require("render-markdown")
-
-        render_markdown.setup({
+        require("render-markdown").setup({
             -- Configure whether Markdown should be rendered by default or not
             start_enabled = true,
             -- Capture groups that get pulled from markdown

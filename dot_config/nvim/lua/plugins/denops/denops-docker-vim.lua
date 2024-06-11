@@ -1,5 +1,6 @@
+--- Disable if there are no human rights
 ---@type boolean
-local is_human_rights = require("core.global").is_human_rights
+local cond = require("core.global").is_human_rights
 
 ---@type table
 local cmds = {
@@ -23,14 +24,12 @@ local dependencies = {
 local spec = {
     "skanehira/denops-docker.vim",
     --lazy = false,
-    --event = "VeryLazy",
     cmd = cmds,
     dependencies = dependencies,
     config = function()
         require("denops-lazy").load("denops-docker.vim")
     end,
-    -- Disable if there are no human rights
-    cond = is_human_rights,
+    cond = cond,
 }
 
 return spec

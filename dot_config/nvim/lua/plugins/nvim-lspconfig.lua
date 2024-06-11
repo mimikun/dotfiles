@@ -1,5 +1,5 @@
 ---@type table
-local keymaps = {
+local keys = {
     { "<space>e", desc = "vim.diagnostic.open_float" },
     { "[d", desc = "vim.diagnostic.goto_prev" },
     { "]d", desc = "vim.diagnostic.goto_next" },
@@ -30,7 +30,7 @@ local dependencies = {
 local spec = {
     "neovim/nvim-lspconfig",
     lazy = false,
-    keys = keymaps,
+    keys = keys,
     dependencies = dependencies,
     config = function()
         local lspsaga = require("lspsaga")
@@ -41,18 +41,13 @@ local spec = {
                 devicon = true,
                 foldericon = true,
                 title = true,
-                -- TODO: Use icons
+                -- TODO: Use utils/icons.lua
                 expand = "⊞",
-                -- TODO: Use icons
                 collapse = "⊟",
-                -- TODO: Use icons
                 code_action = "💡",
-                -- TODO: Use icons
                 actionfix = " ",
-                -- TODO: Use icons
                 lines = { "┗", "┣", "┃", "━", "┏" },
                 kind = nil,
-                -- TODO: Use icons
                 imp_sign = "󰳛 ",
             },
             scroll_preview = {
