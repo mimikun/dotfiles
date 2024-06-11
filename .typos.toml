@@ -18,12 +18,14 @@ fo = "fo"
 tabe = "tabe"
 # dot_config/nvim/lua/plugins/minigames.lua
 strat = "strat"
+# dot_config/nvim/lua/plugins/colorscheme/themes/lackluster.lua
+tweek = "tweek"
+# dot_config/gotop/gotop.conf
+# error: `Promethius` should be `Prometheus`
+Promethius = "Promethius"
 
 [files]
 extend-exclude = [
-  # NOTE: minimum typo
-  # error: `Promethius` should be `Prometheus`
-  "dot_config/gotop/gotop.conf",
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
   # NOTE: Game settings
@@ -31,4 +33,5 @@ extend-exclude = [
   "game_settings/CookieClicker",
   # NOTE: Unmaintained and no upstream fixes
   "dot_config/pipr/pipr.toml",
+  "dot_config/gotop/gotop.conf",
 ]
