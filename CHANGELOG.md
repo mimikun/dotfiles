@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.06.11]
+
+### Added - 新機能について
+
+- feat(fish)!: add bob completion
+- feat(nvim)!: add new plugin: pkl-neovim
+- feat(nvim)!: add new plugin: ivy.nvim
+
+### Changed - 既存機能の変更について
+
+- refactor(nvim)!: some files
+- chore(nvim): update lockfiles
+- chore(nvim): split null-ls plugin
+- chore(nvim): split dashboard plugins
+- chore(nvim): split minigame plugins
+- chore(nvim): split oil plugins
+- chore(nvim): split AI related plugins
+- chore(fish): update some completions
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove unused files
+
+### Fixed - 不具合修正について
+
+- fix(nvim): checkhealth error
+
 ## [v2024.06.07]
 
 ### Added - 新機能について
