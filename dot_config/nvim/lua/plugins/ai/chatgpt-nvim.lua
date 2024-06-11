@@ -1,5 +1,3 @@
-local settings = require("core.settings")
-
 ---@type table
 local cmds = {
     "ChatGPT",
@@ -34,14 +32,21 @@ local opts = {
     chat = {
         welcome_message = WELCOME_MESSAGE,
         loading_text = "Loading, please wait ...",
+        -- TODO: Use utils/icons.lua
         question_sign = "", -- 🙂
+        -- TODO: Use utils/icons.lua
         answer_sign = "ﮧ", -- 🤖
+        -- TODO: Use utils/icons.lua
         border_left_sign = "",
+        -- TODO: Use utils/icons.lua
         border_right_sign = "",
         max_line_length = 120,
         sessions_window = {
+            -- TODO: Use utils/icons.lua
             active_sign = "  ",
+            -- TODO: Use utils/icons.lua
             inactive_sign = "  ",
+            -- TODO: Use utils/icons.lua
             current_line_sign = "",
             border = {
                 style = "rounded",
@@ -123,6 +128,7 @@ local opts = {
         },
     },
     popup_input = {
+        -- TODO: Use utils/icons.lua
         prompt = "  ",
         border = {
             highlight = "FloatBorder",
@@ -140,6 +146,7 @@ local opts = {
         max_visible_lines = 20,
     },
     settings_window = {
+        -- TODO: Use utils/icons.lua
         setting_sign = "  ",
         border = {
             style = "rounded",
@@ -152,6 +159,7 @@ local opts = {
         },
     },
     help_window = {
+        -- TODO: Use utils/icons.lua
         setting_sign = "  ",
         border = {
             style = "rounded",
@@ -198,8 +206,7 @@ local spec = {
     event = "VeryLazy",
     dependencies = dependencies,
     opts = opts,
-    config = true,
-    cond = settings.use_ai_assistant,
+    cond = require("core.settings").use_ai_assistant,
 }
 
 return spec

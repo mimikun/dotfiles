@@ -1,5 +1,3 @@
-local settings = require("core.settings")
-
 ---@type table
 local cmds = {
     "CopilotChat",
@@ -42,20 +40,32 @@ local opts = {
     -- GPT temperature
     temperature = 0.1,
 
-    question_header = "## User ", -- Header to use for user questions
-    answer_header = "## Copilot ", -- Header to use for AI answers
-    error_header = "## Error ", -- Header to use for errors
-    separator = "---", -- Separator to use in chat
+    -- Header to use for user questions
+    question_header = "## User ",
+    -- Header to use for AI answers
+    answer_header = "## Copilot ",
+    -- Header to use for errors
+    error_header = "## Error ",
+    -- Separator to use in chat
+    separator = "---",
 
-    show_folds = true, -- Shows folds for sections in chat
-    show_help = true, -- Shows help message as virtual lines when waiting for user input
-    auto_follow_cursor = true, -- Auto-follow cursor in chat
-    auto_insert_mode = false, -- Automatically enter insert mode when opening window and if auto follow cursor is enabled on new prompt
-    clear_chat_on_new_prompt = false, -- Clears chat on every new prompt
+    -- Shows folds for sections in chat
+    show_folds = true,
+    -- Shows help message as virtual lines when waiting for user input
+    show_help = true,
+    -- Auto-follow cursor in chat
+    auto_follow_cursor = true,
+    -- Automatically enter insert mode when opening window and if auto follow cursor is enabled on new prompt
+    auto_insert_mode = false,
+    -- Clears chat on every new prompt
+    clear_chat_on_new_prompt = false,
 
-    context = nil, -- Default context to use, 'buffers', 'buffer' or none (can be specified manually in prompt via @).
-    history_path = vim.fn.stdpath("data") .. "/copilotchat_history", -- Default path to stored history
-    callback = nil, -- Callback to use when ask response is received
+    -- Default context to use, 'buffers', 'buffer' or none (can be specified manually in prompt via @).
+    context = nil,
+    -- Default path to stored history
+    history_path = vim.fn.stdpath("data") .. "/copilotchat_history",
+    -- Callback to use when ask response is received
+    callback = nil,
 
     -- default selection (visual or line)
     --[[
@@ -105,17 +115,27 @@ local opts = {
 
     -- default window options
     window = {
-        layout = "vertical", -- 'vertical', 'horizontal', 'float'
-        width = 0.5, -- fractional width of parent, or absolute width in columns when > 1
-        height = 0.5, -- fractional height of parent, or absolute height in rows when > 1
+        -- 'vertical', 'horizontal', 'float'
+        layout = "vertical",
+        -- fractional width of parent, or absolute width in columns when > 1
+        width = 0.5,
+        -- fractional height of parent, or absolute height in rows when > 1
+        height = 0.5,
         -- Options below only apply to floating windows
-        relative = "editor", -- 'editor', 'win', 'cursor', 'mouse'
-        border = "single", -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
-        row = nil, -- row position of the window, default is centered
-        col = nil, -- column position of the window, default is centered
-        title = "Copilot Chat", -- title of chat window
-        footer = nil, -- footer of chat window
-        zindex = 1, -- determines if window is on top or below other floating windows
+        -- 'editor', 'win', 'cursor', 'mouse'
+        relative = "editor",
+        -- 'none', single', 'double', 'rounded', 'solid', 'shadow'
+        border = "single",
+        -- row position of the window, default is centered
+        row = nil,
+        -- column position of the window, default is centered
+        col = nil,
+        -- title of chat window
+        title = "Copilot Chat",
+        -- footer of chat window
+        footer = nil,
+        -- determines if window is on top or below other floating windows
+        zindex = 1,
     },
 
     -- default mappings
@@ -161,11 +181,9 @@ local spec = {
     branch = "canary",
     --lazy = false,
     cmd = cmds,
-    --event = "VeryLazy",
     dependencies = dependencies,
     opts = opts,
-    --config = true,
-    cond = settings.use_ai_assistant,
+    cond = require("core.settings").use_ai_assistant,
 }
 
 return spec

@@ -1,5 +1,3 @@
-local settings = require("core.settings")
-
 ---@type table
 local opts = {
     panel = {
@@ -54,8 +52,7 @@ local spec = {
     event = "InsertEnter",
     cmd = "Copilot",
     opts = opts,
-    --config = true,
-    cond = settings.use_ai_assistant,
+    cond = require("core.settings").use_ai_assistant,
 }
 
 return spec
