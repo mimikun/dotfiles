@@ -79,6 +79,15 @@ function global:load_variables()
 
     ---@type string
     self.themery_config = table.concat({ vim.fs.normalize(self.vim_path), "lua", "core", "themery.lua" }, self.path_sep)
+
+    ---@type string
+    self.friendly_snippets = table.concat({ self.data_dir, "lazy", "friendly-snippets" }, self.path_sep)
+
+    ---@type string
+    self.mason_lockfile = table.concat({ self.vim_path, "mason-lock.json" }, self.path_sep)
+
+    ---@type string
+    self.parser_install_dir = table.concat({ vim.fn.stdpath("data"), "parser" }, self.path_sep)
 end
 
 global:load_variables()
