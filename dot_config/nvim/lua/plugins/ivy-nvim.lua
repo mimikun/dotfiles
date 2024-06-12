@@ -1,3 +1,6 @@
+---@type boolean
+local enabled = not require("core.global").is_windows
+
 ---@type table
 local keys = {
     { "<leader>p", desc = "Find files in your project with a custom rust file finder" },
@@ -18,6 +21,7 @@ local cmds = {
 local spec = {
     "AdeAttwood/ivy.nvim",
     lazy = false,
+    enabled = enabled,
     build = "cargo build --release",
     cmd = cmds,
     keys = keys,
