@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.06.12]
+
+### Added - 新機能について
+
+- feat(nvim)!: add sqlite.lua
+- feat(aqua)!: add gopass
+- feat(gup)!: add mdtt
+- feat(cargo)!: add some commands
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(typos): update config file
+- chore(nvim): improved global.lua
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- refactor(nvim)!: mason.nvim
+- refactor(nvim)!: nvim-treesitter
+- refactor(nvim)!: luasnip
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): disable comment.nvim
+
+### Fixed - 不具合修正について
+
+- fix(nvim): ivy.nvim is not support windows
+
 ## [v2024.06.11]
 
 ### Added - 新機能について
