@@ -1,6 +1,4 @@
 local global = require("core.global")
-local is_linux = global.is_linux
-local is_wsl = global.is_wsl
 
 local M = {}
 
@@ -95,12 +93,11 @@ local base_parsers = {
     "zig",
 }
 
-M.need_parsers = base_parsers
-
-if is_linux or is_wsl then
+if global.is_linux or global.is_wsl then
     table.insert(base_parsers, "ocaml")
     table.insert(base_parsers, "ocaml_interface")
-    M.need_parsers = base_parsers
 end
+
+M.need_parsers = base_parsers
 
 return M

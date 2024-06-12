@@ -1,70 +1,11 @@
+local sources = require("plugins.sources.parsers")
 local global = require("core.global")
-local is_linux = global.is_linux
-local is_wsl = global.is_wsl
+
+---@type string
+local parser_install_dir = global.parser_install_dir
 
 ---@type boolean
-local is_human_rights = global.is_human_rights
-
----@type table
-local treesitter_parsers = {
-    "bash",
-    "c",
-    "c_sharp",
-    "cmake",
-    "cpp",
-    "css",
-    "djot",
-    "dockerfile",
-    "fish",
-    "git_config",
-    "git_rebase",
-    "gitattributes",
-    "gitcommit",
-    "gitignore",
-    "go",
-    "gomod",
-    "gosum",
-    "gowork",
-    "graphql",
-    "html",
-    "ini",
-    "java",
-    "javascript",
-    "jq",
-    "jsdoc",
-    "json",
-    "jsonc",
-    "json5",
-    "kdl",
-    "latex",
-    "lua",
-    "luadoc",
-    "luap",
-    "luau",
-    "make",
-    "markdown",
-    "markdown_inline",
-    "ninja",
-    "nix",
-    "python",
-    "regex",
-    "rst",
-    "ruby",
-    "rust",
-    "scala",
-    "scss",
-    "sql",
-    "svelte",
-    "swift",
-    "toml",
-    "tsx",
-    "typescript",
-    "vim",
-    "vimdoc",
-    "vue",
-    "yaml",
-    "zig",
-}
+local sync_install = not global.is_human_rights
 
 ---@type table
 local dependencies = {
@@ -83,26 +24,23 @@ local spec = {
     --lazy = false,
     event = "VeryLazy",
     dependencies = dependencies,
+    init = function()
+        vim.opt.runtimepath:prepend(parser_install_dir)
+    end,
     config = function()
         local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
         require("nu").setup({})
         require("nvim-ts-autotag").setup({})
 
-        local need_parsers = treesitter_parsers
-        -- Linux or WSL
-        if is_linux or is_wsl then
-            table.insert(need_parsers, "ocaml")
-            table.insert(need_parsers, "ocaml_interface")
-        end
-
         require("nvim-treesitter.configs").setup({
+            parser_install_dir = parser_install_dir,
             highlight = {
                 enable = true,
                 disable = {},
             },
-            ensure_installed = need_parsers,
-            sync_install = not is_human_rights,
+            ensure_installed = sources.need_parsers,
+            sync_install = sync_install,
             textsubjects = {
                 enable = true,
                 -- (Optional) keymap to select the previous selection
@@ -118,34 +56,9 @@ local spec = {
             },
         })
 
-        parser_config.powershell = {
-            install_info = {
-                url = "https://github.com/mimikun/tree-sitter-PowerShell",
-                files = { "src/parser.c" },
-                branch = "test",
-            },
-            filetype = { "ps1", "psd1" },
-        }
-
-        parser_config.just = {
-            install_info = {
-                url = "https://github.com/IndianBoy42/tree-sitter-just", -- local path or git repo
-                files = { "src/parser.c", "src/scanner.cc" },
-                branch = "main",
-                -- use_makefile = true -- this may be necessary on MacOS (try if you see compiler errors)
-            },
-            filetype = { "just", "Justfile" },
-            maintainers = { "@IndianBoy42" },
-        }
-
-        parser_config.vhs = {
-            install_info = {
-                url = "https://github.com/charmbracelet/tree-sitter-vhs",
-                files = { "src/parser.c" },
-                branch = "main",
-            },
-            filetype = { "tape" },
-        }
+        parser_config.powershell = sources.powershell
+        parser_config.just = sources.just
+        parser_config.vhs = sources.vhs
     end,
     --cond = false,
 }
