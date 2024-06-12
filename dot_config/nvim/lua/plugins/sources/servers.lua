@@ -1,7 +1,7 @@
 local M = {}
 
 ---@type table
-M.base_servers = {
+local base_servers = {
     "lua_ls",
     "marksman",
     "efm",
@@ -9,44 +9,35 @@ M.base_servers = {
     "typos_lsp",
     "bashls",
     "clangd",
-    "csharp_ls",
     "neocmake",
     "cssls",
     "denols",
     "dockerls",
     "docker_compose_language_service",
     "eslint",
-    "gopls",
     "graphql",
     "html",
     "tsserver",
-    "jqls",
     "luau_lsp",
-    "markdown_oxide",
     "powershell_es",
     "pyright",
-    "solargraph",
     "rust_analyzer",
-    "esbonio",
     "taplo",
     "vimls",
     "yamlls",
     "zls",
 }
 
-if global.is_windows then
-    -- Windows
-    -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio, markdown_oxide
-    for i, v in ipairs(lsp_servers) do
-        if
-            (v == "csharp_ls")
-            or (v == "gopls")
-            or (v == "jqls")
-            or (v == "esbonio")
-            or (v == "solargraph")
-            or (v == "markdown_oxide")
-        then
-            table.remove(lsp_servers, i)
-        end
-    end
+-- NOTE: Include csharp_ls, gopls, jqls, esbonio, markdown_oxide
+if not require("core.global").is_windows then
+    table.insert(base_servers, "csharp_ls")
+    table.insert(base_servers, "gopls")
+    table.insert(base_servers, "jqls")
+    table.insert(base_servers, "esbonio")
+    table.insert(base_servers, "solargraph")
+    table.insert(base_servers, "markdown_oxide")
 end
+
+M.need_servers = base_servers
+
+return M

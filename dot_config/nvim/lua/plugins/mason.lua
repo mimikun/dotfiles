@@ -2,57 +2,6 @@ local global = require("core.global")
 local iconsets = require("utils.icons")
 
 ---@type table
-local lsp_servers = {
-    "lua_ls",
-    "marksman",
-    "efm",
-    "jsonls",
-    "typos_lsp",
-    "bashls",
-    "clangd",
-    "csharp_ls",
-    "neocmake",
-    "cssls",
-    "denols",
-    "dockerls",
-    "docker_compose_language_service",
-    "eslint",
-    "gopls",
-    "graphql",
-    "html",
-    "tsserver",
-    "jqls",
-    "luau_lsp",
-    "markdown_oxide",
-    "powershell_es",
-    "pyright",
-    "solargraph",
-    "rust_analyzer",
-    "esbonio",
-    "taplo",
-    "vimls",
-    "yamlls",
-    "zls",
-}
-
-if global.is_windows then
-    -- Windows
-    -- NOTE: Exclude csharp_ls, gopls, jqls, esbonio, markdown_oxide
-    for i, v in ipairs(lsp_servers) do
-        if
-            (v == "csharp_ls")
-            or (v == "gopls")
-            or (v == "jqls")
-            or (v == "esbonio")
-            or (v == "solargraph")
-            or (v == "markdown_oxide")
-        then
-            table.remove(lsp_servers, i)
-        end
-    end
-end
-
----@type table
 local icons = {
     kind = iconsets.get("kind"),
     documents = iconsets.get("documents"),
@@ -76,9 +25,6 @@ end
 ---@type number
 local concurrency = concurrency_limit_check()
 
----@type string
-local mason_lockfile = table.concat({ global.vim_path, "mason-lock.json" }, global.path_sep)
-
 ---@type table
 local dependencies = {
     "williamboman/mason-lspconfig.nvim",
@@ -95,14 +41,11 @@ local spec = {
     lazy = false,
     dependencies = dependencies,
     config = function()
-        local mason = require("mason")
-        local mason_lspconfig = require("mason-lspconfig")
-        local mason_lock = require("mason-lock")
         local lspconfig = require("lspconfig")
         local configs = require("lspconfig.configs")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local neoconf = require("neoconf")
-        local neodev = require("neodev")
+
+        require("neoconf").setup({})
+        require("neodev").setup({})
 
         ---@param names string[]
         ---@return string[]
@@ -134,7 +77,7 @@ local spec = {
         local handlers = {
             function(server_name)
                 lspconfig[server_name].setup({
-                    capabilities = cmp_nvim_lsp.default_capabilities(),
+                    capabilities = require("cmp_nvim_lsp").default_capabilities(),
                 })
             end,
 
@@ -218,9 +161,7 @@ local spec = {
             }
         end
 
-        neoconf.setup({})
-        neodev.setup({})
-        mason.setup({
+        require("mason").setup({
             max_concurrent_installers = concurrency,
             ui = {
                 check_outdated_packages_on_open = true,
@@ -234,14 +175,14 @@ local spec = {
                 },
             },
         })
-        mason_lspconfig.setup({
-            ensure_installed = lsp_servers,
+        require("mason-lspconfig").setup({
+            ensure_installed = require("plugins.sources.servers").need_servers,
             handlers = handlers,
         })
         lspconfig.fish_lsp.setup({})
         lspconfig.aiscript_lsp.setup({})
-        mason_lock.setup({
-            lockfile_path = mason_lockfile,
+        require("mason-lock").setup({
+            lockfile_path = global.mason_lockfile,
         })
     end,
     --cond = false,
