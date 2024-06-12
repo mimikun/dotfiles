@@ -49,7 +49,7 @@ local spec = {
     --lazy = false,
     event = "BufRead",
     opts = opts,
-    --cond = false,
+    cond = false,
 }
 
 return spec
