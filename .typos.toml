@@ -18,14 +18,11 @@ fo = "fo"
 tabe = "tabe"
 # dot_config/nvim/lua/plugins/minigames.lua
 strat = "strat"
-# dot_config/nvim/lua/plugins/colorscheme/themes/lackluster.lua
-tweek = "tweek"
-# dot_config/gotop/gotop.conf
-# error: `Promethius` should be `Prometheus`
-Promethius = "Promethius"
 
 [files]
 extend-exclude = [
+  # NOTE: No expected upstream fixes
+  "dot_config/nvim/lua/plugins/colorscheme/themes/lackluster.lua",
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
   # NOTE: Game settings
