@@ -1,9 +1,6 @@
 local global = require("core.global")
 
 ---@type string
-local friendly_snippets = table.concat({ global.data_dir, "lazy", "friendly-snippets" }, global.path_sep)
-
----@type string
 local build = global.is_windows and "" or "make install_jsregexp"
 
 ---@type table
@@ -22,8 +19,7 @@ local spec = {
     config = function()
         require("luasnip.loaders.from_vscode").lazy_load({
             paths = {
-                --$XDG_DATA_HOME/nvim/site/lazy/friendly-snippets/
-                friendly_snippets,
+                global.friendly_snippets,
                 global.snippets_dir,
             },
         })
