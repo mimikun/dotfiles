@@ -46,11 +46,6 @@ local smart_open = {
     "danielfalk/smart-open.nvim",
     branch = "0.2.x",
     dependencies = smart_open_deps,
-    config = function()
-        if is_windows then
-            vim.g.sqlite_clib_path = table.concat({ home, "utilities", "sqlite3.dll" }, "/")
-        end
-    end,
 }
 
 ---@type LazySpec[]
