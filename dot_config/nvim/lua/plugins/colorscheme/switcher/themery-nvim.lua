@@ -107,6 +107,14 @@ local themery_selectables = {
         name = "lackluster",
         colorscheme = "lackluster",
     },
+    {
+        name = "kanagawa",
+        colorscheme = "kanagawa",
+    },
+    {
+        name = "kanagawa-paper",
+        colorscheme = "kanagawa-paper",
+    },
     -- VimScript themes
     {
         name = "sonokai",
