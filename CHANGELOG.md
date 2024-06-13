@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.06.13]
+
+### Added - 新機能について
+
+- feat(nvim)!: add kanagawa-paper colorscheme
+- feat(nvim)!: add kanagawa colorscheme
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update deno completion
+- chore(nvim): update themery.nvim config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.06.12]
 
 ### Added - 新機能について
