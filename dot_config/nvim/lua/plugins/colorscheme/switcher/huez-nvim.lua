@@ -1,56 +1,8 @@
--- TODO:
-
----@type table
-local huez_exclude_themes = {
-    "desert",
-    "evening",
-    "industry",
-    "koehler",
-    "morning",
-    "murphy",
-    "pablo",
-    "peachpuff",
-    "ron",
-    "shine",
-    "slate",
-    "torte",
-    "zellner",
-    "blue",
-    "darkblue",
-    "delek",
-    "quiet",
-    "elflord",
-    "habamax",
-    "lunaperche",
-    "zaibatsu",
-    "wildcharm",
-    "sorbet",
-    "vim",
-}
-
 ---@type table
 local opts = {
     path = vim.fs.normalize(vim.fn.stdpath("data")) .. "/huez",
-    fallback = "default",
-    exclude = huez_exclude_themes,
-    picker = {
-        themes = {
-            layout = "right",
-            opts = {},
-        },
-        favorites = {
-            layout = "right",
-            opts = {},
-        },
-        live = {
-            layout = "right",
-            opts = {},
-        },
-        ensured = {
-            layout = "right",
-            opts = {},
-        },
-    },
+    suppress_messages = true,
+    exclude = require("plugins.sources.huez").exclude,
 }
 
 ---@type table
@@ -64,9 +16,13 @@ local cmds = {
 ---@type LazySpec
 local spec = {
     "vague2k/huez.nvim",
-    lazy = false,
+    branch = "stable",
+    --lazy = false,
+    event = "UIEnter",
     cmd = cmds,
     opts = opts,
+    enabled = false,
+    cond = false,
 }
 
 return spec
