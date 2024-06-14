@@ -84,6 +84,10 @@ local spec = {
                 { name = "orgmode" },
                 { name = "dotenv" },
                 { name = "crates" },
+                {
+                    name = "lazydev",
+                    --group_index = 0,
+                },
             }),
             snippet = {
                 expand = function(args)
