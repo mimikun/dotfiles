@@ -1,23 +1,12 @@
 local global = require("core.global")
 local iconsets = require("utils.icons")
 
-local uv = vim.uv and vim.uv or vim.loop
-
-local home = global.home
-local data_dir = global.data_dir
-local path_sep = global.path_sep
-
----@type boolean
-local is_windows = global.is_windows
----@type boolean
-local is_human_rights = global.is_human_rights
-
 -- Limit the number of concurrent task depending on human rights or OS
 ---@type number|function limit the maximum amount of concurrent tasks
 local concurrency_limit_check = function()
     local limit
-    if is_human_rights then
-        limit = is_windows and (uv.available_parallelism() * 2) or nil
+    if global.is_human_rights then
+        limit = global.is_windows and (vim.uv.available_parallelism() * 2) or nil
     else
         limit = 1
     end
@@ -28,11 +17,10 @@ end
 local concurrency = concurrency_limit_check()
 
 ---@type string
-local lazy_root = table.concat({ data_dir, "lazy" }, path_sep)
+local lazy_root = table.concat({ global.data_dir, "lazy" }, global.path_sep)
+
 ---@type string
-local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, path_sep)
----@type string
-local dev_path = table.concat({ home, "ghq", "github.com", "mimikun", "dev-plugins" }, path_sep)
+local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, global.path_sep)
 
 ---@type table
 local icons = {
@@ -47,7 +35,7 @@ local Lazy = {}
 
 function Lazy:load_lazy()
     -- Lazy.nvimでのプラグイン管理
-    if not uv.fs_stat(lazy_path) then
+    if not vim.uv.fs_stat(lazy_path) then
         vim.fn.system({
             "git",
             "clone",
@@ -70,7 +58,7 @@ function Lazy:load_lazy()
             timeout = 300,
         },
         dev = {
-            path = dev_path,
+            path = table.concat({ global.home, "ghq", "github.com", "mimikun", "dev-plugins" }, global.path_sep),
             fallback = true,
         },
         ui = {
