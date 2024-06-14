@@ -1,6 +1,6 @@
 ---@type table
 local keys = {
-    { "<C-n>", desc = "Toggle Fern" },
+    { "<C-n>", desc = "Toggle NvimTree" },
 }
 
 ---@type table
@@ -19,11 +19,14 @@ local cmds = {
     "NvimTreeHiTest",
 }
 
+-- WORKAROUND: HEAD is broken
+local commit_id = "e968df027d86797556e9bf5f1d5ffca87045150d"
+
 ---@type LazySpec[]
 local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
-    "b0o/nvim-tree-preview.lua",
+    { "b0o/nvim-tree-preview.lua", commit = commit_id },
 }
 
 ---@type LazySpec
@@ -55,6 +58,14 @@ local spec = {
             max_height = 25,
             wrap = false,
             border = "rounded",
+            zindex = 100,
+            -- NOTE: HEAD is broken, The new option doesn't work
+            --[[
+            show_title = true,
+            -- top-left|top-center|top-right|bottom-left|bottom-center|bottom-right
+            title_pos = "top-left",
+            title_format = " %s ",
+            ]]
         })
         vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
     end,
