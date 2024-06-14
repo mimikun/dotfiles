@@ -123,16 +123,5 @@ vim.g.loaded_node_provider = 0
 -- clipboard integration
 vim.opt.clipboard = "unnamedplus"
 if global.is_wsl then
-    vim.g.clipboard = {
-        name = "wl-clipboard",
-        copy = {
-            ["+"] = { "wl-copy", "--type", "text/plain" },
-            ["*"] = { "wl-copy", "--primary", "--type", "text/plain" },
-        },
-        paste = {
-            ["+"] = { "wl-paste", "--no-newline" },
-            ["*"] = { "wl-paste", "--no-newline", "--primary" },
-        },
-        cache_enabled = true,
-    }
+    vim.g.clipboard = require("core.clipboard").xsel
 end
