@@ -1,16 +1,25 @@
 local settings = {}
 
----Set it to false if you don't use ai assistant
+---Set to use ai assistant
+--- NOTE: work: it's a JTC
+--- NOTE: home: very poor
 ---@type boolean
 settings["use_ai_assistant"] = false
 
----Set to `true` to FORCE denops to be enabled no human rights
+---Set to use denops
+--- NOTE: require human rights
 ---@type boolean
 settings["use_denops"] = false
 
 ---Set theme switcher
+--- NOTE: huez.nvim is beta
 ---@type string
 settings["use_theme_switcher"] = "themery"
---settings["use_theme_switcher"] = "huez"
+
+---Set to use dark power
+---Enable ddu, ddc, and more
+---NOTE: require human rights and `use_denops = true`
+---@type boolean
+settings["use_dark_power"] = false
 
 return settings
