@@ -10,21 +10,6 @@ local icons = {
     misc = iconsets.get("misc"),
 }
 
--- Limit the number of concurrent task depending on human rights or OS
----@type number|function limit the maximum amount of concurrent tasks
-local concurrency_limit_check = function()
-    local limit
-    if global.is_human_rights then
-        limit = 4
-    else
-        limit = 1
-    end
-    return limit
-end
-
----@type number
-local concurrency = concurrency_limit_check()
-
 ---@type table
 local dependencies = {
     "williamboman/mason-lspconfig.nvim",
@@ -85,7 +70,7 @@ local spec = {
         end
 
         require("mason").setup({
-            max_concurrent_installers = concurrency,
+            max_concurrent_installers = global.is_human_rights and 4 or 1,
             ui = {
                 check_outdated_packages_on_open = true,
                 border = "rounded",
