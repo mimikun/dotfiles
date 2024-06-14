@@ -20,7 +20,7 @@ vim.keymap.set("n", "<C-S-CR>", "mzO<ESC>`z")
 vim.keymap.set("n", "<C-w>n", "<Esc>:enew<Return>")
 
 -- win32yankの設定
-vim.keymap.set("n", "<silent> <Space>y", ":.w !win32yank.exe -i<CR><CR>")
-vim.keymap.set("v", "<silent> <Space>y", ":w !win32yank.exe -i<CR><CR>")
-vim.keymap.set("n", "<silent> <Space>p", ":r !win32yank.exe -o<CR>")
-vim.keymap.set("v", "<silent> <Space>p", ":r !win32yank.exe -o<CR>")
+--vim.keymap.set("n", "<silent> <Space>y", ":.w !win32yank.exe -i<CR><CR>")
+--vim.keymap.set("v", "<silent> <Space>y", ":w !win32yank.exe -i<CR><CR>")
+--vim.keymap.set("n", "<silent> <Space>p", ":r !win32yank.exe -o<CR>")
+--vim.keymap.set("v", "<silent> <Space>p", ":r !win32yank.exe -o<CR>")
