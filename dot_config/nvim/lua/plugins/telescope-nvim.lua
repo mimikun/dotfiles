@@ -1,13 +1,11 @@
-local global = require("core.global")
-
-local home = global.home
-local is_windows = global.is_windows
+---@type boolean
+local is_windows = require("core.global").is_windows
 
 ---@type boolean
 local is_git = false
 
 ---@type table
-local keymaps = {
+local keys = {
     { "<C-p>", desc = "Open file search" },
     { "<C-g>", desc = "Open string search" },
     -- TODO: Fix which-key conflict error
@@ -19,40 +17,11 @@ local keymaps = {
     { "fh", desc = "Open helptags search" },
 }
 
----@type LazySpec
-local fzf_sorter = {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-}
-
 ---@type LazySpec[]
-local smart_open_deps = {
-    "kkharji/sqlite.lua",
-}
-
----@type LazySpec[]
-local telescope_media = {
-    "dharmx/telescope-media.nvim",
-}
-
--- NOTE: Add fzf_sorter if not a Windows
--- Very difficult to build fzf on Windows
-if not is_windows then
-    table.insert(smart_open_deps, fzf_sorter)
-end
-
----@type LazySpec
-local smart_open = {
-    "danielfalk/smart-open.nvim",
-    branch = "0.2.x",
-    dependencies = smart_open_deps,
-}
-
----@type LazySpec[]
-local telescope_deps = {
+local dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-frecency.nvim",
-    smart_open,
+    "danielfalk/smart-open.nvim",
     "ghassan0/telescope-glyph.nvim",
     "xiyaowong/telescope-emoji.nvim",
     "tsakirist/telescope-lazy.nvim",
@@ -63,8 +32,13 @@ local telescope_deps = {
 -- NOTE: Add fzf_sorter if not a Windows
 -- Very difficult to build fzf on Windows
 if not is_windows then
-    table.insert(telescope_deps, fzf_sorter)
-    table.insert(telescope_deps, telescope_media)
+    table.insert(dependencies, {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+    })
+    table.insert(dependencies, {
+        "dharmx/telescope-media.nvim",
+    })
 end
 
 ---@type LazySpec
@@ -72,10 +46,8 @@ local spec = {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     lazy = false,
-    --event = "VimEnter",
-    --cmd = "",
-    keys = keymaps,
-    dependencies = telescope_deps,
+    keys = keys,
+    dependencies = dependencies,
     config = function()
         local telescope = require("telescope")
         local builtin = require("telescope.builtin")
