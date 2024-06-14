@@ -1,5 +1,44 @@
 # Changelog
 
+## [v2024.06.15]
+
+### Added - 新機能について
+
+- feat(nvim)!: use github_dark_dimmed colorscheme
+- chore(nvim): add lazydev.nvim plugin config
+    - remove neodev.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore: update STARTUPTIME.md
+- chore(nvim): split obsidian.nvim config
+- chore(nvim): split themery theme tables
+- chore(nvim): split aiscript-lsp config
+- chore(nvim): split fish-lsp  config
+- chore(nvim): split lua-ls lsp  config
+- chore(nvim): split fidget.nvim config
+- chore(nvim): improved max_concurrent_installers value
+- chore(nvim): improved telescope.nvim config
+    - and split smart-open.lua
+- chore(nvim): improved clipboard integration
+- chore(nvim): improved settings.lua
+- chore: update windows_cargo_packages.txt
+    - add: dutree, erg ,gitui ,hysp ,jnv ,natls ,nsh ,rbw ,sheldon ,silicon ,skim ,sshx ,usage-cli ,zellij
+    - remove: pueue
+- refactor(nvim)!: core/lazyvim.lua
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove win32yank keymaps
+- chore(nvim): disable huez.nvim
+    - split huez exclude themes
+
+### Fixed - 不具合修正について
+
+- fix(nvim): sqlite3.lua config
+- fix(nvim): nvim-tree-preview crash bug
+
 ## [v2024.06.13]
 
 ### Added - 新機能について
