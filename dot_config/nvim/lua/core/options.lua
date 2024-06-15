@@ -122,6 +122,6 @@ vim.g.loaded_node_provider = 0
 
 -- clipboard integration
 vim.opt.clipboard = "unnamedplus"
-if global.is_wsl then
+if not global.is_windows then
     vim.g.clipboard = require("core.clipboard").xsel
 end
