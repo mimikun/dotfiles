@@ -8,6 +8,9 @@
       "max-kanji-continuous-len": {
         "max": 10
       },
+      "max-comma": {
+        "max": 100
+      },
       "ja-no-redundant-expression": false,
       "ja-no-mixed-period": false,
       "no-unmatched-pair": false,
