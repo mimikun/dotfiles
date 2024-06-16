@@ -303,20 +303,6 @@ if (Test-Path($env:UpdateCargoPackagePath)) {
 }
 
 if ($isMSWindows) {
-    # pueued auto start
-    Get-Process pueued -ErrorAction Ignore | Out-Null
-    $res = $?
-    if (!$res) {
-        pueued -d
-    }
-
-    # XXX: DEPRECATED
-    function Invoke-ShowDeprecateMessage() {
-        $toolName = "wsl_restart"
-        Write-Output "$toolName is deprecated."
-    }
-    Set-Alias -Name wsl_restart Invoke-ShowDeprecateMessage
-
     # alias wsl_shutdown Invoke-WslTerminateUbuntu
     function Invoke-WslTerminateUbuntu() {
         if ($env:COMPUTERNAME -eq "TANAKAPC") {
