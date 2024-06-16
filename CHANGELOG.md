@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.06.16]
+
+### Added - 新機能について
+
+- chore(nvim): use xsel if not windows
+    - Fix #481
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(aqua): bump
+- chore(deps): update
+- chore(fcitx5): update config
+
+### Removed - 今回で削除された機能について
+
+- chore: remove pueue in windows
+
+### Fixed - 不具合修正について
+
+- fix: textlint error
+    - add max-comma: 100
+
 ## [v2024.06.15]
 
 ### Added - 新機能について
