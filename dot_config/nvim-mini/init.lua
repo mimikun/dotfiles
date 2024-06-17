@@ -2,13 +2,9 @@ if vim.loader then
     vim.loader.enable()
 end
 
-vim.cmd("filetype plugin indent off")
-
 --- options
-local uv = vim.uv and vim.uv or vim.loop
-
-local os_name = uv.os_uname().sysname
-local total_memory = uv.get_total_memory()
+local os_name = vim.uv.os_uname().sysname
+local total_memory = vim.uv.get_total_memory()
 -- 4GB
 local linux_human_rights_memory_size = 4294967296
 -- 9GB
@@ -46,7 +42,7 @@ local vim_path = vim.fn.stdpath("config")
 local path_sep = is_windows and "\\" or "/"
 
 ---@type string
-local home = uv.os_homedir()
+local home = vim.uv.os_homedir()
 
 ---@type string
 local cache_dir = vim.fn.stdpath("cache")
@@ -178,14 +174,16 @@ vim.g.loaded_node_provider = 0
 vim.opt.clipboard = "unnamedplus"
 if is_wsl then
     vim.g.clipboard = {
-        name = "wl-clipboard",
+        name = "xsel-clipboard",
         copy = {
-            ["+"] = { "wl-copy", "--type", "text/plain" },
-            ["*"] = { "wl-copy", "--primary", "--type", "text/plain" },
+            ["+"] = "xsel -bi",
+            ["*"] = "xsel -bi",
         },
         paste = {
-            ["+"] = { "wl-paste", "--no-newline" },
-            ["*"] = { "wl-paste", "--no-newline", "--primary" },
+            ["+"] = "xsel -bo",
+            ["*"] = function()
+                return vim.fn.systemlist('xsel -bo | tr -d "\r"')
+            end,
         },
         cache_enabled = true,
     }
@@ -212,12 +210,6 @@ vim.keymap.set("n", "<C-S-CR>", "mzO<ESC>`z")
 
 -- Ctrl+Wを押した後にnを押すことで新規タブを開けるようにする
 vim.keymap.set("n", "<C-w>n", "<Esc>:enew<Return>")
-
--- win32yankの設定
-vim.keymap.set("n", "<silent> <Space>y", ":.w !win32yank.exe -i<CR><CR>")
-vim.keymap.set("v", "<silent> <Space>y", ":w !win32yank.exe -i<CR><CR>")
-vim.keymap.set("n", "<silent> <Space>p", ":r !win32yank.exe -o<CR>")
-vim.keymap.set("v", "<silent> <Space>p", ":r !win32yank.exe -o<CR>")
 
 --- autocmds
 -- Show stdpaths
@@ -477,5 +469,3 @@ for _, name in ipairs(jetpack.names()) do
         break
     end
 end
-
-vim.cmd("filetype plugin indent on")
