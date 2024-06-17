@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.06.17]
+
+### Added - 新機能について
+
+- feat(nvim)!: add plugin: bufferline.nvim
+- docs: add i3-wm cheetsheet
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(nvim-mini): update
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): disable tabline by lualine.nvim
+
+### Fixed - 不具合修正について
+
+- fix(typos): config
+- fix(nvim): null-ls performance issue
+
 ## [v2024.06.16]
 
 ### Added - 新機能について
