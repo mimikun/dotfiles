@@ -89,23 +89,21 @@ local M = {
     },
     minimal = {
         --- Code Actions
-        code_actions.gitsigns,
+        --code_actions.gitsigns,
         --- Diagnostics
         diagnostics.fish,
         diagnostics.selene,
-        diagnostics.textlint.with({
-            prefer_local = "node_modules/.bin",
-        }),
+        --diagnostics.textlint.with({ only_local = "node_modules/.bin" }),
         diagnostics.yamllint,
         --- Formatting
         formatting.fish_indent,
         formatting.prettier.with({
-            prefer_local = "node_modules/.bin",
+            only_local = "node_modules/.bin",
         }),
         formatting.shfmt,
         formatting.stylua,
         formatting.textlint.with({
-            prefer_local = "node_modules/.bin",
+            only_local = "node_modules/.bin",
         }),
         --- Hover
         hover.dictionary,
@@ -119,7 +117,7 @@ local M = {
         diagnostics.checkmake,
         diagnostics.cmake_lint,
         diagnostics.commitlint.with({
-            prefer_local = "node_modules/.bin",
+            only_local = "node_modules/.bin",
         }),
         diagnostics.editorconfig_checker.with({
             command = "ec",
@@ -133,7 +131,7 @@ local M = {
         diagnostics.pylint,
         diagnostics.selene,
         diagnostics.textlint.with({
-            prefer_local = "node_modules/.bin",
+            only_local = "node_modules/.bin",
         }),
         diagnostics.todo_comments,
         diagnostics.trail_space,
@@ -151,12 +149,12 @@ local M = {
         formatting.markdownlint,
         formatting.phpcsfixer,
         formatting.prettier.with({
-            prefer_local = "node_modules/.bin",
+            only_local = "node_modules/.bin",
         }),
         formatting.shfmt,
         formatting.stylua,
         formatting.textlint.with({
-            prefer_local = "node_modules/.bin",
+            only_local = "node_modules/.bin",
         }),
         formatting.xmllint,
         formatting.yamlfmt,
