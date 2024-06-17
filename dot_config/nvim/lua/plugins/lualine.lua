@@ -114,6 +114,7 @@ local tabline = {
         },
     },
 }
+tabline = {}
 
 ---@type table
 local events = { "BufReadPre", "BufNewFile" }
