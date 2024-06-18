@@ -1,3 +1,6 @@
+---@type boolean
+local use_ai_assistant = require("core.settings").use_ai_assistant
+
 ---@type table
 local dependencies = {
     "hrsh7th/cmp-nvim-lsp",
@@ -10,10 +13,36 @@ local dependencies = {
     "nvim-orgmode/orgmode",
     "onsails/lspkind.nvim",
     "SergioRibera/cmp-dotenv",
-    --"Saecki/crates.nvim",
-    --"zbirenbaum/copilot.lua",
-    --"zbirenbaum/copilot-cmp",
 }
+
+if use_ai_assistant then
+    table.insert(dependencies, "zbirenbaum/copilot.lua")
+    table.insert(dependencies, "zbirenbaum/copilot-cmp")
+end
+
+---@type table
+local cmp_config_sources = {
+    {
+        name = "nvim_lsp",
+        option = {
+            markdown_oxide = {
+                keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
+            },
+        },
+    },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
+    { name = "emoji" },
+    { name = "orgmode" },
+    { name = "dotenv" },
+    { name = "crates" },
+    { name = "lazydev" },
+}
+
+if use_ai_assistant then
+    table.insert(cmp_config_sources, { name = "copilot" })
+end
 
 ---@type LazySpec
 local spec = {
@@ -23,10 +52,10 @@ local spec = {
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
-        local lspkind = require("lspkind")
 
-        --local copilot_cmp = require("copilot_cmp")
-        --copilot_cmp.setup({})
+        if use_ai_assistant then
+            require("copilot_cmp").setup({})
+        end
 
         local has_words_before = function()
             -- selene: allow(incorrect_standard_library_use)
@@ -67,35 +96,14 @@ local spec = {
                     end
                 end, { "i", "s" }),
             }),
-            sources = cmp.config.sources({
-                --{ name = "copilot" },
-                {
-                    name = "nvim_lsp",
-                    option = {
-                        markdown_oxide = {
-                            keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
-                        },
-                    },
-                },
-                { name = "luasnip" },
-                { name = "buffer" },
-                { name = "path" },
-                { name = "emoji" },
-                { name = "orgmode" },
-                { name = "dotenv" },
-                { name = "crates" },
-                {
-                    name = "lazydev",
-                    --group_index = 0,
-                },
-            }),
+            sources = cmp.config.sources(cmp_config_sources),
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end,
             },
             formatting = {
-                format = lspkind.cmp_format({
+                format = require("lspkind").cmp_format({
                     -- "text" or "text_symbol", "symbol_text", "symbol"
                     mode = "text_symbol",
                     -- "codicons" or "default"
