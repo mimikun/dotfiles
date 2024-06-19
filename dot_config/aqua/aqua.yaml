@@ -73,6 +73,8 @@ packages:
 - name: natecraddock/zf@0.9.1
 - name: bloznelis/typioca@2.11.2
 - name: gopasspw/gopass@v1.15.13
+- name: wader/fq@v0.11.0
+- name: homeport/dyff@v1.8.0
 - name: dev.yorhel.nl/ncdu
   version: '2.4'
 # Use custom registry
