@@ -21,11 +21,8 @@ strat = "strat"
 
 [files]
 extend-exclude = [
-  # TODO: Delete it
-  # NOTE: Editing now
-  "dot_config/nvim/lua/plugins/bufferline.lua",
-  # NOTE: No expected upstream fixes
-  "dot_config/nvim/lua/plugins/colorscheme/themes/lackluster.lua",
+  # NOTE: DO NOT expect an upstream fix
+  "dot_config/nvim/lua/plugins/telescope-ext/media.lua",
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
   # NOTE: Game settings
