@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.06.19]
+
+### Added - 新機能について
+
+- feat(cargo)!: add pumas
+- feat(gup)!: add hours
+- feat(aqua)!: add some packages
+    - add: fq, dyff
+- feat(nvim)!: add new plugin: wezterm.nvim
+- feat(nvim)!: add new plugin: package-info.nvim
+- feat(nvim)!: add new plugin: windline.nvim
+- feat(nvim)!: add new plugin: staline.nvim
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(fish): update some completions
+- chore(nvim)!: split telescope.nvim config
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): lackluster colorscheme opts
+
 ## [v2024.06.18]
 
 ### Added - 新機能について
