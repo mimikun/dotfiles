@@ -75,6 +75,7 @@ pastel
 pipr
 procs
 pueue
+pumas
 pylyzer
 qrtool
 rana
