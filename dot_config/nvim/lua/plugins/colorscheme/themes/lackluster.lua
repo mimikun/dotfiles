@@ -6,11 +6,11 @@ local spec = {
         local lackluster = require("lackluster")
 
         lackluster.setup({
-            tweek_syntax = {
+            tweak_syntax = {
                 comment = lackluster.color.gray4,
                 --comment = lackluster.color.gray5,
             },
-            tweek_background = {
+            tweak_background = {
                 normal = "none",
                 telescope = "none",
                 menu = lackluster.color.gray3,
