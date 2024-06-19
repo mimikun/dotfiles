@@ -723,6 +723,7 @@ complete -c uv -n "__fish_seen_subcommand_from add" -l color -d 'Control colors 
 complete -c uv -n "__fish_seen_subcommand_from add" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_seen_subcommand_from add" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from add" -l dev -d 'Add the requirements as development dependencies'
+complete -c uv -n "__fish_seen_subcommand_from add" -l workspace -d 'Add the requirements as workspace dependencies'
 complete -c uv -n "__fish_seen_subcommand_from add" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those discovered via `--find-links`'
 complete -c uv -n "__fish_seen_subcommand_from add" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file'
 complete -c uv -n "__fish_seen_subcommand_from add" -l no-upgrade
