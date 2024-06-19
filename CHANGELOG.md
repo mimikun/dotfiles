@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.06.18]
+
+### Added - 新機能について
+
+- feat(nvim)!: add new plugin: marks.nvim
+- feat(nvim)!: add new plugin: flagmode.nvim
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(nvim): update nvim-cmp config
+- chore(nvim): update core/autocmds.lua
+- chore(nvim): split statusline plugins
+    - and update bufferline.nvim config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix: order STARTUPTIME.md
+
 ## [v2024.06.17]
 
 ### Added - 新機能について
