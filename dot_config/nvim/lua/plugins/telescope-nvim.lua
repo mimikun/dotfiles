@@ -27,6 +27,7 @@ local dependencies = {
     "tsakirist/telescope-lazy.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
+    "vuki656/package-info.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -53,7 +54,10 @@ local spec = {
         local builtin = require("telescope.builtin")
         local themes = require("telescope.themes")
 
-        telescope.setup({})
+        telescope.setup({
+            extensions = require("plugins.telescope-ext.extensions"),
+        })
+
         if is_git then
             -- Open git file search
             vim.keymap.set("n", "<C-p>", builtin.git_files, {})
@@ -100,6 +104,7 @@ local spec = {
         telescope.load_extension("lazy")
         telescope.load_extension("file_browser")
         telescope.load_extension("egrepify")
+        telescope.load_extension("package_info")
     end,
     --cond = false,
 }
