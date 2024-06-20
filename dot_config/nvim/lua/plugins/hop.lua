@@ -1,4 +1,9 @@
 ---@type table
+local keys = {
+    { "<leader>h", desc = "HopWord" },
+}
+
+---@type table
 local cmds = {
     "HopWord",
     "HopChar1",
@@ -21,8 +26,13 @@ local spec = {
     "smoka7/hop.nvim",
     version = "*",
     --lazy = false,
+    keys = keys,
     cmd = cmds,
-    opts = opts,
+    config = function(_, opts)
+        local hop = require("hop")
+        hop.setup(opts)
+        vim.keymap.set("n", "<leader>h", ":HopWord<CR>", { silent = true })
+    end,
     --cond = false,
 }
 
