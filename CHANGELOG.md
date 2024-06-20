@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2024.06.20]
+
+### Added - 新機能について
+
+- feat(nvim)!: add plugin: js-i18n.nvim
+- feat(nvim)!: add plugin: scope.nvim
+    - and add telescope extension
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(utilities): update Invoke-RunAfterChezmoiApply.ps1
+- chore(fish): update deno completion
+- chore(nvim): update lockfiles
+- chore(nvim): improved hop.nvim config
+    - add LEADER+h keybind
+- chore(nvim): improved nvim-orgmode config
+    - use org-modern menu
+- chore(nvim): improved spec-template.nvim
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): gitsigns.nvim config
+    - remove yadm support
+    - ref: https://github.com/lewis6991/gitsigns.nvim/commit/61f5b6407611a25e2d407ac0bc60e5c87c25ad72
+
 ## [v2024.06.19]
 
 ### Added - 新機能について
