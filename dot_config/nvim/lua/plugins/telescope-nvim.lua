@@ -28,6 +28,7 @@ local dependencies = {
     "fdschmidt93/telescope-egrepify.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "vuki656/package-info.nvim",
+    "tiagovla/scope.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -105,6 +106,7 @@ local spec = {
         telescope.load_extension("file_browser")
         telescope.load_extension("egrepify")
         telescope.load_extension("package_info")
+        telescope.load_extension("scope")
     end,
     --cond = false,
 }
