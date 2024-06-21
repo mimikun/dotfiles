@@ -44,7 +44,7 @@ packages:
 - name: itchyny/json2yaml@v0.1.4
 - name: koki-develop/sheep@v0.4.0
 - name: rhysd/vim-startuptime@v1.3.2
-- name: antonmedv/walk@v1.8.0
+- name: antonmedv/walk@v1.9.0
 - name: dominikh/go-tools/staticcheck@2023.1.7
 - name: rhysd/actionlint@v1.7.1
 - name: koki-develop/clive@v0.12.9
