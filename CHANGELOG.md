@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2024.06.21]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update rbw completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.06.20]
 
 ### Added - 新機能について
