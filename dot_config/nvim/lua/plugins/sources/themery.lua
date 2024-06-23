@@ -186,6 +186,31 @@ M.selectables = {
         name = "lackluster night",
         colorscheme = "lackluster-night",
     },
+    --- material_themes
+    {
+        name = "material",
+        colorscheme = "material",
+    },
+    {
+        name = "material darker",
+        colorscheme = "material-darker",
+    },
+    {
+        name = "material lighter",
+        colorscheme = "material-lighter",
+    },
+    {
+        name = "material oceanic",
+        colorscheme = "material-oceanic",
+    },
+    {
+        name = "material palenight",
+        colorscheme = "material-palenight",
+    },
+    {
+        name = "material deep ocean",
+        colorscheme = "material-deep-ocean",
+    },
     --- lua_other_themes
     {
         name = "sweetie",
