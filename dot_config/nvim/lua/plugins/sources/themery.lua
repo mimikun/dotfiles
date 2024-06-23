@@ -188,6 +188,10 @@ M.selectables = {
     },
     --- lua_other_themes
     {
+        name = "sweetie",
+        colorscheme = "sweetie",
+    },
+    {
         name = "lavi",
         colorscheme = "lavi",
     },
