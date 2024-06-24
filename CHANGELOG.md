@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2024.06.24]
+
+### Added - 新機能について
+
+- feat(nvim)!: add new plugin: veil.nvim
+- feat(nvim)!: add new plugin: dashboard-nvim
+- feat(nvim)!: add new plugin: overseer.nvim
+- feat(nvim)!: add new plugin: telescope-undo.nvim
+- feat(nvim)!: add new plugin: telescope-zoxide.nvim
+- feat(nvim)!: add new plugin: drop.nvim
+- feat(nvim)!: add new colorscheme: material.nvim
+- feat(nvim)!: add new colorscheme: sweetie.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(nvim): update indent-blankline.nvim config
+- chore(nvim): update wezterm.nvim config
+    - now testing wezterm_bin option
+- chore(fish): update eza completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.06.21]
 
 ### Added - 新機能について
