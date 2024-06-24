@@ -8,6 +8,7 @@ local extensions = {
     file_browser = require("plugins.telescope-ext.file-browser"),
     package_info = require("plugins.telescope-ext.package-info"),
     zoxide = require("plugins.telescope-ext.zoxide"),
+    undo = require("plugins.telescope-ext.undo"),
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

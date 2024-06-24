@@ -31,6 +31,7 @@ local dependencies = {
     "tiagovla/scope.nvim",
     "nvim-lua/popup.nvim",
     "jvgrootveld/telescope-zoxide",
+    "debugloop/telescope-undo.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -110,6 +111,7 @@ local spec = {
         telescope.load_extension("package_info")
         telescope.load_extension("scope")
         telescope.load_extension("zoxide")
+        telescope.load_extension("undo")
     end,
     --cond = false,
 }
