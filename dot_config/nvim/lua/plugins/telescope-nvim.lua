@@ -29,6 +29,8 @@ local dependencies = {
     "nvim-telescope/telescope-file-browser.nvim",
     "vuki656/package-info.nvim",
     "tiagovla/scope.nvim",
+    "nvim-lua/popup.nvim",
+    "jvgrootveld/telescope-zoxide",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -107,6 +109,7 @@ local spec = {
         telescope.load_extension("egrepify")
         telescope.load_extension("package_info")
         telescope.load_extension("scope")
+        telescope.load_extension("zoxide")
     end,
     --cond = false,
 }
