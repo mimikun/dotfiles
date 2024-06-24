@@ -1,9 +1,13 @@
 ---@type LazySpec
 local spec = {
     "willothy/wezterm.nvim",
-    --lazy = false,
-    cmd = "WeztermSpawn",
-    config = true,
+    dev = true,
+    lazy = false,
+    --cmd = "WeztermSpawn",
+    opts = {
+        wezterm_bin = "winwezterm",
+    },
+    --config = true,
     --cond = false,
 }
 
