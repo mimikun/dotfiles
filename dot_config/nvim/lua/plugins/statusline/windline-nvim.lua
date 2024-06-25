@@ -9,7 +9,7 @@ local spec = {
     config = function()
         require("wlsample.vscode")
     end,
-    --cond = false,
+    cond = false,
 }
 
 return spec
