@@ -20,8 +20,12 @@ local spec = {
     --init = function()
     --    INIT
     --end,
-    --opts = {},
-    --config = true,
+    --opts = {
+    --    OPTS
+    --},
+    --config = function()
+    --    INIT
+    --end,
     cond = false,
     --main = ""
     --pin = false,
