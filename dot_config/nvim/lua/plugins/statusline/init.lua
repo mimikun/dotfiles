@@ -7,6 +7,7 @@ local specs = {
     { import = "plugins.statusline.heirline" },
     { import = "plugins.statusline.incline" },
     { import = "plugins.statusline.barbar" },
+    { import = "plugins.statusline.modeline" },
 }
 
 return specs
