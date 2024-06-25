@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.06.25]
+
+### Added - 新機能について
+
+- feat(nvim)!: add new plugin: modeline.nvim
+- feat(nvim)!: add new plugin: barbar.nvim
+- feat(nvim)!: add new plugin: incline.nvim
+- feat(nvim)!: add new plugin: heirline.nvim
+- feat(nvim)!: add new plugin: feline.nvim
+- feat(nvim)!: add new plugin: hover.nvim
+- feat(nvim)!: add new plugin: zen-mode.nvim
+- feat(nvim)!: add new plugin: convert.nvim
+- feat(nvim)!: add new plugin: headlines.nvim
+- feat(nvim)!: add new plugin: pomo.nvim
+    - and add telescope integration
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(nvim): update spec-template.nvim
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): disable windline.nvim
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.06.24]
 
 ### Added - 新機能について
