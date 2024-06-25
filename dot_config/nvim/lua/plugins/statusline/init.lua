@@ -5,6 +5,7 @@ local specs = {
     { import = "plugins.statusline.windline-nvim" },
     { import = "plugins.statusline.feline" },
     { import = "plugins.statusline.heirline" },
+    { import = "plugins.statusline.incline" },
 }
 
 return specs
