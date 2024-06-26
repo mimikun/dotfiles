@@ -1,19 +1,3 @@
-local iconsets = require("utils.icons")
-local diagnostics = iconsets.get("diagnostics", true)
-local git = iconsets.get("git")
-
----@type table
-local icon = {
-    error = diagnostics.Error,
-    warn = diagnostics.Warning,
-    info = diagnostics.Information,
-    hint = diagnostics.Hint,
-    branch = git.Branch,
-    add = git.Add,
-    mod = git.Mod_alt,
-    remove = git.Remove,
-}
-
 ---@return string
 local function improved_encoding()
     local encoding = vim.opt.fileencoding:get()
@@ -65,8 +49,8 @@ local sections = {
         { "mode", color = { gui = "bold" } },
     },
     lualine_b = {
-        { "b:gitsigns_head", icon = icon.branch },
-        { "diff", symbols = { added = icon.add, modified = icon.mod, removed = icon.remove }, source = diff_source },
+        { "fancy_branch" },
+        { "fancy_diff", source = diff_source },
     },
     lualine_c = {
         -- NOTE: filename component has bug
@@ -74,20 +58,19 @@ local sections = {
         -- https://github.com/nvim-lualine/lualine.nvim?tab=readme-ov-file#filename-component-options
         { "filename", file_status = true },
         {
-            "diagnostics",
+            "fancy_diagnostics",
             sources = { "nvim_diagnostic", "nvim_lsp" },
             sections = { "error", "warn", "info", "hint" },
-            symbols = { error = icon.error, warn = icon.warn, info = icon.info, hint = icon.hint },
         },
     },
     lualine_x = {
-        "filetype",
+        { "fancy_filetype", ts_icon = require("utils.icons").get("misc").Tree },
         improved_encoding,
         "fileformat",
     },
     lualine_y = { "progress" },
     lualine_z = {
-        { "location", color = { gui = "bold" } },
+        { "fancy_location", color = { gui = "bold" } },
     },
 }
 
@@ -123,6 +106,7 @@ local events = { "BufReadPre", "BufNewFile" }
 local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "lewis6991/gitsigns.nvim",
+    "meuter/lualine-so-fancy.nvim",
 }
 
 ---@type table
