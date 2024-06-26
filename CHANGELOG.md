@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.06.26]
+
+### Added - 新機能について
+
+- feat(nvim)!: add new plugins: nvim-dap
+- feat(nvim)!: add new plugin: vim-startify
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(nvim)!: update lualine.nvim config
+    - use lualine-so-fancy.nvim plugin
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.06.25]
 
 ### Added - 新機能について
