@@ -12,15 +12,19 @@ local icons = {
 
 ---@type table
 local dependencies = {
+    -- LSP plugins
+    "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
     "zapling/mason-lock.nvim",
-    "neovim/nvim-lspconfig",
-    "hrsh7th/cmp-nvim-lsp",
+    "b0o/schemastore.nvim",
     "folke/neoconf.nvim",
+    { "folke/lazydev.nvim", ft = "lua" },
     "Bilal2453/luvit-meta",
     "justinsgithub/wezterm-types",
-    { "folke/lazydev.nvim", ft = "lua" },
-    "b0o/schemastore.nvim",
+    "hrsh7th/cmp-nvim-lsp",
+    -- DAP plugins
+    "mfussenegger/nvim-dap",
+    "jay-babu/mason-nvim-dap.nvim",
 }
 
 ---@type LazySpec
@@ -49,7 +53,7 @@ local spec = {
             end,
         })
 
-        local handlers = {
+        local lsp_handlers = {
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -58,6 +62,12 @@ local spec = {
 
             ["lua_ls"] = function()
                 lspconfig.lua_ls.setup(require("plugins.lsp.lua-ls"))
+            end,
+        }
+
+        local dap_handlers = {
+            function(config)
+                require("mason-nvim-dap").default_setup(config)
             end,
         }
 
@@ -85,10 +95,14 @@ local spec = {
         })
         require("mason-lspconfig").setup({
             ensure_installed = require("plugins.sources.servers").need_servers,
-            handlers = handlers,
+            handlers = lsp_handlers,
         })
         lspconfig.fish_lsp.setup({})
         lspconfig.aiscript_lsp.setup({})
+        require("mason-nvim-dap").setup({
+            ensure_installed = require("plugins.sources.dap").need_adapters,
+            handlers = dap_handlers,
+        })
         require("mason-lock").setup({
             lockfile_path = global.mason_lockfile,
         })
