@@ -1,5 +1,37 @@
 # Changelog
 
+## [v2024.06.27]
+
+### Added - 新機能について
+
+- feat(nvim)!: add plugin: nvim-scrollbar
+- feat(nvim)!: add plugin: flash.nvim
+- feat(nvim)!: add plugin: nvim-navbuddy
+- feat(nvim)!: add plugin: nvim-navic
+    - and update lualine config
+- feat(nvim)!: add plugin: persistence.nvim
+- feat(nvim)!: add plugin: sidebar.nvim
+- feat(aqua)!: add hostctl
+- feat(pip)!: add some packages
+- feat(gup)!: add ktop
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(aqua): bump version
+- chore(nvim): update lockfiles
+- chore(nvim): split scrollbar plugins
+- chore(nvim): split easymotion(like) plugins
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.06.26]
 
 ### Added - 新機能について
