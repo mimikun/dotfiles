@@ -62,6 +62,7 @@ local sections = {
             sources = { "nvim_diagnostic", "nvim_lsp" },
             sections = { "error", "warn", "info", "hint" },
         },
+        { "navic" },
     },
     lualine_x = {
         { "fancy_filetype", ts_icon = require("utils.icons").get("misc").Tree },
@@ -107,6 +108,7 @@ local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "lewis6991/gitsigns.nvim",
     "meuter/lualine-so-fancy.nvim",
+    "SmiteshP/nvim-navic",
 }
 
 ---@type table
