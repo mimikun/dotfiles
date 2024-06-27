@@ -75,6 +75,7 @@ packages:
 - name: gopasspw/gopass@v1.15.13
 - name: wader/fq@v0.11.0
 - name: homeport/dyff@v1.8.0
+- name: guumaster/hostctl@v1.1.4
 - name: dev.yorhel.nl/ncdu
   version: '2.4'
 # Use custom registry
