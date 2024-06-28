@@ -211,6 +211,15 @@ M.selectables = {
         name = "material deep ocean",
         colorscheme = "material-deep-ocean",
     },
+    --- witch_themes
+    {
+        name = "witch dark",
+        colorscheme = "witch-dark",
+    },
+    {
+        name = "witch light",
+        colorscheme = "witch-light",
+    },
     --- lua_other_themes
     {
         name = "sweetie",
