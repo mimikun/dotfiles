@@ -53,7 +53,8 @@ function Lazy:load_lazy()
             lazy = true,
             cond = true,
         },
-        concurrency = concurrency,
+        -- WORKAROUND: #598
+        --concurrency = concurrency,
         git = {
             timeout = 300,
         },
