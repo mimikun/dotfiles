@@ -3,7 +3,9 @@ local ext = {
     -- should be in this format: { "bash", "-c", "echo '$DIFF' | delta" }
     use_custom_command = nil,
     side_by_side = false,
-    diff_context_lines = vim.o.scrolloff,
+    vim_diff_opts = {
+        ctxlen = vim.o.scrolloff,
+    },
     entry_format = "state #$ID, $STAT, $TIME",
     time_format = "",
     saved_only = false,
