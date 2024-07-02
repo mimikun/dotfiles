@@ -126,6 +126,7 @@ complete -c luarocks -l tree -l to -r -d 'Which tree to operate on'
 complete -c luarocks -l local -d 'Use the tree in the user\'s home directory'
 complete -c luarocks -l global -d 'Use the system tree when `local_by_default` is `true`'
 complete -c luarocks -l no-project -d 'Do not use project tree even if running from a project folder'
+complete -c luarocks -l force-lock -d 'Attempt to overwrite the lock for commands that require exclusive access, such as \'install\''
 complete -c luarocks -l verbose -d 'Display verbose output of commands executed'
 complete -c luarocks -l timeout -r -d 'Timeout on network operations, in seconds'
 complete -c luarocks -l project-tree -r
@@ -181,7 +182,10 @@ complete -c luarocks -n '__fish_luarocks_seen_command download' -l arch -r -d 'D
 complete -c luarocks -n '__fish_luarocks_seen_command download' -l check-lua-versions -d 'If the rock can\'t be found, check repository and report if it is available for another Lua version'
 
 complete -c luarocks -n '__fish_luarocks_seen_command init' -s h -l help -d 'Show this help message and exit'
-complete -c luarocks -n '__fish_luarocks_seen_command init' -l reset -d 'Delete .luarocks/config-5.x.lua and ./lua and generate new ones'
+complete -c luarocks -n '__fish_luarocks_seen_command init' -l wrapper-dir -r -d 'Location where the \'lua\' and \'luarocks\' wrapper scripts should be generated; if not given, the current directory is used as a default'
+complete -c luarocks -n '__fish_luarocks_seen_command init' -l reset -d 'Delete any .luarocks/config-5.x.lua and ./lua and generate new ones'
+complete -c luarocks -n '__fish_luarocks_seen_command init' -l no-wrapper-scripts -d 'Do not generate wrapper ./lua and ./luarocks launcher scripts'
+complete -c luarocks -n '__fish_luarocks_seen_command init' -l no-gitignore -d 'Do not generate a .gitignore file'
 complete -c luarocks -n '__fish_luarocks_seen_command init' -l output -r -d 'Write the rockspec with the given filename'
 complete -c luarocks -n '__fish_luarocks_seen_command init' -l license -r -d 'A license string, such as "MIT/X11" or "GNU GPL v3"'
 complete -c luarocks -n '__fish_luarocks_seen_command init' -l summary -r -d 'A short one-line description summary'
@@ -237,8 +241,9 @@ complete -c luarocks -n '__fish_luarocks_seen_command pack' -l sign -d 'Produce 
 complete -c luarocks -n '__fish_luarocks_seen_command path' -s h -l help -d 'Show this help message and exit'
 complete -c luarocks -n '__fish_luarocks_seen_command path' -l no-bin -d 'Do not export the PATH variable'
 complete -c luarocks -n '__fish_luarocks_seen_command path' -l append -d 'Appends the paths to the existing paths'
-complete -c luarocks -n '__fish_luarocks_seen_command path' -l lr-path -d 'Exports the Lua path (not formatted as shell command)'
-complete -c luarocks -n '__fish_luarocks_seen_command path' -l lr-cpath -d 'Exports the Lua cpath (not formatted as shell command)'
+complete -c luarocks -n '__fish_luarocks_seen_command path' -l lr-path -d 'Prints Lua path components defined by the configured rocks trees (not formatted as a shell command)'
+complete -c luarocks -n '__fish_luarocks_seen_command path' -l lr-cpath -d 'Prints Lua cpath components defined by the configured rocks trees (not formatted as a shell command)'
+complete -c luarocks -n '__fish_luarocks_seen_command path' -l full -d 'By default, --lr-path and --lr-cpath only include the paths derived by the LuaRocks rocks_trees'
 complete -c luarocks -n '__fish_luarocks_seen_command path' -l lr-bin -d 'Exports the system path (not formatted as shell command)'
 complete -c luarocks -n '__fish_luarocks_seen_command path' -l bin
 
