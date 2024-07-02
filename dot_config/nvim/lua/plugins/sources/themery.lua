@@ -220,6 +220,19 @@ M.selectables = {
         name = "witch light",
         colorscheme = "witch-light",
     },
+    --- nightfall_themes
+    {
+        name = "nightfall",
+        colorscheme = "nightfall",
+    },
+    {
+        name = "deeper night",
+        colorscheme = "deeper-night",
+    },
+    {
+        name = "maron",
+        colorscheme = "maron",
+    },
     --- lua_other_themes
     {
         name = "neon",
