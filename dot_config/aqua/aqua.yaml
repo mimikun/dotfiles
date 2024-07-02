@@ -13,7 +13,7 @@ registries:
   type: local
   path: ./registry.yaml
 packages:
-- name: bitwarden/clients@cli-v2024.6.0
+- name: bitwarden/clients@cli-v2024.6.1
 - name: twpayne/chezmoi@v2.49.1
 - name: direnv/direnv@v2.34.0
 - name: muesli/duf@v0.8.1
@@ -26,7 +26,7 @@ packages:
 - name: mvdan/sh@v3.8.0
 - name: mikefarah/yq@v4.44.2
 - name: mrtazz/checkmake@0.2.2
-- name: editorconfig-checker/editorconfig-checker@v3.0.1
+- name: editorconfig-checker/editorconfig-checker@v3.0.2
 - name: osteele/gojekyll@v0.2.10
 - name: golangci/golangci-lint@v1.59.1
 - name: tdewolff/minify@v2.20.35
