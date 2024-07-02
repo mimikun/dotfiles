@@ -8,7 +8,7 @@ local concurrency_limit_check = function()
     if global.is_human_rights then
         limit = global.is_windows and (vim.uv.available_parallelism() * 2) or nil
     else
-        limit = 1
+        limit = 6
     end
     return limit
 end
@@ -28,6 +28,7 @@ local icons = {
     documents = iconsets.get("documents"),
     ui = iconsets.get("ui"),
     ui_sep = iconsets.get("ui", true),
+    cmp_sep = iconsets.get("cmp", true),
     misc = iconsets.get("misc"),
 }
 
@@ -53,10 +54,12 @@ function Lazy:load_lazy()
             lazy = true,
             cond = true,
         },
-        -- WORKAROUND: #598
-        --concurrency = concurrency,
+        concurrency = concurrency,
         git = {
             timeout = 300,
+        },
+        rocks = {
+            enabled = falase,
         },
         dev = {
             path = table.concat({ global.home, "ghq", "github.com", "mimikun", "dev-plugins" }, global.path_sep),
@@ -73,16 +76,22 @@ function Lazy:load_lazy()
                 cmd = icons.misc.Code,
                 config = icons.ui.Gear,
                 event = icons.kind.Event,
+                -- NOTE: utils/icons.lua has not this icon
+                favorite = " ",
                 ft = icons.documents.Files,
                 init = icons.misc.ManUp,
                 import = icons.documents.Import,
                 keys = icons.ui.Keyboard,
+                -- NOTE: utils/icons.lua has not this icon
+                lazy = "󰒲 ",
                 loaded = icons.ui.Check,
                 not_loaded = icons.misc.Ghost,
                 plugin = icons.ui.Package,
                 runtime = icons.misc.Vim,
+                require = icons.cmp_sep.nvim_lua,
                 source = icons.kind.StaticMethod,
                 start = icons.ui.Play,
+                task = icons.ui_sep.Accepted,
                 list = {
                     icons.ui_sep.BigCircle,
                     icons.ui_sep.BigUnfilledCircle,
