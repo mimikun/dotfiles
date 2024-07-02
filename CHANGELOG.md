@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.07.02]
+
+### Added - 新機能について
+
+- feat(nvim)!: add new colorscheme: neon
+- feat(nvim)!: add new colorscheme: witch
+- feat(nvim)!: add new colorscheme: nightfall
+- feat(nvim)!: add new plugin: nvim-cursorline
+- feat(nvim)!: add new plugin: barbecue.nvim
+- feat(aqua)!: add qq command
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(aqua): bump version
+- chore(mise): update configs
+- chore(fish): update uv completion
+- chore(fish): update luarocks completion
+- chore(nvim): update lockfiles
+- chore(nvim): update lazy.nvim configs
+    - icons, disabled rocks and set concurrency is 6
+- WORKAROUND: Plugin updates take a `f**ing s**t` long time #598
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): telescope-undo: deprecate warning
+
 ## [v2024.06.27]
 
 ### Added - 新機能について
