@@ -1,6 +1,6 @@
 [tools]
 dotnet-core = "latest"
-lua = "latest"
+lua = "5.1.5"
 luajit = "latest"
 tig = "latest"
 vim = "latest"
@@ -13,5 +13,4 @@ zig = "latest"
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
 tig = "https://github.com/koketani/asdf-tig.git"
-# https://github.com/tsuyoshicho/asdf-vim has bug
 vim = "https://github.com/mimikun/asdf-vim.git"
