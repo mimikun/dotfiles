@@ -29,7 +29,7 @@ function Invoke-RunAfterChezmoiApply() {
     $linux_nvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_config\nvim\*"
 
     Write-Output "Remove old nvim(neovim) configuration"
-    Remove-Item $windows_nvim_config
+    Remove-Item $windows_nvim_config -Force -Recurse
 
     # folder exist check
     if (-not (Test-Path -Path $windows_nvim_config)) {
@@ -50,7 +50,7 @@ function Invoke-RunAfterChezmoiApply() {
     $work_pvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_vim\*"
 
     Write-Output "Remove old vim(paleovim) configuration"
-    Remove-Item $windows_pvim_config
+    Remove-Item $windows_pvim_config -Force -Recurse
 
     # folder exist check
     if (-not (Test-Path -Path $windows_pvim_config)) {
