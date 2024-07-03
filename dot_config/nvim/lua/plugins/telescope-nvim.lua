@@ -33,6 +33,7 @@ local dependencies = {
     "jvgrootveld/telescope-zoxide",
     "debugloop/telescope-undo.nvim",
     "epwalsh/pomo.nvim",
+    "GianniBYoung/chezmoi-telescope.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -114,6 +115,7 @@ local spec = {
         telescope.load_extension("zoxide")
         telescope.load_extension("undo")
         telescope.load_extension("pomodori")
+        telescope.load_extension("chezmoi")
     end,
     --cond = false,
 }
