@@ -1,0 +1,19 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/bash
+
+base_url="https://raw.githubusercontent.com/hackerb9/lsix/master"
+bin_name="lsix"
+file_path="$HOME/.local/bin/$bin_name"
+
+download_url="$base_url/$bin_name"
+
+# $HOME/.local/bin/lsix check
+if [[ ! -e "$file_path" ]]; then
+    echo "Download from $download_url"
+    curl -sSL "$download_url" -o "$file_path"
+else
+    echo "$file_path is exist."
+fi
+
+{{ end -}}
