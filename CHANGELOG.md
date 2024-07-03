@@ -1,5 +1,42 @@
 # Changelog
 
+## [v2024.07.03]
+
+### Added - 新機能について
+
+- feat(aqua)!: add dotenvx
+- feat(chezmoiscripts)!: add lsix download script
+- feat(utilities)!: remove pvim, nvim config files force and recursively
+- feat(nvim)!: add new plugin: nvim-cokeline
+- feat(nvim)!: add new plugin: octo.nvim
+- feat(nvim)!: add new plugin: colorbox.nvim
+- feat(nvim)!: add new plugin: luminate.nvim
+- feat(nvim)!: add new plugin: legendary.nvim
+- feat(nvim)!: add new plugin: nvim-rip-substitute
+- feat(nvim)!: add new plugin: reverse.nvim
+- feat(nvim)!: add new plugin: nvim-bqf
+- feat(nvim)!: add new telescope ext: chezmoi-telescope.nvim
+- feat(nvim)!: add new config param
+- feat(nvim)!: add new cmp source
+    - staticWagomU/cmp-my-git-commit-prefix
+- docs(nvim): add comment in huez.nvim config
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(nvim)!: update transparent.nvim config
+- chore(nvim)!: update nvim-tree config
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.02]
 
 ### Added - 新機能について
