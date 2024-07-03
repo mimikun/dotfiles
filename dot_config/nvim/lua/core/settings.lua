@@ -15,6 +15,7 @@ settings["use_denops"] = false
 --- NOTE: huez.nvim is beta
 ---@type string
 settings["use_theme_switcher"] = "themery"
+--settings["use_theme_switcher"] = "huez"
 
 ---Set to use dark power
 ---Enable ddu, ddc, and more
