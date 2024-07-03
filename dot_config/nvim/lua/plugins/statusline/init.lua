@@ -9,6 +9,7 @@ local specs = {
     { import = "plugins.statusline.barbar" },
     { import = "plugins.statusline.modeline" },
     { import = "plugins.statusline.barbecue" },
+    { import = "plugins.statusline.nvim-cokeline" },
 }
 
 return specs
