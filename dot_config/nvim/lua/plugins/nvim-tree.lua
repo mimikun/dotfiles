@@ -43,30 +43,7 @@ local spec = {
     end,
     config = function()
         require("nvim-tree").setup({})
-        require("nvim-tree-preview").setup({
-            keymaps = {
-                ["<Esc>"] = { action = "close", unwatch = true },
-                ["<Tab>"] = { action = "toggle_focus" },
-                ["<CR>"] = { open = "edit" },
-                ["<C-t>"] = { open = "tab" },
-                ["<C-v>"] = { open = "vertical" },
-                ["<C-x>"] = { open = "horizontal" },
-            },
-            min_width = 10,
-            min_height = 5,
-            max_width = 85,
-            max_height = 25,
-            wrap = false,
-            border = "rounded",
-            zindex = 100,
-            -- NOTE: HEAD is broken, The new option doesn't work
-            --[[
-            show_title = true,
-            -- top-left|top-center|top-right|bottom-left|bottom-center|bottom-right
-            title_pos = "top-left",
-            title_format = " %s ",
-            ]]
-        })
+        require("nvim-tree-preview").setup({})
         vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>")
     end,
     --cond = false,
