@@ -16,6 +16,7 @@ settings["use_denops"] = false
 ---@type string
 settings["use_theme_switcher"] = "themery"
 --settings["use_theme_switcher"] = "huez"
+--settings["use_theme_switcher"] = "colorbox"
 
 ---Set to use dark power
 ---Enable ddu, ddc, and more
