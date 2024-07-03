@@ -21,6 +21,7 @@ local spec = {
     event = "UIEnter",
     cmd = cmds,
     opts = opts,
+    -- NOTE: huez.nvim is beta now
     enabled = false,
     cond = false,
 }
