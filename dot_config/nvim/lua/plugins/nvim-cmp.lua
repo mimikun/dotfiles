@@ -13,6 +13,7 @@ local dependencies = {
     "nvim-orgmode/orgmode",
     "onsails/lspkind.nvim",
     "SergioRibera/cmp-dotenv",
+    "staticWagomU/cmp-my-git-commit-prefix",
 }
 
 if use_ai_assistant then
@@ -38,6 +39,7 @@ local cmp_config_sources = {
     { name = "dotenv" },
     { name = "crates" },
     { name = "lazydev" },
+    { name = "my-commit-prefix" },
 }
 
 if use_ai_assistant then
