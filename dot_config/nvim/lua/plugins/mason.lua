@@ -63,6 +63,7 @@ local spec = {
             ["lua_ls"] = function()
                 lspconfig.lua_ls.setup(require("plugins.lsp.lua-ls"))
             end,
+            ["rust_analyzer"] = function() end,
         }
 
         local dap_handlers = {
