@@ -233,6 +233,31 @@ M.selectables = {
         name = "maron",
         colorscheme = "maron",
     },
+    --- vim-winteriscoming
+    {
+        name = "WinterIsComing dark",
+        colorscheme = "WinterIsComing-dark-color-theme",
+    },
+    {
+        name = "WinterIsComing dark-blue",
+        colorscheme = "WinterIsComing-dark-blue-color-theme",
+    },
+    {
+        name = "WinterIsComing light",
+        colorscheme = "WinterIsComing-light-color-theme",
+    },
+    {
+        name = "WinterIsComing dark no-italics",
+        colorscheme = "WinterIsComing-dark-color-no-italics-theme",
+    },
+    {
+        name = "WinterIsComing dark-blue no-italics",
+        colorscheme = "WinterIsComing-dark-blue-color-no-italics-theme",
+    },
+    {
+        name = "WinterIsComing light no-italics",
+        colorscheme = "WinterIsComing-light-color-no-italics-theme",
+    },
     --- lua_other_themes
     {
         name = "neon",
