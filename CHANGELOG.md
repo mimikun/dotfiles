@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.07.04]
+
+### Added - 新機能について
+
+- feat(nvim)!: conceal all special characters with 💩
+- feat(nvim)!: add new plugin: nvim-lsp-endhints
+- feat(nvim)!: add new plugin: rustaceanvim
+    - and disable rust_analyzer
+- feat(nvim)!: add new colorscheme: vim-winteriscoming
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(nvim)!: configuring schemastore.nvim
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.03]
 
 ### Added - 新機能について
