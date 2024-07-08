@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.07.08]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(aqua)!: bump version
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.04]
 
 ### Added - 新機能について
