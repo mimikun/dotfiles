@@ -29,7 +29,7 @@ packages:
 - name: editorconfig-checker/editorconfig-checker@v3.0.3
 - name: osteele/gojekyll@v0.2.10
 - name: golangci/golangci-lint@v1.59.1
-- name: tdewolff/minify@v2.20.36
+- name: tdewolff/minify@v2.20.37
 - name: sheepla/pingu@v0.0.5
 - name: stateful/runme@v3.4.0
 - name: bronze1man/yaml2json@v1.3
