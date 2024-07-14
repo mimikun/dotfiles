@@ -3,6 +3,8 @@ local spec = {
     -- TODO: setting
     -- https://github.com/folke/which-key.nvim/blob/main/README.md
     "folke/which-key.nvim",
+    -- FIX: WORKAROUND
+    version = "v2.*",
     --lazy = false,
     event = "VeryLazy",
     init = function()
