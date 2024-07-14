@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.07.14]
+
+### Added - 新機能について
+
+- feat(aqua)!: add mprocs
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update hx completion
+- chore(fish): update deno completion
+- WORKAROUND: v3 config is so difficult
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.08]
 
 ### Added - 新機能について
