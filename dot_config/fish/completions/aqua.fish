@@ -59,7 +59,7 @@ complete -c aqua -n '__fish_seen_subcommand_from exec' -f -l help -s h -d 'show 
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'exec' -d 'Execute tool'
 complete -c aqua -n '__fish_seen_subcommand_from list' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'list' -d 'List packages in Registries'
-complete -c aqua -n '__fish_seen_subcommand_from list' -f -l installed -d 'List installed packages'
+complete -c aqua -n '__fish_seen_subcommand_from list' -f -l installed -s i -d 'List installed packages'
 complete -c aqua -n '__fish_seen_subcommand_from list' -f -l all -s a -d 'List global configuration packages too'
 complete -c aqua -n '__fish_seen_subcommand_from generate-registry gr' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'generate-registry gr' -d 'Generate a registry\'s package configuration'
