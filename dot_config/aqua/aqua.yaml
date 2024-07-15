@@ -14,7 +14,7 @@ registries:
   path: ./registry.yaml
 packages:
 - name: bitwarden/clients@cli-v2024.6.1
-- name: twpayne/chezmoi@v2.50.0
+- name: twpayne/chezmoi@v2.51.0
 - name: direnv/direnv@v2.34.0
 - name: muesli/duf@v0.8.1
 - name: junegunn/fzf@v0.54.0
