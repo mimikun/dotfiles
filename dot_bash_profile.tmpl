@@ -3,7 +3,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 {{ if eq .chezmoi.hostname "TanakaPC" -}}
 # Linuxのとき
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # >>> JVM installed by coursier >>>
 export JAVA_HOME="$HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10"
