@@ -77,7 +77,7 @@ packages:
 - name: homeport/dyff@v1.8.0
 - name: guumaster/hostctl@v1.1.4
 - name: JFryy/qq@v0.1.6
-- name: dotenvx/dotenvx@v1.6.3
+- name: dotenvx/dotenvx@v1.6.4
 - name: pvolok/mprocs@v0.7.1
 - name: dev.yorhel.nl/ncdu
   version: '2.4'
