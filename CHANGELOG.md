@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.07.16]
+
+### Added - 新機能について
+
+- feat(nvim)!: add new plugin: reminders.nvim
+- feat(nvim)!: add new plugin: markdown-toggle.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(aqua): bump version
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update aqua completion
+
+### Removed - 今回で削除された機能について
+
+- chore(bash_profile): remove nix setup line
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.14]
 
 ### Added - 新機能について
