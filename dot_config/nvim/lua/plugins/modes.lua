@@ -24,7 +24,7 @@ local spec = {
         -- https://github.com/mvllow/modes.nvim/issues/50#issuecomment-2105522342
         vim.opt.guicursor:append("n-c:block-Cursor")
     end,
-    --cond = false,
+    cond = false,
 }
 
 return spec
