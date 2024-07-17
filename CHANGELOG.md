@@ -1,5 +1,42 @@
 # Changelog
 
+## [v2024.07.18]
+
+### Added - 新機能について
+
+- feat!: use commitizen
+- feat!: use commitizen globally
+- feat!: add pipx package manage cmds
+- feat(gup)!: add new tools
+    - nap, omm, cidr, dblab, goji
+- feat(cargo)!: add new tools
+    - eva, ducker, impala, parallel-disk-usage
+- feat(pip)!: add new tool: recoverpy
+- feat(aqua)!: add new tools
+    - sampler, lnav
+- feat(mimikun-pkglists)!: add pipx package list
+- feat(nvim)!: add new neovim plugin: greptile.nvim
+- feat(nvim)!: add new neovim plugin: asctris.nvim
+- feat(nvim)!: add new neovim plugin: lazysql.nvim
+- feat(nvim)!: add new neovim plugin: moody.nvim
+- docs(nvim): add comment in nvim-hlslens config
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore: update deps
+- chore(nvim): update lockfiles
+- chore(fish): update alacritty completion
+- chore(nvim): improved nvim-surround config
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): disable modes.nvim
+
+### Fixed - 不具合修正について
+
+- fix(nvim): nvim-tree-preview fixed!
+
 ## [v2024.07.16]
 
 ### Added - 新機能について
