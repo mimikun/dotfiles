@@ -79,6 +79,8 @@ packages:
 - name: JFryy/qq@v0.1.6
 - name: dotenvx/dotenvx@v1.6.4
 - name: pvolok/mprocs@v0.7.1
+- name: sqshq/sampler@v1.1.0
+- name: tstack/lnav@v0.12.2
 - name: dev.yorhel.nl/ncdu
   version: '2.4'
 # Use custom registry
