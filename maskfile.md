@@ -279,6 +279,7 @@ chezmoi add ~/.local/bin/chezmoi_pre_apply_hook
 chezmoi add ~/.local/bin/editorconfig
 chezmoi add ~/.local/bin/generate_cargo_package_list
 chezmoi add ~/.local/bin/generate_pip_package_list
+chezmoi add ~/.local/bin/generate_pipx_package_list
 chezmoi add ~/.local/bin/git-amend-commit
 chezmoi add ~/.local/bin/git-browse
 chezmoi add ~/.local/bin/git-hash
@@ -286,6 +287,7 @@ chezmoi add ~/.local/bin/git-ignore
 chezmoi add ~/.local/bin/install_cargo_packages
 chezmoi add ~/.local/bin/install_gh_extensions
 chezmoi add ~/.local/bin/install_pip_packages
+chezmoi add ~/.local/bin/install_pipx_packages
 chezmoi add ~/.local/bin/lk
 chezmoi add ~/.local/bin/numeronym
 chezmoi add ~/.local/bin/pcd
