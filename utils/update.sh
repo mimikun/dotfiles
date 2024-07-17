@@ -17,6 +17,7 @@ chezmoi add ~/.bob-version
 # mimikun package lists
 chezmoi add ~/.mimikun-pkglists/linux_cargo_packages.txt
 chezmoi add ~/.mimikun-pkglists/linux_pip_packages.txt
+chezmoi add ~/.mimikun-pkglists/linux_pipx_packages.txt
 chezmoi add ~/.mimikun-pkglists/linux_rubygem_list.txt
 chezmoi add ~/.mimikun-pkglists/gh_extension_list.txt
 
