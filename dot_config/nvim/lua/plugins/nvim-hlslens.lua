@@ -23,6 +23,10 @@ local spec = {
             return ":noh<CR>"
         end, { expr = true })
 
+        -- TODO: Fix noice.nvim warning
+        -- WARN: You added `S` to `vim.opt.shortmess`.
+        -- Search count messages will not be handled by Noice.
+        -- So no virtual text for search count.
         vim.opt.shortmess:append("S")
     end,
     --cond = false,
