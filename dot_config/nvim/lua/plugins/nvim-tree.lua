@@ -19,14 +19,11 @@ local cmds = {
     "NvimTreeHiTest",
 }
 
--- WORKAROUND: HEAD is broken
-local commit_id = "e968df027d86797556e9bf5f1d5ffca87045150d"
-
 ---@type LazySpec[]
 local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
-    { "b0o/nvim-tree-preview.lua", commit = commit_id },
+    "b0o/nvim-tree-preview.lua",
 }
 
 ---@type LazySpec
