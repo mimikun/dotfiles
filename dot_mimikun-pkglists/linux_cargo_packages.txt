@@ -32,8 +32,10 @@ desed
 diskonaut
 dua-cli
 du-dust
+ducker
 dutree
 erg
+eva
 eza
 fd-find
 felix
@@ -55,6 +57,7 @@ hwatch
 hyperfine
 hysp
 i3-style
+impala
 jnv
 just
 kbt
@@ -71,6 +74,7 @@ nu
 onefetch
 os_info_cli
 oxker
+parallel-disk-usage
 pastel
 pipr
 procs
