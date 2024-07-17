@@ -39,6 +39,7 @@ pyte
 python-slugify
 pytimeparse
 PyYAML
+recoverpy
 rich
 setuptools
 six
