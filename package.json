@@ -3,6 +3,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/types": "^19.0.3",
+    "cz-conventional-changelog-ja": "^0.0.2",
     "husky": "^9.0.11",
     "prettier": "3.3.3",
     "textlint": "^14.0.4",
@@ -12,6 +13,7 @@
     "textlint": "textlint --cache ./*.md",
     "lint:prettier": "prettier --check .",
     "fmt:prettier": "prettier --write .",
+    "commit": "cz",
     "prepare": "husky"
   }
 }

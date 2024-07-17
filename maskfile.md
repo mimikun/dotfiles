@@ -460,6 +460,17 @@ if ($gpg) {
 
 [System.Console]::OutputEncoding=$TempMyOutputEncode
 ```
+## commit
+
+> Run commit with commitizen
+
+```bash
+pnpm run commit
+```
+
+```powershell
+pnpm run commit
+```
 
 ## test
 

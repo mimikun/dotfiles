@@ -72,6 +72,11 @@ copy2win-patch-gpg :
 .PHONY : copy2win-patch
 copy2win-patch : copy2win-patch-raw
 
+## Run commit with commitizen
+.PHONY : commit
+commit :
+	pnpm run commit
+
 ## Run tests
 .PHONY : test
 test : lint
