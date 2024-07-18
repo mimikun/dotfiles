@@ -76,7 +76,7 @@ packages:
 - name: wader/fq@v0.12.0
 - name: homeport/dyff@v1.8.0
 - name: guumaster/hostctl@v1.1.4
-- name: JFryy/qq@v0.1.6
+- name: JFryy/qq@v0.2.0
 - name: dotenvx/dotenvx@v1.6.4
 - name: pvolok/mprocs@v0.7.1
 - name: sqshq/sampler@v1.1.0
