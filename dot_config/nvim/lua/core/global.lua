@@ -19,77 +19,74 @@ local human_rights = {
     media_type = "SSD",
 }
 
-function global:load_variables()
-    ---@type boolean
-    self.is_mac = os_name == "Darwin"
+---@type boolean
+global.is_mac = os_name == "Darwin"
 
-    ---@type boolean
-    self.is_linux = os_name == "Linux"
+---@type boolean
+global.is_linux = os_name == "Linux"
 
-    ---@type boolean
-    self.is_windows = os_name == "Windows_NT"
+---@type boolean
+global.is_windows = os_name == "Windows_NT"
 
-    ---@type boolean
-    self.is_wsl = vim.fn.has("wsl") == 1
+---@type boolean
+global.is_wsl = vim.fn.has("wsl") == 1
 
-    ---@type boolean
-    self.is_unix = vim.fn.has("unix") == 1
+---@type boolean
+global.is_unix = vim.fn.has("unix") == 1
 
-    -- TODO: Replace mimikun/human_rights.nvim
-    local is_human_rights
-    if self.is_windows then
-        is_human_rights = total_memory > human_rights.memory.windows
-    else
-        is_human_rights = total_memory > human_rights.memory.linux
-    end
-
-    ---@type boolean
-    self.is_human_rights = is_human_rights
-
-    ---@type string|nil
-    self.app_name = vim.env.NVIM_APPNAME and vim.env.NVIM_APPNAME or "nvim"
-
-    ---@type string
-    self.vim_path = vim.fn.stdpath("config")
-
-    -- NOTE:
-    -- Windows: "\"
-    -- Linux: "/"
-    ---@type string
-    local path_sep_char = string.sub(package.config, 1, 1)
-
-    -- NOTE: self.path_sep = self.is_windows and "\\" or "/"
-    ---@type string
-    self.path_sep = self.is_windows and string.rep(path_sep_char, 2) or path_sep_char
-
-    ---@type string
-    self.home = vim.uv.os_homedir()
-
-    ---@type string
-    self.cache_dir = vim.fn.stdpath("cache")
-
-    ---@type string
-    self.plugins_dir = table.concat({ self.vim_path, "plugins" }, self.path_sep)
-
-    ---@type string
-    self.snippets_dir = table.concat({ self.vim_path, "snippets" }, self.path_sep)
-
-    ---@type string
-    self.data_dir = string.format("%s/site", vim.fn.stdpath("data"))
-
-    ---@type string
-    self.themery_config = table.concat({ vim.fs.normalize(self.vim_path), "lua", "core", "themery.lua" }, self.path_sep)
-
-    ---@type string
-    self.friendly_snippets = table.concat({ self.data_dir, "lazy", "friendly-snippets" }, self.path_sep)
-
-    ---@type string
-    self.mason_lockfile = table.concat({ self.vim_path, "mason-lock.json" }, self.path_sep)
-
-    ---@type string
-    self.parser_install_dir = table.concat({ vim.fn.stdpath("data"), "parser" }, self.path_sep)
+-- TODO: Replace mimikun/human_rights.nvim
+local is_human_rights
+if global.is_windows then
+    is_human_rights = total_memory > human_rights.memory.windows
+else
+    is_human_rights = total_memory > human_rights.memory.linux
 end
 
-global:load_variables()
+---@type boolean
+global.is_human_rights = is_human_rights
+
+---@type string|nil
+global.app_name = vim.env.NVIM_APPNAME and vim.env.NVIM_APPNAME or "nvim"
+
+---@type string
+global.vim_path = vim.fn.stdpath("config")
+
+-- NOTE:
+-- Windows: "\"
+-- Linux: "/"
+---@type string
+local path_sep_char = string.sub(package.config, 1, 1)
+
+-- NOTE: global.path_sep = global.is_windows and "\\" or "/"
+---@type string
+global.path_sep = global.is_windows and string.rep(path_sep_char, 2) or path_sep_char
+
+---@type string
+global.home = vim.uv.os_homedir()
+
+---@type string
+global.cache_dir = vim.fn.stdpath("cache")
+
+---@type string
+global.plugins_dir = table.concat({ global.vim_path, "plugins" }, global.path_sep)
+
+---@type string
+global.snippets_dir = table.concat({ global.vim_path, "snippets" }, global.path_sep)
+
+---@type string
+global.data_dir = string.format("%s/site", vim.fn.stdpath("data"))
+
+---@type string
+global.themery_config =
+    table.concat({ vim.fs.normalize(global.vim_path), "lua", "core", "themery.lua" }, global.path_sep)
+
+---@type string
+global.friendly_snippets = table.concat({ global.data_dir, "lazy", "friendly-snippets" }, global.path_sep)
+
+---@type string
+global.mason_lockfile = table.concat({ global.vim_path, "mason-lock.json" }, global.path_sep)
+
+---@type string
+global.parser_install_dir = table.concat({ vim.fn.stdpath("data"), "parser" }, global.path_sep)
 
 return global

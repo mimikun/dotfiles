@@ -1,24 +1,12 @@
-local load_core = function()
-    -- options を読み込む
-    require("core.options")
+require("core.options")
+require("keymaps")
+require("core.lazyvim")
+require("core.autocmds")
+require("core.usercmds")
+require("core.neovide")
 
-    -- keymaps を読み込む
-    require("keymaps")
-
-    -- plugin を読み込む
-    require("core.lazyvim")
-
-    -- autocmd を読み込む
-    require("core.autocmds")
-
-    -- neovide を読み込む
-    require("core.neovide")
-
-    -- Set colorscheme
-    if require("core.settings").use_theme_switcher == "themery" then
-        -- themery
-        require("core.themery")
-    end
+-- Set colorscheme
+if require("core.settings").use_theme_switcher == "themery" then
+    -- themery
+    require("core.themery")
 end
-
-load_core()
