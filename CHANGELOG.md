@@ -4,6 +4,32 @@
 
 ### Added - 新機能について
 
+- feat(gup)!: add new tool: lazysql
+- feat(nvim)!: add new banner
+- feat(nvim)!: add new neovim plugin: telescope-completion.nvim
+- feat(nvim)!: add new neovim plugin: telescope-treesitter-info.nvim
+
+### Changed - 既存機能の変更について
+
+- chore: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(nvim): update lockfiles
+- feat(nvim): update lazy.nvim config
+- perf(nvim): improved startup speed
+- refactor(nvim): extract usercmds to a separate file
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove utils/func.lua
+
+### Fixed - 不具合修正について
+
+なし
+
+## [v2024.07.17]
+
+### Added - 新機能について
+
 - feat!: use commitizen
 - feat!: use commitizen globally
 - feat!: add pipx package manage cmds
