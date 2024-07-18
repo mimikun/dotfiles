@@ -34,6 +34,7 @@ local dependencies = {
     "debugloop/telescope-undo.nvim",
     "epwalsh/pomo.nvim",
     "GianniBYoung/chezmoi-telescope.nvim",
+    "roycrippen4/telescope-treesitter-info.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -116,6 +117,7 @@ local spec = {
         telescope.load_extension("undo")
         telescope.load_extension("pomodori")
         telescope.load_extension("chezmoi")
+        telescope.load_extension("treesitter_info")
     end,
     --cond = false,
 }
