@@ -3,6 +3,7 @@ local global = require("global")
 local keybinds = require("keybinds")
 local mousebinds = require("mousebinds")
 local kabegami = require("kabegami")
+local lm = require("launchmenu")
 
 local M = {}
 
@@ -67,51 +68,15 @@ M.initial_rows = 30
 M.initial_cols = 120
 M.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
+-- launch menu
 if not is_azusa then
-    local wsl_domain = is_human_rights and "WSL:Ubuntu" or "WSL:Ubuntu-20.04"
-
     if is_human_rights then
-        M.default_domain = wsl_domain
+        M.default_domain = lm.wsl_domain
     else
         M.default_prog = { "pwsh.exe" }
     end
 
-    M.launch_menu = {
-        {
-            label = "WSL Ubuntu",
-            domain = {
-                DomainName = wsl_domain,
-            },
-        },
-        {
-            label = "Windows PowerShell v5",
-            domain = {
-                DomainName = "local",
-            },
-            args = { "powershell.exe" },
-        },
-        {
-            label = "Windows PowerShell v7",
-            domain = {
-                DomainName = "local",
-            },
-            args = { "pwsh.exe" },
-        },
-        {
-            label = "Windows cmd.exe",
-            domain = {
-                DomainName = "local",
-            },
-            args = { "cmd.exe" },
-        },
-        {
-            label = "nyagos - Nihongo Yet Another GOing Shell",
-            domain = {
-                DomainName = "local",
-            },
-            args = { "nyagos.exe" },
-        },
-    }
+    M.launch_menu = lm.launch_menu
 end
 
 -- icons
