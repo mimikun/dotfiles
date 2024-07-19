@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2024.07.19]
+
+### Added - 新機能について
+
+- feat(nvim): add new newovim plugin: lexima.vim
+- feat(nvim): add new newovim plugin: hardtime.nvim
+- feat(nvim): add new newovim plugin: harpoon.lua
+- feat(nvim): add new newovim plugin: grapple.nvim
+    - and add telescope extension
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(nvim): update dmacro.nvim config
+- chore(nvim): disabled plugin: rustaceanvim
+    - use rust-analyzer from now on
+    - BREAKING CHANGE: This plugin is TOO DIFFICULT to configure for me
+- refactor(wezterm): extract launch_menu config to a separate file
+- refactor(wezterm): update some files
+
+### Removed - 今回で削除された機能について
+
+- chore(wezterm): remove icon-print function
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.18]
 
 ### Added - 新機能について
