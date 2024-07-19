@@ -36,6 +36,7 @@ local dependencies = {
     "GianniBYoung/chezmoi-telescope.nvim",
     "roycrippen4/telescope-treesitter-info.nvim",
     "illia-shkroba/telescope-completion.nvim",
+    --"cbochs/grapple.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
@@ -120,6 +121,7 @@ local spec = {
         telescope.load_extension("chezmoi")
         telescope.load_extension("treesitter_info")
         telescope.load_extension("completion")
+        --telescope.load_extension("grapple")
     end,
     --cond = false,
 }
