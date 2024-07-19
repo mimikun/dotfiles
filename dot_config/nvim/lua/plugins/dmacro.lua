@@ -14,6 +14,7 @@ local spec = {
     --lazy = false,
     keys = keys,
     opts = opts,
+    --cond = false,
 }
 
 return spec
