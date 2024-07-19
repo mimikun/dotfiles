@@ -11,6 +11,7 @@ local specs = {
     { import = "plugins.vimscript.migemo-search-vim" },
     { import = "plugins.vimscript.kdl" },
     { import = "plugins.vimscript.ron" },
+    { import = "plugins.vimscript.lexima-vim" },
 }
 
 return specs
