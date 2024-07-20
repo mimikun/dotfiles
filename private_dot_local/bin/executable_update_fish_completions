@@ -114,8 +114,9 @@ if command_exist rg; then
   pueue add -- "rg --generate complete-fish > '${COMPLETIONS_DIR}'/rg.fish"
 fi
 
-if command_exist hx; then
+if command_exist hx | command_exist helix; then
   pueue add -- "curl -L https://raw.githubusercontent.com/helix-editor/helix/master/contrib/completion/hx.fish -o '${COMPLETIONS_DIR}'/hx.fish"
+  pueue add -- "curl -L https://raw.githubusercontent.com/helix-editor/helix/master/contrib/completion/hx.fish -o '${COMPLETIONS_DIR}'/helix.fish"
 fi
 
 if command_exist alacritty; then
