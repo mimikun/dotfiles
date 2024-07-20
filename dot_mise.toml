@@ -1,7 +1,7 @@
 [tools]
 dotnet-core = "latest"
-lua = "5.1"
-luajit = "latest"
+lua = "5.1.5"
+luajit = "2.0.5--2.4.4"
 tig = "latest"
 vim = "latest"
 ruby = "latest"
