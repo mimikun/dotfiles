@@ -1,7 +1,7 @@
 [tools]
 dotnet-core = "latest"
 lua = [
-    "5.1.5",
+    "5.1",
     # latest = 5.4.6
     "latest",
 ]

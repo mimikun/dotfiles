@@ -1,6 +1,6 @@
 [tools]
 dotnet-core = "latest"
-lua = "5.1.5"
+lua = "5.1"
 luajit = "latest"
 tig = "latest"
 vim = "latest"
