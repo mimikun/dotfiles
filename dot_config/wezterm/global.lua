@@ -31,6 +31,6 @@ global.config_dir = wezterm.config_dir
 global.config_file = wezterm.config_file
 global.version = wezterm.version
 global.exec_dir = wezterm.executable_dir
-global.path_sep = self.is_windows and "\\" or "/"
+global.path_sep = global.is_windows and "\\" or "/"
 
 return global
