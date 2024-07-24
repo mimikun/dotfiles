@@ -36,6 +36,7 @@ local dependencies = {
     "GianniBYoung/chezmoi-telescope.nvim",
     "roycrippen4/telescope-treesitter-info.nvim",
     "illia-shkroba/telescope-completion.nvim",
+    "cljoly/telescope-repo.nvim",
     --"cbochs/grapple.nvim",
 }
 
@@ -121,6 +122,7 @@ local spec = {
         telescope.load_extension("chezmoi")
         telescope.load_extension("treesitter_info")
         telescope.load_extension("completion")
+        telescope.load_extension("repo")
         --telescope.load_extension("grapple")
     end,
     --cond = false,
