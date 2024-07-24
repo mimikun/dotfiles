@@ -440,6 +440,7 @@ complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from tree" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from tree" -l no-dedupe -d 'Do not de-duplicate repeated dependencies. Usually, when a package has already displayed its dependencies, further occurrences will not re-display its dependencies, and will include a (*) to indicate it has already been shown. This flag will cause those duplicates to be repeated'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from tree" -l invert -d 'Show the reverse dependencies for the given package. This flag will invert the tree and display the packages that depend on the given package'
+complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from tree" -l show-version-specifiers -d 'Show the version constraint(s) imposed on each package'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from tree" -l strict -d 'Validate the Python environment, to detect packages with missing dependencies and other issues'
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from tree" -l no-strict
 complete -c uv -n "__fish_seen_subcommand_from pip; and __fish_seen_subcommand_from tree" -l system -d 'List packages for the system Python'
@@ -904,6 +905,7 @@ complete -c uv -n "__fish_seen_subcommand_from python; and __fish_seen_subcomman
 complete -c uv -n "__fish_seen_subcommand_from python; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Print help'
 complete -c uv -n "__fish_seen_subcommand_from python; and __fish_seen_subcommand_from uninstall" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_seen_subcommand_from init" -l name -d 'The name of the project, defaults to the name of the directory' -r
+complete -c uv -n "__fish_seen_subcommand_from init" -s p -l python -d 'The Python interpreter to use to determine the minimum supported Python version.' -r
 complete -c uv -n "__fish_seen_subcommand_from init" -l color -d 'Control colors in output' -r -f -a "{auto	'Enables colored output only when the output is going to a terminal or TTY with support',always	'Enables colored output regardless of the detected environment',never	'Disables colored output'}"
 complete -c uv -n "__fish_seen_subcommand_from init" -l python-preference -d 'Whether to prefer using Python installations that are already present on the system, or those that are downloaded and installed by uv' -r -f -a "{only-managed	'Only use managed Python installations; never use system Python installations',installed	'Prefer installed Python installations, only download managed Python installations if no system Python installation is found',managed	'Prefer managed Python installations over system Python installations, even if fetching is required',system	'Prefer system Python installations over managed Python installations',only-system	'Only use system Python installations; never use managed Python installations'}"
 complete -c uv -n "__fish_seen_subcommand_from init" -l python-fetch -d 'Whether to automatically download Python when required' -r -f -a "{automatic	'Automatically fetch managed Python installations when needed',manual	'Do not automatically fetch managed Python installations; require explicit installation'}"
@@ -927,6 +929,7 @@ complete -c uv -n "__fish_seen_subcommand_from init" -s h -l help -d 'Print help
 complete -c uv -n "__fish_seen_subcommand_from init" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_seen_subcommand_from run" -l extra -d 'Include optional dependencies from the extra group name; may be provided more than once' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -l with -d 'Run with the given packages installed' -r
+complete -c uv -n "__fish_seen_subcommand_from run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_seen_subcommand_from run" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
@@ -1090,7 +1093,6 @@ complete -c uv -n "__fish_seen_subcommand_from lock" -s n -l no-cache -d 'Avoid 
 complete -c uv -n "__fish_seen_subcommand_from lock" -s h -l help -d 'Print help'
 complete -c uv -n "__fish_seen_subcommand_from lock" -s V -l version -d 'Print version'
 complete -c uv -n "__fish_seen_subcommand_from add" -l optional -d 'Add the requirements to the specified optional dependency group' -r
-complete -c uv -n "__fish_seen_subcommand_from add" -l editable -d 'Add the requirements as editables' -r -f -a "{true	'',false	''}"
 complete -c uv -n "__fish_seen_subcommand_from add" -l rev -d 'Specific commit to use when adding from Git' -r
 complete -c uv -n "__fish_seen_subcommand_from add" -l tag -d 'Tag to use when adding from git' -r
 complete -c uv -n "__fish_seen_subcommand_from add" -l branch -d 'Branch to use when adding from git' -r
@@ -1118,6 +1120,8 @@ complete -c uv -n "__fish_seen_subcommand_from add" -l python-fetch -d 'Whether 
 complete -c uv -n "__fish_seen_subcommand_from add" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_seen_subcommand_from add" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from add" -l dev -d 'Add the requirements as development dependencies'
+complete -c uv -n "__fish_seen_subcommand_from add" -l editable
+complete -c uv -n "__fish_seen_subcommand_from add" -l no-editable -d 'Don\'t add the requirements as editables'
 complete -c uv -n "__fish_seen_subcommand_from add" -l raw-sources -d 'Add source requirements to the `project.dependencies` section of the `pyproject.toml`'
 complete -c uv -n "__fish_seen_subcommand_from add" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_seen_subcommand_from add" -l frozen -d 'Add the requirements without updating the `uv.lock` file'
@@ -1229,6 +1233,7 @@ complete -c uv -n "__fish_seen_subcommand_from tree" -l cache-dir -d 'Path to th
 complete -c uv -n "__fish_seen_subcommand_from tree" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_seen_subcommand_from tree" -l no-dedupe -d 'Do not de-duplicate repeated dependencies. Usually, when a package has already displayed its dependencies, further occurrences will not re-display its dependencies, and will include a (*) to indicate it has already been shown. This flag will cause those duplicates to be repeated'
 complete -c uv -n "__fish_seen_subcommand_from tree" -l invert -d 'Show the reverse dependencies for the given package. This flag will invert the tree and display the packages that depend on the given package'
+complete -c uv -n "__fish_seen_subcommand_from tree" -l show-version-specifiers -d 'Show the version constraint(s) imposed on each package'
 complete -c uv -n "__fish_seen_subcommand_from tree" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_seen_subcommand_from tree" -l frozen -d 'Display the requirements without updating the `uv.lock` file'
 complete -c uv -n "__fish_seen_subcommand_from tree" -l no-build -d 'Don\'t build source distributions'
