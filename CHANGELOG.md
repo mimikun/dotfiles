@@ -1,5 +1,54 @@
 # Changelog
 
+## [v2024.07.24]
+
+### Added - 新機能について
+
+- feat(nvim): add new plugin: pineapple
+- feat(nvim): add new plugin: markview.nvim
+- feat(nvim): add new plugin: neominimap.nvim
+- feat(nvim): add new plugin: num-utils.nvim
+- feat(nvim): add new plugin: buffer-reopen.nvim
+- feat(nvim): add new plugin: nvim-dap-virtual-text
+- feat(nvim): add new plugin: nvim-dap-ui
+- feat(nvim): add new plugin: live-share.nvim
+- feat(nvim): add new plugin: instant.nvim
+- feat(nvim): add new plugin: vim-illuminate
+- feat(nvim): add new plugin: statuscol.nvim
+- feat(nvim): add new plugin: telescope-repo.nvim
+- feat(nvim): add new plugin: sections-dap
+    - sidebar.nvim extension
+- feat(nvim): add new colorscheme: flow.nvim
+- feat(nvim): add new cmp source: cmp-dap
+- feat(nvim): add new dap adapter: python
+- feat(fish): add helix completion
+- feat(aqua): add some commands
+    - task, mage
+- docs(commentary): add my neovim pluginlists
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(localbin): update update_fish_completions command
+- chore(mise): use lua 5.1
+    - BREAKING CHANGE: change lua version
+- fix(nvim-rocks): failed setup rocks.nvim
+    - use lua5.1.5 and luajit2.0.5--2.4.4
+- chore(fish): update uv completion
+- chore(fish): update rbw completion
+- chore(fish): update deno completion
+
+### Removed - 今回で削除された機能について
+
+- Revert "chore(aqua): bump version"
+    - This reverts commit a3f1a449803606f8ff0bf4f888808f6b8f691f93.
+
+### Fixed - 不具合修正について
+
+- fix(wezterm): code error in global.lua
+- style(nvim): formatted sidebar.nvim config
+
 ## [v2024.07.19]
 
 ### Added - 新機能について
