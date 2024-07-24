@@ -46,8 +46,7 @@ local spec = {
                     icon = "🔍",
                 },
             },
-        }
-)
+        })
     end,
     --cond = false,
 }
