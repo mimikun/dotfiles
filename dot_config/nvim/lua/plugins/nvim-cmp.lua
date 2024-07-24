@@ -14,6 +14,7 @@ local dependencies = {
     "onsails/lspkind.nvim",
     "SergioRibera/cmp-dotenv",
     "staticWagomU/cmp-my-git-commit-prefix",
+    "rcarriga/cmp-dap",
 }
 
 if use_ai_assistant then
@@ -114,6 +115,9 @@ local spec = {
                     symbol_map = { Copilot = "" },
                 }),
             },
+            enabled = function()
+                return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+            end,
         })
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
@@ -132,6 +136,11 @@ local spec = {
                     },
                 },
             }),
+        })
+        cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+            sources = {
+                { name = "dap" },
+            },
         })
     end,
     --cond = false,
