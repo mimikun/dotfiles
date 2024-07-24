@@ -347,6 +347,10 @@ M.selectables = {
         name = "fluoromachine",
         colorscheme = "fluoromachine",
     },
+    {
+        name = "flow",
+        colorscheme = "flow",
+    },
     --- vimscript_themes
     {
         name = "sonokai",
