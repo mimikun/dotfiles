@@ -1,0 +1,448 @@
+---@type table
+local dependencies = {
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio",
+}
+
+---@type LazySpec
+local spec = {
+    "rcarriga/nvim-dap-ui",
+    lazy = false,
+    dependencies = dependencies,
+    opts = {},
+    --cond = false,
+}
+
+return spec
+--[[
+nvim-dap-ui                                                        *nvim-dap-ui*
+
+  Setup........................................................|dapui.setup()|
+  Configuration Options.........................................|dapui.config|
+  Variable Scopes......................................|dapui.elements.scopes|
+  Threads and Stack Frames.............................|dapui.elements.stacks|
+  REPL...................................................|dapui.elements.repl|
+  Watch Expressions...................................|dapui.elements.watches|
+  Breakpoints.....................................|dapui.elements.breakpoints|
+  Console.............................................|dapui.elements.console|
+
+A UI for nvim-dap which provides a good out of the box configuration.
+nvim-dap-ui is built on the idea of "elements". These elements are windows
+which provide different features.
+Elements are grouped into layouts which can be placed on any side of the
+screen. There can be any number of layouts, containing whichever elements
+desired.
+
+Elements can also be displayed temporarily in a floating window.
+
+See `:h dapui.setup()` for configuration options and defaults
+
+It is highly recommended to use neodev.nvim to enable type checking for
+nvim-dap-ui to get type checking, documentation and autocompletion for
+all API functions.
+
+>lua
+  require("neodev").setup({
+    library = { plugins = { "nvim-dap-ui" }, types = true },
+    ...
+  })
+<
+
+The default icons use codicons(https://github.com/microsoft/vscode-codicons).
+It's recommended to use this fork(https://github.com/ChristianChiarulli/neovim-codicons)
+which fixes alignment issues for the terminal. If your terminal doesn't
+support font fallback and you need to have icons included in your font,
+you can patch it via Font Patcher(https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font).
+There is a simple step by step guide here: https://github.com/mortepau/codicons.nvim#how-to-patch-fonts.
+
+                                                                 *dapui.setup()*
+`setup`({user_config})
+
+
+Configure nvim-dap-ui
+See also ~
+|dapui.Config|
+
+Default values:
+>lua
+  {
+    controls = {
+      element = "repl",
+      enabled = true,
+      icons = {
+        disconnect = "",
+        pause = "",
+        play = "",
+        run_last = "",
+        step_back = "",
+        step_into = "",
+        step_out = "",
+        step_over = "",
+        terminate = ""
+      }
+    },
+    element_mappings = {},
+    expand_lines = true,
+    floating = {
+      border = "single",
+      mappings = {
+        close = { "q", "<Esc>" }
+      }
+    },
+    force_buffers = true,
+    icons = {
+      collapsed = "",
+      current_frame = "",
+      expanded = ""
+    },
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.25
+          }, {
+            id = "breakpoints",
+            size = 0.25
+          }, {
+            id = "stacks",
+            size = 0.25
+          }, {
+            id = "watches",
+            size = 0.25
+          } },
+        position = "left",
+        size = 40
+      }, {
+        elements = { {
+            id = "repl",
+            size = 0.5
+          }, {
+            id = "console",
+            size = 0.5
+          } },
+        position = "bottom",
+        size = 10
+      } },
+    mappings = {
+      edit = "e",
+      expand = { "<CR>", "<2-LeftMouse>" },
+      open = "o",
+      remove = "d",
+      repl = "r",
+      toggle = "t"
+    },
+    render = {
+      indent = 1,
+      max_value_lines = 100
+    }
+  }
+<
+Parameters~
+{user_config?} `(dapui.Config)`
+
+Type ~
+`(table<string, dapui.Element>)`
+
+Type ~
+dapui.Element
+
+                                                        *dapui.FloatElementArgs*
+Fields~
+{width} `(integer)` Fixed width of window
+{height} `(integer)` Fixed height of window
+{enter} `(boolean)` Whether or not to enter the window after opening
+{title} `(string)` Title of window
+
+                                                         *dapui.float_element()*
+`float_element`({elem_name}, {args})
+
+Open a floating window containing the desired element.
+
+If no fixed dimensions are given, the window will expand to fit the contents
+of the buffer.
+Parameters~
+{elem_name} `(string)`
+{args?} `(dapui.FloatElementArgs)`
+
+                                                                *dapui.EvalArgs*
+Fields~
+{context} `(string)` Context to use for evalutate request, defaults to
+"hover". Hover requests should have no side effects, if you have errors
+with evaluation, try changing context to "repl". See the DAP specification
+for more details.
+{width} `(integer)` Fixed width of window
+{height} `(integer)` Fixed height of window
+{enter} `(boolean)` Whether or not to enter the window after opening
+
+                                                                  *dapui.eval()*
+`eval`({expr}, {args})
+
+Open a floating window containing the result of evaluting an expression
+
+If no fixed dimensions are given, the window will expand to fit the contents
+of the buffer.
+Parameters~
+{expr?} `(string)` Expression to evaluate. If nil, then in normal more the
+current word is used, and in visual mode the currently highlighted text.
+{args?} `(dapui.EvalArgs)`
+
+                                                         *dapui.update_render()*
+`update_render`({update})
+
+Update the config.render settings and re-render windows
+Parameters~
+{update} `(dapui.Config.render)` Updated settings, from the `render` table of
+the config
+
+                                                               *dapui.CloseArgs*
+Fields~
+{layout?} `(number)` Index of layout in config
+
+                                                                 *dapui.close()*
+`close`({args})
+
+Close one or all of the window layouts
+Parameters~
+{args?} `(dapui.CloseArgs)`
+
+                                                                *dapui.OpenArgs*
+Fields~
+{layout?} `(number)` Index of layout in config
+{reset?} `(boolean)` Reset windows to original size
+
+                                                                  *dapui.open()*
+`open`({args})
+
+Open one or all of the window layouts
+Parameters~
+{args?} `(dapui.OpenArgs)`
+
+                                                              *dapui.ToggleArgs*
+Fields~
+{layout?} `(number)` Index of layout in config
+{reset?} `(boolean)` Reset windows to original size
+
+                                                                *dapui.toggle()*
+`toggle`({args})
+
+Toggle one or all of the window layouts.
+Parameters~
+{args?} `(dapui.ToggleArgs)`
+
+dapui.elements                                                  *dapui.elements*
+
+
+Access the elements currently registered. See elements corresponding help
+tag for API information.
+
+Fields~
+{hover} `(dapui.elements.hover)`
+{breakpoints} `(dapui.elements.breakpoints)`
+{repl} `(dapui.elements.repl)`
+{scopes} `(dapui.elements.scopes)`
+{stack} `(dapui.elements.stacks)`
+{watches} `(dapui.elements.watches)`
+{console} `(dapui.elements.console)`
+
+                                                                 *dapui.Element*
+Fields~
+{render} `(fun())` Triggers the element to refresh its buffer. Used when
+render settings have changed
+{buffer} `(fun(): integer)` Gets the current buffer for the element. The
+buffer can change over repeated calls
+{float_defaults?} `(fun(): dapui.FloatElementArgs)` Default settings for
+floating windows. Useful for element windows which should be larger than
+their content
+
+                                                      *dapui.register_element()*
+`register_element`({name}, {element})
+
+Registers a new element that can be used within layouts or floating windows
+Parameters~
+{name} `(string)` Name of the element
+{element} `(dapui.Element)`
+
+
+==============================================================================
+dapui.config                                                      *dapui.config*
+
+                                                                  *dapui.Config*
+Fields~
+{icons} `(dapui.Config.icons)`
+{mappings} `(table<dapui.Action, string|string[]>)` Keys to trigger actions in elements
+{element_mappings} `(table<string, table<dapui.Action, string|string[]>>)` Per-element overrides of global mappings
+{expand_lines} `(boolean)` Expand current line to hover window if larger
+than window size
+{force_buffers} `(boolean)` Prevents other buffers being loaded into
+nvim-dap-ui windows
+{layouts} `(dapui.Config.layout[])` Layouts to display elements within.
+Layouts are opened in the order defined
+{floating} `(dapui.Config.floating)` Floating window specific options
+{controls} `(dapui.Config.controls)` Controls configuration
+{render} `(dapui.Config.render)` Rendering options which can be updated
+after initial setup
+{select_window?} `(fun(): integer)` A function which returns a window to be
+used for opening buffers such as a stack frame location.
+
+                                                            *dapui.Config.icons*
+Fields~
+{expanded} `(string)`
+{collapsed} `(string)`
+{current_frame} `(string)`
+
+                                                           *dapui.Config.layout*
+Fields~
+{elements} `(string[]|dapui.Config.layout.element[])` Elements to display
+in this layout
+{size} `(number)` Size of the layout in lines/columns
+{position} `("left"|"right"|"top"|"bottom")` Which side of editor to open
+layout on
+
+                                                   *dapui.Config.layout.element*
+Fields~
+{id} `(string)` Element ID
+{size} `(number)` Size of the element in lines/columns or as proportion of
+total editor size (0-1)
+
+                                                         *dapui.Config.floating*
+Fields~
+{max_height?} `(number)` Maximum height of floating window (integer or float
+between 0 and 1)
+{max_width?} `(number)` Maximum width of floating window (integer or float
+between 0 and 1)
+{border} `(string|string[])` Border argument supplied to `nvim_open_win`
+{mappings} `(table<dapui.FloatingAction, string|string[]>)` Keys to trigger
+actions in elements
+
+                                                         *dapui.Config.controls*
+Fields~
+{enabled} `(boolean)` Show controls on an element (requires winbar feature)
+{element} `(string)` Element to show controls on
+{icons} `(dapui.Config.controls.icons)`
+
+                                                   *dapui.Config.controls.icons*
+Fields~
+{pause} `(string)`
+{play} `(string)`
+{step_into} `(string)`
+{step_over} `(string)`
+{step_out} `(string)`
+{step_back} `(string)`
+{run_last} `(string)`
+{terminate} `(string)`
+
+                                                           *dapui.Config.render*
+Fields~
+{indent} `(integer)` Default indentation size
+{max_type_length?} `(integer)` Maximum number of characters to allow a type
+name to fill before trimming
+{max_value_lines?} `(integer)` Maximum number of lines to allow a value to
+fill before trimming
+{sort_variables?} `(fun(a: dapui.types.Variable, b: dapui.types.Variable):boolean)` Sorting function to determine
+render order of variables.
+
+                                                                  *dapui.Action*
+Alias~
+`dapui.Action` → `"expand"|"open"|"remove"|"edit"|"repl"|"toggle"`
+
+                                                          *dapui.FloatingAction*
+Alias~
+`dapui.FloatingAction` → `"close"`
+
+
+==============================================================================
+dapui.elements.scopes                                    *dapui.elements.scopes*
+
+Displays the available scopes and variables within them.
+
+Mappings:
+- `edit`: Edit the value of a variable
+- `expand`: Toggle showing any children of variable.
+- `repl`: Send variable to REPL
+
+
+==============================================================================
+dapui.elements.stacks                                    *dapui.elements.stacks*
+
+Displays the running threads and their stack frames.
+
+Mappings:
+- `open`: Jump to a place within the stack frame.
+- `toggle`: Toggle displaying subtle frames
+
+
+==============================================================================
+dapui.elements.repl                                        *dapui.elements.repl*
+
+The REPL provided by nvim-dap.
+
+
+==============================================================================
+dapui.elements.watches                                  *dapui.elements.watches*
+
+Allows creation of expressions to watch the value of in the context of the
+current frame.
+This uses a prompt buffer for input. To enter a new expression, just enter
+insert mode and you will see a prompt appear. Press enter to submit
+
+Mappings:
+
+- `expand`: Toggle showing the children of an expression.
+- `remove`: Remove the watched expression.
+- `edit`: Edit an expression or set the value of a child variable.
+- `repl`: Send expression to REPL
+
+                                                  *dapui.elements.watches.add()*
+`add`({expr})
+
+Add a new watch expression
+Parameters~
+{expr?} `(string)`
+
+                                                 *dapui.elements.watches.edit()*
+`edit`({index}, {new_expr})
+
+Change the chosen watch expression
+Parameters~
+{index} `(integer)`
+{new_expr} `(string)`
+
+                                               *dapui.elements.watches.remove()*
+`remove`({index})
+
+Remove the chosen watch expression
+
+                                                  *dapui.elements.watches.get()*
+`get`()
+
+Get the current list of watched expressions
+Return~
+`(dapui.elements.watches.Watch[])`
+
+                                                  *dapui.elements.watches.Watch*
+Fields~
+{expression} `(string)`
+{expanded} `(boolean)`
+
+                                        *dapui.elements.watches.toggle_expand()*
+`toggle_expand`({index})
+
+Toggle the expanded state of the chosen watch expression
+Parameters~
+{index} `(integer)`
+
+
+==============================================================================
+dapui.elements.breakpoints                          *dapui.elements.breakpoints*
+
+Lists all breakpoints currently set.
+
+Mappings:
+- `open`: Jump to the location the breakpoint is set
+- `toggle`: Enable/disable the selected breakpoint
+
+
+==============================================================================
+dapui.elements.console                                  *dapui.elements.console*
+
+The console window used by nvim-dap for the integrated terminal.
+]]
