@@ -3,6 +3,7 @@ aichat
 bandwhich
 bat
 bingrep
+bluetui
 bob-nvim
 bottom
 broot
@@ -28,12 +29,14 @@ colorgen-nvim
 create-tauri-app
 csview
 csvlens
+cyme
 desed
 diskonaut
 dua-cli
 du-dust
 ducker
 dutree
+erdtree
 erg
 eva
 eza
@@ -84,6 +87,7 @@ pylyzer
 qrtool
 rana
 rbw
+rioterm
 ripgrep
 ripgrep_all
 rrc
