@@ -83,6 +83,7 @@ packages:
 - name: tstack/lnav@v0.12.2
 - name: go-task/task@v3.38.0
 - name: magefile/mage@v1.15.0
+- name: boyter/scc@v3.3.5
 - name: dev.yorhel.nl/ncdu
   version: '2.4'
 # Use custom registry
