@@ -23,6 +23,10 @@ strat = "strat"
 extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
   "dot_config/nvim/lua/plugins/telescope-ext/media.lua",
+  # NOTE: DO NOT expect an upstream fix
+  # NOTE: PR done: https://github.com/rcarriga/nvim-dap-ui/pull/379
+  "dot_config/nvim/lua/plugins/nvim-dap-ui.lua",
+  # NOTE: DO NOT expect an upstream fix
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
   # NOTE: Game settings
