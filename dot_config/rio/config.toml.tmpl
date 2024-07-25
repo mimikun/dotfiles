@@ -1,0 +1,126 @@
+# Cursor
+cursor = '▇'
+
+# Line height
+line-height = 1.0
+
+# Editor
+editor = 'nvim'
+
+# Blinking Cursor
+blinking-cursor = false
+
+# Hide the cursor while typing
+hide-cursor-when-typing = false
+
+# Ignore theme selection foreground color
+ignore-selection-foreground-color = false
+
+# Theme
+# It makes Rio look for the specified theme in the themes folder
+# (macos and linux: ~/.config/rio/themes/dracula.toml)
+# (windows: C:\Users\USER\AppData\Local\rio\themes\dracula.toml)
+theme = "dracula"
+
+# Padding-x
+padding-x = 10
+
+# Option as Alt
+# NOTE: This config only works on MacOS.
+option-as-alt = 'left'
+
+# Startup directory
+working-dir = "/Users/raphael/Documents/"
+
+# Environment variables
+env-vars = []
+
+# Use fork
+use-fork = false
+
+# Confirm before exiting Rio
+confirm-before-quit = true
+
+# Window configuration
+[window]
+width = 600
+height = 400
+mode = "Windowed"
+opacity = 1.0
+blur = false
+decorations = "Enabled"
+
+# Using image as background:
+[window.background-image]
+path = "/Users/hugoamor/Desktop/musashi.png"
+opacity = 0.5
+width = 400.0
+height = 400.0
+x = 0.0
+y = -100.0
+
+# Renderer
+[renderer]
+performance = "High"
+backend = "Automatic"
+disable-unfocused-render = false
+level = 1
+
+# Keyboard
+[keyboard]
+use-kitty-keyboard-protocol = false
+disable-ctlseqs-alt = false
+
+# Fonts
+[fonts]
+family = "cascadiamono"
+
+[fonts]
+extras = [{ family = "Microsoft JhengHei" }]
+
+[fonts]
+size = 18
+
+[fonts.regular]
+family = "cascadiamono"
+style = "normal"
+weight = 400
+
+[fonts.bold]
+family = "cascadiamono"
+style = "normal"
+weight = 800
+
+[fonts.italic]
+family = "cascadiamono"
+style = "italic"
+weight = 400
+
+[fonts.bold-italic]
+family = "cascadiamono"
+style = "italic"
+weight = 800
+
+# Scroll
+[scroll]
+multiplier = 3.0
+divider = 1.0
+
+# Navigation
+[navigation]
+mode = "CollapsedTab"
+clickable = false
+use-current-path = false
+color-automation = []
+
+# Shell
+
+[shell]
+program = "/bin/fish"
+args = ["--login"]
+
+[shell]
+program = "pwsh"
+args = ["-l"]
+
+# Bindings

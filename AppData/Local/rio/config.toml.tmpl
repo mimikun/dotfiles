@@ -1,0 +1,154 @@
+cursor = '▇'
+line-height = 1.0
+editor = 'nvim'
+blinking-cursor = false
+hide-cursor-when-typing = false
+ignore-selection-foreground-color = false
+# Theme
+# It makes Rio look for the specified theme in the themes folder
+# (macos and linux: ~/.config/rio/themes/dracula.toml)
+# (windows: C:\Users\USER\AppData\Local\rio\themes\dracula.toml)
+theme = "dracula"
+padding-x = 10
+option-as-alt = 'left'
+# TODO:
+# working-dir = "/Users/raphael/Documents/"
+env-vars = []
+use-fork = false
+confirm-before-quit = true
+[window]
+width = 600
+height = 400
+mode = "Windowed"
+opacity = 1.0
+blur = false
+decorations = "Enabled"
+[renderer]
+performance = "High"
+backend = "Automatic"
+disable-renderer-when-unfocused = false
+[fonts]
+size = 18
+
+[fonts.regular]
+family = "cascadiamono"
+style = "normal"
+weight = 400
+
+[fonts.bold]
+family = "cascadiamono"
+style = "normal"
+weight = 800
+
+[fonts.italic]
+family = "cascadiamono"
+style = "italic"
+weight = 400
+
+[fonts.bold-italic]
+family = "cascadiamono"
+style = "italic"
+weight = 800
+
+[keyboard]
+use-kitty-keyboard-protocol = false
+disable-ctlseqs-alt = false
+
+[scroll]
+multiplier = 3.0
+divider = 1.0
+
+TODO: 
+[navigation]
+mode = "CollapsedTab"
+clickable = false
+use-current-path = false
+color-automation = []
+Navigation
+
+"mode" - Define navigation mode
+  • NativeTab (MacOs only)
+  • CollapsedTab
+  • BottomTab
+  • TopTab
+  • Breadcrumb
+  • Plain
+
+"clickable" - Enable click on tabs to switch.
+"use-current-path" - Use same path whenever a new tab is created.
+"color-automation" - Set a specific color for the tab whenever a specific program is running, or in a specific directory.
+#
+# Example:
+
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
+# Entries in `shell.args` are passed unmodified as arguments to the shell.
+#
+# Default:
+#   - (macOS) user login shell
+#   - (Linux/BSD) user login shell
+#   - (Windows) powershell
+#
+# Example 1 using fish shell from bin path:
+#
+# [shell]
+# program = "/bin/fish"
+# args = ["--login"]
+#
+# Example 2 for Windows using powershell
+#
+# [shell]
+# program = "pwsh"
+# args = []
+#
+# Example 3 for Windows using powershell with login
+#
+# [shell]
+# program = "pwsh"
+# args = ["-l"]
+#
+# Example 4 for MacOS with tmux installed by homebrew
+#
+# [shell]
+# program = "/opt/homebrew/bin/tmux"
+# args = ["new-session", "-c", "/var/www"]
+
+# Colors
+#
+# Colors definition will overwrite any property in theme
+# (considering if theme folder does exists and is being used)
+#
+# Example:
+# [colors]
+# background = '#0F0D0E'
+# foreground = '#F9F4DA'
+# cursor = '#F38BA3'
+# tabs = '#443d40'
+# tabs-active = '#F38BA3'
+# green = '#0BA95B'
+# red = '#ED203D'
+# blue = '#12B5E5'
+# yellow = '#FCBA28'
+
+# Bindings
+#
+# Create custom Key bindings for Rio terminal
+# More information in: raphamorim.io/rio/docs/custom-key-bindings
+#
+# Example:
+# [bindings]
+# keys = [
+#   { key = "q", with = "super", action = "Quit" },
+#   # Bytes[27, 91, 53, 126] is equivalent to "\x1b[5~"
+#   { key = "home", with = "super | shift", bytes = [27, 91, 53, 126] }
+# ]
+
+# Log level
+#
+# This property enables log level filter. Default is "OFF".
+#
+# Example:
+# [developer]
+# log-level = "OFF"
+
