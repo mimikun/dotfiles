@@ -29,6 +29,8 @@ extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
+  # NOTE: DO NOT expect an upstream fix
+  "dot_config/foot/foot.ini",
   # NOTE: Game settings
   "game_settings/Apex_Legends",
   "game_settings/CookieClicker",
