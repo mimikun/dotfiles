@@ -4,6 +4,25 @@
 
 ### Added - 新機能について
 
+- feat(foot): add config
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(typos): foot-terminal config
+
+## [v2024.07.25]
+
+### Added - 新機能について
+
 - feat: add rio-terminal configs
 - feat(nvim): add new plugin: context-menu.nvim
 - feat(chezmoiexternal): add some neovim distributions
