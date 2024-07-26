@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.07.26]
+
+### Added - 新機能について
+
+- feat: add rio-terminal configs
+- feat(nvim): add new plugin: context-menu.nvim
+- feat(chezmoiexternal): add some neovim distributions
+- feat(aqua): add boyter/scc command
+- feat(gup): add prs
+- feat(pipx): add posting
+- feat(cargo): add some tools
+    - bluetui, cyme, erdtree, rioterm
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): fix some typos
+    - WORKAROUND: ignore "dot_config/nvim/lua/plugins/nvim-dap-ui.lua"
+
 ## [v2024.07.24]
 
 ### Added - 新機能について
