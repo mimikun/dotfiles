@@ -34,1282 +34,6 @@
     "yaml-language-server",
     "zls"
   ],
-  "keymaps": [
-    {
-      "desc": "kensaku-search-replace",
-      "noremap": true,
-      "lhs": "<CR>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>-",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "org capture",
-      "noremap": true,
-      "lhs": "<Space>oc",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"orgmode\").action(\"capture.prompt\")<CR>"
-    },
-    {
-      "desc": "org agenda",
-      "noremap": true,
-      "lhs": "<Space>oa",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"orgmode\").action(\"agenda.prompt\")<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>cÞ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>bÞ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>Þ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\" \", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>Þ",
-      "mode": "x",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\" \", {mode = \"v\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>L",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>L",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>q",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>e",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Reopen buffer",
-      "noremap": true,
-      "lhs": "<Space>bt",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "HopWord",
-      "noremap": true,
-      "lhs": "<Space>h",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Find convertible unit in current line",
-      "noremap": true,
-      "lhs": "<Space>cc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Find next convertible unit",
-      "noremap": true,
-      "lhs": "<Space>cn",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>j",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>m",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>s",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    { "desc": "", "noremap": true, "lhs": "!iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "!aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "!Þ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "!",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"!\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "\"",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "\"",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"v\", auto = true})<CR>"
-    },
-    {
-      "desc": ":help v_#-default",
-      "noremap": true,
-      "lhs": "#",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "%",
-      "mode": "x",
-      "rhs": "<Plug>(MatchitVisualForward)"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "%",
-      "mode": "n",
-      "rhs": "<Plug>(MatchitNormalForward)"
-    },
-    {
-      "desc": ":help &-default",
-      "noremap": true,
-      "lhs": "&",
-      "mode": "n",
-      "rhs": ":&&<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "'",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"'\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": ":help v_star-default",
-      "noremap": true,
-      "lhs": "*",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"n\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": ">iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": ">aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": ">Þ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": ">",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\">\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": ":help v_@-default",
-      "noremap": true,
-      "lhs": "@",
-      "mode": "x",
-      "rhs": "mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'"
-    },
-    {
-      "desc": "vim.lsp.buf.hover",
-      "noremap": true,
-      "lhs": "K",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "P",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": ":help v_Q-default",
-      "noremap": true,
-      "lhs": "Q",
-      "mode": "x",
-      "rhs": "mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'"
-    },
-    {
-      "desc": "Add a surrounding pair around a visual selection",
-      "noremap": true,
-      "lhs": "S",
-      "mode": "x",
-      "rhs": "<Plug>(nvim-surround-visual)"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "U",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": ":help Y-default",
-      "noremap": true,
-      "lhs": "Y",
-      "mode": "n",
-      "rhs": "y$"
-    },
-    { "desc": "", "noremap": true, "lhs": "[Þ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "[",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"[\", {mode = \"n\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "[Þ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "[",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"[\", {mode = \"v\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "[%",
-      "mode": "x",
-      "rhs": "<Plug>(MatchitVisualMultiBackward)"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "[%",
-      "mode": "n",
-      "rhs": "<Plug>(MatchitNormalMultiBackward)"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "[d",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Jump to the first diagnostic in the current buffer",
-      "noremap": true,
-      "lhs": "[D",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    { "desc": "", "noremap": true, "lhs": "]Þ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "]",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"]\", {mode = \"n\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "]Þ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "]",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"]\", {mode = \"v\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "]%",
-      "mode": "x",
-      "rhs": "<Plug>(MatchitVisualMultiForward)"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "]%",
-      "mode": "n",
-      "rhs": "<Plug>(MatchitNormalMultiForward)"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "]d",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Jump to the last diagnostic in the current buffer",
-      "noremap": true,
-      "lhs": "]D",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "`",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"`\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "a%",
-      "mode": "x",
-      "rhs": "<Plug>(MatchitVisualTextObject)"
-    },
-    {
-      "desc": "Change a surrounding pair, putting replacements on new lines",
-      "noremap": true,
-      "lhs": "cS",
-      "mode": "n",
-      "rhs": "<Plug>(nvim-surround-change-line)"
-    },
-    {
-      "desc": "Change a surrounding pair",
-      "noremap": true,
-      "lhs": "cs",
-      "mode": "n",
-      "rhs": "<Plug>(nvim-surround-change)"
-    },
-    { "desc": "", "noremap": true, "lhs": "ciÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "caÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "cÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "c",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"c\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "Delete a surrounding pair",
-      "noremap": true,
-      "lhs": "ds",
-      "mode": "n",
-      "rhs": "<Plug>(nvim-surround-delete)"
-    },
-    { "desc": "", "noremap": true, "lhs": "diÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "daÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "dÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "d",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"d\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "fh",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "fc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "fo",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "fm",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "fb",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "fr",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add a surrounding pair around a visual selection, on new lines",
-      "noremap": true,
-      "lhs": "gS",
-      "mode": "x",
-      "rhs": "<Plug>(nvim-surround-visual-line)"
-    },
-    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "g",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"n\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "x", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "g",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"v\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "gp",
-      "mode": "n",
-      "rhs": ":Gitsigns preview_hunk_inline<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "gh",
-      "mode": "n",
-      "rhs": ":Gitsigns toggle_linehl<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "g]",
-      "mode": "n",
-      "rhs": ":Gitsigns next_hunk<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "g[",
-      "mode": "n",
-      "rhs": ":Gitsigns prev_hunk<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "g%",
-      "mode": "x",
-      "rhs": "<Plug>(MatchitVisualBackward)"
-    },
-    {
-      "desc": "",
-      "noremap": false,
-      "lhs": "g%",
-      "mode": "n",
-      "rhs": "<Plug>(MatchitNormalBackward)"
-    },
-    {
-      "desc": "hover.nvim (select)",
-      "noremap": true,
-      "lhs": "gK",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "vim.lsp.buf.references()",
-      "noremap": true,
-      "lhs": "grr",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "vim.lsp.buf.code_action()",
-      "noremap": true,
-      "lhs": "gra",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "vim.lsp.buf.code_action()",
-      "noremap": true,
-      "lhs": "gra",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "vim.lsp.buf.rename()",
-      "noremap": true,
-      "lhs": "grn",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Toggle comment line",
-      "noremap": true,
-      "lhs": "gcc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Toggle comment",
-      "noremap": true,
-      "lhs": "gc",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Toggle comment",
-      "noremap": true,
-      "lhs": "gc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)",
-      "noremap": true,
-      "lhs": "gx",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)",
-      "noremap": true,
-      "lhs": "gx",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "accelerated_jk_gj",
-      "noremap": true,
-      "lhs": "j",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "accelerated_jk_gk",
-      "noremap": true,
-      "lhs": "k",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "p",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Run Translate",
-      "noremap": true,
-      "lhs": "trr",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Run Translate",
-      "noremap": true,
-      "lhs": "tr",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "u",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    { "desc": "", "noremap": true, "lhs": "viÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "vaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "vÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "v",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"v\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "Add a surrounding pair around the current line, on new lines (normal mode)",
-      "noremap": true,
-      "lhs": "ySS",
-      "mode": "n",
-      "rhs": "<Plug>(nvim-surround-normal-cur-line)"
-    },
-    {
-      "desc": "Add a surrounding pair around a motion, on new lines (normal mode)",
-      "noremap": true,
-      "lhs": "yS",
-      "mode": "n",
-      "rhs": "<Plug>(nvim-surround-normal-line)"
-    },
-    {
-      "desc": "Add a surrounding pair around the current line (normal mode)",
-      "noremap": true,
-      "lhs": "yss",
-      "mode": "n",
-      "rhs": "<Plug>(nvim-surround-normal-cur)"
-    },
-    {
-      "desc": "Add a surrounding pair around a motion (normal mode)",
-      "noremap": true,
-      "lhs": "ys",
-      "mode": "n",
-      "rhs": "<Plug>(nvim-surround-normal)"
-    },
-    { "desc": "", "noremap": true, "lhs": "yiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "yaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "yÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "y",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"y\", {mode = \"n\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "zfiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "zfaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "n", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "z",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"n\", auto = true})<CR>"
-    },
-    { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "x", "rhs": "<Nop>" },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "z",
-      "mode": "x",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"v\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zi",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zi",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zN",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zN",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zn",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zn",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zR",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zR",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zr",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zr",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zM",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zM",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zm",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zm",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zX",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zX",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zx",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zx",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zv",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zv",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zA",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zA",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "za",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "za",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zC",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zC",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zc",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zO",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zO",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zo",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zo",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zE",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zE",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zD",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zD",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zd",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zd",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zF",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zF",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zf",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zb",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zb",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zz",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zz",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zt",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zt",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-R>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-W>Þ",
-      "mode": "n",
-      "rhs": "<Nop>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-W>",
-      "mode": "n",
-      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\23\", {mode = \"n\", auto = true})<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-X>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-A>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<LeftMouse>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<LeftMouse>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-G>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-Y>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-Y>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-F>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-F>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-B>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-B>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-D>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-D>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-U>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-U>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Reopen buffer",
-      "noremap": true,
-      "lhs": "<C-S-T>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "hover.nvim (mouse)",
-      "noremap": true,
-      "lhs": "<MouseMove>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-N>",
-      "mode": "n",
-      "rhs": ":NvimTreeToggle<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-P>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Use dmacro",
-      "noremap": true,
-      "lhs": "<C-T>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Toggle Kana-mode skkeleton",
-      "noremap": true,
-      "lhs": "<C-J>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-W>n",
-      "mode": "n",
-      "rhs": "<Esc>:enew<CR>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-S-CR>",
-      "mode": "n",
-      "rhs": "mzO<Esc>`z"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<S-CR>",
-      "mode": "n",
-      "rhs": "mzo<Esc>`z"
-    },
-    {
-      "desc": "Show diagnostics under the cursor",
-      "noremap": false,
-      "lhs": "<C-W><C-D>",
-      "mode": "n",
-      "rhs": "<C-W>d"
-    },
-    {
-      "desc": "Show diagnostics under the cursor",
-      "noremap": true,
-      "lhs": "<C-W>d",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": ":help CTRL-L-default",
-      "noremap": true,
-      "lhs": "<C-L>",
-      "mode": "n",
-      "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
-    }
-  ],
   "plugins": [
     "0xstepit/flow.nvim",
     "2giosangmitom/nightfall.nvim",
@@ -1613,6 +337,1283 @@
     "yaml",
     "zig"
   ],
+  "keymaps": [
+    {
+      "desc": "kensaku-search-replace",
+      "noremap": true,
+      "lhs": "<CR>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>-",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "org capture",
+      "noremap": true,
+      "lhs": "<Space>oc",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"orgmode\").action(\"capture.prompt\")<CR>"
+    },
+    {
+      "desc": "org agenda",
+      "noremap": true,
+      "lhs": "<Space>oa",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"orgmode\").action(\"agenda.prompt\")<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>bÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>cÞ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\" \", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>Þ",
+      "mode": "x",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\" \", {mode = \"v\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>L",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>L",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>q",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>e",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "HopWord",
+      "noremap": true,
+      "lhs": "<Space>h",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>s",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>j",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>m",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Find next convertible unit",
+      "noremap": true,
+      "lhs": "<Space>cn",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Find convertible unit in current line",
+      "noremap": true,
+      "lhs": "<Space>cc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Reopen buffer",
+      "noremap": true,
+      "lhs": "<Space>bt",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    { "desc": "", "noremap": true, "lhs": "!iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "!aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "!Þ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "!",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"!\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "\"",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "\"",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\\"\", {mode = \"v\", auto = true})<CR>"
+    },
+    {
+      "desc": ":help v_#-default",
+      "noremap": true,
+      "lhs": "#",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "%",
+      "mode": "x",
+      "rhs": "<Plug>(MatchitVisualForward)"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "%",
+      "mode": "n",
+      "rhs": "<Plug>(MatchitNormalForward)"
+    },
+    {
+      "desc": ":help &-default",
+      "noremap": true,
+      "lhs": "&",
+      "mode": "n",
+      "rhs": ":&&<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "'",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"'\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": ":help v_star-default",
+      "noremap": true,
+      "lhs": "*",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    { "desc": "", "noremap": true, "lhs": "<iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "<Þ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"<lt>\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": ">iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": ">aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": ">Þ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": ">",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\">\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": ":help v_@-default",
+      "noremap": true,
+      "lhs": "@",
+      "mode": "x",
+      "rhs": "mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'"
+    },
+    {
+      "desc": "hover.nvim",
+      "noremap": true,
+      "lhs": "K",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "P",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": ":help v_Q-default",
+      "noremap": true,
+      "lhs": "Q",
+      "mode": "x",
+      "rhs": "mode() ==# 'V' ? ':normal! @<C-R>=reg_recorded()<CR><CR>' : 'Q'"
+    },
+    {
+      "desc": "Add a surrounding pair around a visual selection",
+      "noremap": true,
+      "lhs": "S",
+      "mode": "x",
+      "rhs": "<Plug>(nvim-surround-visual)"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "U",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": ":help Y-default",
+      "noremap": true,
+      "lhs": "Y",
+      "mode": "n",
+      "rhs": "y$"
+    },
+    { "desc": "", "noremap": true, "lhs": "[Þ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "[",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"[\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "[Þ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "[",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"[\", {mode = \"v\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "[%",
+      "mode": "x",
+      "rhs": "<Plug>(MatchitVisualMultiBackward)"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "[%",
+      "mode": "n",
+      "rhs": "<Plug>(MatchitNormalMultiBackward)"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "[d",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Jump to the first diagnostic in the current buffer",
+      "noremap": true,
+      "lhs": "[D",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    { "desc": "", "noremap": true, "lhs": "]Þ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "]",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"]\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "]Þ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "]",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"]\", {mode = \"v\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "]%",
+      "mode": "x",
+      "rhs": "<Plug>(MatchitVisualMultiForward)"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "]%",
+      "mode": "n",
+      "rhs": "<Plug>(MatchitNormalMultiForward)"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "]d",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Jump to the last diagnostic in the current buffer",
+      "noremap": true,
+      "lhs": "]D",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "`",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"`\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "a%",
+      "mode": "x",
+      "rhs": "<Plug>(MatchitVisualTextObject)"
+    },
+    {
+      "desc": "Change a surrounding pair, putting replacements on new lines",
+      "noremap": true,
+      "lhs": "cS",
+      "mode": "n",
+      "rhs": "<Plug>(nvim-surround-change-line)"
+    },
+    {
+      "desc": "Change a surrounding pair",
+      "noremap": true,
+      "lhs": "cs",
+      "mode": "n",
+      "rhs": "<Plug>(nvim-surround-change)"
+    },
+    { "desc": "", "noremap": true, "lhs": "ciÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "caÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "cÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "c",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"c\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "Delete a surrounding pair",
+      "noremap": true,
+      "lhs": "ds",
+      "mode": "n",
+      "rhs": "<Plug>(nvim-surround-delete)"
+    },
+    { "desc": "", "noremap": true, "lhs": "diÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "daÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "dÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "d",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"d\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "fh",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "fc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "fo",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "fm",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "fb",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "fr",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add a surrounding pair around a visual selection, on new lines",
+      "noremap": true,
+      "lhs": "gS",
+      "mode": "x",
+      "rhs": "<Plug>(nvim-surround-visual-line)"
+    },
+    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "g",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "x", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "g",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"v\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "gp",
+      "mode": "n",
+      "rhs": ":Gitsigns preview_hunk_inline<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "gh",
+      "mode": "n",
+      "rhs": ":Gitsigns toggle_linehl<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "g]",
+      "mode": "n",
+      "rhs": ":Gitsigns next_hunk<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "g[",
+      "mode": "n",
+      "rhs": ":Gitsigns prev_hunk<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "g%",
+      "mode": "x",
+      "rhs": "<Plug>(MatchitVisualBackward)"
+    },
+    {
+      "desc": "",
+      "noremap": false,
+      "lhs": "g%",
+      "mode": "n",
+      "rhs": "<Plug>(MatchitNormalBackward)"
+    },
+    {
+      "desc": "hover.nvim (select)",
+      "noremap": true,
+      "lhs": "gK",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "vim.lsp.buf.references()",
+      "noremap": true,
+      "lhs": "grr",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "vim.lsp.buf.code_action()",
+      "noremap": true,
+      "lhs": "gra",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "vim.lsp.buf.code_action()",
+      "noremap": true,
+      "lhs": "gra",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "vim.lsp.buf.rename()",
+      "noremap": true,
+      "lhs": "grn",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Toggle comment line",
+      "noremap": true,
+      "lhs": "gcc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Toggle comment",
+      "noremap": true,
+      "lhs": "gc",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Toggle comment",
+      "noremap": true,
+      "lhs": "gc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)",
+      "noremap": true,
+      "lhs": "gx",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Opens filepath or URI under cursor with the system handler (file explorer, web browser, …)",
+      "noremap": true,
+      "lhs": "gx",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "accelerated_jk_gj",
+      "noremap": true,
+      "lhs": "j",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "accelerated_jk_gk",
+      "noremap": true,
+      "lhs": "k",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "p",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Run Translate",
+      "noremap": true,
+      "lhs": "trr",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Run Translate",
+      "noremap": true,
+      "lhs": "tr",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "u",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    { "desc": "", "noremap": true, "lhs": "viÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "vaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "vÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "v",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"v\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "Add a surrounding pair around the current line, on new lines (normal mode)",
+      "noremap": true,
+      "lhs": "ySS",
+      "mode": "n",
+      "rhs": "<Plug>(nvim-surround-normal-cur-line)"
+    },
+    {
+      "desc": "Add a surrounding pair around a motion, on new lines (normal mode)",
+      "noremap": true,
+      "lhs": "yS",
+      "mode": "n",
+      "rhs": "<Plug>(nvim-surround-normal-line)"
+    },
+    {
+      "desc": "Add a surrounding pair around the current line (normal mode)",
+      "noremap": true,
+      "lhs": "yss",
+      "mode": "n",
+      "rhs": "<Plug>(nvim-surround-normal-cur)"
+    },
+    {
+      "desc": "Add a surrounding pair around a motion (normal mode)",
+      "noremap": true,
+      "lhs": "ys",
+      "mode": "n",
+      "rhs": "<Plug>(nvim-surround-normal)"
+    },
+    { "desc": "", "noremap": true, "lhs": "yiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "yaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "yÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "y",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"y\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "zfiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "zfaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "n", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "z",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"n\", auto = true})<CR>"
+    },
+    { "desc": "", "noremap": true, "lhs": "zÞ", "mode": "x", "rhs": "<Nop>" },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "z",
+      "mode": "x",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"v\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zb",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zb",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zz",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zz",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zt",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zt",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zi",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zi",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zN",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zN",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zn",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zn",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zR",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zR",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zr",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zr",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zM",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zM",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zm",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zm",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zX",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zX",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zx",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zx",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zv",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zv",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zA",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zA",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "za",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "za",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zC",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zC",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zc",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zO",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zO",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zo",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zo",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zE",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zE",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zD",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zD",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zd",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zd",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zF",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zF",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zf",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-R>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-W>Þ",
+      "mode": "n",
+      "rhs": "<Nop>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-W>",
+      "mode": "n",
+      "rhs": "<Cmd>lua require(\"which-key\").show(\"\\23\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-X>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-A>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-Y>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-Y>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-F>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-F>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-B>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-B>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-D>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-D>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<LeftMouse>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<LeftMouse>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-G>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-N>",
+      "mode": "n",
+      "rhs": ":NvimTreeToggle<CR>"
+    },
+    {
+      "desc": "hover.nvim (mouse)",
+      "noremap": true,
+      "lhs": "<MouseMove>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Use dmacro",
+      "noremap": true,
+      "lhs": "<C-T>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Toggle Kana-mode skkeleton",
+      "noremap": true,
+      "lhs": "<C-J>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-P>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Reopen buffer",
+      "noremap": true,
+      "lhs": "<C-S-T>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-W>n",
+      "mode": "n",
+      "rhs": "<Esc>:enew<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-S-CR>",
+      "mode": "n",
+      "rhs": "mzO<Esc>`z"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<S-CR>",
+      "mode": "n",
+      "rhs": "mzo<Esc>`z"
+    },
+    {
+      "desc": "Show diagnostics under the cursor",
+      "noremap": false,
+      "lhs": "<C-W><C-D>",
+      "mode": "n",
+      "rhs": "<C-W>d"
+    },
+    {
+      "desc": "Show diagnostics under the cursor",
+      "noremap": true,
+      "lhs": "<C-W>d",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": ":help CTRL-L-default",
+      "noremap": true,
+      "lhs": "<C-L>",
+      "mode": "n",
+      "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
+    }
+  ],
+  "leaderKey": "<Space>",
   "lspServers": [
     "aiscript_lsp",
     "bashls",
@@ -1646,6 +1647,5 @@
     "vimls",
     "yamlls",
     "zls"
-  ],
-  "leaderKey": "<Space>"
+  ]
 }
