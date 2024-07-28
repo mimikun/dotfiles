@@ -1,146 +1,120 @@
-# Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
-function __fish_rbw_global_optspecs
-	string join \n h/help V/version
-end
-
-function __fish_rbw_needs_command
-	# Figure out if the current invocation already has a command.
-	set -l cmd (commandline -opc)
-	set -e cmd[1]
-	argparse -s (__fish_rbw_global_optspecs) -- $cmd 2>/dev/null
-	or return
-	if set -q argv[1]
-		# Also print the command, so this can be used to figure out what it is.
-		echo $argv[1]
-		return 1
-	end
-	return 0
-end
-
-function __fish_rbw_using_subcommand
-	set -l cmd (__fish_rbw_needs_command)
-	test -z "$cmd"
-	and return 1
-	contains -- $cmd[1] $argv
-end
-
-complete -c rbw -n "__fish_rbw_needs_command" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_needs_command" -s V -l version -d 'Print version'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "config" -d 'Get or set configuration options'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "register" -d 'Register this device with the Bitwarden server'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "login" -d 'Log in to the Bitwarden server'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "unlock" -d 'Unlock the local Bitwarden database'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "unlocked" -d 'Check if the local Bitwarden database is unlocked'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "sync" -d 'Update the local copy of the Bitwarden database'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "list" -d 'List all entries in the local Bitwarden database'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "ls" -d 'List all entries in the local Bitwarden database'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "get" -d 'Display the password for a given entry'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "search" -d 'Search for entries'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "code" -d 'Display the authenticator code for a given entry'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "totp" -d 'Display the authenticator code for a given entry'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "add" -d 'Add a new password to the database'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "generate" -d 'Generate a new password'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "gen" -d 'Generate a new password'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "edit" -d 'Modify an existing password'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "remove" -d 'Remove a given entry'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "rm" -d 'Remove a given entry'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "history" -d 'View the password history for a given entry'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "lock" -d 'Lock the password database'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "purge" -d 'Remove the local copy of the password database'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "stop-agent" -d 'Terminate the background agent'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "gen-completions" -d 'Generate completion script for the given shell'
-complete -c rbw -n "__fish_rbw_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and not __fish_seen_subcommand_from show set unset help" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and not __fish_seen_subcommand_from show set unset help" -f -a "show" -d 'Show the values of all configuration settings'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and not __fish_seen_subcommand_from show set unset help" -f -a "set" -d 'Set a configuration option'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and not __fish_seen_subcommand_from show set unset help" -f -a "unset" -d 'Reset a configuration option to its default'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and not __fish_seen_subcommand_from show set unset help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and __fish_seen_subcommand_from unset" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "show" -d 'Show the values of all configuration settings'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "set" -d 'Set a configuration option'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "unset" -d 'Reset a configuration option to its default'
-complete -c rbw -n "__fish_rbw_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c rbw -n "__fish_rbw_using_subcommand register" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c rbw -n "__fish_rbw_using_subcommand login" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand unlock" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand unlocked" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand sync" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand list" -l fields -d 'Fields to display. Available options are id, name, user, folder. Multiple fields will be separated by tabs.' -r
-complete -c rbw -n "__fish_rbw_using_subcommand list" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand ls" -l fields -d 'Fields to display. Available options are id, name, user, folder. Multiple fields will be separated by tabs.' -r
-complete -c rbw -n "__fish_rbw_using_subcommand ls" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand get" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand get" -s f -l field -d 'Field to get' -r
-complete -c rbw -n "__fish_rbw_using_subcommand get" -l full -d 'Display the notes in addition to the password'
-complete -c rbw -n "__fish_rbw_using_subcommand get" -l raw -d 'Display output as JSON'
-complete -c rbw -n "__fish_rbw_using_subcommand get" -l clipboard -d 'Copy result to clipboard'
-complete -c rbw -n "__fish_rbw_using_subcommand get" -s i -l ignorecase -d 'Ignore case'
-complete -c rbw -n "__fish_rbw_using_subcommand get" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand search" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand search" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand code" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand code" -l clipboard -d 'Copy result to clipboard'
-complete -c rbw -n "__fish_rbw_using_subcommand code" -s i -l ignorecase -d 'Ignore case'
-complete -c rbw -n "__fish_rbw_using_subcommand code" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand totp" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand totp" -l clipboard -d 'Copy result to clipboard'
-complete -c rbw -n "__fish_rbw_using_subcommand totp" -s i -l ignorecase -d 'Ignore case'
-complete -c rbw -n "__fish_rbw_using_subcommand totp" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand add" -l uri -d 'URI for the password entry' -r
-complete -c rbw -n "__fish_rbw_using_subcommand add" -l folder -d 'Folder for the password entry' -r
-complete -c rbw -n "__fish_rbw_using_subcommand add" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c rbw -n "__fish_rbw_using_subcommand generate" -l uri -d 'URI for the password entry' -r
-complete -c rbw -n "__fish_rbw_using_subcommand generate" -l folder -d 'Folder for the password entry' -r
-complete -c rbw -n "__fish_rbw_using_subcommand generate" -l no-symbols -d 'Generate a password with no special characters'
-complete -c rbw -n "__fish_rbw_using_subcommand generate" -l only-numbers -d 'Generate a password consisting of only numbers'
-complete -c rbw -n "__fish_rbw_using_subcommand generate" -l nonconfusables -d 'Generate a password without visually similar characters (useful for passwords intended to be written down)'
-complete -c rbw -n "__fish_rbw_using_subcommand generate" -l diceware -d 'Generate a password of multiple dictionary words chosen from the EFF word list. The len parameter for this option will set the number of words to generate, rather than characters.'
-complete -c rbw -n "__fish_rbw_using_subcommand generate" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c rbw -n "__fish_rbw_using_subcommand gen" -l uri -d 'URI for the password entry' -r
-complete -c rbw -n "__fish_rbw_using_subcommand gen" -l folder -d 'Folder for the password entry' -r
-complete -c rbw -n "__fish_rbw_using_subcommand gen" -l no-symbols -d 'Generate a password with no special characters'
-complete -c rbw -n "__fish_rbw_using_subcommand gen" -l only-numbers -d 'Generate a password consisting of only numbers'
-complete -c rbw -n "__fish_rbw_using_subcommand gen" -l nonconfusables -d 'Generate a password without visually similar characters (useful for passwords intended to be written down)'
-complete -c rbw -n "__fish_rbw_using_subcommand gen" -l diceware -d 'Generate a password of multiple dictionary words chosen from the EFF word list. The len parameter for this option will set the number of words to generate, rather than characters.'
-complete -c rbw -n "__fish_rbw_using_subcommand gen" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c rbw -n "__fish_rbw_using_subcommand edit" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand edit" -s i -l ignorecase -d 'Ignore case'
-complete -c rbw -n "__fish_rbw_using_subcommand edit" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c rbw -n "__fish_rbw_using_subcommand remove" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand remove" -s i -l ignorecase -d 'Ignore case'
-complete -c rbw -n "__fish_rbw_using_subcommand remove" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand rm" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand rm" -s i -l ignorecase -d 'Ignore case'
-complete -c rbw -n "__fish_rbw_using_subcommand rm" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand history" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand history" -s i -l ignorecase -d 'Ignore case'
-complete -c rbw -n "__fish_rbw_using_subcommand history" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand lock" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand purge" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand stop-agent" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand gen-completions" -s h -l help -d 'Print help'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "config" -d 'Get or set configuration options'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "register" -d 'Register this device with the Bitwarden server'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "login" -d 'Log in to the Bitwarden server'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "unlock" -d 'Unlock the local Bitwarden database'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "unlocked" -d 'Check if the local Bitwarden database is unlocked'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "sync" -d 'Update the local copy of the Bitwarden database'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "list" -d 'List all entries in the local Bitwarden database'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "get" -d 'Display the password for a given entry'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "search" -d 'Search for entries'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "code" -d 'Display the authenticator code for a given entry'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "add" -d 'Add a new password to the database'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "generate" -d 'Generate a new password'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "edit" -d 'Modify an existing password'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "remove" -d 'Remove a given entry'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "history" -d 'View the password history for a given entry'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "lock" -d 'Lock the password database'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "purge" -d 'Remove the local copy of the password database'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "stop-agent" -d 'Terminate the background agent'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "gen-completions" -d 'Generate completion script for the given shell'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcommand_from config register login unlock unlocked sync list get search code add generate edit remove history lock purge stop-agent gen-completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "show" -d 'Show the values of all configuration settings'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "set" -d 'Set a configuration option'
-complete -c rbw -n "__fish_rbw_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "unset" -d 'Reset a configuration option to its default'
+complete -c rbw -n "__fish_use_subcommand" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_use_subcommand" -s V -l version -d 'Print version'
+complete -c rbw -n "__fish_use_subcommand" -f -a "config" -d 'Get or set configuration options'
+complete -c rbw -n "__fish_use_subcommand" -f -a "register" -d 'Register this device with the Bitwarden server'
+complete -c rbw -n "__fish_use_subcommand" -f -a "login" -d 'Log in to the Bitwarden server'
+complete -c rbw -n "__fish_use_subcommand" -f -a "unlock" -d 'Unlock the local Bitwarden database'
+complete -c rbw -n "__fish_use_subcommand" -f -a "unlocked" -d 'Check if the local Bitwarden database is unlocked'
+complete -c rbw -n "__fish_use_subcommand" -f -a "sync" -d 'Update the local copy of the Bitwarden database'
+complete -c rbw -n "__fish_use_subcommand" -f -a "list" -d 'List all entries in the local Bitwarden database'
+complete -c rbw -n "__fish_use_subcommand" -f -a "ls" -d 'List all entries in the local Bitwarden database'
+complete -c rbw -n "__fish_use_subcommand" -f -a "get" -d 'Display the password for a given entry'
+complete -c rbw -n "__fish_use_subcommand" -f -a "search" -d 'Search for entries'
+complete -c rbw -n "__fish_use_subcommand" -f -a "code" -d 'Display the authenticator code for a given entry'
+complete -c rbw -n "__fish_use_subcommand" -f -a "totp" -d 'Display the authenticator code for a given entry'
+complete -c rbw -n "__fish_use_subcommand" -f -a "add" -d 'Add a new password to the database'
+complete -c rbw -n "__fish_use_subcommand" -f -a "generate" -d 'Generate a new password'
+complete -c rbw -n "__fish_use_subcommand" -f -a "gen" -d 'Generate a new password'
+complete -c rbw -n "__fish_use_subcommand" -f -a "edit" -d 'Modify an existing password'
+complete -c rbw -n "__fish_use_subcommand" -f -a "remove" -d 'Remove a given entry'
+complete -c rbw -n "__fish_use_subcommand" -f -a "rm" -d 'Remove a given entry'
+complete -c rbw -n "__fish_use_subcommand" -f -a "history" -d 'View the password history for a given entry'
+complete -c rbw -n "__fish_use_subcommand" -f -a "lock" -d 'Lock the password database'
+complete -c rbw -n "__fish_use_subcommand" -f -a "purge" -d 'Remove the local copy of the password database'
+complete -c rbw -n "__fish_use_subcommand" -f -a "stop-agent" -d 'Terminate the background agent'
+complete -c rbw -n "__fish_use_subcommand" -f -a "gen-completions" -d 'Generate completion script for the given shell'
+complete -c rbw -n "__fish_use_subcommand" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c rbw -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "show" -d 'Show the values of all configuration settings'
+complete -c rbw -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Set a configuration option'
+complete -c rbw -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "unset" -d 'Reset a configuration option to its default'
+complete -c rbw -n "__fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c rbw -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from unset" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "show" -d 'Show the values of all configuration settings'
+complete -c rbw -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "set" -d 'Set a configuration option'
+complete -c rbw -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "unset" -d 'Reset a configuration option to its default'
+complete -c rbw -n "__fish_seen_subcommand_from config; and __fish_seen_subcommand_from help; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c rbw -n "__fish_seen_subcommand_from register" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c rbw -n "__fish_seen_subcommand_from login" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from unlock" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from unlocked" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from sync" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from list" -l fields -d 'Fields to display. Available options are id, name, user, folder. Multiple fields will be separated by tabs.' -r
+complete -c rbw -n "__fish_seen_subcommand_from list" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from ls" -l fields -d 'Fields to display. Available options are id, name, user, folder. Multiple fields will be separated by tabs.' -r
+complete -c rbw -n "__fish_seen_subcommand_from ls" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from get" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from get" -s f -l field -d 'Field to get' -r
+complete -c rbw -n "__fish_seen_subcommand_from get" -l full -d 'Display the notes in addition to the password'
+complete -c rbw -n "__fish_seen_subcommand_from get" -l raw -d 'Display output as JSON'
+complete -c rbw -n "__fish_seen_subcommand_from get" -l clipboard -d 'Copy result to clipboard'
+complete -c rbw -n "__fish_seen_subcommand_from get" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_seen_subcommand_from get" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from search" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from search" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from code" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from code" -l clipboard -d 'Copy result to clipboard'
+complete -c rbw -n "__fish_seen_subcommand_from code" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_seen_subcommand_from code" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from totp" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from totp" -l clipboard -d 'Copy result to clipboard'
+complete -c rbw -n "__fish_seen_subcommand_from totp" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_seen_subcommand_from totp" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from add" -l uri -d 'URI for the password entry' -r
+complete -c rbw -n "__fish_seen_subcommand_from add" -l folder -d 'Folder for the password entry' -r
+complete -c rbw -n "__fish_seen_subcommand_from add" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c rbw -n "__fish_seen_subcommand_from generate" -l uri -d 'URI for the password entry' -r
+complete -c rbw -n "__fish_seen_subcommand_from generate" -l folder -d 'Folder for the password entry' -r
+complete -c rbw -n "__fish_seen_subcommand_from generate" -l no-symbols -d 'Generate a password with no special characters'
+complete -c rbw -n "__fish_seen_subcommand_from generate" -l only-numbers -d 'Generate a password consisting of only numbers'
+complete -c rbw -n "__fish_seen_subcommand_from generate" -l nonconfusables -d 'Generate a password without visually similar characters (useful for passwords intended to be written down)'
+complete -c rbw -n "__fish_seen_subcommand_from generate" -l diceware -d 'Generate a password of multiple dictionary words chosen from the EFF word list. The len parameter for this option will set the number of words to generate, rather than characters.'
+complete -c rbw -n "__fish_seen_subcommand_from generate" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c rbw -n "__fish_seen_subcommand_from gen" -l uri -d 'URI for the password entry' -r
+complete -c rbw -n "__fish_seen_subcommand_from gen" -l folder -d 'Folder for the password entry' -r
+complete -c rbw -n "__fish_seen_subcommand_from gen" -l no-symbols -d 'Generate a password with no special characters'
+complete -c rbw -n "__fish_seen_subcommand_from gen" -l only-numbers -d 'Generate a password consisting of only numbers'
+complete -c rbw -n "__fish_seen_subcommand_from gen" -l nonconfusables -d 'Generate a password without visually similar characters (useful for passwords intended to be written down)'
+complete -c rbw -n "__fish_seen_subcommand_from gen" -l diceware -d 'Generate a password of multiple dictionary words chosen from the EFF word list. The len parameter for this option will set the number of words to generate, rather than characters.'
+complete -c rbw -n "__fish_seen_subcommand_from gen" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c rbw -n "__fish_seen_subcommand_from edit" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from edit" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_seen_subcommand_from edit" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c rbw -n "__fish_seen_subcommand_from remove" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from remove" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_seen_subcommand_from remove" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from rm" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from rm" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_seen_subcommand_from rm" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from history" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_seen_subcommand_from history" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_seen_subcommand_from history" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from lock" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from purge" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from stop-agent" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from gen-completions" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "config" -d 'Get or set configuration options'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "register" -d 'Register this device with the Bitwarden server'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "login" -d 'Log in to the Bitwarden server'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "unlock" -d 'Unlock the local Bitwarden database'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "unlocked" -d 'Check if the local Bitwarden database is unlocked'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "sync" -d 'Update the local copy of the Bitwarden database'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "list" -d 'List all entries in the local Bitwarden database'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "get" -d 'Display the password for a given entry'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "search" -d 'Search for entries'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "code" -d 'Display the authenticator code for a given entry'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "add" -d 'Add a new password to the database'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "generate" -d 'Generate a new password'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "edit" -d 'Modify an existing password'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "remove" -d 'Remove a given entry'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "history" -d 'View the password history for a given entry'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "lock" -d 'Lock the password database'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "purge" -d 'Remove the local copy of the password database'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "stop-agent" -d 'Terminate the background agent'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "gen-completions" -d 'Generate completion script for the given shell'
+complete -c rbw -n "__fish_seen_subcommand_from help; and not __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from register; and not __fish_seen_subcommand_from login; and not __fish_seen_subcommand_from unlock; and not __fish_seen_subcommand_from unlocked; and not __fish_seen_subcommand_from sync; and not __fish_seen_subcommand_from list; and not __fish_seen_subcommand_from get; and not __fish_seen_subcommand_from search; and not __fish_seen_subcommand_from code; and not __fish_seen_subcommand_from add; and not __fish_seen_subcommand_from generate; and not __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from remove; and not __fish_seen_subcommand_from history; and not __fish_seen_subcommand_from lock; and not __fish_seen_subcommand_from purge; and not __fish_seen_subcommand_from stop-agent; and not __fish_seen_subcommand_from gen-completions; and not __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c rbw -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset" -f -a "show" -d 'Show the values of all configuration settings'
+complete -c rbw -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset" -f -a "set" -d 'Set a configuration option'
+complete -c rbw -n "__fish_seen_subcommand_from help; and __fish_seen_subcommand_from config; and not __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from set; and not __fish_seen_subcommand_from unset" -f -a "unset" -d 'Reset a configuration option to its default'
