@@ -71,7 +71,8 @@ local lazy_settings = {
         fallback = true,
     },
     install = {
-        colorscheme = { vim.cmd.colorscheme() },
+        -- TODO: Fix it
+        --colorscheme = { vim.cmd.colorscheme() },
     },
     ui = {
         size = { width = 0.88, height = 0.8 },
