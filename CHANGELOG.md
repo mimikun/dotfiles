@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.07.28]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update rbw completion
+- chore(fish): update deno completion
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix: issue #652
+
 ## [v2024.07.26]
 
 ### Added - 新機能について
