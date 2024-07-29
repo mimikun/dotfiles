@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.07.29]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update deno completion
+- chore(fish): update rbw completion
+- chore(fish): update starship completion
+- refactor(wezterm): reorder launchmenu programs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.28]
 
 ### Added - 新機能について
