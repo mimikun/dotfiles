@@ -5,25 +5,14 @@ local M = {}
 M.wsl_domain = wsl_domain
 
 M.launch_menu = {
+    -- 1
     {
         label = "WSL Ubuntu",
         domain = {
             DomainName = wsl_domain,
         },
     },
-    {
-        label = "WSL NixOS",
-        domain = {
-            DomainName = "WSL:NixOS",
-        },
-    },
-    {
-        label = "Windows PowerShell v5",
-        domain = {
-            DomainName = "local",
-        },
-        args = { "powershell.exe" },
-    },
+    -- 2
     {
         label = "Windows PowerShell v7",
         domain = {
@@ -31,6 +20,15 @@ M.launch_menu = {
         },
         args = { "pwsh.exe" },
     },
+    -- 3
+    {
+        label = "Windows PowerShell v5",
+        domain = {
+            DomainName = "local",
+        },
+        args = { "powershell.exe" },
+    },
+    -- 4
     {
         label = "Windows cmd.exe",
         domain = {
@@ -38,12 +36,20 @@ M.launch_menu = {
         },
         args = { "cmd.exe" },
     },
+    -- 5
     {
         label = "nyagos - Nihongo Yet Another GOing Shell",
         domain = {
             DomainName = "local",
         },
         args = { "nyagos.exe" },
+    },
+    -- 6
+    {
+        label = "WSL NixOS",
+        domain = {
+            DomainName = "WSL:NixOS",
+        },
     },
 }
 
