@@ -276,6 +276,67 @@
     "zeioth/garbage-day.nvim"
   ],
   "pluginManager": "lazy.nvim",
+  "treesitterParsers": [
+    "bash",
+    "c",
+    "c_sharp",
+    "cmake",
+    "cpp",
+    "css",
+    "djot",
+    "dockerfile",
+    "fish",
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "go",
+    "gomod",
+    "gosum",
+    "gowork",
+    "graphql",
+    "html",
+    "ini",
+    "java",
+    "javascript",
+    "jq",
+    "jsdoc",
+    "json",
+    "json5",
+    "jsonc",
+    "kdl",
+    "latex",
+    "lua",
+    "luadoc",
+    "luap",
+    "luau",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "ninja",
+    "nix",
+    "ocaml",
+    "ocaml_interface",
+    "python",
+    "regex",
+    "rst",
+    "ruby",
+    "rust",
+    "scala",
+    "scss",
+    "sql",
+    "svelte",
+    "swift",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "vue",
+    "yaml",
+    "zig"
+  ],
   "keymaps": [
     {
       "desc": "kensaku-search-replace",
@@ -322,14 +383,14 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>bÞ",
+      "lhs": "<Space>cÞ",
       "mode": "n",
       "rhs": "<Nop>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>cÞ",
+      "lhs": "<Space>bÞ",
       "mode": "n",
       "rhs": "<Nop>"
     },
@@ -376,9 +437,9 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Find next convertible unit",
+      "desc": "Reopen buffer",
       "noremap": true,
-      "lhs": "<Space>cn",
+      "lhs": "<Space>bt",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -390,9 +451,9 @@
       "rhs": "<function>"
     },
     {
-      "desc": "",
+      "desc": "Find next convertible unit",
       "noremap": true,
-      "lhs": "<Space>s",
+      "lhs": "<Space>cn",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -411,16 +472,16 @@
       "rhs": "<function>"
     },
     {
-      "desc": "HopWord",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>h",
+      "lhs": "<Space>s",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Reopen buffer",
+      "desc": "HopWord",
       "noremap": true,
-      "lhs": "<Space>bt",
+      "lhs": "<Space>h",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -767,16 +828,16 @@
       "mode": "x",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"g\", {mode = \"v\", auto = true})<CR>"
     },
-    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -914,14 +975,14 @@
     {
       "desc": "Run Translate",
       "noremap": true,
-      "lhs": "tr",
+      "lhs": "trr",
       "mode": "n",
       "rhs": "<function>"
     },
     {
       "desc": "Run Translate",
       "noremap": true,
-      "lhs": "trr",
+      "lhs": "tr",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -997,6 +1058,48 @@
       "lhs": "z",
       "mode": "n",
       "rhs": "<Cmd>lua require(\"which-key\").show(\"z\", {mode = \"n\", auto = true})<CR>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zb",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zb",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zz",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zz",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zt",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "zt",
+      "mode": "n",
+      "rhs": "<function>"
     },
     {
       "desc": "",
@@ -1286,48 +1389,6 @@
       "rhs": "<function>"
     },
     {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zb",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zb",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zz",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zz",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zt",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "zt",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
       "desc": "hover.nvim (mouse)",
       "noremap": true,
       "lhs": "<MouseMove>",
@@ -1386,6 +1447,90 @@
     {
       "desc": "",
       "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-Y>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-Y>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-F>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-F>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-B>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-B>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-D>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-D>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<C-U>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
       "lhs": "<LeftMouse>",
       "mode": "v",
       "rhs": "<function>"
@@ -1405,93 +1550,9 @@
       "rhs": "<function>"
     },
     {
-      "desc": "",
+      "desc": "Reopen buffer",
       "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-Y>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-Y>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-F>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-F>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-B>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-B>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-D>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-D>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-U>",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-U>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Toggle Kana-mode skkeleton",
-      "noremap": true,
-      "lhs": "<C-J>",
+      "lhs": "<C-S-T>",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1503,9 +1564,9 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Reopen buffer",
+      "desc": "Toggle Kana-mode skkeleton",
       "noremap": true,
-      "lhs": "<C-S-T>",
+      "lhs": "<C-J>",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1552,67 +1613,7 @@
       "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
     }
   ],
-  "treesitterParsers": [
-    "bash",
-    "c",
-    "c_sharp",
-    "cmake",
-    "cpp",
-    "css",
-    "djot",
-    "dockerfile",
-    "fish",
-    "git_config",
-    "git_rebase",
-    "gitattributes",
-    "gitcommit",
-    "gitignore",
-    "go",
-    "gomod",
-    "gosum",
-    "gowork",
-    "graphql",
-    "html",
-    "ini",
-    "java",
-    "javascript",
-    "jq",
-    "jsdoc",
-    "json",
-    "json5",
-    "jsonc",
-    "kdl",
-    "latex",
-    "lua",
-    "luadoc",
-    "luap",
-    "luau",
-    "make",
-    "markdown",
-    "markdown_inline",
-    "ninja",
-    "nix",
-    "ocaml",
-    "ocaml_interface",
-    "python",
-    "regex",
-    "rst",
-    "ruby",
-    "rust",
-    "scala",
-    "scss",
-    "sql",
-    "svelte",
-    "swift",
-    "toml",
-    "tsx",
-    "typescript",
-    "vim",
-    "vimdoc",
-    "vue",
-    "yaml",
-    "zig"
-  ],
+  "leaderKey": "<Space>",
   "lspServers": [
     "aiscript_lsp",
     "bashls",
@@ -1646,6 +1647,5 @@
     "vimls",
     "yamlls",
     "zls"
-  ],
-  "leaderKey": "<Space>"
+  ]
 }
