@@ -679,6 +679,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-fetch -d 'Whether to automatically download Python when required' -r -f -a "{automatic\t'Automatically fetch managed Python installations when needed',manual\t'Do not automatically fetch managed Python installations; require explicit installation'}"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s e -l editable
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-upgrade
@@ -1060,6 +1061,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-package -d 'Don\
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l directory -d 'The path to the project. Defaults to the current working directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -l color -d 'Control colors in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l python-preference -d 'Whether to prefer using Python installations that are already present on the system, or those that are downloaded and installed by uv' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',installed\t'Prefer installed Python installations, only download managed Python installations if no system Python installation is found',managed\t'Prefer managed Python installations over system Python installations, even if fetching is required',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l python-fetch -d 'Whether to automatically download Python when required' -r -f -a "{automatic\t'Automatically fetch managed Python installations when needed',manual\t'Do not automatically fetch managed Python installations; require explicit installation'}"
@@ -1117,6 +1119,7 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-package -d 'Don\
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l directory -d 'The path to the project. Defaults to the current working directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l color -d 'Control colors in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
 complete -c uv -n "__fish_uv_using_subcommand lock" -l python-preference -d 'Whether to prefer using Python installations that are already present on the system, or those that are downloaded and installed by uv' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',installed\t'Prefer installed Python installations, only download managed Python installations if no system Python installation is found',managed\t'Prefer managed Python installations over system Python installations, even if fetching is required',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
 complete -c uv -n "__fish_uv_using_subcommand lock" -l python-fetch -d 'Whether to automatically download Python when required' -r -f -a "{automatic\t'Automatically fetch managed Python installations when needed',manual\t'Do not automatically fetch managed Python installations; require explicit installation'}"
@@ -1339,6 +1342,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand venv" -l seed -d 'Install seed packages (one or more of: `pip`, `setuptools`, and `wheel`) into the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-existing -d 'Preserve any existing files or directories at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l relocatable -d 'Make the virtual environment relocatable'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l clear
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-seed
