@@ -87,10 +87,12 @@ pylyzer
 qrtool
 rana
 rbw
+redu
 rioterm
 ripgrep
 ripgrep_all
 rrc
+rustscan
 sd
 selene
 sheldon
@@ -116,6 +118,7 @@ watchexec-cli
 xh
 xsv
 yazi-fm
+zeitfetch
 zellij
 zenith
 zoxide
