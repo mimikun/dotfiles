@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.07.31]
+
+### Added - 新機能について
+
+- feat(cargo): add new tools
+    - redu, rustscan, zeitfetch
+- feat(pip): add some packages
+    - jc, ruamel.yaml, ruamel.yaml.clib, xmltodict
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update procs completion
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): lsp not attached to buffer
+- fix(aqua): cannot install JFryy/qq
+    - If you casually cancel a release that you have already issued,
+    - it will affect many people.
+
 ## [v2024.07.30]
 
 ### Added - 新機能について
