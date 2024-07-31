@@ -13,6 +13,7 @@ decorator
 et-xmlfile
 greenlet
 isodate
+jc
 leather
 linkify-it-py
 littletable
@@ -41,6 +42,8 @@ pytimeparse
 PyYAML
 recoverpy
 rich
+ruamel.yaml
+ruamel.yaml.clib
 setuptools
 six
 SQLAlchemy
@@ -53,4 +56,5 @@ uc-micro-py
 userpath
 wcwidth
 xlrd
+xmltodict
 yamllint
