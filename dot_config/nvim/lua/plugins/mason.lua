@@ -103,8 +103,13 @@ local spec = {
             ensure_installed = require("plugins.sources.servers").need_servers,
             handlers = lsp_handlers,
         })
+
         lspconfig.fish_lsp.setup({})
         lspconfig.aiscript_lsp.setup({})
+        lspconfig.lua_ls.setup({})
+        lspconfig.jsonls.setup({})
+        lspconfig.yamlls.setup({})
+
         require("mason-nvim-dap").setup({
             ensure_installed = require("plugins.sources.dap").need_adapters,
             handlers = dap_handlers,
