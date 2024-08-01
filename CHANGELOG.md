@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.08.01]
+
+### Added - 新機能について
+
+- feat(aqua): add tool: slides
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(aqua): update bitwarden/clients to v2024.7.2
+- chore(fish): update deno completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.07.31]
 
 ### Added - 新機能について
