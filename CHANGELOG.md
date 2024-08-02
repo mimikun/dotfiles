@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.08.02]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): an error occurs when installing pkl.nvim for the first time
+
 ## [v2024.08.01]
 
 ### Added - 新機能について
