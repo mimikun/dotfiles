@@ -5,12 +5,15 @@ local events = {
     "BufReadPre PklProject",
 }
 
+---@type function
+local build = function()
+    vim.cmd("TSInstall! pkl")
+end
+
 ---@type LazySpec
 local spec = {
     "apple/pkl-neovim",
-    build = function()
-        vim.cmd("TSInstall! pkl")
-    end,
+    --build = build,
     --lazy = false,
     event = events,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
