@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.08.06]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): markview.nvim has a bug
+    - WORKAROUND
+
 ## [v2024.08.02]
 
 ### Added - 新機能について
