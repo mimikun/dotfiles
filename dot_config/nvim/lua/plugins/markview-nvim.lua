@@ -34,6 +34,8 @@ local spec = {
     dependencies = dependencies,
     opts = opts,
     --cond = false,
+    -- FIX: WORKAROUND
+    enabled = false,
 }
 
 return spec
