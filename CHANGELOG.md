@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.08.07]
+
+### Added - 新機能について
+
+- feat(aqua): add some tools
+    - `zyedidia/eget`, `aandrew-me/tgpt`
+- feat(gup): add some tools
+    - reader, act3
+- feat(cargo): add new tools
+    - tuisky, vscli
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.08.06]
 
 ### Added - 新機能について
