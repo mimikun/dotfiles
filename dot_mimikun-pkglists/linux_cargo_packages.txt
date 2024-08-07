@@ -112,8 +112,10 @@ topgrade
 trashy
 treefmt
 tree-sitter-cli
+tuisky
 typos-cli
 usage-cli
+vscli
 watchexec-cli
 xh
 xsv
