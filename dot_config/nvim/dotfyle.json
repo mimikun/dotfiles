@@ -275,67 +275,6 @@
     "zeioth/garbage-day.nvim"
   ],
   "pluginManager": "lazy.nvim",
-  "treesitterParsers": [
-    "bash",
-    "c",
-    "c_sharp",
-    "cmake",
-    "cpp",
-    "css",
-    "djot",
-    "dockerfile",
-    "fish",
-    "git_config",
-    "git_rebase",
-    "gitattributes",
-    "gitcommit",
-    "gitignore",
-    "go",
-    "gomod",
-    "gosum",
-    "gowork",
-    "graphql",
-    "html",
-    "ini",
-    "java",
-    "javascript",
-    "jq",
-    "jsdoc",
-    "json",
-    "json5",
-    "jsonc",
-    "kdl",
-    "latex",
-    "lua",
-    "luadoc",
-    "luap",
-    "luau",
-    "make",
-    "markdown",
-    "markdown_inline",
-    "ninja",
-    "nix",
-    "ocaml",
-    "ocaml_interface",
-    "python",
-    "regex",
-    "rst",
-    "ruby",
-    "rust",
-    "scala",
-    "scss",
-    "sql",
-    "svelte",
-    "swift",
-    "toml",
-    "tsx",
-    "typescript",
-    "vim",
-    "vimdoc",
-    "vue",
-    "yaml",
-    "zig"
-  ],
   "keymaps": [
     {
       "desc": "kensaku-search-replace",
@@ -382,14 +321,14 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>cÞ",
+      "lhs": "<Space>bÞ",
       "mode": "n",
       "rhs": "<Nop>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>bÞ",
+      "lhs": "<Space>cÞ",
       "mode": "n",
       "rhs": "<Nop>"
     },
@@ -410,20 +349,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>q",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>e",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<Space>L",
       "mode": "x",
       "rhs": "<function>"
@@ -436,30 +361,23 @@
       "rhs": "<function>"
     },
     {
-      "desc": "HopWord",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>h",
+      "lhs": "<Space>q",
       "mode": "n",
       "rhs": "<function>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>j",
+      "lhs": "<Space>e",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "",
+      "desc": "Reopen buffer",
       "noremap": true,
-      "lhs": "<Space>m",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>s",
+      "lhs": "<Space>bt",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -478,9 +396,30 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Reopen buffer",
+      "desc": "HopWord",
       "noremap": true,
-      "lhs": "<Space>bt",
+      "lhs": "<Space>h",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>s",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>j",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>m",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -578,7 +517,7 @@
       "rhs": "mode() ==# 'V' ? ':normal! @'.getcharstr().'<CR>' : '@'"
     },
     {
-      "desc": "vim.lsp.buf.hover",
+      "desc": "hover.nvim",
       "noremap": true,
       "lhs": "K",
       "mode": "n",
@@ -805,6 +744,13 @@
       "rhs": "<function>"
     },
     {
+      "desc": "hover.nvim (select)",
+      "noremap": true,
+      "lhs": "gK",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
       "desc": "Add a surrounding pair around a visual selection, on new lines",
       "noremap": true,
       "lhs": "gS",
@@ -823,13 +769,13 @@
     { "desc": "", "noremap": true, "lhs": "g~aÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~iÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "g~Þ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
+    { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUaÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUiÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gUÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "grÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "guaÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "guiÞ", "mode": "n", "rhs": "<Nop>" },
-    { "desc": "", "noremap": true, "lhs": "guÞ", "mode": "n", "rhs": "<Nop>" },
     { "desc": "", "noremap": true, "lhs": "gÞ", "mode": "n", "rhs": "<Nop>" },
     {
       "desc": "",
@@ -879,13 +825,6 @@
       "lhs": "g%",
       "mode": "n",
       "rhs": "<Plug>(MatchitNormalBackward)"
-    },
-    {
-      "desc": "hover.nvim (select)",
-      "noremap": true,
-      "lhs": "gK",
-      "mode": "n",
-      "rhs": "<function>"
     },
     {
       "desc": "vim.lsp.buf.references()",
@@ -1388,6 +1327,27 @@
       "rhs": "<function>"
     },
     {
+      "desc": "hover.nvim (mouse)",
+      "noremap": true,
+      "lhs": "<MouseMove>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "hover.nvim (next source)",
+      "noremap": true,
+      "lhs": "<C-N>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "hover.nvim (previous source)",
+      "noremap": true,
+      "lhs": "<C-P>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
       "desc": "",
       "noremap": true,
       "lhs": "<C-R>",
@@ -1509,13 +1469,6 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-G>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
       "lhs": "<LeftMouse>",
       "mode": "v",
       "rhs": "<function>"
@@ -1530,28 +1483,14 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<C-P>",
+      "lhs": "<C-G>",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "hover.nvim (mouse)",
+      "desc": "Toggle Kana-mode skkeleton",
       "noremap": true,
-      "lhs": "<MouseMove>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-N>",
-      "mode": "n",
-      "rhs": ":NvimTreeToggle<CR>"
-    },
-    {
-      "desc": "Use dmacro",
-      "noremap": true,
-      "lhs": "<C-T>",
+      "lhs": "<C-J>",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1563,9 +1502,9 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Toggle Kana-mode skkeleton",
+      "desc": "Use dmacro",
       "noremap": true,
-      "lhs": "<C-J>",
+      "lhs": "<C-T>",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1612,7 +1551,67 @@
       "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
     }
   ],
-  "leaderKey": "<Space>",
+  "treesitterParsers": [
+    "bash",
+    "c",
+    "c_sharp",
+    "cmake",
+    "cpp",
+    "css",
+    "djot",
+    "dockerfile",
+    "fish",
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "go",
+    "gomod",
+    "gosum",
+    "gowork",
+    "graphql",
+    "html",
+    "ini",
+    "java",
+    "javascript",
+    "jq",
+    "jsdoc",
+    "json",
+    "json5",
+    "jsonc",
+    "kdl",
+    "latex",
+    "lua",
+    "luadoc",
+    "luap",
+    "luau",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "ninja",
+    "nix",
+    "ocaml",
+    "ocaml_interface",
+    "python",
+    "regex",
+    "rst",
+    "ruby",
+    "rust",
+    "scala",
+    "scss",
+    "sql",
+    "svelte",
+    "swift",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "vue",
+    "yaml",
+    "zig"
+  ],
   "lspServers": [
     "aiscript_lsp",
     "bashls",
@@ -1646,5 +1645,6 @@
     "vimls",
     "yamlls",
     "zls"
-  ]
+  ],
+  "leaderKey": "<Space>"
 }
