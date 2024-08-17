@@ -1,7 +1,7 @@
 {
   "bash-language-server": "5.4.0",
   "clangd": "18.1.3",
-  "csharp-language-server": "0.14.0",
+  "csharp-language-server": "0.15.0",
   "css-lsp": "4.10.0",
   "debugpy": "1.8.5",
   "deno": "v1.45.5",
@@ -15,7 +15,7 @@
   "html-lsp": "4.10.0",
   "jq-lsp": "v0.1.3",
   "json-lsp": "4.10.0",
-  "lua-language-server": "3.10.3",
+  "lua-language-server": "3.10.4",
   "luau-lsp": "1.32.3",
   "markdown-oxide": "v0.23.1",
   "marksman": "2023-12-09",
