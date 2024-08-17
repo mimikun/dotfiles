@@ -96,7 +96,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l all-extras -d 'Include all
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand run" -l dev -d 'Include development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-dev -d 'Omit development dependencies'
-complete -c uv -n "__fish_uv_using_subcommand run" -l isolated -d 'Run the tool in an isolated virtual environment'
+complete -c uv -n "__fish_uv_using_subcommand run" -l isolated -d 'Run the command in an isolated virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand run" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand run" -l frozen -d 'Run without updating the `uv.lock` file'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
