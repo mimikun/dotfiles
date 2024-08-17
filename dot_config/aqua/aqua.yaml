@@ -23,7 +23,7 @@ packages:
 - name: jqlang/jq@jq-1.7.1
 - name: peco/peco@v0.5.11
 - name: koalaman/shellcheck@v0.10.0
-- name: mvdan/sh@v3.8.0
+- name: mvdan/sh@v3.9.0
 - name: mikefarah/yq@v4.44.3
 - name: mrtazz/checkmake@0.2.2
 - name: editorconfig-checker/editorconfig-checker@v3.0.3
