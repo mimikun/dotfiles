@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2024.08.19]
+
+### Added - 新機能について
+
+- feat(pip): add tools
+    - rexi, typer
+- feat(cargo): add tgt
+- feat(aqua): add croc
+- feat(nvim): add new lockfiles
+- feat(nvim): use new neovim configs
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(nvim): update lockfiles
+- chore(typos): update config
+- chore(deps): update
+- chore(nvim): rename patch name
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove old neovim configs
+    - BREAKING CHANGE: replaced v2024.07
+- chore(nvim): remove utils/env-reset.sh
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.08.08]
 
 ### Added - 新機能について
