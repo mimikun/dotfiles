@@ -1,4 +1,4 @@
-# nvim-2407
+# neovim config
 
 2024年7月 ver5相当
 

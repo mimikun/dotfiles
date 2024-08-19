@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
 today   = $(shell date "+%Y%m%d")
-product_name = nvim-2407
+product_name = nvim-conf
 
 ## Create a patch and copy it to windows
 .PHONY : patch
