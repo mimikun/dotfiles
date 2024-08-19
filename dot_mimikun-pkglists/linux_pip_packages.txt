@@ -41,6 +41,7 @@ python-slugify
 pytimeparse
 PyYAML
 recoverpy
+rexi
 rich
 ruamel.yaml
 ruamel.yaml.clib
@@ -51,6 +52,7 @@ text-unidecode
 textual
 thefuck
 typeinc
+typer
 typing_extensions
 uc-micro-py
 userpath
