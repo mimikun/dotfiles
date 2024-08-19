@@ -1,8 +1,0 @@
-std = "vim"
-
-[lints]
-global_usage = "allow"
-unused_variable = "allow"
-shadowing = "allow"
-mixed_table = "allow"
-undefined_variable = "allow"
