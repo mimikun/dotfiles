@@ -1,0 +1,30 @@
+---@type table
+local cmds = {
+    "BufferPrevious",
+    "BufferNext",
+    "BufferMovePrevious",
+    "BufferMoveNext",
+    "BufferGoto",
+    "BufferLast",
+    "BufferPin",
+    "BufferClose",
+    "BufferRestore",
+    "BufferWipeout",
+    "BufferCloseAllButCurrent",
+    "BufferCloseAllButVisible",
+    "BufferCloseAllButPinned",
+    "BufferCloseAllButCurrentOrPinned",
+    "BufferCloseBuffersLeft",
+    "BufferCloseBuffersRight",
+    "BufferPick",
+    "BufferPickDelete",
+    "BufferOrderByBufferNumber",
+    "BufferOrderByName",
+    "BufferOrderByDirectory",
+    "BufferOrderByLanguage",
+    "BufferOrderByWindowNumber",
+    "BarbarEnable",
+    "BarbarDisable",
+}
+
+return cmds
