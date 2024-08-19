@@ -106,6 +106,7 @@ stylua
 taplo-cli
 tauri-cli
 tealdeer
+tgt
 tokei
 toml2json
 topgrade
