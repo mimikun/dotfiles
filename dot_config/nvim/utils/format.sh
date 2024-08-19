@@ -13,7 +13,6 @@ run_shfmt benchmark.sh
 run_shfmt changelog.sh
 run_shfmt clean.sh
 run_shfmt create-patch.sh
-run_shfmt env-reset.sh
 run_shfmt format.sh
 run_shfmt lint.sh
 cd "$current_dir" || exit
