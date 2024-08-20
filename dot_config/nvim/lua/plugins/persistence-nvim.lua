@@ -9,7 +9,8 @@ local spec = {
     --lazy = false,
     event = "BufReadPre",
     opts = opts,
-    --cond = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
