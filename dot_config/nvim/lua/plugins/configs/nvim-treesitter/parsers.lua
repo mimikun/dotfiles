@@ -50,6 +50,7 @@ local minimum_required_parsers = {
     "json",
     "jsonc",
     "json5",
+    "latex",
     "lua",
     "luadoc",
     "luap",
