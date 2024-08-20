@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2024.08.20]
+
+### Added - 新機能について
+
+- feat(nvim): add new plugin: haunt.nvim
+- feat(nvim): add new plugin: wezterm.nvim
+- feat(nvim): add latex tree-sitter parser
+- feat(nvim): add some none-ls.nvim sources
+- feat(pip): add new packages
+    - babel, pylatexenc
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(deps): update
+- chore(typos): update config
+- chore(chezmoiignore): ignore emacs configs
+
+### Removed - 今回で削除された機能について
+
+- WORKAROUND: disable silhouette.nvim
+- chore(nvim): disabled persistence.nvim
+- chore(nvim): remove print message in huez.nvim configs
+
+### Fixed - 不具合修正について
+
+- fix(nvim): checkhealth warning in render-markdown.nvim
+
 ## [v2024.08.19]
 
 ### Added - 新機能について
