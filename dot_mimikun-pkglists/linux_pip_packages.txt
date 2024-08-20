@@ -3,7 +3,7 @@ agate-dbf
 agate-excel
 agate-sql
 argcomplete
-Babel
+babel
 bpyutils
 click
 colorama
@@ -35,6 +35,7 @@ platformdirs
 psutil
 pur
 Pygments
+pylatexenc
 pynvim
 pyte
 python-slugify
