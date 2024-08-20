@@ -27,8 +27,11 @@ local spec = {
         require("denops-lazy").load("silhouette")
         require("silhouette").setup(opts)
     end,
-    cond = is_human_rights,
-    enabled = is_human_rights,
+    --cond = is_human_rights,
+    --enabled = is_human_rights,
+    -- FIX: workaround
+    cond = false,
+    enabled = false,
 }
 
 return spec
