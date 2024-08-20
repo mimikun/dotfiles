@@ -16,29 +16,26 @@ chec = "chec"
 fo = "fo"
 # telescope-nvim
 tabe = "tabe"
-# dot_config/nvim/lua/plugins/minigames.lua
-strat = "strat"
 # dot_config/nvim/lua/plugins/configs/nvim-tree/actions.lua
 nd = "nd"
 
 [files]
 extend-exclude = [
-  # NOTE: has many typos
-  "dot_config/nvim/dotfyle.json",
   # NOTE: DO NOT expect an upstream fix
   "dot_config/nvim/lua/plugins/configs/telescope-nvim/media.lua",
+  "dot_config/foot/foot.ini",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: PR done: https://github.com/rcarriga/nvim-dap-ui/pull/379
   "dot_config/nvim/lua/plugins/nvim-dap-ui.lua",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
-  # NOTE: DO NOT expect an upstream fix
-  "dot_config/foot/foot.ini",
-  # NOTE: Game settings
-  "game_settings/Apex_Legends",
-  "game_settings/CookieClicker",
   # NOTE: Unmaintained and no upstream fixes
   "dot_config/pipr/pipr.toml",
   "dot_config/gotop/gotop.conf",
+  # NOTE: Game settings
+  "game_settings/Apex_Legends",
+  "game_settings/CookieClicker",
+  # NOTE: has many typos
+  "dot_config/nvim/dotfyle.json",
 ]
