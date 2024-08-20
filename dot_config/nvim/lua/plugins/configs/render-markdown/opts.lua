@@ -2,7 +2,7 @@
 local opts = {
     file_types = { "markdown", "vimwiki" },
     -- Set to avoid seeing warnings for conflicts in health check
-    acknowledge_conflicts = false,
+    acknowledge_conflicts = true,
     anti_conceal = {
         -- This enables hiding any added text on the line the cursor is on
         -- This does have a performance penalty as we must listen to the 'CursorMoved' event
