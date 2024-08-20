@@ -9,8 +9,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("witch.nvim setting")
-
     ---@type table
     local opts = {
         -- NOTE: Not support "transparent = true"

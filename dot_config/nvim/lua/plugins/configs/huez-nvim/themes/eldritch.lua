@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("eldritch.nvim setting")
-
     ---@type Config
     local opts = {
         transparent = vim.g.transparent_enabled,

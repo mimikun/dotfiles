@@ -16,8 +16,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("github-nvim-theme setting")
-
     ---@type GhTheme.Config.Options
     local opts = {
         transparent = vim.g.transparent_enabled,

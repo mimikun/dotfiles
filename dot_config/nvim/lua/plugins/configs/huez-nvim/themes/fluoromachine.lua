@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("fluoromachine.nvim setting")
-
     ---@type fm.config
     local opts = {
         theme = "fluoromachine",

@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("penumbra.nvim setting")
-
     ---@type table
     local opts = {
         italic_comment = false,

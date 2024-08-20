@@ -14,8 +14,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("nightfox.nvim setting")
-
     ---@type table
     local opts = {
         options = {

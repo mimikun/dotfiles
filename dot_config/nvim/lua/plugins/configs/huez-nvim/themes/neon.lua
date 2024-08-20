@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("neon setting")
-
     vim.g.neon_style = "default"
     --vim.g.neon_style = "dark"
     --vim.g.neon_style = "light"

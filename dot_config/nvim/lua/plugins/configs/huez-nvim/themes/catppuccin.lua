@@ -11,8 +11,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("catppuccin.nvim setting")
-
     ---@type CatppuccinOptions
     local opts = {
         transparent_background = vim.g.transparent_enabled,

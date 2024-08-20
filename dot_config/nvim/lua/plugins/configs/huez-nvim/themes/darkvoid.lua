@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("darkvoid.nvim setting")
-
     ---@type table
     local opts = {
         transparent = vim.g.transparent_enabled,

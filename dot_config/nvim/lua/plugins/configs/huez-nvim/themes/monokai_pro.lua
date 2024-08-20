@@ -13,8 +13,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("monokai-pro.nvim setting")
-
     ---@type MonokaiProOptions
     local opts = {
         transparent_background = vim.g.transparent_enabled,

@@ -12,8 +12,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("lackluster.nvim setting")
-
     --- @type LacklusterConfig
     local opts = {
         -- NOTE: Not support "transparent = true"

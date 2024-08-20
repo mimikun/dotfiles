@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("kanagawa-paper.nvim setting")
-
     ---@type KanagawaConfig
     local opts = {
         transparent = vim.g.transparent_enabled,

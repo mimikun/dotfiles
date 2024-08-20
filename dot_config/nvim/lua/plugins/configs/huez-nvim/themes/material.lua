@@ -12,8 +12,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("material.nvim setting")
-
     ---@type table
     local opts = {
         disable = {

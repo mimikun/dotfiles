@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("flow.nvim setting")
-
     ---@class FlowConfig
     local opts = {
         transparent = vim.g.transparent_enabled,

@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("kyotonight.vim setting")
-
     -- NOTE: Not support "transparent = true"
     vim.g.kyotonight_bold = 1
     vim.g.kyotonight_underline = 1

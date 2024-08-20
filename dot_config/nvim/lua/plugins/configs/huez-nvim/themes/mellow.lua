@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("mellow setting")
-
     vim.g.mellow_italic_comments = true
     vim.g.mellow_italic_keywords = false
     vim.g.mellow_italic_booleans = false

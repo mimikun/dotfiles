@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("lavi.nvim setting")
-
     ---@type table
     local opts = {
         -- NOTE: Not support "transparent = true"

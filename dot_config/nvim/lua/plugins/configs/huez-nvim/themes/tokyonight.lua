@@ -11,8 +11,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("tokyonight.nvim setting")
-
     ---@type tokyonight.Config
     local opts = {
         transparent = vim.g.transparent_enabled,

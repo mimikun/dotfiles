@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("dark_flat.nvim setting")
-
     ---@type config
     local opts = {
         transparent = vim.g.transparent_enabled,

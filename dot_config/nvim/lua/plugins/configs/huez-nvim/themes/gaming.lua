@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("gaming setting")
-
     -- NOTE: Not support "transparent = true"
 
     -- N ms colors cycle

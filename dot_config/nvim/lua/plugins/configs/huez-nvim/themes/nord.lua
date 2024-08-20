@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("nord setting")
-
     vim.g.nord_disable_background = vim.g.transparent_enabled
 
     vim.cmd("colorscheme " .. theme)

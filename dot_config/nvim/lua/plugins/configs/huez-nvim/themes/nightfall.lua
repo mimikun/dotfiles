@@ -10,8 +10,6 @@ local M = {
 }
 
 function M.set_theme(theme)
-    print("nightfall.nvim setting")
-
     ---@type table
     local opts = {
         transparent = vim.g.transparent_enabled,

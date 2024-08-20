@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("sonokai setting")
-
     vim.g.sonokai_style = "default"
     --vim.g.sonokai_style = "atlantis"
     --vim.g.sonokai_style = "andromeda"

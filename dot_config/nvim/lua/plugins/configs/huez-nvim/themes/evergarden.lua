@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("evergarden.nvim setting")
-
     ---@type evergarden.types.config
     local opts = {
         transparent_background = vim.g.transparent_enabled,

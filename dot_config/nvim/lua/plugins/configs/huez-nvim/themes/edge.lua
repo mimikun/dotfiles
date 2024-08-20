@@ -4,8 +4,6 @@
 local M = {}
 
 function M.set_theme(theme)
-    print("edge setting")
-
     vim.g.edge_style = "default"
     --vim.g.edge_style = "aura"
     --vim.g.edge_style = "neon"
