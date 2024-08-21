@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.08.21]
+
+### Added - 新機能について
+
+- feat: add moe editor configs
+- feat(shells): add nimble PATH
+- feat(pipx): add moneyterm
+- feat(aqua): add octocov
+- feat(gup): add fztea
+
+### Changed - 既存機能の変更について
+
+- chore(typos): update config
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): cannot using python dap adapter in windows
+
 ## [v2024.08.20]
 
 ### Added - 新機能について
