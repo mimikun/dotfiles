@@ -349,4 +349,8 @@ if is_linux then
     nyagos.envadd("NEOVIDE_WM_CLASS_INSTANCE", nyagos.getenv("NEOVIDE_WM_CLASS_INSTANCE") or "x11_wm_class_instance")
     nyagos.envadd("NEOVIDE_WM_CLASS", nyagos.getenv("NEOVIDE_WM_CLASS") or "x11_wm_class")
     ]]
+
+    -- nimble
+    local nimble_bin = table.concat({ home, ".nimble", "bin" }, path_sep)
+    nyagos.envadd("PATH", nimble_bin)
 end

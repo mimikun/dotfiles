@@ -328,6 +328,9 @@ alias vim=nvim
 #export NEOVIDE_WM_CLASS_INSTANCE="x11_wm_class_instance"
 #export NEOVIDE_WM_CLASS="x11_wm_class"
 
+# nimble
+export PATH="$HOME/.nimble/bin:$PATH"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}

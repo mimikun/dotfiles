@@ -354,6 +354,9 @@ set -x MOCWORD_DATA "$XDG_CACHE_HOME/mocword.sqlite"
 #set -x NEOVIDE_WM_CLASS_INSTANCE "x11_wm_class_instance"
 #set -x NEOVIDE_WM_CLASS "x11_wm_class"
 
+# nimble
+set -x PATH $HOME/.nimble/bin $PATH
+
 # cache
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR
