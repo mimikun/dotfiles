@@ -22,8 +22,11 @@ nd = "nd"
 [files]
 extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
-  "dot_config/nvim/lua/plugins/configs/telescope-nvim/media.lua",
   "dot_config/foot/foot.ini",
+  "dot_config/moe/moerc.toml",
+  # NOTE: DO NOT expect an upstream fix
+  # NOTE: PR done: https://github.com/dharmx/telescope-media.nvim/pull/31
+  "dot_config/nvim/lua/plugins/configs/telescope-nvim/media.lua",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: PR done: https://github.com/rcarriga/nvim-dap-ui/pull/379
   "dot_config/nvim/lua/plugins/nvim-dap-ui.lua",
