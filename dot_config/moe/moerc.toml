@@ -1,0 +1,530 @@
+[Standard]
+# not documented
+currentNumber = true
+cursorLine = false
+tabLine = true
+
+# Display line numbers (bool)
+number = true
+
+# Display status line (bool)
+statusLine = true
+
+# Enable syntax highlighting (bool)
+syntax = true
+
+# Enable/Disable indentation lines (bool)
+indentationLines = true
+
+# Set tab width (integer)
+tabStop = 2
+
+# Enable/Disable sidebars for editor views (bool)
+sidebar = true
+
+# Enable/Disable ignorecase (bool)
+ignorecase = true
+
+# Enable/Disable smartcase (bool)
+smartcase = true
+
+# Automatic closing brackets (bool)
+autoCloseParen = true
+
+# Automatic indentation (bool)
+autoIndent = true
+
+# Disable change of the cursor shape (bool)
+disableChangeCursor = false
+
+# Set cursor shape of the terminal emulator you are using (String)
+# `"terminalDefault"` or `"blinkBlock"` or `"blinkIbeam"` or `noneBlinkBlock` or `noneBlinkIbeam`
+defaultCursor = "terminalDefault"
+
+# Set cursor shape in normal mode (String)
+# `"terminalDefault"` or `"blinkBlock"` or `"blinkIbeam"` or `noneBlinkBlock` or `noneBlinkIbeam`
+normalModeCursor = "blinkBlock"
+
+# Set cursor shape in insert mode (String)
+# `"terminalDefault"` or `"blinkBlock"` or `"blinkIbeam"` or `noneBlinkBlock` or `noneBlinkIbeam`
+insertModeCursor = "blinkIbeam"
+
+# Live reload of configuration file (bool)
+liveReloadOfConf = false
+
+# Incremental search (bool)
+incrementalSearch = true
+
+# Pop-up window in ex mode (bool)
+popUpWindowInExmode = true
+
+# Auto delete paren (bool)
+autoDeleteParen = false
+
+# Live reloading open files (bool)
+liveReloadOfFile = false
+
+# Terminal color mode (string)
+# `none` or `8` or `16` or `256` or `24bit`
+colorMode = "24bit"
+
+[Clipboard]
+#Enable/Disable system clipboard (bool)
+enable = true
+
+#Set clipboard tool for Linux (string)
+#`xsel`, `xclip`, `wl-clipboard`, `wsl-default`, `macOS-default`.
+tool = "xsel"
+
+[TabLine]
+#Show all bufer in tab line (bool)
+allBuffer = false
+
+[StatusLine]
+#Multiple status line (bool)
+multipleStatusLine = true
+
+#Enable/Disable merging status line with command line (bool)
+merge = false
+
+#Show current mode (bool)
+mode = true
+
+# not documented
+filename = true
+
+#Show edit history mark (bool)
+chanedMark = true
+
+#Show file location (bool)
+directory = true
+
+# not documented
+gitChangedLines = true
+
+#Show current git branch name (bool)
+gitbranchName = true
+
+#Show number of changed lines (bool)
+showChangedLine = true
+
+#Show/Hide git branch name in status line when window is inactive (bool)
+showGitInactive = false
+
+#Show/Hide mode string in status line when window is inactive (bool)
+showModeInactive = false
+
+#Text to customize the items displayed in the status line (string)
+#Items: `lineNumber`, `totalLines` `columnNumber`, `totalColumns`,  `encoding`, `fileType`, `fileTypeIcon`
+#You can display information in the status lien by enclosing the above items in parentheses. Example: `{lineNumber}`
+setupText = "{lineNumber}/{totalLines} {columnNumber}/{totalColumns} {encoding} {fileType}"
+
+[BuildOnSave]
+#Enable/Disable build on save (bool)
+enable = false
+
+#Project root directory (string)
+# workspaceRoot = "/home/fox/git/moe"
+
+#Override commands executed at build (string)
+# command = "cd /home/fox/git/moe && nimble build"
+
+[Highlight]
+#Highlight the current line (bool)
+currentLine = true
+
+#Highlight any word (array)
+reservedWord = ["TODO", "WIP", "NOTE"]
+
+#Highlight replacement text (bool)
+replaceText = true
+
+#Highlight a pair of paren (bool)
+pairOfParen = true
+
+#Highlight full-width space (bool)
+fullWidthSpace = true
+
+#Highlight trailing spaces (bool)
+trailingSpaces = true
+
+#highlight other uses of the current word under the cursor (bool)
+currentWord = true
+
+[AutoBackup]
+#Enable/Disable automatic backups (bool)
+enable = false
+
+#Start backup when there is no operation for the set number of seconds (int)
+idleTime = 10
+
+#Backup interval (int)
+interval = 5
+
+#Directory to save backup files (string)
+backupDir = "~/.cache/moe/backups"
+
+#Exclude settings for where you don't want to produce automatic backups (array)
+dirToExclude = ["/etc"]
+
+[QuickRun]
+#Save buffer when run QuickRun (bool)
+saveBufferWhenQuickRun = true
+
+#Setting commands to be executed by quick run (string)
+command = ""
+
+#Command timeout (int)
+timeout = 30
+
+#Nim compiler advanced command setting (string)
+nimAdvancedCommand = "c"
+
+#gcc compileer option setting (string)
+ClangOptions = ""
+
+#g++ compiler option setting (string)
+CppOptions = ""
+
+#Nim compiler option setting (string)
+NimOptions = ""
+
+#sh option setting (string)
+shOptions = ""
+
+#bash option setting (string)
+bashOptions = ""
+
+[Notification]
+#Enable/disable all messages/notifications in status line (bool)
+screenNotifications = true
+
+#Enable/disable all messages/notifications in log (bool)
+logNotifications = true
+
+#Enable/disable auto backups messages/notifications in status line (bool)
+autoBackupScreenNotify = true
+
+#Enable/disable auto backups messages/notifications in log (bool)
+autoBackupLogNotify = true
+
+#Enable/disable auto save messages/notifications in status line (bool)
+autoSaveScreenNotify = true
+
+#Enable/disable auto save messages/notifications in log (bool)
+autoSaveLogNotify = true
+
+#Enable/disable yank messages/notifications in status line (bool)
+yankScreenNotify = true
+
+#Enable/disable yank messages/notifications in log (bool)
+yankLogNotify = true
+
+#Enable/disable delete buffer messages/notifications in status line (bool)
+deleteScreenNotify = true
+
+#Enable/disable delete buffer messages/notifications in log (bool)
+deleteLogNotify = true
+
+#Enable/disable save messages/notifications in status line (bool)
+saveScreenNotify = true
+
+#Enable/disable save messages/notifications in log (bool)
+saveLogNotify = true
+
+#Enable/disable QuickRun messages/notifications in status line (bool)
+quickRunScreenNotify = true
+
+#Enable/disable QuickRun messages/notifications in log (bool)
+quickRunLogNotify = true
+
+#Enable/disable build on save messages/notifications in status line (bool)
+buildOnSaveScreenNotify = true
+
+#Enable/disable build on save messages/notifications in log (bool)
+buildOnSaveLogNotify = true
+
+#Enable/disable filer messages/notifications in status line (bool)
+filerScreenNotify = true
+
+#Enable/disable filer messages/notifications in log (bool)
+filerLogNotify = true
+
+#Enable/disable restore messages/notifications in status line (bool)
+restoreScreenNotify = true
+
+#Enable/disable restore messages/notifications in log (bool)
+restoreLogNotify = true
+
+[Filer]
+#Show/hidden unicode icons (bool)
+showIcons = true
+
+[Autocomplete]
+#Enable/Disable general-purpose autocomplete (bool).
+enable = true
+
+[AutoSave]
+#Enable/Disable auto save (bool)
+enable = true
+
+#Auto save interval (minits) (int)
+interval = 5
+
+[Persist]
+#Enable/Disable saving Ex command history (bool).
+exCommand = true
+
+#The maximum entries of ex command history to save (int).
+exCommandHistoryLimit = 1000
+
+#Enable/Disable saving search history (bool).
+search = true
+
+#The maximum entries of search history to save (int).
+searchHistoryLimit = 1000
+
+#Enable/Disable saving last cursor position (bool).
+curosrPosition = true
+
+[Git]
+#Show/Hidden line changes on sidebars (bool)
+showChangedLine = true
+
+#Interval for updating Git information. (Milli seconds) (integer)
+updateInterval = 1000
+
+[SyntaxChecker]
+#Enable/Disable syntax checker (bool)
+enable = false
+
+[SmoothScroll]
+#Enable/Disable Smooth scroll (bool)
+enable = true
+
+#Smooth scroll minimum delay (int)
+minDelay = 5
+
+#Smooth scroll maximum delay (int)
+maxDelay = 20
+
+[Lsp]
+#Enable/Disable LSP (bool)
+enable = false
+
+[Lsp.Completion]
+#Enable/Disable LSP Completion (bool)
+enable = true
+
+[Lsp.Declaration]
+#Enable/Disable LSP Goto Declaration (bool)
+enable = true
+
+[Lsp.Definition]
+#Enable/Disable LSP Goto Definition (bool)
+enable = true
+
+[Lsp.TypeDefinition]
+#Enable/Disable LSP Goto TypeDefinition (bool)
+enable = true
+
+[Lsp.Implementation]
+#Enable/Disable LSP Goto Implementation (bool)
+enable = true
+
+[Lsp.Diagnostics]
+#Enable/Disable LSP Diagnostics (bool)
+enable = true
+
+[Lsp.Hover]
+#Enable/Disable LSP Hover (bool)
+enable = true
+
+[Lsp.InlayHint]
+#Enable/Disable LSP InlayHint (bool)
+enable = true
+
+[Lsp.References]
+#Enable/Disable LSP Find References (bool)
+enable = true
+
+[Lsp.CallHierarchy]
+#Enable/Disable LSP CallHierarchy (bool)
+enable = true
+
+[Lsp.DocumentHighlight]
+#Enable/Disable LSP Document Highlight (bool)
+enable = true
+
+[Lsp.DocumentLink]
+#Enable/Disable LSP Document Link (bool)
+enable = true
+
+[Lsp.CodeLens]
+#Enable/Disable LSP Code Lens (bool)
+enable = false
+
+[Lsp.Rename]
+#Enable/Disable LSP Rename (bool)
+enable = true
+
+[Lsp.SemanticTokens]
+#Enable/Disable LSP SemanticTokens (bool)
+enable = true
+
+[Lsp.ExecuteCommand]
+#Enable/Disable LSP Execute Command (bool)
+enable = true
+
+[Lsp.rust]
+extensions = ["rs"]
+command = "rust-analyzer"
+trace = "verbose"
+rustAnalyzerRunSingle = true
+rustAnalyzerDebugSingle = true
+
+# NOTE: Lsp conf
+#[Lsp.{languageId}]
+#File extensions (Array[string])
+#extensions = []
+#A LSP server command (string)
+#command = ""
+
+[StartUp.FileOpen]
+#Display all buffers in multiple views if multiple paths are received when starting the editor (bool)
+autoSplit = true
+
+#Setting the split type for `StartUp.FileOpen.autoSplit`. (string)
+splitType = "vertical"
+
+[Theme]
+# Theme kind (string)
+kind = "default"
+
+# A path of user theme. (string)
+path = ""
+
+[Debug.WindowNode]
+#Show/Hidden all windowNode info in debug mode (bool)
+enable = false
+
+#Show/Hidden whether the current window or not in debug mode (bool)
+currentWindow = false
+
+#Show/Hidden windowNode.index in debug mode (bool)
+index = false
+
+#Show/Hidden windowNode.windowIndex in debug mode (bool)
+windowIndex = false
+
+#Show/Hidden windowNode.bufferIndex in debug mode (bool)
+bufferIndex = false
+
+#Show/Hidden parent node's windoeNode.index in debug mode (bool)
+parentIndex = false
+
+#Show/Hidden windoeNode.child.len in debug mode (bool)
+childLen = false
+
+#Show/Hidden windoeNode.splitType in debug mode (bool)
+splitType = false
+
+#Show/Hidden whether windoeNode have cursesWindow or not in debug mode (bool)
+haveCursesWin = false
+
+#Show/Hidden windowNode.y in debug mode (bool)
+y = false
+
+#Show/Hidden windowNode.x in debug mode (bool)
+x = false
+
+#Show/Hidden windowNode.h in debug mode (bool)
+h = false
+
+#Show/Hidden windowNode.w in debug mode (bool)
+w = false
+
+#Show/Hidden windowNode.currentLine in debug mode (bool)
+currentLine = false
+
+#Show/Hidden windowNode.currentColumn in debug mode (bool)
+currentColumn = false
+
+#Show/Hidden windowNode.expandedColumn in debug mode (bool)
+expandedColumn = false
+
+#Show/Hidden windowNode.curosr in debug mode (bool)
+cursor = false
+
+[Debug.EditorView]
+#Show/Hidden all editorview info in debug mode (bool)
+enable = false
+
+#Show/Hidden editorview.widthOfLineNum in debug mode (bool)
+widthOfLineNum = false
+
+#Show/Hidden editorview.height in debug mode (bool)
+height = false
+
+#Show/Hidden editorview.width in debug mode (bool)
+width = false
+
+#Show/Hidden editorview.originalLine in debug mode (bool)
+originalLine = false
+
+#Show/Hidden editorview.start in debug mode (bool)
+start = false
+
+#Show/Hidden editorview.length in debug mode (bool)
+length = false
+
+[Debug.BufStatus]
+#Show/Hidden all bufStatus info in debug mode (bool)
+enable = false
+
+#Show/Hidden bufStatus index in debug mode (bool)
+bufferIndex = false
+
+#Show/Hidden bufStatus.path in debug mode (bool)
+path = false
+
+#Show/Hidden bufStatus.openDir in debug mode (bool)
+openDir = false
+
+#Show/Hidden bufStatus.mode in debug mode (bool)
+currentMode = false
+
+#Show/Hidden bufStatus.prevMode in debug mode (bool)
+prevMode = false
+
+#Show/Hidden bufStatus.language in debug mode (bool)
+language = false
+
+#Show/Hidden bufStatus.characterEncoding in debug mode (bool)
+encoding = false
+
+#Show/Hidden bufStatus.countChange in debug mode (bool)
+countChange = false
+
+#Show/Hidden bufStatus.cmdLoop in debug mode (bool)
+cmdLoop = false
+
+#Show/Hidden bufStatus.lastSaveTime in debug mode (bool)
+lastSaveTime = false
+
+#Show/Hidden bufStatus.buffer.len in debug mode (bool)
+bufferLen = false
+
+[Debug.BufferStatus]
+enable = false
+bufferIndex = false
+path = false
+openDir = false
+currentMode = false
+prevMode = false
+language = false
+encoding = false
+countChange = false
+cmdLoop = false
+lastSaveTime = false
+bufferLen = false
