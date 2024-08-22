@@ -14,8 +14,11 @@ local spec = {
     --lazy = false,
     dependencies = dependencies,
     config = function()
-        -- Use denops-shared-server if there are no human rights
-        vim.g.denops_server_addr = not is_human_rights and "127.0.0.1:32123" or ""
+        -- Install denops-shared-server and set address
+        if not is_human_rights then
+            vim.fn["denops_shared_server#install"]()
+            vim.g.denops_server_addr = "127.0.0.1:32123"
+        end
 
         require("denops-lazy").setup({
             wait_load = true,

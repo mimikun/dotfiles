@@ -16,22 +16,25 @@ local opts = {
     },
 }
 
+---@type table
+local cmds = {
+    "SilhouetteInsertTasks",
+    "SilhouetteMoveToProgress",
+}
+
 ---@type LazySpec
 local spec = {
     "tadashi-aikawa/silhouette.nvim",
     --lazy = false,
     ft = "markdown",
-    cmd = "Silhouette",
+    cmd = cmds,
     dependencies = dependencies,
     config = function()
-        require("denops-lazy").load("silhouette")
         require("silhouette").setup(opts)
+        require("denops-lazy").load("silhouette")
     end,
-    --cond = is_human_rights,
-    --enabled = is_human_rights,
-    -- FIX: workaround
-    cond = false,
-    enabled = false,
+    cond = is_human_rights,
+    enabled = is_human_rights,
 }
 
 return spec

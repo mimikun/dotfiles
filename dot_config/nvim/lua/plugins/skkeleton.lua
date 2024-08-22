@@ -174,7 +174,6 @@ local spec = {
     dependencies = dependencies,
     config = function()
         require("denops-lazy").load("skkeleton")
-        require("skkeleton_indicator").setup(skkeleton_indicator_opts)
 
         vim.fn["skkeleton#config"] = skkeleton_opts
         vim.fn["skkeleton#initialize"]()
@@ -183,6 +182,8 @@ local spec = {
         vim.keymap.set("n", "<C-j>", "<Plug>(skkeleton-toggle)")
         vim.keymap.set("i", "<C-j>", "<Plug>(skkeleton-toggle)")
         vim.keymap.set("c", "<C-j>", "<Plug>(skkeleton-toggle)")
+
+        require("skkeleton_indicator").setup(skkeleton_indicator_opts)
     end,
     cond = is_human_rights,
     enabled = is_human_rights,
