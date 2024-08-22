@@ -1,0 +1,32 @@
+# TODO
+
+- [ ] `:q` で閉じたあと中身が見えたままになる
+- [ ] mimikun-icons.lua
+    - [ ] alpha-nvim.lua
+    - [ ] crates-nvim.lua
+    - [ ] diffview-nvim.lua
+    - [ ] eskk-vim.lua
+    - [ ] fidget.lua
+    - [ ] gitgraph-nvim.lua
+    - [ ] gitsigns-nvim.lua
+    - [ ] indent-blankline.lua
+    - [ ] lazygit-nvim.lua
+    - [ ] legendary-nvim.lua
+    - [ ] lspsaga-nvim.lua
+    - [ ] lualine-nvim.lua
+    - [ ] mason-nvim.lua
+    - [ ] neogit.lua
+    - [ ] nvim-cmp.lua
+    - [ ] nvim-navic.lua
+    - [ ] nvim-tree.lua
+    - [ ] obsidian-nvim.lua
+    - [ ] orgmode.lua
+    - [ ] package-info-nvim.lua
+    - [ ] render-markdown.lua
+    - [ ] satellite-nvim.lua
+    - [ ] sidebar-nvim.lua
+    - [ ] skkeleton.lua
+    - [ ] smoothcursor-nvim.lua
+    - [ ] todo-comments-nvim.lua
+    - [ ] trouble.lua
+    - [ ] which-key-nvim.lua
