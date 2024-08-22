@@ -67,6 +67,7 @@ complete -c uv -n "__fish_uv_needs_command" -f -a "generate-shell-completion" -d
 complete -c uv -n "__fish_uv_needs_command" -f -a "help" -d 'Display documentation for a command'
 complete -c uv -n "__fish_uv_using_subcommand run" -l extra -d 'Include optional dependencies from the extra group name' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with -d 'Run with the given packages installed' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed as editables' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
@@ -946,6 +947,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l color -d 'Control colors in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-python-downloads -d 'Disable automatic downloads of Python'
