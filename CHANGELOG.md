@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.08.22]
+
+### Added - 新機能について
+
+- docs(nvim): add TODO.md
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- docs(nvim): update README.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update deno completion
+
+### Removed - 今回で削除された機能について
+
+- style(nvim): remove TODO comment
+
+### Fixed - 不具合修正について
+
+- fix(nvim): huez.nvim not work in windows
+- fix(nvim): denops plugins configs
+
 ## [v2024.08.21]
 
 ### Added - 新機能について
