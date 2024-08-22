@@ -1,49 +1,17 @@
 # neovim config
 
-2024年7月 ver5相当
-
 ## Note
 
-- denopsなど外部依存を必要とするプラグインはなるべく使わない
-    - 理由: 人権がないとまともに動かない
-    - 例外:
-        - skkeleton
-        - silhouette.nvim(denops version)
-        - dps-translate-vim
-- テスト段階ではtreesitterやmasonのものは最低限だけいれる
-    - 理由: 人権がないとインストールに時間かかる
-- プラグインファイルの名前の付け方
-    - [rocks-config.nvim の Note にあるやり方](https://github.com/nvim-neorocks/rocks-config.nvim?tab=readme-ov-file#options) に従う
+### DO NOT use the denops plugin
 
-## TODO
+Although not mentioned in the denops documentation, it requires a powerful machine.
+I call it a [human rights](https://github.com/mimikun/dotfiles/blob/master/docs/src/glossary.md#human-rights).
+Only some plugins that cannot be replaced by other plugins are installed as exceptions.
 
-- [ ] `:q` で閉じたあと中身が見えたままになる
-- [ ] mimikun-icons.lua
-    - [ ] alpha-nvim.lua
-    - [ ] crates-nvim.lua
-    - [ ] diffview-nvim.lua
-    - [ ] eskk-vim.lua
-    - [ ] fidget.lua
-    - [ ] gitgraph-nvim.lua
-    - [ ] gitsigns-nvim.lua
-    - [ ] indent-blankline.lua
-    - [ ] lazygit-nvim.lua
-    - [ ] legendary-nvim.lua
-    - [ ] lspsaga-nvim.lua
-    - [ ] lualine-nvim.lua
-    - [ ] mason-nvim.lua
-    - [ ] neogit.lua
-    - [ ] nvim-cmp.lua
-    - [ ] nvim-navic.lua
-    - [ ] nvim-tree.lua
-    - [ ] obsidian-nvim.lua
-    - [ ] orgmode.lua
-    - [ ] package-info-nvim.lua
-    - [ ] render-markdown.lua
-    - [ ] satellite-nvim.lua
-    - [ ] sidebar-nvim.lua
-    - [ ] skkeleton.lua
-    - [ ] smoothcursor-nvim.lua
-    - [ ] todo-comments-nvim.lua
-    - [ ] trouble.lua
-    - [ ] which-key-nvim.lua
+- skkeleton
+- silhouette.nvim(denops version)
+- dps-translate-vim
+
+### Plugin File Naming Conventions
+
+Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.nvim/blob/3167c3d16e9e5be879b7acac61d5010add78dfb4/README.md?plain=1#L74-L85)
