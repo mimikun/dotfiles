@@ -48,7 +48,6 @@ local keys = {
     { "<space>rn", desc = "Renames all references to the symbol under the cursor" },
     { "<space>ca", desc = "Selects a code action available at the current cursor position" },
     { "gr", desc = "Lists all the references to the symbol under the cursor in the quickfix window" },
-    -- TODO: fix dup keys
     { "<space>f", desc = "Formats a buffer using the attached (and optionally filtered) language server clients" },
 }
 
