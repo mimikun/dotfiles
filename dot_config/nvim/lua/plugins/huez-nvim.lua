@@ -28,6 +28,7 @@ local dependencies = {
     "pauchiner/pastelnight.nvim",
     -- sub colorscheme
     "folke/tokyonight.nvim",
+    "projekt0n/github-nvim-theme",
     -- 'named' colorscheme
     { "catppuccin/nvim", name = "catppuccin", optional = true },
     -- other dependencies
