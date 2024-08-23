@@ -39,15 +39,13 @@ local events = { "BufReadPost", "BufNewFile" }
 
 ---@type table
 local opts = {
-    ---@type string
     scope = "git",
 
-    ---@type "start" | "end"
+    --- "start" | "end"
     name_pos = "end",
 
-    ---  "relative": show tag path relative to the scope's resolved path
-    ---  "basename": show tag path basename and directory hint
-    ---@type "basename" | "relative"
+    --- "relative": show tag path relative to the scope's resolved path
+    --- "basename": show tag path basename and directory hint
     style = "relative",
 
     quick_select = "123456789",
