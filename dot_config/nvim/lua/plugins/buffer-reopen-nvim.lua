@@ -1,4 +1,4 @@
----@type LazyKeysSpec
+---@type LazyKeysSpec[]
 local keys = {
     { "<leader>bt", desc = "Reopen buffer" },
     { "<C-S-t>", desc = "Reopen buffer" },

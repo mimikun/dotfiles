@@ -22,6 +22,7 @@ local cmds = {
     "HopYankChar1",
 }
 
+---@type table
 local opts = {
     keys = "asdghklqwertyuiopzxcvbnmfj",
     quit_key = "<Esc>",

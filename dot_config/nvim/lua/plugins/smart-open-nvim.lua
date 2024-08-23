@@ -1,4 +1,4 @@
----@type table
+---@type LazySpec[]
 local dependencies = {
     "kkharji/sqlite.lua",
 }

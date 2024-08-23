@@ -5,7 +5,7 @@ local cmds = {
     "HlSearchLensDisable",
 }
 
----@type table
+---@type LazyKeysSpec[]
 local keys = {
     {
         "<Leader>L",

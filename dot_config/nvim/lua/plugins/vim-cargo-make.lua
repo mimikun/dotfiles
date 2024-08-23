@@ -1,4 +1,4 @@
----@type table
+---@type LazySpec[]
 local dependencies = {
     "cespare/vim-toml",
     "nastevens/vim-duckscript",

@@ -125,6 +125,7 @@ local data = {
 
 ---Get a specific bannar set.
 ---@param category "logo"|"buruaka"|"covid_19"
+---@return table
 function bannars.get(category)
     return data[category]
 end
