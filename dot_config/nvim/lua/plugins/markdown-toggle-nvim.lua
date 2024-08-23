@@ -1,15 +1,27 @@
+---@type table
+local ft = { "markdown", "markdown.mdx" }
+
+---@type LazyKeysSpec[]
+local keys = require("plugins.configs.markdown-toggle-nvim.keys")
+
+---@type table
+local opts = {
+    use_default_keymaps = false,
+}
+
 ---@type LazySpec
 local spec = {
     "roodolv/markdown-toggle.nvim",
     --lazy = false,
-    ft = { "markdown", "markdown.mdx" },
+    ft = ft,
+    keys = keys,
     config = function()
         local toggle = require("markdown-toggle")
-        toggle.setup({})
+        toggle.setup(opts)
 
         vim.api.nvim_create_autocmd("FileType", {
             desc = "markdown-toggle.nvim keymaps",
-            pattern = { "markdown", "markdown.mdx" },
+            pattern = ft,
             callback = function(args)
                 local opts = { silent = true, noremap = true, buffer = args.buf }
 
