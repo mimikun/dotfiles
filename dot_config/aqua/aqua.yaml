@@ -59,7 +59,7 @@ packages:
 - name: charmbracelet/gum@v0.14.4
 - name: charmbracelet/mods@v1.5.0
 - name: charmbracelet/skate@v1.0.0
-- name: charmbracelet/glow@v2.0.0
+- name: charmbracelet/glow@v1.5.1
 - name: babarot/gomi@v1.1.6
 - name: Songmu/make2help@v0.2.1
 - name: mgechev/revive@v1.3.9
