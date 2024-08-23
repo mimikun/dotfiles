@@ -8,11 +8,6 @@ local cmds = {
     "SidebarNvimFocus",
 }
 
----@type LazySpec[]
-local dependencies = {
-    --"sidebar-nvim/sections-dap",
-}
-
 ---@type table
 local opts = {
     side = "right",
@@ -21,16 +16,8 @@ local opts = {
         "datetime",
         "git",
         "diagnostics",
-        --require("dap-sidebar-nvim.breakpoints"),
     },
     datetime = { format = "%a %b %d, %H:%M", clocks = { { name = "local" } } },
-    --[[
-    dap = {
-        breakpoints = {
-            icon = "🔍",
-        },
-    },
-    ]]
 }
 
 ---@type LazySpec
@@ -39,7 +26,6 @@ local spec = {
     --lazy = false,
     cmd = cmds,
     event = "BufEnter",
-    dependencies = dependencies,
     opts = opts,
     --cond = false,
 }
