@@ -60,7 +60,7 @@ local lazy_settings = {
         },
     },
     rocks = {
-        enabled = falase,
+        enabled = false,
     },
     dev = {
         path = table.concat({ global.home, "ghq", "github.com", "mimikun", "dev-plugins" }, global.path_sep),
