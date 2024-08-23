@@ -58,11 +58,18 @@ local opts = {
 local spec = {
     "isakbm/gitgraph.nvim",
     --lazy = false,
-    --cmd = "CMDNAME",
+    cmd = "GitGraph",
     keys = keys,
-    --event = "VeryLazy",
     dependencies = { "sindrets/diffview.nvim" },
-    opts = opts,
+    config = function()
+        local gitgraph = require("gitgraph")
+        gitgraph.setup(opts)
+
+        -- Define user command
+        vim.api.nvim_create_user_command("GitGraph", function()
+            gitgraph.draw({}, { all = true, max_count = 5000 })
+        end, {})
+    end,
     --cond = false,
 }
 
