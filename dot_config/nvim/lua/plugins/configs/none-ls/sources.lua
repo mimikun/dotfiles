@@ -33,6 +33,7 @@ local M = {
         formatting.gofmt,
         formatting.isort,
         formatting.just,
+        formatting.nixfmt,
         formatting.markdownlint,
         formatting.phpcsfixer,
         formatting.prettier,
@@ -75,6 +76,7 @@ local M = {
         formatting.gofmt,
         formatting.isort,
         formatting.just,
+        formatting.nixfmt,
         formatting.markdownlint,
         formatting.phpcsfixer,
         formatting.prettier,
@@ -97,6 +99,7 @@ local M = {
         diagnostics.yamllint,
         --- Formatting
         formatting.fish_indent,
+        formatting.nixfmt,
         formatting.prettier.with({
             only_local = "node_modules/.bin",
         }),
@@ -146,6 +149,7 @@ local M = {
         formatting.gofmt,
         formatting.isort,
         formatting.just,
+        formatting.nixfmt,
         formatting.markdownlint,
         formatting.phpcsfixer,
         formatting.prettier.with({
