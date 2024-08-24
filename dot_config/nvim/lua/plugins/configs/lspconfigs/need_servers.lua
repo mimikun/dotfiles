@@ -15,7 +15,7 @@ local need_servers = {
     "luau_lsp",
     "marksman",
     "neocmake",
-    "nil",
+    "nil_ls",
     "powershell_es",
     "pyright",
     "rust_analyzer",
