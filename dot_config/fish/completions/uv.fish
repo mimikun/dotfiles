@@ -31,8 +31,8 @@ complete -c uv -n "__fish_uv_needs_command" -l color -d 'Control colors in outpu
 complete -c uv -n "__fish_uv_needs_command" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_needs_command" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_needs_command" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_needs_command" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_needs_command" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_needs_command" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_needs_command" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_needs_command" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_needs_command" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_needs_command" -l no-color -d 'Disable colors'
@@ -120,8 +120,8 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-project -d 'Avoid discovering the project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand run" -l show-resolution -d 'Whether to show resolver and installer output from any environment modifications'
 complete -c uv -n "__fish_uv_using_subcommand run" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand run" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand run" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand run" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand run" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-color -d 'Disable colors'
@@ -148,8 +148,8 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l virtual -d 'Create a virt
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-readme -d 'Do not create a `README.md` file'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-workspace -d 'Avoid discovering a workspace'
 complete -c uv -n "__fish_uv_using_subcommand init" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand init" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand init" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand init" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand init" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand init" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand init" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-color -d 'Disable colors'
@@ -221,8 +221,8 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l binary
 complete -c uv -n "__fish_uv_using_subcommand add" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand add" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand add" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand add" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand add" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand add" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-color -d 'Disable colors'
@@ -286,8 +286,8 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l binary
 complete -c uv -n "__fish_uv_using_subcommand remove" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand remove" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand remove" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand remove" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand remove" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand remove" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand remove" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand remove" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-color -d 'Disable colors'
@@ -354,8 +354,8 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l binary
 complete -c uv -n "__fish_uv_using_subcommand sync" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand sync" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand sync" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-color -d 'Disable colors'
@@ -409,8 +409,8 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l binary
 complete -c uv -n "__fish_uv_using_subcommand lock" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand lock" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand lock" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand lock" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand lock" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand lock" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-color -d 'Disable colors'
@@ -469,8 +469,8 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-isolation -d 'Di
 complete -c uv -n "__fish_uv_using_subcommand tree" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tree" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-color -d 'Disable colors'
@@ -493,8 +493,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-color -d 'Disable colors'
@@ -564,8 +564,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l show-resolution -d 'Whether to show resolver and installer output from any environment modifications'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-color -d 'Disable colors'
@@ -626,8 +626,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l show-resolution -d 'Whether to show resolver and installer output from any environment modifications'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-color -d 'Disable colors'
@@ -688,8 +688,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l force -d 'Force installation of the tool'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors'
@@ -743,8 +743,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-binary -d 'Don\'t install pre-built wheels'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l binary
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-color -d 'Disable colors'
@@ -769,7 +769,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-paths -d 'Whether to display the path to each tool environment and installed executable'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-python-downloads
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors'
@@ -793,8 +793,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l all -d 'Uninstall all tools'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors'
@@ -817,8 +817,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-color -d 'Disable colors'
@@ -842,8 +842,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l bin -d 'Show the directory into which `uv tool` will install executables.'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
@@ -866,8 +866,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcom
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l no-color -d 'Disable colors'
@@ -899,8 +899,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l all-platforms -d 'List Python downloads for all platforms'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l only-installed -d 'Only show installed Python versions, exclude available downloads'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors'
@@ -924,8 +924,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s r -l reinstall -d 'Reinstall the requested Python version, if it\'s already installed'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors'
@@ -949,8 +949,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-color -d 'Disable colors'
@@ -976,8 +976,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-resolved
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-workspace -d 'Avoid validating the Python pin is compatible with the workspace'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-color -d 'Disable colors'
@@ -1000,8 +1000,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
@@ -1025,8 +1025,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l all -d 'Uninstall all managed Python versions'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors'
@@ -1049,8 +1049,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcomman
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l no-color -d 'Disable colors'
@@ -1163,8 +1163,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l emit-options
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-emit-options
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-color -d 'Disable colors'
@@ -1239,8 +1239,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l user
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-config
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-color -d 'Disable colors'
@@ -1321,8 +1321,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l user
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors'
@@ -1355,8 +1355,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-break-system-packages
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors'
@@ -1386,8 +1386,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-color -d 'Disable colors'
@@ -1421,8 +1421,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l outdated
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors'
@@ -1451,8 +1451,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-color -d 'Disable colors'
@@ -1487,8 +1487,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-color -d 'Disable colors'
@@ -1514,8 +1514,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l system -d 'Check packages in the system Python environment'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-color -d 'Disable colors'
@@ -1559,8 +1559,8 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l no-pip
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-setuptools
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-wheel
 complete -c uv -n "__fish_uv_using_subcommand venv" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand venv" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand venv" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand venv" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-color -d 'Disable colors'
@@ -1583,8 +1583,8 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l no-color -d 'Disable colors'
@@ -1610,8 +1610,8 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-color -d 'Disable colors'
@@ -1635,8 +1635,8 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l ci -d 'Optimize the cache for persistence in a continuous integration environment, like GitHub Actions'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-color -d 'Disable colors'
@@ -1659,8 +1659,8 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
@@ -1683,8 +1683,8 @@ complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l no-color -d 'Disable colors'
@@ -1708,8 +1708,8 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-color -d 'Disable colors'
@@ -1732,8 +1732,8 @@ complete -c uv -n "__fish_uv_using_subcommand clean" -l color -d 'Control colors
 complete -c uv -n "__fish_uv_using_subcommand clean" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand clean" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand clean" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand clean" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand clean" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand clean" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand clean" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand clean" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand clean" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-color -d 'Disable colors'
@@ -1757,8 +1757,8 @@ complete -c uv -n "__fish_uv_using_subcommand version" -l color -d 'Control colo
 complete -c uv -n "__fish_uv_using_subcommand version" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand version" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand version" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand version" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand version" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand version" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand version" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand version" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand version" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-color -d 'Disable colors'
@@ -1790,7 +1790,7 @@ complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-p
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-config
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -s h -l help
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -s V -l version
-complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
+complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-color -d 'Disable colors'
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-offline
@@ -1806,8 +1806,8 @@ complete -c uv -n "__fish_uv_using_subcommand help" -l directory -d 'Change to t
 complete -c uv -n "__fish_uv_using_subcommand help" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-pager -d 'Disable pager when printing help'
 complete -c uv -n "__fish_uv_using_subcommand help" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand help" -l allow-python-downloads -d 'Allow automatically downloading Python when required'
-complete -c uv -n "__fish_uv_using_subcommand help" -l no-python-downloads -d 'Disable automatic downloads of Python'
+complete -c uv -n "__fish_uv_using_subcommand help" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand help" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
 complete -c uv -n "__fish_uv_using_subcommand help" -s q -l quiet -d 'Do not print any output'
 complete -c uv -n "__fish_uv_using_subcommand help" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-color -d 'Disable colors'
