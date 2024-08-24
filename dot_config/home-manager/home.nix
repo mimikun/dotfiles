@@ -13,6 +13,7 @@
     pkgs.circumflex
     pkgs.tracexec
     pkgs.cpufetch
+    pkgs.nixfmt
   ];
 
   # Home Manager is pretty good at managing dotfiles.
