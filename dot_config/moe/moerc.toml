@@ -77,7 +77,7 @@ enable = true
 tool = "xsel"
 
 [TabLine]
-#Show all bufer in tab line (bool)
+#Show all buffer in tab line (bool)
 allBuffer = false
 
 [StatusLine]
