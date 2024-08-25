@@ -24,6 +24,7 @@ extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
   "dot_config/foot/foot.ini",
   "dot_config/moe/moerc.toml",
+  "dot_config/fish/completions/glow.fish",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: PR done: https://github.com/dharmx/telescope-media.nvim/pull/31
   "dot_config/nvim/lua/plugins/configs/telescope-nvim/media.lua",
