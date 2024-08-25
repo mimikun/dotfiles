@@ -3,7 +3,7 @@ complete -c fd -s d -l max-depth -d 'Set maximum search depth (default: none)' -
 complete -c fd -l min-depth -d 'Only show search results starting at the given depth.' -r
 complete -c fd -l exact-depth -d 'Only show search results at the exact given depth' -r
 complete -c fd -s E -l exclude -d 'Exclude entries that match the given glob pattern' -r
-complete -c fd -s t -l type -d 'Filter by type: file (f), directory (d/dir), symlink (l), executable (x), empty (e), socket (s), pipe (p), char-device (c), block-device (b)' -r -f -a "{file	'',directory	'',symlink	'',block-device	'',char-device	'',executable	'A file which is executable by the current effective user',empty	'',socket	'',pipe	''}"
+complete -c fd -s t -l type -d 'Filter by type: file (f), directory (d/dir), symlink (l), executable (x), empty (e), socket (s), pipe (p), char-device (c), block-device (b)' -r -f -a "{file\t'',directory\t'',symlink\t'',block-device\t'',char-device\t'',executable\t'A file which is executable by the current effective user',empty\t'',socket\t'',pipe\t''}"
 complete -c fd -s e -l extension -d 'Filter by file extension' -r
 complete -c fd -s S -l size -d 'Limit results based on the size of files' -r
 complete -c fd -l changed-within -d 'Filter by file modification time (newer than)' -r
@@ -14,15 +14,16 @@ complete -c fd -s x -l exec -d 'Execute a command for each search result' -r
 complete -c fd -s X -l exec-batch -d 'Execute a command with all search results at once' -r
 complete -c fd -l batch-size -d 'Max number of arguments to run as a batch size with -X' -r
 complete -c fd -l ignore-file -d 'Add a custom ignore-file in \'.gitignore\' format' -r -F
-complete -c fd -s c -l color -d 'When to use colors' -r -f -a "{auto	'show colors if the output goes to an interactive console (default)',always	'always use colorized output',never	'do not use colorized output'}"
+complete -c fd -s c -l color -d 'When to use colors' -r -f -a "{auto\t'show colors if the output goes to an interactive console (default)',always\t'always use colorized output',never\t'do not use colorized output'}"
+complete -c fd -l hyperlink -d 'Add hyperlinks to output paths' -r -f -a "{auto\t'Use hyperlinks only if color is enabled',always\t'Always use hyperlinks when printing file paths',never\t'Never use hyperlinks'}"
 complete -c fd -s j -l threads -d 'Set number of threads to use for searching & executing (default: number of available CPU cores)' -r
 complete -c fd -l max-buffer-time -d 'Milliseconds to buffer before streaming search results to console' -r
 complete -c fd -l max-results -d 'Limit the number of search results' -r
 complete -c fd -l base-directory -d 'Change current working directory' -r -F
 complete -c fd -l path-separator -d 'Set path separator when printing file paths' -r
 complete -c fd -l search-path -d 'Provides paths to search as an alternative to the positional <path> argument' -r -F
-complete -c fd -l strip-cwd-prefix -d 'By default, relative paths are prefixed with \'./\' when -x/--exec, -X/--exec-batch, or -0/--print0 are given, to reduce the risk of a path starting with \'-\' being treated as a command line option. Use this flag to change this behavior. If this flag is used without a value, it is equivalent to passing "always"' -r -f -a "{auto	'Use the default behavior',always	'Always strip the ./ at the beginning of paths',never	'Never strip the ./'}"
-complete -c fd -l gen-completions -r -f -a "{bash	'',elvish	'',fish	'',powershell	'',zsh	''}"
+complete -c fd -l strip-cwd-prefix -d 'By default, relative paths are prefixed with \'./\' when -x/--exec, -X/--exec-batch, or -0/--print0 are given, to reduce the risk of a path starting with \'-\' being treated as a command line option. Use this flag to change this behavior. If this flag is used without a value, it is equivalent to passing "always"' -r -f -a "{auto\t'Use the default behavior',always\t'Always strip the ./ at the beginning of paths',never\t'Never strip the ./'}"
+complete -c fd -l gen-completions -r -f -a "{bash\t'',elvish\t'',fish\t'',powershell\t'',zsh\t''}"
 complete -c fd -s H -l hidden -d 'Search hidden files and directories'
 complete -c fd -l no-hidden -d 'Overrides --hidden'
 complete -c fd -s I -l no-ignore -d 'Do not respect .(git|fd)ignore files'

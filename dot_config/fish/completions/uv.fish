@@ -304,6 +304,7 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l no-config -d 'Avoid dis
 complete -c uv -n "__fish_uv_using_subcommand remove" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand remove" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l extra -d 'Include optional dependencies from the extra group name' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-package -d 'Do not install the given package(s)' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
@@ -334,6 +335,8 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l dev -d 'Include developme
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-dev -d 'Omit development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l inexact -d 'Do not remove extraneous packages present in the environment'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l exact -d 'Perform an exact sync, removing extraneous packages'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-project -d 'Do not install the current project'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-workspace -d 'Do not install any workspace members, including the root project'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l frozen -d 'Sync without updating the `uv.lock` file'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
@@ -948,6 +951,8 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-project -d 'Avoid discovering a project or workspace'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l system -d 'Only find system Python interpreters'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
@@ -974,7 +979,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l resolved -d 'Write the resolved Python interpreter path instead of the request'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-resolved
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-workspace -d 'Avoid validating the Python pin is compatible with the workspace'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-project -d 'Avoid validating the Python pin is compatible with the project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
