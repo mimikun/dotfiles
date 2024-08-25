@@ -1,5 +1,52 @@
 # Changelog
 
+## [v2024.08.25]
+
+### Added - 新機能について
+
+- feat: add home-manager config
+- feat(home-manager): add nixpkgs.nixfmt
+- feat(nvim): add new colorscheme: github-nvim-theme
+- feat(nvim): add new language server: nil
+- feat(nvim): add nixfmt in none-ls config
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(fish): update glow completion
+- chore(fish): update some completions
+- chore(nvim): update lockfiles
+- chore(nvim): update bannars.lua
+- chore(nvim): update lazydev.nvim configs
+- chore(nvim): update gitsigns.nvim configs
+- chore(nvim): update gitgraph.nvim configs
+- chore(nvim): update markdown-toggle.nvim configs
+- chore(nvim): update context-menu.nvim configs
+- chore(nvim): update haunt.nvim configs
+- chore(nvim): update grapple.nvim config
+- chore(nvim): update human-rights.nvim config
+- chore(nvim): update telescope.nvim configs
+    - add some extensions
+- chore(nvim): sort need_servers.lua
+- chore(aqua): update bitwarden-cli to v2024.8.0
+- style(home-manager): run nixfmt
+- chore(typos): update config
+    - ignore dot_config/fish/completions/glow.fish
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove sections-dap in sidebar.nvim configs
+- chore(nvim): disable silhouette.nvim
+    - denops error, f**k denops
+
+### Fixed - 不具合修正について
+
+- fix(nvim): typo in plugin-manager.lua
+- fix(nvim): type annotations
+- fix(nvim): rename: nil to nil_ls
+- fix(typo): bufer to buffer in moerc.toml
+
 ## [v2024.08.22]
 
 ### Added - 新機能について
