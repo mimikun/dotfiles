@@ -6,11 +6,6 @@
 
 Although not mentioned in the denops documentation, it requires a powerful machine.
 I call it a [human rights](https://github.com/mimikun/dotfiles/blob/master/docs/src/glossary.md#human-rights).
-Only some plugins that cannot be replaced by other plugins are installed as exceptions.
-
-- skkeleton
-- silhouette.nvim(denops version)
-- dps-translate-vim
 
 ### Plugin File Naming Conventions
 
