@@ -1,16 +1,23 @@
 ---@type boolean
 local cond = require("config.settings").use_ai
 
+-- Only on MacOS or Linux
+---@type string
+local build = require("config.global").is_windows and "" or "make tiktoken"
+
 ---@type table
 local cmds = {
     "CopilotChat",
     "CopilotChatOpen",
     "CopilotChatClose",
     "CopilotChatToggle",
+    "CopilotChatStop",
     "CopilotChatReset",
     "CopilotChatSave",
     "CopilotChatLoad",
     "CopilotChatDebugInfo",
+    "CopilotChatModels",
+    "CopilotChatModel",
     "CopilotChatExplain",
     "CopilotChatReview",
     "CopilotChatFix",
@@ -31,6 +38,7 @@ local dependencies = {
 ---@type LazySpec
 local spec = {
     "CopilotC-Nvim/CopilotChat.nvim",
+    build = build,
     branch = "canary",
     --lazy = false,
     cmd = cmds,
