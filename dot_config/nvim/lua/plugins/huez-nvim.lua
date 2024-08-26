@@ -11,7 +11,7 @@ local opts = {
     path = table.concat({ data_path, "huez" }, global.path_sep),
     fallback = "pastelnight",
     theme_config_module = "plugins.configs.huez-nvim.themes",
-    exclude = require("plugins.configs.huez-nvim.exclude").exclude,
+    exclude = require("plugins.configs.huez-nvim.exclude"),
 }
 
 ---@type table

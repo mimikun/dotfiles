@@ -1,7 +1,5 @@
-local M = {}
-
 ---@type table
-M.exclude = {
+local exclude = {
     "desert",
     "evening",
     "industry",
@@ -29,4 +27,4 @@ M.exclude = {
     "retrobox",
 }
 
-return M
+return exclude
