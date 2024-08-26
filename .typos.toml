@@ -42,4 +42,5 @@ extend-exclude = [
   "game_settings/CookieClicker",
   # NOTE: has many typos
   "dot_config/nvim/dotfyle.json",
+  "CHANGELOG.md",
 ]
