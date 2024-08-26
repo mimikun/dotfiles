@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2024.08.26]
+
+### Added - 新機能について
+
+- feat(cargo): add viddy and config
+- feat(nvim-templates): add lazy plugin spec template
+- feat(fish): add nix completion
+- feat(nvim): enable eskk.vim
+- feat(nvim): add new plugin: translate.nvim
+    - and remove old translate plugins
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(localbin): update update_fish_completions
+- chore(fish): update sheldon completion
+- chore(nvim): update lockfiles
+- chore(nvim): update copilotchat.nvim config
+- refactor(nvim): huez.nvim config
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove denops plugins
+    - I don't know what's good about denops, It's so stressful
+
+### Fixed - 不具合修正について
+
+- fix(nvim): remove nil_ls in windows
+
 ## [v2024.08.25]
 
 ### Added - 新機能について
