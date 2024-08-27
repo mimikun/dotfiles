@@ -1,14 +1,9 @@
+-- global
 if vim.loader then
     vim.loader.enable()
 end
 
---- options
 local os_name = vim.uv.os_uname().sysname
-local total_memory = vim.uv.get_total_memory()
--- 4GB
-local linux_human_rights_memory_size = 4294967296
--- 9GB
-local windows_human_rights_memory_size = 9663676416
 
 ---@type boolean
 local is_mac = os_name == "Darwin"
@@ -25,150 +20,45 @@ local is_wsl = vim.fn.has("wsl") == 1
 ---@type boolean
 local is_unix = vim.fn.has("unix") == 1
 
-local human_rights
-if is_windows then
-    human_rights = (total_memory > windows_human_rights_memory_size)
-else
-    human_rights = (total_memory > linux_human_rights_memory_size)
-end
-
----@type boolean
-local is_human_rights = human_rights
-
----@type string
-local vim_path = vim.fn.stdpath("config")
-
 ---@type string
 local path_sep = is_windows and "\\" or "/"
 
----@type string
-local home = vim.uv.os_homedir()
-
----@type string
-local cache_dir = vim.fn.stdpath("cache")
-
----@type string
-local data_dir = string.format("%s/site", vim.fn.stdpath("data"))
-
--- マウス操作を有効にする
----@type string
+-- options
 vim.opt.mouse = "a"
-
--- 使用可能性のある改行コードを指定
----@type table
 vim.opt.fileformats = { "unix", "dos", "mac" }
-
--- ファイル読み込むときのエンコード
--- 左から順に試す
----@type table
 vim.opt.fileencodings = { "utf-8", "cp932", "ucs-bombs", "euc-jp" }
-
--- 全角文字の表示に2文字分使うようにする
----@type string
-vim.opt.ambiwidth = "double"
-
--- スワップファイルを作成しないようにする
----@type boolean
 vim.opt.swapfile = false
-
--- :q したときにバッファを消さず隠して保持しておくようにする
-if is_unix then
-    vim.opt.hidden = true
-end
-
--- 行番号を絶対値で表示する
----@type boolean
+vim.opt.hidden = is_unix
 vim.opt.number = true
-
--- 行番号を相対値で表示する
----@type boolean
 vim.opt.relativenumber = true
-
--- 空白文字を可視化する
----@type boolean
 vim.opt.list = true
----@type table
 vim.opt.listchars = { tab = ">-", trail = "*", nbsp = "+", space = "⋅" }
-
--- 良い感じにインデントしてくれるようにする
----@type boolean
 vim.opt.smartindent = true
-
--- ビープ音を画面フラッシュで代替
----@type boolean
 vim.opt.visualbell = true
-
--- TABキーを押したときにtab文字ではなくスペースを入力するようにする
----@type boolean
 vim.opt.expandtab = true
-
--- TABキーを押したときのインデントのスペース個数を指定する
----@type number
 vim.opt.tabstop = 4
-
--- 自動インデントのスペース個数を指定する
----@type number
 vim.opt.shiftwidth = 4
-
----- 検索関係の設定
--- 大文字小文字の区別をなくす
----@type boolean
 vim.opt.ignorecase = true
-
--- 検索単語に大文字が含まれていた場合特別な意味があると解釈させる
----@type boolean
 vim.opt.smartcase = true
-
--- 一番下の単語まで行ったら一番上に戻るようにさせる
----@type boolean
 vim.opt.wrapscan = true
-
----- lightline.vim 用
--- 常にタブページのラベル(各タブのファイル名)を表示
----@type number
 vim.opt.showtabline = 2
-
--- モードの表記を消す
----@type boolean
 vim.opt.showmode = false
-
---ある行の行頭から前の行の行末に移動したり, 逆に行末から次の行の行頭に移動できるようにする
--- BackSpaceキー, SPACEキーで有効になる
--- <(←キー),>(→キー)はNORMALモード及びVISUALモードで各キーにこの機能を割り当て
--- [(←キー),](→キー)はINSERTモード(置換含む)でこの機能を有効にする
---vim.opt.whichwrap = "b", "s", "<", ">", "[", "]"
---vim.opt.whichwrap = {"b", "s", "<", ">", "[", "]"}
-
--- 反映時間を短くする(デフォルトは4000ms)
----@type number
 vim.opt.updatetime = 250
-
--- ヘルプ日本語化
----@type table
 vim.opt.helplang = { "ja", "en" }
-
--- editorconfig
----@type boolean
 vim.g.editorconfig = true
-
--- シンタックスハイライトを有効にする
 vim.cmd("syntax enable")
-
--- True Colorでのシンタックスハイライト
----@type boolean
-vim.opt.termguicolors = true
-vim.cmd([[let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"]])
-vim.cmd([[let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"]])
-
--- Disable providers
----@type number
 vim.g.loaded_perl_provider = 0
----@type number
 vim.g.loaded_python3_provider = 0
----@type number
 vim.g.loaded_ruby_provider = 0
----@type number
 vim.g.loaded_node_provider = 0
+
+-- keymaps
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+vim.keymap.set("", "<Esc><Esc>", ":nohlsearch<CR><Esc>")
 
 -- clipboard integration
 vim.opt.clipboard = "unnamedplus"
@@ -189,283 +79,242 @@ if is_wsl then
     }
 end
 
---- keymaps
--- Set LEADER keys
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- ファイル上の1行が画面上では複数行にわたっているとき
--- NORMALモード時の j/kで見た目通りに移動できるようにする
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
-
--- ESCキー連打でハイライト解除
-vim.keymap.set("", "<Esc><Esc>", ":nohlsearch<CR><Esc>")
-
--- GUI VIM用の設定
-vim.keymap.set("i", "<S-CR>", "<End><CR>")
-vim.keymap.set("i", "<C-S-CR>", "<Up><End><CR>")
-vim.keymap.set("n", "<S-CR>", "mzo<ESC>`z")
-vim.keymap.set("n", "<C-S-CR>", "mzO<ESC>`z")
-
--- Ctrl+Wを押した後にnを押すことで新規タブを開けるようにする
-vim.keymap.set("n", "<C-w>n", "<Esc>:enew<Return>")
-
---- autocmds
--- Show stdpaths
-vim.api.nvim_create_user_command("ShowStdPaths", function()
-    print(vim.fn.stdpath("cache"))
-    print(vim.fn.stdpath("config"))
-    print(vim.fn.stdpath("data"))
-    print(vim.fn.stdpath("state"))
-end, {})
-
--- Toggle row number
-vim.api.nvim_create_user_command("ToggleRowNumber", function()
-    local number = vim.opt.number
-    local number_state = number:get()
-    local relativenumber = vim.opt.relativenumber
-    local relativenumber_state = relativenumber:get()
-
-    if number_state then
-        number = false
-        relativenumber = true
-    else
-        number = true
-        relativenumber = false
-    end
-end, {})
-
---- Plugins: use vim-jetpack
-
--- Automatic installation on startup
-local jetpackfile = vim.fn.stdpath("data") .. "/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim"
-local jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
-if vim.fn.filereadable(jetpackfile) == 0 then
-    vim.fn.system(string.format("curl -fsSLo %s --create-dirs %s", jetpackfile, jetpackurl))
+-- mini.nvim setup
+local path_package = table.concat({ vim.fn.stdpath("data"), "site" }, path_sep)
+local mini_path = table.concat({ path_package, "pack", "deps", "start", "mini.nvim" }, path_sep)
+if not vim.uv.fs_stat(mini_path) then
+    vim.notify("Installing mini.nvim...")
+    vim.cmd.redraw()
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/echasnovski/mini.nvim",
+        mini_path,
+    })
+    vim.cmd("packadd mini.nvim | helptags ALL")
+    vim.notify("Installed mini.nvim")
+    vim.cmd.redraw()
 end
 
--- Packer.nvim v2 style
-vim.cmd("packadd vim-jetpack")
-require("jetpack.packer").add({
-    { "tani/vim-jetpack" },
-    {
-        "nvim-treesitter/nvim-treesitter",
-        cmd = ":TSUpdate",
-        config = function()
-            local parser_install_dir = vim.fn.stdpath("data") .. "/treesitter"
-            vim.opt.runtimepath:append(parser_install_dir)
-
-            require("nvim-treesitter.configs").setup({
-                parser_install_dir = parser_install_dir,
-                ensure_installed = { "lua" },
-                highlight = { enable = true },
-                sync_install = not is_human_rights,
-            })
-        end,
+-- mini.deps(plugin manager) setup
+require("mini.deps").setup({
+    job = {
+        -- When I used the human rights violation machine,
+        -- was 4, so I'll cut it in half and make it 2.
+        n_threads = 4,
     },
-    { "projekt0n/github-nvim-theme" },
-    {
-        "folke/tokyonight.nvim",
-        config = function()
-            vim.cmd.colorscheme("tokyonight-storm")
-        end,
-    },
-    { "is0n/jaq-nvim" },
-    {
-        "stevearc/oil.nvim",
-        requires = {
-            { "nvim-tree/nvim-web-devicons" },
-            { "refractalize/oil-git-status.nvim" },
-        },
-        setup = function()
-            vim.g.loaded_netrw = 1
-            vim.g.loaded_netrwPlugin = 1
-        end,
-        config = function()
-            local oil = require("oil")
-            local oil_git_status = require("oil-git-status")
-
-            oil.setup({
-                -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
-                -- Set to false if you still want to use netrw.
-                default_file_explorer = true,
-                -- Id is automatically added at the beginning, and name at the end
-                -- See :help oil-columns
-                columns = {
-                    "icon",
-                    -- "permissions",
-                    -- "size",
-                    -- "mtime",
-                },
-                -- Buffer-local options to use for oil buffers
-                buf_options = {
-                    buflisted = false,
-                    bufhidden = "hide",
-                },
-                -- Window-local options to use for oil buffers
-                win_options = {
-                    wrap = false,
-                    -- Use oil-git-status.nvim
-                    signcolumn = "yes:2",
-                    cursorcolumn = false,
-                    foldcolumn = "0",
-                    spell = false,
-                    list = false,
-                    conceallevel = 3,
-                    concealcursor = "nvic",
-                },
-                -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
-                delete_to_trash = false,
-                -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
-                skip_confirm_for_simple_edits = false,
-                -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
-                -- (:help prompt_save_on_select_new_entry)
-                prompt_save_on_select_new_entry = true,
-                -- Oil will automatically delete hidden buffers after this delay
-                -- You can set the delay to false to disable cleanup entirely
-                -- Note that the cleanup process only starts when none of the oil buffers are currently displayed
-                cleanup_delay_ms = 2000,
-                lsp_file_methods = {
-                    -- Time to wait for LSP file operations to complete before skipping
-                    timeout_ms = 1000,
-                    -- Set to true to autosave buffers that are updated with LSP willRenameFiles
-                    -- Set to "unmodified" to only save unmodified buffers
-                    autosave_changes = false,
-                },
-                -- Constrain the cursor to the editable parts of the oil buffer
-                -- Set to `false` to disable, or "name" to keep it on the file names
-                constrain_cursor = "editable",
-                -- Set to true to watch the filesystem for changes and reload oil
-                experimental_watch_for_changes = false,
-                -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
-                -- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
-                -- Additionally, if it is a string that matches "actions.<name>",
-                -- it will use the mapping at require("oil.actions").<name>
-                -- Set to `false` to remove a keymap
-                -- See :help oil-actions for a list of all available actions
-                keymaps = {
-                    ["g?"] = "actions.show_help",
-                    ["<CR>"] = "actions.select",
-                    ["<C-s>"] = "actions.select_vsplit",
-                    ["<C-h>"] = "actions.select_split",
-                    ["<C-t>"] = "actions.select_tab",
-                    ["<C-p>"] = "actions.preview",
-                    ["<C-c>"] = "actions.close",
-                    ["<C-l>"] = "actions.refresh",
-                    ["-"] = "actions.parent",
-                    ["_"] = "actions.open_cwd",
-                    ["`"] = "actions.cd",
-                    ["~"] = "actions.tcd",
-                    ["gs"] = "actions.change_sort",
-                    ["gx"] = "actions.open_external",
-                    ["g."] = "actions.toggle_hidden",
-                    ["g\\"] = "actions.toggle_trash",
-                },
-                -- Configuration for the floating keymaps help window
-                keymaps_help = {
-                    border = "rounded",
-                },
-                -- Set to false to disable all of the above keymaps
-                use_default_keymaps = true,
-                view_options = {
-                    -- Show files and directories that start with "."
-                    show_hidden = false,
-                    -- This function defines what is considered a "hidden" file
-                    is_hidden_file = function(name, bufnr)
-                        return vim.startswith(name, ".")
-                    end,
-                    -- This function defines what will never be shown, even when `show_hidden` is set
-                    is_always_hidden = function(name, bufnr)
-                        return false
-                    end,
-                    -- Sort file names in a more intuitive order for humans. Is less performant,
-                    -- so you may want to set to false if you work with large directories.
-                    natural_order = true,
-                    sort = {
-                        -- sort order can be "asc" or "desc"
-                        -- see :help oil-columns to see which columns are sortable
-                        { "type", "asc" },
-                        { "name", "asc" },
-                    },
-                },
-                -- Configuration for the floating window in oil.open_float
-                float = {
-                    -- Padding around the floating window
-                    padding = 2,
-                    max_width = 0,
-                    max_height = 0,
-                    border = "rounded",
-                    win_options = {
-                        winblend = 0,
-                    },
-                    -- This is the config that will be passed to nvim_open_win.
-                    -- Change values here to customize the layout
-                    override = function(conf)
-                        return conf
-                    end,
-                },
-                -- Configuration for the actions floating preview window
-                preview = {
-                    -- Width dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
-                    -- min_width and max_width can be a single value or a list of mixed integer/float types.
-                    -- max_width = {100, 0.8} means "the lesser of 100 columns or 80% of total"
-                    max_width = 0.9,
-                    -- min_width = {40, 0.4} means "the greater of 40 columns or 40% of total"
-                    min_width = { 40, 0.4 },
-                    -- optionally define an integer/float for the exact width of the preview window
-                    width = nil,
-                    -- Height dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
-                    -- min_height and max_height can be a single value or a list of mixed integer/float types.
-                    -- max_height = {80, 0.9} means "the lesser of 80 columns or 90% of total"
-                    max_height = 0.9,
-                    -- min_height = {5, 0.1} means "the greater of 5 columns or 10% of total"
-                    min_height = { 5, 0.1 },
-                    -- optionally define an integer/float for the exact height of the preview window
-                    height = nil,
-                    border = "rounded",
-                    win_options = {
-                        winblend = 0,
-                    },
-                    -- Whether the preview window is automatically updated when the cursor is moved
-                    update_on_cursor_moved = true,
-                },
-                -- Configuration for the floating progress window
-                progress = {
-                    max_width = 0.9,
-                    min_width = { 40, 0.4 },
-                    width = nil,
-                    max_height = { 10, 0.9 },
-                    min_height = { 5, 0.1 },
-                    height = nil,
-                    border = "rounded",
-                    minimized_border = "none",
-                    win_options = {
-                        winblend = 0,
-                    },
-                },
-                -- Configuration for the floating SSH window
-                ssh = {
-                    border = "rounded",
-                },
-            })
-            oil_git_status.setup({})
-        end,
-    },
-    {
-        "rainbowhxch/accelerated-jk.nvim",
-        config = function()
-            vim.keymap.set("n", "j", "<Plug>(accelerated_jk_gj)", {})
-            vim.keymap.set("n", "k", "<Plug>(accelerated_jk_gk)", {})
-        end,
-    },
+    path = { package = path_package },
 })
 
--- Automatic plugin installation on startup
-local jetpack = require("jetpack")
-for _, name in ipairs(jetpack.names()) do
-    if not jetpack.tap(name) then
-        jetpack.sync()
-        break
+-- add some plugins
+local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
+
+now(function()
+    add("Mofiqul/vscode.nvim")
+    vim.cmd.colorscheme("vscode")
+end)
+
+now(function()
+    require("mini.files").setup()
+    vim.keymap.set("n", "<C-n>", function()
+        MiniFiles.open()
+    end, { silent = true })
+end)
+
+now(function()
+    require("mini.icons").setup()
+end)
+
+now(function()
+    require("mini.notify").setup()
+end)
+
+now(function()
+    local quick_links = "Quick Links"
+    local starter = require("mini.starter")
+    starter.setup({
+        header = table.concat(require("bannars").get("covid_19").Japan, "\n"),
+        items = {
+            { name = "e  󰝒  New file", action = "enew", section = quick_links },
+            { name = "u  󰚰  Update plugins", action = "DepsUpdate", section = quick_links },
+            { name = "t  󰐅  Update nvim-treesitter", action = "TSUpdate", section = quick_links },
+            { name = "c  󰿶  Run checkhealth", action = "checkhealth", section = quick_links },
+            { name = "q  󰅚  Quit", action = "qa", section = quick_links },
+        },
+        content_hooks = {
+            starter.gen_hook.aligning("center", "center"),
+        },
+        footer = "",
+    })
+end)
+
+now(function()
+    require("mini.statusline").setup()
+end)
+
+now(function()
+    require("mini.tabline").setup()
+end)
+
+-- Lazy loading
+later(function()
+    add({
+        source = "nvim-treesitter/nvim-treesitter",
+        checkout = "master",
+        hooks = {
+            post_checkout = function()
+                vim.cmd("TSUpdate")
+            end,
+        },
+    })
+    require("nvim-treesitter.configs").setup({
+        ensure_installed = { "lua", "vimdoc" },
+        highlight = { enable = true },
+        sync_install = true,
+    })
+end)
+
+later(function()
+    add({
+        source = "https://git.sr.ht/~adigitoleo/haunt.nvim",
+        --source = "adigitoleo/haunt.nvim",
+    })
+    require("haunt").setup({
+        quit_help_with_q = true,
+        window = {
+            width_frac = 0.88,
+            height_frac = 0.88,
+            winblend = 15,
+        },
+    })
+end)
+
+later(function()
+    require("mini.animate").setup()
+end)
+
+later(function()
+    require("mini.comment").setup()
+end)
+
+later(function()
+    -- Helpful mappings
+    -- `<Tab>` and `<S-Tab>`
+    local imap_expr = function(lhs, rhs)
+        vim.keymap.set("i", lhs, rhs, { expr = true })
     end
-end
+
+    imap_expr("<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
+    imap_expr("<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
+
+    local keycode = vim.keycode
+        or function(x)
+            return vim.api.nvim_replace_termcodes(x, true, true, true)
+        end
+
+    local keys = {
+        ["cr"] = keycode("<CR>"),
+        ["ctrl-y"] = keycode("<C-y>"),
+        ["ctrl-y_cr"] = keycode("<C-y><CR>"),
+    }
+
+    _G.cr_action = function()
+        if vim.fn.pumvisible() ~= 0 then
+            -- If popup is visible, confirm selected item or add new line otherwise
+            local item_selected = vim.fn.complete_info()["selected"] ~= -1
+            return item_selected and keys["ctrl-y"] or keys["ctrl-y_cr"]
+        else
+            -- If popup is not visible, use plain `<CR>`. You might want to customize
+            -- according to other plugins. For example, to use 'mini.pairs', replace
+            -- next line with `return require('mini.pairs').cr()`
+            return keys["cr"]
+        end
+    end
+
+    vim.keymap.set("i", "<CR>", "v:lua._G.cr_action()", { expr = true })
+
+    require("mini.completion").setup()
+end)
+
+later(function()
+    require("mini.cursorword").setup()
+end)
+
+later(function()
+    require("mini.diff").setup()
+end)
+
+later(function()
+    require("mini.extra").setup()
+end)
+
+later(function()
+    require("mini.fuzzy").setup()
+end)
+
+later(function()
+    require("mini.git").setup()
+end)
+
+later(function()
+    local hipatterns = require("mini.hipatterns")
+    hipatterns.setup({
+        highlighters = {
+            fixme = { pattern = "%f[%w]()FIXME()%f[%W]", group = "MiniHipatternsFixme" },
+            hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
+            todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
+            note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+            hex_color = hipatterns.gen_highlighter.hex_color(),
+        },
+    })
+end)
+
+later(function()
+    require("mini.indentscope").setup()
+end)
+
+later(function()
+    local jump2d = require("mini.jump2d")
+    jump2d.setup({
+        view = {
+            dim = true,
+        },
+        mappings = {
+            start_jumping = "",
+        },
+    })
+
+    -- Custom mapping
+    vim.keymap.set("n", "<leader>h", function()
+        jump2d.start(jump2d.builtin_opts.default)
+    end, { silent = true })
+end)
+
+later(function()
+    require("mini.misc").setup()
+end)
+
+later(function()
+    require("mini.pairs").setup()
+end)
+
+later(function()
+    require("mini.pick").setup()
+end)
+
+later(function()
+    require("mini.surround").setup()
+end)
+
+later(function()
+    require("mini.test").setup()
+end)
+
+later(function()
+    require("mini.trailspace").setup()
+end)
+
+later(function()
+    require("mini.visits").setup()
+end)
