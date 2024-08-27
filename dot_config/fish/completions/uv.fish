@@ -197,8 +197,8 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l color -d 'Control colors i
 complete -c uv -n "__fish_uv_using_subcommand add" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand add" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand add" -l dev -d 'Add the requirements as development dependencies'
-complete -c uv -n "__fish_uv_using_subcommand add" -l editable
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-editable -d 'Don\'t add the requirements as editables'
+complete -c uv -n "__fish_uv_using_subcommand add" -l editable -d 'Add the requirements as editable'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-editable
 complete -c uv -n "__fish_uv_using_subcommand add" -l raw-sources -d 'Add source requirements to `project.dependencies`, rather than `tool.uv.sources`'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-sync -d 'Avoid syncing the virtual environment after re-locking the project'
 complete -c uv -n "__fish_uv_using_subcommand add" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
