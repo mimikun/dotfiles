@@ -14,6 +14,7 @@
     pkgs.tracexec
     pkgs.cpufetch
     pkgs.nixfmt
+    pkgs.pkgtop
   ];
 
   # Home Manager is pretty good at managing dotfiles.
