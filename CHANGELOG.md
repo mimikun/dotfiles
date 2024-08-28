@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.08.28]
+
+### Added - 新機能について
+
+- feat(home-manager): add pkgtop
+- feat(cargo): add some packages
+    - logria, rainfrog, atuin
+- feat(bash): add ble.sh
+- feat(pip): add some packages
+- feat(atuin): add config file
+- feat(shells): add atuin shell integrations
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(localbin): update update_fish_completions
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.08.27]
 
 ### Added - 新機能について
