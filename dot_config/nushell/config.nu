@@ -845,3 +845,6 @@ source ~/.config/broot/launcher/nushell/br
 
 # starship config
 use ~/.cache/starship/init.nu
+
+# atuin config
+source ~/.local/share/atuin/init.nu

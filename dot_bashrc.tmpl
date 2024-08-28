@@ -333,6 +333,12 @@ alias vim=nvim
 # nimble
 export PATH="$HOME/.nimble/bin:$PATH"
 
+# atuin
+if command -v atuin >/dev/null 2>&1; then
+    eval "$(atuin init bash)"
+    atuin gen-completions --shell bash
+fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}

@@ -409,6 +409,12 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo "thefuck --alias | source" >> $CACHE_CONFIG_FISH
     end
 
+    # atuin
+    if command -v atuin >/dev/null 2>&1
+        echo "# cache atuin config" >> $CACHE_CONFIG_FISH
+        echo "atuin init fish | source" >> $CACHE_CONFIG_FISH
+    end
+
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") -}}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH

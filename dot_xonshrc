@@ -1,1 +1,2 @@
 execx($(starship init xonsh))
+execx($(atuin init xonsh))

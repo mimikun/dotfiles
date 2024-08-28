@@ -239,6 +239,12 @@ export BOB_CONFIG="$XDG_CONFIG_HOME/bob/config.toml"
 export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
 alias vim=nvim
 
+# atuin
+if command -v atuin>/dev/null 2>&1; then
+    eval "$(atuin init zsh)"
+    atuin gen-completions --shell zsh
+fi
+
 # Neovide env-vars
 ## Functionality
 ### Frame
