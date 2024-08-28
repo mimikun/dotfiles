@@ -1,3 +1,5 @@
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+
 # All platform 共通
 export EDITOR=nvim
 export LESS="-R"
@@ -344,3 +346,5 @@ alias patch="patch -p1 <"
 {{ else -}}
 # その他OSのとき
 {{ end -}}
+
+[[ ! ${BLE_VERSION-} ]] || ble-attach
