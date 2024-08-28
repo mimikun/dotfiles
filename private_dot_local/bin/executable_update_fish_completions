@@ -135,6 +135,10 @@ if command_exist fish-lsp; then
   pueue add -- "fish-lsp complete --fish > '${COMPLETIONS_DIR}'/fish-lsp.fish"
 fi
 
+if command_exist atuin; then
+  pueue add -- "atuin gen-completions --shell fish> '${COMPLETIONS_DIR}'/atuin.fish"
+fi
+
 if command_exist foot; then
   pueue add -- "curl -L https://codeberg.org/dnkl/foot/raw/branch/master/completions/fish/foot.fish -o '${COMPLETIONS_DIR}'/foot.fish"
 fi
