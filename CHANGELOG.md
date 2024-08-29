@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.08.29]
+
+### Added - 新機能について
+
+- feat(lualine-nvim): add eskk status component
+- feat(atuin): add and update configs
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(eskk-vim): improve config
+
+### Removed - 今回で削除された機能について
+
+- chore(neovim): remove nvim-mid configs
+- chore(nvim): disable conceal :poop: feature
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.08.28]
 
 ### Added - 新機能について
