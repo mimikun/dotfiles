@@ -13,7 +13,7 @@ local function improved_encoding()
     return encoding
 end
 
----@return table
+---@return table|nil
 local function diff_source()
     local gitsigns = vim.b.gitsigns_status_dict
     if gitsigns then
@@ -23,6 +23,17 @@ local function diff_source()
             removed = gitsigns.removed,
         }
     end
+end
+
+---@return string|nil
+local function eskk_mode()
+    if vim.fn["eskk#is_enabled"]() then
+        ---@type string
+        local get_mode = vim.fn["eskk#get_mode"]()
+        return get_mode
+    end
+    ---@type any
+    --local statusline = vim.fn["eskk#statusline"]()
 end
 
 ---@type table
@@ -45,6 +56,7 @@ local options = {
 local sections = {
     lualine_a = {
         "mode",
+        eskk_mode,
     },
     lualine_b = {
         {
