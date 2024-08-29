@@ -145,7 +145,11 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l python-fetch -d 'Deprecat
 complete -c uv -n "__fish_uv_using_subcommand init" -l color -d 'Control colors in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
 complete -c uv -n "__fish_uv_using_subcommand init" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand init" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand init" -l virtual -d 'Create a virtual workspace instead of a project'
+complete -c uv -n "__fish_uv_using_subcommand init" -l virtual -d 'Create a virtual project, rather than a package'
+complete -c uv -n "__fish_uv_using_subcommand init" -l package -d 'Set up the project to be built as a Python package'
+complete -c uv -n "__fish_uv_using_subcommand init" -l no-package -d 'Do not set up the project to be built as a Python package'
+complete -c uv -n "__fish_uv_using_subcommand init" -l app -d 'Create a project for an application'
+complete -c uv -n "__fish_uv_using_subcommand init" -l lib -d 'Create a project for a library'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-readme -d 'Do not create a `README.md` file'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-workspace -d 'Avoid discovering a workspace'
 complete -c uv -n "__fish_uv_using_subcommand init" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
