@@ -47,10 +47,10 @@ local function conceal_all_special_chars()
     vim.cmd([[syntax keyword Operator \u000d conceal cchar=💩]])
 end
 
-local casc = vim.api.nvim_create_augroup("conceal_all_special_chars", { clear = true })
-
+--[[
 vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
-    group = casc,
+    group = vim.api.nvim_create_augroup("conceal_all_special_chars", { clear = true }),
     pattern = "*",
     callback = conceal_all_special_chars,
 })
+]]
