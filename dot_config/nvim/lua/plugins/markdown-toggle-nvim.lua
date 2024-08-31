@@ -1,9 +1,6 @@
 ---@type table
 local ft = { "markdown", "markdown.mdx" }
 
----@type LazyKeysSpec[]
-local keys = require("plugins.configs.markdown-toggle-nvim.keys")
-
 ---@type table
 local opts = {
     use_default_keymaps = false,
@@ -14,7 +11,7 @@ local spec = {
     "roodolv/markdown-toggle.nvim",
     --lazy = false,
     ft = ft,
-    keys = keys,
+    keys = require("plugins.configs.markdown-toggle-nvim.keys"),
     config = function()
         local toggle = require("markdown-toggle")
         toggle.setup(opts)
