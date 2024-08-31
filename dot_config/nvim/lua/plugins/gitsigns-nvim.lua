@@ -1,11 +1,8 @@
----@type LazyKeysSpec[]
-local keys = require("plugins.configs.gitsigns-nvim.keys")
-
 ---@type LazySpec
 local spec = {
     "lewis6991/gitsigns.nvim",
     --lazy = false,
-    keys = keys,
+    keys = require("plugins.configs.gitsigns-nvim.keys"),
     event = "VimEnter",
     config = function()
         local gitsigns = require("gitsigns")
