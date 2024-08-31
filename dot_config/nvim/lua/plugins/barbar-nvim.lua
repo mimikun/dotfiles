@@ -1,9 +1,3 @@
----@type table
-local cmds = require("plugins.configs.barbar-nvim.cmds")
-
----@type LazyKeysSpec[]
-local keys = require("plugins.configs.barbar-nvim.keys")
-
 ---@type LazySpec[]
 local dependencies = {
     "lewis6991/gitsigns.nvim",
@@ -19,8 +13,8 @@ local opts = {
 local spec = {
     "romgrk/barbar.nvim",
     --lazy = false,
-    cmd = cmds,
-    keys = keys,
+    cmd = require("plugins.configs.barbar-nvim.cmds"),
+    keys = require("plugins.configs.barbar-nvim.keys"),
     event = "BufEnter",
     dependencies = dependencies,
     init = function()
