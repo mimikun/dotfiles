@@ -33,9 +33,9 @@ csvlens
 cyme
 desed
 diskonaut
+du-dust
 dua-cli
 ducker
-du-dust
 dutree
 erdtree
 erg
@@ -114,8 +114,8 @@ tokei
 toml2json
 topgrade
 trashy
-treefmt
 tree-sitter-cli
+treefmt
 tuisky
 typos-cli
 usage-cli
