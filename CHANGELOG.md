@@ -1,5 +1,39 @@
 # Changelog
 
+## [v2024.09.01]
+
+### Added - 新機能について
+
+- feat(nvim): add new plugin: cord.nvim
+- feat(dressing-nvim): add new neovim plugin
+- feat(neocodeium): add new neovim plugin
+- feat(codecompanion-nvim): add new neovim plugin
+- feat(disabled-plugins): add neovim plugins
+- feat(disabled-plugins): add hydra.nvim
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- refactor(trouble): improved
+- refactor(telescope-nvim): improved
+- refactor(nvim-lspconfig): improved
+- refactor(markdown-toggle-nvim): improved
+- refactor(gitsigns-nvim): improved
+- refactor(dial-nvim): improved
+- refactor(barbar-nvim): improved
+- chore(linux_cargo_packages): re sort
+- chore(fish): update uv completion
+- chore(disabled-plugins): update configs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.08.29]
 
 ### Added - 新機能について
