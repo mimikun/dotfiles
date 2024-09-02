@@ -1,8 +1,6 @@
 -- Disable if there are no human rights
 ---@type boolean
 local is_human_rights = require("config.global").is_human_rights
--- FIX: WORKAROUND
-is_human_rights = false
 
 ---@type LazySpec[]
 local dependencies = {
@@ -21,6 +19,7 @@ local opts = {
 local cmds = {
     "SilhouetteInsertTasks",
     "SilhouetteMoveToProgress",
+    "SilhouetteShowTaskDates",
 }
 
 ---@type LazySpec
@@ -32,8 +31,9 @@ local spec = {
     cmd = cmds,
     dependencies = dependencies,
     config = function()
-        require("silhouette").setup(opts)
-        require("denops-lazy").load("silhouette")
+        vim.defer_fn(function()
+            require("silhouette").setup(opts)
+        end, 1000)
     end,
     cond = is_human_rights,
     enabled = is_human_rights,
