@@ -7,7 +7,6 @@ is_human_rights = false
 ---@type LazySpec[]
 local dependencies = {
     "vim-denops/denops.vim",
-    "yuki-yano/denops-lazy.nvim",
 }
 
 ---@type table
@@ -27,7 +26,8 @@ local cmds = {
 ---@type LazySpec
 local spec = {
     "tadashi-aikawa/silhouette.nvim",
-    --lazy = false,
+    -- NOTE: denops NOT support lazy loading (maybe)
+    lazy = false,
     ft = "markdown",
     cmd = cmds,
     dependencies = dependencies,

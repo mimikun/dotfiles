@@ -14,7 +14,6 @@ local keys = {
 ---@type LazySpec[]
 local dependencies = {
     "vim-denops/denops.vim",
-    "yuki-yano/denops-lazy.nvim",
     "delphinus/skkeleton_indicator.nvim",
 }
 
@@ -169,12 +168,11 @@ local skkeleton_opts = {
 ---@type LazySpec
 local spec = {
     "vim-skk/skkeleton",
-    --lazy = false,
+    -- NOTE: denops NOT support lazy loading (maybe)
+    lazy = false,
     keys = keys,
     dependencies = dependencies,
     config = function()
-        require("denops-lazy").load("skkeleton")
-
         vim.fn["skkeleton#config"] = skkeleton_opts
         vim.fn["skkeleton#initialize"]()
         vim.notify("skkeleton initialized!", vim.log.levels.DEBUG)
