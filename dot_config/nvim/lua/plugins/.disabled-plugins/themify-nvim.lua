@@ -10,9 +10,7 @@ local spec = {
     cmd = "Themify",
     dependencies = dependencies,
     config = function()
-        require("themify").setup(
-            require("plugins.configs.themify-nvim.opts")
-        )
+        require("themify").setup(require("plugins.configs.themify-nvim.opts"))
     end,
     priority = 999,
     cond = false,
