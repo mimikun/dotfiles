@@ -7,6 +7,7 @@ bingrep
 bluetui
 bob-nvim
 bottom
+bpf-linker
 broot
 cargo-about
 cargo-all-features
