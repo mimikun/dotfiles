@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.09.03]
+
+### Added - 新機能について
+
+- feat(cargo): add bpf-linker
+- feat(nvim-template): add denops plugin spec template
+- feat(nvim-setting): add use_denops flag
+- feat(nvim): add denops base plugins
+- feat(nvim): add some denops plugins
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- style(disabled-plugins): themify.nvim config
+
+### Removed - 今回で削除された機能について
+
+- chore(disabled-plugins): remove old config denops plugins
+- chore(disabled-plugins): remove neocord, has many bug
+- chore(cord.nvim): disabled
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.01]
 
 ### Added - 新機能について
