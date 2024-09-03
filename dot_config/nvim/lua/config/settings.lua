@@ -4,4 +4,8 @@ local settings = {}
 ---@type boolean
 settings.use_ai = false
 
+---use denops
+---@type boolean
+settings.use_denops = false
+
 return settings
