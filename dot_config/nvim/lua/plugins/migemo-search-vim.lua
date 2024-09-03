@@ -22,9 +22,9 @@ local spec = {
     --lazy = false,
     keys = keys,
     config = function()
-        vim.cmd([[cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"]])
+        vim.keymap.set("c", "<CR>", vim.cmd([[migemosearch#replace_search_word()."\<CR>"]]))
     end,
-    --cond = false,
+    cond = enabled,
     enabled = enabled,
 }
 
