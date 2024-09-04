@@ -7,7 +7,6 @@ local opts = {
 local spec = {
     "nvimtools/none-ls.nvim",
     --lazy = false,
-    --event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = opts,
     --cond = false,
