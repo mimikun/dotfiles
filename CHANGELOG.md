@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.09.04]
+
+### Added - 新機能について
+
+- feat(aqua): add gama
+- feat(gup): add httplab
+- feat(cargo): add hex-patch
+- feat(pip): add terminaltexteffects
+- feat(disabled-plugins): add some plugins
+- feat(nvim): add obsidian-kensaku.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(nvim-cmp): update config
+- chore(lualine.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+- style(none-ls.nvim): remove comment
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.03]
 
 ### Added - 新機能について
