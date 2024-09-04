@@ -152,6 +152,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l no-package -d 'Do not set
 complete -c uv -n "__fish_uv_using_subcommand init" -l app -d 'Create a project for an application'
 complete -c uv -n "__fish_uv_using_subcommand init" -l lib -d 'Create a project for a library'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-readme -d 'Do not create a `README.md` file'
+complete -c uv -n "__fish_uv_using_subcommand init" -l no-pin-python -d 'Do not create a `.python-version` file for the project'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-workspace -d 'Avoid discovering a workspace and create a standalone project'
 complete -c uv -n "__fish_uv_using_subcommand init" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand init" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
@@ -469,6 +470,8 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l all-extras -d 'Include 
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand export" -l dev -d 'Include development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-dev -d 'Omit development dependencies'
+complete -c uv -n "__fish_uv_using_subcommand export" -l hashes -d 'Include hashes for all dependencies'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-hashes -d 'Omit hashes in the generated output'
 complete -c uv -n "__fish_uv_using_subcommand export" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand export" -l frozen -d 'Do not update the `uv.lock` before exporting'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
@@ -1634,6 +1637,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l directory -d 'Change to t
 complete -c uv -n "__fish_uv_using_subcommand venv" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system -d 'Ignore virtual environments when searching for the Python interpreter'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-system -d 'This flag is included for compatibility only, it has no effect'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l seed -d 'Install seed packages (one or more of: `pip`, `setuptools`, and `wheel`) into the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-existing -d 'Preserve any existing files or directories at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
