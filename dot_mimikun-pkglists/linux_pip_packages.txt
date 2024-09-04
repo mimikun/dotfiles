@@ -57,6 +57,7 @@ six
 smmap
 SQLAlchemy
 textual
+terminaltexteffects
 text-unidecode
 thefuck
 toml
