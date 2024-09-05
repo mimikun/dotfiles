@@ -5,7 +5,7 @@
   "csharp-language-server": "0.15.0",
   "css-lsp": "4.10.0",
   "debugpy": "1.8.5",
-  "deno": "v1.46.2",
+  "deno": "v1.46.3",
   "docker-compose-language-service": "0.2.0",
   "dockerfile-language-server": "0.13.0",
   "efm": "v0.0.53",
@@ -28,7 +28,7 @@
   "solargraph": "0.50.0",
   "taplo": "0.9.3",
   "typescript-language-server": "4.3.3",
-  "typos-lsp": "v0.1.22",
+  "typos-lsp": "v0.1.23",
   "vim-language-server": "2.3.1",
   "yaml-language-server": "1.15.0",
   "zls": "0.13.0"
