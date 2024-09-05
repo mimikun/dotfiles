@@ -1,5 +1,12 @@
--- TODO: check cmigemo executable
--- TODO: denops flag
+--- enabled check
+--- 2. and if executable cmigemo command
+---@return boolean
+local enabled = function()
+    local has_cmigemo = (1 == vim.fn.executable("cmigemo")) and true or false
+    return has_cmigemo
+end
+
+---@type boolean
 local use_denops = require("config.settings").use_denops
 
 ---@type LazySpec[]
@@ -7,39 +14,34 @@ local dependencies = {
     "fdschmidt93/telescope-egrepify.nvim",
 }
 
+if use_denops then
+    table.insert(dependencies, "vim-denops/denops.vim")
+    table.insert(dependencies, "yuki-yano/denops-lazy.nvim")
+    table.insert(dependencies, "lambdalisue/kensaku.vim")
+end
+
 ---@type table
 local opts = {
     query_filter = use_denops and "kensaku" or "cmigemo",
+    cmigemo_executable = use_denops and nil or "cmigemo",
     picker = "egrepify",
 }
 
----@type table
-local denops = {
-    ---@type string
-    event = "User DenopsReady",
-    ---@type LazySpec[]
-    dependencies = {
-        "vim-denops/denops.vim",
-        "yuki-yano/denops-lazy.nvim",
-        "lambdalisue/vim-kensaku",
-        "fdschmidt93/telescope-egrepify.nvim",
-    },
-}
-
----@type LazySpec
 local spec = {
     "delphinus/obsidian-kensaku.nvim",
     --lazy = false,
     ft = "markdown",
     cmd = "ObsidianKensaku",
-    --event = "VeryLazy",
+    event = use_denops and "User DenopsReady" or "VeryLazy",
     dependencies = dependencies,
     config = function(spec)
         require("obsidian-kensaku").setup(opts)
-        require("denops-lazy").load(spec.name)
+        if use_denops then
+            require("denops-lazy").load(spec.name)
+        end
     end,
-    cond = false,
-    enabled = false,
+    cond = enabled,
+    enabled = enabled,
 }
 
 return spec
