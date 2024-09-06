@@ -53,12 +53,13 @@ rich
 ruamel.yaml
 ruamel.yaml.clib
 setuptools
+shellingham
 six
 smmap
 SQLAlchemy
-textual
 terminaltexteffects
 text-unidecode
+textual
 thefuck
 toml
 typeinc
