@@ -852,6 +852,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-paths -d 'Whether to display the path to each tool environment and installed executable'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-version-specifiers -d 'Whether to display the version specifier(s) used to install each tool'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-python-downloads
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
@@ -1669,6 +1670,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -s h -l help -d 'Display the
 complete -c uv -n "__fish_uv_using_subcommand venv" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build" -l package -d 'Build a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s o -l out-dir -d 'The output directory to which distributions should be written' -r -F
+complete -c uv -n "__fish_uv_using_subcommand build" -s b -l build-constraint -d 'Constrain build dependencies using the given requirements files when building distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s p -l python -d 'The Python interpreter to use for the build environment.' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
@@ -1694,6 +1696,10 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l directory -d 'Change to 
 complete -c uv -n "__fish_uv_using_subcommand build" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l sdist -d 'Build a source distribution ("sdist") from the given directory'
 complete -c uv -n "__fish_uv_using_subcommand build" -l wheel -d 'Build a binary distribution ("wheel") from the given directory'
+complete -c uv -n "__fish_uv_using_subcommand build" -l require-hashes -d 'Require a matching hash for each build requirement'
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-require-hashes
+complete -c uv -n "__fish_uv_using_subcommand build" -l verify-hashes -d 'Validate any hashes provided in the build constraints file'
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-verify-hashes
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand build" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-upgrade
