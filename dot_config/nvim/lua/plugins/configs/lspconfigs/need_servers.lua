@@ -19,7 +19,9 @@ local need_servers = {
     "pyright",
     "rust_analyzer",
     "taplo",
+    -- TODO: remove tsserver, and add ts_ls
     "tsserver",
+    --"ts_ls",
     "typos_lsp",
     "vimls",
     "yamlls",
