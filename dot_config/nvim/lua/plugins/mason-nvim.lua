@@ -77,7 +77,7 @@ local spec = {
 
         -- LSP
         mason_lspconfig.setup({
-            ensure_installed = require("plugins.configs.lspconfigs.need_servers"),
+            ensure_installed = require("plugins.configs.mason-lspconfig.ensure_installed"),
         })
 
         mason_lspconfig.setup_handlers({
