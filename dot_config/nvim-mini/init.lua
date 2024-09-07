@@ -177,8 +177,8 @@ end)
 
 later(function()
     add({
-        source = "https://git.sr.ht/~adigitoleo/haunt.nvim",
-        --source = "adigitoleo/haunt.nvim",
+        source = "adigitoleo/haunt.nvim",
+        --source = "https://git.sr.ht/~adigitoleo/haunt.nvim",
     })
     require("haunt").setup({
         quit_help_with_q = true,
