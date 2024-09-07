@@ -1,13 +1,9 @@
 [tools]
 dotnet-core = "latest"
+erlang = "latest"
+gleam = "latest"
 lua = "5.1.5"
 luajit = "2.0.5--2.4.4"
-tig = "latest"
-ruby = "latest"
-vim = [
-    "latest",
-    "ref:master",
-]
 node = [
     # lts = 20
     "20",
@@ -23,6 +19,12 @@ python = [
     # mise cannot install python v2
     #"2",
     "3",
+]
+ruby = "latest"
+tig = "latest"
+vim = [
+    "latest",
+    "ref:master",
 ]
 zig = [
     "ref:master",
