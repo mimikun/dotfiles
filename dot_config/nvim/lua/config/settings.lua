@@ -8,4 +8,7 @@ settings.use_ai = false
 ---@type boolean
 settings.use_denops = false
 
+---need all colorschemes
+settings.need_all_colorschemes = false
+
 return settings

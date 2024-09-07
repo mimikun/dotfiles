@@ -1,6 +1,6 @@
 local global = require("config.global")
 
----@type string
+---@type string|string[]
 local data_dir = vim.fn.stdpath("data")
 
 ---@type string
@@ -22,21 +22,6 @@ local cmds = {
     "HuezFavorites",
 }
 
----@type LazySpec[]
-local dependencies = {
-    -- main colorscheme
-    "pauchiner/pastelnight.nvim",
-    -- sub colorscheme
-    "folke/tokyonight.nvim",
-    "projekt0n/github-nvim-theme",
-    -- 'named' colorscheme
-    { "catppuccin/nvim", name = "catppuccin", optional = true },
-    -- other dependencies
-    { "rktjmp/lush.nvim", optional = true },
-    { "loganswartz/polychrome.nvim", optional = true },
-    { "Iron-E/nvim-highlite", optional = true },
-}
-
 ---@type LazySpec
 local spec = {
     "vague2k/huez.nvim",
@@ -44,7 +29,7 @@ local spec = {
     branch = "stable",
     --lazy = false,
     event = "UIEnter",
-    dependencies = dependencies,
+    dependencies = require("plugins.configs.huez-nvim.dependencies"),
     cmd = cmds,
     opts = opts,
     --cond = false,
