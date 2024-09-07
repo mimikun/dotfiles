@@ -382,7 +382,7 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
 
     # bob neovim version manager
     echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
-    echo 'export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"' >> $CACHE_CONFIG_FISH
+    echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
     echo 'abbr -a vim nvim' >> $CACHE_CONFIG_FISH
 
     # starship config
@@ -413,6 +413,12 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     if command -v atuin >/dev/null 2>&1
         echo "# cache atuin config" >> $CACHE_CONFIG_FISH
         echo "atuin init fish | source" >> $CACHE_CONFIG_FISH
+    end
+
+    # rebar3
+    if command -v rebar3 >/dev/null 2>&1
+        echo "# cache rebar3 config" >> $CACHE_CONFIG_FISH
+        echo 'set -x PATH "$XDG_CACHE_HOME/rebar3/bin" $PATH' >> $CACHE_CONFIG_FISH
     end
 
     # work pc only tools

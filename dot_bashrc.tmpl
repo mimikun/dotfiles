@@ -339,6 +339,11 @@ if command -v atuin >/dev/null 2>&1; then
     atuin gen-completions --shell bash
 fi
 
+# rebar3
+if command -v rebar3 >/dev/null 2>&1; then
+    export PATH="$XDG_CACHE_HOME/rebar3/bin:$PATH"
+fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}

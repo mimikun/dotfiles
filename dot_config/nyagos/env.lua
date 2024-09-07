@@ -353,4 +353,8 @@ if is_linux then
     -- nimble
     local nimble_bin = table.concat({ home, ".nimble", "bin" }, path_sep)
     nyagos.envadd("PATH", nimble_bin)
+
+    -- rebar3
+    local rebar3_bin = table.concat({ xdg_cache_home, "rebar3", "bin" }, path_sep)
+    nyagos.envadd("PATH", rebar3_bin)
 end

@@ -245,6 +245,11 @@ if command -v atuin>/dev/null 2>&1; then
     atuin gen-completions --shell zsh
 fi
 
+# rebar3
+if command -v rebar3 >/dev/null 2>&1; then
+    export PATH="$XDG_CACHE_HOME/rebar3/bin:$PATH"
+fi
+
 # Neovide env-vars
 ## Functionality
 ### Frame
