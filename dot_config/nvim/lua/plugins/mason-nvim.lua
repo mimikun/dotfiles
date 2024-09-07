@@ -108,7 +108,7 @@ local spec = {
 
         -- DAP
         mason_nvim_dap.setup({
-            ensure_installed = require("plugins.configs.nvim-dap.need_adapters"),
+            ensure_installed = require("plugins.configs.mason-nvim-dap.ensure_installed"),
             handlers = {
                 function(config)
                     mason_nvim_dap.default_setup(config)
