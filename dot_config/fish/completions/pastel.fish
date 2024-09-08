@@ -1,5 +1,5 @@
 complete -c pastel -n "__fish_use_subcommand" -s m -l color-mode -d 'Specify the terminal color mode: 24bit, 8bit, off, *auto*' -r -f -a "{24bit	,8bit	,off	,auto	}"
-complete -c pastel -n "__fish_use_subcommand" -l color-picker -d 'Use a specific tool to pick the colors' -r -f -a "{gpick	,xcolor	,wcolor	,grabc	,colorpicker	,chameleon	,kcolorchooser	,zenity	,yad	,gdbus	}"
+complete -c pastel -n "__fish_use_subcommand" -l color-picker -d 'Use a specific tool to pick the colors' -r -f -a "{gpick	,xcolor	,wcolor	,grabc	,colorpicker	,chameleon	,kcolorchooser	,zenity	,yad	,hyprpicker	,gdbus	}"
 complete -c pastel -n "__fish_use_subcommand" -s h -l help -d 'Print help information'
 complete -c pastel -n "__fish_use_subcommand" -s V -l version -d 'Print version information'
 complete -c pastel -n "__fish_use_subcommand" -s f -l force-color -d 'Alias for --mode=24bit'
@@ -55,9 +55,9 @@ complete -c pastel -n "__fish_seen_subcommand_from paint" -s u -l underline -d '
 complete -c pastel -n "__fish_seen_subcommand_from paint" -s n -l no-newline -d 'Do not print a trailing newline character'
 complete -c pastel -n "__fish_seen_subcommand_from paint" -s h -l help -d 'Print help information'
 complete -c pastel -n "__fish_seen_subcommand_from gradient" -s n -l number -d 'Number of colors to generate' -r
-complete -c pastel -n "__fish_seen_subcommand_from gradient" -s s -l colorspace -d 'The colorspace in which to interpolate' -r -f -a "{Lab	,LCh	,RGB	,HSL	}"
+complete -c pastel -n "__fish_seen_subcommand_from gradient" -s s -l colorspace -d 'The colorspace in which to interpolate' -r -f -a "{Lab	,LCh	,RGB	,HSL	,OkLab	}"
 complete -c pastel -n "__fish_seen_subcommand_from gradient" -s h -l help -d 'Print help information'
-complete -c pastel -n "__fish_seen_subcommand_from mix" -s s -l colorspace -d 'The colorspace in which to interpolate' -r -f -a "{Lab	,LCh	,RGB	,HSL	}"
+complete -c pastel -n "__fish_seen_subcommand_from mix" -s s -l colorspace -d 'The colorspace in which to interpolate' -r -f -a "{Lab	,LCh	,RGB	,HSL	,OkLab	}"
 complete -c pastel -n "__fish_seen_subcommand_from mix" -s f -l fraction -d 'The number between 0.0 and 1.0 determining how much to mix in from the base color.' -r
 complete -c pastel -n "__fish_seen_subcommand_from mix" -s h -l help -d 'Print help information'
 complete -c pastel -n "__fish_seen_subcommand_from colorblind" -s h -l help -d 'Print help information'
