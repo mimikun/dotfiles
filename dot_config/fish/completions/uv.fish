@@ -444,6 +444,8 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -s V -l version -d 'Display 
 complete -c uv -n "__fish_uv_using_subcommand export" -l format -d 'The format to which `uv.lock` should be exported' -r -f -a "{requirements-txt\t'Export in `requirements.txt` format'}"
 complete -c uv -n "__fish_uv_using_subcommand export" -l package -d 'Export the dependencies for a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra -d 'Include optional dependencies from the extra group name' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -s o -l output-file -d 'Write the exported requirements to the given file' -r -F
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-package -d 'Do not emit the given package(s)' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
@@ -473,6 +475,8 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l dev -d 'Include develop
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-dev -d 'Omit development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l hashes -d 'Include hashes for all dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-hashes -d 'Omit hashes in the generated output'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-project -d 'Do not emit the current project'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-workspace -d 'Do not emit any workspace members, including the root project'
 complete -c uv -n "__fish_uv_using_subcommand export" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand export" -l frozen -d 'Do not update the `uv.lock` before exporting'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
