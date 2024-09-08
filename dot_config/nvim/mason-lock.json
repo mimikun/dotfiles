@@ -11,7 +11,7 @@
   "efm": "v0.0.53",
   "esbonio": "0.16.4",
   "eslint-lsp": "4.10.0",
-  "gopls": "v0.16.1",
+  "gopls": "v0.16.2",
   "graphql-language-service-cli": "3.5.0",
   "html-lsp": "4.10.0",
   "jq-lsp": "v0.1.4",
