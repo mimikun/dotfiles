@@ -1,5 +1,44 @@
 # Changelog
 
+## [v2024.09.09]
+
+### Added - 新機能について
+
+- feat(linux_pip_packages): add some packages
+- feat(nvim): add new plugin: helpview.nvim
+- feat(mise): add gleam and erlang
+- feat(nvim-treesitter): add gleam and erlang parser
+- feat(cargo): add rascii_art
+- feat(disabled-plugins): add some plugins
+- feat: add rebar3 command and set PATH
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(atuin): update config
+- chore(nvim): update lockfiles
+- chore(nvim): rename tsserver to ts_ls
+- chore(fish): update uv completion
+- chore(fish): update pastel completion
+- chore(aqua): update bw-cli
+- chore(helpview.nvim): update config
+- refactor(huez.nvim): update config, and add some themes
+- refactor(mason-nvim-dap): split ensure_installed.lua
+- refactor(mason-lspconfig): split ensure_installed.lua
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove "plugins/configs/exclude" directory
+
+### Fixed - 不具合修正について
+
+- fix(Invoke-RunAfterChezmoiApply): message order
+- fix(nvim): rename tsserver to ts_ls
+- fix(nvim-mini): haunt.nvim repo url
+- fix(powershell): update wsl_shutdown command
+    - in Work PC, use "wsl --shutdown"
+- fix(obsidian-kensaku.nvim): add type annotation
+
 ## [v2024.09.05]
 
 ### Added - 新機能について
