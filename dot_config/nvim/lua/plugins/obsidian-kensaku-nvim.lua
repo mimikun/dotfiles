@@ -27,6 +27,7 @@ local opts = {
     picker = "egrepify",
 }
 
+---@type LazySpec
 local spec = {
     "delphinus/obsidian-kensaku.nvim",
     --lazy = false,
