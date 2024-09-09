@@ -306,7 +306,9 @@ if ($isMSWindows) {
     # alias wsl_shutdown Invoke-WslTerminateUbuntu
     function Invoke-WslTerminateUbuntu() {
         if ($env:COMPUTERNAME -eq "TANAKAPC") {
-            wsl --terminate Ubuntu-20.04
+            # NOTE: Workaround
+            #wsl --terminate Ubuntu-20.04
+            wsl --shutdown
         } else {
             wsl --terminate Ubuntu
         }
