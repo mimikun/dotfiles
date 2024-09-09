@@ -44,7 +44,6 @@ function Invoke-RunAfterChezmoiApply() {
     # Copy vim (paleovim) configuration #
     #####################################
 
-    Write-Output "Copy vim (paleovim) configuration"
     $windows_pvim_config = Join-Path -Path $env:USERPROFILE -ChildPath "vimfiles\"
     $home_pvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_config\vim\*"
     $work_pvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_vim\*"
@@ -58,6 +57,7 @@ function Invoke-RunAfterChezmoiApply() {
         New-Item -Path $windows_pvim_config -ItemType "directory" > $null
     }
 
+    Write-Output "Copy vim (paleovim) configuration"
     if ($env:COMPUTERNAME -eq "TANAKAPC") {
         Copy-Item -Path $work_pvim_config -Destination $windows_pvim_config -Recurse -Force
     } else {
