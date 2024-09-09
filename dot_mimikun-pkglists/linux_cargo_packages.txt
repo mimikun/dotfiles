@@ -91,6 +91,7 @@ pylyzer
 qrtool
 rainfrog
 rana
+rascii_art
 rbw
 redu
 rioterm
