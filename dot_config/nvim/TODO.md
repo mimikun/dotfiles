@@ -30,3 +30,16 @@
     - [ ] todo-comments-nvim.lua
     - [ ] trouble.lua
     - [ ] which-key-nvim.lua
+- [ ] Vim scriptで書かれたプラグイン
+    - Pure Luaプラグインで代替可能(maybe)
+        - [ ] migemo-search-vim.lua
+            - [sei40kr/migemo-search.nvim](https://github.com/sei40kr/migemo-search.nvim)
+    - Pure Luaプラグインで代替不可能
+        - chezmoi-vim.lua
+        - vimdoc-ja.lua
+        - vim-ambiwidth.lua
+        - eskk-vim.lua
+        - vim-cargo-make.lua
+        - vim-kitty.lua
+        - calendar-vim.lua
+        - vim-quickrun.lua
