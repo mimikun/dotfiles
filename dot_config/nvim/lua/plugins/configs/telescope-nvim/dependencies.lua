@@ -24,6 +24,7 @@ local dependencies = {
     "kdheepak/lazygit.nvim",
     "folke/noice.nvim",
     "nvimdev/template.nvim",
+    "stevearc/aerial.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

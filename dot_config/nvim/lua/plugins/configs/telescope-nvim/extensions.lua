@@ -6,6 +6,7 @@ local extensions = {
     package_info = require("plugins.configs.telescope-nvim.package-info"),
     zoxide = require("plugins.configs.telescope-nvim.zoxide"),
     undo = require("plugins.configs.telescope-nvim.undo"),
+    aerial = require("plugins.configs.telescope-nvim.aerial"),
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

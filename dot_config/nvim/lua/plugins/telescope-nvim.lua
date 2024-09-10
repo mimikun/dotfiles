@@ -54,6 +54,7 @@ local spec = {
         telescope.load_extension("lazygit")
         telescope.load_extension("noice")
         telescope.load_extension("find_template")
+        telescope.load_extension("aerial")
     end,
     --cond = false,
 }
