@@ -61,7 +61,6 @@ mask
 mdbook
 mise
 mocword
-monolith
 natls
 navi
 nsh
