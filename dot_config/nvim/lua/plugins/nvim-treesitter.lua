@@ -1,19 +1,9 @@
-local sources = require("plugins.configs.nvim-treesitter.parsers")
 local global = require("config.global")
 
----@type string
-local parser_install_dir = global.parser_install_dir
-
----@type boolean
-local sync_install = not global.is_human_rights
-
----@type table
+---@type LazySpec[]
 local dependencies = {
     "windwp/nvim-ts-autotag",
-    "IndianBoy42/tree-sitter-just",
     "LhKipp/nvim-nu",
-    "mimikun/tree-sitter-PowerShell",
-    "charmbracelet/tree-sitter-vhs",
     "RRethy/nvim-treesitter-textsubjects",
 }
 
@@ -25,22 +15,23 @@ local spec = {
     event = "VeryLazy",
     dependencies = dependencies,
     init = function()
-        vim.opt.runtimepath:prepend(parser_install_dir)
+        vim.opt.runtimepath:prepend(global.parser_install_dir)
     end,
     config = function()
-        local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
         require("nu").setup({})
         require("nvim-ts-autotag").setup({})
 
         require("nvim-treesitter.configs").setup({
-            parser_install_dir = parser_install_dir,
+            parser_install_dir = global.parser_install_dir,
             highlight = {
                 enable = true,
                 disable = {},
             },
-            ensure_installed = sources.need_parsers,
-            sync_install = sync_install,
+            ensure_installed = require("plugins.configs.nvim-treesitter.ensure_installed"),
+            -- NOTE:
+            -- If your human rights are being violated,
+            -- you will need to repeatedly press the Enter-key during initial setup.
+            sync_install = not global.is_human_rights,
             textsubjects = {
                 enable = true,
                 -- (Optional) keymap to select the previous selection
@@ -55,10 +46,6 @@ local spec = {
                 },
             },
         })
-
-        parser_config.powershell = sources.powershell
-        parser_config.just = sources.just
-        parser_config.vhs = sources.vhs
     end,
     --cond = false,
 }
