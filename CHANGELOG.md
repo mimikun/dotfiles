@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.09.10]
+
+### Added - 新機能について
+
+- feat(oil.nvim): add some feature
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- docs: update neovim TODO.md
+- chore(aqua): update some packages
+- chore(fish): update ripgrep completion
+- chore(nvim): update lockfiles
+- chore(disabled-plugins): update outline plugin configs
+- refactor(nvim-treesitter): update configs
+    - and remove some plugins
+
+### Removed - 今回で削除された機能について
+
+- chore(windows): remove monolith
+    - no longer supported on Windows (in effect)
+    - close #787
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.09]
 
 ### Added - 新機能について
