@@ -18,6 +18,7 @@ local base_parsers = {
     "json",
     "json5",
     "jsonc",
+    "latex",
     "lua",
     "luadoc",
     "luap",
@@ -43,49 +44,47 @@ local base_parsers = {
 }
 
 ---@type table
-local linux_only_parsers = {
-    "ocaml",
-    "ocaml_interface",
-}
-
----@type table
 local addisional_parsers = {
-    "c",
-    "cmake",
-    "cpp",
-    "c_sharp",
-    "css",
-    "djot",
-    "erlang",
-    "gleam",
-    "go",
-    "gomod",
-    "gosum",
-    "gowork",
-    "graphql",
-    "java",
-    "jq",
-    "just",
-    "kdl",
-    "latex",
-    "ninja",
-    "ron",
-    "scala",
-    "svelte",
-    "swift",
-    "vhs",
-    "vue",
-    "zig",
+    linux_only = {
+        "ocaml",
+        "ocaml_interface",
+    },
+    others = {
+        "c",
+        "cmake",
+        "cpp",
+        "c_sharp",
+        "css",
+        "djot",
+        "erlang",
+        "gleam",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "graphql",
+        "java",
+        "jq",
+        "just",
+        "kdl",
+        "ninja",
+        "ron",
+        "scala",
+        "svelte",
+        "swift",
+        "vhs",
+        "vue",
+        "zig",
+    },
 }
 
 need_parsers = vim.list_extend(need_parsers, base_parsers)
 
-if require("config.global").is_linux then
-    need_parsers = vim.list_extend(need_parsers, linux_only_parsers)
-end
-
 if require("config.settings").need_all_parsers then
-    need_parsers = vim.list_extend(need_parsers, addisional_parsers)
+    need_parsers = vim.list_extend(need_parsers, addisional_parsers.others)
+    if require("config.global").is_linux then
+        need_parsers = vim.list_extend(need_parsers, addisional_parsers.linux_only)
+    end
 end
 
 -- sort list
