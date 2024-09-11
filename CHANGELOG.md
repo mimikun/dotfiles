@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2024.09.11]
+
+### Added - 新機能について
+
+- feat(cargo): add some packages
+    - gitnr, hf
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(nvim): update lockfiles
+- chore(disabled-plugins): update spec and configs
+- refactor(nvim-treesitter): update configs
+- refactor(mason-lspconfig): update configs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(render-markdown.nvim): healthcheck error
+    - close #788
+    - removed headlines.nvim
+    - using render-markdown.nvim instead
+    - removed opts.acknowledge_conflicts in render-markdown.nvim
+    - add latex nvim-treesitter parser
+    - set false to opts.ui.enable in obsidian.nvim
+
 ## [v2024.09.10]
 
 ### Added - 新機能について
