@@ -43,12 +43,14 @@ genact
 git-delta
 git-graph
 git-interactive-rebase-tool
+gitnr
 gitu
 gitui
 glitchcat
 gping
 grex
 hexyl
+hf
 ht
 hyperfine
 hysp
