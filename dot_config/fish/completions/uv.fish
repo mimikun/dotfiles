@@ -101,6 +101,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand run" -l dev -d 'Include development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-dev -d 'Omit development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand run" -l isolated -d 'Run the command in an isolated virtual environment'
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-sync -d 'Avoid syncing the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand run" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand run" -l frozen -d 'Run without updating the `uv.lock` file'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
@@ -209,7 +210,7 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l dev -d 'Add the requiremen
 complete -c uv -n "__fish_uv_using_subcommand add" -l editable -d 'Add the requirements as editable'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-editable
 complete -c uv -n "__fish_uv_using_subcommand add" -l raw-sources -d 'Add source requirements to `project.dependencies`, rather than `tool.uv.sources`'
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-sync -d 'Avoid syncing the virtual environment after re-locking the project'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-sync -d 'Avoid syncing the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand add" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand add" -l frozen -d 'Add dependencies without re-locking the project'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
@@ -1859,7 +1860,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -s V -l version -d 'Display the uv version'
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -f -a "update" -d 'Update uv to the latest version'
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -f -a "update" -d 'Update uv'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
