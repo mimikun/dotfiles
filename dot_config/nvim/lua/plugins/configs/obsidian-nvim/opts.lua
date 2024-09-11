@@ -190,7 +190,8 @@ local opts = {
     search_max_lines = 1000,
     open_notes_in = "current",
     ui = {
-        enable = true,
+        -- Disable UI, use render-markdown.nvim
+        enable = false,
         update_debounce = 200,
         max_file_length = 5000,
         checkboxes = {
