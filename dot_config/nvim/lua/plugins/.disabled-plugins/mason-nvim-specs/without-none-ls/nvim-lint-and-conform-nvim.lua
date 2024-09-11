@@ -1,3 +1,7 @@
+-- NOTE: some features are restricted when human rights are violated
+-- e.g. max_concurrent_installers, automatic_installation
+
+---@type boolean
 local global = require("config.global")
 
 ---@type table
@@ -15,10 +19,6 @@ local cmds = {
     -- mason-nvim-dap
     "DapInstall",
     "DapUninstall",
-    -- NOTE: null-ls replace plugin `pattern 2`
-    -- mason-null-ls
-    --"NoneLsInstall",
-    --"NoneLsUninstall",
 }
 
 ---@type LazySpec[]
@@ -29,35 +29,20 @@ local dependencies = {
     -- DAP plugins
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
+    -- Lint plugins
+    "mfussenegger/nvim-lint",
+    "rshkarin/mason-nvim-lint",
+    -- Format plugins
+    "stevearc/conform.nvim",
+    "zapling/mason-conform.nvim",
     -- Other deps
     "folke/lazydev.nvim",
     "Bilal2453/luvit-meta",
     "justinsgithub/wezterm-types",
-    "b0o/schemastore.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "zapling/mason-lock.nvim",
     "folke/neoconf.nvim",
     "b0o/schemastore.nvim",
-    -- NOTE: null-ls replace plugin `pattern 1`
-    --[[
-    -- Linter plugins
-    "mfussenegger/nvim-lint",
-    "rshkarin/mason-nvim-lint",
-    -- Formatter plugins
-    "stevearc/conform.nvim",
-    "zapling/mason-conform.nvim",
-    ]]
-    -- NOTE: null-ls replace plugin `pattern 2`
-    -- null-ls
-    "nvimtools/none-ls.nvim",
-    "jay-babu/mason-null-ls.nvim",
-    -- NOTE: null-ls replace plugin `pattern 3`
-    --[[
-    {
-        "creativenull/efmls-configs-nvim",
-        version = "v1.x.x",
-    },
-    ]]
 }
 
 ---@type table
@@ -94,9 +79,7 @@ local spec = {
 
         -- LSP
         mason_lspconfig.setup({
-            --ensure_installed = require("plugins.configs.lspconfigs.need_servers"),
-            -- NOTE: test only, remove it
-            ensure_installed = { "lua_ls", "rust_analyzer", "efm" },
+            ensure_installed = require("plugins.configs.mason-lspconfig.ensure_installed"),
         })
 
         mason_lspconfig.setup_handlers({
@@ -121,69 +104,19 @@ local spec = {
         lspconfig.jsonls.setup({})
         lspconfig.yamlls.setup({})
 
-        -- NOTE: null-ls replace plugin `pattern 3`
-        --[[
-        local eslint = require("efmls-configs.linters.eslint")
-        local prettier = require("efmls-configs.formatters.prettier")
-        local stylua = require("efmls-configs.formatters.stylua")
-        local languages = {
-            typescript = { eslint, prettier },
-            lua = { stylua },
-        }
-
-        -- Or use the defaults provided by this plugin
-        -- check doc/SUPPORTED_LIST.md for the supported languages
-        --
-        -- local languages = require('efmls-configs.defaults').languages()
-
-        local efmls_config = {
-            filetypes = vim.tbl_keys(languages),
-            settings = {
-                rootMarkers = { ".git/" },
-                languages = languages,
-            },
-            init_options = {
-                documentFormatting = true,
-                documentRangeFormatting = true,
-            },
-        }
-
-        lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
-            -- Pass your custom lsp config below like on_attach and capabilities
-            --
-            -- on_attach = on_attach,
-            -- capabilities = capabilities,
-        }))
-        ]]
-
-        -- NOTE: null-ls replace plugin `pattern 1`
-        --[[
-        -- Linter
         require("mason-nvim-lint").setup({
-            --ensure_installed = require("plugins.configs.nvim-lint.need_linters"),
-            -- NOTE: test only, remove it
-            ensure_installed = { "selene" },
-            automatic_installation = false,
+            ensure_installed = require("plugins.configs.mason-nvim-lint.ensure_installed"),
+            automatic_installation = global.is_human_rights,
+            quiet_mode = false,
         })
 
-        -- Formatter
         require("mason-conform").setup({
-            --ignore_install = require("plugins.configs.conform-nvim.ignore_formatters"),
-            -- NOTE: test only, remove it
-            --ignore_install = { "prettier" },
-        })
-        ]]
-
-        -- NOTE: null-ls replace plugin `pattern 2`
-        require("mason-null-ls").setup({
-            handlers = {},
+            ignore_install = require("plugins.configs.mason-conform-nvim.ignore_install"),
         })
 
         -- DAP
         mason_nvim_dap.setup({
-            --ensure_installed = require("plugins.configs.nvim-dap.need_adapters"),
-            -- NOTE: test only, remove it
-            ensure_installed = { "python" },
+            ensure_installed = require("plugins.configs.mason-nvim-dap.ensure_installed"),
             handlers = {
                 function(config)
                     mason_nvim_dap.default_setup(config)
