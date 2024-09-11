@@ -1,20 +1,19 @@
 ---@type table
-local need_servers = {
+local need_servers = {}
+
+---@type table
+local base_servers = {
     "bashls",
-    "clangd",
     "cssls",
     "denols",
     "docker_compose_language_service",
     "dockerls",
-    "efm",
     "eslint",
-    "graphql",
     "html",
     "jsonls",
     "lua_ls",
     "luau_lsp",
     "marksman",
-    "neocmake",
     "powershell_es",
     "pyright",
     "rust_analyzer",
@@ -23,18 +22,51 @@ local need_servers = {
     "typos_lsp",
     "vimls",
     "yamlls",
-    "zls",
 }
 
--- NOTE: Include some langservers
+---@type table
+local not_windows = {
+    "markdown_oxide",
+}
+
+---@type table
+local addisional_servers = {
+    others = {
+        "clangd",
+        "efm",
+        "graphql",
+        "neocmake",
+        "zls",
+    },
+    not_windows = {
+        "csharp_ls",
+        "esbonio",
+        "gopls",
+        "jqls",
+        "nil_ls",
+        "solargraph",
+    },
+}
+
+---@type table
+need_servers = vim.list_extend(need_servers, base_servers)
+
+-- NOTE: Include some langservers, NOT Windows
 if not require("config.global").is_windows then
-    table.insert(need_servers, "csharp_ls")
-    table.insert(need_servers, "esbonio")
-    table.insert(need_servers, "gopls")
-    table.insert(need_servers, "jqls")
-    table.insert(need_servers, "markdown_oxide")
-    table.insert(need_servers, "nil_ls")
-    table.insert(need_servers, "solargraph")
+    ---@type table
+    need_servers = vim.list_extend(need_servers, not_windows)
+    if require("config.settings").need_all_servers then
+        ---@type table
+        need_servers = vim.list_extend(need_servers, addisional_servers.not_windows)
+    end
 end
+
+-- NOTE: Include some langservers, if need_all_servers set TRUE
+if require("config.settings").need_all_servers then
+    ---@type table
+    need_servers = vim.list_extend(need_servers, addisional_servers.others)
+end
+
+table.sort(need_servers)
 
 return need_servers

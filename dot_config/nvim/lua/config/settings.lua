@@ -14,4 +14,7 @@ settings.need_all_colorschemes = false
 ---need all treesitter parsers
 settings.need_all_parsers = false
 
+---need all lspconfig servers
+settings.need_all_servers = false
+
 return settings
