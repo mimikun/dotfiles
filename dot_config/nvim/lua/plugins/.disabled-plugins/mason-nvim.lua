@@ -1,49 +1,44 @@
--- NOTE: some features are restricted when human rights are violated
--- e.g. max_concurrent_installers, automatic_installation
-
----@type boolean
 local global = require("config.global")
+local C = require("plugins.configs.mason-nvim.cmds")
+local D = require("plugins.configs.mason-nvim.dependencies")
+
+-- NOTE: Only one can be set to TRUE
+---@type table
+local use = {
+    none_ls = true,
+    efmls = false,
+    conform = false,
+    guard = false,
+}
 
 ---@type table
-local cmds = {
-    -- mason.nvim
-    "Mason",
-    "MasonUpdate",
-    "MasonInstall",
-    "MasonUninstall",
-    "MasonUninstallAll",
-    "MasonLog",
-    -- mason-lspconfig
-    "LspInstall",
-    "LspUninstall",
-    -- mason-nvim-dap
-    "DapInstall",
-    "DapUninstall",
-}
+local cmds = {}
+
+if use.none_ls then
+    cmds = vim.list_extend(C.base, C.none_ls)
+elseif use.efmls then
+    cmds = vim.list_extend(C.base, C.efmls)
+else
+    if use.guard then
+        cmds = vim.list_extend(C.base, C.guard)
+    end
+end
 
 ---@type LazySpec[]
-local dependencies = {
-    -- LSP plugins
-    "neovim/nvim-lspconfig",
-    "williamboman/mason-lspconfig.nvim",
-    -- DAP plugins
-    "mfussenegger/nvim-dap",
-    "jay-babu/mason-nvim-dap.nvim",
-    -- Lint plugins
-    "mfussenegger/nvim-lint",
-    "rshkarin/mason-nvim-lint",
-    -- Format plugins
-    "stevearc/conform.nvim",
-    "zapling/mason-conform.nvim",
-    -- Other deps
-    "folke/lazydev.nvim",
-    "Bilal2453/luvit-meta",
-    "justinsgithub/wezterm-types",
-    "hrsh7th/cmp-nvim-lsp",
-    "zapling/mason-lock.nvim",
-    "folke/neoconf.nvim",
-    "b0o/schemastore.nvim",
-}
+local dependencies = {}
+
+if use.none_ls then
+    dependencies = vim.list_extend(D.base, D.none_ls)
+elseif use.efmls then
+    dependencies = vim.list_extend(D.base, D.efmls)
+else
+    dependencies = vim.list_extend(D.base, D.nvim_lint)
+    if use.guard then
+        dependencies = vim.list_extend(D.base, D.guard)
+    elseif use.conform then
+        dependencies = vim.list_extend(D.base, D.conform)
+    end
+end
 
 ---@type table
 local opts = {
@@ -104,15 +99,33 @@ local spec = {
         lspconfig.jsonls.setup({})
         lspconfig.yamlls.setup({})
 
-        require("mason-nvim-lint").setup({
-            ensure_installed = require("plugins.configs.mason-nvim-lint.ensure_installed"),
-            automatic_installation = global.is_human_rights,
-            quiet_mode = false,
-        })
-
-        require("mason-conform").setup({
-            ignore_install = require("plugins.configs.mason-conform-nvim.ignore_install"),
-        })
+        -- All-in-one Linter, Formatter
+        if use.none_ls then
+            require("mason-null-ls").setup({
+                handlers = {},
+            })
+        elseif use.efmls then
+            -- TODO: mason-efmls
+            print("WIP")
+            --require("mason-efmls").setup({})
+        else
+            -- Linter
+            require("mason-nvim-lint").setup({
+                ensure_installed = require("plugins.configs.mason-nvim-lint.ensure_installed"),
+                automatic_installation = global.is_human_rights,
+                quiet_mode = false,
+            })
+            -- Formatter
+            if use.conform then
+                require("mason-conform").setup({
+                    ignore_install = require("plugins.configs.mason-conform-nvim.ignore_install"),
+                })
+            elseif use.guard then
+                -- TODO: mason-guard
+                print("wip")
+                --require("mason-guard").setup({})
+            end
+        end
 
         -- DAP
         mason_nvim_dap.setup({
