@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.09.12]
+
+### Added - 新機能について
+
+- feat: add efm-langserver config
+- feat(disabled-plugins): add randtheme.nvim plugin
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- docs: update STARTUPTIME.md
+- refactor(disabled-plugins): some config update
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.11]
 
 ### Added - 新機能について
