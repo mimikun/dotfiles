@@ -1,20 +1,40 @@
 local global = require("config.global")
 local iconsets = require("utils.icons")
 
+---@type string
+local path_sep = global.path_sep
+
+---@type boolean
+local is_windows = global.is_windows
+
+---@type boolean
+local is_human_rights = global.is_human_rights
+
 -- Limit the number of concurrent task depending on human rights or OS
 ---@type number|nil
 local concurrency
-if global.is_human_rights then
-    concurrency = global.is_windows and (vim.uv.available_parallelism() * 2) or nil
+
+-- TODO: choice
+if is_human_rights then
+    concurrency = is_windows and (vim.uv.available_parallelism() * 2) or nil
 else
-    concurrency = 6
+    concurrency = is_windows and 4 or 6
 end
 
----@type string
-local lazy_root = table.concat({ global.data_dir, "lazy" }, global.path_sep)
+-- TODO: choice
+--[[
+if is_windows then
+    concurrency = is_human_rights and (vim.uv.available_parallelism() * 2) or 4
+else
+    concurrency = is_human_rights and nil or 6
+end
+]]
 
 ---@type string
-local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, global.path_sep)
+local lazy_root = table.concat({ global.data_dir, "lazy" }, path_sep)
+
+---@type string
+local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, path_sep)
 
 ---@type table
 local icons = {
@@ -25,8 +45,6 @@ local icons = {
     cmp_sep = iconsets.get("cmp", true),
     misc = iconsets.get("misc"),
 }
-
-local Lazy = {}
 
 if not vim.uv.fs_stat(lazy_path) then
     vim.fn.system({
@@ -63,7 +81,7 @@ local lazy_settings = {
         enabled = false,
     },
     dev = {
-        path = table.concat({ global.home, "ghq", "github.com", "mimikun", "dev-plugins" }, global.path_sep),
+        path = table.concat({ global.home, "ghq", "github.com", "mimikun", "dev-plugins" }, path_sep),
         fallback = true,
     },
     ui = {
@@ -112,14 +130,14 @@ local lazy_settings = {
             paths = {},
         },
         disabled_plugins = {
-            -- "gzip",
-            -- "matchit",
-            -- "matchparen",
-            -- "netrwPlugin",
-            -- "tarPlugin",
-            -- "tohtml",
-            -- "tutor",
-            -- "zipPlugin",
+            "gzip",
+            "matchit",
+            "matchparen",
+            "netrwPlugin",
+            "tarPlugin",
+            "tohtml",
+            "tutor",
+            "zipPlugin",
         },
     },
 }
