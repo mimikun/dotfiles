@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Copy patch to Windows"
+# mise hide=true
+
+cp "*.patch" "$WIN_HOME/Downloads/"
+
+# vim:ft=bash
