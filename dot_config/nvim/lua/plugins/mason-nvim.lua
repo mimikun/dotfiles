@@ -1,4 +1,8 @@
 local global = require("config.global")
+local settings = require("config.settings")
+
+---@type boolean
+local need_all_servers = settings.need_all_servers
 
 ---@type table
 local cmds = {
@@ -15,7 +19,6 @@ local cmds = {
     -- mason-nvim-dap
     "DapInstall",
     "DapUninstall",
-    -- NOTE: null-ls replace plugin `pattern 2`
     -- mason-null-ls
     "NoneLsInstall",
     "NoneLsUninstall",
@@ -98,9 +101,43 @@ local spec = {
             end,
         })
 
-        lspconfig.lua_ls.setup({})
+        lspconfig.bashls.setup({})
+        lspconfig.cssls.setup({})
+        lspconfig.denols.setup({})
+        lspconfig.docker_compose_language_service.setup({})
+        lspconfig.dockerls.setup({})
+        lspconfig.eslint.setup({})
+        lspconfig.html.setup({})
         lspconfig.jsonls.setup({})
+        lspconfig.lua_ls.setup({})
+        lspconfig.luau_lsp.setup({})
+        lspconfig.marksman.setup({})
+        lspconfig.powershell_es.setup({})
+        lspconfig.pyright.setup({})
+        lspconfig.rust_analyzer.setup({})
+        lspconfig.taplo.setup({})
+        lspconfig.ts_ls.setup({})
+        lspconfig.typos_lsp.setup({})
+        lspconfig.vimls.setup({})
         lspconfig.yamlls.setup({})
+        if not global.is_windows then
+            lspconfig.markdown_oxide.setup({})
+            if need_all_servers then
+                lspconfig.csharp_ls.setup({})
+                lspconfig.esbonio.setup({})
+                lspconfig.gopls.setup({})
+                lspconfig.jqls.setup({})
+                lspconfig.nil_ls.setup({})
+                lspconfig.solargraph.setup({})
+            end
+        end
+        if need_all_servers then
+            lspconfig.clangd.setup({})
+            lspconfig.efm.setup({})
+            lspconfig.graphql.setup({})
+            lspconfig.neocmake.setup({})
+            lspconfig.zls.setup({})
+        end
 
         require("mason-null-ls").setup({
             handlers = {},
