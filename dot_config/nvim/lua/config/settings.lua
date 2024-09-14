@@ -20,4 +20,17 @@ settings.need_all_parsers = false
 ---@type boolean
 settings.need_all_servers = false
 
+-- NOTE: Only one can be set to TRUE
+---@type boolean
+settings.use_none_ls = true
+
+---@type boolean
+settings.use_efmls = false
+
+---@type boolean
+settings.use_conform = false
+
+---@type boolean
+settings.use_guard = false
+
 return settings

@@ -1,3 +1,6 @@
+---@type boolean
+local cond = require("config.settings").use_none_ls
+
 ---@type table
 local opts = {
     sources = require("plugins.configs.none-ls.sources").minimal,
@@ -9,9 +12,8 @@ local spec = {
     --lazy = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = opts,
-    --cond = false,
-    -- NOTE: null-ls replace plugin `pattern 2`
-    --enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec

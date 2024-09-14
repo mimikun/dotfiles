@@ -4,51 +4,12 @@ local settings = require("config.settings")
 ---@type boolean
 local need_all_servers = settings.need_all_servers
 
----@type table
-local cmds = {
-    -- mason.nvim
-    "Mason",
-    "MasonUpdate",
-    "MasonInstall",
-    "MasonUninstall",
-    "MasonUninstallAll",
-    "MasonLog",
-    -- mason-lspconfig
-    "LspInstall",
-    "LspUninstall",
-    -- mason-nvim-dap
-    "DapInstall",
-    "DapUninstall",
-    -- mason-null-ls
-    "NoneLsInstall",
-    "NoneLsUninstall",
-}
-
----@type LazySpec[]
-local dependencies = {
-    -- LSP plugins
-    "neovim/nvim-lspconfig",
-    "williamboman/mason-lspconfig.nvim",
-    -- DAP plugins
-    "mfussenegger/nvim-dap",
-    "jay-babu/mason-nvim-dap.nvim",
-    -- Other deps
-    "folke/lazydev.nvim",
-    "Bilal2453/luvit-meta",
-    "justinsgithub/wezterm-types",
-    "b0o/schemastore.nvim",
-    "hrsh7th/cmp-nvim-lsp",
-    "zapling/mason-lock.nvim",
-    "folke/neoconf.nvim",
-    "b0o/schemastore.nvim",
-    -- null-ls
-    "nvimtools/none-ls.nvim",
-    "jay-babu/mason-null-ls.nvim",
-}
+---@type boolean
+local is_human_rights = global.is_human_rights
 
 ---@type table
 local opts = {
-    max_concurrent_installers = global.is_human_rights and 4 or 1,
+    max_concurrent_installers = is_human_rights and 4 or 1,
     ui = {
         check_outdated_packages_on_open = true,
         border = "rounded",
@@ -67,9 +28,9 @@ local opts = {
 local spec = {
     "williamboman/mason.nvim",
     --lazy = false,
-    cmd = cmds,
+    cmds = require("plugins.configs.mason-nvim.cmds"),
     event = "VeryLazy",
-    dependencies = dependencies,
+    dependencies = require("plugins.configs.mason-nvim.deps"),
     config = function()
         local lspconfig = require("lspconfig")
         local mason_lspconfig = require("mason-lspconfig")
@@ -139,9 +100,36 @@ local spec = {
             lspconfig.zls.setup({})
         end
 
-        require("mason-null-ls").setup({
-            handlers = {},
-        })
+        -- All-in-one Linter, Formatter
+        if settings.use_none_ls then
+            require("mason-null-ls").setup({
+                handlers = {},
+            })
+        elseif settings.use_efmls then
+            -- TODO: mason-efmls
+            print("WIP")
+            --require("mason-efmls").setup({})
+            -- Only Linter or Only Formatter
+        else
+            require("mason-nvim-lint").setup({
+                -- TODO: select
+                --ensure_installed = require("plugins.configs.mason-nvim-lint.ensure_installed"),
+                ensure_installed = {},
+                automatic_installation = is_human_rights,
+                quiet_mode = false,
+            })
+            if settings.use_conform then
+                require("mason-conform").setup({
+                    -- TODO: select
+                    --ignore_install = require("plugins.configs.mason-conform-nvim.ignore_install"),
+                    ignore_install = {},
+                })
+            elseif settings.use_guard then
+                -- TODO: mason-guard
+                print("wip")
+                --require("mason-guard").setup({})
+            end
+        end
 
         -- DAP
         mason_nvim_dap.setup({
