@@ -4,7 +4,8 @@ local spec = {
     --lazy = false,
     event = "VeryLazy",
     opts = {},
-    --cond = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
