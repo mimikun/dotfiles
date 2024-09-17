@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2024.09.17]
+
+### Added - 新機能について
+
+- feat: add mise tasks
+- feat(aqua): add efm-langserver
+- feat(nvim): add need_all_exts flag in settings.lua
+- feat(nvim): add vim-teraterm
+- feat(nvim): use Comment.nvim and nvim-ts-context-commentstring
+- feat(mise-npm): add npkill
+- feat(templates.nvim): add some templates
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(nvim): update lockfiles
+- chore(lazy.nvim): update config
+- chore(telescope.nvim): update config
+- chore(mason.nvim): many update
+- chore(mason.nvim): update config
+- style(nvim): add type annotation
+
+### Removed - 今回で削除された機能について
+
+- chore(templates.nvim): remove unused templates
+- chore(nvim): remove ts-comments.nvim
+- chore: remove .npmrc
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.12]
 
 ### Added - 新機能について
