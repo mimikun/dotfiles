@@ -33,4 +33,8 @@ settings.use_conform = false
 ---@type boolean
 settings.use_guard = false
 
+---need all telescope extensions
+---@type boolean
+settings.need_all_exts = false
+
 return settings
