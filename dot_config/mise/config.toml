@@ -30,6 +30,8 @@ zig = [
     "ref:master",
     "latest",
 ]
+# npm backends
+"npm:npkill" = "latest"
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
