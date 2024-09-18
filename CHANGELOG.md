@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2024.09.18]
+
+### Added - 新機能について
+
+- feat(gup): add afa and afa-tui commands
+- feat(nvim): add keyseer.nvim
+- feat(mise): add some tools
+- feat(disabled-plugins): add nvim-ufo
+- feat(windows_cargo_packages): add pik and tre commands
+- feat(linux_cargo_packages): add some commands
+    - pik, serie, and tre-command
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update uv completion
+- chore(typos): update config
+- chore(mise): update config
+- chore(nvim): update lockfiles
+- refactor(oil.nvim): split oil-git-status.nvim config
+
+### Removed - 今回で削除された機能について
+
+- chore(mise): remove settings.toml
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.17]
 
 ### Added - 新機能について
