@@ -1,25 +1,18 @@
 ---@type boolean
 local detail = false
 
----@type LazySpec[]
-local dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "refractalize/oil-git-status.nvim",
-}
-
 ---@type LazySpec
 local spec = {
     "stevearc/oil.nvim",
     lazy = false,
-    --ft = "oil",
     cmd = "Oil",
-    --event = "VeryLazy",
-    dependencies = dependencies,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     init = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
     end,
     config = function()
+        local oil = require("oil")
         local new_git_status = require("plugins.configs.oil-nvim.util").new_git_status
 
         local git_status = new_git_status()
@@ -32,7 +25,7 @@ local spec = {
             orig_refresh(...)
         end
 
-        require("oil").setup({
+        oil.setup({
             default_file_explorer = true,
             win_options = {
                 -- Use oil-git-status.nvim
@@ -49,9 +42,9 @@ local spec = {
                     callback = function()
                         detail = not detail
                         if detail then
-                            require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+                            oil.set_columns({ "icon", "permissions", "size", "mtime" })
                         else
-                            require("oil").set_columns({ "icon" })
+                            oil.set_columns({ "icon" })
                         end
                     end,
                     desc = "Toggle file detail view",
@@ -60,7 +53,7 @@ local spec = {
             view_options = {
                 -- Respects gitignore settings
                 is_hidden_file = function(name, bufnr)
-                    local dir = require("oil").get_current_dir(bufnr)
+                    local dir = oil.get_current_dir(bufnr)
                     local is_dotfile = vim.startswith(name, ".") and name ~= ".."
                     -- if no local directory (e.g. for ssh connections), just hide dotfiles
                     if not dir then
@@ -76,10 +69,9 @@ local spec = {
                 end,
             },
         })
-
-        require("oil-git-status").setup({})
     end,
     --cond = false,
+    --enabled = false,
 }
 
 return spec
