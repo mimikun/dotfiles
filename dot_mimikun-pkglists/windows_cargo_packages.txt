@@ -71,6 +71,7 @@ onefetch
 os_info_cli
 oxker
 pastel
+pik
 pipr
 procs
 pylyzer
@@ -96,6 +97,7 @@ tokei
 toml2json
 topgrade
 trashy
+tre-command
 treefmt
 tree-sitter-cli
 typos-cli
