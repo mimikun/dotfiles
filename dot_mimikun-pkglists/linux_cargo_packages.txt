@@ -34,9 +34,9 @@ csvlens
 cyme
 desed
 diskonaut
-du-dust
 dua-cli
 ducker
+du-dust
 dutree
 erdtree
 erg
@@ -85,6 +85,7 @@ os_info_cli
 oxker
 parallel-disk-usage
 pastel
+pik
 pipr
 procs
 pueue
@@ -103,6 +104,7 @@ rrc
 rustscan
 sd
 selene
+serie
 sheldon
 shellharden
 sigrs
@@ -119,8 +121,9 @@ tokei
 toml2json
 topgrade
 trashy
-tree-sitter-cli
+tre-command
 treefmt
+tree-sitter-cli
 tuisky
 typos-cli
 usage-cli
