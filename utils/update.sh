@@ -9,7 +9,6 @@ cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
 # mise
 chezmoi add ~/.mise.toml
 chezmoi add ~/.config/mise/config.toml
-chezmoi add ~/.config/mise/settings.toml
 
 # bob
 chezmoi add ~/.bob-version
