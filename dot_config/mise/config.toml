@@ -30,8 +30,19 @@ zig = [
     "ref:master",
     "latest",
 ]
-# npm backends
+
+# npm backend
 "npm:npkill" = "latest"
+"npm:prettier" = "latest"
+"npm:commitizen" = "latest"
+"npm:cz-conventional-changelog-ja" = "latest"
+
+# pipx backend
+"pipx:anufrievroman/calcure" = "latest"
+"pipx:sauljabin/kaskade" = "latest"
+"pipx:ChrisBuilds/moneyterm" = "latest"
+"pipx:python-poetry/poetry" = "latest"
+"pipx:darrenburns/posting" = "latest"
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
