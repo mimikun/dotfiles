@@ -18,6 +18,9 @@ fo = "fo"
 tabe = "tabe"
 # dot_config/nvim/lua/plugins/configs/nvim-tree/actions.lua
 nd = "nd"
+# dot_mimikun-pkglists
+serie = "serie"
+tre = "tre"
 
 [files]
 extend-exclude = [
