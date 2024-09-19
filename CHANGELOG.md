@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.09.19]
+
+### Added - 新機能について
+
+- feat(gup): add some tools
+    - hut, sol
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update aqua completion
+- chore(render-markdown.nvim): update config and rename
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(mason.nvim): rustaceanvim checkhealth error
+- fix(luasnip): checkhealth warning
+
 ## [v2024.09.18]
 
 ### Added - 新機能について
