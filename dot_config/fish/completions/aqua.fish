@@ -99,6 +99,7 @@ complete -c aqua -n '__fish_seen_subcommand_from update-checksum upc' -f -l prun
 complete -c aqua -n '__fish_seen_subcommand_from remove rm' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'remove rm' -d 'Uninstall packages'
 complete -c aqua -n '__fish_seen_subcommand_from remove rm' -f -l all -s a -d 'uninstall all packages'
+complete -c aqua -n '__fish_seen_subcommand_from remove rm' -f -l mode -s m -r -d 'Removed target modes. l: link, p: package'
 complete -c aqua -n '__fish_seen_subcommand_from remove rm' -f -l i -d 'Select packages with a Fuzzy Finder'
 complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'update up' -d 'Update registries and packages'
