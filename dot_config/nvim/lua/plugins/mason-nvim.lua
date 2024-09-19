@@ -75,7 +75,6 @@ local spec = {
         lspconfig.marksman.setup({})
         lspconfig.powershell_es.setup({})
         lspconfig.pyright.setup({})
-        lspconfig.rust_analyzer.setup({})
         lspconfig.taplo.setup({})
         lspconfig.ts_ls.setup({})
         lspconfig.typos_lsp.setup({})
