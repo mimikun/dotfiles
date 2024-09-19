@@ -5,7 +5,7 @@ local dependencies = {
 }
 
 ---@type table
-local opts = require("plugins.configs.render-markdown.opts")
+local opts = require("plugins.configs.render-markdown-nvim.opts")
 
 ---@type LazySpec
 local spec = {
@@ -27,7 +27,6 @@ local spec = {
         rm.disable()
     end,
     --cond = false,
-    -- NOTE: markdown-render plugin
     --enabled = false,
 }
 

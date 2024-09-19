@@ -6,6 +6,9 @@ local opts = {
         -- This does have a performance penalty as we must listen to the 'CursorMoved' event
         enabled = true,
     },
+    latex = {
+        enabled = require("config.global").is_windows and false or true,
+    },
     heading = {
         icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
         signs = { "󰫎 " },
