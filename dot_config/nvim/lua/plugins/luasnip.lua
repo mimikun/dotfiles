@@ -10,7 +10,7 @@ local dependencies = {
 local spec = {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
-    build = global.is_windows and "" or "make install_jsregexp",
+    build = global.is_windows and false or "make install_jsregexp",
     --lazy = false,
     dependencies = dependencies,
     config = function()
