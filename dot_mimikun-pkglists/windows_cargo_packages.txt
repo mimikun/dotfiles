@@ -75,6 +75,7 @@ pik
 pipr
 procs
 pylyzer
+rage
 rana
 rbw
 ripgrep

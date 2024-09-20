@@ -92,6 +92,7 @@ pueue
 pumas
 pylyzer
 qrtool
+rage
 rainfrog
 rana
 rascii_art
