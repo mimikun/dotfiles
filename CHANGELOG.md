@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.09.22]
+
+### Added - 新機能について
+
+- feat(shells): add age-pubkeys env
+- feat(cargo): add rage
+- feat(fish): add age abbrs
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(aqua): update bw-cli
+- chore(fish): update uv completion
+- chore(fish): update zoxide completion
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nyagos): typos error
+
 ## [v2024.09.19]
 
 ### Added - 新機能について
