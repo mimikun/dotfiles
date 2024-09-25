@@ -2,6 +2,7 @@ ag
 aichat
 atuin
 bandwhich
+basilk
 bat
 bingrep
 bluetui
