@@ -3,3 +3,5 @@ kaskade
 moneyterm
 poetry
 posting
+sherlock-project
+toolong
