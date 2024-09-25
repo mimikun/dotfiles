@@ -43,6 +43,8 @@ local other = {
     { "tiagovla/tokyodark.nvim", optional = true },
     { "sontungexpt/witch", optional = true },
     { "yorik1984/newpaper.nvim", optional = true },
+    { "bakageddy/alduin.nvim", optional = true },
+    { "diegoulloao/neofusion.nvim", optional = true },
     -- 'named' colorscheme
     { "catppuccin/nvim", name = "catppuccin", optional = true },
     { "Everblush/nvim", name = "everblush", optional = true },
