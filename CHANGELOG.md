@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.09.25]
+
+### Added - 新機能について
+
+- feat(fish): add nb completion
+- feat(gup): add gtrash
+- feat(cargo): add basilk in cargo_packages.txt
+- feat(pip): add some packages
+- feat(pipx): add some tools
+    - sherlock-project, toolong
+- feat(huez.nvim): add new colorschemes
+    - alduin.nvim, neofusion.nvim
+- feat(mise-go): add some tools
+- feat(disabled-plugins): add some plugins
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(localbin): update update_fish_completions
+
+### Removed - 今回で削除された機能について
+
+- chore(aqua): remove go-task/go
+    - VERY SLOW, Windows is NOT supported and command names overlap
+
+### Fixed - 不具合修正について
+
+- fix(mise): unknown field error
+
 ## [v2024.09.24]
 
 ### Added - 新機能について
