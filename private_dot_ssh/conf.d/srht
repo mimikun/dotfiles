@@ -1,0 +1,6 @@
+Host git.sr.ht
+    IdentityFile ~/.ssh/id_srht
+    Port 22
+    User git
+
+# vim:ft=sshconfig

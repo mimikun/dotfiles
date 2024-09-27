@@ -1,0 +1,6 @@
+Host gitlab.com
+    IdentityFile ~/.ssh/id_gitlab
+    Port 22
+    User git
+
+# vim:ft=sshconfig

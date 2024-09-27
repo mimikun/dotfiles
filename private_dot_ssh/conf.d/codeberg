@@ -1,0 +1,6 @@
+Host codeberg.org
+    IdentityFile ~/.ssh/id_codeberg
+    Port 22
+    User git
+
+# vim:ft=sshconfig

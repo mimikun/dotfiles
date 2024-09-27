@@ -1,0 +1,6 @@
+Host github.com
+    IdentityFile ~/.ssh/id_github
+    Port 22
+    User git
+
+# vim:ft=sshconfig
