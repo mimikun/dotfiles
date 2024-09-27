@@ -132,6 +132,7 @@ usage-cli
 viddy
 vscli
 watchexec-cli
+wthrr
 xh
 xsv
 yazi-fm

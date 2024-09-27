@@ -105,6 +105,7 @@ tree-sitter-cli
 typos-cli
 usage-cli
 watchexec-cli
+wthrr
 xh
 xsv
 yazi-fm
