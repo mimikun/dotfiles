@@ -34,6 +34,8 @@ setxkbmap -option ctrl:nocaps
 set -x GITHUB_USERNAME "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
 set -x WIN_HOME "/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
 set -x OBSIDIAN_VAULT_ROOT "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+set -x GITHUB_PAT "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_pat.value}}"
+set -x CODEBERG_PAT "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").codeberg_pat.value}}"
 set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
 {{ else -}}
     {{ if eq .chezmoi.os "linux" -}}
