@@ -1,8 +1,10 @@
 local settings = {}
 
 ---use ai assistant
+-- NOTE: AI assistants will only be enabled at home
+-- (i.e. only if it is a human right)
 ---@type boolean
-settings.use_ai = false
+settings.use_ai = require("config.global").is_human_rights
 
 ---use denops
 ---@type boolean
