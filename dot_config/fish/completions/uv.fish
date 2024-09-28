@@ -147,6 +147,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-config -d 'Avoid discov
 complete -c uv -n "__fish_uv_using_subcommand run" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand run" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand init" -l name -d 'The name of the project' -r
+complete -c uv -n "__fish_uv_using_subcommand init" -l vcs -d 'Initialize a version control system for the project' -r -f -a "{git\t'Use Git for version control',none\t'Do not use any version control system'}"
 complete -c uv -n "__fish_uv_using_subcommand init" -s p -l python -d 'The Python interpreter to use to determine the minimum supported Python version.' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand init" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
@@ -160,6 +161,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l package -d 'Set up the pr
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-package -d 'Do not set up the project to be built as a Python package'
 complete -c uv -n "__fish_uv_using_subcommand init" -l app -d 'Create a project for an application'
 complete -c uv -n "__fish_uv_using_subcommand init" -l lib -d 'Create a project for a library'
+complete -c uv -n "__fish_uv_using_subcommand init" -l script -d 'Create a script'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-readme -d 'Do not create a `README.md` file'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-pin-python -d 'Do not create a `.python-version` file for the project'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-workspace -d 'Avoid discovering a workspace and create a standalone project'
@@ -819,6 +821,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s V -l version -d 'Display the uv version'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s p -l python -d 'Upgrade a tool, and specify it to use the given Python interpreter to build its environment. Use with `--all` to apply to all tools.' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
@@ -1748,8 +1751,11 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l color -d 'Control colors
 complete -c uv -n "__fish_uv_using_subcommand build" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand build" -l all -d 'Builds all packages in the workspace'
 complete -c uv -n "__fish_uv_using_subcommand build" -l sdist -d 'Build a source distribution ("sdist") from the given directory'
 complete -c uv -n "__fish_uv_using_subcommand build" -l wheel -d 'Build a binary distribution ("wheel") from the given directory'
+complete -c uv -n "__fish_uv_using_subcommand build" -l build-logs
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-logs -d 'Hide logs from the build backend'
 complete -c uv -n "__fish_uv_using_subcommand build" -l require-hashes -d 'Require a matching hash for each build requirement'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-require-hashes
 complete -c uv -n "__fish_uv_using_subcommand build" -l verify-hashes -d 'Validate any hashes provided in the build constraints file'
