@@ -23,5 +23,6 @@ mimikun/update_completions
 mimikun/update_docker_compose
 mimikun/update_geckodriver
 mimikun/update_peco
+rcny/gh-copilot-cli-alias.fish
 ryoppippi/na.fish
 sijad/gitignore
