@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.09.29]
+
+### Added - 新機能について
+
+- feat(fish): add vim:ft=fish
+- feat(fish): add some envs
+- feat(fish): add --git-ignore option to ls abbrs
+- feat(cargo): add wthrr and config
+- feat(nvim): enable 🤖 copilot 🤖
+- feat(disabled-plugins): add xylene.nvim
+- feat(fisher): add rcny/gh-copilot-cli-alias.fish
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(ssh): improve config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.26]
 
 ### Added - 新機能について
