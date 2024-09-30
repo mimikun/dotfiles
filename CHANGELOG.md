@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.09.30]
+
+### Added - 新機能について
+
+- feat(nvim): add mason-extra-cmds
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update tldr completion
+- chore(fish): update aqua completion
+- chore(fish): update eza completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.29]
 
 ### Added - 新機能について
