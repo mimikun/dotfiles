@@ -13,6 +13,7 @@ complete -c aqua -n '__fish_aqua_no_subcommand' -f -l log-level -r -d 'log level
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l config -s c -r -d 'configuration file path'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l disable-cosign -d 'Disable Cosign verification'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l disable-slsa -d 'Disable SLSA verification'
+complete -c aqua -n '__fish_aqua_no_subcommand' -f -l disable-github-artifact-attestation -d 'Disable GitHub Artifact Attestations verification'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l trace -r -d 'trace output file path'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l cpu-profile -r -d 'cpu profile output file path'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l help -s h -d 'show help'
