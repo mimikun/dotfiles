@@ -83,7 +83,7 @@ packages:
 - name: tstack/lnav@v0.12.2
 # - name: go-task/task@v3.39.2
 - name: magefile/mage@v1.15.0
-- name: boyter/scc@v3.3.5
+- name: boyter/scc@v3.4.0
 - name: maaslalani/slides@v0.9.0
 - name: zyedidia/eget@v1.3.4
 - name: aandrew-me/tgpt@v2.8.1
