@@ -12,6 +12,8 @@ local base = {
     "MasonUninstall",
     "MasonUninstallAll",
     "MasonLog",
+    -- mason-extra-cmds
+    "MasonUpdateAll",
     -- mason-lspconfig
     "LspInstall",
     "LspUninstall",

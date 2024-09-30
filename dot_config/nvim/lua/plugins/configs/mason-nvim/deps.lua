@@ -20,6 +20,7 @@ local base = {
     "zapling/mason-lock.nvim",
     "folke/neoconf.nvim",
     "b0o/schemastore.nvim",
+    { "Zeioth/mason-extra-cmds", opts = {} },
 }
 
 -- mason-null-ls.nvim
