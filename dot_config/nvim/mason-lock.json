@@ -1,7 +1,7 @@
 {
   "bash-debug-adapter": "untagged-438733f35feb8659d939",
   "bash-language-server": "5.4.2",
-  "clangd": "18.1.3",
+  "clangd": "19.1.0",
   "csharp-language-server": "0.15.0",
   "css-lsp": "4.10.0",
   "debugpy": "1.8.6",
