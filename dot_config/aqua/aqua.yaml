@@ -87,7 +87,7 @@ packages:
 - name: maaslalani/slides@v0.9.0
 - name: zyedidia/eget@v1.3.4
 - name: aandrew-me/tgpt@v2.8.1
-- name: schollz/croc@v10.0.12
+- name: schollz/croc@v10.0.13
 - name: k1LoW/octocov@v0.62.1
 - name: termkit/gama@v1.1.4
 - name: mattn/efm-langserver@v0.0.53
