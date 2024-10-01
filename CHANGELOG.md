@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2024.10.01]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+- chore(ssh): ignore github config
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.09.30]
 
 ### Added - 新機能について
