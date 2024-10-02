@@ -104,6 +104,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l all-extras -d 'Include all
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand run" -l dev -d 'Include development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-dev -d 'Omit development dependencies'
+complete -c uv -n "__fish_uv_using_subcommand run" -s m -l module -d 'Run a Python module'
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-dev -d 'Omit non-development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand run" -l isolated -d 'Run the command in an isolated virtual environment'
