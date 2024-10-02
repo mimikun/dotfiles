@@ -5,6 +5,7 @@ bandwhich
 basilk
 bat
 bingrep
+binsider
 bluetui
 bob-nvim
 bottom
@@ -27,6 +28,7 @@ cargo-tarpaulin
 cargo-udeps
 cargo-update
 cargo-wipe
+carl
 choose
 colorgen-nvim
 create-tauri-app
