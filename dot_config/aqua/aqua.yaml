@@ -70,7 +70,7 @@ packages:
 - name: antonmedv/fx@35.0.0
 - name: joerdav/xc@v0.8.0
 - name: pkgxdev/pkgx@v1.2.2
-- name: natecraddock/zf@0.9.2
+- name: natecraddock/zf@0.10.0
 - name: bloznelis/typioca@3.1.0
 - name: gopasspw/gopass@v1.15.14
 - name: wader/fq@v0.13.0
