@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.10.02]
+
+### Added - 新機能について
+
+- feat(pipx): add pocker-tui
+- feat(cargo): add binsider and carl in Linux
+- feat(pip): add some packages
+- feat(gup): add diffnav
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.10.01]
 
 ### Added - 新機能について
