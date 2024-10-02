@@ -1,0 +1,13 @@
+#!/bin/bash
+# mise description="View remote repository"
+
+HOSTNAME=$(hostname)
+CODEBERG_URL="https://codeberg.org/mimikun/dotfiles"
+
+if [[ "$HOSTNAME" = "azusa" ]]; then
+    open "$CODEBERG_URL"
+else
+    wsl-open "$CODEBERG_URL"
+fi
+
+# vim:ft=bash

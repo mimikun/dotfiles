@@ -158,6 +158,11 @@ pull :
 .PHONY : morning-routine
 morning-routine : clean-fetch delete-branch pull patch-branch
 
+## Run view
+.PHONY : view
+view :
+	mise tasks run view
+
 ## Show help
 .PHONY : help
 help :
