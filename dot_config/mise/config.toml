@@ -43,6 +43,7 @@ zig = [
 "pipx:ChrisBuilds/moneyterm" = "latest"
 "pipx:python-poetry/poetry" = "latest"
 "pipx:darrenburns/posting" = "latest"
+"pipx:pocker-tui" = "latest"
 
 # go backend
 "go:git.sr.ht/~xenrox/hut" = "latest"

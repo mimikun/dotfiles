@@ -1,6 +1,7 @@
 calcure
 kaskade
 moneyterm
+pocker-tui
 poetry
 posting
 sherlock-project
