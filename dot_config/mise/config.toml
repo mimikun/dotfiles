@@ -44,6 +44,7 @@ zig = [
 "pipx:python-poetry/poetry" = "latest"
 "pipx:darrenburns/posting" = "latest"
 "pipx:pocker-tui" = "latest"
+"pipx:gptme" = "latest"
 
 # go backend
 "go:git.sr.ht/~xenrox/hut" = "latest"
