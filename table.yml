@@ -1,0 +1,5 @@
+base: lua51
+name: table
+globals:
+  table:
+    any: true
