@@ -8,7 +8,7 @@ local cmds = {
 
 ---@type LazySpec
 local spec = {
-    "mintsuku/num-utils.nvim",
+    "mimikun/num-utils.nvim",
     --lazy = false,
     cmd = cmds,
     opts = {},
