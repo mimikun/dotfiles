@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.10.07]
+
+### Added - 新機能について
+
+- feat(pipx): add gptme
+- feat: add view task
+- feat(disabled-plugins): add stopinsert.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update eza completion
+- chore(nvim): update lockfiles
+- chore(nvim): rename plugin owner
+- chore(chezmoiignore): ignore table.yml
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(selene): lint error
+- fix(typos): sheldon fish completion error
+    - WORKAROUND: error: `clonable` should be `cloneable`
+
 ## [v2024.10.02]
 
 ### Added - 新機能について
