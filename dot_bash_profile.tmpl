@@ -1,7 +1,7 @@
 # All platform 共通
 
 {{ if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+    {{ if eq .chezmoi.hostname "TanakaPC" -}}
 # Linuxのとき
 
 # >>> JVM installed by coursier >>>
@@ -14,7 +14,7 @@ export PATH="$PATH:$HOME/.local/share/coursier/bin"
 # <<< coursier install directory <<<
 
 source $HOME/.config/broot/launcher/bash/br
-{{ end -}}
+    {{ end -}}
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
@@ -25,4 +25,5 @@ if [ -f ~/.bashrc ]; then
 fi
 {{ else -}}
 #その他のOSのとき
-{{ end -}}
+{{ end }}
+# vim:ft=bash

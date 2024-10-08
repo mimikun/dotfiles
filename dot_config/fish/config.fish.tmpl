@@ -30,31 +30,17 @@ setxkbmap -option ctrl:nocaps
 {{ end -}}
 
 # env-vars
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
-set -x GITHUB_USERNAME "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
-set -x WIN_HOME "/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
-set -x OBSIDIAN_VAULT_ROOT "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
-set -x GITHUB_PAT "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_pat.value}}"
-set -x CODEBERG_PAT "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").codeberg_pat.value}}"
-set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
-{{ else -}}
-    {{ if eq .chezmoi.os "linux" -}}
 set -x GITHUB_USERNAME "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
-        {{ if eq .chezmoi.hostname "azusa" -}}
-set -x OBSIDIAN_VAULT_ROOT "$HOME/Documents/Obsidian/mimikun"
-set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/linux_config.yml"
-        {{ else -}}
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
 set -x WIN_HOME "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
 set -x OBSIDIAN_VAULT_ROOT "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+set -x GITHUB_PAT "{{ (rbwFields "dotfiles-chezmoi").github_pat.value}}"
+set -x CODEBERG_PAT "{{ (rbwFields "dotfiles-chezmoi").codeberg_pat.value}}"
 set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
-        {{ end -}}
-    {{ else -}}
-set -x GITHUB_USERNAME "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
-set -x WIN_HOME "/mnt/c/Users/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
-set -x OBSIDIAN_VAULT_ROOT "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
-    {{ end -}}
+{{ else -}}
+set -x OBSIDIAN_VAULT_ROOT "$HOME/Documents/Obsidian/mimikun"
+set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/linux_config.yml"
 {{ end -}}
-
 set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 set -x WORKSPACE_MIMIKUN "$GHQ_ROOT/github.com/mimikun"
 set -x NVIM_DEV_PLUGINS "$WORKSPACE_MIMIKUN/dev-plugins"
@@ -446,4 +432,4 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
 end
 source $CACHE_CONFIG_FISH
 
-# vim:ft=fish
+# vim:ft=fish.chezmoitmpl

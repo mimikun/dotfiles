@@ -1,13 +1,8 @@
 {
-  {{ if eq .chezmoi.hostname "TanakaPC" -}}
-  "email": "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").gitconfig_email.value }}",
-  "base_url": "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").rbw_base_url.value }}",
-  {{ else -}}
-    {{ if eq .chezmoi.os "linux" -}}
   "email": "{{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}",
-    {{ else -}}
-  "email": "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").gitconfig_email.value }}",
-    {{ end -}}
+  {{ if eq .chezmoi.hostname "TanakaPC" -}}
+  "base_url": "{{ (rbwFields "dotfiles-chezmoi").rbw_base_url.value }}",
+  {{ else -}}
   "base_url": null,
   {{ end -}}
   "identity_url": null,
