@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.10.08]
+
+### Added - 新機能について
+
+- feat(disabled-plugins): add blink.cmp
+- feat(mise): add golang
+- feat: add sq command
+
+### Changed - 既存機能の変更について
+
+- chore(pnpm): update deps
+- chore(fish): update uv completion
+- chore(aqua): update
+- chore(nvim): update lockfiles
+- chore(nvim): use MasonUpdateAll in alpha.nvim
+- chore(nvim): use magazine.nvim instead nvim-cmp
+    - magazine.nvim is nvim-cmp fork
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(fish): incorrect PATH
+- fix(chezmoi): chezmoitemplates
+
 ## [v2024.10.07]
 
 ### Added - 新機能について
