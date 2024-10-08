@@ -25,7 +25,7 @@ local spec = {
             button("r", "󰋚  Show MRU", "<cmd>Telescope oldfiles<CR>"),
             button(".", "󰏇  Run oil", "<cmd>Oil<CR>"),
             button("u", "󰚰  Update plugins", "<cmd>Lazy sync<CR>"),
-            button("m", "󰭠  Update mason plugins", "<cmd>Mason<CR>"),
+            button("m", "󰭠  Update mason tools", "<cmd>MasonUpdateAll<CR>"),
             button("t", "󰐅  Update nvim-treesitter", "<cmd>TSUpdate<CR>"),
             button("c", "󰿶  Run checkhealth", "<cmd>checkhealth<CR>"),
             button("d", "󰝒  Run dotfyle generate", "<cmd>DotfyleGenerate --keymaps<CR>"),
