@@ -12,7 +12,8 @@ local dependencies = {
     -- Required
     "nvim-lua/plenary.nvim",
     -- Completion
-    "hrsh7th/nvim-cmp",
+    --"hrsh7th/nvim-cmp",
+    { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
     -- Pickers
     "nvim-telescope/telescope.nvim",
     -- Syntax highlighting
