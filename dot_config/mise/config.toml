@@ -2,6 +2,7 @@
 dotnet-core = "latest"
 erlang = "latest"
 gleam = "latest"
+go = "latest"
 lua = "5.1.5"
 luajit = "2.0.5--2.4.4"
 node = [
