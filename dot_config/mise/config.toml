@@ -70,6 +70,7 @@ zig = [
 "go:github.com/dhth/prs" = "latest"
 "go:github.com/mrusme/reader" = "latest"
 "go:github.com/noperator/sol/cmd/sol" = "latest"
+"go:github.com/neilotoole/sq" = "latest"
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
