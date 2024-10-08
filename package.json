@@ -1,12 +1,12 @@
 {
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@commitlint/types": "^19.0.3",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/types": "^19.5.0",
     "cz-conventional-changelog-ja": "^0.0.2",
-    "husky": "^9.1.4",
+    "husky": "^9.1.6",
     "prettier": "3.3.3",
-    "textlint": "^14.2.0",
+    "textlint": "^14.2.1",
     "textlint-rule-preset-ja-technical-writing": "^10.0.1"
   },
   "scripts": {
