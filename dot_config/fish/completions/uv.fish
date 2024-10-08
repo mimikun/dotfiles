@@ -111,6 +111,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l isolated -d 'Run the comma
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-sync -d 'Avoid syncing the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand run" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand run" -l frozen -d 'Run without updating the `uv.lock` file'
+complete -c uv -n "__fish_uv_using_subcommand run" -s s -l script -d 'Run the given path as a Python script'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand run" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-upgrade
