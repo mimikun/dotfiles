@@ -82,6 +82,7 @@ rbw
 ripgrep
 ripgrep_all
 rrc
+rucola-notes
 sd
 selene
 sheldon

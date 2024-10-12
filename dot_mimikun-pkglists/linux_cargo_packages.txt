@@ -74,6 +74,7 @@ just
 kbt
 logria
 lsd
+lychee
 mask
 mdbook
 mise
@@ -105,6 +106,7 @@ rioterm
 ripgrep
 ripgrep_all
 rrc
+rucola-notes
 rustscan
 sd
 selene
