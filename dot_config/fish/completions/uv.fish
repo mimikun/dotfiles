@@ -150,6 +150,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -s h -l help -d 'Display the 
 complete -c uv -n "__fish_uv_using_subcommand run" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand init" -l name -d 'The name of the project' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l vcs -d 'Initialize a version control system for the project' -r -f -a "{git\t'Use Git for version control',none\t'Do not use any version control system'}"
+complete -c uv -n "__fish_uv_using_subcommand init" -l author-from -d 'Fill in the `authors` field in the `pyproject.toml`' -r -f -a "{auto\t'Fetch the author information from some sources (e.g., Git) automatically',git\t'Fetch the author information from Git configuration only',none\t'Do not infer the author information'}"
 complete -c uv -n "__fish_uv_using_subcommand init" -s p -l python -d 'The Python interpreter to use to determine the minimum supported Python version.' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand init" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
@@ -1793,7 +1794,7 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l no-progress -d 'Hide all
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand build" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build" -s V -l version -d 'Display the uv version'
-complete -c uv -n "__fish_uv_using_subcommand publish" -l publish-url -d 'The URL of the upload endpoint' -r
+complete -c uv -n "__fish_uv_using_subcommand publish" -l publish-url -d 'The URL of the upload endpoint (not the index URL)' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s u -l username -d 'The username for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s p -l password -d 'The password for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s t -l token -d 'The token for the upload' -r
