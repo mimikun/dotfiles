@@ -71,6 +71,9 @@ zig = [
 "go:github.com/mrusme/reader" = "latest"
 "go:github.com/noperator/sol/cmd/sol" = "latest"
 "go:github.com/neilotoole/sq" = "latest"
+"go:github.com/ddddddO/packemon/cmd/packemon" = "latest"
+"go:github.com/marwanhawari/stew" = "latest"
+"go:github.com/pouriyajamshidi/tcping" = "latest"
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
