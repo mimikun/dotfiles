@@ -374,4 +374,12 @@ if is_linux then
     else
         nyagos.envadd("AGE_PUBKEY", nyagos.getenv("AGE_PUBKEY") or age_pubkeys.work)
     end
+
+    -- golang
+    local go_path = table.concat({ home, "go" }, path_sep)
+    local go_bin = table.concat({ go_path, "bin" }, path_sep)
+
+    nyagos.envadd("GOPATH", nyagos.getenv("GOPATH") or go_path)
+    nyagos.envadd("GOBIN", nyagos.getenv("GOBIN") or go_bin)
+    nyagos.envadd("PATH", go_bin)
 end

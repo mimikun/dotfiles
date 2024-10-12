@@ -364,6 +364,11 @@ set -x AGE_PUBKEY "$AGE_PUBKEY_HOME"
 set -x AGE_PUBKEY "$AGE_PUBKEY_WORK"
 {{ end -}}
 
+# golang
+set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
+set -x PATH $GOBIN $PATH
+
 # cache
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR

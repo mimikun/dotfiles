@@ -355,6 +355,11 @@ export AGE_PUBKEY="$AGE_PUBKEY_HOME"
 export AGE_PUBKEY="$AGE_PUBKEY_WORK"
 {{ end -}}
 
+# golang
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
