@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.10.14]
+
+### Added - 新機能について
+
+- feat: use mise tasks in Linux
+    - Fix #837
+- feat(go): add some tools
+- feat(shells): add golang envs
+- feat(cargo): add some packages
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update deno completion
+
+### Removed - 今回で削除された機能について
+
+- fix(mise): config error
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.10.08]
 
 ### Added - 新機能について
