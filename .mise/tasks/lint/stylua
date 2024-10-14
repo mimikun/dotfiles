@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Lint by stylua"
+# mise hide=true
+
+stylua --check ./
+
+# vim:ft=bash

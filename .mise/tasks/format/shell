@@ -2,6 +2,6 @@
 # mise description="Format by shfmt"
 # mise hide=true
 
-echo "THIS IS SAMPLE"
+# TODO: it
 
 # vim:ft=bash

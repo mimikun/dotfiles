@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="git cleanfetch"
+# mise alias=["clean-fetch", "cleanfetch"]
+
+git cleanfetch
+
+# vim:ft=bash

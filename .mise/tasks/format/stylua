@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Format by stylua"
+# mise hide=true
+
+stylua ./
+
+# vim:ft=bash

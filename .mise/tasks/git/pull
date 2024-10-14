@@ -1,0 +1,8 @@
+#!/bin/bash
+# mise description="git pull"
+# mise alias="pull"
+# mise hide=true
+
+git pull
+
+# vim:ft=bash
