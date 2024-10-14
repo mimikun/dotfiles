@@ -1,0 +1,9 @@
+#!/bin/bash
+# mise description="Delete patch branch"
+# mise alias=["delete-branch","deleb"]
+
+mise tasks run clean
+mise tasks run git:switch-master
+git branch --list "patch*" | xargs -n 1 git branch -D
+
+# vim:ft=bash

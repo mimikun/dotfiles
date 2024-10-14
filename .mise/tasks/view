@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise description="View remote repository"
+# mise description="View remote codeberg repository"
 
 HOSTNAME=$(hostname)
 CODEBERG_URL="https://codeberg.org/mimikun/dotfiles"

@@ -1,162 +1,91 @@
 .DEFAULT_GOAL := help
 
-today   = $(shell date "+%Y%m%d")
-product_name = dotfiles
-gpg_pub_key = CCAA9E0638DF9088BB624BC37C0F8AD3FB3938FC
-
 ## Create a patch and copy it to windows
 .PHONY : patch
 patch : clean diff-patch copy2win-patch
 
-## Create a GPG-encrypted patch and copy it to Windows
-.PHONY : gpg-patch
-gpg-patch : clean diff-patch-gpg copy2win-patch-gpg
-
-## Create a patch
-.PHONY : diff-patch-raw
-diff-patch-raw :
-	bash utils/create-patch.sh
-
-## Create a GPG-encrypted patch
-.PHONY : diff-patch-gpg
-diff-patch-gpg :
-	echo "THIS IS WIP"
-	#bash utils/create-patch.sh --use-gpg
-	#git diff origin/master | gpg --encrypt --recipient $(gpg_pub_key) > $(product_name).$(today).patch.gpg
-
 ## Create a patch
 .PHONY : diff-patch
-diff-patch : diff-patch-raw
-
-## Create a patch branch
-.PHONY : patch-branch
-patch-branch :
-	git switch -c patch-$(today)
+diff-patch :
+	mise tasks run patch:create
 
 ## Switch to master branch
 .PHONY : switch-master
 switch-master :
-	git switch master
-
-## Delete patch branch
-.PHONY : delete-branch
-delete-branch : clean switch-master
-	git branch --list "patch*" | xargs -n 1 git branch -D
+	mise tasks run git:switch-master
 
 ## Run clean
 .PHONY : clean
 clean :
-	bash utils/clean.sh
+	mise tasks run clean
 
 ## Run update
 .PHONY : update
-update : clean
-	bash utils/update.sh
+update :
+	mise tasks run update
 
 ## Copy game settings(Windows only)
 .PHONY : copy-windows-game-settings
 copy-windows-game-settings :
-	bash utils/copy-windows-game-settings.sh
-
-## Copy patch to Windows
-.PHONY : copy2win-patch-raw
-copy2win-patch-raw :
-	cp *.patch $$WIN_HOME/Downloads/
-
-## Copy GPG-encrypted patch to Windows
-.PHONY : copy2win-patch-gpg
-copy2win-patch-gpg :
-	cp *.patch.gpg $$WIN_HOME/Downloads/
+	bash scripts/copy-windows-game-settings.sh
 
 ## Copy patch to Windows
 .PHONY : copy2win-patch
-copy2win-patch : copy2win-patch-raw
+copy2win-patch :
+	mise tasks run patch:copy2win
 
-## Run commit with commitizen
-.PHONY : commit
-commit :
-	pnpm run commit
-
-## Run tests
-.PHONY : test
-test : lint
-
-## Run lints
+## Run lint
 .PHONY : lint
-lint : selene-lint stylua-lint textlint typo-check pwsh-test shell-lint
-
-## Run stylua lint
-.PHONY : stylua-lint
-stylua-lint :
-	stylua --check ./
-
-## Run selene
-.PHONY : selene-lint
-selene-lint :
-	selene .
-
-## Run textlint
-.PHONY : textlint
-textlint :
-	pnpm run textlint
-
-## Run typos
-.PHONY : typo-check
-typo-check :
-	typos .
-
-## Run Invoke-PSScriptAnalyzer
-.PHONY : pwsh-test
-pwsh-test :
-	@echo "Run PowerShell ScriptAnalyzer"
-	@pwsh utils/pssa.ps1
-
-## Run shellcheck
-.PHONY : shell-lint
-shell-lint :
-	bash utils/lint.sh
-
-## Run format
-.PHONY : fmt
-fmt : format
+lint :
+	mise tasks run lint
 
 ## Run format
 .PHONY : format
-format : stylua-format shell-format
+format :
+	mise tasks run format
 
-## Run stylua format
-.PHONY : stylua-format
-stylua-format :
-	stylua ./
+## Run test
+.PHONY : test
+test : lint
 
-## Run shfmt
-.PHONY : shell-format
-shell-format :
-	bash utils/format.sh
+## Run fmt
+.PHONY : fmt
+fmt : format
 
 ## Run benchmark and append the results to the file
 .PHONY : benchmark
 benchmark :
-	bash utils/benchmark.sh
+	mise tasks run benchmark
 
 ## Add commit message up to `origin/master` to CHANGELOG.md
 .PHONY : changelog
 changelog :
-	bash utils/changelog.sh
+	mise tasks run changelog
 
 ## Run git cleanfetch
 .PHONY : clean-fetch
 clean-fetch :
-	git cleanfetch
+	mise tasks run git:clean-fetch
+
+## Delete patch branch
+.PHONY : delete-branch
+delete-branch :
+	mise tasks run git:delete-branch
 
 ## Run git pull
 .PHONY : pull
 pull :
-	git pull
+	mise tasks run git:pull
+
+## Create a patch branch
+.PHONY : patch-branch
+patch-branch :
+	mise tasks run patch:branch
 
 ## Run workday morning routine
 .PHONY : morning-routine
-morning-routine : clean-fetch delete-branch pull patch-branch
+morning-routine :
+	mise tasks run git:morning-routine
 
 ## Run view
 .PHONY : view

@@ -1,65 +1,9 @@
-[tasks.patch]
-description = "Create a patch and copy it to windows"
-depends = ["clean", "patch:create", "patch:copy2win"]
-
 [tasks.test]
 description = "Lint all"
 alias = "lint"
 depends = ["lint:*"]
 
-[tasks."lint:stylua"]
-description = "Lint by stylua"
-run = "stylua --check ./"
-hide = true
-
-[tasks."lint:selene"]
-description = "Lint by selene"
-run = "selene ."
-hide = true
-
-[tasks."lint:textlint"]
-description = "Lint by textlint"
-run = "pnpm run textlint"
-hide = true
-
-[tasks."lint:typos"]
-description = "Lint by typos"
-run = "typos ."
-hide = true
-
 [tasks.format]
 description = "Format all"
 alias = "fmt"
 depends = ["format:*"]
-
-[tasks."format:stylua"]
-description = "Format by stylua"
-run = "stylua ./"
-hide = true
-
-[tasks."git:clean-fetch"]
-description = "git cleanfetch"
-alias = ["clean-fetch", "cleanfetch"]
-run = "git cleanfetch"
-
-[tasks."git:pull"]
-description = "git pull"
-alias = "pull"
-run = "git pull"
-hide = true
-
-[tasks."git:switch-master"]
-description = "Switch to master branch"
-alias = "switch-master"
-run = "git switch master"
-
-[tasks."git:delete-branch"]
-description = "Delete patch branch"
-alias = ["delete-branch","deleb"]
-depends = ["clean", "switch-master"]
-run = 'git branch --list "patch*" | xargs -n 1 git branch -D'
-
-[tasks."git:morning-routine"]
-description = "workday morning routine"
-alias = "morning-routine"
-depends = ["git:clean-fetch", "delete-branch", "git:pull", "patch:branch"]

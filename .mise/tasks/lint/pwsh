@@ -1,8 +1,7 @@
 #!/bin/bash
-# mise description="Run Invoke-PSScriptAnalyzer"
+# mise description="Lint by PowerShell ScriptAnalyzer"
 # mise hide=true
 
-echo "Run PowerShell ScriptAnalyzer"
-pwsh utils/pssa.ps1
+pwsh scripts/pssa.ps1
 
 # vim:ft=bash

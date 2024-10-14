@@ -1,9 +1,9 @@
 #!/bin/bash
-# mise description="Update chezmoi manged files"
-# mise alias=["update", "up"]
-# mise depends=["clean"]
+# mise description="Run update"
 
 host_name=$(cat /etc/hostname)
+
+mise tasks run clean
 
 # fish
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/

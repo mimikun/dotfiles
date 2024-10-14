@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Lint by selene"
+# mise hide=true
+
+selene .
+
+# vim:ft=bash

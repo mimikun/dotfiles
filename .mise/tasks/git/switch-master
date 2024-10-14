@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Switch to master branch"
+# mise alias="switch-master"
+
+git switch master
+
+# vim:ft=bash
