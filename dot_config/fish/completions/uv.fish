@@ -494,6 +494,8 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand export" -l dev -d 'Include development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-dev -d 'Omit development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-dev -d 'Omit non-development dependencies'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-header -d 'Exclude the comment header at the top of the generated output file'
+complete -c uv -n "__fish_uv_using_subcommand export" -l header
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand export" -l hashes -d 'Include hashes for all dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-hashes -d 'Omit hashes in the generated output'
@@ -563,6 +565,8 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l config-file -d 'The path 
 complete -c uv -n "__fish_uv_using_subcommand tree" -l universal -d 'Show a platform-independent dependency tree'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-dedupe -d 'Do not de-duplicate repeated dependencies. Usually, when a package has already displayed its dependencies, further occurrences will not re-display its dependencies, and will include a (*) to indicate it has already been shown. This flag will cause those duplicates to be repeated'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l invert -d 'Show the reverse dependencies for the given package. This flag will invert the tree and display the packages that depend on the given package'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l dev -d 'Include development dependencies'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-dev -d 'Omit development dependencies'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l frozen -d 'Display the requirements without locking the project'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build -d 'Don\'t build source distributions'
@@ -1456,6 +1460,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-break-system-packages
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l build
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l inexact -d 'Do not remove extraneous packages present in the environment'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l exact -d 'Perform an exact sync, removing extraneous packages'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l strict -d 'Validate the Python environment after completing the installation, to detect and with missing dependencies or other issues'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-strict
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l dry-run -d 'Perform a dry run, i.e., don\'t actually install anything but resolve the dependencies and print the resulting plan'
