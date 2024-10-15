@@ -1,0 +1,20 @@
+#!/bin/bash
+# mise description="Add commit message up to `origin/master` to CHANGELOG.md"
+
+HOSTNAME=$(hostname)
+
+if [[ "$HOSTNAME" = "TanakaPC" ]]; then
+    echo "Work is not supported on this machine!!!"
+else
+    echo "WIP"
+    #echo "Pushing to origin..."
+    #git fetch origin
+    #git push origin master
+    #git push origin --tags
+    #echo "Pushing to codeberg..."
+    #git fetch codeberg
+    #git push codeberg master
+    #git push codeberg --tags
+fi
+
+# vim:ft=bash
