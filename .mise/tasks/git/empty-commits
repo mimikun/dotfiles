@@ -1,0 +1,27 @@
+#!/bin/bash
+# mise description="Add commit message up to `origin/master` to CHANGELOG.md"
+# mise alias=["empty-commits", "emptycommits"]
+
+LATEST_GIT_TAG=$(git tag | head -n 1)
+GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
+
+function empty_commits(){
+    echo "$GIT_LOG" |
+        # Remove blank line
+        sed -e '/^$/d' |
+        # Remove STARTUPTIME.md commit msg
+        sed -e 's/.*STARTUPTIME.md.*//g' |
+        # Remove DROP commit msg
+        sed -e 's/.*DROP.*//g' |
+        # Remove blank line
+        sed -e '/^$/d' |
+        sed -e 's/^/git commit -nm "WIP:/g' |
+        sed -e 's/$/" --allow-empty/g'
+}
+empty_commits > /tmp/dotfiles-empty-commits.sh
+
+git commit -nm "---------------------------------------------------------------------------------------" --allow-empty
+bash /tmp/dotfiles-empty-commits.sh
+git commit -nm "---------------------------------------------------------------------------------------" --allow-empty
+
+# vim:ft=bash
