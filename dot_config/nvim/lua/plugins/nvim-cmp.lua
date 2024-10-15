@@ -10,7 +10,7 @@ local spec = {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 
-        if require("config.settings").use_ai then
+        if require("config.settings").use_github_copilot then
             require("copilot_cmp").setup({})
         end
 

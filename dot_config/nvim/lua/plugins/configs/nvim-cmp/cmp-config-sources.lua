@@ -19,7 +19,7 @@ local cmp_config_sources = {
     { name = "crates" },
 }
 
-if require("config.settings").use_ai then
+if require("config.settings").use_github_copilot then
     table.insert(cmp_config_sources, { name = "copilot" })
 end
 

@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_ai
+local cond = require("config.settings").use_github_copilot
 
 ---@type table
 local opts = {

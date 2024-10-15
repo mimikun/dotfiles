@@ -1,5 +1,6 @@
 local global = {}
 
+local hostname = vim.fn.hostname():lower()
 local os_name = vim.uv.os_uname().sysname
 local total_memory = vim.uv.get_total_memory()
 
@@ -44,6 +45,9 @@ end
 
 ---@type boolean
 global.is_human_rights = is_human_rights
+
+---@type boolean
+global.is_human_rights_violation = not hostname == "tanakapc"
 
 ---@type string|nil
 global.app_name = vim.env.NVIM_APPNAME and vim.env.NVIM_APPNAME or "nvim"

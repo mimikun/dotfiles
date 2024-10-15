@@ -1,10 +1,22 @@
+local global = require("config.global")
+
 local settings = {}
+
+---use GitHub Copilot
+-- NOTE: GitHub Copilot will only be enabled at home
+---@type boolean
+settings.use_github_copilot = use_github_copilot
+
+---use ollama
+-- NOTE: ollama will only be enabled at work
+---@type boolean
+settings.use_ollama = not use_github_copilot
 
 ---use ai assistant
 -- NOTE: AI assistants will only be enabled at home
 -- (i.e. only if it is a human right)
 ---@type boolean
-settings.use_ai = require("config.global").is_human_rights
+settings.use_ai = global.is_human_rights
 
 ---use denops
 ---@type boolean
