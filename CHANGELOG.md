@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.10.15]
+
+### Added - 新機能について
+
+- feat(mise-tasks): add git:push
+- feat(mise-tasks): add git:empty-commits
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+
+
+### Removed - 今回で削除された機能について
+
+- chore(mise): remove pipx and go backend tools
+- chore(disabled-plugins): disable neocodeium
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.10.14]
 
 ### Added - 新機能について
