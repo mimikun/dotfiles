@@ -122,6 +122,8 @@ stylua
 taplo-cli
 tauri-cli
 tealdeer
+testing-language-server
+testing-ls-adapter
 tgt
 tokei
 toml2json

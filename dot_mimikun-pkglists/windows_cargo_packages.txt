@@ -96,6 +96,8 @@ stylua
 taplo-cli
 tauri-cli
 tealdeer
+testing-language-server
+testing-ls-adapter
 tokei
 toml2json
 topgrade
