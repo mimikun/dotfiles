@@ -45,8 +45,8 @@ set -x NVIM_DEV_PLUGINS "$WORKSPACE_MIMIKUN/dev-plugins"
 
 # some services PATs
 {{ if eq .chezmoi.hostname "TanakaPC" -}}
-set -x GITHUB_PAT "{{ (rbwFields "dotfiles-chezmoi").github_pat.value}}"
-set -x CODEBERG_PAT "{{ (rbwFields "dotfiles-chezmoi").codeberg_pat.value}}"
+set -x GITHUB_PAT "{{ (rbwFields "dotfiles-chezmoi").github_pat.value }}"
+set -x CODEBERG_PAT "{{ (rbwFields "dotfiles-chezmoi").codeberg_pat.value }}"
 {{ end -}}
 
 {{ if (ne .chezmoi.hostname "azusa") -}}
