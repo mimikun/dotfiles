@@ -127,8 +127,7 @@ local opts = {
             max_width = 60,
             max_height = 10,
             border = "none",
-            winhighlight =
-            "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+            winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
             -- keep the cursor X lines away from the top/bottom of the window
             scrolloff = 2,
             -- which directions to show the window,
@@ -145,8 +144,7 @@ local opts = {
             max_width = 60,
             max_height = 20,
             border = "padded",
-            winhighlight =
-            "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+            winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
             -- which directions to show the documentation window,
             -- for each of the possible autocomplete window directions,
             -- falling back to the next direction when there's not enough space
