@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.10.16]
+
+### Added - 新機能について
+
+- feat(fish): add AQUA_GITHUB_TOKEN env-var
+- feat(cargo): add testing-ls
+- feat(pipx): add tewi-transmission
+- feat(disabled-plugins): add some plugins
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(pip): update package-list
+- chore(fish): update alacritty completion
+- style(fish): insert space chezmoitemplates
+- refactor(copilotchat.nvim): split cmds
+- chore(codecompanion.nvim): rewrite
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.10.15]
 
 ### Added - 新機能について
