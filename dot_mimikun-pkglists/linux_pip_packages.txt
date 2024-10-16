@@ -83,7 +83,6 @@ requests
 rexi
 rich
 ruamel.yaml
-ruamel.yaml.clib
 setuptools
 shellingham
 six
@@ -94,8 +93,8 @@ spiel
 SQLAlchemy
 stevedore
 terminaltexteffects
-textual
 text-unidecode
+textual
 thefuck
 toml
 tqdm
