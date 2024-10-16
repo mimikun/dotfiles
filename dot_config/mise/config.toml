@@ -46,6 +46,7 @@ zig = [
 #"pipx:darrenburns/posting" = "latest"
 #"pipx:pocker-tui" = "latest"
 #"pipx:gptme" = "latest"
+#"pipx:tewi-transmission" = "latest"
 
 # go backend
 #"go:git.sr.ht/~xenrox/hut" = "latest"
