@@ -275,6 +275,7 @@ set -x AQUA_MAX_PARALLELISM 1
 set -x AQUA_MAX_PARALLELISM 5
 {{ end -}}
 set -x AQUA_PROGRESS_BAR true
+set -x AQUA_GITHUB_TOKEN "{{ (rbwFields "dotfiles-chezmoi").aqua_github_token.value }}"
 
 # inshellisense
 if test -f "$HOME/.inshellisense/key-bindings.fish"
