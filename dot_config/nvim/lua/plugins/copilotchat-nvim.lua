@@ -5,30 +5,6 @@ local cond = require("config.settings").use_ai
 ---@type string
 local build = require("config.global").is_windows and "" or "make tiktoken"
 
----@type table
-local cmds = {
-    "CopilotChat",
-    "CopilotChatOpen",
-    "CopilotChatClose",
-    "CopilotChatToggle",
-    "CopilotChatStop",
-    "CopilotChatReset",
-    "CopilotChatSave",
-    "CopilotChatLoad",
-    "CopilotChatDebugInfo",
-    "CopilotChatModels",
-    "CopilotChatModel",
-    "CopilotChatExplain",
-    "CopilotChatReview",
-    "CopilotChatFix",
-    "CopilotChatOptimize",
-    "CopilotChatDocs",
-    "CopilotChatTests",
-    "CopilotChatFixDiagnostic",
-    "CopilotChatCommit",
-    "CopilotChatCommitStaged",
-}
-
 ---@type LazySpec[]
 local dependencies = {
     "zbirenbaum/copilot.lua",
@@ -41,7 +17,7 @@ local spec = {
     build = build,
     branch = "canary",
     --lazy = false,
-    cmd = cmds,
+    cmd = require("plugins.configs.copilotchat-nvim.cmds"),
     dependencies = dependencies,
     opts = {},
     cond = cond,
