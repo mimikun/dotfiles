@@ -30,6 +30,7 @@ cargo-update
 cargo-wipe
 carl
 choose
+codeberg-cli
 colorgen-nvim
 create-tauri-app
 csview
@@ -49,6 +50,7 @@ fd-find
 felix
 fend
 flawz
+forgejo-cli
 fselect
 genact
 git-delta
