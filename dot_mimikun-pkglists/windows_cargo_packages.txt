@@ -34,8 +34,6 @@ desed
 diskonaut
 dua-cli
 du-dust
-dutree
-erg
 eza
 fd-find
 felix
@@ -48,7 +46,6 @@ git-graph
 git-interactive-rebase-tool
 gitnr
 gitu
-gitui
 glitchcat
 gping
 grex
@@ -56,7 +53,6 @@ hexyl
 hf
 ht
 hyperfine
-hysp
 i3-style
 jnv
 just
@@ -66,9 +62,7 @@ mask
 mdbook
 mise
 mocword
-natls
 navi
-nsh
 nu
 onefetch
 os_info_cli
@@ -80,19 +74,14 @@ procs
 pylyzer
 rage
 rana
-rbw
 ripgrep
 ripgrep_all
 rrc
 rucola-notes
 sd
 selene
-sheldon
 shellharden
 sigrs
-silicon
-skim
-sshx
 starship
 stylua
 taplo-cli
@@ -108,12 +97,10 @@ tre-command
 treefmt
 tree-sitter-cli
 typos-cli
-usage-cli
 watchexec-cli
 wthrr
 xh
 xsv
 yazi-fm
-zellij
 zenith
 zoxide
