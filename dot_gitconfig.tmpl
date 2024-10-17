@@ -18,15 +18,15 @@
 	pager = delta
 	{{ if eq .chezmoi.os "windows" -}}
 	filemode = false
-	{{ end -}}
+	{{ end }}
 [color]
 	ui = true
 [credential]
 	{{ if eq .chezmoi.os "windows" -}}
 	helper = manager
 	{{ else -}}
-	helper = cache --timeout=86400
-	{{ end -}}
+	helper = cache --timeout=475200
+	{{ end }}
 [alias]
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 	ls = "ls-files"
@@ -61,4 +61,4 @@
 [interactive]
 	diffFilter = delta --color-only
 
-# vim:ft=gitignore
+# vim:ft=gitconfig
