@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2024.10.17]
+
+### Added - 新機能について
+
+- feat(fish): add forgejo-cli abbr
+- feat(shells): add codeberg-cli(berg) completion
+- feat(cargo): add some tools
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(typos): update config
+- chore(gitconfig): improve
+- chore(localbin): update update_fish_completions
+- chore(dot_wslconfig): update
+- chore(wsl.conf): update
+
+### Removed - 今回で削除された機能について
+
+- chore(chezmoiexternal): remove unused neovim distros
+- chore(cargo): remove unsupported with windows packages
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.10.16]
 
 ### Added - 新機能について
