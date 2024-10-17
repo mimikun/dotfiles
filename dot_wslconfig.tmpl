@@ -1,109 +1,35 @@
-# Settings apply across all Linux distros running on WSL 2
 [wsl2]
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
-# Limits VM memory to use no more than 3 GB
+# NOTE: human rights violated
 memory=3GB
-# Sets amount of swap storage space to 8GB
 swap=8GB
 {{ else -}}
-# Limits VM memory to use no more than 8 GB
+# NOTE: human rights protected
 memory=8GB
-# Sets amount of swap storage space to 0GB
 swap=0
 {{ end -}}
 
-# Specify a custom Linux kernel to use with your installed distros.
-# The default kernel used can be found at https://github.com/microsoft/WSL2-Linux-Kernel
-#kernel=C:\\temp\\myCustomKernel
-
-# Sets the VM to use 2 virtual processors
-#processors=2
-
-# Turn off default connection to bind WSL 2 localhost to Windows localhost
 localhostforwarding=true
 
-# Sets additional kernel parameters, in this case enabling older Linux base images such as Centos 6
-#kernelCommandLine = vsyscall=emulate
-
-# Run WSL in "Safe Mode" which disables many features and is intended to be used to recover distributions that are in bad states.
-# Only available for Windows 11 and WSL version 0.66.2+.
-#safeMode=false
-
-# Sets swapfile path location, default is %USERPROFILE%\AppData\Local\Temp\swap.vhdx
-#swapfile=C:\\temp\\wsl-swap.vhdx
-
-# Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
-#pageReporting=false
-
-# Boolean to turn on or off support for GUI applications (WSLg) in WSL.
-# * Only available on Windows 11
-#guiApplications=true
-
-# Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
-#debugConsole=true
-
-# Disables nested virtualization
+# NOTE: Only available on Windows 11
 #nestedVirtualization=false
 
-# The number of milliseconds that a VM is idle, before it is shut down.
-# * Only available on Windows 11
+# NOTE: Only available on Windows 11
 #vmIdleTimeout=6000
 
-# Experimental settings
-#[experimental]
+# NOTE: Only available on Windows 11 22H2
+networkingMode = "mirrored"
 
-# Automatically releases cached memory after detecting idle CPU usage.
-# Set to gradual for slow release, and dropcache for instant release of cached memory.
-#autoMemoryReclaim=""
+[experimental]
+autoMemoryReclaim="disabled"
+# NOTE: slow release
+#autoMemoryReclaim="gradual"
+# NOTE: instant release
+#autoMemoryReclaim="dropcache"
 
-# Automatically set newly created VHD to sparse
-#sparseVhd=true
+sparseVhd = false
 
-# If the value is mirrored then this turns on mirrored networking mode.
-# Default or unrecognized strings result in NAT networking.
-# ** Only available on the Windows Insiders Program.
-#networkingMode="NAT"
-
-# Setting this to true allows the Windows Firewall rules, as well as rules specific to Hyper-V traffic, to filter WSL network traffic.
-# ** Only available on the Windows Insiders Program.
-#firewall=false
-
-# Changes how DNS requests are proxied from WSL to Windows
-# ** Only available on the Windows Insiders Program.
-#dnsTunneling=false
-
-# Enforces WSL to use Windows’ HTTP proxy information
-# * Only available on Windows 11
-#autoProxy=false
-
-# Only applicable when experimental.dnsTunneling is set to true.
-# When this option is set to True, DNS requests tunneled from Linux will bypass cached names within Windows to always put the requests on the wire.
-# ** Only available on the Windows Insiders Program.
-#useWindowsDnsCache=false
-
-# Only applicable when experimental.dnsTunneling is set to true.
-# When set to true, Windows will extract the question from the DNS request and attempt to resolve it, ignoring the unknown records.
-# ** Only available on the Windows Insiders Program.
-#bestEffortDnsParsing=false
-
-# Only applicable when experimental.autoProxy is set to true.
-# Configures how long WSL will wait for retrieving HTTP proxy information when starting a WSL container.
-# If proxy settings are resolved after this time, the WSL instance must be restarted to use the retrieved proxy settings.
-# * Only available on Windows 11
-#initialAutoProxyTimeout="1000"
-
-# Only applicable when experimental.networkingMode is set to mirrored.
-# Specifies which ports Linux applications can bind to, even if that port is used in Windows.
-# This enables applications to listen on a port for traffic purely within Linux, so those application are not blocked even when that port is used for other purposes on Windows.
-# For example, WSL will allow bind to port 53 in Linux for Docker Desktop, as it is listening only to requests from within the Linux container.
-# Should be formatted in a comma separated list, e.g: 3000,9000,9090
-# ** Only available on the Windows Insiders Program.
-#ignoredPorts="null"
-
-# Only applicable when experimental.networkingMode is set to mirrored.
-# When set to True, will allow the Container to connect to the Host, or the Host to connect to the Container, by an IP address that's assigned to the Host.
-# Note that the 127.0.0.1 loopback address can always be used - this option allows for all additionally assigned local IP addresses to be used as well.
-# ** Only available on the Windows Insiders Program.
-#hostAddressLoopback=false
+# NOTE: Only available on Windows 11 22H2
+hostAddressLoopback=false
 
 # vim:ft=conf
