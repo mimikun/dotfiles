@@ -3,42 +3,42 @@
     url = "https://github.com/alacritty/alacritty-theme"
     refreshPeriod = "24h"
     clone.args = ["--filter=blob:none"]
-{{ if ne .chezmoi.os "windows" -}}
-    {{ if eq .chezmoi.hostname "TanakaPC" -}}
-[".config/nvim-distro/nvim-nativevim"]
-    type = "git-repo"
-    url = "https://github.com/boltlessengineer/nativevim"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-[".config/nvim-distro/nvim-lazyvim"]
-    type = "git-repo"
-    url = "https://github.com/LazyVim/LazyVim"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-[".config/nvim-distro/nvim-kickstart"]
-    type = "git-repo"
-    url = "https://github.com/nvim-lua/kickstart.nvim.git"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-[".config/nvim-distro/nvim-nvimdots"]
-    type = "git-repo"
-    url = "https://github.com/ayamir/nvimdots"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-[".config/nvim-distro/nvim-astronvim"]
-    type = "git-repo"
-    url = "https://github.com/AstroNvim/AstroNvim"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-[".config/nvim-distro/nvim-nvchad"]
-    type = "git-repo"
-    url = "https://github.com/NvChad/NvChad"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-[".config/nvim-distro/nvim-lunarvim"]
-    type = "git-repo"
-    url = "https://github.com/LunarVim/LunarVim"
-    refreshPeriod = "24h"
-    clone.args = ["--filter=blob:none"]
-    {{ end -}}
-{{ end -}}
+#{{ if ne .chezmoi.os "windows" -}}
+#    {{ if eq .chezmoi.hostname "TanakaPC" -}}
+#[".config/nvim-distro/nvim-nativevim"]
+#    type = "git-repo"
+#    url = "https://github.com/boltlessengineer/nativevim"
+#    refreshPeriod = "24h"
+#    clone.args = ["--filter=blob:none"]
+#[".config/nvim-distro/nvim-lazyvim"]
+#    type = "git-repo"
+#    url = "https://github.com/LazyVim/LazyVim"
+#    refreshPeriod = "24h"
+#    clone.args = ["--filter=blob:none"]
+#[".config/nvim-distro/nvim-kickstart"]
+#    type = "git-repo"
+#    url = "https://github.com/nvim-lua/kickstart.nvim.git"
+#    refreshPeriod = "24h"
+#    clone.args = ["--filter=blob:none"]
+#[".config/nvim-distro/nvim-nvimdots"]
+#    type = "git-repo"
+#    url = "https://github.com/ayamir/nvimdots"
+#    refreshPeriod = "24h"
+#    clone.args = ["--filter=blob:none"]
+#[".config/nvim-distro/nvim-astronvim"]
+#    type = "git-repo"
+#    url = "https://github.com/AstroNvim/AstroNvim"
+#    refreshPeriod = "24h"
+#    clone.args = ["--filter=blob:none"]
+#[".config/nvim-distro/nvim-nvchad"]
+#    type = "git-repo"
+#    url = "https://github.com/NvChad/NvChad"
+#    refreshPeriod = "24h"
+#    clone.args = ["--filter=blob:none"]
+#[".config/nvim-distro/nvim-lunarvim"]
+#    type = "git-repo"
+#    url = "https://github.com/LunarVim/LunarVim"
+#    refreshPeriod = "24h"
+#    clone.args = ["--filter=blob:none"]
+#    {{ end -}}
+#{{ end -}}
