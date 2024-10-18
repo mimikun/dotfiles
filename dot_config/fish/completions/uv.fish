@@ -74,8 +74,10 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l extra -d 'Include optional
 complete -c uv -n "__fish_uv_using_subcommand run" -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed as editables' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -150,6 +152,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -s h -l help -d 'Display the 
 complete -c uv -n "__fish_uv_using_subcommand run" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand init" -l name -d 'The name of the project' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l vcs -d 'Initialize a version control system for the project' -r -f -a "{git\t'Use Git for version control',none\t'Do not use any version control system'}"
+complete -c uv -n "__fish_uv_using_subcommand init" -l build-backend -d 'Initialize a build-backend of choice for the project' -r -f -a "{hatch\t'Use [hatchling](https://pypi.org/project/hatchling) as the project build backend',flit\t'Use [flit-core](https://pypi.org/project/flit-core) as the project build backend',pdm\t'Use [pdm-backend](https://pypi.org/project/pdm-backend) as the project build backend',setuptools\t'Use [setuptools](https://pypi.org/project/setuptools) as the project build backend',maturin\t'Use [maturin](https://pypi.org/project/maturin) as the project build backend',scikit\t'Use [scikit-build-core](https://pypi.org/project/scikit-build-core) as the project build backend'}"
 complete -c uv -n "__fish_uv_using_subcommand init" -l author-from -d 'Fill in the `authors` field in the `pyproject.toml`' -r -f -a "{auto\t'Fetch the author information from some sources (e.g., Git) automatically',git\t'Fetch the author information from Git configuration only',none\t'Do not infer the author information'}"
 complete -c uv -n "__fish_uv_using_subcommand init" -s p -l python -d 'The Python interpreter to use to determine the minimum supported Python version.' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l cache-dir -d 'Path to the cache directory' -r -F
@@ -192,8 +195,10 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l rev -d 'Commit to use when
 complete -c uv -n "__fish_uv_using_subcommand add" -l tag -d 'Tag to use when adding a dependency from Git' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l branch -d 'Branch to use when adding a dependency from Git' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l extra -d 'Extras to enable for the dependency' -r
-complete -c uv -n "__fish_uv_using_subcommand add" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand add" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -262,8 +267,10 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l no-config -d 'Avoid discov
 complete -c uv -n "__fish_uv_using_subcommand add" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand add" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l optional -d 'Remove the packages from the specified optional dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand remove" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand remove" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -330,8 +337,10 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -s h -l help -d 'Display t
 complete -c uv -n "__fish_uv_using_subcommand remove" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l extra -d 'Include optional dependencies from the extra group name' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-package -d 'Do not install the given package(s)' -r
-complete -c uv -n "__fish_uv_using_subcommand sync" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand sync" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -403,8 +412,10 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-progress -d 'Hide all 
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand sync" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand sync" -s V -l version -d 'Display the uv version'
-complete -c uv -n "__fish_uv_using_subcommand lock" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand lock" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
@@ -465,8 +476,10 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l package -d 'Export the 
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra -d 'Include optional dependencies from the extra group name' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s o -l output-file -d 'Write the exported requirements to the given file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-package -d 'Do not emit the given package(s)' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
@@ -539,8 +552,10 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l prune -d 'Prune the given
 complete -c uv -n "__fish_uv_using_subcommand tree" -l package -d 'Display only the specified packages' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
@@ -635,8 +650,10 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-editable -d 'Run with the given packages installed as editables' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -701,8 +718,10 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-editable -d 'Run with the given packages installed as editables' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -766,8 +785,10 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l from -d 'The package to install commands from' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with -d 'Include the following extra requirements' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Run all requirements listed in the given `requirements.txt` files' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -829,8 +850,10 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s p -l python -d 'Upgrade a tool, and specify it to use the given Python interpreter to build its environment. Use with `--all` to apply to all tools.' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -1220,8 +1243,10 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l override -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s b -l build-constraint -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l extra -d 'Include optional dependencies from the extra group name; may be provided more than once' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
@@ -1323,8 +1348,10 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s c -l constraint -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s b -l build-constraint -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
@@ -1404,8 +1431,10 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l override -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s b -l build-constraint -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l extra -d 'Include optional dependencies from the extra group name; may be provided more than once' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
@@ -1687,8 +1716,10 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand venv" -s p -l python -d 'The Python interpreter to use for the virtual environment.' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l prompt -d 'Provide an alternative prompt prefix for the virtual environment.' -r
-complete -c uv -n "__fish_uv_using_subcommand venv" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand venv" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand venv" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand venv" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand venv" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand venv" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
@@ -1737,8 +1768,10 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l package -d 'Build a spec
 complete -c uv -n "__fish_uv_using_subcommand build" -s o -l out-dir -d 'The output directory to which distributions should be written' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -s b -l build-constraint -d 'Constrain build dependencies using the given requirements files when building distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s p -l python -d 'The Python interpreter to use for the build environment.' -r
-complete -c uv -n "__fish_uv_using_subcommand build" -s i -l index-url -d 'The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
-complete -c uv -n "__fish_uv_using_subcommand build" -l extra-index-url -d 'Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
