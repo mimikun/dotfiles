@@ -25,6 +25,7 @@ local dependencies = {
     --"folke/noice.nvim",
     --"nvimdev/template.nvim",
     --"stevearc/aerial.nvim",
+    --"2KAbhishek/octohub.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

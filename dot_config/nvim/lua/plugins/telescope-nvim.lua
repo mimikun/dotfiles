@@ -55,6 +55,7 @@ local spec = {
         --telescope.load_extension("noice")
         --telescope.load_extension("find_template")
         --telescope.load_extension("aerial")
+        --telescope.load_extension("repos")
     end,
     --cond = false,
 }
