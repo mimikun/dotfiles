@@ -40,6 +40,7 @@ local base_parsers = {
     "typescript",
     "vim",
     "vimdoc",
+    "xml",
     "yaml",
 }
 
