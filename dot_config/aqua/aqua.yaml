@@ -63,7 +63,7 @@ packages:
 - name: babarot/gomi@v1.1.6
 - name: Songmu/make2help@v0.2.1
 - name: mgechev/revive@v1.4.0
-- name: aquaproj/registry-tool@v0.2.5
+- name: aquaproj/registry-tool@v0.3.1
 - name: suzuki-shunsuke/cmdx@v1.7.4
 - name: xxxserxxx/gotop@v4.2.0
 - name: aristocratos/btop@v1.4.0
