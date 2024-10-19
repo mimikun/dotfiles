@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_deno_global_optspecs
-	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= c/config= no-config r/reload= lock= no-lock cert= unsafely-ignore-certificate-errors= A/allow-all R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= inspect= inspect-brk= inspect-wait= frozen= cached-only location= v8-flags= seed= enable-testing-features-do-not-use strace-ops= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache unstable unstable-bare-node-builtins unstable-byonm unstable-sloppy-imports unstable-broadcast-channel unstable-cron unstable-ffi unstable-fs unstable-http unstable-kv unstable-net unstable-process unstable-temporal unstable-unsafe-proto unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
+	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= c/config= no-config r/reload= lock= no-lock cert= unsafely-ignore-certificate-errors= A/allow-all R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= inspect= inspect-brk= inspect-wait= allow-scripts= frozen= cached-only location= v8-flags= seed= enable-testing-features-do-not-use strace-ops= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache unstable unstable-bare-node-builtins unstable-detect-cjs unstable-byonm unstable-sloppy-imports unstable-broadcast-channel unstable-cron unstable-ffi unstable-fs unstable-http unstable-kv unstable-net unstable-process unstable-temporal unstable-unsafe-proto unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
 end
 
 function __fish_deno_needs_command
@@ -51,6 +51,7 @@ complete -c deno -n "__fish_deno_needs_command" -s I -l allow-import -d 'Allow i
 complete -c deno -n "__fish_deno_needs_command" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_needs_command" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_needs_command" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
+complete -c deno -n "__fish_deno_needs_command" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_needs_command" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_needs_command" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_needs_command" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
@@ -78,6 +79,7 @@ complete -c deno -n "__fish_deno_needs_command" -l no-clear-screen -d 'Do not cl
 complete -c deno -n "__fish_deno_needs_command" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_needs_command" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_needs_command" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-byonm
 complete -c deno -n "__fish_deno_needs_command" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -96,7 +98,7 @@ complete -c deno -n "__fish_deno_needs_command" -s V -l version -d 'Print versio
 complete -c deno -n "__fish_deno_needs_command" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_needs_command" -a "run" -d 'Run a JavaScript or TypeScript program, or a task or script.  By default all programs are run in sandbox without access to disk, network or ability to spawn subprocesses.   deno run https://examples.deno.land/hello-world.ts  Grant permission to read from disk and listen to network:   deno run --allow-read --allow-net jsr:@std/http/file-server  Grant permission to read allow-listed files from disk:   deno run --allow-read=/etc jsr:@std/http/file-server  Grant all permissions:   deno run -A jsr:@std/http/file-server  Specifying the filename \'-\' to read the file from stdin.   curl https://examples.deno.land/hello-world.ts | deno run -  Read more: https://docs.deno.com/go/run'
 complete -c deno -n "__fish_deno_needs_command" -a "serve" -d 'Run a server defined in a main module  The serve command uses the default exports of the main module to determine which servers to start.  Start a server defined in server.ts:   deno serve server.ts  Start a server defined in server.ts, watching for changes and running on port 5050:   deno serve --watch --port 5050 server.ts  Read more: https://docs.deno.com/go/serve'
-complete -c deno -n "__fish_deno_needs_command" -a "add" -d 'Add dependencies to your configuration file.   deno add @std/path  You can add multiple dependencies at once:   deno add @std/path @std/assert'
+complete -c deno -n "__fish_deno_needs_command" -a "add" -d 'Add dependencies to your configuration file.   deno add jsr:@std/path  You can add multiple dependencies at once:   deno add jsr:@std/path jsr:@std/assert'
 complete -c deno -n "__fish_deno_needs_command" -a "remove" -d 'Remove dependencies from the configuration file.   deno remove @std/path  You can remove multiple dependencies at once:   deno remove @std/path @std/assert '
 complete -c deno -n "__fish_deno_needs_command" -a "bench" -d 'Run benchmarks using Deno\'s built-in bench tool.  Evaluate the given files, run all benches declared with \'Deno.bench()\' and report results to standard output:   deno bench src/fetch_bench.ts src/signal_bench.ts  If you specify a directory instead of a file, the path is expanded to all contained files matching the glob {*_,*.,}bench.{js,mjs,ts,mts,jsx,tsx}:   deno bench src/  Read more: https://docs.deno.com/go/bench'
 complete -c deno -n "__fish_deno_needs_command" -a "bundle" -d '⚠️ `deno bundle` was removed in Deno 2.  See the Deno 1.x to 2.x Migration Guide for migration instructions: https://docs.deno.com/runtime/manual/advanced/migrate_deprecations'
@@ -111,8 +113,8 @@ complete -c deno -n "__fish_deno_needs_command" -a "eval" -d 'Evaluate JavaScrip
 complete -c deno -n "__fish_deno_needs_command" -a "fmt" -d 'Auto-format various file types.   deno fmt myfile1.ts myfile2.ts  Supported file types are:   JavaScript, TypeScript, Markdown, JSON(C) and Jupyter Notebooks  Supported file types which are behind corresponding unstable flags (see formatting options):   HTML, CSS, SCSS, SASS, LESS, YAML, Svelte, Vue, Astro and Angular  Format stdin and write to stdout:   cat file.ts | deno fmt -  Check if the files are formatted:   deno fmt --check  Ignore formatting code by preceding it with an ignore comment:   // deno-fmt-ignore  Ignore formatting a file by adding an ignore comment at the top of the file:   // deno-fmt-ignore-file  Read more: https://docs.deno.com/go/fmt'
 complete -c deno -n "__fish_deno_needs_command" -a "init" -d 'scaffolds a basic Deno project with a script, test, and configuration file'
 complete -c deno -n "__fish_deno_needs_command" -a "info" -d 'Show information about a module or the cache directories.  Get information about a module:   deno info jsr:@std/http/file-server  The following information is shown:   local: Local path of the file   type: JavaScript, TypeScript, or JSON   emit: Local path of compiled source code (TypeScript only)   dependencies: Dependency tree of the source file  Read more: https://docs.deno.com/go/info'
-complete -c deno -n "__fish_deno_needs_command" -a "install" -d 'Installs dependencies either in the local project or globally to a bin directory.  Local installation  Add dependencies to the local project\'s configuration (deno.json / package.json) and installs them in the package cache. If no dependency is specified, installs all dependencies listed in the config file. If the --entrypoint flag is passed, installs the dependencies of the specified entrypoint(s).    deno install   deno install @std/bytes   deno install npm:chalk   deno install --entrypoint entry1.ts entry2.ts  Global installation  If the --global flag is set, installs a script as an executable in the installation root\'s bin directory.    deno install --global --allow-net --allow-read jsr:@std/http/file-server   deno install -g https://examples.deno.land/color-logging.ts  To change the executable name, use -n/--name:   deno install -g --allow-net --allow-read -n serve jsr:@std/http/file-server  The executable name is inferred by default:   - Attempt to take the file stem of the URL path. The above example would     become file_server.   - If the file stem is something generic like main, mod, index or cli,     and the path has no parent, take the file name of the parent path. Otherwise     settle with the generic name.   - If the resulting name has an @... suffix, strip it.  To change the installation root, use --root:   deno install -g --allow-net --allow-read --root /usr/local jsr:@std/http/file-server  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno  These must be added to the path manually if required.'
-complete -c deno -n "__fish_deno_needs_command" -a "i" -d 'Installs dependencies either in the local project or globally to a bin directory.  Local installation  Add dependencies to the local project\'s configuration (deno.json / package.json) and installs them in the package cache. If no dependency is specified, installs all dependencies listed in the config file. If the --entrypoint flag is passed, installs the dependencies of the specified entrypoint(s).    deno install   deno install @std/bytes   deno install npm:chalk   deno install --entrypoint entry1.ts entry2.ts  Global installation  If the --global flag is set, installs a script as an executable in the installation root\'s bin directory.    deno install --global --allow-net --allow-read jsr:@std/http/file-server   deno install -g https://examples.deno.land/color-logging.ts  To change the executable name, use -n/--name:   deno install -g --allow-net --allow-read -n serve jsr:@std/http/file-server  The executable name is inferred by default:   - Attempt to take the file stem of the URL path. The above example would     become file_server.   - If the file stem is something generic like main, mod, index or cli,     and the path has no parent, take the file name of the parent path. Otherwise     settle with the generic name.   - If the resulting name has an @... suffix, strip it.  To change the installation root, use --root:   deno install -g --allow-net --allow-read --root /usr/local jsr:@std/http/file-server  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno  These must be added to the path manually if required.'
+complete -c deno -n "__fish_deno_needs_command" -a "install" -d 'Installs dependencies either in the local project or globally to a bin directory.  Local installation  Add dependencies to the local project\'s configuration (deno.json / package.json) and installs them in the package cache. If no dependency is specified, installs all dependencies listed in the config file. If the --entrypoint flag is passed, installs the dependencies of the specified entrypoint(s).    deno install   deno install jsr:@std/bytes   deno install npm:chalk   deno install --entrypoint entry1.ts entry2.ts  Global installation  If the --global flag is set, installs a script as an executable in the installation root\'s bin directory.    deno install --global --allow-net --allow-read jsr:@std/http/file-server   deno install -g https://examples.deno.land/color-logging.ts  To change the executable name, use -n/--name:   deno install -g --allow-net --allow-read -n serve jsr:@std/http/file-server  The executable name is inferred by default:   - Attempt to take the file stem of the URL path. The above example would     become file_server.   - If the file stem is something generic like main, mod, index or cli,     and the path has no parent, take the file name of the parent path. Otherwise     settle with the generic name.   - If the resulting name has an @... suffix, strip it.  To change the installation root, use --root:   deno install -g --allow-net --allow-read --root /usr/local jsr:@std/http/file-server  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno  These must be added to the path manually if required.'
+complete -c deno -n "__fish_deno_needs_command" -a "i" -d 'Installs dependencies either in the local project or globally to a bin directory.  Local installation  Add dependencies to the local project\'s configuration (deno.json / package.json) and installs them in the package cache. If no dependency is specified, installs all dependencies listed in the config file. If the --entrypoint flag is passed, installs the dependencies of the specified entrypoint(s).    deno install   deno install jsr:@std/bytes   deno install npm:chalk   deno install --entrypoint entry1.ts entry2.ts  Global installation  If the --global flag is set, installs a script as an executable in the installation root\'s bin directory.    deno install --global --allow-net --allow-read jsr:@std/http/file-server   deno install -g https://examples.deno.land/color-logging.ts  To change the executable name, use -n/--name:   deno install -g --allow-net --allow-read -n serve jsr:@std/http/file-server  The executable name is inferred by default:   - Attempt to take the file stem of the URL path. The above example would     become file_server.   - If the file stem is something generic like main, mod, index or cli,     and the path has no parent, take the file name of the parent path. Otherwise     settle with the generic name.   - If the resulting name has an @... suffix, strip it.  To change the installation root, use --root:   deno install -g --allow-net --allow-read --root /usr/local jsr:@std/http/file-server  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno  These must be added to the path manually if required.'
 complete -c deno -n "__fish_deno_needs_command" -a "json_reference"
 complete -c deno -n "__fish_deno_needs_command" -a "jupyter" -d 'Deno kernel for Jupyter notebooks'
 complete -c deno -n "__fish_deno_needs_command" -a "uninstall" -d 'Uninstalls a dependency or an executable script in the installation root\'s bin directory.   deno uninstall @std/dotenv chalk   deno uninstall --global file_server  To change the installation root, use --root flag:   deno uninstall --global --root /usr/local serve  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno'
@@ -153,6 +155,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -s I -l allow-import -d '
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand run" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand run" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
@@ -168,6 +171,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -s h -l help -r -f -a "{u
 complete -c deno -n "__fish_deno_using_subcommand run" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -222,6 +226,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -s I -l allow-import -d
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand serve" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
@@ -239,6 +244,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -s h -l help -r -f -a "
 complete -c deno -n "__fish_deno_using_subcommand serve" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -269,8 +275,10 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l no-code-cache -d 'Di
 complete -c deno -n "__fish_deno_using_subcommand serve" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand add" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand add" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand add" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -291,6 +299,7 @@ complete -c deno -n "__fish_deno_using_subcommand remove" -s h -l help -r -f -a 
 complete -c deno -n "__fish_deno_using_subcommand remove" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -332,6 +341,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-run -d 'Deny ru
 complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand bench" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
@@ -345,6 +355,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l env-file -d 'Load en
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -378,6 +389,7 @@ complete -c deno -n "__fish_deno_using_subcommand bundle" -s h -l help -r -f -a 
 complete -c deno -n "__fish_deno_using_subcommand bundle" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -410,6 +422,7 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l allow-scripts -d 'Al
 complete -c deno -n "__fish_deno_using_subcommand cache" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -442,6 +455,7 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l unsafely-ignore-cert
 complete -c deno -n "__fish_deno_using_subcommand check" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -469,6 +483,7 @@ complete -c deno -n "__fish_deno_using_subcommand clean" -s h -l help -r -f -a "
 complete -c deno -n "__fish_deno_using_subcommand clean" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -510,6 +525,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-run -d 'Deny 
 complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand compile" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
@@ -524,6 +540,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l ext -d 'Set conten
 complete -c deno -n "__fish_deno_using_subcommand compile" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -554,6 +571,7 @@ complete -c deno -n "__fish_deno_using_subcommand completions" -s h -l help -r -
 complete -c deno -n "__fish_deno_using_subcommand completions" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -577,6 +595,7 @@ complete -c deno -n "__fish_deno_using_subcommand coverage" -l exclude -d 'Exclu
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l output -d 'Exports the coverage report in lcov format to the given file.   If no --output arg is specified then the report is written to stdout.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -609,6 +628,7 @@ complete -c deno -n "__fish_deno_using_subcommand doc" -l output -d 'Directory f
 complete -c deno -n "__fish_deno_using_subcommand doc" -l filter -d 'Dot separated path to symbol' -r
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -646,6 +666,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l unsafely-ignore-certi
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
+complete -c deno -n "__fish_deno_using_subcommand eval" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand eval" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
@@ -656,6 +677,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l ext -d 'Set content t
 complete -c deno -n "__fish_deno_using_subcommand eval" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -692,6 +714,7 @@ complete -c deno -n "__fish_deno_using_subcommand fmt" -l prose-wrap -d 'Define 
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l no-semicolons -d 'Don\'t use semicolons except where necessary [default: false]' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -719,6 +742,7 @@ complete -c deno -n "__fish_deno_using_subcommand init" -s h -l help -r -f -a "{
 complete -c deno -n "__fish_deno_using_subcommand init" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -751,6 +775,7 @@ complete -c deno -n "__fish_deno_using_subcommand info" -l node-modules-dir -d '
 complete -c deno -n "__fish_deno_using_subcommand info" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -812,6 +837,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l root -d 'Installat
 complete -c deno -n "__fish_deno_using_subcommand install" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -882,6 +908,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l root -d 'Installation ro
 complete -c deno -n "__fish_deno_using_subcommand i" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -919,6 +946,7 @@ complete -c deno -n "__fish_deno_using_subcommand jupyter" -s h -l help -r -f -a
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -941,6 +969,7 @@ complete -c deno -n "__fish_deno_using_subcommand uninstall" -s L -l log-level -
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l root -d 'Installation root' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -971,6 +1000,7 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l ignore -d 'Ignore lin
 complete -c deno -n "__fish_deno_using_subcommand lint" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1001,6 +1031,7 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -l check -d 'Set type
 complete -c deno -n "__fish_deno_using_subcommand publish" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1024,7 +1055,6 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -l no-provenance -d '
 complete -c deno -n "__fish_deno_using_subcommand repl" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand repl" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
-complete -c deno -n "__fish_deno_using_subcommand repl" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
@@ -1033,6 +1063,9 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -s r -l reload -d 'Reloa
 complete -c deno -n "__fish_deno_using_subcommand repl" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
@@ -1048,19 +1081,16 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-run -d 'Deny run
 complete -c deno -n "__fish_deno_using_subcommand repl" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand repl" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand repl" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l strace-ops -d 'Trace low-level op calls' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l eval-file -d 'Evaluates the provided file(s) as scripts when the REPL starts. Accepts file paths and URLs' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l eval -d 'Evaluates the provided code when the REPL starts' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1093,6 +1123,7 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l cwd -d 'Specify the d
 complete -c deno -n "__fish_deno_using_subcommand task" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1137,6 +1168,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -s I -l allow-import -d 
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand test" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand test" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
@@ -1156,6 +1188,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l env-file -d 'Load env
 complete -c deno -n "__fish_deno_using_subcommand test" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1193,6 +1226,7 @@ complete -c deno -n "__fish_deno_using_subcommand types" -s h -l help -r -f -a "
 complete -c deno -n "__fish_deno_using_subcommand types" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1216,6 +1250,7 @@ complete -c deno -n "__fish_deno_using_subcommand upgrade" -l cert -d 'Load cert
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1239,6 +1274,7 @@ complete -c deno -n "__fish_deno_using_subcommand vendor" -s h -l help -r -f -a 
 complete -c deno -n "__fish_deno_using_subcommand vendor" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1258,6 +1294,7 @@ complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subc
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-byonm
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
