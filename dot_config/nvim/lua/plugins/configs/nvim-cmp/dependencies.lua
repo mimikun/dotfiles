@@ -14,7 +14,7 @@ local dependencies = {
     "rcarriga/cmp-dap",
 }
 
-if require("config.settings").use_ai then
+if require("config.settings").use_github_copilot then
     table.insert(dependencies, "zbirenbaum/copilot.lua")
     table.insert(dependencies, "zbirenbaum/copilot-cmp")
 end

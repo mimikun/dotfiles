@@ -1,4 +1,5 @@
--- TODO: config it
+-- NOTE: only be enabled at Home-azusa and Work-Windows
+local cond = require("config.settings").use_codecompanion
 
 ---@type LazySpec
 local spec = {
@@ -8,8 +9,8 @@ local spec = {
     keys = require("plugins.configs.codecompanion-nvim.keys"),
     dependencies = require("plugins.configs.codecompanion-nvim.dependencies"),
     opts = require("plugins.configs.codecompanion-nvim.opts"),
-    cond = false,
-    enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec
