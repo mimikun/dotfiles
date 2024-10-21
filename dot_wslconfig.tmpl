@@ -1,24 +1,24 @@
 [wsl2]
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
-# NOTE: human rights violated
 memory=3GB
 swap=8GB
 {{ else -}}
-# NOTE: human rights protected
 memory=8GB
 swap=0
 {{ end -}}
 
 localhostforwarding=true
 
+{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # NOTE: Only available on Windows 11
 #nestedVirtualization=false
-
-# NOTE: Only available on Windows 11
 #vmIdleTimeout=6000
+{{ end -}}
 
+{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # NOTE: Only available on Windows 11 22H2
 networkingMode = "mirrored"
+{{ end -}}
 
 [experimental]
 autoMemoryReclaim="disabled"
@@ -27,9 +27,11 @@ autoMemoryReclaim="disabled"
 # NOTE: instant release
 #autoMemoryReclaim="dropcache"
 
-sparseVhd = false
+sparseVhd=false
 
+{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # NOTE: Only available on Windows 11 22H2
 hostAddressLoopback=false
+{{ end -}}
 
 # vim:ft=conf
