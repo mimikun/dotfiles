@@ -65,7 +65,7 @@ changelog :
 ## Run git cleanfetch
 .PHONY : clean-fetch
 clean-fetch :
-	mise tasks run git:clean-fetch
+	mise tasks run git:fetch:clean-fetch
 
 ## Delete patch branch
 .PHONY : delete-branch

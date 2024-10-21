@@ -1,0 +1,6 @@
+#!/bin/bash
+# mise description="git fetch gitea"
+
+git fetch gitea
+
+# vim:ft=bash
