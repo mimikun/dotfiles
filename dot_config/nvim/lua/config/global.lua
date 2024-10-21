@@ -56,7 +56,7 @@ global.is_work = host_name == "tanakapc"
 global.is_azusa = host_name == "azusa"
 
 ---@type boolean
-global.is_home = (not global.is_work)
+global.is_home = not global.is_work
 
 ---@type string|nil
 global.app_name = vim.env.NVIM_APPNAME and vim.env.NVIM_APPNAME or "nvim"
