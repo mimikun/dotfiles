@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.10.21]
+
+### Added - 新機能について
+
+- feat(nvim-treesitter): add xml parser
+- feat(disabled-plugins): add some plugins
+- feat(disabled-plugins): add sysmon.nvim
+- feat(nvim): add flag for AI feature
+- feat(fish): add GITEA_PAT env-var
+- feat(gup): add tea
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update deno completion
+- chore(dot_wslconfig): update
+- refactor(mise-tasks): update git:fetch
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): stylua error
+
 ## [v2024.10.17]
 
 ### Added - 新機能について
