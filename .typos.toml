@@ -29,15 +29,12 @@ extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
   "dot_config/foot/foot.ini",
   "dot_config/moe/moerc.toml",
-  "dot_config/fish/completions/glow.fish",
-  "dot_config/fish/completions/sheldon.fish",
+  # NOTE: DO NOT expect an upstream fix
+  # NOTE: PR done: https://codeberg.org/Aviac/codeberg-cli/pulls/143
   "dot_config/fish/completions/berg.fish",
   # NOTE: DO NOT expect an upstream fix
-  # NOTE: PR done: https://github.com/dharmx/telescope-media.nvim/pull/31
-  "dot_config/nvim/lua/plugins/configs/telescope-nvim/media.lua",
-  # NOTE: DO NOT expect an upstream fix
-  # NOTE: PR done: https://github.com/rcarriga/nvim-dap-ui/pull/379
-  "dot_config/nvim/lua/plugins/nvim-dap-ui.lua",
+  # NOTE: This is cobra bug, but glow use 1.7.0(has bug)
+  "dot_config/fish/completions/glow.fish",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
