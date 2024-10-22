@@ -32,7 +32,7 @@ local dependencies = {
 -- Very difficult to build fzf on Windows
 if not require("config.global").is_windows then
     table.insert(dependencies, { "nvim-telescope/telescope-fzf-native.nvim", build = "make" })
-    --table.insert(dependencies, { "dharmx/telescope-media.nvim" })
+    --table.insert(dependencies, { "mimikun/telescope-media.nvim" })
 end
 
 return dependencies

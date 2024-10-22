@@ -5,13 +5,13 @@ local ext = {
         chafa = { move = false },
         viu = { move = false },
         -- cannot calculate terminal paddings adjust them yourselves
-        ueberzug = { xmove = -12, ymove = -3, warnings = true, supress_backend_warning = false },
+        ueberzug = { xmove = -12, ymove = -3, warnings = true, suppress_backend_warning = false },
     },
     callbacks = {
         on_confirm_single = function(...)
             require("telescope._extensions.media.lib.canned").single.copy_path(...)
         end,
-        on_confirm_muliple = function(...)
+        on_confirm_multiple = function(...)
             require("telescope._extensions.media.lib.canned").multiple.bulk_copy(...)
         end,
     },
