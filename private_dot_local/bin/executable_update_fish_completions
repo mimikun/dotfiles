@@ -81,10 +81,6 @@ if command_exist pueue; then
   pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
 fi
 
-if command_exist sheldon; then
-  pueue add -- "sheldon completions --shell fish > '${COMPLETIONS_DIR}'/sheldon.fish"
-fi
-
 if command_exist rbw; then
   pueue add -- "rbw gen-completions fish > '${COMPLETIONS_DIR}'/rbw.fish"
 fi
