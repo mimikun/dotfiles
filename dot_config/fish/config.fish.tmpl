@@ -285,14 +285,6 @@ if test -f "$HOME/.inshellisense/key-bindings.fish"
     source "$HOME/.inshellisense/key-bindings.fish"
 end
 
-# sheldon
-set -x SHELDON_CONFIG_DIR $XDG_CONFIG_HOME/sheldon/fish
-set -x SHELDON_DATA_DIR $XDG_DATA_HOME/sheldon/fish
-
-if command -v sheldon >/dev/null 2>&1
-    #eval "$(sheldon source)"
-end
-
 # PHP composer
 set -x COMPOSER_CONFIG_HOME $XDG_CONFIG_HOME/composer
 set -x COMPOSER_BIN_DIR $COMPOSER_CONFIG_HOME/vendor/bin
