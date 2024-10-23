@@ -1,5 +1,39 @@
 # Changelog
 
+## [v2024.10.23]
+
+### Added - 新機能について
+
+- feat(gup): add bluetuith
+- feat(cargo): add some commands
+- feat(github-workflow): add mirroring action
+- feat(localbin): add cpat
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update procs completion
+- chore(fish): update some completions
+- chore(typos): update config
+- chore(localbin): update update_fish_completions
+- chore(linux_pip_packages): update
+- chore(aqua): update bitwarden/clients@cli to v2024.10.0
+
+### Removed - 今回で削除された機能について
+
+- chore(gup): remove tea from gup.conf
+    - tea cli is not support go install method
+- chore(fish): remove sheldon
+    - sheldon no longer supports fish-shell
+    - ref: https://github.com/rossmacarthur/sheldon/commit/a804ff231e48a9c7e6895871da9ea926e017058d
+
+### Fixed - 不具合修正について
+
+- fix(nvim): telescope-media.nvim typo
+    - don't expect an upstream fix
+
 ## [v2024.10.21]
 
 ### Added - 新機能について
