@@ -1,5 +1,6 @@
 ag
 aichat
+aim
 atuin
 bandwhich
 basilk
@@ -124,6 +125,7 @@ stylua
 taplo-cli
 tauri-cli
 tealdeer
+tenere
 testing-language-server
 testing-ls-adapter
 tgt
@@ -134,6 +136,7 @@ trashy
 tre-command
 treefmt
 tree-sitter-cli
+tui-journal
 tuisky
 typos-cli
 usage-cli
