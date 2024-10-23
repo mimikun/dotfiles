@@ -1,0 +1,23 @@
+name: Auto mirroring to codeberg
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  mirroring:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Push remote repository(codeberg)
+        run: |
+          git remote add codeberg https://codeberg.org/mimikun/${{ github.repository }}.git
+          git push codeberg master
+
+      - name: Push remote repository(gitea)
+        run: |
+          git remote add gitea https://gitea.com/mimikun/${{ github.repository }}.git
+          git push gitea master
