@@ -11,6 +11,7 @@ complete -c procs -l use-config -d 'Use built-in configuration' -r -f -a "{defau
 complete -c procs -l load-config -d 'Load configuration from file' -r -F
 complete -c procs -l gen-completion -d 'Generate shell completion file' -r -f -a "{bash\t'',elvish\t'',fish\t'',powershell\t'',zsh\t''}"
 complete -c procs -l gen-completion-out -d 'Generate shell completion file and write to stdout' -r -f -a "{bash\t'',elvish\t'',fish\t'',powershell\t'',zsh\t''}"
+complete -c procs -l procfs -d 'Path to procfs' -r -F
 complete -c procs -s a -l and -d 'AND  logic for multi-keyword'
 complete -c procs -s o -l or -d 'OR   logic for multi-keyword'
 complete -c procs -s d -l nand -d 'NAND logic for multi-keyword'
