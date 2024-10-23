@@ -43,6 +43,7 @@ deno fmt dot_config/nvim/dotfyle.json
 # ~/.local/bin/*
 chezmoi add ~/.local/bin/chezmoi_post_apply_hook
 chezmoi add ~/.local/bin/chezmoi_pre_apply_hook
+chezmoi add ~/.local/bin/cpat
 chezmoi add ~/.local/bin/editorconfig
 chezmoi add ~/.local/bin/generate_cargo_package_list
 chezmoi add ~/.local/bin/generate_pip_package_list
