@@ -90,7 +90,7 @@ complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcomm
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from comment" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from issues with the chosen state' -r -f -a "{closed\t'',open\t'',all\t''}"
-complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s c -l comments -d 'Disabled: display issue summary | Enabled: display issue commen history'
+complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s c -l comments -d 'Disabled: display issue summary | Enabled: display issue comment history'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from edit" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all issues in the current repository'
