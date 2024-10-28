@@ -65,7 +65,9 @@ changelog :
 ## Run git cleanfetch
 .PHONY : clean-fetch
 clean-fetch :
-	mise tasks run git:fetch:clean-fetch
+	mise tasks run git:fetch:origin
+	mise tasks run git:fetch:github
+	mise tasks run git:fetch:codeberg
 
 ## Delete patch branch
 .PHONY : delete-branch
