@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.10.28]
+
+### Added - 新機能について
+
+- feat(mise-task): add git:fetch:srht
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update some completions
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(Makefile): git-cleanfetch
+
 ## [v2024.10.24]
 
 ### Added - 新機能について
