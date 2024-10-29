@@ -2,7 +2,7 @@
 
 function __fish_aqua_no_subcommand --description 'Test if there has been any subcommand yet'
     for i in (commandline -opc)
-        if contains -- $i init info init-policy policy allow deny init install i update-aqua upa generate g which exec list generate-registry gr completion bash zsh fish help h help h version cp root-dir update-checksum upc remove rm update up help h
+        if contains -- $i info init policy allow deny init init-policy install i update-aqua upa generate g which exec list generate-registry gr completion bash zsh fish help h help h version cp root-dir update-checksum upc remove rm update up help h
             return 1
         end
     end
@@ -20,12 +20,10 @@ complete -c aqua -n '__fish_aqua_no_subcommand' -f -l help -s h -d 'show help'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l version -s v -d 'print the version'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l help -s h -d 'show help'
 complete -c aqua -n '__fish_aqua_no_subcommand' -f -l version -s v -d 'print the version'
-complete -c aqua -n '__fish_seen_subcommand_from init' -f -l help -s h -d 'show help'
-complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'init' -d 'Create a configuration file if it doesn\'t exist'
 complete -c aqua -n '__fish_seen_subcommand_from info' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'info' -d 'Show information'
-complete -c aqua -n '__fish_seen_subcommand_from init-policy' -f -l help -s h -d 'show help'
-complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'init-policy' -d '[Deprecated] Create a policy file if it doesn\'t exist'
+complete -c aqua -n '__fish_seen_subcommand_from init' -f -l help -s h -d 'show help'
+complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'init' -d 'Create a configuration file if it doesn\'t exist'
 complete -c aqua -n '__fish_seen_subcommand_from policy' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'policy' -d 'Manage Policy'
 complete -c aqua -n '__fish_seen_subcommand_from allow' -f -l help -s h -d 'show help'
@@ -34,6 +32,8 @@ complete -c aqua -n '__fish_seen_subcommand_from deny' -f -l help -s h -d 'show 
 complete -r -c aqua -n '__fish_seen_subcommand_from policy' -a 'deny' -d 'Deny a policy file'
 complete -c aqua -n '__fish_seen_subcommand_from init' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_seen_subcommand_from policy' -a 'init' -d 'Create a policy file if it doesn\'t exist'
+complete -c aqua -n '__fish_seen_subcommand_from init-policy' -f -l help -s h -d 'show help'
+complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'init-policy' -d '[Deprecated] Create a policy file if it doesn\'t exist'
 complete -c aqua -n '__fish_seen_subcommand_from install i' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'install i' -d 'Install tools'
 complete -c aqua -n '__fish_seen_subcommand_from install i' -f -l only-link -s l -d 'create links but skip downloading packages'
