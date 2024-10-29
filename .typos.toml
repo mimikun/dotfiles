@@ -30,9 +30,6 @@ extend-exclude = [
   "dot_config/foot/foot.ini",
   "dot_config/moe/moerc.toml",
   # NOTE: DO NOT expect an upstream fix
-  # NOTE: PR done: https://codeberg.org/Aviac/codeberg-cli/pulls/143
-  "dot_config/fish/completions/berg.fish",
-  # NOTE: DO NOT expect an upstream fix
   # NOTE: This is cobra bug, but glow use 1.7.0(has bug)
   "dot_config/fish/completions/glow.fish",
   # NOTE: DO NOT expect an upstream fix
