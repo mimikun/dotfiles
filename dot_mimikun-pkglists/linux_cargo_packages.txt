@@ -109,7 +109,9 @@ rioterm
 ripgrep
 ripgrep_all
 rrc
+rscls
 rucola-notes
+rust-script
 rustscan
 sd
 selene
