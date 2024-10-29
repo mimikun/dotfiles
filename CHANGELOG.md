@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.10.29]
+
+### Added - 新機能について
+
+- feat: add nvim-rocks configs
+- feat(cargo): add some packages
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update aqua completion
+- chore(typos): update config
+- chore(nvim-rocks): update
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.10.28]
 
 ### Added - 新機能について
