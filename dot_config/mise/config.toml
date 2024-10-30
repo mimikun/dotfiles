@@ -8,6 +8,7 @@ luajit = "2.0.5--2.4.4"
 node = [
     # lts = 22
     "22",
+    "23",
 ]
 powershell-core = [
     "latest",
