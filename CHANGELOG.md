@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.10.30]
+
+### Added - 新機能について
+
+- feat(mise): add nodejs v23
+- feat(cargo): add some packages
+- feat(disabled-plugins): add some plugins
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(mise): use nodejs v22(LTS)
+- chore(nvim-rocks): update
+- chore(pip): update package-list
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.10.29]
 
 ### Added - 新機能について
