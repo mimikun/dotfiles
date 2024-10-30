@@ -7,9 +7,11 @@
 - [x] ccc-nvim.lua
 - [x] chezmoi-vim.lua
 - [x] codecompanion-nvim.lua
-- [ ] comment-nvim.lua
-- [ ] conform-nvim.lua
-- [ ] context-menu-nvim.lua
+- [x] comment-nvim.lua
+- [x] ~~conform-nvim.lua~~
+    - Remove
+- [x] ~~context-menu-nvim.lua~~
+    - Remove
 - [ ] copilot.lua
 - [ ] copilotchat-nvim.lua
 - [ ] crates-nvim.lua

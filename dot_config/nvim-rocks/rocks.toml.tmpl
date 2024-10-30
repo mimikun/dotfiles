@@ -85,8 +85,9 @@ git = "iamyoki/buffer-reopen.nvim"
 cmds = "BufferHistory"
 
 [plugins."ccc.nvim"]
-#git = "uga-rosa/ccc.nvim"
-version = "1.6.0"
+git = "uga-rosa/ccc.nvim"
+# NOTE: v1.6.0 has deprecated message, use latest
+#version = "1.6.0"
 cmd = [
   "CccPick",
   "CccConvert",
@@ -122,4 +123,27 @@ name = "nvim-cmp"
 #git = "iguanacucumber/magazine.nvim"
 version = "0.2.1"
 
+[plugins."comment.nvim"]
+#git = "numToStr/Comment.nvim"
+version = "0.8.0"
+
+[plugins.nvim-ts-context-commentstring]
+#git = "JoosepAlviste/nvim-ts-context-commentstring"
+version = "scm"
+
 #------------------------------------------------------------------------------------
+# TODO: very difficult
+[plugins."copilot.lua"]
+#git = "zbirenbaum/copilot.lua"
+version = "scm"
+cmd = "Copilot"
+event = "InsertEnter"
+
+# TODO: very difficult
+[plugins."CopilotChat.nvim"]
+git = "CopilotC-Nvim/CopilotChat.nvim"
+# Only on MacOS or Linux
+#build = require("config.global").is_windows and "" or "make tiktoken"
+#branch = "canary"
+#cmd = require("plugins.configs.copilotchat-nvim.cmds"),
+config = true
