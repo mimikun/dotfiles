@@ -6,9 +6,7 @@ go = "latest"
 lua = "5.1.5"
 luajit = "2.0.5--2.4.4"
 node = [
-    # lts = 20
-    "20",
-    "21",
+    # lts = 22
     "22",
 ]
 powershell-core = [
