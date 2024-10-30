@@ -54,6 +54,7 @@ flawz
 forgejo-cli
 fselect
 genact
+gfold
 git-delta
 git-graph
 git-interactive-rebase-tool
