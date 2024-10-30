@@ -8,10 +8,17 @@ path = "~/ghq/github.com/mimikun/dev-plugins"
 "rocks-git.nvim" = "2.5.0"
 "rocks-lazy.nvim" = "1.1.1"
 "rocks-edit.nvim" = "scm"
-"rocks-treesitter.nvim" = "1.1.3"
 "rocks-config.nvim" = "3.0.0"
 "rocks-dev.nvim" = "1.7.0"
+"rocks-treesitter.nvim" = "1.1.3"
 
+# NOTE: Vim Script Plugins
+[plugins.calendar-vim]
+git = "mattn/calendar-vim"
+cmd = "Calendar"
+
+[plugins."chezmoi.vim"]
+git = "alker0/chezmoi.vim"
 #------------------------------------------------------------------------------------
 
 [plugins.alpha-nvim]
@@ -39,6 +46,7 @@ git = "rainbowhxch/accelerated-jk.nvim"
 event = "BufRead"
 
 [plugins."barbar.nvim"]
+git = "romgrk/barbar.nvim"
 cmd = [
   "BufferPrevious",
   "BufferNext",
@@ -71,3 +79,47 @@ event = "BufEnter"
 [plugins."gitsigns.nvim"]
 #git = "lewis6991/gitsigns.nvim"
 version = "0.9.0"
+
+[plugins."buffer-reopen.nvim"]
+git = "iamyoki/buffer-reopen.nvim"
+cmds = "BufferHistory"
+
+[plugins."ccc.nvim"]
+#git = "uga-rosa/ccc.nvim"
+version = "1.6.0"
+cmd = [
+  "CccPick",
+  "CccConvert",
+  "CccHighlighterEnable",
+  "CccHighlighterDisable",
+  "CccHighlighterToggle",
+]
+event = "BufEnter"
+
+# TODO: very difficult
+#{{ if (or (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "azusa")) (and (eq .chezmoi.os "windows") (eq .chezmoi.hostname "TanakaPC"))) }}
+## NOTE: only be enabled at Home-azusa and Work-Windows
+#[plugins."codecompanion.nvim"]
+#git = "olimorris/codecompanion.nvim"
+#cmds = [
+#  "CodeCompanion",
+#  "CodeCompanionActions",
+#  "CodeCompanionChat",
+#]
+#{{ end }}
+
+[plugins."dressing.nvim"]
+#git = "stevearc/dressing.nvim"
+version = "3.0.0"
+
+[plugins."telescope.nvim"]
+#git = "nvim-telescope/telescope.nvim"
+version = "scm"
+
+# NOTE: "hrsh7th/nvim-cmp" replacement
+[plugins."magazine.nvim"]
+name = "nvim-cmp"
+#git = "iguanacucumber/magazine.nvim"
+version = "0.2.1"
+
+#------------------------------------------------------------------------------------

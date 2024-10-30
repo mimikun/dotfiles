@@ -1,0 +1,113 @@
+- [x] 2048-nvim.lua
+- [x] accelerated-jk-nvim.lua
+- [x] alpha-nvim.lua
+- [x] barbar-nvim.lua
+- [x] buffer-reopen-nvim.lua
+- [x] calendar-vim.lua
+- [x] ccc-nvim.lua
+- [x] chezmoi-vim.lua
+- [x] codecompanion-nvim.lua
+- [ ] comment-nvim.lua
+- [ ] conform-nvim.lua
+- [ ] context-menu-nvim.lua
+- [ ] copilot.lua
+- [ ] copilotchat-nvim.lua
+- [ ] crates-nvim.lua
+- [ ] dial-nvim.lua
+- [ ] diffview-nvim.lua
+- [ ] dotfyle-metadata-nvim.lua
+- [ ] dressing-nvim.lua
+- [ ] eskk-vim.lua
+- [ ] fidget.lua
+- [ ] flagmode-nvim.lua
+- [ ] garbage-day-nvim.lua
+- [ ] gitgraph-nvim.lua
+- [ ] gitsigns-nvim.lua
+- [ ] glow-nvim.lua
+- [ ] grapple-nvim.lua
+- [ ] guard-nvim.lua
+- [ ] hardtime-nvim.lua
+- [ ] haunt-nvim.lua
+- [ ] hawtkeys-nvim.lua
+- [ ] helpview-nvim.lua
+- [ ] hop-nvim.lua
+- [ ] hover-nvim.lua
+- [ ] huez-nvim.lua
+- [ ] human-rights-nvim.lua
+- [ ] indent-blankline.lua
+- [ ] keyseer-nvim.lua
+- [ ] lazydev-nvim.lua
+- [ ] lazydocker-nvim.lua
+- [ ] lazygit-nvim.lua
+- [ ] lazysql-nvim.lua
+- [ ] legendary-nvim.lua
+- [ ] lspsaga-nvim.lua
+- [ ] lualine-nvim.lua
+- [ ] luasnip.lua
+- [ ] luminate-nvim.lua
+- [ ] markdown-toggle-nvim.lua
+- [ ] markview-nvim.lua
+- [ ] mason-nvim.lua
+- [ ] migemo-search-vim.lua
+- [ ] mkdir-nvim.lua
+- [ ] moody-nvim.lua
+- [ ] neogit.lua
+- [ ] neominimap-nvim.lua
+- [ ] no-neck-pain-nvim.lua
+- [ ] noice.lua
+- [ ] none-ls-nvim.lua
+- [ ] num-utils-nvim.lua
+- [ ] nvim-autopairs.lua
+- [ ] nvim-bqf.lua
+- [ ] nvim-cmp.lua
+    - [ ] https://github.com/iguanacucumber/magazine.nvim
+- [ ] nvim-cursorline.lua
+- [ ] nvim-dap-ui.lua
+- [ ] nvim-ghost-nvim.lua
+- [ ] nvim-hlslens.lua
+- [ ] nvim-lint.lua
+- [ ] nvim-lspconfig.lua
+- [ ] nvim-navbuddy.lua
+- [ ] nvim-navic.lua
+- [ ] nvim-notify.lua
+- [ ] nvim-surround.lua
+- [ ] nvim-tree.lua
+- [ ] nvim-treesitter.lua
+- [ ] nvim-ts-context-commentstring.lua
+- [ ] obsidian-kensaku-nvim.lua
+- [ ] obsidian-nvim.lua
+- [ ] octo-nvim.lua
+- [ ] oil-git-status-nvim.lua
+- [ ] oil-nvim.lua
+- [ ] orgmode.lua
+- [ ] overseer.lua
+- [ ] package-info-nvim.lua
+- [ ] persistence-nvim.lua
+- [ ] render-markdown-nvim.lua
+- [ ] rustaceanvim.lua
+- [ ] satellite-nvim.lua
+- [ ] screenkey-nvim.lua
+- [ ] sidebar-nvim.lua
+- [ ] smart-open-nvim.lua
+- [ ] smoothcursor-nvim.lua
+- [ ] sqlite.lua
+- [ ] telescope-nvim.lua
+- [ ] template-nvim.lua
+- [ ] todo-comments-nvim.lua
+- [ ] toggle-nvim.lua
+- [ ] translate-nvim.lua
+- [ ] transparent-nvim.lua
+- [ ] treesj.lua
+- [ ] trouble.lua
+- [ ] typos-nvim.lua
+- [ ] vim-ambiwidth.lua
+- [ ] vim-cargo-make.lua
+- [ ] vim-illuminate.lua
+- [ ] vim-kitty.lua
+- [ ] vim-quickrun.lua
+- [ ] vim-teraterm.lua
+- [ ] vimdoc-ja.lua
+- [ ] wezterm-nvim.lua
+- [ ] which-key-nvim.lua
+- [ ] zen-mode-nvim.lua
+
