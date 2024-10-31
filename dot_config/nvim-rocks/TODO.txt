@@ -1,40 +1,3 @@
-- [x] 2048-nvim.lua
-- [x] accelerated-jk-nvim.lua
-- [x] alpha-nvim.lua
-- [x] barbar-nvim.lua
-- [x] buffer-reopen-nvim.lua
-- [x] calendar-vim.lua
-- [x] ccc-nvim.lua
-- [x] chezmoi-vim.lua
-- [x] codecompanion-nvim.lua
-- [x] comment-nvim.lua
-- [x] ~~conform-nvim.lua~~
-    - Remove
-- [x] ~~context-menu-nvim.lua~~
-    - Remove
-- [ ] copilot.lua
-- [ ] copilotchat-nvim.lua
-- [ ] crates-nvim.lua
-- [ ] dial-nvim.lua
-- [ ] diffview-nvim.lua
-- [ ] dotfyle-metadata-nvim.lua
-- [ ] dressing-nvim.lua
-- [ ] eskk-vim.lua
-- [ ] fidget.lua
-- [ ] flagmode-nvim.lua
-- [ ] garbage-day-nvim.lua
-- [ ] gitgraph-nvim.lua
-- [ ] gitsigns-nvim.lua
-- [ ] glow-nvim.lua
-- [ ] grapple-nvim.lua
-- [ ] guard-nvim.lua
-- [ ] hardtime-nvim.lua
-- [ ] haunt-nvim.lua
-- [ ] hawtkeys-nvim.lua
-- [ ] helpview-nvim.lua
-- [ ] hop-nvim.lua
-- [ ] hover-nvim.lua
-- [ ] huez-nvim.lua
 - [ ] human-rights-nvim.lua
 - [ ] indent-blankline.lua
 - [ ] keyseer-nvim.lua
@@ -113,3 +76,44 @@
 - [ ] which-key-nvim.lua
 - [ ] zen-mode-nvim.lua
 
+## Finished
+- [x] 2048-nvim.lua
+- [x] accelerated-jk-nvim.lua
+- [x] alpha-nvim.lua
+- [x] barbar-nvim.lua
+- [x] buffer-reopen-nvim.lua
+- [x] calendar-vim.lua
+- [x] ccc-nvim.lua
+- [x] chezmoi-vim.lua
+- [x] codecompanion-nvim.lua
+- [x] comment-nvim.lua
+- [x] ~~conform-nvim.lua~~
+    - Remove
+- [x] ~~context-menu-nvim.lua~~
+    - Remove
+- [x] copilot.lua
+- [x] copilotchat-nvim.lua
+- [x] crates-nvim.lua
+- [x] dial-nvim.lua
+- [x] diffview-nvim.lua
+- [x] dotfyle-metadata-nvim.lua
+- [x] dressing-nvim.lua
+- [x] eskk-vim.lua
+- [x] fidget.lua
+- [x] flagmode-nvim.lua
+- [x] garbage-day-nvim.lua
+- [x] gitgraph-nvim.lua
+- [x] gitsigns-nvim.lua
+- [x] glow-nvim.lua
+- [x] ~~grapple-nvim.lua~~
+    - Remove
+- [x] ~~guard-nvim.lua~~
+    - Remove
+- [x] hardtime-nvim.lua
+- [x] haunt-nvim.lua
+- [x] hawtkeys-nvim.lua
+- [x] helpview-nvim.lua
+- [x] hop-nvim.lua
+- [x] hover-nvim.lua
+- [x] ~~huez-nvim.lua~~
+    - Remove

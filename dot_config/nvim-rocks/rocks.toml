@@ -1,0 +1,334 @@
+[dev]
+path = "~/ghq/github.com/mimikun/dev-plugins"
+
+[rocks]
+
+[plugins]
+"rocks.nvim" = "2.40.4"
+"rocks-git.nvim" = "2.5.0"
+"rocks-lazy.nvim" = "1.1.1"
+"rocks-edit.nvim" = "scm"
+"rocks-config.nvim" = "3.0.0"
+"rocks-dev.nvim" = "1.7.0"
+"rocks-treesitter.nvim" = "1.1.3"
+
+# NOTE: colorschemes
+[plugins."transparent.nvim"]
+git = "xiyaowong/transparent.nvim"
+cmd = [
+  "TransparentEnable",
+  "TransparentDisable",
+  "TransparentToggle",
+]
+config = true
+
+[plugins."tokyonight.nvim"]
+#git = "folke/tokyonight.nvim"
+version = "4.9.0"
+colorscheme = [
+  "tokyonight",
+  "tokyonight-moon",
+  "tokyonight-storm",
+  "tokyonight-night",
+  "tokyonight-day",
+]
+opt = false
+
+#------------------------------------------------------------------------------------
+
+# NOTE: Vim Script Plugins
+[plugins.calendar-vim]
+git = "mattn/calendar-vim"
+cmd = "Calendar"
+
+[plugins."chezmoi.vim"]
+git = "alker0/chezmoi.vim"
+
+[plugins."eskk.vim"]
+git = "vim-skk/eskk.vim"
+cmd = [
+  "EskkMap",
+  "EskkUnmap",
+  "EskkForgetRegisteredWords",
+  "EskkUpdateDictionary",
+  "EskkFixDictionary",
+  "EskkReload",
+  "EskkEnable",
+  "EskkDisable",
+  "EskkToggle",
+]
+#------------------------------------------------------------------------------------
+
+[plugins.alpha-nvim]
+git = "goolord/alpha-nvim"
+#version = "scm"
+cmd = "Alpha"
+event = "VimEnter"
+
+[plugins.nvim-web-devicons]
+#git = "nvim-tree/nvim-web-devicons"
+version = "0.100"
+
+[plugins."plenary.nvim"]
+#git = "nvim-lua/plenary.nvim"
+version = "scm"
+
+[plugins."2048.nvim"]
+#git = "NStefan002/2048.nvim"
+version = "2.8.2"
+cmd = "Play2048"
+config = true
+
+[plugins."accelerated-jk.nvim"]
+git = "rainbowhxch/accelerated-jk.nvim"
+event = "BufRead"
+
+[plugins."barbar.nvim"]
+git = "romgrk/barbar.nvim"
+cmd = [
+  "BufferPrevious",
+  "BufferNext",
+  "BufferMovePrevious",
+  "BufferMoveNext",
+  "BufferGoto",
+  "BufferLast",
+  "BufferPin",
+  "BufferClose",
+  "BufferRestore",
+  "BufferWipeout",
+  "BufferCloseAllButCurrent",
+  "BufferCloseAllButVisible",
+  "BufferCloseAllButPinned",
+  "BufferCloseAllButCurrentOrPinned",
+  "BufferCloseBuffersLeft",
+  "BufferCloseBuffersRight",
+  "BufferPick",
+  "BufferPickDelete",
+  "BufferOrderByBufferNumber",
+  "BufferOrderByName",
+  "BufferOrderByDirectory",
+  "BufferOrderByLanguage",
+  "BufferOrderByWindowNumber",
+  "BarbarEnable",
+  "BarbarDisable",
+]
+event = "BufEnter"
+
+[plugins."buffer-reopen.nvim"]
+git = "iamyoki/buffer-reopen.nvim"
+cmds = "BufferHistory"
+
+[plugins."ccc.nvim"]
+git = "uga-rosa/ccc.nvim"
+# NOTE: v1.6.0 has deprecated message, use latest
+#version = "1.6.0"
+cmd = [
+  "CccPick",
+  "CccConvert",
+  "CccHighlighterEnable",
+  "CccHighlighterDisable",
+  "CccHighlighterToggle",
+]
+event = "BufEnter"
+
+# TODO: very difficult
+#{{ if (or (and (eq .chezmoi.os "linux") (eq .chezmoi.hostname "azusa")) (and (eq .chezmoi.os "windows") (eq .chezmoi.hostname "TanakaPC"))) }}
+## NOTE: only be enabled at Home-azusa and Work-Windows
+#[plugins."codecompanion.nvim"]
+#git = "olimorris/codecompanion.nvim"
+#cmds = [
+#  "CodeCompanion",
+#  "CodeCompanionActions",
+#  "CodeCompanionChat",
+#]
+#{{ end }}
+
+[plugins."telescope.nvim"]
+#git = "nvim-telescope/telescope.nvim"
+version = "scm"
+
+# NOTE: "hrsh7th/nvim-cmp" replacement
+[plugins."magazine.nvim"]
+name = "nvim-cmp"
+#git = "iguanacucumber/magazine.nvim"
+version = "0.2.1"
+
+[plugins."comment.nvim"]
+#git = "numToStr/Comment.nvim"
+version = "0.8.0"
+
+[plugins.nvim-ts-context-commentstring]
+#git = "JoosepAlviste/nvim-ts-context-commentstring"
+version = "scm"
+
+# TODO: very difficults
+#{{ if  (ne .chezmoi.hostname "TanakaPC") }}
+## NOTE: only be enabled at Home-machines
+#[plugins."copilot.lua"]
+##git = "zbirenbaum/copilot.lua"
+#version = "scm"
+#cmd = "Copilot"
+#event = "InsertEnter"
+#
+#[plugins."CopilotChat.nvim"]
+#git = "CopilotC-Nvim/CopilotChat.nvim"
+## Only on MacOS or Linux
+#{{ if  (ne .chezmoi.os "windows") }}
+#build = "make tiktoken"
+#{{ end }}
+#branch = "canary"
+#cmd = [
+#  "CopilotChat",
+#  "CopilotChatOpen",
+#  "CopilotChatClose",
+#  "CopilotChatToggle",
+#  "CopilotChatStop",
+#  "CopilotChatReset",
+#  "CopilotChatSave",
+#  "CopilotChatLoad",
+#  "CopilotChatDebugInfo",
+#  "CopilotChatModels",
+#  "CopilotChatModel",
+#  "CopilotChatExplain",
+#  "CopilotChatReview",
+#  "CopilotChatFix",
+#  "CopilotChatOptimize",
+#  "CopilotChatDocs",
+#  "CopilotChatTests",
+#  "CopilotChatFixDiagnostic",
+#  "CopilotChatCommit",
+#  "CopilotChatCommitStaged",
+#]
+#config = true
+#{{ end }}
+
+[plugins."crates.nvim"]
+git = "saecki/crates.nvim"
+cmd = "Crates"
+event = "BufRead Cargo.toml"
+
+[plugins."dial.nvim"]
+git = "monaqa/dial.nvim"
+#version = "0.4.0"
+cmd = [
+  "DialIncrement",
+  "DialDecrement",
+]
+#event = "VeryLazy"
+
+[plugins."diffview.nvim"]
+#git = "sindrets/diffview.nvim"
+version = "scm"
+cmd = [
+  "DiffviewOpen",
+  "DiffviewFileHistory",
+  "DiffviewClose",
+  "DiffviewToggleFiles",
+  "DiffviewFocusFiles",
+  "DiffviewRefresh",
+  "DiffviewLog",
+]
+
+[plugins."dotfyle-metadata.nvim"]
+git = "creativenull/dotfyle-metadata.nvim"
+cmd = [
+  "DotfyleGenerate",
+  "DotfyleOpen",
+]
+
+[plugins."dressing.nvim"]
+#git = "stevearc/dressing.nvim"
+version = "3.0.0"
+
+[plugins."fidget.nvim"]
+#git = "j-hui/fidget.nvim"
+version = "1.4.1"
+cmd = "Fidget"
+#event = "VeryLazy"
+
+[plugins."flagmode.nvim"]
+git = "prichrd/flagmode.nvim"
+cmd = [
+  "FlagToggle",
+  "FlagActivate",
+  "FlagDeactivate",
+]
+
+[plugins."garbage-day.nvim"]
+git = "zeioth/garbage-day.nvim"
+#event = "VeryLazy"
+
+[plugins.nvim-lspconfig]
+#git = "neovim/nvim-lspconfig"
+version = "1.0.0"
+
+[plugins."gitgraph.nvim"]
+git = "isakbm/gitgraph.nvim"
+cmd = "GitGraph"
+
+[plugins."gitsigns.nvim"]
+git = "lewis6991/gitsigns.nvim"
+#version = "0.9.0"
+event = "VimEnter"
+
+[plugins."glow.nvim"]
+#git = "ellisonleao/glow.nvim"
+"glow.nvim" = "0.2.0"
+cmd = "Glow"
+config = true
+
+[plugins."hardtime.nvim"]
+#git = "m4xshen/hardtime.nvim"
+version = "scm"
+cmd = "Hardtime"
+
+[plugins."nui.nvim"]
+#git = "MunifTanjim/nui.nvim"
+version = "0.3.0"
+
+[plugins."hawtkeys.nvim"]
+git = "tris203/hawtkeys.nvim"
+cmd = [
+  "Hawtkeys",
+  "HawtkeysAll",
+  "HawtkeysDupes",
+]
+
+[plugins."haunt.nvim"]
+git = "adigitoleo/haunt.nvim"
+# NOTE: official repository
+#url = "https://git.sr.ht/~adigitoleo/haunt.nvim",
+cmd = [
+  "HauntTerm",
+  "HauntHelp",
+  "HauntMan",
+  "HauntLs",
+  "HauntReset",
+]
+
+[plugins."helpview.nvim"]
+version = "1.1.0"
+ft = "help"
+cmd = "Helpview"
+
+[plugins."hop.nvim"]
+git = "smoka7/hop.nvim"
+cmds = [
+  "HopWord",
+  "HopChar1",
+  "HopChar2",
+  "HopPattern",
+  "HopLine",
+  "HopLineStart",
+  "HopAnywhere",
+  "HopNodes",
+  "HopYankChar1",
+]
+
+[plugins."hover.nvim"]
+#git = "lewis6991/hover.nvim"
+version = "scm"
+#event = "VeryLazy"
+
+#------------------------------------------------------------------------------------
+

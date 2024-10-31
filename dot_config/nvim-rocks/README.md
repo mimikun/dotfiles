@@ -67,10 +67,10 @@ Run `:Rocks sync` and `:Rocks Sync`
 
 ## rocks.nvim and extensions
 
-[nvim-neorocks/rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim/)
-[nvim-neorocks/rocks-git.nvim](https://github.com/nvim-neorocks/rocks-git.nvim)
-[nvim-neorocks/rocks-lazy.nvim](https://github.com/nvim-neorocks/rocks-lazy.nvim)
-[nvim-neorocks/rocks-treesitter.nvim](https://github.com/nvim-neorocks/rocks-treesitter.nvim)
-[nvim-neorocks/rocks-config.nvim](https://github.com/nvim-neorocks/rocks-config.nvim)
-[nvim-neorocks/rocks-dev.nvim](https://github.com/nvim-neorocks/rocks-dev.nvim)
+- [nvim-neorocks/rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim/)
+- [nvim-neorocks/rocks-git.nvim](https://github.com/nvim-neorocks/rocks-git.nvim)
+- [nvim-neorocks/rocks-lazy.nvim](https://github.com/nvim-neorocks/rocks-lazy.nvim)
+- [nvim-neorocks/rocks-treesitter.nvim](https://github.com/nvim-neorocks/rocks-treesitter.nvim)
+- [nvim-neorocks/rocks-config.nvim](https://github.com/nvim-neorocks/rocks-config.nvim)
+- [nvim-neorocks/rocks-dev.nvim](https://github.com/nvim-neorocks/rocks-dev.nvim)
 
