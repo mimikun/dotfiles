@@ -1,32 +1,9 @@
-- [ ] human-rights-nvim.lua
-- [ ] indent-blankline.lua
-- [ ] keyseer-nvim.lua
-- [ ] lazydev-nvim.lua
-- [ ] lazydocker-nvim.lua
-- [ ] lazygit-nvim.lua
-- [ ] lazysql-nvim.lua
-- [ ] legendary-nvim.lua
-- [ ] lspsaga-nvim.lua
-- [ ] lualine-nvim.lua
-- [ ] luasnip.lua
-- [ ] luminate-nvim.lua
-- [ ] markdown-toggle-nvim.lua
-- [ ] markview-nvim.lua
-- [ ] mason-nvim.lua
-- [ ] migemo-search-vim.lua
-- [ ] mkdir-nvim.lua
-- [ ] moody-nvim.lua
-- [ ] neogit.lua
-- [ ] neominimap-nvim.lua
-- [ ] no-neck-pain-nvim.lua
-- [ ] noice.lua
-- [ ] none-ls-nvim.lua
-- [ ] num-utils-nvim.lua
+## NOW
 - [ ] nvim-autopairs.lua
 - [ ] nvim-bqf.lua
-- [ ] nvim-cmp.lua
-    - [ ] https://github.com/iguanacucumber/magazine.nvim
 - [ ] nvim-cursorline.lua
+
+## TODO
 - [ ] nvim-dap-ui.lua
 - [ ] nvim-ghost-nvim.lua
 - [ ] nvim-hlslens.lua
@@ -75,6 +52,13 @@
 - [ ] wezterm-nvim.lua
 - [ ] which-key-nvim.lua
 - [ ] zen-mode-nvim.lua
+- [ ] mason-nvim.lua
+    - atode
+- [ ] none-ls-nvim.lua
+    - atode
+- [ ] nvim-cmp.lua
+    - atode
+    - [ ] https://github.com/iguanacucumber/magazine.nvim
 
 ## Finished
 - [x] 2048-nvim.lua
@@ -117,3 +101,27 @@
 - [x] hover-nvim.lua
 - [x] ~~huez-nvim.lua~~
     - Remove
+- [x] ~~human-rights-nvim.lua~~
+    - Remove
+- [x] indent-blankline.lua
+- [x] keyseer-nvim.lua
+- [x] ~~lazydev-nvim.lua~~
+    - Remove
+- [x] lazydocker-nvim.lua
+- [x] lazygit-nvim.lua
+- [x] lazysql-nvim.lua
+- [x] legendary-nvim.lua
+- [x] lspsaga-nvim.lua
+- [x] lualine-nvim.lua
+- [x] luasnip.lua
+- [x] luminate-nvim.lua
+- [x] markdown-toggle-nvim.lua
+- [x] markview-nvim.lua
+- [x] migemo-search-vim.lua
+- [x] mkdir-nvim.lua
+- [x] moody-nvim.lua
+- [x] neogit.lua
+- [x] neominimap-nvim.lua
+- [x] no-neck-pain-nvim.lua
+- [x] noice.lua
+- [x] num-utils-nvim.lua

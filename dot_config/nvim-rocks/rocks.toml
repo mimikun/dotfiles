@@ -25,14 +25,6 @@ config = true
 [plugins."tokyonight.nvim"]
 #git = "folke/tokyonight.nvim"
 version = "4.9.0"
-colorscheme = [
-  "tokyonight",
-  "tokyonight-moon",
-  "tokyonight-storm",
-  "tokyonight-night",
-  "tokyonight-day",
-]
-opt = false
 
 #------------------------------------------------------------------------------------
 
@@ -161,7 +153,7 @@ version = "0.8.0"
 #git = "JoosepAlviste/nvim-ts-context-commentstring"
 version = "scm"
 
-# TODO: very difficults
+# TODO: very difficult
 #{{ if  (ne .chezmoi.hostname "TanakaPC") }}
 ## NOTE: only be enabled at Home-machines
 #[plugins."copilot.lua"]
@@ -330,5 +322,167 @@ cmds = [
 version = "scm"
 #event = "VeryLazy"
 
+[plugins."indent-blankline.nvim"]
+#git = "lukas-reineke/indent-blankline.nvim"
+version = "3.8.3"
+name = "ibl"
+cmd = [
+  "IBLEnable",
+  "IBLDisable",
+  "IBLToggle",
+  "IBLEnableScope",
+  "IBLDisableScope",
+  "IBLToggleScope"
+]
+event = "BufEnter"
+
+[plugins."keyseer.nvim"]
+git = "jokajak/keyseer.nvim"
+cmd = "KeySeer"
+
+[plugins."lazydocker.nvim"]
+git = "mgierada/lazydocker.nvim"
+cmd = "Lazydocker"
+event = "BufRead"
+
+[plugins."toggleterm.nvim"]
+#git = "akinsho/toggleterm.nvim"
+version = "2.12.0"
+
+[plugins."lazygit.nvim"]
+#git = "kdheepak/lazygit.nvim"
+version = "scm"
+cmd = [
+  "LazyGit",
+  "LazyGitConfig",
+  "LazyGitCurrentFile",
+  "LazyGitFilter",
+  "LazyGitFilterCurrentFile",
+]
+
+[plugins."lazysql.nvim"]
+git = "LostbBlizzard/lazysql.nvim"
+cmd = "LazySql"
+
+[plugins."legendary.nvim"]
+#git = "mrjones2014/legendary.nvim"
+version = "2.13.11"
+cmd = [
+  "Legendary",
+  "LegendaryRepeat",
+]
+
+[plugins."sqlite.lua"]
+#git = "kkharji/sqlite.lua"
+version = "1.2.2"
+
+[plugins."lspsaga.nvim"]
+#git = "nvimdev/lspsaga.nvim"
+version = "scm"
+cmd = "Lspsaga"
+event = "LspAttach"
+
+[plugins."lualine.nvim"]
+#git = "nvim-lualine/lualine.nvim"
+version = "scm"
+event = "BufEnter"
+
+[plugins.nvim-navic]
+#git = "SmiteshP/nvim-navic"
+version = "scm"
+
+[plugins.luasnip]
+#git = "L3MON4D3/LuaSnip"
+version = "2.3.0"
+#{{ if  (ne .chezmoi.os "windows") }}
+# TODO: comment out
+build = "make install_jsregexp"
+#{{ end }}
+
+[plugins.cmp_luasnip]
+#git = "saadparwaiz1/cmp_luasnip"
+version = "scm"
+
+[plugins.friendly-snippets]
+#git = "rafamadriz/friendly-snippets"
+version = "scm"
+
+[plugins."luminate.nvim"]
+git = "mei28/luminate.nvim"
+#event = "VeryLazy"
+config = true
+
+# NOTE: has bug
+#[plugins."markdown-toggle.nvim"]
+#git = "roodolv/markdown-toggle.nvim"
+#ft = ["markdown", "markdown.mdx"]
+
+[plugins."markview.nvim"]
+#git = "OXY2DEV/markview.nvim"
+version = "24.0.0"
+cmd = "Markview"
+event = "BufEnter"
+
+# TODO: very difficult
+#[plugins."mason.nvim"]
+#version = "1.10.0"
+
+[plugins."migemo-search.vim"]
+git = "rhysd/migemo-search.vim"
+
+[plugins."mkdir.nvim"]
+git = "jghauser/mkdir.nvim"
+
+[plugins."moody.nvim"]
+git = "svampkorg/moody.nvim"
+event = ["ModeChanged", "BufWinEnter", "WinEnter"]
+
+[plugins.neogit]
+#git = "NeogitOrg/neogit"
+version = "1.0.0"
+cmd = "Neogit"
+
+[plugins."neominimap.nvim"]
+git = "Isrothy/neominimap.nvim"
+cmd = "Neominimap"
+
+[plugins."no-neck-pain.nvim"]
+#git = "shortcuts/no-neck-pain.nvim"
+version = "2.0.6"
+cmd = [
+  "NoNeckPain",
+  "NoNeckPainResize",
+  "NoNeckPainToggleLeftSide",
+  "NoNeckPainToggleRightSide",
+  "NoNeckPainWidthUp",
+  "NoNeckPainWidthDown",
+]
+
 #------------------------------------------------------------------------------------
 
+[plugins.nvim-notify]
+#git = "rcarriga/nvim-notify"
+version = "3.14.0"
+
+[plugins."noice.nvim"]
+#git = "folke/noice.nvim"
+version = "4.5.2"
+#event = "VeryLazy"
+cmd = [
+  "Noice",
+  "NoiceLast",
+  "NoiceDisable",
+]
+
+[plugins.nvim-autopairs]
+version = "scm"
+
+[plugins."num-utils.nvim"]
+git = "mimikun/num-utils.nvim"
+cmd = [
+  "NumToHex",
+  "NumToBinary",
+  "NumToOctal",
+  "NumToDecimal",
+]
+config = true

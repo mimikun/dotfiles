@@ -125,6 +125,11 @@ morning-routine : clean-fetch delete-branch pull patch-branch
 env-reset :
 	bash utils/env-reset.sh
 
+## Run update
+.PHONY : update
+update :
+	chezmoi add .
+
 ## Show help
 .PHONY : help
 help :
