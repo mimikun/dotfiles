@@ -265,7 +265,7 @@ event = "VimEnter"
 
 [plugins."glow.nvim"]
 #git = "ellisonleao/glow.nvim"
-"glow.nvim" = "0.2.0"
+version = "0.2.0"
 cmd = "Glow"
 config = true
 
@@ -387,10 +387,6 @@ event = "LspAttach"
 version = "scm"
 event = "BufEnter"
 
-[plugins.nvim-navic]
-#git = "SmiteshP/nvim-navic"
-version = "scm"
-
 [plugins.luasnip]
 #git = "L3MON4D3/LuaSnip"
 version = "2.3.0"
@@ -458,8 +454,6 @@ cmd = [
   "NoNeckPainWidthDown",
 ]
 
-#------------------------------------------------------------------------------------
-
 [plugins.nvim-notify]
 #git = "rcarriga/nvim-notify"
 version = "3.14.0"
@@ -474,9 +468,6 @@ cmd = [
   "NoiceDisable",
 ]
 
-[plugins.nvim-autopairs]
-version = "scm"
-
 [plugins."num-utils.nvim"]
 git = "mimikun/num-utils.nvim"
 cmd = [
@@ -486,3 +477,56 @@ cmd = [
   "NumToDecimal",
 ]
 config = true
+
+[plugins.nvim-autopairs]
+#git = "windwp/nvim-autopairs"
+version = "scm"
+event = "InsertEnter"
+
+[plugins.nvim-bqf]
+#git = "kevinhwang91/nvim-bqf"
+version = "1.1.1"
+ft = "qf"
+cmd = [
+  "BqfEnable",
+  "BqfDisable",
+  "BqfToggle",
+  "BqfAutoToggle",
+]
+
+[plugins.nvim-cursorline]
+#git = "yamatsum/nvim-cursorline"
+version = "scm"
+
+[plugins.nvim-dap]
+#git = "mfussenegger/nvim-dap"
+version = "0.8.0"
+
+[plugins.nvim-nio]
+#git = "nvim-neotest/nvim-nio"
+version = "1.10.0"
+
+[plugins.nvim-dap-ui]
+#git = "rcarriga/nvim-dap-ui"
+version = "4.0.0"
+
+[plugins."nvim-ghost.nvim"]
+git = "subnut/nvim-ghost.nvim"
+cmd = "GhostTextStart"
+
+[plugins.nvim-hlslens]
+git = "kevinhwang91/nvim-hlslens"
+cmd = [
+  "HlSearchLensToggle",
+  "HlSearchLensEnable",
+  "HlSearchLensDisable",
+]
+
+#------------------------------------------------------------------------------------
+[plugins.nvim-navbuddy]
+git = "SmiteshP/nvim-navbuddy"
+cmd = "Navbuddy"
+
+[plugins.nvim-navic]
+#git = "SmiteshP/nvim-navic"
+version = "scm"

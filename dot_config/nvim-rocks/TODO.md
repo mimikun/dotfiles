@@ -1,30 +1,22 @@
 ## NOW
-- [ ] nvim-autopairs.lua
-- [ ] nvim-bqf.lua
-- [ ] nvim-cursorline.lua
-
-## TODO
-- [ ] nvim-dap-ui.lua
-- [ ] nvim-ghost-nvim.lua
-- [ ] nvim-hlslens.lua
-- [ ] nvim-lint.lua
-- [ ] nvim-lspconfig.lua
-- [ ] nvim-navbuddy.lua
-- [ ] nvim-navic.lua
-- [ ] nvim-notify.lua
 - [ ] nvim-surround.lua
 - [ ] nvim-tree.lua
-- [ ] nvim-treesitter.lua
+- [x] ~~nvim-treesitter.lua~~
+    - Remove
 - [ ] nvim-ts-context-commentstring.lua
+
+## TODO
 - [ ] obsidian-kensaku-nvim.lua
 - [ ] obsidian-nvim.lua
 - [ ] octo-nvim.lua
 - [ ] oil-git-status-nvim.lua
 - [ ] oil-nvim.lua
-- [ ] orgmode.lua
+- [ ] ~~orgmode.lua~~
+    - Remove
 - [ ] overseer.lua
 - [ ] package-info-nvim.lua
-- [ ] persistence-nvim.lua
+- [ ] ~~persistence-nvim.lua~~
+    - Remove
 - [ ] render-markdown-nvim.lua
 - [ ] rustaceanvim.lua
 - [ ] satellite-nvim.lua
@@ -59,6 +51,8 @@
 - [ ] nvim-cmp.lua
     - atode
     - [ ] https://github.com/iguanacucumber/magazine.nvim
+- [ ] nvim-lspconfig.lua
+    - atode
 
 ## Finished
 - [x] 2048-nvim.lua
@@ -125,3 +119,14 @@
 - [x] no-neck-pain-nvim.lua
 - [x] noice.lua
 - [x] num-utils-nvim.lua
+- [x] nvim-autopairs.lua
+- [x] nvim-bqf.lua
+- [x] nvim-cursorline.lua
+- [x] nvim-dap-ui.lua
+- [x] nvim-ghost-nvim.lua
+- [x] nvim-hlslens.lua
+- [x] ~~nvim-lint.lua~~
+    - Remove
+- [x] nvim-navbuddy.lua
+- [x] nvim-navic.lua
+- [x] nvim-notify.lua
