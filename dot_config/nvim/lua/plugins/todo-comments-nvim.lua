@@ -28,7 +28,7 @@ local opts = {
     -- * keyword: highlights of the keyword
     -- * after: highlights after the keyword (todo text)
     highlight = {
-        -- enable multine todo comments
+        -- enable multiline todo comments
         multiline = false,
         -- lua pattern to match the next multiline from the start of the matched keyword
         multiline_pattern = "^.",
