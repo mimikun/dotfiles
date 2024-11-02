@@ -1,19 +1,11 @@
 ## NOW
-- [ ] nvim-surround.lua
-- [ ] nvim-tree.lua
-- [x] ~~nvim-treesitter.lua~~
-    - Remove
-- [ ] nvim-ts-context-commentstring.lua
-
-## TODO
-- [ ] obsidian-kensaku-nvim.lua
-- [ ] obsidian-nvim.lua
-- [ ] octo-nvim.lua
 - [ ] oil-git-status-nvim.lua
 - [ ] oil-nvim.lua
 - [ ] ~~orgmode.lua~~
     - Remove
 - [ ] overseer.lua
+
+## TODO
 - [ ] package-info-nvim.lua
 - [ ] ~~persistence-nvim.lua~~
     - Remove
@@ -30,7 +22,7 @@
 - [ ] todo-comments-nvim.lua
 - [ ] toggle-nvim.lua
 - [ ] translate-nvim.lua
-- [ ] transparent-nvim.lua
+- [x] transparent-nvim.lua
 - [ ] treesj.lua
 - [ ] trouble.lua
 - [ ] typos-nvim.lua
@@ -52,6 +44,8 @@
     - atode
     - [ ] https://github.com/iguanacucumber/magazine.nvim
 - [ ] nvim-lspconfig.lua
+    - atode
+- [ ] obsidian-kensaku-nvim.lua
     - atode
 
 ## Finished
@@ -130,3 +124,10 @@
 - [x] nvim-navbuddy.lua
 - [x] nvim-navic.lua
 - [x] nvim-notify.lua
+- [x] nvim-surround.lua
+- [x] nvim-tree.lua
+- [x] ~~nvim-treesitter.lua~~
+    - Remove
+- [x] nvim-ts-context-commentstring.lua
+- [x] obsidian-nvim.lua
+- [x] octo-nvim.lua

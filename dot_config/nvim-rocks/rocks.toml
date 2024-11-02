@@ -12,9 +12,57 @@ path = "~/ghq/github.com/mimikun/dev-plugins"
 "rocks-dev.nvim" = "1.7.0"
 "rocks-treesitter.nvim" = "1.1.3"
 
+[plugins."oil.nvim"]
+version = "2.12.2"
+opt = true
+
+[plugins."overseer.nvim"]
+version = "1.4.0"
+opt = true
+
+[plugins."package-info.nvim"]
+version = "2.0"
+opt = true
+
+[plugins."render-markdon.nvim"]
+version = "7.4.0"
+opt = true
+
+[plugins.rustaceanvim]
+version = "5.13.1"
+opt = true
+
+[plugins."screenkey.nvim"]
+version = "2.2.1"
+opt = true
+
+[plugins."smart-open.nvim"]
+version = "scm"
+opt = true
+
+[plugins."smoothcursor.nvim"]
+version = "scm"
+opt = true
+
+[plugins."todo-comments.nvim"]
+version = "1.4.0"
+opt = true
+
+[plugins.treesj]
+version = "scm"
+opt = true
+
+[plugins."trouble.nvim"]
+version = "3.6.0"
+opt = true
+
+[plugins."zen-mode.nvim"]
+version = "1.4.0"
+opt = true
+
 # NOTE: colorschemes
 [plugins."transparent.nvim"]
-git = "xiyaowong/transparent.nvim"
+git = "xiyaoong/transparent.nvim"
 cmd = [
   "TransparentEnable",
   "TransparentDisable",
@@ -148,10 +196,6 @@ version = "0.2.1"
 [plugins."comment.nvim"]
 #git = "numToStr/Comment.nvim"
 version = "0.8.0"
-
-[plugins.nvim-ts-context-commentstring]
-#git = "JoosepAlviste/nvim-ts-context-commentstring"
-version = "scm"
 
 # TODO: very difficult
 #{{ if  (ne .chezmoi.hostname "TanakaPC") }}
@@ -522,7 +566,6 @@ cmd = [
   "HlSearchLensDisable",
 ]
 
-#------------------------------------------------------------------------------------
 [plugins.nvim-navbuddy]
 git = "SmiteshP/nvim-navbuddy"
 cmd = "Navbuddy"
@@ -530,3 +573,80 @@ cmd = "Navbuddy"
 [plugins.nvim-navic]
 #git = "SmiteshP/nvim-navic"
 version = "scm"
+
+[plugins."surround-ui.nvim"]
+git = "roobert/surround-ui.nvim"
+
+[plugins."which-key.nvim"]
+version = "3.13.3"
+
+[plugins.nvim-surround]
+#git = "kylechui/nvim-surround"
+version = "2.1.5"
+
+[plugins."nvim-tree-preview.lua"]
+git = "b0o/nvim-tree-preview.lua"
+
+[plugins."nvim-tree.lua"]
+#git = "nvim-tree/nvim-tree.lua"
+version = "1.6.0"
+cmd = [
+  "NvimTreeOpen",
+  "NvimTreeClose",
+  "NvimTreeToggle",
+  "NvimTreeFocus",
+  "NvimTreeRefresh",
+  "NvimTreeFindFile",
+  "NvimTreeFindFileToggle",
+  "NvimTreeClipboard",
+  "NvimTreeResize",
+  "NvimTreeCollapse",
+  "NvimTreeCollapseKeepBuffers",
+  "NvimTreeHiTest",
+]
+
+[plugins.nvim-ts-context-commentstring]
+#git = "JoosepAlviste/nvim-ts-context-commentstring"
+version = "scm"
+
+#------------------------------------------------------------------------------------
+[plugins."obsidian.nvim"]
+#git = "epwalsh/obsidian.nvim"
+version = "3.9.0"
+ft = "markdown"
+cmd = [
+  "ObsidianOpen",
+  "ObsidianNew",
+  "ObsidianQuickSwitch",
+  "ObsidianFollowLink",
+  "ObsidianBacklinks",
+  "ObsidianTags",
+  "ObsidianToday",
+  "ObsidianYesterday",
+  "ObsidianTomorrow",
+  "ObsidianDailies",
+  "ObsidianTemplate",
+  "ObsidianSearch",
+  "ObsidianLink",
+  "ObsidianLinkNew",
+  "ObsidianLinks",
+  "ObsidianExtractNote",
+  "ObsidianWorkspace",
+  "ObsidianPasteImg",
+  "ObsidianRename",
+  "ObsidianToggleCheckbox",
+  "ObsidianNewFromTemplate",
+  "ObsidianTOC",
+  "ObsidianCheck",
+  "ObsidianDebug",
+]
+#vault_path = vim.fn.expand("$obsidian_vault_path")
+#event = [
+#  "BufReadPre " .. vault_path .. "/**.md",
+#  "BufNewFile " .. vault_path .. "/**.md",
+#]
+
+[plugins."octo.nvim"]
+#git = "pwntester/octo.nvim"
+version = "scm"
+cmd = "Octo"
