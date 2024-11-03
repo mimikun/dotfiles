@@ -28,4 +28,4 @@ local opts = {
     },
 }
 
-require('satellite').setup(opts)
+require("satellite").setup(opts)

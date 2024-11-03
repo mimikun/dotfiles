@@ -5,4 +5,4 @@ local opts = {
     temp_dir = table.concat({ global.vim_path, "templates" }, global.path_sep),
 }
 
-require('template').setup(opts)
+require("template").setup(opts)

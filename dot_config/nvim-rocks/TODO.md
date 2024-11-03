@@ -1,13 +1,10 @@
 ## NOW
-- [ ] treesj.lua
-- [ ] trouble.lua
-- [ ] typos-nvim.lua
-
-## TODO
 - [ ] vim-ambiwidth.lua
 - [ ] vim-cargo-make.lua
 - [ ] vim-illuminate.lua
 - [ ] vim-kitty.lua
+
+## TODO
 - [ ] vim-quickrun.lua
 - [ ] vim-teraterm.lua
 - [ ] vimdoc-ja.lua
@@ -133,3 +130,6 @@
 - [x] ~~translate-nvim.lua~~
     - Remove
 - [x] transparent-nvim.lua
+- [x] treesj.lua
+- [x] trouble.lua
+- [x] typos-nvim.lua

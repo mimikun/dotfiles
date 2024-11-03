@@ -33,4 +33,4 @@ local opts = {
     },
 }
 
-require('smoothcursor').setup(opts)
+require("smoothcursor").setup(opts)

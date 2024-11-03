@@ -12,10 +12,6 @@ path = "~/ghq/github.com/mimikun/dev-plugins"
 "rocks-dev.nvim" = "1.7.0"
 "rocks-treesitter.nvim" = "1.1.3"
 
-[plugins.treesj]
-version = "scm"
-opt = true
-
 [plugins."zen-mode.nvim"]
 version = "1.4.0"
 opt = true
@@ -727,12 +723,24 @@ cmd = [
 ]
 event = "BufEnter"
 
-[plugins."trouble.nvim"]
-#git = "folke/trouble.nvim"
-version = "3.6.0"
-
 [plugins."toggle.nvim"]
 git = "gregorias/toggle.nvim"
 #event = "VeryLazy"
 
 #------------------------------------------------------------------------------------
+[plugins.treesj]
+#git = "Wansmer/treesj"
+version = "scm"
+cmd = [
+  "TSJToggle",
+  "TSJSplit",
+  "TSJoin",
+]
+
+[plugins."trouble.nvim"]
+#git = "folke/trouble.nvim"
+version = "3.6.0"
+cmd = "Trouble"
+
+[plugins."typos.nvim"]
+git = "poljar/typos.nvim"
