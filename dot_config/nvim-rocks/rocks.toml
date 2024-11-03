@@ -727,7 +727,6 @@ event = "BufEnter"
 git = "gregorias/toggle.nvim"
 #event = "VeryLazy"
 
-#------------------------------------------------------------------------------------
 [plugins.treesj]
 #git = "Wansmer/treesj"
 version = "scm"
@@ -744,3 +743,44 @@ cmd = "Trouble"
 
 [plugins."typos.nvim"]
 git = "poljar/typos.nvim"
+# TODO: remove
+opt = true
+
+[plugins.vim-ambiwidth]
+git = "rbtnn/vim-ambiwidth"
+
+[plugins.vim-toml]
+git = "cespare/vim-toml"
+
+[plugins.vim-duckscript]
+git = "nastevens/vim-duckscript"
+
+[plugins.vim-cargo-make]
+git = "nastevens/vim-cargo-make"
+ft = "cargo-make"
+
+[plugins.vim-illuminate]
+git = "RRethy/vim-illuminate"
+cmd = [
+  "IlluminatePause",
+  "IlluminateResume",
+  "IlluminateToggle",
+  "IlluminatePauseBuf",
+  "IlluminateResumeBuf",
+  "IlluminateToggleBuf",
+]
+
+[plugins.vim-kitty]
+git = "fladson/vim-kitty"
+ft = "kitty"
+
+[plugins.vim-quickrun]
+git = "thinca/vim-quickrun"
+cmd = "QuickRun"
+
+[plugins.vim-teraterm]
+git = "k-takata/vim-teraterm"
+ft = "ttl"
+
+#------------------------------------------------------------------------------------
+

@@ -1,16 +1,10 @@
 ## NOW
-- [ ] vim-ambiwidth.lua
-- [ ] vim-cargo-make.lua
-- [ ] vim-illuminate.lua
-- [ ] vim-kitty.lua
-
-## TODO
-- [ ] vim-quickrun.lua
-- [ ] vim-teraterm.lua
 - [ ] vimdoc-ja.lua
 - [ ] wezterm-nvim.lua
 - [ ] which-key-nvim.lua
 - [ ] zen-mode-nvim.lua
+
+## TODO
 - [ ] mason-nvim.lua
     - atode
 - [ ] none-ls-nvim.lua
@@ -133,3 +127,9 @@
 - [x] treesj.lua
 - [x] trouble.lua
 - [x] typos-nvim.lua
+- [x] vim-ambiwidth.lua
+- [x] vim-cargo-make.lua
+- [x] vim-illuminate.lua
+- [x] vim-kitty.lua
+- [x] vim-quickrun.lua
+- [x] vim-teraterm.lua

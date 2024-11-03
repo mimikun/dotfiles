@@ -5,7 +5,8 @@ local opts = {
     sections = {
         "datetime",
         "git",
-        "diagnostics",
+        -- TODO: uncomment
+        --"diagnostics",
     },
     datetime = { format = "%a %b %d, %H:%M", clocks = { { name = "local" } } },
 }

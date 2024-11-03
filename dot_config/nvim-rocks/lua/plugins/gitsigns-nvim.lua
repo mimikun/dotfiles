@@ -9,6 +9,7 @@ gitsigns.setup({
         changedelete = { text = "~" },
         untracked = { text = "┆" },
     },
+    -- TODO: uncomment
     -- signs_staged = {
     --     add = { text = "┃" },
     --     change = { text = "┃" },
