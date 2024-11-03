@@ -1,16 +1,10 @@
 ## NOW
-- [x] sidebar-nvim.lua
-- [x] smart-open-nvim.lua
-- [ ] smoothcursor-nvim.lua
-- [ ] sqlite.lua
-- [ ] telescope-nvim.lua
-    - atode
-
-## TODO
 - [ ] template-nvim.lua
 - [ ] todo-comments-nvim.lua
 - [ ] toggle-nvim.lua
 - [ ] translate-nvim.lua
+
+## TODO
 - [x] transparent-nvim.lua
 - [ ] treesj.lua
 - [ ] trouble.lua
@@ -35,6 +29,8 @@
 - [ ] nvim-lspconfig.lua
     - atode
 - [ ] obsidian-kensaku-nvim.lua
+    - atode
+- [ ] telescope-nvim.lua
     - atode
 
 ## Finished
@@ -132,3 +128,7 @@
 - [x] rustaceanvim.lua
 - [x] satellite-nvim.lua
 - [x] screenkey-nvim.lua
+- [x] sidebar-nvim.lua
+- [x] smart-open-nvim.lua
+- [x] smoothcursor-nvim.lua
+- [x] sqlite.lua

@@ -12,10 +12,6 @@ path = "~/ghq/github.com/mimikun/dev-plugins"
 "rocks-dev.nvim" = "1.7.0"
 "rocks-treesitter.nvim" = "1.1.3"
 
-[plugins."smoothcursor.nvim"]
-version = "scm"
-opt = true
-
 [plugins."todo-comments.nvim"]
 version = "1.4.0"
 opt = true
@@ -681,7 +677,6 @@ event = "VimEnter"
 version = "2.2.1"
 cmd = "Screenkey"
 
-#------------------------------------------------------------------------------------
 [plugins."sidebar.nvim"]
 git = "sidebar-nvim/sidebar.nvim"
 cmd = [
@@ -694,10 +689,6 @@ cmd = [
 ]
 event = "BufEnter"
 
-[plugins."sqlite.lua"]
-#git = "kkharji/sqlite.lua"
-version = "1.2.2"
-
 # TODO: very difficult
 #{{ if  (ne .chezmoi.hostname "TanakaPC") }}
 # NOTE: only be enabled at Home-machines
@@ -709,3 +700,24 @@ version = "1.2.2"
 [plugins."smart-open.nvim"]
 #git = "danielfalk/smart-open.nvim"
 version = "scm"
+
+#------------------------------------------------------------------------------------
+[plugins."smoothcursor.nvim"]
+#git = "gen740/SmoothCursor.nvim"
+version = "scm"
+cmd = [
+  "SmoothCursorStart",
+  "SmoothCursorStop",
+  "SmoothCursorStatus",
+  "SmoothCursorToggle",
+  "SmoothCursorFancyToggle",
+  "SmoothCursorFancyOn",
+  "SmoothCursorFancyOff",
+  "SmoothCursorDeleteSigns",
+  "SmoothCursorJump",
+]
+event = "BufEnter"
+
+[plugins."sqlite.lua"]
+#git = "kkharji/sqlite.lua"
+version = "1.2.2"
