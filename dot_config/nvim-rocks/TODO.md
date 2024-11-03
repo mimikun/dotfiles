@@ -1,18 +1,9 @@
 ## NOW
-- [ ] oil-git-status-nvim.lua
-- [ ] oil-nvim.lua
-- [ ] ~~orgmode.lua~~
-    - Remove
-- [ ] overseer.lua
-
-## TODO
-- [ ] package-info-nvim.lua
-- [ ] ~~persistence-nvim.lua~~
-    - Remove
-- [ ] render-markdown-nvim.lua
 - [ ] rustaceanvim.lua
 - [ ] satellite-nvim.lua
 - [ ] screenkey-nvim.lua
+
+## TODO
 - [ ] sidebar-nvim.lua
 - [ ] smart-open-nvim.lua
 - [ ] smoothcursor-nvim.lua
@@ -131,3 +122,12 @@
 - [x] nvim-ts-context-commentstring.lua
 - [x] obsidian-nvim.lua
 - [x] octo-nvim.lua
+- [x] oil-git-status-nvim.lua
+- [x] oil-nvim.lua
+- [x] ~~orgmode.lua~~
+    - Remove
+- [x] overseer.lua
+- [x] package-info-nvim.lua
+- [x] ~~persistence-nvim.lua~~
+    - Remove
+- [x] render-markdown-nvim.lua

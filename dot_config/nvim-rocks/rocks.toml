@@ -12,22 +12,6 @@ path = "~/ghq/github.com/mimikun/dev-plugins"
 "rocks-dev.nvim" = "1.7.0"
 "rocks-treesitter.nvim" = "1.1.3"
 
-[plugins."oil.nvim"]
-version = "2.12.2"
-opt = true
-
-[plugins."overseer.nvim"]
-version = "1.4.0"
-opt = true
-
-[plugins."package-info.nvim"]
-version = "2.0"
-opt = true
-
-[plugins."render-markdon.nvim"]
-version = "7.4.0"
-opt = true
-
 [plugins.rustaceanvim]
 version = "5.13.1"
 opt = true
@@ -609,7 +593,6 @@ cmd = [
 #git = "JoosepAlviste/nvim-ts-context-commentstring"
 version = "scm"
 
-#------------------------------------------------------------------------------------
 [plugins."obsidian.nvim"]
 #git = "epwalsh/obsidian.nvim"
 version = "3.9.0"
@@ -650,3 +633,45 @@ cmd = [
 #git = "pwntester/octo.nvim"
 version = "scm"
 cmd = "Octo"
+
+[plugins."oil-git-status.nvim"]
+git = "refractalize/oil-git-status.nvim"
+ft = "oil"
+
+[plugins."oil.nvim"]
+#git = "stevearc/oil.nvim"
+version = "2.12.2"
+cmd = "Oil"
+
+[plugins."overseer.nvim"]
+#git = "stevearc/overseer.nvim"
+version = "1.4.0"
+cmd = [
+  "OverseerOpen",
+  "OverseerClose",
+  "OverseerToggle",
+  "OverseerSaveBundle",
+  "OverseerLoadBundle",
+  "OverseerDeleteBundle",
+  "OverseerRunCmd",
+  "OverseerRun",
+  "OverseerInfo",
+  "OverseerBuild",
+  "OverseerQuickAction",
+  "OverseerTaskAction",
+  "OverseerClearCache",
+]
+
+[plugins."package-info.nvim"]
+#git = "vuki656/package-info.nvim"
+version = "2.0"
+event = "BufRead package.json"
+
+[plugins."render-markdon.nvim"]
+#git = "MeanderingProgrammer/render-markdown.nvim"
+version = "7.4.0"
+ft = ["markdown", "vimwiki"]
+cmd = "RenderMarkdown"
+event = "BufEnter"
+
+#------------------------------------------------------------------------------------
