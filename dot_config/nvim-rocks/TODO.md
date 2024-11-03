@@ -1,14 +1,9 @@
 ## NOW
-- [ ] template-nvim.lua
-- [ ] todo-comments-nvim.lua
-- [ ] toggle-nvim.lua
-- [ ] translate-nvim.lua
-
-## TODO
-- [x] transparent-nvim.lua
 - [ ] treesj.lua
 - [ ] trouble.lua
 - [ ] typos-nvim.lua
+
+## TODO
 - [ ] vim-ambiwidth.lua
 - [ ] vim-cargo-make.lua
 - [ ] vim-illuminate.lua
@@ -132,3 +127,9 @@
 - [x] smart-open-nvim.lua
 - [x] smoothcursor-nvim.lua
 - [x] sqlite.lua
+- [x] template-nvim.lua
+- [x] todo-comments-nvim.lua
+- [x] toggle-nvim.lua
+- [x] ~~translate-nvim.lua~~
+    - Remove
+- [x] transparent-nvim.lua

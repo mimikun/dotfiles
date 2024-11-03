@@ -12,16 +12,8 @@ path = "~/ghq/github.com/mimikun/dev-plugins"
 "rocks-dev.nvim" = "1.7.0"
 "rocks-treesitter.nvim" = "1.1.3"
 
-[plugins."todo-comments.nvim"]
-version = "1.4.0"
-opt = true
-
 [plugins.treesj]
 version = "scm"
-opt = true
-
-[plugins."trouble.nvim"]
-version = "3.6.0"
 opt = true
 
 [plugins."zen-mode.nvim"]
@@ -701,7 +693,6 @@ event = "BufEnter"
 #git = "danielfalk/smart-open.nvim"
 version = "scm"
 
-#------------------------------------------------------------------------------------
 [plugins."smoothcursor.nvim"]
 #git = "gen740/SmoothCursor.nvim"
 version = "scm"
@@ -721,3 +712,27 @@ event = "BufEnter"
 [plugins."sqlite.lua"]
 #git = "kkharji/sqlite.lua"
 version = "1.2.2"
+
+[plugins."template.nvim"]
+git = "nvimdev/template.nvim"
+cmd = "Template"
+
+[plugins."todo-comments.nvim"]
+#git = "folke/todo-comments.nvim"
+version = "1.4.0"
+cmd = [
+  "TodoQuickFix",
+  "TodoLocList",
+  "TodoTelescope",
+]
+event = "BufEnter"
+
+[plugins."trouble.nvim"]
+#git = "folke/trouble.nvim"
+version = "3.6.0"
+
+[plugins."toggle.nvim"]
+git = "gregorias/toggle.nvim"
+#event = "VeryLazy"
+
+#------------------------------------------------------------------------------------
