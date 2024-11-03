@@ -1,14 +1,12 @@
 ## NOW
-- [ ] rustaceanvim.lua
-- [ ] satellite-nvim.lua
-- [ ] screenkey-nvim.lua
-
-## TODO
-- [ ] sidebar-nvim.lua
-- [ ] smart-open-nvim.lua
+- [x] sidebar-nvim.lua
+- [x] smart-open-nvim.lua
 - [ ] smoothcursor-nvim.lua
 - [ ] sqlite.lua
 - [ ] telescope-nvim.lua
+    - atode
+
+## TODO
 - [ ] template-nvim.lua
 - [ ] todo-comments-nvim.lua
 - [ ] toggle-nvim.lua
@@ -131,3 +129,6 @@
 - [x] ~~persistence-nvim.lua~~
     - Remove
 - [x] render-markdown-nvim.lua
+- [x] rustaceanvim.lua
+- [x] satellite-nvim.lua
+- [x] screenkey-nvim.lua
