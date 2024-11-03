@@ -1,9 +1,3 @@
-## NOW
-- [ ] vimdoc-ja.lua
-- [ ] wezterm-nvim.lua
-- [ ] which-key-nvim.lua
-- [ ] zen-mode-nvim.lua
-
 ## TODO
 - [ ] mason-nvim.lua
     - atode
@@ -133,3 +127,7 @@
 - [x] vim-kitty.lua
 - [x] vim-quickrun.lua
 - [x] vim-teraterm.lua
+- [x] vimdoc-ja.lua
+- [x] wezterm-nvim.lua
+- [x] which-key-nvim.lua
+- [x] zen-mode-nvim.lua
