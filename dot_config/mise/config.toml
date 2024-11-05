@@ -36,6 +36,7 @@ zig = [
 "npm:prettier" = "latest"
 "npm:commitizen" = "latest"
 "npm:cz-conventional-changelog-ja" = "latest"
+"npm:envinfo" = "latest"
 
 # pipx backend
 #"pipx:anufrievroman/calcure" = "latest"
