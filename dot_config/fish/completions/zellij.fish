@@ -2,7 +2,8 @@ complete -c zellij -n "__fish_use_subcommand" -l max-panes -d 'Maximum panes on 
 complete -c zellij -n "__fish_use_subcommand" -l data-dir -d 'Change where zellij looks for plugins' -r -F
 complete -c zellij -n "__fish_use_subcommand" -l server -d 'Run server listening at the specified socket path' -r -F
 complete -c zellij -n "__fish_use_subcommand" -s s -l session -d 'Specify name of a new session' -r
-complete -c zellij -n "__fish_use_subcommand" -s l -l layout -d 'Name of a predefined layout inside the layout directory or the path to a layout file' -r -F
+complete -c zellij -n "__fish_use_subcommand" -s l -l layout -d 'Name of a predefined layout inside the layout directory or the path to a layout file if inside a session (or using the --session flag) will be added to the session as a new tab or tabs, otherwise will start a new session' -r -F
+complete -c zellij -n "__fish_use_subcommand" -s n -l new-session-with-layout -d 'Name of a predefined layout inside the layout directory or the path to a layout file Will always start a new session, even if inside an existing session' -r -F
 complete -c zellij -n "__fish_use_subcommand" -s c -l config -d 'Change where zellij looks for the configuration file' -r -F
 complete -c zellij -n "__fish_use_subcommand" -l config-dir -d 'Change where zellij looks for the configuration directory' -r -F
 complete -c zellij -n "__fish_use_subcommand" -s h -l help -d 'Print help information'
@@ -52,6 +53,7 @@ complete -c zellij -n "__fish_seen_subcommand_from options" -l scrollback-lines-
 complete -c zellij -n "__fish_seen_subcommand_from options" -l styled-underlines -d 'Whether to use ANSI styled underlines' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from options" -l serialization-interval -d 'The interval at which to serialize sessions for resurrection (in seconds)' -r
 complete -c zellij -n "__fish_seen_subcommand_from options" -l disable-session-metadata -d 'If true, will disable writing session metadata to disk' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from options" -l support-kitty-keyboard-protocol -d 'Whether to enable support for the Kitty keyboard protocol (must also be supported by the host terminal), defaults to true if the terminal supports it' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from options" -l disable-mouse-mode -d 'Disable handling of mouse events'
 complete -c zellij -n "__fish_seen_subcommand_from options" -l no-pane-frames -d 'Disable display of pane frames'
 complete -c zellij -n "__fish_seen_subcommand_from options" -s h -l help -d 'Print help information'
@@ -102,6 +104,7 @@ complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subco
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l styled-underlines -d 'Whether to use ANSI styled underlines' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l serialization-interval -d 'The interval at which to serialize sessions for resurrection (in seconds)' -r
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l disable-session-metadata -d 'If true, will disable writing session metadata to disk' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l support-kitty-keyboard-protocol -d 'Whether to enable support for the Kitty keyboard protocol (must also be supported by the host terminal), defaults to true if the terminal supports it' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l disable-mouse-mode -d 'Disable handling of mouse events'
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l no-pane-frames -d 'Disable display of pane frames'
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -s h -l help -d 'Print help information'

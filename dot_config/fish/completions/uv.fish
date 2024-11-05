@@ -1178,6 +1178,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l bin -d 'Show the directory into which `uv python` will install Python executables.'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
