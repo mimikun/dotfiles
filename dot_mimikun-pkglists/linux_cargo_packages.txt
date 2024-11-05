@@ -1,6 +1,7 @@
 ag
 aichat
 aim
+atac
 atuin
 bandwhich
 basilk
