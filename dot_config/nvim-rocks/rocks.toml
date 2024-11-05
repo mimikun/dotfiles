@@ -43,61 +43,6 @@ cmd = [
 event = "User DenopsReady"
 #{{ end }}
 
-[plugins.dps-translate-vim]
-git = "Omochice/dps-translate-vim"
-cmd = "Translate"
-event = "User DenopsReady"
-
-[plugins."silhouette.nvim"]
-git = "tadashi-aikawa/silhouette.nvim"
-ft = "markdown"
-cmd = [
-  "SilhouetteInsertTasks",
-  "SilhouetteMoveToProgress",
-  "SilhouetteShowTaskDates",
-]
-event = "User DenopsReady"
-
-[plugins.vim-gin]
-git = "lambdalisue/vim-gin"
-cmd = [
-  "Gin",
-  "GinBuffer",
-  "GinBranch",
-  "GinBrowse",
-  "GinCd",
-  "GinLcd",
-  "GinTcd",
-  "GinChaperon",
-  "GinDiff",
-  "GinEdit",
-  "GinLog",
-  "GinPatch",
-  "GinStatus",
-]
-event = "User DenopsReady"
-
-[plugins.vim-kensaku-command]
-git = "lambdalisue/vim-kensaku-command"
-event = "User DenopsReady"
-
-[plugins.vim-kensaku-search]
-git = "lambdalisue/vim-kensaku-search"
-event = "User DenopsReady"
-
-[plugins.vim-kensaku]
-git = "lambdalisue/vim-kensaku"
-cmd = "Kensaku"
-event = "User DenopsReady"
-
-[plugins."skkeleton_indicator.nvim"]
-git = "delphinus/skkeleton_indicator.nvim"
-event = "User DenopsReady"
-
-[plugins.skkeleton]
-git = "vim-skk/skkeleton"
-event = "User DenopsReady"
-
 #------------------------------------------------------------------------------------
 
 # NOTE: Vim Script Plugins
@@ -108,6 +53,12 @@ cmd = "Calendar"
 [plugins."chezmoi.vim"]
 git = "alker0/chezmoi.vim"
 
+#------------------------------------------------------------------------------------
+
+# NOTE: SKK plugins
+
+# TODO: very difficult
+#{{ if  (eq .chezmoi.hostname "TanakaPC") }}
 [plugins."eskk.vim"]
 git = "vim-skk/eskk.vim"
 cmd = [
@@ -121,6 +72,25 @@ cmd = [
   "EskkDisable",
   "EskkToggle",
 ]
+#{{ else }}
+# TODO: rename correct repo name, now incorrect
+#[plugins."skkeleton-indicator.nvim"]
+#git = "delphinus/skkeleton_indicator.nvim"
+#event = "User DenopsReady"
+
+[plugins.skkeleton]
+git = "vim-skk/skkeleton"
+event = "User DenopsReady"
+#{{ end }}
+
+#------------------------------------------------------------------------------------
+
+# NOTE: translate plugins
+
+[plugins.dps-translate-vim]
+git = "Omochice/dps-translate-vim"
+cmd = "Translate"
+event = "User DenopsReady"
 
 #------------------------------------------------------------------------------------
 
