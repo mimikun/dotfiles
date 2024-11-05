@@ -3,6 +3,7 @@
 # mise alias="morning-routine"
 
 mise tasks run git:fetch:origin
+mise tasks run git:fetch:codeberg
 mise tasks run git:delete-branch
 mise tasks run git:pull
 mise tasks run patch:branch
