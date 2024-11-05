@@ -12,8 +12,6 @@ path = "~/ghq/github.com/mimikun/dev-plugins"
 "rocks-dev.nvim" = "1.7.0"
 "rocks-treesitter.nvim" = "1.1.3"
 
-# NOTE: denops plugins
-
 # NOTE: colorschemes
 [plugins."transparent.nvim"]
 git = "xiyaoong/transparent.nvim"
@@ -27,6 +25,78 @@ config = true
 [plugins."tokyonight.nvim"]
 #git = "folke/tokyonight.nvim"
 version = "4.9.0"
+
+#------------------------------------------------------------------------------------
+# NOTE: denops plugins
+[plugins."denops.vim"]
+git = "vim-denops/denops.vim"
+
+# TODO: very difficult
+#{{ if  (eq .chezmoi.hostname "TanakaPC") }}
+[plugins."denops-shared-server.vim"]
+git = "vim-denops/denops-shared-server.vim"
+cmd = [
+  "DenopsSharedServerInstall",
+  "DenopsSharedServerUninstall",
+  "DenopsSharedServerRestart",
+]
+event = "User DenopsReady"
+#{{ end }}
+
+[plugins.dps-translate-vim]
+git = "Omochice/dps-translate-vim"
+cmd = "Translate"
+event = "User DenopsReady"
+
+[plugins."silhouette.nvim"]
+git = "tadashi-aikawa/silhouette.nvim"
+ft = "markdown"
+cmd = [
+  "SilhouetteInsertTasks",
+  "SilhouetteMoveToProgress",
+  "SilhouetteShowTaskDates",
+]
+event = "User DenopsReady"
+
+[plugins.vim-gin]
+git = "lambdalisue/vim-gin"
+cmd = [
+  "Gin",
+  "GinBuffer",
+  "GinBranch",
+  "GinBrowse",
+  "GinCd",
+  "GinLcd",
+  "GinTcd",
+  "GinChaperon",
+  "GinDiff",
+  "GinEdit",
+  "GinLog",
+  "GinPatch",
+  "GinStatus",
+]
+event = "User DenopsReady"
+
+[plugins.vim-kensaku-command]
+git = "lambdalisue/vim-kensaku-command"
+event = "User DenopsReady"
+
+[plugins.vim-kensaku-search]
+git = "lambdalisue/vim-kensaku-search"
+event = "User DenopsReady"
+
+[plugins.vim-kensaku]
+git = "lambdalisue/vim-kensaku"
+cmd = "Kensaku"
+event = "User DenopsReady"
+
+[plugins."skkeleton_indicator.nvim"]
+git = "delphinus/skkeleton_indicator.nvim"
+event = "User DenopsReady"
+
+[plugins.skkeleton]
+git = "vim-skk/skkeleton"
+event = "User DenopsReady"
 
 #------------------------------------------------------------------------------------
 
@@ -51,6 +121,7 @@ cmd = [
   "EskkDisable",
   "EskkToggle",
 ]
+
 #------------------------------------------------------------------------------------
 
 [plugins.alpha-nvim]
@@ -136,16 +207,6 @@ event = "BufEnter"
 #  "CodeCompanionChat",
 #]
 #{{ end }}
-
-[plugins."telescope.nvim"]
-#git = "nvim-telescope/telescope.nvim"
-version = "scm"
-
-# NOTE: "hrsh7th/nvim-cmp" replacement
-[plugins."magazine.nvim"]
-name = "nvim-cmp"
-#git = "iguanacucumber/magazine.nvim"
-version = "0.2.1"
 
 [plugins."comment.nvim"]
 #git = "numToStr/Comment.nvim"
@@ -247,10 +308,6 @@ cmd = [
 [plugins."garbage-day.nvim"]
 git = "zeioth/garbage-day.nvim"
 #event = "VeryLazy"
-
-[plugins.nvim-lspconfig]
-#git = "neovim/nvim-lspconfig"
-version = "1.0.0"
 
 [plugins."gitgraph.nvim"]
 git = "isakbm/gitgraph.nvim"
@@ -385,7 +442,6 @@ event = "BufEnter"
 #git = "L3MON4D3/LuaSnip"
 version = "2.3.0"
 #{{ if  (ne .chezmoi.os "windows") }}
-# TODO: comment out
 build = "make install_jsregexp"
 #{{ end }}
 
@@ -412,10 +468,6 @@ config = true
 version = "24.0.0"
 cmd = "Markview"
 event = "BufEnter"
-
-# TODO: very difficult
-#[plugins."mason.nvim"]
-#version = "1.10.0"
 
 [plugins."migemo-search.vim"]
 git = "rhysd/migemo-search.vim"
@@ -672,14 +724,6 @@ cmd = [
 ]
 event = "BufEnter"
 
-# TODO: very difficult
-#{{ if  (ne .chezmoi.hostname "TanakaPC") }}
-# NOTE: only be enabled at Home-machines
-#[plugins."telescope-fzf-native.nvim"]
-#git = "nvim-telescope/telescope-fzf-native.nvim"
-#build = "make"
-#{{ end }}
-
 [plugins."smart-open.nvim"]
 #git = "danielfalk/smart-open.nvim"
 version = "scm"
@@ -738,8 +782,6 @@ cmd = "Trouble"
 
 [plugins."typos.nvim"]
 git = "poljar/typos.nvim"
-# TODO: remove
-opt = true
 
 [plugins.vim-ambiwidth]
 git = "rbtnn/vim-ambiwidth"
@@ -777,7 +819,6 @@ cmd = "QuickRun"
 git = "k-takata/vim-teraterm"
 ft = "ttl"
 
-#------------------------------------------------------------------------------------
 [plugins.vimdoc-ja]
 git = "vim-jp/vimdoc-ja"
 
@@ -800,3 +841,80 @@ cmd = "WhichKey"
 #git = "folke/zen-mode.nvim"
 version = "1.4.0"
 cmd = "ZenMode"
+
+#------------------------------------------------------------------------------------
+[plugins.nvim-lspconfig]
+#git = "neovim/nvim-lspconfig"
+version = "1.0.0"
+
+[plugins."mason-lspconfig.nvim"]
+git = "williamboman/mason-lspconfig.nvim"
+
+[plugins."mason-nvim-dap.nvim"]
+git = "jay-babu/mason-nvim-dap.nvim"
+
+[plugins."schemastore.nvim"]
+git = "b0o/schemastore.nvim"
+
+[plugins.cmp-nvim-lsp]
+git = "hrsh7th/cmp-nvim-lsp"
+
+[plugins."mason-lock.nvim"]
+git = "zapling/mason-lock.nvim"
+
+[plugins."neoconf.nvim"]
+git = "folke/neoconf.nvim"
+
+[plugins.mason-extra-cmds]
+git = "Zeioth/mason-extra-cmds"
+
+[plugins."none-ls.nvim"]
+git = "nvimtools/none-ls.nvim"
+
+[plugins."mason-null-ls.nvim"]
+git = "jay-babu/mason-null-ls.nvim"
+
+# TODO: very difficult
+[plugins."mason.nvim"]
+#git = "williamboman/mason.nvim"
+version = "1.10.0"
+cmd = [
+  # mason.nvim
+  "Mason",
+  "MasonUpdate",
+  "MasonInstall",
+  "MasonUninstall",
+  "MasonUninstallAll",
+  "MasonLog",
+  # mason-extra-cmds
+  "MasonUpdateAll",
+  # mason-lspconfig
+  "LspInstall",
+  "LspUninstall",
+  # mason-nvim-dap
+  "DapInstall",
+  "DapUninstall",
+  # mason-null-ls.nvim
+  "NoneLsInstall",
+  "NoneLsUninstall",
+]
+#event = "VeryLazy"
+opt = true
+
+# NOTE: "hrsh7th/nvim-cmp" replacement
+[plugins."magazine.nvim"]
+name = "nvim-cmp"
+#git = "iguanacucumber/magazine.nvim"
+version = "0.2.1"
+
+[plugins."telescope.nvim"]
+#git = "nvim-telescope/telescope.nvim"
+version = "scm"
+
+# TODO: very difficult
+#{{ if  (ne .chezmoi.hostname "TanakaPC") }}
+# NOTE: only be enabled at Home-machines
+#[plugins."telescope-fzf-native.nvim"]
+#git = "nvim-telescope/telescope-fzf-native.nvim"
+#build = "make"
+#{{ end }}
