@@ -74,6 +74,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l extra -d 'Include optional
 complete -c uv -n "__fish_uv_using_subcommand run" -l group -d 'Include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-group -d 'Only include dependencies from the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l env-file -d 'Load environment variables from a `.env` file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed as editables' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
@@ -112,6 +113,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-dev -d 'Omit the develo
 complete -c uv -n "__fish_uv_using_subcommand run" -s m -l module -d 'Run a Python module'
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-dev -d 'Only include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-env-file -d 'Avoid reading environment variables from a `.env` file'
 complete -c uv -n "__fish_uv_using_subcommand run" -l isolated -d 'Run the command in an isolated virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-sync -d 'Avoid syncing the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand run" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
@@ -134,6 +136,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-binary -d 'Don\'t insta
 complete -c uv -n "__fish_uv_using_subcommand run" -l binary
 complete -c uv -n "__fish_uv_using_subcommand run" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-refresh
+complete -c uv -n "__fish_uv_using_subcommand run" -l all-packages -d 'Run the command with all workspace members installed'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-project -d 'Avoid discovering the project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand run" -l show-resolution -d 'Whether to show resolver and installer output from any environment modifications'
 complete -c uv -n "__fish_uv_using_subcommand run" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
@@ -402,6 +405,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-binary -d 'Don\'t inst
 complete -c uv -n "__fish_uv_using_subcommand sync" -l binary
 complete -c uv -n "__fish_uv_using_subcommand sync" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-refresh
+complete -c uv -n "__fish_uv_using_subcommand sync" -l all-packages -d 'Sync all packages in the workspace'
 complete -c uv -n "__fish_uv_using_subcommand sync" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
@@ -514,6 +518,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l color -d 'Control color
 complete -c uv -n "__fish_uv_using_subcommand export" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand export" -l all-packages -d 'Export the entire workspace'
 complete -c uv -n "__fish_uv_using_subcommand export" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand export" -l dev -d 'Include the development dependency group'
@@ -1097,6 +1102,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s r -l reinstall -d 'Reinstall the requested Python version, if it\'s already installed'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s f -l force -d 'Replace existing Python executables during installation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
@@ -1812,7 +1818,7 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l color -d 'Control colors
 complete -c uv -n "__fish_uv_using_subcommand build" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build" -l all -d 'Builds all packages in the workspace'
+complete -c uv -n "__fish_uv_using_subcommand build" -l all-packages -d 'Builds all packages in the workspace'
 complete -c uv -n "__fish_uv_using_subcommand build" -l sdist -d 'Build a source distribution ("sdist") from the given directory'
 complete -c uv -n "__fish_uv_using_subcommand build" -l wheel -d 'Build a binary distribution ("wheel") from the given directory'
 complete -c uv -n "__fish_uv_using_subcommand build" -l build-logs
@@ -1859,6 +1865,7 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -s t -l token -d 'The tok
 complete -c uv -n "__fish_uv_using_subcommand publish" -l trusted-publishing -d 'Configure using trusted publishing through GitHub Actions' -r -f -a "{automatic\t'Try trusted publishing when we\'re already in GitHub Actions, continue if that fails',always\t'',never\t''}"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand publish" -l check-url -d 'Check an index URL for existing files to skip duplicate uploads' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
@@ -1866,6 +1873,7 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l color -d 'Control colo
 complete -c uv -n "__fish_uv_using_subcommand publish" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand publish" -l skip-existing
 complete -c uv -n "__fish_uv_using_subcommand publish" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
