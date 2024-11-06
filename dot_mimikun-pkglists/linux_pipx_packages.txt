@@ -1,9 +1,11 @@
 calcure
 gptme
+dotenvhub
 kaskade
 moneyterm
 pocker-tui
 poetry
 posting
+rsyncy
 sherlock-project
 toolong
