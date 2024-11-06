@@ -126,6 +126,7 @@ skim
 sshx
 starship
 stylua
+tabiew
 taplo-cli
 tauri-cli
 tealdeer
