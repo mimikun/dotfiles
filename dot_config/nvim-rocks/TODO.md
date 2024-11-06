@@ -1,17 +1,8 @@
 ## TODO
-- [ ] mason-nvim.lua
-    - atode
-- [ ] none-ls-nvim.lua
-    - atode
-- [ ] nvim-cmp.lua
-    - atode
-    - [ ] https://github.com/iguanacucumber/magazine.nvim
-- [ ] nvim-lspconfig.lua
-    - atode
 - [ ] obsidian-kensaku-nvim.lua
-    - atode
 - [ ] telescope-nvim.lua
-    - atode
+- [ ] nvim-cmp.lua
+    - [ ] https://github.com/iguanacucumber/magazine.nvim
 
 ## Finished
 - [x] 2048-nvim.lua
@@ -131,3 +122,6 @@
 - [x] wezterm-nvim.lua
 - [x] which-key-nvim.lua
 - [x] zen-mode-nvim.lua
+- [x] mason-nvim.lua
+- [x] none-ls-nvim.lua
+- [x] nvim-lspconfig.lua

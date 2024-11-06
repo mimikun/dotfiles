@@ -33,14 +33,14 @@ git = "vim-denops/denops.vim"
 
 # TODO: very difficult
 #{{ if  (eq .chezmoi.hostname "TanakaPC") }}
-[plugins."denops-shared-server.vim"]
-git = "vim-denops/denops-shared-server.vim"
-cmd = [
-  "DenopsSharedServerInstall",
-  "DenopsSharedServerUninstall",
-  "DenopsSharedServerRestart",
-]
-event = "User DenopsReady"
+#[plugins."denops-shared-server.vim"]
+#git = "vim-denops/denops-shared-server.vim"
+#cmd = [
+#  "DenopsSharedServerInstall",
+#  "DenopsSharedServerUninstall",
+#  "DenopsSharedServerRestart",
+#]
+#event = "User DenopsReady"
 #{{ end }}
 
 #------------------------------------------------------------------------------------
@@ -59,38 +59,41 @@ git = "alker0/chezmoi.vim"
 
 # TODO: very difficult
 #{{ if  (eq .chezmoi.hostname "TanakaPC") }}
-[plugins."eskk.vim"]
-git = "vim-skk/eskk.vim"
-cmd = [
-  "EskkMap",
-  "EskkUnmap",
-  "EskkForgetRegisteredWords",
-  "EskkUpdateDictionary",
-  "EskkFixDictionary",
-  "EskkReload",
-  "EskkEnable",
-  "EskkDisable",
-  "EskkToggle",
-]
+#[plugins."eskk.vim"]
+#git = "vim-skk/eskk.vim"
+#cmd = [
+#  "EskkMap",
+#  "EskkUnmap",
+#  "EskkForgetRegisteredWords",
+#  "EskkUpdateDictionary",
+#  "EskkFixDictionary",
+#  "EskkReload",
+#  "EskkEnable",
+#  "EskkDisable",
+#  "EskkToggle",
+#]
 #{{ else }}
 # TODO: rename correct repo name, now incorrect
 #[plugins."skkeleton-indicator.nvim"]
 #git = "delphinus/skkeleton_indicator.nvim"
 #event = "User DenopsReady"
-
-[plugins.skkeleton]
-git = "vim-skk/skkeleton"
-event = "User DenopsReady"
+# TODO: very difficult
+#[plugins.skkeleton]
+#git = "vim-skk/skkeleton"
+#event = "User DenopsReady"
 #{{ end }}
 
 #------------------------------------------------------------------------------------
 
 # NOTE: translate plugins
 
-[plugins.dps-translate-vim]
-git = "Omochice/dps-translate-vim"
-cmd = "Translate"
-event = "User DenopsReady"
+# TODO: very difficult
+#{{ if  (ne .chezmoi.hostname "TanakaPC") }}
+#[plugins.dps-translate-vim]
+#git = "Omochice/dps-translate-vim"
+#cmd = "Translate"
+#event = "User DenopsReady"
+#{{ end }}
 
 #------------------------------------------------------------------------------------
 
@@ -235,7 +238,6 @@ cmd = [
   "DialIncrement",
   "DialDecrement",
 ]
-#event = "VeryLazy"
 
 [plugins."diffview.nvim"]
 #git = "sindrets/diffview.nvim"
@@ -265,7 +267,6 @@ version = "3.0.0"
 #git = "j-hui/fidget.nvim"
 version = "1.4.1"
 cmd = "Fidget"
-#event = "VeryLazy"
 
 [plugins."flagmode.nvim"]
 git = "prichrd/flagmode.nvim"
@@ -277,7 +278,6 @@ cmd = [
 
 [plugins."garbage-day.nvim"]
 git = "zeioth/garbage-day.nvim"
-#event = "VeryLazy"
 
 [plugins."gitgraph.nvim"]
 git = "isakbm/gitgraph.nvim"
@@ -345,7 +345,6 @@ cmds = [
 [plugins."hover.nvim"]
 #git = "lewis6991/hover.nvim"
 version = "scm"
-#event = "VeryLazy"
 
 [plugins."indent-blankline.nvim"]
 #git = "lukas-reineke/indent-blankline.nvim"
@@ -425,7 +424,6 @@ version = "scm"
 
 [plugins."luminate.nvim"]
 git = "mei28/luminate.nvim"
-#event = "VeryLazy"
 config = true
 
 # NOTE: has bug
@@ -477,7 +475,6 @@ version = "3.14.0"
 [plugins."noice.nvim"]
 #git = "folke/noice.nvim"
 version = "4.5.2"
-#event = "VeryLazy"
 cmd = [
   "Noice",
   "NoiceLast",
@@ -734,7 +731,6 @@ event = "BufEnter"
 
 [plugins."toggle.nvim"]
 git = "gregorias/toggle.nvim"
-#event = "VeryLazy"
 
 [plugins.treesj]
 #git = "Wansmer/treesj"
@@ -805,7 +801,6 @@ version = "0.14.0"
 #git = "folke/which-key.nvim"
 version = "3.13.3"
 cmd = "WhichKey"
-#event = "VeryLazy"
 
 [plugins."zen-mode.nvim"]
 #git = "folke/zen-mode.nvim"
@@ -817,34 +812,33 @@ cmd = "ZenMode"
 #git = "neovim/nvim-lspconfig"
 version = "1.0.0"
 
-[plugins."mason-lspconfig.nvim"]
-git = "williamboman/mason-lspconfig.nvim"
+#[plugins."mason-lspconfig.nvim"]
+#git = "williamboman/mason-lspconfig.nvim"
 
-[plugins."mason-nvim-dap.nvim"]
-git = "jay-babu/mason-nvim-dap.nvim"
+#[plugins."mason-nvim-dap.nvim"]
+#git = "jay-babu/mason-nvim-dap.nvim"
 
-[plugins."schemastore.nvim"]
-git = "b0o/schemastore.nvim"
+#[plugins."schemastore.nvim"]
+#git = "b0o/schemastore.nvim"
 
-[plugins.cmp-nvim-lsp]
-git = "hrsh7th/cmp-nvim-lsp"
+#[plugins.cmp-nvim-lsp]
+#git = "hrsh7th/cmp-nvim-lsp"
 
-[plugins."mason-lock.nvim"]
-git = "zapling/mason-lock.nvim"
+#[plugins."mason-lock.nvim"]
+#git = "zapling/mason-lock.nvim"
 
-[plugins."neoconf.nvim"]
-git = "folke/neoconf.nvim"
+#[plugins."neoconf.nvim"]
+#git = "folke/neoconf.nvim"
 
-[plugins.mason-extra-cmds]
-git = "Zeioth/mason-extra-cmds"
+#[plugins.mason-extra-cmds]
+#git = "Zeioth/mason-extra-cmds"
 
-[plugins."none-ls.nvim"]
-git = "nvimtools/none-ls.nvim"
+#[plugins."none-ls.nvim"]
+#git = "nvimtools/none-ls.nvim"
 
-[plugins."mason-null-ls.nvim"]
-git = "jay-babu/mason-null-ls.nvim"
+#[plugins."mason-null-ls.nvim"]
+#git = "jay-babu/mason-null-ls.nvim"
 
-# TODO: very difficult
 [plugins."mason.nvim"]
 #git = "williamboman/mason.nvim"
 version = "1.10.0"
@@ -868,8 +862,6 @@ cmd = [
   "NoneLsInstall",
   "NoneLsUninstall",
 ]
-#event = "VeryLazy"
-opt = true
 
 # NOTE: "hrsh7th/nvim-cmp" replacement
 [plugins."magazine.nvim"]
@@ -888,3 +880,131 @@ version = "scm"
 #git = "nvim-telescope/telescope-fzf-native.nvim"
 #build = "make"
 #{{ end }}
+
+#------------------------------------------------------------------------------------
+#[plugins."lspkind.nvim"]
+#git = "onsails/lspkind.nvim"
+
+#[plugins."copilot.lua"]
+#git = "zbirenbaum/copilot.lua"
+
+#[plugins.luasnip]
+#git = "L3MON4D3/LuaSnip"
+
+#[plugins.cmp-nvim-lsp]
+#git = "hrsh7th/cmp-nvim-lsp"
+
+#[plugins.cmp_luasnip]
+#git = "saadparwaiz1/cmp_luasnip"
+
+#[plugins.cmp-buffer]
+#git = "hrsh7th/cmp-buffer"
+
+#[plugins.cmp-cmdline]
+#git = "hrsh7th/cmp-cmdline"
+
+#[plugins.cmp-path]
+#git = "hrsh7th/cmp-path"
+
+#[plugins.cmp-emoji]
+#git = "hrsh7th/cmp-emoji"
+
+#[plugins.cmp-dotenv]
+#git = "SergioRibera/cmp-dotenv"
+
+#[plugins.cmp-dap]
+#git = "rcarriga/cmp-dap"
+
+#[plugins.copilot-cmp]
+#git = "zbirenbaum/copilot-cmp"
+
+#[plugins."obsidian-kensaku.nvim"]
+#git = "delphinus/obsidian-kensaku.nvim"
+#ft = "markdown"
+#cmd = "ObsidianKensaku"
+#event = "User DenopsReady"
+
+#[plugins."telescope-egrepify.nvim"]
+#git = "fdschmidt93/telescope-egrepify.nvim"
+
+#[plugins.vim-kensaku]
+#git = "lambdalisue/vim-kensaku"
+
+#{{ if (ne windows)}}
+#[plugins."telescope-fzf-native.nvim"]
+#git = "nvim-telescope/telescope-fzf-native.nvim"
+#build = "make"
+
+#[plugins."telescope-media.nvim"]
+#git = "mimikun/telescope-media.nvim"
+#{{ end}}
+
+#[plugins."telescope.nvim"]
+#git = "nvim-telescope/telescope.nvim"
+#cmd = "Telescope"
+
+#[plugins."telescope-frecency.nvim"]
+#git = "nvim-telescope/telescope-frecency.nvim"
+
+#[plugins."smart-open.nvim"]
+#git = "danielfalk/smart-open.nvim"
+
+#[plugins."telescope-glyph.nvim"]
+#git = "ghassan0/telescope-glyph.nvim"
+
+#[plugins."telescope-emoji.nvim"]
+#git = "xiyaowong/telescope-emoji.nvim"
+
+#[plugins."telescope-egrepify.nvim"]
+#git = "fdschmidt93/telescope-egrepify.nvim"
+
+#[plugins."telescope-file-browser.nvim"]
+#git = "nvim-telescope/telescope-file-browser.nvim"
+
+#[plugins."package-info.nvim"]
+#git = "vuki656/package-info.nvim"
+
+#[plugins."scope.nvim"]
+#git = "tiagovla/scope.nvim"
+
+#[plugins."popup.nvim"]
+#git = "nvim-lua/popup.nvim"
+
+#[plugins.telescope-zoxide]
+#git = "jvgrootveld/telescope-zoxide"
+
+#[plugins."telescope-undo.nvim"]
+#git = "debugloop/telescope-undo.nvim"
+
+#[plugins."pomo.nvim"]
+#git = "epwalsh/pomo.nvim"
+
+#[plugins."chezmoi-telescope.nvim"]
+#git = "GianniBYoung/chezmoi-telescope.nvim"
+
+#[plugins."telescope-treesitter-info.nvim"]
+#git = "roycrippen4/telescope-treesitter-info.nvim"
+
+#[plugins."telescope-completion.nvim"]
+#git = "illia-shkroba/telescope-completion.nvim"
+
+#[plugins."telescope-repo.nvim"]
+#git = "cljoly/telescope-repo.nvim"
+
+#[plugins."grapple.nvim"]
+#git = "cbochs/grapple.nvim"
+
+#[plugins."lazygit.nvim"]
+#git = "kdheepak/lazygit.nvim"
+
+#[plugins."noice.nvim"]
+#git = "folke/noice.nvim"
+
+#[plugins."template.nvim"]
+#git = "nvimdev/template.nvim"
+
+#[plugins."aerial.nvim"]
+#git = "stevearc/aerial.nvim"
+
+#[plugins."octohub.nvim"]
+#git = "2KAbhishek/octohub.nvim"
