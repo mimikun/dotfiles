@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.11.06]
+
+### Added - 新機能について
+
+- feat(cargo): add tabiew
+- feat(gup): add bt
+- feat(pipx): add some tools
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update mise completion
+- chore(fish): update some completions
+- chore(nvim-rocks): update
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.11.05]
 
 ### Added - 新機能について
