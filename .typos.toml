@@ -29,6 +29,7 @@ extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
   "dot_config/foot/foot.ini",
   "dot_config/moe/moerc.toml",
+  "dot_config/nvim/lua/plugins/profile-nvim.lua",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: This is cobra bug, but glow use 1.7.0(has bug)
   "dot_config/fish/completions/glow.fish",
