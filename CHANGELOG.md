@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.11.07]
+
+### Added - 新機能について
+
+- feat(nvim): add snakcs.nvim
+- feat(nvim): add profile.nvim
+- feat(wslconfig): add processors limit
+    - has human rights: 12
+    - human rights violation: TODO
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(nvim): disable snacks.nvim
+- chore(fish): update some completions
+- chore(typos): update config
+- chore(localbin): update vup
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.11.06]
 
 ### Added - 新機能について
