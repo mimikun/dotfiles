@@ -4,13 +4,14 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.7.0"
+readonly PRODUCT_VERSION="1.8.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
 readonly UBUNTU_OS="OS type: Ubuntu"
 readonly ARCH_OS="OS type: Arch Linux"
 readonly MAC_OS="OS type: Mac OS"
+readonly W_NAME="TanakaPC"
 
 #=======================
 # 関数定義
@@ -227,6 +228,14 @@ other() {
   update_twitch_cli
 }
 
+w_only() {
+    if [ $(hostname) == $W_NAME ]; then
+        echo "This is Work-PC!!!"
+        echo "Run Work-PC only update tasks"
+        deps_update
+    fi
+}
+
 reboot_check() {
   # ファイルがあれば再起動を促す
   if test -e /var/run/reboot-required; then
@@ -269,4 +278,5 @@ done
 os_pkg_update
 use_pueue
 other
+w_only
 reboot_check
