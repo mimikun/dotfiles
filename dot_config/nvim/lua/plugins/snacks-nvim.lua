@@ -25,8 +25,8 @@ local spec = {
     --event = "VeryLazy",
     dependencies = dependencies,
     opts = opts,
-    --cond = false,
-    --enabled = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
