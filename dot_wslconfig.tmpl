@@ -1,12 +1,11 @@
 [wsl2]
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
 memory=3GB
-# TODO: Check the number of processors
-#processors = 1
+processors=3
 swap=8GB
 {{ else -}}
 memory=8GB
-processors = 12
+processors=12
 swap=0
 {{ end -}}
 
