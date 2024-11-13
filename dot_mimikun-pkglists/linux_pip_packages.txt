@@ -24,6 +24,7 @@ csvkit
 dbfread
 decorator
 dominate
+ddgr
 et-xmlfile
 filetype
 ghp-import
