@@ -77,12 +77,15 @@ impala
 jnv
 just
 kbt
+kibi
+koji
 logria
 lsd
 lychee
 mask
 mdbook
 mise
+menyoki
 mocword
 monolith
 natls
