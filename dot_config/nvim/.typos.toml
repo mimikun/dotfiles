@@ -1,0 +1,34 @@
+[default.extend-words]
+# noice.nvim
+noice = "noice"
+# vim keymap
+enew = "enew"
+# starship config
+edn = "edn"
+esy = "esy"
+ane = "ane"
+nane = "nane"
+# macOS Big Sur
+sur = "sur"
+# fish abbr `chezmoi cd`
+chec = "chec"
+# key mapping in dot_config/nvim/lua/plugins/telescope-nvim.lua
+fo = "fo"
+# telescope-nvim
+tabe = "tabe"
+# dot_config/nvim/lua/plugins/configs/nvim-tree/actions.lua
+nd = "nd"
+# dot_mimikun-pkglists
+serie = "serie"
+tre = "tre"
+# dot_config/nvim/lua/plugins/w3m-vim.lua
+Extenal = "Extenal"
+
+[files]
+extend-exclude = [
+  # NOTE: DO NOT expect an upstream fix
+  "dot_config/nvim/lua/plugins/profile-nvim.lua",
+  # NOTE: has many typos
+  "dot_config/nvim/dotfyle.json",
+  "CHANGELOG.md",
+]
