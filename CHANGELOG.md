@@ -1,5 +1,24 @@
 # Changelog
 
+## [v2024.11.17]
+
+### Added - 新機能について
+
+- feat(nvim): add v5 config
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completions
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove v4 config
+    - chore(nvim): this version is nvim-four(v4)
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.11.13]
 
 ### Added - 新機能について
