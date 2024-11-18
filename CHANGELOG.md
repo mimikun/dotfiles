@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.11.18]
+
+### Added - 新機能について
+
+- feat(cargo): add some packages
+- feat(nvim): add nvim-deck
+- feat(shells): use pay-respects
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+- chore(shells): remove thefuck
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.11.17]
 
 ### Added - 新機能について
