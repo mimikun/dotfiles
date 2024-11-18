@@ -420,6 +420,13 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo 'set -x PATH "$XDG_CACHE_HOME/rebar3/bin" $PATH' >> $CACHE_CONFIG_FISH
     end
 
+    # pay-respects
+    if command -v pay-respects >/dev/null 2>&1
+        echo "# cache pay-respects config" >> $CACHE_CONFIG_FISH
+        echo "pay-respects fish --alias | source" >> $CACHE_CONFIG_FISH
+        echo 'alias fuck "pay-respects fish"' >> $CACHE_CONFIG_FISH
+    end
+
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") -}}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH

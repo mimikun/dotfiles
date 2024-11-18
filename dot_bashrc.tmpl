@@ -360,6 +360,9 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
+# pay-respects
+eval "$(pay-respects bash --alias)"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
