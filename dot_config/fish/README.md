@@ -27,5 +27,4 @@
 - [update_docker_compose](https://github.com/mimikun/update_docker_compose)
 - [update_geckodriver](https://github.com/mimikun/update_geckodriver)
 - [update_peco](https://github.com/mimikun/update_peco)
-- [plugin-thefuck](https://github.com/oh-my-fish/plugin-thefuck)
 - [gitignore](https://github.com/sijad/gitignore)

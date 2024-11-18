@@ -69,8 +69,5 @@ github = "mimikun/update_geckodriver"
 [plugins.update_peco]
 github = "mimikun/update_peco"
 
-[plugins.plugin-thefuck]
-github = "oh-my-fish/plugin-thefuck"
-
 [plugins.gitignore]
 github = "sijad/gitignore"

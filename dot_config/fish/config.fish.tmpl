@@ -78,9 +78,6 @@ alias patch "patch -p1 <"
 alias imgcat "wezterm imgcat"
 
 # abbrs
-if command -v fuck >/dev/null 2>&1
-    abbr -a f fuck
-end
 abbr -a pueued_enable "systemctl --user enable pueue"
 abbr -a pueued_start "systemctl --user start pueue"
 abbr -a pueued_restart "systemctl --user restart pueue"
@@ -409,12 +406,6 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     if command -v pnpm >/dev/null 2>&1
         echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
         cat $XDG_CONFIG_HOME/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
-    end
-
-    # thefuck
-    if command -v thefuck >/dev/null 2>&1
-        echo "# cache thefuck config" >> $CACHE_CONFIG_FISH
-        echo "thefuck --alias | source" >> $CACHE_CONFIG_FISH
     end
 
     # atuin

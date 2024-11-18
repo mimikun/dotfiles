@@ -6,7 +6,6 @@ local path_sep = global.path_sep
 
 -- alias
 if is_linux then
-    nyagos.alias.f = "fuck"
     nyagos.alias.rm = "gomi"
     nyagos.alias.rm = "rm -i"
     nyagos.alias.mkdir = "mkdir -p"

@@ -107,7 +107,6 @@ text-unidecode
 textual
 textual-fspicker
 textual-imageview
-thefuck
 toml
 tqdm
 typeinc
