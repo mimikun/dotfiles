@@ -1,6 +1,6 @@
--- NOTE: only be enabled at Home-azusa and Work-Windows
+-- NOTE: only be enabled at Home-azusa
 ---@type boolean
-local cond = require("config.settings").use_avante
+local cond = require("config.global").is_azusa
 
 ---@type table
 local build_cmd = {
