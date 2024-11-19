@@ -1,3 +1,6 @@
+---@type boolean
+local cond = require("config.global").is_work
+
 ---@type table
 local cmds = {
     "EskkMap",
@@ -54,8 +57,8 @@ local spec = {
         EskkDisablePre - |eskk-disable-pre|
         ]]
     end,
-    cond = false,
-    enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec

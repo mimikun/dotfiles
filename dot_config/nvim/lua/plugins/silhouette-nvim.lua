@@ -1,14 +1,13 @@
+---@type boolean
+local cond = require("config.global").is_home
+
 ---@type table
 local cmds = {
     "SilhouetteInsertTasks",
     "SilhouetteMoveToProgress",
     "SilhouetteShowTaskDates",
-}
-
----@type LazySpec[]
-local dependencies = {
-    "vim-denops/denops.vim",
-    "yuki-yano/denops-lazy.nvim",
+    "SilhouettePushTimer",
+    "SilhouetteForceStopRecording",
 }
 
 ---@type table
@@ -17,24 +16,30 @@ local opts = {
         repetition_tasks_path = "./repetition-tasks.md",
         holidays_path = "./holidays.md",
     },
+    timer = {
+        time_storage_path = "./time-storage.json",
+        check_box_mark = {
+            recording = "~",
+            stop = " ",
+        },
+    },
 }
 
 ---@type LazySpec
 local spec = {
     "tadashi-aikawa/silhouette.nvim",
-    --lazy = false,
+    lazy = false,
     ft = "markdown",
     cmd = cmds,
-    event = "User DenopsReady",
-    dependencies = dependencies,
-    config = function(spec)
+    --event = "User DenopsReady",
+    dependencies = { "vim-denops/denops.vim" },
+    config = function()
         vim.defer_fn(function()
             require("silhouette").setup(opts)
         end, 10000)
-        require("denops-lazy").load(spec.name)
     end,
-    --cond = false,
-    --enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec

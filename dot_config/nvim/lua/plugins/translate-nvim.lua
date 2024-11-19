@@ -1,3 +1,6 @@
+---@type boolean
+local cond = require("config.global").is_work
+
 ---@type table
 local opts = {
     silent = true,
@@ -15,8 +18,8 @@ local spec = {
             vim.cmd([[Translate ja]])
         end, {})
     end,
-    --cond = false,
-    --enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec

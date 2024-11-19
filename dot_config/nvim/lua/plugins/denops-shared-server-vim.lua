@@ -1,5 +1,7 @@
+local global = require("config.global")
+
 ---@type boolean
-local human_rights_violation = not require("config.global").is_human_rights
+local cond = global.is_home
 
 ---@type table
 local cmds = {
@@ -11,12 +13,11 @@ local cmds = {
 ---@type LazySpec
 local spec = {
     "vim-denops/denops-shared-server.vim",
-    --lazy = false,
+    lazy = false,
     cmd = cmds,
-    event = "VeryLazy",
     dependencies = { "vim-denops/denops.vim" },
     init = function()
-        if human_rights_violation then
+        if not global.is_human_rights then
             vim.g.denops_server_addr = "127.0.0.1:32123"
         end
     end,
@@ -31,8 +32,8 @@ local spec = {
             vim.fn["denops_shared_server#restart"]()
         end, {})
     end,
-    --cond = false,
-    --enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec
