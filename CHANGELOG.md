@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2024.11.19]
+
+### Added - 新機能について
+
+- feat(nvim): add denops plugins
+- feat(nvim): add blink-ripgrep source
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(pnpm): update deps
+- chore(aqua): bump version
+- chore(fish): update mise completion
+- chore(nvim): update lockfiles
+- docs(nvim): update URL.md
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove some plugins
+
+### Fixed - 不具合修正について
+
+- fix(nvim): avante.nvim error
+- fix(nvim): nvim-navic error
+
 ## [v2024.11.18]
 
 ### Added - 新機能について
