@@ -30,7 +30,7 @@ local opts = {
     },
     lsp = {
         auto_attach = true,
-        preference = nil,
+        preference = { "marksman", "markdown_oxide" },
     },
     highlight = true,
     depth_limit = 9,
