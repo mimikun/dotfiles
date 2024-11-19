@@ -7,6 +7,7 @@ local dependencies = {
     "L3MON4D3/LuaSnip",
     "folke/lazydev.nvim",
     "hrsh7th/cmp-emoji",
+    "mikavilpas/blink-ripgrep.nvim",
 }
 
 if require("config.settings").use_github_copilot then
@@ -23,6 +24,7 @@ local enabled_providers = {
     "lazydev",
     "emoji",
     "copilot",
+    "ripgrep",
 }
 
 local sources = {
@@ -90,6 +92,14 @@ local sources = {
             module = "blink-cmp-copilot",
             enabled = true,
             score_offset = -3,
+        },
+        ripgrep = {
+            module = "blink-ripgrep",
+            name = "Ripgrep",
+            opts = {
+                prefix_min_len = 3,
+                context_size = 5,
+            },
         },
     },
 }
