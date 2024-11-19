@@ -13,7 +13,7 @@ registries:
   type: local
   path: ./registry.yaml
 packages:
-- name: bitwarden/clients@cli-v2024.10.0
+- name: bitwarden/clients@cli-v2024.11.0
 - name: twpayne/chezmoi@v2.54.0
 - name: direnv/direnv@v2.35.0
 - name: muesli/duf@v0.8.1
