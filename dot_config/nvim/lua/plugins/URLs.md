@@ -119,7 +119,6 @@
 - https://github.com/delphinus/obsidian-kensaku.nvim
 	- https://github.com/fdschmidt93/telescope-egrepify.nvim
 	- https://github.com/vim-denops/denops.vim
-	- https://github.com/lambdalisue/vim-kensaku
 - https://github.com/epwalsh/obsidian.nvim
 	- https://github.com/nvim-lua/plenary.nvim
 	- https://github.com/iguanacucumber/magazine.nvim
@@ -204,6 +203,17 @@
 	- https://github.com/Zeioth/mason-extra-cmds
 	- https://github.com/nvimtools/none-ls.nvim
 	- https://github.com/jay-babu/mason-null-ls.nvim
+- https://github.com/vim-denops/denops-shared-server.vim
+    - https://github.com/vim-denops/denops.vim
+- https://github.com/vim-denops/denops.vim
+- https://github.com/Omochice/dps-translate-vim
+    - https://github.com/vim-denops/denops.vim
+- https://github.com/hrsh7th/nvim-deck
+- https://github.com/tadashi-aikawa/silhouette.nvim
+    - https://github.com/vim-denops/denops.vim
+- https://github.com/vim-skk/skkeleton
+    - https://github.com/vim-denops/denops.vim
+    - https://github.com/delphinus/skkeleton_indicator.nvim
 
 ## not installed
 
@@ -215,7 +225,7 @@
 	- https://github.com/hrsh7th/cmp-emoji
 	- https://github.com/zbirenbaum/copilot-cmp
     - https://github.com/giuxtaposition/blink-cmp-copilot
-- https://github.com/vim-skk/eskk.vim
+    - https://github.com/mikavilpas/blink-ripgrep.nvim
 
 ---
 
