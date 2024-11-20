@@ -80,7 +80,7 @@ packages:
 - name: dotenvx/dotenvx@v1.24.2
 - name: pvolok/mprocs@v0.7.1
 - name: sqshq/sampler@v1.1.0
-- name: tstack/lnav@v0.12.2
+- name: tstack/lnav@v0.12.3
 # - name: go-task/task@v3.40.0
 - name: magefile/mage@v1.15.0
 - name: boyter/scc@v3.4.0
