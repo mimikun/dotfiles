@@ -43,6 +43,7 @@ diskonaut
 dua-cli
 ducker
 du-dust
+dusage
 dutree
 erdtree
 erg
@@ -141,6 +142,7 @@ taplo-cli
 tauri-cli
 tealdeer
 tenere
+tere
 testing-language-server
 testing-ls-adapter
 tgt
@@ -159,6 +161,7 @@ usage-cli
 viddy
 vscli
 watchexec-cli
+wireman
 wthrr
 xh
 xsv
