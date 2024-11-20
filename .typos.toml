@@ -21,6 +21,7 @@ nd = "nd"
 # dot_mimikun-pkglists
 serie = "serie"
 tre = "tre"
+tere = "tere"
 # dot_config/nvim/lua/plugins/w3m-vim.lua
 Extenal = "Extenal"
 
