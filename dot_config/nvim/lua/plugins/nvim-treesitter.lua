@@ -1,7 +1,6 @@
 ---@type LazySpec[]
 local dependencies = {
     "windwp/nvim-ts-autotag",
-    "LhKipp/nvim-nu",
     "RRethy/nvim-treesitter-textsubjects",
 }
 
@@ -39,7 +38,6 @@ local spec = {
     event = "VeryLazy",
     dependencies = dependencies,
     config = function()
-        require("nu").setup({})
         require("nvim-ts-autotag").setup({})
         require("nvim-treesitter.configs").setup(opts)
     end,

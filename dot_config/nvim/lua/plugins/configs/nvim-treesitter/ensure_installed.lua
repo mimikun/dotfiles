@@ -37,6 +37,7 @@ local base_parsers = {
     "make",
     "markdown",
     "markdown_inline",
+    "nu",
     "powershell",
     "python",
     "regex",
