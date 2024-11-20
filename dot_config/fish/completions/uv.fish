@@ -1434,8 +1434,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l require-hashes -d 'Require a matching hash for each requirement'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-require-hashes
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l verify-hashes -d 'Validate any hashes provided in the requirements file'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-verify-hashes
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l verify-hashes
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-verify-hashes -d 'Disable validation of hashes in the requirements file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l system -d 'Install packages into the system Python environment'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l break-system-packages -d 'Allow uv to modify an `EXTERNALLY-MANAGED` Python installation'
@@ -1523,8 +1523,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l deps
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l require-hashes -d 'Require a matching hash for each requirement'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-require-hashes
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l verify-hashes -d 'Validate any hashes provided in the requirements file'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-verify-hashes
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l verify-hashes
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-verify-hashes -d 'Disable validation of hashes in the requirements file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l system -d 'Install packages into the system Python environment'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l break-system-packages -d 'Allow uv to modify an `EXTERNALLY-MANAGED` Python installation'
@@ -1857,10 +1857,10 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l sdist -d 'Build a source
 complete -c uv -n "__fish_uv_using_subcommand build" -l wheel -d 'Build a binary distribution ("wheel") from the given directory'
 complete -c uv -n "__fish_uv_using_subcommand build" -l build-logs
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-logs -d 'Hide logs from the build backend'
-complete -c uv -n "__fish_uv_using_subcommand build" -l require-hashes -d 'Require a matching hash for each build requirement'
+complete -c uv -n "__fish_uv_using_subcommand build" -l require-hashes -d 'Require a matching hash for each requirement'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-require-hashes
-complete -c uv -n "__fish_uv_using_subcommand build" -l verify-hashes -d 'Validate any hashes provided in the build constraints file'
-complete -c uv -n "__fish_uv_using_subcommand build" -l no-verify-hashes
+complete -c uv -n "__fish_uv_using_subcommand build" -l verify-hashes
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-verify-hashes -d 'Disable validation of hashes in the requirements file'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand build" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-upgrade
