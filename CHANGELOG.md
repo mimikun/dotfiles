@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.11.20]
+
+### Added - 新機能について
+
+- feat(pip): add bkp
+- feat(nvim): add nushell parser
+- feat(cargo): add some packages
+- feat(cargo): add gengo-bin
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.11.19]
 
 ### Added - 新機能について
