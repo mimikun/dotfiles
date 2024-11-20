@@ -55,6 +55,7 @@ flawz
 forgejo-cli
 fselect
 genact
+gengo-bin
 gfold
 git-delta
 git-graph
