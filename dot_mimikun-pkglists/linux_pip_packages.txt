@@ -17,6 +17,7 @@ bpyutils
 certifi
 chardet
 charset-normalizer
+bkp
 click
 colorama
 colored
