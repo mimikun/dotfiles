@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_deno_global_optspecs
-	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= c/config= no-config r/reload= lock= no-lock cert= unsafely-ignore-certificate-errors= A/allow-all R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= inspect= inspect-brk= inspect-wait= allow-scripts= frozen= cached-only location= v8-flags= seed= enable-testing-features-do-not-use strace-ops= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache unstable unstable-bare-node-builtins unstable-detect-cjs unstable-byonm unstable-sloppy-imports unstable-broadcast-channel unstable-cron unstable-ffi unstable-fs unstable-http unstable-kv unstable-net unstable-process unstable-temporal unstable-unsafe-proto unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
+	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= c/config= no-config r/reload= lock= no-lock cert= unsafely-ignore-certificate-errors= A/allow-all R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= inspect= inspect-brk= inspect-wait= allow-scripts= frozen= cached-only location= v8-flags= seed= enable-testing-features-do-not-use strace-ops= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache unstable unstable-bare-node-builtins unstable-detect-cjs unstable-byonm unstable-sloppy-imports unstable-broadcast-channel unstable-cron unstable-ffi unstable-fs unstable-http unstable-kv unstable-net unstable-node-globals unstable-otel unstable-process unstable-temporal unstable-unsafe-proto unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
 end
 
 function __fish_deno_needs_command
@@ -62,7 +62,7 @@ complete -c deno -n "__fish_deno_needs_command" -l watch -d 'Watch for file chan
 complete -c deno -n "__fish_deno_needs_command" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
-complete -c deno -n "__fish_deno_needs_command" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_needs_command" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_needs_command" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_needs_command" -l no-remote -d 'Do not resolve remote modules'
@@ -89,6 +89,8 @@ complete -c deno -n "__fish_deno_needs_command" -l unstable-fs -d 'Enable unstab
 complete -c deno -n "__fish_deno_needs_command" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_needs_command" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_needs_command" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -98,7 +100,7 @@ complete -c deno -n "__fish_deno_needs_command" -s V -l version -d 'Print versio
 complete -c deno -n "__fish_deno_needs_command" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_needs_command" -a "run" -d 'Run a JavaScript or TypeScript program, or a task or script.  By default all programs are run in sandbox without access to disk, network or ability to spawn subprocesses.   deno run https://examples.deno.land/hello-world.ts  Grant permission to read from disk and listen to network:   deno run --allow-read --allow-net jsr:@std/http/file-server  Grant permission to read allow-listed files from disk:   deno run --allow-read=/etc jsr:@std/http/file-server  Grant all permissions:   deno run -A jsr:@std/http/file-server  Specifying the filename \'-\' to read the file from stdin.   curl https://examples.deno.land/hello-world.ts | deno run -  Read more: https://docs.deno.com/go/run'
 complete -c deno -n "__fish_deno_needs_command" -a "serve" -d 'Run a server defined in a main module  The serve command uses the default exports of the main module to determine which servers to start.  Start a server defined in server.ts:   deno serve server.ts  Start a server defined in server.ts, watching for changes and running on port 5050:   deno serve --watch --port 5050 server.ts  Read more: https://docs.deno.com/go/serve'
-complete -c deno -n "__fish_deno_needs_command" -a "add" -d 'Add dependencies to your configuration file.   deno add jsr:@std/path  You can add multiple dependencies at once:   deno add jsr:@std/path jsr:@std/assert'
+complete -c deno -n "__fish_deno_needs_command" -a "add" -d 'Add dependencies to your configuration file.   deno add jsr:@std/path  You can also add npm packages:   deno add npm:react  Or multiple dependencies at once:   deno add jsr:@std/path jsr:@std/assert npm:chalk'
 complete -c deno -n "__fish_deno_needs_command" -a "remove" -d 'Remove dependencies from the configuration file.   deno remove @std/path  You can remove multiple dependencies at once:   deno remove @std/path @std/assert '
 complete -c deno -n "__fish_deno_needs_command" -a "bench" -d 'Run benchmarks using Deno\'s built-in bench tool.  Evaluate the given files, run all benches declared with \'Deno.bench()\' and report results to standard output:   deno bench src/fetch_bench.ts src/signal_bench.ts  If you specify a directory instead of a file, the path is expanded to all contained files matching the glob {*_,*.,}bench.{js,mjs,ts,mts,jsx,tsx}:   deno bench src/  Read more: https://docs.deno.com/go/bench'
 complete -c deno -n "__fish_deno_needs_command" -a "bundle" -d '⚠️ `deno bundle` was removed in Deno 2.  See the Deno 1.x to 2.x Migration Guide for migration instructions: https://docs.deno.com/runtime/manual/advanced/migrate_deprecations'
@@ -118,11 +120,12 @@ complete -c deno -n "__fish_deno_needs_command" -a "i" -d 'Installs dependencies
 complete -c deno -n "__fish_deno_needs_command" -a "json_reference"
 complete -c deno -n "__fish_deno_needs_command" -a "jupyter" -d 'Deno kernel for Jupyter notebooks'
 complete -c deno -n "__fish_deno_needs_command" -a "uninstall" -d 'Uninstalls a dependency or an executable script in the installation root\'s bin directory.   deno uninstall @std/dotenv chalk   deno uninstall --global file_server  To change the installation root, use --root flag:   deno uninstall --global --root /usr/local serve  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno'
+complete -c deno -n "__fish_deno_needs_command" -a "outdated" -d 'Find and update outdated dependencies. By default, outdated dependencies are only displayed.  Display outdated dependencies:   deno outdated   deno outdated --compatible    Update dependencies:   deno outdated --update   deno outdated --update --latest   deno outdated --update  Filters can be used to select which packages to act on. Filters can include wildcards (*) to match multiple packages.   deno outdated --update --latest "@std/*"   deno outdated --update --latest "react*" Note that filters act on their aliases configured in deno.json / package.json, not the actual package names:   Given "foobar": "npm:react@17.0.0" in deno.json or package.json, the filter "foobar" would update npm:react to   the latest version.   deno outdated --update --latest foobar Filters can be combined, and negative filters can be used to exclude results:   deno outdated --update --latest "@std/*" "!@std/fmt*"  Specific version requirements to update to can be specified:   deno outdated --update @std/fmt@^1.0.2 '
 complete -c deno -n "__fish_deno_needs_command" -a "lsp" -d 'The \'deno lsp\' subcommand provides a way for code editors and IDEs to interact with Deno using the Language Server Protocol. Usually humans do not use this subcommand directly. For example, \'deno lsp\' can provide IDEs with go-to-definition support and automatic code formatting.  How to connect various editors and IDEs to \'deno lsp\': https://docs.deno.com/go/lsp'
 complete -c deno -n "__fish_deno_needs_command" -a "lint" -d 'Lint JavaScript/TypeScript source code.    deno lint   deno lint myfile1.ts myfile2.js  Print result as JSON:   deno lint --json  Read from stdin:   cat file.ts | deno lint -   cat file.ts | deno lint --json -  List available rules:   deno lint --rules  To ignore specific diagnostics, you can write an ignore comment on the preceding line with a rule name (or multiple):   // deno-lint-ignore no-explicit-any   // deno-lint-ignore require-await no-empty  To ignore linting on an entire file, you can add an ignore comment at the top of the file:   // deno-lint-ignore-file  Read more: https://docs.deno.com/go/lint '
 complete -c deno -n "__fish_deno_needs_command" -a "publish" -d 'Publish the current working directory\'s package or workspace to JSR'
 complete -c deno -n "__fish_deno_needs_command" -a "repl" -d 'Starts a read-eval-print-loop, which lets you interactively build up program state in the global context. It is especially useful for quick prototyping and checking snippets of code.  TypeScript is supported, however it is not type-checked, only transpiled.'
-complete -c deno -n "__fish_deno_needs_command" -a "task" -d 'Run a task defined in the configuration file.   deno task build  List all available tasks:   deno task'
+complete -c deno -n "__fish_deno_needs_command" -a "task" -d 'Run a task defined in the configuration file.   deno task build  List all available tasks:   deno task    Evaluate a task from string   deno task --eval "echo $(pwd)"'
 complete -c deno -n "__fish_deno_needs_command" -a "test" -d 'Run tests using Deno\'s built-in test runner.  Evaluate the given modules, run all tests declared with Deno.test() and report results to standard output:   deno test src/fetch_test.ts src/signal_test.ts  Directory arguments are expanded to all contained files matching the glob {*_,*.,}test.{js,mjs,ts,mts,jsx,tsx} or **/__tests__/**:  deno test src/  Read more: https://docs.deno.com/go/test'
 complete -c deno -n "__fish_deno_needs_command" -a "types" -d 'Print runtime TypeScript declarations.    deno types > lib.deno.d.ts  The declaration file could be saved and used for typing information.'
 complete -c deno -n "__fish_deno_needs_command" -a "upgrade" -d 'Upgrade deno executable to the given version.  Latest   deno upgrade  Specific version   deno upgrade 1.45.0   deno upgrade 1.46.0-rc.1   deno upgrade 9bc2dd29ad6ba334fd57a20114e367d3c04763d4  Channel   deno upgrade stable   deno upgrade rc   deno upgrade canary  The version is downloaded from https://dl.deno.land and is used to replace the current executable.  If you want to not replace the current Deno executable but instead download an update to a different location, use the --output flag:   deno upgrade --output $HOME/my_deno  Read more: https://docs.deno.com/go/upgrade'
@@ -166,7 +169,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l watch -d 'Watch for fi
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
-complete -c deno -n "__fish_deno_using_subcommand run" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand run" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
@@ -181,6 +184,8 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-fs -d 'Enable
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -239,7 +244,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l watch -d 'Watch for 
 complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
-complete -c deno -n "__fish_deno_using_subcommand serve" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand serve" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
@@ -254,6 +259,8 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-fs -d 'Enab
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -288,6 +295,8 @@ complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-fs -d 'Enable
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -309,6 +318,8 @@ complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-fs -d 'Ena
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -351,7 +362,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l check -d 'Set type-c
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ignore -d 'Ignore files' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l filter -d 'Run benchmarks with this string or regexp pattern in the bench name' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -365,6 +376,8 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-fs -d 'Enab
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -399,6 +412,8 @@ complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-fs -d 'Ena
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -432,6 +447,8 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-fs -d 'Enab
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -466,6 +483,8 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-fs -d 'Enab
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -494,6 +513,8 @@ complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-fs -d 'Enab
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -533,12 +554,12 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l v8-flags -d 'To se
 complete -c deno -n "__fish_deno_using_subcommand compile" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l strace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l include -d 'Includes an additional module in the compiled executable\'s module graph.   Use this flag if a dynamically imported module or a web worker main module   fails to load in the executable. This flag can be passed multiple times,   to include multiple additional modules.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -l include -d 'Includes an additional module or file/directory in the compiled executable.   Use this flag if a dynamically imported module or a web worker main module   fails to load in the executable or to embed a file or directory in the executable.   This flag can be passed multiple times, to include multiple additional modules.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -s o -l output -d 'Output file (defaults to $PWD/<inferred-name>)' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l target -d 'Target OS architecture' -r -f -a "{x86_64-unknown-linux-gnu\t'',aarch64-unknown-linux-gnu\t'',x86_64-pc-windows-msvc\t'',x86_64-apple-darwin\t'',aarch64-apple-darwin\t''}"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l icon -d 'Set the icon of the executable on Windows (.ico)' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
-complete -c deno -n "__fish_deno_using_subcommand compile" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
@@ -551,6 +572,8 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-fs -d 'En
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -567,6 +590,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-hrtime -d 'RE
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-terminal -d 'Hide terminal on Windows'
 complete -c deno -n "__fish_deno_using_subcommand completions" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand completions" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
@@ -582,6 +606,8 @@ complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-fs -d
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -606,6 +632,8 @@ complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-fs -d 'E
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -639,6 +667,8 @@ complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-fs -d 'Enable
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -675,7 +705,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l seed -d 'Set the rand
 complete -c deno -n "__fish_deno_using_subcommand eval" -l strace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
-complete -c deno -n "__fish_deno_using_subcommand eval" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand eval" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
@@ -688,6 +718,8 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-fs -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -704,7 +736,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -s p -l print -d 'print 
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t'',md\t'',json\t'',jsonc\t'',css\t'',scss\t'',sass\t'',less\t'',html\t'',svelte\t'',vue\t'',astro\t'',yml\t'',yaml\t'',ipynb\t''}"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t'',md\t'',json\t'',jsonc\t'',css\t'',scss\t'',sass\t'',less\t'',html\t'',svelte\t'',vue\t'',astro\t'',yml\t'',yaml\t'',ipynb\t'',sql\t''}"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l ignore -d 'Ignore formatting particular source files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l use-tabs -d 'Use tabs instead of spaces for indentation [default: false]' -r -f -a "{true\t'',false\t''}"
@@ -725,6 +757,8 @@ complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-fs -d 'Enable
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -739,6 +773,7 @@ complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-css -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-html -d 'Enable formatting HTML files'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-component -d 'Enable formatting Svelte, Vue, Astro and Angular files'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-yaml -d 'Enable formatting YAML files'
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-sql -d 'Enable formatting SQL files.'
 complete -c deno -n "__fish_deno_using_subcommand init" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand init" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
@@ -753,12 +788,15 @@ complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-fs -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand init" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_deno_using_subcommand init" -l npm -d 'Generate a npm create-* project'
 complete -c deno -n "__fish_deno_using_subcommand init" -l lib -d 'Generate an example library project'
 complete -c deno -n "__fish_deno_using_subcommand init" -l serve -d 'Generate an example project for `deno serve`'
 complete -c deno -n "__fish_deno_using_subcommand info" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
@@ -786,6 +824,8 @@ complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-fs -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -835,7 +875,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l check -d 'Set type
 complete -c deno -n "__fish_deno_using_subcommand install" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -s n -l name -d 'Executable file name' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l root -d 'Installation root' -r -f -a "(__fish_complete_directories)"
-complete -c deno -n "__fish_deno_using_subcommand install" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
@@ -848,6 +888,8 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-fs -d 'En
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -906,7 +948,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l check -d 'Set type-check
 complete -c deno -n "__fish_deno_using_subcommand i" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -s n -l name -d 'Executable file name' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l root -d 'Installation root' -r -f -a "(__fish_complete_directories)"
-complete -c deno -n "__fish_deno_using_subcommand i" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
@@ -919,6 +961,8 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-fs -d 'Enable u
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -957,6 +1001,8 @@ complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-fs -d 'En
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -980,6 +1026,8 @@ complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-fs -d '
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -987,6 +1035,34 @@ complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-webgpu 
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -s g -l global -d 'Remove globally installed package or module'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s h -l help -r -f -a "{unstable\t''}"
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-byonm
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-cron -d 'Enable unstable Deno.cron API'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-ffi -d 'Enable unstable FFI APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-fs -d 'Enable unstable file system APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-http -d 'Enable unstable HTTP APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-process -d 'Enable unstable process APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-temporal -d 'Enable unstable Temporal API'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l no-lock -d 'Disable auto discovery of the lock file'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l latest -d 'Update to the latest version, regardless of semver constraints'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s u -l update -d 'Update dependency versions'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l compatible -d 'Only output versions that satisfy semver requirements'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s r -l recursive -d 'include all workspace members'
 complete -c deno -n "__fish_deno_using_subcommand lsp" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand lsp" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand lsp" -s q -l quiet -d 'Suppress diagnostic output'
@@ -1011,6 +1087,8 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-fs -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -1028,6 +1106,7 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -s h -l help -r -f -a
 complete -c deno -n "__fish_deno_using_subcommand publish" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand publish" -l token -d 'The API token to use when publishing. If unset, interactive authentication is be used' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand publish" -l set-version -d 'Set version for a package to be published.   <p(245)>This flag can be used while publishing individual packages and cannot be used in a workspace.</>' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
@@ -1042,6 +1121,8 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-fs -d 'En
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -1053,7 +1134,7 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -l dry-run -d 'Prepar
 complete -c deno -n "__fish_deno_using_subcommand publish" -l allow-slow-types -d 'Allow publishing with slow types'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l allow-dirty -d 'Allow publishing if the repository has uncommitted changed'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l no-provenance -d 'Disable provenance attestation.   Enabled by default on Github actions, publicly links the package to where it was built and published from.'
-complete -c deno -n "__fish_deno_using_subcommand repl" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand repl" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand repl" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
@@ -1101,6 +1182,8 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-fs -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -1121,6 +1204,7 @@ complete -c deno -n "__fish_deno_using_subcommand task" -s h -l help -r -f -a "{
 complete -c deno -n "__fish_deno_using_subcommand task" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand task" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand task" -l cwd -d 'Specify the directory to run the task in' -r -f -a "(__fish_complete_directories)"
+complete -c deno -n "__fish_deno_using_subcommand task" -s f -l filter -d 'Filter members of the workspace by name - should be used with --recursive' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -1134,12 +1218,16 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-fs -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand task" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_deno_using_subcommand task" -s r -l recursive -d 'Run the task in all projects in the workspace'
+complete -c deno -n "__fish_deno_using_subcommand task" -l eval -d 'Evaluate the passed value as if, it was a task in a configuration file'
 complete -c deno -n "__fish_deno_using_subcommand test" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand test" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
@@ -1185,7 +1273,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l watch -d 'Watch for f
 complete -c deno -n "__fish_deno_using_subcommand test" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l junit-path -d 'Write a JUnit XML test report to PATH. Use \'-\' to write to stdout which is the default when PATH is not provided' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l reporter -d 'Select reporter to use. Default to \'pretty\'' -r -f -a "{pretty\t'',dot\t'',junit\t'',tap\t''}"
-complete -c deno -n "__fish_deno_using_subcommand test" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -1199,6 +1287,8 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-fs -d 'Enabl
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -1237,6 +1327,8 @@ complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-fs -d 'Enab
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -1261,6 +1353,8 @@ complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-fs -d 'En
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
@@ -1285,62 +1379,67 @@ complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-fs -d 'Ena
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-http -d 'Enable unstable HTTP APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-process -d 'Enable unstable process APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-temporal -d 'Enable unstable Temporal API'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-byonm
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-cron -d 'Enable unstable Deno.cron API'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-ffi -d 'Enable unstable FFI APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-fs -d 'Enable unstable file system APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-http -d 'Enable unstable HTTP APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-net -d 'Enable unstable net APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-process -d 'Enable unstable process APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-temporal -d 'Enable unstable Temporal API'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "run"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "serve"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "add"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "remove"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "bench"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "bundle"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "cache"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "check"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "clean"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "compile"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "completions"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "coverage"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "doc"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "eval"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "fmt"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "init"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "info"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "install"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "json_reference"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "jupyter"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "uninstall"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "lsp"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "lint"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "publish"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "repl"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "task"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "test"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "types"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "upgrade"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall lsp lint publish repl task test types upgrade vendor" -f -a "vendor"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -s h -l help -r -f -a "{unstable\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable -d 'Enable all unstable features and APIs. Instead of using this flag, consider enabling individual unstable features   To view the list of individual unstable feature flags, run this command again with --help=unstable'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-detect-cjs -d 'Reads the package.json type field in a project to treat .js files as .cjs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-byonm
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-sloppy-imports -d 'Enable unstable resolving of specifiers by extension probing, .js to .ts, and directory probing'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-cron -d 'Enable unstable Deno.cron API'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-ffi -d 'Enable unstable FFI APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-fs -d 'Enable unstable file system APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-http -d 'Enable unstable HTTP APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-kv -d 'Enable unstable Key-Value store APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-net -d 'Enable unstable net APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-process -d 'Enable unstable process APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-temporal -d 'Enable unstable Temporal API'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-unsafe-proto -d 'Enable unsafe __proto__ support. This is a security risk.'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "run"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "serve"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "add"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "remove"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "bench"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "bundle"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "cache"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "check"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "clean"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "compile"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "completions"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "coverage"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "doc"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "eval"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "fmt"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "init"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "info"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "install"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "json_reference"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "jupyter"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "uninstall"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "outdated"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "lsp"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "lint"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "publish"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "repl"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "task"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "test"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "types"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "upgrade"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "vendor"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s q -l quiet -d 'Suppress diagnostic output'
@@ -1404,6 +1503,9 @@ complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcomma
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s h -l help -r -f -a "{unstable\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s q -l quiet -d 'Suppress diagnostic output'
