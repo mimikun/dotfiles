@@ -1,4 +1,5 @@
-local global = require("config.global")
+---@type boolean
+local cond = require("config.global").is_linux
 
 ---@type string|nil
 local backend
@@ -54,8 +55,8 @@ local spec = {
     config = function()
         require("image").setup(opts)
     end,
-    --cond = false,
-    --enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec
