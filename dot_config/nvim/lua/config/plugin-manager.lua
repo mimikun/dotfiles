@@ -47,6 +47,7 @@ local icons = {
 }
 
 if not vim.uv.fs_stat(lazy_path) then
+    -- TODO: Use vim.system()
     vim.fn.system({
         "git",
         "clone",
