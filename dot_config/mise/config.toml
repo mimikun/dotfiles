@@ -38,38 +38,50 @@ zig = [
 "npm:envinfo" = "latest"
 
 [plugins]
-luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
 vim = "https://github.com/mimikun/asdf-vim.git"
 
 [settings]
-activate_aggressive = false
-asdf = true
-asdf_compat = true
-disable_tools = []
-libgit2 = true
-paranoid = false
-status = { missing_tools = "if_other_versions_installed", show_env = false, show_tools = false }
-use_versions_host = true
-vfox = false
 legacy_version_file = true
-legacy_version_file_disable_tools = []
+#legacy_version_file_disable_tools = []
+
 always_keep_download = false
 always_keep_install = false
+
 plugin_autoupdate_last_check_duration = "7d"
+
+# TODO: fix it
 trusted_config_paths = []
+
 verbose = false
+asdf_compat = true
+
+activate_aggressive = false
+asdf = true
 #http_timeout = 30
 jobs = 1
 raw = false
 yes = false
+
 not_found_auto_install = true
+task_output = "prefix"
+paranoid = false
+
+#shorthands_file = ""
+disable_default_shorthands = false
+#disable_tools = []
+
+#env_file = ".env"
+
 experimental = true
+
+status = { missing_tools = "if_other_versions_installed", show_env = false, show_tools = false }
+
+libgit2 = true
+use_versions_host = true
+vfox = false
 all_compile = false
 pipx_uvx = true
 cargo_binstall = false
-task_output = "prefix"
-shorthands_file = ""
-disable_default_shorthands = false
 #disable_hints = []
 color = true
 #go_default_packages_file = "~/.default-go-packages"

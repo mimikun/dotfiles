@@ -11,7 +11,3 @@ python = "3"
 ruby = "latest"
 vim = "latest"
 zig = "latest"
-
-[plugins]
-luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
-vim = "https://github.com/mimikun/asdf-vim.git"
