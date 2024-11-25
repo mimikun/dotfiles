@@ -9,11 +9,9 @@ node = "22"
 powershell-core = "7.4"
 python = "3"
 ruby = "latest"
-tig = "latest"
 vim = "latest"
 zig = "latest"
 
 [plugins]
 luajit = "https://github.com/smashedtoatoms/asdf-luaJIT.git"
-tig = "https://github.com/koketani/asdf-tig.git"
 vim = "https://github.com/mimikun/asdf-vim.git"
