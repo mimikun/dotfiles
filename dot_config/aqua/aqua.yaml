@@ -94,7 +94,7 @@ packages:
 - name: dev.yorhel.nl/ncdu
   version: '2.4'
 # Use custom registry
-- name: mikuta0407/misskey-cli@v0.3
+- name: mikuta0407/misskey-cli@v0.3.1
   registry: custom
 - name: mattn/sleepy@v0.0.3
   registry: custom
