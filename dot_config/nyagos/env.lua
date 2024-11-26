@@ -226,27 +226,9 @@ if is_linux then
     )
 
     -- mise
-    local mise_config_dir = table.concat({ xdg_config_home, "mise" }, path_sep)
-    local mise_data_dir = table.concat({ xdg_data_home, "mise" }, path_sep)
-    local mise_cache_dir = table.concat({ xdg_cache_home, "mise" }, path_sep)
-    local mise_config_file = table.concat({ mise_config_dir, "config.toml" }, path_sep)
-    local mise_log_file = table.concat({ mise_cache_dir, "mise.log" }, path_sep)
     -- If not human rights, MISE_JOBS = 1.
     local mise_jobs = is_not_human_rights and 1 or 4
-    --local mise_shorthands_file = table.concat({ mise_config_dir, "shorthands.toml" }, path_sep)
-    nyagos.envadd("MISE_CONFIG_DIR", nyagos.getenv("MISE_CONFIG_DIR") or mise_config_dir)
-    nyagos.envadd("MISE_DATA_DIR", nyagos.getenv("MISE_DATA_DIR") or mise_data_dir)
-    nyagos.envadd("MISE_CACHE_DIR", nyagos.getenv("MISE_CACHE_DIR") or mise_cache_dir)
-    nyagos.envadd("MISE_GLOBAL_CONFIG_FILE", nyagos.getenv("MISE_GLOBAL_CONFIG_FILE") or mise_config_file)
-    nyagos.envadd("MISE_USE_VERSIONS_HOST", nyagos.getenv("MISE_USE_VERSIONS_HOST") or true)
-    nyagos.envadd("MISE_LEGACY_VERSION_FILE", nyagos.getenv("MISE_LEGACY_VERSION_FILE") or 1)
-    nyagos.envadd("MISE_LOG_FILE", nyagos.getenv("MISE_LOG_FILE") or mise_log_file)
-    nyagos.envadd("MISE_ASDF_COMPAT", nyagos.getenv("MISE_ASDF_COMPAT") or 1)
     nyagos.envadd("MISE_JOBS", nyagos.getenv("MISE_JOBS") or mise_jobs)
-    --nyagos.envadd("MISE_SHORTHANDS_FILE", nyagos.getenv("MISE_SHORTHANDS_FILE") or mise_shorthands_file)
-    nyagos.envadd("MISE_YES", nyagos.getenv("MISE_YES") or 1)
-    nyagos.envadd("MISE_NOT_FOUND_AUTO_INSTALL", nyagos.getenv("MISE_NOT_FOUND_AUTO_INSTALL") or false)
-    nyagos.envadd("MISE_EXPERIMENTAL", nyagos.getenv("MISE_EXPERIMENTAL") or 1)
 
     -- cabal config
     local cabal_bin = table.concat({ home, ".cabal", "bin" }, path_sep)

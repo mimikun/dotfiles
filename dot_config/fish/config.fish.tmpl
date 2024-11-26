@@ -234,25 +234,12 @@ if command -v dotnet >/dev/null 2>&1
 end
 
 # mise
-set -x MISE_CONFIG_DIR "$XDG_CONFIG_HOME/mise"
-set -x MISE_DATA_DIR "$XDG_DATA_HOME/mise"
-set -x MISE_CACHE_DIR "$XDG_CACHE_HOME/mise"
-set -x MISE_GLOBAL_CONFIG_FILE "$MISE_CONFIG_DIR/config.toml"
-set -x MISE_USE_VERSIONS_HOST true
-set -x MISE_LEGACY_VERSION_FILE 1
-set -x MISE_LOG_FILE "$MISE_CACHE_DIR/mise.log"
-set -x MISE_ASDF_COMPAT 1
 # If not human rights, MISE_JOBS = 1.
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
 set -x MISE_JOBS 1
 {{ else -}}
 set -x MISE_JOBS 4
 {{ end -}}
-#set -x MISE_SHORTHANDS_FILE "$MISE_CONFIG_DIR/shorthands.toml"
-set -x MISE_YES 1
-set -x MISE_NOT_FOUND_AUTO_INSTALL false
-set -x MISE_EXPERIMENTAL 1
-set -x MISE_FISH_AUTO_ACTIVATE 1
 
 # aqua
 set -x AQUA_ROOT_DIR $XDG_DATA_HOME/aqua
@@ -377,10 +364,8 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     if command -v mise >/dev/null 2>&1
         echo "# cache mise shell-integration script" >> $CACHE_CONFIG_FISH
         mise activate fish >> $CACHE_CONFIG_FISH
-        echo "# Add mise shims to path" >> $CACHE_CONFIG_FISH
-        echo 'set -x PATH "$XDG_DATA_HOME/mise/shims" $PATH' >> $CACHE_CONFIG_FISH
         echo "# alias" >> $CACHE_CONFIG_FISH
-        echo 'alias paleovim "$XDG_DATA_HOME/mise/shims/vim"' >> $CACHE_CONFIG_FISH
+        echo 'alias paleovim "$XDG_DATA_HOME/mise/installed/vim/ref-master/vim"' >> $CACHE_CONFIG_FISH
         echo "# abbr" >> $CACHE_CONFIG_FISH
         echo 'abbr -a pvim paleovim' >> $CACHE_CONFIG_FISH
     end

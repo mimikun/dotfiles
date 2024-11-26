@@ -138,28 +138,14 @@ function lk {
 }
 
 # mise
-export MISE_CONFIG_DIR="$XDG_CONFIG_HOME/mise"
-export MISE_DATA_DIR="$XDG_DATA_HOME/mise"
-export MISE_CACHE_DIR="$XDG_CACHE_HOME/mise"
-export MISE_GLOBAL_CONFIG_FILE="$MISE_CONFIG_DIR/config.toml"
-export MISE_USE_VERSIONS_HOST=true
-export MISE_LEGACY_VERSION_FILE=1
-export MISE_LOG_FILE="$MISE_CACHE_DIR/mise.log"
-export MISE_ASDF_COMPAT=1
 # If not human rights, MISE_JOBS = 1.
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
 export MISE_JOBS=1
 {{ else -}}
 export MISE_JOBS=4
 {{ end -}}
-#export MISE_SHORTHANDS_FILE="$MISE_CONFIG_DIR/shorthands.toml"
-export MISE_YES=1
-export MISE_NOT_FOUND_AUTO_INSTALL=false
-export MISE_EXPERIMENTAL=1
-export MISE_FISH_AUTO_ACTIVATE=1
 eval "$(mise activate zsh)"
-export PATH="$XDG_DATA_HOME/mise/shims:$PATH"
-alias paleovim="$MISE_DATA_DIR/shims/vim"
+alias paleovim="$XDG_DATA_HOME/mise/installs/vim/ref-master/bin/vim"
 alias pvim=paleovim
 
 # luarocks

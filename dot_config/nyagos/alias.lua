@@ -24,7 +24,6 @@ if is_linux then
     end
 
     -- mise
-    -- TODO: Run mise_activate_nyagos
     local mise_dir = table.concat({ home, ".local", "share", "mise" }, path_sep)
     local mise_shims = table.concat({ mise_dir, "shims" }, path_sep)
     -- Add mise shims to path
@@ -34,6 +33,7 @@ if is_linux then
     local paleovim = table.concat({ mise_shims, "vim" }, path_sep)
     nyagos.alias.paleovim = paleovim
     nyagos.alias.pvim = paleovim
+
     -- neovim alias
     nyagos.alias.vim = "nvim"
 end

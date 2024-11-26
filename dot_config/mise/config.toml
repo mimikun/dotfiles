@@ -3,11 +3,11 @@ dotnet-core = "latest"
 erlang = "latest"
 gleam = "latest"
 go = "latest"
-lua = "5.1.5"
-luajit = "2.0.5--2.4.4"
+lua = "5.1"
 node = [
-    # lts = 22
+    "lts",
     "22",
+    "latest",
     "23",
 ]
 powershell-core = [
@@ -16,87 +16,39 @@ powershell-core = [
 ]
 python = [
     "latest",
-    # mise cannot install python v2
-    #"2",
     "3",
 ]
 ruby = "latest"
 vim = [
-    "latest",
     "ref:master",
+    "latest",
 ]
 zig = [
     "ref:master",
     "latest",
 ]
 
-# npm backend
-"npm:npkill" = "latest"
-"npm:prettier" = "latest"
+# npm backends
 "npm:commitizen" = "latest"
 "npm:cz-conventional-changelog-ja" = "latest"
 "npm:envinfo" = "latest"
-
-[plugins]
-vim = "https://github.com/mimikun/asdf-vim.git"
+"npm:npkill" = "latest"
+"npm:prettier" = "latest"
 
 [settings]
-legacy_version_file = true
-#legacy_version_file_disable_tools = []
-
-always_keep_download = false
-always_keep_install = false
-
-plugin_autoupdate_last_check_duration = "7d"
-
-# TODO: fix it
-trusted_config_paths = []
-
-verbose = false
 asdf_compat = true
-
-activate_aggressive = false
-asdf = true
-#http_timeout = 30
-jobs = 1
-raw = false
-yes = false
-
-not_found_auto_install = true
-task_output = "prefix"
-paranoid = false
-
-#shorthands_file = ""
-disable_default_shorthands = false
-#disable_tools = []
-
-#env_file = ".env"
-
 experimental = true
+# FIX: search and configuring
+jobs = 4
 
-status = { missing_tools = "if_other_versions_installed", show_env = false, show_tools = false }
+[settings.cargo]
+binstall = false
 
-libgit2 = true
-use_versions_host = true
-vfox = false
-all_compile = false
-pipx_uvx = true
-cargo_binstall = false
-#disable_hints = []
-color = true
-#go_default_packages_file = "~/.default-go-packages"
-#go_download_mirror = "https://dl.google.com/go"
-#go_repo = "https://github.com/golang/go"
-#go_set_gopath = false
-#go_set_goroot = true
-#go_skip_checksum = false
-#node_compile = false
-python_compile = false
-#python_default_packages_file = "~/.default-python-packages"
-#python_pyenv_repo = "https://github.com/pyenv/pyenv.git"
-quiet = false
-#ci = false
-#debug = false
-#trace = false
-#log_level = "info"
-python_venv_auto_create = false
+[settings.npm]
+bun = true
+
+[settings.pipx]
+uvx = true
+
+[settings.status]
+missing_tools = "if_other_versions_installed"
