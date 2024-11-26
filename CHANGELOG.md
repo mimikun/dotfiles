@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.11.26]
+
+### Added - 新機能について
+
+- feat(pip): add some packages
+- chore(nvim): add TODO comments
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(mise-tasks): update
+
+### Removed - 今回で削除された機能について
+
+- chore(mise): remove unused backend tools
+- chore(mise): remove tig
+
+### Fixed - 不具合修正について
+
+- fix(mise): config error
+- fix(nvim): image.nvim disable in windows
+
 ## [v2024.11.20]
 
 ### Added - 新機能について
