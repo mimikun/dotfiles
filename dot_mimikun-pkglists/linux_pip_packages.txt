@@ -5,6 +5,7 @@ agate-sql
 aiofiles
 anyio
 argcomplete
+arxiv
 arxiv2bib
 asyncio
 attr
@@ -27,14 +28,18 @@ decorator
 dominate
 ddgr
 et-xmlfile
+feedparser
 filetype
 ghp-import
 gitdb
 GitPython
 greenlet
+h11
 h5py
 h5ui
 habanero
+httpcore
+httpx
 idna
 importlib-metadata
 isbnlib
@@ -95,6 +100,7 @@ rexi
 rich
 ruamel.yaml
 setuptools
+sgmllib3k
 shellingham
 six
 smmap
@@ -110,7 +116,7 @@ textual-fspicker
 textual-imageview
 toml
 tqdm
-typeinc
+Typeinc
 typer
 typing_extensions
 uc-micro-py
