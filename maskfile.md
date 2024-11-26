@@ -243,7 +243,6 @@ cp ~/.config/fish/completions/* ./dot_config/fish/completions/
 cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
 
 # mise
-chezmoi add ~/.mise.toml
 chezmoi add ~/.config/mise/config.toml
 
 # bob
