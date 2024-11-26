@@ -25,42 +25,185 @@
     "vscode-json-language-server",
     "yaml-language-server"
   ],
+  "plugins": [
+    "2kabhishek/octohub.nvim",
+    "2kabhishek/utils.nvim",
+    "3rd/image.nvim",
+    "Bilal2453/luvit-meta",
+    "CopilotC-Nvim/CopilotChat.nvim",
+    "HakonHarnes/img-clip.nvim",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    "L3MON4D3/LuaSnip",
+    "LhKipp/nvim-nu",
+    "MeanderingProgrammer/render-markdown.nvim",
+    "MunifTanjim/nui.nvim",
+    "NachoNievaG/atac.nvim",
+    "OXY2DEV/helpview.nvim",
+    "OXY2DEV/markview.nvim",
+    "Omochice/dps-translate-vim",
+    "RRethy/nvim-treesitter-textsubjects",
+    "RRethy/vim-illuminate",
+    "SmiteshP/nvim-navbuddy",
+    "SmiteshP/nvim-navic",
+    "Wansmer/treesj",
+    "Zeioth/mason-extra-cmds",
+    "adigitoleo/haunt.nvim",
+    "akinsho/toggleterm.nvim",
+    "alker0/chezmoi.vim",
+    "b0o/nvim-tree-preview.lua",
+    "b0o/schemastore.nvim",
+    "cespare/vim-toml",
+    "creativenull/dotfyle-metadata.nvim",
+    "danielfalk/smart-open.nvim",
+    "delphinus/obsidian-kensaku.nvim",
+    "delphinus/skkeleton_indicator.nvim",
+    "echasnovski/mini.icons",
+    "echasnovski/mini.nvim",
+    "epwalsh/obsidian.nvim",
+    "fdschmidt93/telescope-egrepify.nvim",
+    "fladson/vim-kitty",
+    "folke/lazy.nvim",
+    "folke/lazydev.nvim",
+    "folke/neoconf.nvim",
+    "folke/noice.nvim",
+    "folke/snacks.nvim",
+    "folke/todo-comments.nvim",
+    "folke/tokyonight.nvim",
+    "folke/trouble.nvim",
+    "folke/which-key.nvim",
+    "gen740/SmoothCursor.nvim",
+    "goolord/alpha-nvim",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-emoji",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "iguanacucumber/magazine.nvim",
+    "j-hui/fidget.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
+    "jghauser/mkdir.nvim",
+    "justinsgithub/wezterm-types",
+    "k-takata/vim-teraterm",
+    "kevinhwang91/nvim-bqf",
+    "kevinhwang91/nvim-hlslens",
+    "kkharji/sqlite.lua",
+    "kylechui/nvim-surround",
+    "lewis6991/gitsigns.nvim",
+    "lewis6991/satellite.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    "mei28/luminate.nvim",
+    "mfussenegger/nvim-dap",
+    "monaqa/dial.nvim",
+    "mrcjkb/rustaceanvim",
+    "nastevens/vim-cargo-make",
+    "nastevens/vim-duckscript",
+    "neovim/nvim-lspconfig",
+    "numToStr/Comment.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-lualine/lualine.nvim",
+    "nvim-neotest/nvim-nio",
+    "nvim-telescope/telescope-fzf-native.nvim",
+    "nvim-telescope/telescope.nvim",
+    "nvim-tree/nvim-tree.lua",
+    "nvim-tree/nvim-web-devicons",
+    "nvim-treesitter/nvim-treesitter",
+    "nvimdev/lspsaga.nvim",
+    "nvimdev/template.nvim",
+    "nvimtools/none-ls.nvim",
+    "olimorris/codecompanion.nvim",
+    "onsails/lspkind.nvim",
+    "pauchiner/pastelnight.nvim",
+    "poljar/typos.nvim",
+    "projekt0n/github-nvim-theme",
+    "rafamadriz/friendly-snippets",
+    "rainbowhxch/accelerated-jk.nvim",
+    "rcarriga/cmp-dap",
+    "rcarriga/nvim-dap-ui",
+    "rcarriga/nvim-notify",
+    "refractalize/oil-git-status.nvim",
+    "rhysd/migemo-search.vim",
+    "romgrk/barbar.nvim",
+    "roobert/surround-ui.nvim",
+    "saadparwaiz1/cmp_luasnip",
+    "saecki/crates.nvim",
+    "smoka7/hop.nvim",
+    "stevearc/dressing.nvim",
+    "stevearc/oil.nvim",
+    "subnut/nvim-ghost.nvim",
+    "svampkorg/moody.nvim",
+    "tadashi-aikawa/silhouette.nvim",
+    "thinca/vim-quickrun",
+    "uga-rosa/ccc.nvim",
+    "vague2k/huez.nvim",
+    "vim-denops/denops-shared-server.vim",
+    "vim-denops/denops.vim",
+    "vim-fall/fall.vim",
+    "vim-jp/vimdoc-ja",
+    "vim-skk/skkeleton",
+    "vuki656/package-info.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim",
+    "windwp/nvim-autopairs",
+    "windwp/nvim-ts-autotag",
+    "xiyaowong/transparent.nvim",
+    "yamatsum/nvim-cursorline",
+    "zapling/mason-lock.nvim",
+    "zbirenbaum/copilot-cmp",
+    "zbirenbaum/copilot.lua"
+  ],
+  "pluginManager": "lazy.nvim",
+  "treesitterParsers": [
+    "bash",
+    "c",
+    "c_sharp",
+    "cmake",
+    "cpp",
+    "css",
+    "dockerfile",
+    "fish",
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "html",
+    "ini",
+    "javascript",
+    "json",
+    "json5",
+    "jsonc",
+    "latex",
+    "lua",
+    "lua",
+    "luadoc",
+    "luap",
+    "luau",
+    "make",
+    "markdown",
+    "markdown",
+    "markdown_inline",
+    "markdown_inline",
+    "nu",
+    "ocaml",
+    "ocaml_interface",
+    "powershell",
+    "python",
+    "query",
+    "regex",
+    "rust",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "vim",
+    "vimdoc",
+    "vimdoc",
+    "vue",
+    "xml",
+    "yaml"
+  ],
   "keymaps": [
-    {
-      "desc": "yss(",
-      "noremap": true,
-      "lhs": "<Space>Ss(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yss(')<CR>"
-    },
-    {
-      "desc": "yss>",
-      "noremap": true,
-      "lhs": "<Space>Ss>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yss>')<CR>"
-    },
-    {
-      "desc": "yssq [quote]",
-      "noremap": true,
-      "lhs": "<Space>Ssq",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yssq')<CR>"
-    },
-    {
-      "desc": "yss}",
-      "noremap": true,
-      "lhs": "<Space>Ss}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yss}')<CR>"
-    },
-    {
-      "desc": "yss<",
-      "noremap": true,
-      "lhs": "<Space>Ss<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yss<lt>')<CR>"
-    },
     {
       "desc": "yss[",
       "noremap": true,
@@ -69,11 +212,11 @@
       "rhs": "<Cmd>call feedkeys('yss[')<CR>"
     },
     {
-      "desc": "yssW [WORD]",
+      "desc": "yss>",
       "noremap": true,
-      "lhs": "<Space>SsW",
+      "lhs": "<Space>Ss>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yssW')<CR>"
+      "rhs": "<Cmd>call feedkeys('yss>')<CR>"
     },
     {
       "desc": "yss]",
@@ -90,25 +233,18 @@
       "rhs": "<Cmd>call feedkeys('yss\"')<CR>"
     },
     {
-      "desc": "yss'",
+      "desc": "yss(",
       "noremap": true,
-      "lhs": "<Space>Ss'",
+      "lhs": "<Space>Ss(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yss''')<CR>"
+      "rhs": "<Cmd>call feedkeys('yss(')<CR>"
     },
     {
-      "desc": "yssf [function]",
+      "desc": "yss<",
       "noremap": true,
-      "lhs": "<Space>Ssf",
+      "lhs": "<Space>Ss<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yssf')<CR>"
-    },
-    {
-      "desc": "yssb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Ssb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('yssb')<CR>"
+      "rhs": "<Cmd>call feedkeys('yss<lt>')<CR>"
     },
     {
       "desc": "yss)",
@@ -125,6 +261,13 @@
       "rhs": "<Cmd>call feedkeys('yss`')<CR>"
     },
     {
+      "desc": "yss'",
+      "noremap": true,
+      "lhs": "<Space>Ss'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('yss''')<CR>"
+    },
+    {
       "desc": "yss{",
       "noremap": true,
       "lhs": "<Space>Ss{",
@@ -139,39 +282,39 @@
       "rhs": "<Cmd>call feedkeys('yssw')<CR>"
     },
     {
-      "desc": "ds(",
+      "desc": "yssb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sd(",
+      "lhs": "<Space>Ssb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ds(')<CR>"
+      "rhs": "<Cmd>call feedkeys('yssb')<CR>"
     },
     {
-      "desc": "ds>",
+      "desc": "yssW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sd>",
+      "lhs": "<Space>SsW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ds>')<CR>"
+      "rhs": "<Cmd>call feedkeys('yssW')<CR>"
     },
     {
-      "desc": "dsq [quote]",
+      "desc": "yssf [function]",
       "noremap": true,
-      "lhs": "<Space>Sdq",
+      "lhs": "<Space>Ssf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('dsq')<CR>"
+      "rhs": "<Cmd>call feedkeys('yssf')<CR>"
     },
     {
-      "desc": "ds}",
+      "desc": "yss}",
       "noremap": true,
-      "lhs": "<Space>Sd}",
+      "lhs": "<Space>Ss}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ds}')<CR>"
+      "rhs": "<Cmd>call feedkeys('yss}')<CR>"
     },
     {
-      "desc": "ds<",
+      "desc": "yssq [quote]",
       "noremap": true,
-      "lhs": "<Space>Sd<",
+      "lhs": "<Space>Ssq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ds<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('yssq')<CR>"
     },
     {
       "desc": "ds[",
@@ -181,11 +324,11 @@
       "rhs": "<Cmd>call feedkeys('ds[')<CR>"
     },
     {
-      "desc": "dsW [WORD]",
+      "desc": "ds>",
       "noremap": true,
-      "lhs": "<Space>SdW",
+      "lhs": "<Space>Sd>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('dsW')<CR>"
+      "rhs": "<Cmd>call feedkeys('ds>')<CR>"
     },
     {
       "desc": "ds]",
@@ -202,25 +345,18 @@
       "rhs": "<Cmd>call feedkeys('ds\"')<CR>"
     },
     {
-      "desc": "ds'",
+      "desc": "ds(",
       "noremap": true,
-      "lhs": "<Space>Sd'",
+      "lhs": "<Space>Sd(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ds''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ds(')<CR>"
     },
     {
-      "desc": "dsf [function]",
+      "desc": "ds<",
       "noremap": true,
-      "lhs": "<Space>Sdf",
+      "lhs": "<Space>Sd<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('dsf')<CR>"
-    },
-    {
-      "desc": "dsb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sdb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('dsb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ds<lt>')<CR>"
     },
     {
       "desc": "ds)",
@@ -237,6 +373,13 @@
       "rhs": "<Cmd>call feedkeys('ds`')<CR>"
     },
     {
+      "desc": "ds'",
+      "noremap": true,
+      "lhs": "<Space>Sd'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ds''')<CR>"
+    },
+    {
       "desc": "ds{",
       "noremap": true,
       "lhs": "<Space>Sd{",
@@ -251,599 +394,39 @@
       "rhs": "<Cmd>call feedkeys('dsw')<CR>"
     },
     {
-      "desc": "cs((",
+      "desc": "dsb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sc((",
+      "lhs": "<Space>Sdb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs((')<CR>"
+      "rhs": "<Cmd>call feedkeys('dsb')<CR>"
     },
     {
-      "desc": "cs(>",
+      "desc": "dsW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sc(>",
+      "lhs": "<Space>SdW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(>')<CR>"
+      "rhs": "<Cmd>call feedkeys('dsW')<CR>"
     },
     {
-      "desc": "cs(q [quote]",
+      "desc": "dsf [function]",
       "noremap": true,
-      "lhs": "<Space>Sc(q",
+      "lhs": "<Space>Sdf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(q')<CR>"
+      "rhs": "<Cmd>call feedkeys('dsf')<CR>"
     },
     {
-      "desc": "cs(}",
+      "desc": "ds}",
       "noremap": true,
-      "lhs": "<Space>Sc(}",
+      "lhs": "<Space>Sd}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ds}')<CR>"
     },
     {
-      "desc": "cs(<",
+      "desc": "dsq [quote]",
       "noremap": true,
-      "lhs": "<Space>Sc(<",
+      "lhs": "<Space>Sdq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(<lt>')<CR>"
-    },
-    {
-      "desc": "cs([",
-      "noremap": true,
-      "lhs": "<Space>Sc([",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs([')<CR>"
-    },
-    {
-      "desc": "cs(W [WORD]",
-      "noremap": true,
-      "lhs": "<Space>Sc(W",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(W')<CR>"
-    },
-    {
-      "desc": "cs(]",
-      "noremap": true,
-      "lhs": "<Space>Sc(]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(]')<CR>"
-    },
-    {
-      "desc": "cs(\"",
-      "noremap": true,
-      "lhs": "<Space>Sc(\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(\"')<CR>"
-    },
-    {
-      "desc": "cs('",
-      "noremap": true,
-      "lhs": "<Space>Sc('",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(''')<CR>"
-    },
-    {
-      "desc": "cs(f [function]",
-      "noremap": true,
-      "lhs": "<Space>Sc(f",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(f')<CR>"
-    },
-    {
-      "desc": "cs(b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc(b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(b')<CR>"
-    },
-    {
-      "desc": "cs()",
-      "noremap": true,
-      "lhs": "<Space>Sc()",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs()')<CR>"
-    },
-    {
-      "desc": "cs(`",
-      "noremap": true,
-      "lhs": "<Space>Sc(`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(`')<CR>"
-    },
-    {
-      "desc": "cs({",
-      "noremap": true,
-      "lhs": "<Space>Sc({",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs({')<CR>"
-    },
-    {
-      "desc": "cs(w [word]",
-      "noremap": true,
-      "lhs": "<Space>Sc(w",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs(w')<CR>"
-    },
-    {
-      "desc": "cs>(",
-      "noremap": true,
-      "lhs": "<Space>Sc>(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>(')<CR>"
-    },
-    {
-      "desc": "cs>>",
-      "noremap": true,
-      "lhs": "<Space>Sc>>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>>')<CR>"
-    },
-    {
-      "desc": "cs>q [quote]",
-      "noremap": true,
-      "lhs": "<Space>Sc>q",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>q')<CR>"
-    },
-    {
-      "desc": "cs>}",
-      "noremap": true,
-      "lhs": "<Space>Sc>}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>}')<CR>"
-    },
-    {
-      "desc": "cs><",
-      "noremap": true,
-      "lhs": "<Space>Sc><",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs><lt>')<CR>"
-    },
-    {
-      "desc": "cs>[",
-      "noremap": true,
-      "lhs": "<Space>Sc>[",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>[')<CR>"
-    },
-    {
-      "desc": "cs>W [WORD]",
-      "noremap": true,
-      "lhs": "<Space>Sc>W",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>W')<CR>"
-    },
-    {
-      "desc": "cs>]",
-      "noremap": true,
-      "lhs": "<Space>Sc>]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>]')<CR>"
-    },
-    {
-      "desc": "cs>\"",
-      "noremap": true,
-      "lhs": "<Space>Sc>\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>\"')<CR>"
-    },
-    {
-      "desc": "cs>'",
-      "noremap": true,
-      "lhs": "<Space>Sc>'",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>''')<CR>"
-    },
-    {
-      "desc": "cs>f [function]",
-      "noremap": true,
-      "lhs": "<Space>Sc>f",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>f')<CR>"
-    },
-    {
-      "desc": "cs>b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc>b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>b')<CR>"
-    },
-    {
-      "desc": "cs>)",
-      "noremap": true,
-      "lhs": "<Space>Sc>)",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>)')<CR>"
-    },
-    {
-      "desc": "cs>`",
-      "noremap": true,
-      "lhs": "<Space>Sc>`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>`')<CR>"
-    },
-    {
-      "desc": "cs>{",
-      "noremap": true,
-      "lhs": "<Space>Sc>{",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>{')<CR>"
-    },
-    {
-      "desc": "cs>w [word]",
-      "noremap": true,
-      "lhs": "<Space>Sc>w",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs>w')<CR>"
-    },
-    {
-      "desc": "csq(",
-      "noremap": true,
-      "lhs": "<Space>Scq(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq(')<CR>"
-    },
-    {
-      "desc": "csq>",
-      "noremap": true,
-      "lhs": "<Space>Scq>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq>')<CR>"
-    },
-    {
-      "desc": "csqq [quote]",
-      "noremap": true,
-      "lhs": "<Space>Scqq",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csqq')<CR>"
-    },
-    {
-      "desc": "csq}",
-      "noremap": true,
-      "lhs": "<Space>Scq}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq}')<CR>"
-    },
-    {
-      "desc": "csq<",
-      "noremap": true,
-      "lhs": "<Space>Scq<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq<lt>')<CR>"
-    },
-    {
-      "desc": "csq[",
-      "noremap": true,
-      "lhs": "<Space>Scq[",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq[')<CR>"
-    },
-    {
-      "desc": "csqW [WORD]",
-      "noremap": true,
-      "lhs": "<Space>ScqW",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csqW')<CR>"
-    },
-    {
-      "desc": "csq]",
-      "noremap": true,
-      "lhs": "<Space>Scq]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq]')<CR>"
-    },
-    {
-      "desc": "csq\"",
-      "noremap": true,
-      "lhs": "<Space>Scq\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq\"')<CR>"
-    },
-    {
-      "desc": "csq'",
-      "noremap": true,
-      "lhs": "<Space>Scq'",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq''')<CR>"
-    },
-    {
-      "desc": "csqf [function]",
-      "noremap": true,
-      "lhs": "<Space>Scqf",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csqf')<CR>"
-    },
-    {
-      "desc": "csqb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Scqb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csqb')<CR>"
-    },
-    {
-      "desc": "csq)",
-      "noremap": true,
-      "lhs": "<Space>Scq)",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq)')<CR>"
-    },
-    {
-      "desc": "csq`",
-      "noremap": true,
-      "lhs": "<Space>Scq`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq`')<CR>"
-    },
-    {
-      "desc": "csq{",
-      "noremap": true,
-      "lhs": "<Space>Scq{",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csq{')<CR>"
-    },
-    {
-      "desc": "csqw [word]",
-      "noremap": true,
-      "lhs": "<Space>Scqw",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csqw')<CR>"
-    },
-    {
-      "desc": "cs}(",
-      "noremap": true,
-      "lhs": "<Space>Sc}(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}(')<CR>"
-    },
-    {
-      "desc": "cs}>",
-      "noremap": true,
-      "lhs": "<Space>Sc}>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}>')<CR>"
-    },
-    {
-      "desc": "cs}q [quote]",
-      "noremap": true,
-      "lhs": "<Space>Sc}q",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}q')<CR>"
-    },
-    {
-      "desc": "cs}}",
-      "noremap": true,
-      "lhs": "<Space>Sc}}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}}')<CR>"
-    },
-    {
-      "desc": "cs}<",
-      "noremap": true,
-      "lhs": "<Space>Sc}<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}<lt>')<CR>"
-    },
-    {
-      "desc": "cs}[",
-      "noremap": true,
-      "lhs": "<Space>Sc}[",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}[')<CR>"
-    },
-    {
-      "desc": "cs}W [WORD]",
-      "noremap": true,
-      "lhs": "<Space>Sc}W",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}W')<CR>"
-    },
-    {
-      "desc": "cs}]",
-      "noremap": true,
-      "lhs": "<Space>Sc}]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}]')<CR>"
-    },
-    {
-      "desc": "cs}\"",
-      "noremap": true,
-      "lhs": "<Space>Sc}\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}\"')<CR>"
-    },
-    {
-      "desc": "cs}'",
-      "noremap": true,
-      "lhs": "<Space>Sc}'",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}''')<CR>"
-    },
-    {
-      "desc": "cs}f [function]",
-      "noremap": true,
-      "lhs": "<Space>Sc}f",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}f')<CR>"
-    },
-    {
-      "desc": "cs}b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc}b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}b')<CR>"
-    },
-    {
-      "desc": "cs})",
-      "noremap": true,
-      "lhs": "<Space>Sc})",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs})')<CR>"
-    },
-    {
-      "desc": "cs}`",
-      "noremap": true,
-      "lhs": "<Space>Sc}`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}`')<CR>"
-    },
-    {
-      "desc": "cs}{",
-      "noremap": true,
-      "lhs": "<Space>Sc}{",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}{')<CR>"
-    },
-    {
-      "desc": "cs}w [word]",
-      "noremap": true,
-      "lhs": "<Space>Sc}w",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs}w')<CR>"
-    },
-    {
-      "desc": "cs<(",
-      "noremap": true,
-      "lhs": "<Space>Sc<(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>(')<CR>"
-    },
-    {
-      "desc": "cs<>",
-      "noremap": true,
-      "lhs": "<Space>Sc<>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>>')<CR>"
-    },
-    {
-      "desc": "cs<q [quote]",
-      "noremap": true,
-      "lhs": "<Space>Sc<q",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>q')<CR>"
-    },
-    {
-      "desc": "cs<}",
-      "noremap": true,
-      "lhs": "<Space>Sc<}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>}')<CR>"
-    },
-    {
-      "desc": "cs<<",
-      "noremap": true,
-      "lhs": "<Space>Sc<<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt><lt>')<CR>"
-    },
-    {
-      "desc": "cs<[",
-      "noremap": true,
-      "lhs": "<Space>Sc<[",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>[')<CR>"
-    },
-    {
-      "desc": "cs<W [WORD]",
-      "noremap": true,
-      "lhs": "<Space>Sc<W",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>W')<CR>"
-    },
-    {
-      "desc": "cs<]",
-      "noremap": true,
-      "lhs": "<Space>Sc<]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>]')<CR>"
-    },
-    {
-      "desc": "cs<\"",
-      "noremap": true,
-      "lhs": "<Space>Sc<\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>\"')<CR>"
-    },
-    {
-      "desc": "cs<'",
-      "noremap": true,
-      "lhs": "<Space>Sc<'",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>''')<CR>"
-    },
-    {
-      "desc": "cs<f [function]",
-      "noremap": true,
-      "lhs": "<Space>Sc<f",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>f')<CR>"
-    },
-    {
-      "desc": "cs<b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc<b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>b')<CR>"
-    },
-    {
-      "desc": "cs<)",
-      "noremap": true,
-      "lhs": "<Space>Sc<)",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>)')<CR>"
-    },
-    {
-      "desc": "cs<`",
-      "noremap": true,
-      "lhs": "<Space>Sc<`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>`')<CR>"
-    },
-    {
-      "desc": "cs<{",
-      "noremap": true,
-      "lhs": "<Space>Sc<{",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>{')<CR>"
-    },
-    {
-      "desc": "cs<w [word]",
-      "noremap": true,
-      "lhs": "<Space>Sc<w",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs<lt>w')<CR>"
-    },
-    {
-      "desc": "cs[(",
-      "noremap": true,
-      "lhs": "<Space>Sc[(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[(')<CR>"
-    },
-    {
-      "desc": "cs[>",
-      "noremap": true,
-      "lhs": "<Space>Sc[>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[>')<CR>"
-    },
-    {
-      "desc": "cs[q [quote]",
-      "noremap": true,
-      "lhs": "<Space>Sc[q",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[q')<CR>"
-    },
-    {
-      "desc": "cs[}",
-      "noremap": true,
-      "lhs": "<Space>Sc[}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[}')<CR>"
-    },
-    {
-      "desc": "cs[<",
-      "noremap": true,
-      "lhs": "<Space>Sc[<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('dsq')<CR>"
     },
     {
       "desc": "cs[[",
@@ -853,11 +436,11 @@
       "rhs": "<Cmd>call feedkeys('cs[[')<CR>"
     },
     {
-      "desc": "cs[W [WORD]",
+      "desc": "cs[>",
       "noremap": true,
-      "lhs": "<Space>Sc[W",
+      "lhs": "<Space>Sc[>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[>')<CR>"
     },
     {
       "desc": "cs[]",
@@ -874,25 +457,18 @@
       "rhs": "<Cmd>call feedkeys('cs[\"')<CR>"
     },
     {
-      "desc": "cs['",
+      "desc": "cs[(",
       "noremap": true,
-      "lhs": "<Space>Sc['",
+      "lhs": "<Space>Sc[(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[(')<CR>"
     },
     {
-      "desc": "cs[f [function]",
+      "desc": "cs[<",
       "noremap": true,
-      "lhs": "<Space>Sc[f",
+      "lhs": "<Space>Sc[<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[f')<CR>"
-    },
-    {
-      "desc": "cs[b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc[b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs[b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[<lt>')<CR>"
     },
     {
       "desc": "cs[)",
@@ -909,6 +485,13 @@
       "rhs": "<Cmd>call feedkeys('cs[`')<CR>"
     },
     {
+      "desc": "cs['",
+      "noremap": true,
+      "lhs": "<Space>Sc['",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs[''')<CR>"
+    },
+    {
       "desc": "cs[{",
       "noremap": true,
       "lhs": "<Space>Sc[{",
@@ -923,151 +506,151 @@
       "rhs": "<Cmd>call feedkeys('cs[w')<CR>"
     },
     {
-      "desc": "csW(",
+      "desc": "cs[b [bracket]",
       "noremap": true,
-      "lhs": "<Space>ScW(",
+      "lhs": "<Space>Sc[b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[b')<CR>"
     },
     {
-      "desc": "csW>",
+      "desc": "cs[W [WORD]",
       "noremap": true,
-      "lhs": "<Space>ScW>",
+      "lhs": "<Space>Sc[W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[W')<CR>"
     },
     {
-      "desc": "csWq [quote]",
+      "desc": "cs[f [function]",
       "noremap": true,
-      "lhs": "<Space>ScWq",
+      "lhs": "<Space>Sc[f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csWq')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[f')<CR>"
     },
     {
-      "desc": "csW}",
+      "desc": "cs[}",
       "noremap": true,
-      "lhs": "<Space>ScW}",
+      "lhs": "<Space>Sc[}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[}')<CR>"
     },
     {
-      "desc": "csW<",
+      "desc": "cs[q [quote]",
       "noremap": true,
-      "lhs": "<Space>ScW<",
+      "lhs": "<Space>Sc[q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs[q')<CR>"
     },
     {
-      "desc": "csW[",
+      "desc": "cs>[",
       "noremap": true,
-      "lhs": "<Space>ScW[",
+      "lhs": "<Space>Sc>[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW[')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>[')<CR>"
     },
     {
-      "desc": "csWW [WORD]",
+      "desc": "cs>>",
       "noremap": true,
-      "lhs": "<Space>ScWW",
+      "lhs": "<Space>Sc>>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csWW')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>>')<CR>"
     },
     {
-      "desc": "csW]",
+      "desc": "cs>]",
       "noremap": true,
-      "lhs": "<Space>ScW]",
+      "lhs": "<Space>Sc>]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW]')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>]')<CR>"
     },
     {
-      "desc": "csW\"",
+      "desc": "cs>\"",
       "noremap": true,
-      "lhs": "<Space>ScW\"",
+      "lhs": "<Space>Sc>\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>\"')<CR>"
     },
     {
-      "desc": "csW'",
+      "desc": "cs>(",
       "noremap": true,
-      "lhs": "<Space>ScW'",
+      "lhs": "<Space>Sc>(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>(')<CR>"
     },
     {
-      "desc": "csWf [function]",
+      "desc": "cs><",
       "noremap": true,
-      "lhs": "<Space>ScWf",
+      "lhs": "<Space>Sc><",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csWf')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs><lt>')<CR>"
     },
     {
-      "desc": "csWb [bracket]",
+      "desc": "cs>)",
       "noremap": true,
-      "lhs": "<Space>ScWb",
+      "lhs": "<Space>Sc>)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csWb')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>)')<CR>"
     },
     {
-      "desc": "csW)",
+      "desc": "cs>`",
       "noremap": true,
-      "lhs": "<Space>ScW)",
+      "lhs": "<Space>Sc>`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW)')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>`')<CR>"
     },
     {
-      "desc": "csW`",
+      "desc": "cs>'",
       "noremap": true,
-      "lhs": "<Space>ScW`",
+      "lhs": "<Space>Sc>'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW`')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>''')<CR>"
     },
     {
-      "desc": "csW{",
+      "desc": "cs>{",
       "noremap": true,
-      "lhs": "<Space>ScW{",
+      "lhs": "<Space>Sc>{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csW{')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>{')<CR>"
     },
     {
-      "desc": "csWw [word]",
+      "desc": "cs>w [word]",
       "noremap": true,
-      "lhs": "<Space>ScWw",
+      "lhs": "<Space>Sc>w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csWw')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>w')<CR>"
     },
     {
-      "desc": "cs](",
+      "desc": "cs>b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sc](",
+      "lhs": "<Space>Sc>b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs](')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>b')<CR>"
     },
     {
-      "desc": "cs]>",
+      "desc": "cs>W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sc]>",
+      "lhs": "<Space>Sc>W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>W')<CR>"
     },
     {
-      "desc": "cs]q [quote]",
+      "desc": "cs>f [function]",
       "noremap": true,
-      "lhs": "<Space>Sc]q",
+      "lhs": "<Space>Sc>f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]q')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>f')<CR>"
     },
     {
-      "desc": "cs]}",
+      "desc": "cs>}",
       "noremap": true,
-      "lhs": "<Space>Sc]}",
+      "lhs": "<Space>Sc>}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>}')<CR>"
     },
     {
-      "desc": "cs]<",
+      "desc": "cs>q [quote]",
       "noremap": true,
-      "lhs": "<Space>Sc]<",
+      "lhs": "<Space>Sc>q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs>q')<CR>"
     },
     {
       "desc": "cs][",
@@ -1077,11 +660,11 @@
       "rhs": "<Cmd>call feedkeys('cs][')<CR>"
     },
     {
-      "desc": "cs]W [WORD]",
+      "desc": "cs]>",
       "noremap": true,
-      "lhs": "<Space>Sc]W",
+      "lhs": "<Space>Sc]>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs]>')<CR>"
     },
     {
       "desc": "cs]]",
@@ -1098,25 +681,18 @@
       "rhs": "<Cmd>call feedkeys('cs]\"')<CR>"
     },
     {
-      "desc": "cs]'",
+      "desc": "cs](",
       "noremap": true,
-      "lhs": "<Space>Sc]'",
+      "lhs": "<Space>Sc](",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs](')<CR>"
     },
     {
-      "desc": "cs]f [function]",
+      "desc": "cs]<",
       "noremap": true,
-      "lhs": "<Space>Sc]f",
+      "lhs": "<Space>Sc]<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]f')<CR>"
-    },
-    {
-      "desc": "cs]b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc]b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs]b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs]<lt>')<CR>"
     },
     {
       "desc": "cs])",
@@ -1133,6 +709,13 @@
       "rhs": "<Cmd>call feedkeys('cs]`')<CR>"
     },
     {
+      "desc": "cs]'",
+      "noremap": true,
+      "lhs": "<Space>Sc]'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs]''')<CR>"
+    },
+    {
       "desc": "cs]{",
       "noremap": true,
       "lhs": "<Space>Sc]{",
@@ -1147,39 +730,39 @@
       "rhs": "<Cmd>call feedkeys('cs]w')<CR>"
     },
     {
-      "desc": "cs\"(",
+      "desc": "cs]b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sc\"(",
+      "lhs": "<Space>Sc]b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs]b')<CR>"
     },
     {
-      "desc": "cs\">",
+      "desc": "cs]W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sc\">",
+      "lhs": "<Space>Sc]W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\">')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs]W')<CR>"
     },
     {
-      "desc": "cs\"q [quote]",
+      "desc": "cs]f [function]",
       "noremap": true,
-      "lhs": "<Space>Sc\"q",
+      "lhs": "<Space>Sc]f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"q')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs]f')<CR>"
     },
     {
-      "desc": "cs\"}",
+      "desc": "cs]}",
       "noremap": true,
-      "lhs": "<Space>Sc\"}",
+      "lhs": "<Space>Sc]}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs]}')<CR>"
     },
     {
-      "desc": "cs\"<",
+      "desc": "cs]q [quote]",
       "noremap": true,
-      "lhs": "<Space>Sc\"<",
+      "lhs": "<Space>Sc]q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs]q')<CR>"
     },
     {
       "desc": "cs\"[",
@@ -1189,11 +772,11 @@
       "rhs": "<Cmd>call feedkeys('cs\"[')<CR>"
     },
     {
-      "desc": "cs\"W [WORD]",
+      "desc": "cs\">",
       "noremap": true,
-      "lhs": "<Space>Sc\"W",
+      "lhs": "<Space>Sc\">",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\">')<CR>"
     },
     {
       "desc": "cs\"]",
@@ -1210,25 +793,18 @@
       "rhs": "<Cmd>call feedkeys('cs\"\"')<CR>"
     },
     {
-      "desc": "cs\"'",
+      "desc": "cs\"(",
       "noremap": true,
-      "lhs": "<Space>Sc\"'",
+      "lhs": "<Space>Sc\"(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\"(')<CR>"
     },
     {
-      "desc": "cs\"f [function]",
+      "desc": "cs\"<",
       "noremap": true,
-      "lhs": "<Space>Sc\"f",
+      "lhs": "<Space>Sc\"<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"f')<CR>"
-    },
-    {
-      "desc": "cs\"b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc\"b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs\"b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\"<lt>')<CR>"
     },
     {
       "desc": "cs\")",
@@ -1245,6 +821,13 @@
       "rhs": "<Cmd>call feedkeys('cs\"`')<CR>"
     },
     {
+      "desc": "cs\"'",
+      "noremap": true,
+      "lhs": "<Space>Sc\"'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs\"''')<CR>"
+    },
+    {
       "desc": "cs\"{",
       "noremap": true,
       "lhs": "<Space>Sc\"{",
@@ -1259,375 +842,263 @@
       "rhs": "<Cmd>call feedkeys('cs\"w')<CR>"
     },
     {
-      "desc": "cs'(",
+      "desc": "cs\"b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sc'(",
+      "lhs": "<Space>Sc\"b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\"b')<CR>"
     },
     {
-      "desc": "cs'>",
+      "desc": "cs\"W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sc'>",
+      "lhs": "<Space>Sc\"W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\"W')<CR>"
     },
     {
-      "desc": "cs'q [quote]",
+      "desc": "cs\"f [function]",
       "noremap": true,
-      "lhs": "<Space>Sc'q",
+      "lhs": "<Space>Sc\"f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''q')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\"f')<CR>"
     },
     {
-      "desc": "cs'}",
+      "desc": "cs\"}",
       "noremap": true,
-      "lhs": "<Space>Sc'}",
+      "lhs": "<Space>Sc\"}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\"}')<CR>"
     },
     {
-      "desc": "cs'<",
+      "desc": "cs\"q [quote]",
       "noremap": true,
-      "lhs": "<Space>Sc'<",
+      "lhs": "<Space>Sc\"q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs\"q')<CR>"
     },
     {
-      "desc": "cs'[",
+      "desc": "cs([",
       "noremap": true,
-      "lhs": "<Space>Sc'[",
+      "lhs": "<Space>Sc([",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''[')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs([')<CR>"
     },
     {
-      "desc": "cs'W [WORD]",
+      "desc": "cs(>",
       "noremap": true,
-      "lhs": "<Space>Sc'W",
+      "lhs": "<Space>Sc(>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(>')<CR>"
     },
     {
-      "desc": "cs']",
+      "desc": "cs(]",
       "noremap": true,
-      "lhs": "<Space>Sc']",
+      "lhs": "<Space>Sc(]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs'']')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(]')<CR>"
     },
     {
-      "desc": "cs'\"",
+      "desc": "cs(\"",
       "noremap": true,
-      "lhs": "<Space>Sc'\"",
+      "lhs": "<Space>Sc(\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(\"')<CR>"
     },
     {
-      "desc": "cs''",
+      "desc": "cs((",
       "noremap": true,
-      "lhs": "<Space>Sc''",
+      "lhs": "<Space>Sc((",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs((')<CR>"
     },
     {
-      "desc": "cs'f [function]",
+      "desc": "cs(<",
       "noremap": true,
-      "lhs": "<Space>Sc'f",
+      "lhs": "<Space>Sc(<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''f')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(<lt>')<CR>"
     },
     {
-      "desc": "cs'b [bracket]",
+      "desc": "cs()",
       "noremap": true,
-      "lhs": "<Space>Sc'b",
+      "lhs": "<Space>Sc()",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs()')<CR>"
     },
     {
-      "desc": "cs')",
+      "desc": "cs(`",
       "noremap": true,
-      "lhs": "<Space>Sc')",
+      "lhs": "<Space>Sc(`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs'')')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(`')<CR>"
     },
     {
-      "desc": "cs'`",
+      "desc": "cs('",
       "noremap": true,
-      "lhs": "<Space>Sc'`",
+      "lhs": "<Space>Sc('",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''`')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(''')<CR>"
     },
     {
-      "desc": "cs'{",
+      "desc": "cs({",
       "noremap": true,
-      "lhs": "<Space>Sc'{",
+      "lhs": "<Space>Sc({",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''{')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs({')<CR>"
     },
     {
-      "desc": "cs'w [word]",
+      "desc": "cs(w [word]",
       "noremap": true,
-      "lhs": "<Space>Sc'w",
+      "lhs": "<Space>Sc(w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs''w')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(w')<CR>"
     },
     {
-      "desc": "csf(",
+      "desc": "cs(b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Scf(",
+      "lhs": "<Space>Sc(b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(b')<CR>"
     },
     {
-      "desc": "csf>",
+      "desc": "cs(W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Scf>",
+      "lhs": "<Space>Sc(W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(W')<CR>"
     },
     {
-      "desc": "csfq [quote]",
+      "desc": "cs(f [function]",
       "noremap": true,
-      "lhs": "<Space>Scfq",
+      "lhs": "<Space>Sc(f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csfq')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(f')<CR>"
     },
     {
-      "desc": "csf}",
+      "desc": "cs(}",
       "noremap": true,
-      "lhs": "<Space>Scf}",
+      "lhs": "<Space>Sc(}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(}')<CR>"
     },
     {
-      "desc": "csf<",
+      "desc": "cs(q [quote]",
       "noremap": true,
-      "lhs": "<Space>Scf<",
+      "lhs": "<Space>Sc(q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs(q')<CR>"
     },
     {
-      "desc": "csf[",
+      "desc": "cs<[",
       "noremap": true,
-      "lhs": "<Space>Scf[",
+      "lhs": "<Space>Sc<[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf[')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>[')<CR>"
     },
     {
-      "desc": "csfW [WORD]",
+      "desc": "cs<>",
       "noremap": true,
-      "lhs": "<Space>ScfW",
+      "lhs": "<Space>Sc<>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csfW')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>>')<CR>"
     },
     {
-      "desc": "csf]",
+      "desc": "cs<]",
       "noremap": true,
-      "lhs": "<Space>Scf]",
+      "lhs": "<Space>Sc<]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf]')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>]')<CR>"
     },
     {
-      "desc": "csf\"",
+      "desc": "cs<\"",
       "noremap": true,
-      "lhs": "<Space>Scf\"",
+      "lhs": "<Space>Sc<\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>\"')<CR>"
     },
     {
-      "desc": "csf'",
+      "desc": "cs<(",
       "noremap": true,
-      "lhs": "<Space>Scf'",
+      "lhs": "<Space>Sc<(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>(')<CR>"
     },
     {
-      "desc": "csff [function]",
+      "desc": "cs<<",
       "noremap": true,
-      "lhs": "<Space>Scff",
+      "lhs": "<Space>Sc<<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csff')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt><lt>')<CR>"
     },
     {
-      "desc": "csfb [bracket]",
+      "desc": "cs<)",
       "noremap": true,
-      "lhs": "<Space>Scfb",
+      "lhs": "<Space>Sc<)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csfb')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>)')<CR>"
     },
     {
-      "desc": "csf)",
+      "desc": "cs<`",
       "noremap": true,
-      "lhs": "<Space>Scf)",
+      "lhs": "<Space>Sc<`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf)')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>`')<CR>"
     },
     {
-      "desc": "csf`",
+      "desc": "cs<'",
       "noremap": true,
-      "lhs": "<Space>Scf`",
+      "lhs": "<Space>Sc<'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf`')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>''')<CR>"
     },
     {
-      "desc": "csf{",
+      "desc": "cs<{",
       "noremap": true,
-      "lhs": "<Space>Scf{",
+      "lhs": "<Space>Sc<{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csf{')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>{')<CR>"
     },
     {
-      "desc": "csfw [word]",
+      "desc": "cs<w [word]",
       "noremap": true,
-      "lhs": "<Space>Scfw",
+      "lhs": "<Space>Sc<w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csfw')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>w')<CR>"
     },
     {
-      "desc": "csb(",
+      "desc": "cs<b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Scb(",
+      "lhs": "<Space>Sc<b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>b')<CR>"
     },
     {
-      "desc": "csb>",
+      "desc": "cs<W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Scb>",
+      "lhs": "<Space>Sc<W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>W')<CR>"
     },
     {
-      "desc": "csbq [quote]",
+      "desc": "cs<f [function]",
       "noremap": true,
-      "lhs": "<Space>Scbq",
+      "lhs": "<Space>Sc<f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csbq')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>f')<CR>"
     },
     {
-      "desc": "csb}",
+      "desc": "cs<}",
       "noremap": true,
-      "lhs": "<Space>Scb}",
+      "lhs": "<Space>Sc<}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>}')<CR>"
     },
     {
-      "desc": "csb<",
+      "desc": "cs<q [quote]",
       "noremap": true,
-      "lhs": "<Space>Scb<",
+      "lhs": "<Space>Sc<q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb<lt>')<CR>"
-    },
-    {
-      "desc": "csb[",
-      "noremap": true,
-      "lhs": "<Space>Scb[",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb[')<CR>"
-    },
-    {
-      "desc": "csbW [WORD]",
-      "noremap": true,
-      "lhs": "<Space>ScbW",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csbW')<CR>"
-    },
-    {
-      "desc": "csb]",
-      "noremap": true,
-      "lhs": "<Space>Scb]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb]')<CR>"
-    },
-    {
-      "desc": "csb\"",
-      "noremap": true,
-      "lhs": "<Space>Scb\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb\"')<CR>"
-    },
-    {
-      "desc": "csb'",
-      "noremap": true,
-      "lhs": "<Space>Scb'",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb''')<CR>"
-    },
-    {
-      "desc": "csbf [function]",
-      "noremap": true,
-      "lhs": "<Space>Scbf",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csbf')<CR>"
-    },
-    {
-      "desc": "csbb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Scbb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csbb')<CR>"
-    },
-    {
-      "desc": "csb)",
-      "noremap": true,
-      "lhs": "<Space>Scb)",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb)')<CR>"
-    },
-    {
-      "desc": "csb`",
-      "noremap": true,
-      "lhs": "<Space>Scb`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb`')<CR>"
-    },
-    {
-      "desc": "csb{",
-      "noremap": true,
-      "lhs": "<Space>Scb{",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csb{')<CR>"
-    },
-    {
-      "desc": "csbw [word]",
-      "noremap": true,
-      "lhs": "<Space>Scbw",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csbw')<CR>"
-    },
-    {
-      "desc": "cs)(",
-      "noremap": true,
-      "lhs": "<Space>Sc)(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)(')<CR>"
-    },
-    {
-      "desc": "cs)>",
-      "noremap": true,
-      "lhs": "<Space>Sc)>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)>')<CR>"
-    },
-    {
-      "desc": "cs)q [quote]",
-      "noremap": true,
-      "lhs": "<Space>Sc)q",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)q')<CR>"
-    },
-    {
-      "desc": "cs)}",
-      "noremap": true,
-      "lhs": "<Space>Sc)}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)}')<CR>"
-    },
-    {
-      "desc": "cs)<",
-      "noremap": true,
-      "lhs": "<Space>Sc)<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs<lt>q')<CR>"
     },
     {
       "desc": "cs)[",
@@ -1637,11 +1108,11 @@
       "rhs": "<Cmd>call feedkeys('cs)[')<CR>"
     },
     {
-      "desc": "cs)W [WORD]",
+      "desc": "cs)>",
       "noremap": true,
-      "lhs": "<Space>Sc)W",
+      "lhs": "<Space>Sc)>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)>')<CR>"
     },
     {
       "desc": "cs)]",
@@ -1658,25 +1129,18 @@
       "rhs": "<Cmd>call feedkeys('cs)\"')<CR>"
     },
     {
-      "desc": "cs)'",
+      "desc": "cs)(",
       "noremap": true,
-      "lhs": "<Space>Sc)'",
+      "lhs": "<Space>Sc)(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)(')<CR>"
     },
     {
-      "desc": "cs)f [function]",
+      "desc": "cs)<",
       "noremap": true,
-      "lhs": "<Space>Sc)f",
+      "lhs": "<Space>Sc)<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)f')<CR>"
-    },
-    {
-      "desc": "cs)b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc)b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs)b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)<lt>')<CR>"
     },
     {
       "desc": "cs))",
@@ -1693,6 +1157,13 @@
       "rhs": "<Cmd>call feedkeys('cs)`')<CR>"
     },
     {
+      "desc": "cs)'",
+      "noremap": true,
+      "lhs": "<Space>Sc)'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs)''')<CR>"
+    },
+    {
       "desc": "cs){",
       "noremap": true,
       "lhs": "<Space>Sc){",
@@ -1707,39 +1178,39 @@
       "rhs": "<Cmd>call feedkeys('cs)w')<CR>"
     },
     {
-      "desc": "cs`(",
+      "desc": "cs)b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sc`(",
+      "lhs": "<Space>Sc)b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)b')<CR>"
     },
     {
-      "desc": "cs`>",
+      "desc": "cs)W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sc`>",
+      "lhs": "<Space>Sc)W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)W')<CR>"
     },
     {
-      "desc": "cs`q [quote]",
+      "desc": "cs)f [function]",
       "noremap": true,
-      "lhs": "<Space>Sc`q",
+      "lhs": "<Space>Sc)f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`q')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)f')<CR>"
     },
     {
-      "desc": "cs`}",
+      "desc": "cs)}",
       "noremap": true,
-      "lhs": "<Space>Sc`}",
+      "lhs": "<Space>Sc)}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)}')<CR>"
     },
     {
-      "desc": "cs`<",
+      "desc": "cs)q [quote]",
       "noremap": true,
-      "lhs": "<Space>Sc`<",
+      "lhs": "<Space>Sc)q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs)q')<CR>"
     },
     {
       "desc": "cs`[",
@@ -1749,11 +1220,11 @@
       "rhs": "<Cmd>call feedkeys('cs`[')<CR>"
     },
     {
-      "desc": "cs`W [WORD]",
+      "desc": "cs`>",
       "noremap": true,
-      "lhs": "<Space>Sc`W",
+      "lhs": "<Space>Sc`>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`>')<CR>"
     },
     {
       "desc": "cs`]",
@@ -1770,25 +1241,18 @@
       "rhs": "<Cmd>call feedkeys('cs`\"')<CR>"
     },
     {
-      "desc": "cs`'",
+      "desc": "cs`(",
       "noremap": true,
-      "lhs": "<Space>Sc`'",
+      "lhs": "<Space>Sc`(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`(')<CR>"
     },
     {
-      "desc": "cs`f [function]",
+      "desc": "cs`<",
       "noremap": true,
-      "lhs": "<Space>Sc`f",
+      "lhs": "<Space>Sc`<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`f')<CR>"
-    },
-    {
-      "desc": "cs`b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc`b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs`b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`<lt>')<CR>"
     },
     {
       "desc": "cs`)",
@@ -1805,6 +1269,13 @@
       "rhs": "<Cmd>call feedkeys('cs``')<CR>"
     },
     {
+      "desc": "cs`'",
+      "noremap": true,
+      "lhs": "<Space>Sc`'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs`''')<CR>"
+    },
+    {
       "desc": "cs`{",
       "noremap": true,
       "lhs": "<Space>Sc`{",
@@ -1819,39 +1290,151 @@
       "rhs": "<Cmd>call feedkeys('cs`w')<CR>"
     },
     {
-      "desc": "cs{(",
+      "desc": "cs`b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sc{(",
+      "lhs": "<Space>Sc`b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`b')<CR>"
     },
     {
-      "desc": "cs{>",
+      "desc": "cs`W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sc{>",
+      "lhs": "<Space>Sc`W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`W')<CR>"
     },
     {
-      "desc": "cs{q [quote]",
+      "desc": "cs`f [function]",
       "noremap": true,
-      "lhs": "<Space>Sc{q",
+      "lhs": "<Space>Sc`f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{q')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`f')<CR>"
     },
     {
-      "desc": "cs{}",
+      "desc": "cs`}",
       "noremap": true,
-      "lhs": "<Space>Sc{}",
+      "lhs": "<Space>Sc`}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`}')<CR>"
     },
     {
-      "desc": "cs{<",
+      "desc": "cs`q [quote]",
       "noremap": true,
-      "lhs": "<Space>Sc{<",
+      "lhs": "<Space>Sc`q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs`q')<CR>"
+    },
+    {
+      "desc": "cs'[",
+      "noremap": true,
+      "lhs": "<Space>Sc'[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''[')<CR>"
+    },
+    {
+      "desc": "cs'>",
+      "noremap": true,
+      "lhs": "<Space>Sc'>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''>')<CR>"
+    },
+    {
+      "desc": "cs']",
+      "noremap": true,
+      "lhs": "<Space>Sc']",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs'']')<CR>"
+    },
+    {
+      "desc": "cs'\"",
+      "noremap": true,
+      "lhs": "<Space>Sc'\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''\"')<CR>"
+    },
+    {
+      "desc": "cs'(",
+      "noremap": true,
+      "lhs": "<Space>Sc'(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''(')<CR>"
+    },
+    {
+      "desc": "cs'<",
+      "noremap": true,
+      "lhs": "<Space>Sc'<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''<lt>')<CR>"
+    },
+    {
+      "desc": "cs')",
+      "noremap": true,
+      "lhs": "<Space>Sc')",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs'')')<CR>"
+    },
+    {
+      "desc": "cs'`",
+      "noremap": true,
+      "lhs": "<Space>Sc'`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''`')<CR>"
+    },
+    {
+      "desc": "cs''",
+      "noremap": true,
+      "lhs": "<Space>Sc''",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''''')<CR>"
+    },
+    {
+      "desc": "cs'{",
+      "noremap": true,
+      "lhs": "<Space>Sc'{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''{')<CR>"
+    },
+    {
+      "desc": "cs'w [word]",
+      "noremap": true,
+      "lhs": "<Space>Sc'w",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''w')<CR>"
+    },
+    {
+      "desc": "cs'b [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Sc'b",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''b')<CR>"
+    },
+    {
+      "desc": "cs'W [WORD]",
+      "noremap": true,
+      "lhs": "<Space>Sc'W",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''W')<CR>"
+    },
+    {
+      "desc": "cs'f [function]",
+      "noremap": true,
+      "lhs": "<Space>Sc'f",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''f')<CR>"
+    },
+    {
+      "desc": "cs'}",
+      "noremap": true,
+      "lhs": "<Space>Sc'}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''}')<CR>"
+    },
+    {
+      "desc": "cs'q [quote]",
+      "noremap": true,
+      "lhs": "<Space>Sc'q",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs''q')<CR>"
     },
     {
       "desc": "cs{[",
@@ -1861,11 +1444,11 @@
       "rhs": "<Cmd>call feedkeys('cs{[')<CR>"
     },
     {
-      "desc": "cs{W [WORD]",
+      "desc": "cs{>",
       "noremap": true,
-      "lhs": "<Space>Sc{W",
+      "lhs": "<Space>Sc{>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{>')<CR>"
     },
     {
       "desc": "cs{]",
@@ -1882,25 +1465,18 @@
       "rhs": "<Cmd>call feedkeys('cs{\"')<CR>"
     },
     {
-      "desc": "cs{'",
+      "desc": "cs{(",
       "noremap": true,
-      "lhs": "<Space>Sc{'",
+      "lhs": "<Space>Sc{(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{(')<CR>"
     },
     {
-      "desc": "cs{f [function]",
+      "desc": "cs{<",
       "noremap": true,
-      "lhs": "<Space>Sc{f",
+      "lhs": "<Space>Sc{<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{f')<CR>"
-    },
-    {
-      "desc": "cs{b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sc{b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cs{b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{<lt>')<CR>"
     },
     {
       "desc": "cs{)",
@@ -1917,6 +1493,13 @@
       "rhs": "<Cmd>call feedkeys('cs{`')<CR>"
     },
     {
+      "desc": "cs{'",
+      "noremap": true,
+      "lhs": "<Space>Sc{'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('cs{''')<CR>"
+    },
+    {
       "desc": "cs{{",
       "noremap": true,
       "lhs": "<Space>Sc{{",
@@ -1931,39 +1514,39 @@
       "rhs": "<Cmd>call feedkeys('cs{w')<CR>"
     },
     {
-      "desc": "csw(",
+      "desc": "cs{b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Scw(",
+      "lhs": "<Space>Sc{b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csw(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{b')<CR>"
     },
     {
-      "desc": "csw>",
+      "desc": "cs{W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Scw>",
+      "lhs": "<Space>Sc{W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csw>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{W')<CR>"
     },
     {
-      "desc": "cswq [quote]",
+      "desc": "cs{f [function]",
       "noremap": true,
-      "lhs": "<Space>Scwq",
+      "lhs": "<Space>Sc{f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cswq')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{f')<CR>"
     },
     {
-      "desc": "csw}",
+      "desc": "cs{}",
       "noremap": true,
-      "lhs": "<Space>Scw}",
+      "lhs": "<Space>Sc{}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csw}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{}')<CR>"
     },
     {
-      "desc": "csw<",
+      "desc": "cs{q [quote]",
       "noremap": true,
-      "lhs": "<Space>Scw<",
+      "lhs": "<Space>Sc{q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csw<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs{q')<CR>"
     },
     {
       "desc": "csw[",
@@ -1973,11 +1556,11 @@
       "rhs": "<Cmd>call feedkeys('csw[')<CR>"
     },
     {
-      "desc": "cswW [WORD]",
+      "desc": "csw>",
       "noremap": true,
-      "lhs": "<Space>ScwW",
+      "lhs": "<Space>Scw>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cswW')<CR>"
+      "rhs": "<Cmd>call feedkeys('csw>')<CR>"
     },
     {
       "desc": "csw]",
@@ -1994,25 +1577,18 @@
       "rhs": "<Cmd>call feedkeys('csw\"')<CR>"
     },
     {
-      "desc": "csw'",
+      "desc": "csw(",
       "noremap": true,
-      "lhs": "<Space>Scw'",
+      "lhs": "<Space>Scw(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('csw''')<CR>"
+      "rhs": "<Cmd>call feedkeys('csw(')<CR>"
     },
     {
-      "desc": "cswf [function]",
+      "desc": "csw<",
       "noremap": true,
-      "lhs": "<Space>Scwf",
+      "lhs": "<Space>Scw<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cswf')<CR>"
-    },
-    {
-      "desc": "cswb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Scwb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('cswb')<CR>"
+      "rhs": "<Cmd>call feedkeys('csw<lt>')<CR>"
     },
     {
       "desc": "csw)",
@@ -2029,6 +1605,13 @@
       "rhs": "<Cmd>call feedkeys('csw`')<CR>"
     },
     {
+      "desc": "csw'",
+      "noremap": true,
+      "lhs": "<Space>Scw'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('csw''')<CR>"
+    },
+    {
       "desc": "csw{",
       "noremap": true,
       "lhs": "<Space>Scw{",
@@ -2043,599 +1626,599 @@
       "rhs": "<Cmd>call feedkeys('csww')<CR>"
     },
     {
-      "desc": "ysi((",
+      "desc": "cswb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si((",
+      "lhs": "<Space>Scwb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi((')<CR>"
+      "rhs": "<Cmd>call feedkeys('cswb')<CR>"
     },
     {
-      "desc": "ysi(>",
+      "desc": "cswW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si(>",
+      "lhs": "<Space>ScwW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cswW')<CR>"
     },
     {
-      "desc": "ysi(q [quote]",
+      "desc": "cswf [function]",
       "noremap": true,
-      "lhs": "<Space>Si(q",
+      "lhs": "<Space>Scwf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(q')<CR>"
+      "rhs": "<Cmd>call feedkeys('cswf')<CR>"
     },
     {
-      "desc": "ysi(}",
+      "desc": "csw}",
       "noremap": true,
-      "lhs": "<Space>Si(}",
+      "lhs": "<Space>Scw}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(}')<CR>"
+      "rhs": "<Cmd>call feedkeys('csw}')<CR>"
     },
     {
-      "desc": "ysi(<",
+      "desc": "cswq [quote]",
       "noremap": true,
-      "lhs": "<Space>Si(<",
+      "lhs": "<Space>Scwq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cswq')<CR>"
     },
     {
-      "desc": "ysi([",
+      "desc": "csb[",
       "noremap": true,
-      "lhs": "<Space>Si([",
+      "lhs": "<Space>Scb[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi([')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb[')<CR>"
     },
     {
-      "desc": "ysi(W [WORD]",
+      "desc": "csb>",
       "noremap": true,
-      "lhs": "<Space>Si(W",
+      "lhs": "<Space>Scb>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(W')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb>')<CR>"
     },
     {
-      "desc": "ysi(]",
+      "desc": "csb]",
       "noremap": true,
-      "lhs": "<Space>Si(]",
+      "lhs": "<Space>Scb]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(]')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb]')<CR>"
     },
     {
-      "desc": "ysi(\"",
+      "desc": "csb\"",
       "noremap": true,
-      "lhs": "<Space>Si(\"",
+      "lhs": "<Space>Scb\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb\"')<CR>"
     },
     {
-      "desc": "ysi('",
+      "desc": "csb(",
       "noremap": true,
-      "lhs": "<Space>Si('",
+      "lhs": "<Space>Scb(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(''')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb(')<CR>"
     },
     {
-      "desc": "ysi(f [function]",
+      "desc": "csb<",
       "noremap": true,
-      "lhs": "<Space>Si(f",
+      "lhs": "<Space>Scb<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(f')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb<lt>')<CR>"
     },
     {
-      "desc": "ysi(b [bracket]",
+      "desc": "csb)",
       "noremap": true,
-      "lhs": "<Space>Si(b",
+      "lhs": "<Space>Scb)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(b')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb)')<CR>"
     },
     {
-      "desc": "ysi()",
+      "desc": "csb`",
       "noremap": true,
-      "lhs": "<Space>Si()",
+      "lhs": "<Space>Scb`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi()')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb`')<CR>"
     },
     {
-      "desc": "ysi(`",
+      "desc": "csb'",
       "noremap": true,
-      "lhs": "<Space>Si(`",
+      "lhs": "<Space>Scb'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(`')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb''')<CR>"
     },
     {
-      "desc": "ysi({",
+      "desc": "csb{",
       "noremap": true,
-      "lhs": "<Space>Si({",
+      "lhs": "<Space>Scb{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi({')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb{')<CR>"
     },
     {
-      "desc": "ysi(w [word]",
+      "desc": "csbw [word]",
       "noremap": true,
-      "lhs": "<Space>Si(w",
+      "lhs": "<Space>Scbw",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi(w')<CR>"
+      "rhs": "<Cmd>call feedkeys('csbw')<CR>"
     },
     {
-      "desc": "ysi>(",
+      "desc": "csbb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si>(",
+      "lhs": "<Space>Scbb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>(')<CR>"
+      "rhs": "<Cmd>call feedkeys('csbb')<CR>"
     },
     {
-      "desc": "ysi>>",
+      "desc": "csbW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si>>",
+      "lhs": "<Space>ScbW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csbW')<CR>"
     },
     {
-      "desc": "ysi>q [quote]",
+      "desc": "csbf [function]",
       "noremap": true,
-      "lhs": "<Space>Si>q",
+      "lhs": "<Space>Scbf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>q')<CR>"
+      "rhs": "<Cmd>call feedkeys('csbf')<CR>"
     },
     {
-      "desc": "ysi>}",
+      "desc": "csb}",
       "noremap": true,
-      "lhs": "<Space>Si>}",
+      "lhs": "<Space>Scb}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>}')<CR>"
+      "rhs": "<Cmd>call feedkeys('csb}')<CR>"
     },
     {
-      "desc": "ysi><",
+      "desc": "csbq [quote]",
       "noremap": true,
-      "lhs": "<Space>Si><",
+      "lhs": "<Space>Scbq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi><lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csbq')<CR>"
     },
     {
-      "desc": "ysi>[",
+      "desc": "csW[",
       "noremap": true,
-      "lhs": "<Space>Si>[",
+      "lhs": "<Space>ScW[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>[')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW[')<CR>"
     },
     {
-      "desc": "ysi>W [WORD]",
+      "desc": "csW>",
       "noremap": true,
-      "lhs": "<Space>Si>W",
+      "lhs": "<Space>ScW>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>W')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW>')<CR>"
     },
     {
-      "desc": "ysi>]",
+      "desc": "csW]",
       "noremap": true,
-      "lhs": "<Space>Si>]",
+      "lhs": "<Space>ScW]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>]')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW]')<CR>"
     },
     {
-      "desc": "ysi>\"",
+      "desc": "csW\"",
       "noremap": true,
-      "lhs": "<Space>Si>\"",
+      "lhs": "<Space>ScW\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW\"')<CR>"
     },
     {
-      "desc": "ysi>'",
+      "desc": "csW(",
       "noremap": true,
-      "lhs": "<Space>Si>'",
+      "lhs": "<Space>ScW(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>''')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW(')<CR>"
     },
     {
-      "desc": "ysi>f [function]",
+      "desc": "csW<",
       "noremap": true,
-      "lhs": "<Space>Si>f",
+      "lhs": "<Space>ScW<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>f')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW<lt>')<CR>"
     },
     {
-      "desc": "ysi>b [bracket]",
+      "desc": "csW)",
       "noremap": true,
-      "lhs": "<Space>Si>b",
+      "lhs": "<Space>ScW)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>b')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW)')<CR>"
     },
     {
-      "desc": "ysi>)",
+      "desc": "csW`",
       "noremap": true,
-      "lhs": "<Space>Si>)",
+      "lhs": "<Space>ScW`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>)')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW`')<CR>"
     },
     {
-      "desc": "ysi>`",
+      "desc": "csW'",
       "noremap": true,
-      "lhs": "<Space>Si>`",
+      "lhs": "<Space>ScW'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>`')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW''')<CR>"
     },
     {
-      "desc": "ysi>{",
+      "desc": "csW{",
       "noremap": true,
-      "lhs": "<Space>Si>{",
+      "lhs": "<Space>ScW{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>{')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW{')<CR>"
     },
     {
-      "desc": "ysi>w [word]",
+      "desc": "csWw [word]",
       "noremap": true,
-      "lhs": "<Space>Si>w",
+      "lhs": "<Space>ScWw",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi>w')<CR>"
+      "rhs": "<Cmd>call feedkeys('csWw')<CR>"
     },
     {
-      "desc": "ysiq(",
+      "desc": "csWb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Siq(",
+      "lhs": "<Space>ScWb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq(')<CR>"
+      "rhs": "<Cmd>call feedkeys('csWb')<CR>"
     },
     {
-      "desc": "ysiq>",
+      "desc": "csWW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Siq>",
+      "lhs": "<Space>ScWW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csWW')<CR>"
     },
     {
-      "desc": "ysiqq [quote]",
+      "desc": "csWf [function]",
       "noremap": true,
-      "lhs": "<Space>Siqq",
+      "lhs": "<Space>ScWf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiqq')<CR>"
+      "rhs": "<Cmd>call feedkeys('csWf')<CR>"
     },
     {
-      "desc": "ysiq}",
+      "desc": "csW}",
       "noremap": true,
-      "lhs": "<Space>Siq}",
+      "lhs": "<Space>ScW}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq}')<CR>"
+      "rhs": "<Cmd>call feedkeys('csW}')<CR>"
     },
     {
-      "desc": "ysiq<",
+      "desc": "csWq [quote]",
       "noremap": true,
-      "lhs": "<Space>Siq<",
+      "lhs": "<Space>ScWq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csWq')<CR>"
     },
     {
-      "desc": "ysiq[",
+      "desc": "csf[",
       "noremap": true,
-      "lhs": "<Space>Siq[",
+      "lhs": "<Space>Scf[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq[')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf[')<CR>"
     },
     {
-      "desc": "ysiqW [WORD]",
+      "desc": "csf>",
       "noremap": true,
-      "lhs": "<Space>SiqW",
+      "lhs": "<Space>Scf>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiqW')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf>')<CR>"
     },
     {
-      "desc": "ysiq]",
+      "desc": "csf]",
       "noremap": true,
-      "lhs": "<Space>Siq]",
+      "lhs": "<Space>Scf]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq]')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf]')<CR>"
     },
     {
-      "desc": "ysiq\"",
+      "desc": "csf\"",
       "noremap": true,
-      "lhs": "<Space>Siq\"",
+      "lhs": "<Space>Scf\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf\"')<CR>"
     },
     {
-      "desc": "ysiq'",
+      "desc": "csf(",
       "noremap": true,
-      "lhs": "<Space>Siq'",
+      "lhs": "<Space>Scf(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq''')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf(')<CR>"
     },
     {
-      "desc": "ysiqf [function]",
+      "desc": "csf<",
       "noremap": true,
-      "lhs": "<Space>Siqf",
+      "lhs": "<Space>Scf<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiqf')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf<lt>')<CR>"
     },
     {
-      "desc": "ysiqb [bracket]",
+      "desc": "csf)",
       "noremap": true,
-      "lhs": "<Space>Siqb",
+      "lhs": "<Space>Scf)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiqb')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf)')<CR>"
     },
     {
-      "desc": "ysiq)",
+      "desc": "csf`",
       "noremap": true,
-      "lhs": "<Space>Siq)",
+      "lhs": "<Space>Scf`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq)')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf`')<CR>"
     },
     {
-      "desc": "ysiq`",
+      "desc": "csf'",
       "noremap": true,
-      "lhs": "<Space>Siq`",
+      "lhs": "<Space>Scf'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq`')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf''')<CR>"
     },
     {
-      "desc": "ysiq{",
+      "desc": "csf{",
       "noremap": true,
-      "lhs": "<Space>Siq{",
+      "lhs": "<Space>Scf{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiq{')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf{')<CR>"
     },
     {
-      "desc": "ysiqw [word]",
+      "desc": "csfw [word]",
       "noremap": true,
-      "lhs": "<Space>Siqw",
+      "lhs": "<Space>Scfw",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiqw')<CR>"
+      "rhs": "<Cmd>call feedkeys('csfw')<CR>"
     },
     {
-      "desc": "ysi}(",
+      "desc": "csfb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si}(",
+      "lhs": "<Space>Scfb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}(')<CR>"
+      "rhs": "<Cmd>call feedkeys('csfb')<CR>"
     },
     {
-      "desc": "ysi}>",
+      "desc": "csfW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si}>",
+      "lhs": "<Space>ScfW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csfW')<CR>"
     },
     {
-      "desc": "ysi}q [quote]",
+      "desc": "csff [function]",
       "noremap": true,
-      "lhs": "<Space>Si}q",
+      "lhs": "<Space>Scff",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}q')<CR>"
+      "rhs": "<Cmd>call feedkeys('csff')<CR>"
     },
     {
-      "desc": "ysi}}",
+      "desc": "csf}",
       "noremap": true,
-      "lhs": "<Space>Si}}",
+      "lhs": "<Space>Scf}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}}')<CR>"
+      "rhs": "<Cmd>call feedkeys('csf}')<CR>"
     },
     {
-      "desc": "ysi}<",
+      "desc": "csfq [quote]",
       "noremap": true,
-      "lhs": "<Space>Si}<",
+      "lhs": "<Space>Scfq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csfq')<CR>"
     },
     {
-      "desc": "ysi}[",
+      "desc": "cs}[",
       "noremap": true,
-      "lhs": "<Space>Si}[",
+      "lhs": "<Space>Sc}[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}[')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}[')<CR>"
     },
     {
-      "desc": "ysi}W [WORD]",
+      "desc": "cs}>",
       "noremap": true,
-      "lhs": "<Space>Si}W",
+      "lhs": "<Space>Sc}>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}W')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}>')<CR>"
     },
     {
-      "desc": "ysi}]",
+      "desc": "cs}]",
       "noremap": true,
-      "lhs": "<Space>Si}]",
+      "lhs": "<Space>Sc}]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}]')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}]')<CR>"
     },
     {
-      "desc": "ysi}\"",
+      "desc": "cs}\"",
       "noremap": true,
-      "lhs": "<Space>Si}\"",
+      "lhs": "<Space>Sc}\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}\"')<CR>"
     },
     {
-      "desc": "ysi}'",
+      "desc": "cs}(",
       "noremap": true,
-      "lhs": "<Space>Si}'",
+      "lhs": "<Space>Sc}(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}''')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}(')<CR>"
     },
     {
-      "desc": "ysi}f [function]",
+      "desc": "cs}<",
       "noremap": true,
-      "lhs": "<Space>Si}f",
+      "lhs": "<Space>Sc}<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}f')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}<lt>')<CR>"
     },
     {
-      "desc": "ysi}b [bracket]",
+      "desc": "cs})",
       "noremap": true,
-      "lhs": "<Space>Si}b",
+      "lhs": "<Space>Sc})",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}b')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs})')<CR>"
     },
     {
-      "desc": "ysi})",
+      "desc": "cs}`",
       "noremap": true,
-      "lhs": "<Space>Si})",
+      "lhs": "<Space>Sc}`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi})')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}`')<CR>"
     },
     {
-      "desc": "ysi}`",
+      "desc": "cs}'",
       "noremap": true,
-      "lhs": "<Space>Si}`",
+      "lhs": "<Space>Sc}'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}`')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}''')<CR>"
     },
     {
-      "desc": "ysi}{",
+      "desc": "cs}{",
       "noremap": true,
-      "lhs": "<Space>Si}{",
+      "lhs": "<Space>Sc}{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}{')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}{')<CR>"
     },
     {
-      "desc": "ysi}w [word]",
+      "desc": "cs}w [word]",
       "noremap": true,
-      "lhs": "<Space>Si}w",
+      "lhs": "<Space>Sc}w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi}w')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}w')<CR>"
     },
     {
-      "desc": "ysi<(",
+      "desc": "cs}b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si<(",
+      "lhs": "<Space>Sc}b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>(')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}b')<CR>"
     },
     {
-      "desc": "ysi<>",
+      "desc": "cs}W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si<>",
+      "lhs": "<Space>Sc}W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}W')<CR>"
     },
     {
-      "desc": "ysi<q [quote]",
+      "desc": "cs}f [function]",
       "noremap": true,
-      "lhs": "<Space>Si<q",
+      "lhs": "<Space>Sc}f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>q')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}f')<CR>"
     },
     {
-      "desc": "ysi<}",
+      "desc": "cs}}",
       "noremap": true,
-      "lhs": "<Space>Si<}",
+      "lhs": "<Space>Sc}}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>}')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}}')<CR>"
     },
     {
-      "desc": "ysi<<",
+      "desc": "cs}q [quote]",
       "noremap": true,
-      "lhs": "<Space>Si<<",
+      "lhs": "<Space>Sc}q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt><lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('cs}q')<CR>"
     },
     {
-      "desc": "ysi<[",
+      "desc": "csq[",
       "noremap": true,
-      "lhs": "<Space>Si<[",
+      "lhs": "<Space>Scq[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>[')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq[')<CR>"
     },
     {
-      "desc": "ysi<W [WORD]",
+      "desc": "csq>",
       "noremap": true,
-      "lhs": "<Space>Si<W",
+      "lhs": "<Space>Scq>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>W')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq>')<CR>"
     },
     {
-      "desc": "ysi<]",
+      "desc": "csq]",
       "noremap": true,
-      "lhs": "<Space>Si<]",
+      "lhs": "<Space>Scq]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>]')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq]')<CR>"
     },
     {
-      "desc": "ysi<\"",
+      "desc": "csq\"",
       "noremap": true,
-      "lhs": "<Space>Si<\"",
+      "lhs": "<Space>Scq\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq\"')<CR>"
     },
     {
-      "desc": "ysi<'",
+      "desc": "csq(",
       "noremap": true,
-      "lhs": "<Space>Si<'",
+      "lhs": "<Space>Scq(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>''')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq(')<CR>"
     },
     {
-      "desc": "ysi<f [function]",
+      "desc": "csq<",
       "noremap": true,
-      "lhs": "<Space>Si<f",
+      "lhs": "<Space>Scq<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>f')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq<lt>')<CR>"
     },
     {
-      "desc": "ysi<b [bracket]",
+      "desc": "csq)",
       "noremap": true,
-      "lhs": "<Space>Si<b",
+      "lhs": "<Space>Scq)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>b')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq)')<CR>"
     },
     {
-      "desc": "ysi<)",
+      "desc": "csq`",
       "noremap": true,
-      "lhs": "<Space>Si<)",
+      "lhs": "<Space>Scq`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>)')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq`')<CR>"
     },
     {
-      "desc": "ysi<`",
+      "desc": "csq'",
       "noremap": true,
-      "lhs": "<Space>Si<`",
+      "lhs": "<Space>Scq'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>`')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq''')<CR>"
     },
     {
-      "desc": "ysi<{",
+      "desc": "csq{",
       "noremap": true,
-      "lhs": "<Space>Si<{",
+      "lhs": "<Space>Scq{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>{')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq{')<CR>"
     },
     {
-      "desc": "ysi<w [word]",
+      "desc": "csqw [word]",
       "noremap": true,
-      "lhs": "<Space>Si<w",
+      "lhs": "<Space>Scqw",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi<lt>w')<CR>"
+      "rhs": "<Cmd>call feedkeys('csqw')<CR>"
     },
     {
-      "desc": "ysi[(",
+      "desc": "csqb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si[(",
+      "lhs": "<Space>Scqb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[(')<CR>"
+      "rhs": "<Cmd>call feedkeys('csqb')<CR>"
     },
     {
-      "desc": "ysi[>",
+      "desc": "csqW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si[>",
+      "lhs": "<Space>ScqW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csqW')<CR>"
     },
     {
-      "desc": "ysi[q [quote]",
+      "desc": "csqf [function]",
       "noremap": true,
-      "lhs": "<Space>Si[q",
+      "lhs": "<Space>Scqf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[q')<CR>"
+      "rhs": "<Cmd>call feedkeys('csqf')<CR>"
     },
     {
-      "desc": "ysi[}",
+      "desc": "csq}",
       "noremap": true,
-      "lhs": "<Space>Si[}",
+      "lhs": "<Space>Scq}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[}')<CR>"
+      "rhs": "<Cmd>call feedkeys('csq}')<CR>"
     },
     {
-      "desc": "ysi[<",
+      "desc": "csqq [quote]",
       "noremap": true,
-      "lhs": "<Space>Si[<",
+      "lhs": "<Space>Scqq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('csqq')<CR>"
     },
     {
       "desc": "ysi[[",
@@ -2645,11 +2228,11 @@
       "rhs": "<Cmd>call feedkeys('ysi[[')<CR>"
     },
     {
-      "desc": "ysi[W [WORD]",
+      "desc": "ysi[>",
       "noremap": true,
-      "lhs": "<Space>Si[W",
+      "lhs": "<Space>Si[>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[W')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[>')<CR>"
     },
     {
       "desc": "ysi[]",
@@ -2666,25 +2249,18 @@
       "rhs": "<Cmd>call feedkeys('ysi[\"')<CR>"
     },
     {
-      "desc": "ysi['",
+      "desc": "ysi[(",
       "noremap": true,
-      "lhs": "<Space>Si['",
+      "lhs": "<Space>Si[(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[(')<CR>"
     },
     {
-      "desc": "ysi[f [function]",
+      "desc": "ysi[<",
       "noremap": true,
-      "lhs": "<Space>Si[f",
+      "lhs": "<Space>Si[<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[f')<CR>"
-    },
-    {
-      "desc": "ysi[b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Si[b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi[b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[<lt>')<CR>"
     },
     {
       "desc": "ysi[)",
@@ -2701,6 +2277,13 @@
       "rhs": "<Cmd>call feedkeys('ysi[`')<CR>"
     },
     {
+      "desc": "ysi['",
+      "noremap": true,
+      "lhs": "<Space>Si['",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi[''')<CR>"
+    },
+    {
       "desc": "ysi[{",
       "noremap": true,
       "lhs": "<Space>Si[{",
@@ -2715,151 +2298,151 @@
       "rhs": "<Cmd>call feedkeys('ysi[w')<CR>"
     },
     {
-      "desc": "ysiW(",
+      "desc": "ysi[b [bracket]",
       "noremap": true,
-      "lhs": "<Space>SiW(",
+      "lhs": "<Space>Si[b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[b')<CR>"
     },
     {
-      "desc": "ysiW>",
+      "desc": "ysi[W [WORD]",
       "noremap": true,
-      "lhs": "<Space>SiW>",
+      "lhs": "<Space>Si[W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[W')<CR>"
     },
     {
-      "desc": "ysiWq [quote]",
+      "desc": "ysi[f [function]",
       "noremap": true,
-      "lhs": "<Space>SiWq",
+      "lhs": "<Space>Si[f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiWq')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[f')<CR>"
     },
     {
-      "desc": "ysiW}",
+      "desc": "ysi[}",
       "noremap": true,
-      "lhs": "<Space>SiW}",
+      "lhs": "<Space>Si[}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[}')<CR>"
     },
     {
-      "desc": "ysiW<",
+      "desc": "ysi[q [quote]",
       "noremap": true,
-      "lhs": "<Space>SiW<",
+      "lhs": "<Space>Si[q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi[q')<CR>"
     },
     {
-      "desc": "ysiW[",
+      "desc": "ysi>[",
       "noremap": true,
-      "lhs": "<Space>SiW[",
+      "lhs": "<Space>Si>[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>[')<CR>"
     },
     {
-      "desc": "ysiWW [WORD]",
+      "desc": "ysi>>",
       "noremap": true,
-      "lhs": "<Space>SiWW",
+      "lhs": "<Space>Si>>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiWW')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>>')<CR>"
     },
     {
-      "desc": "ysiW]",
+      "desc": "ysi>]",
       "noremap": true,
-      "lhs": "<Space>SiW]",
+      "lhs": "<Space>Si>]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>]')<CR>"
     },
     {
-      "desc": "ysiW\"",
+      "desc": "ysi>\"",
       "noremap": true,
-      "lhs": "<Space>SiW\"",
+      "lhs": "<Space>Si>\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>\"')<CR>"
     },
     {
-      "desc": "ysiW'",
+      "desc": "ysi>(",
       "noremap": true,
-      "lhs": "<Space>SiW'",
+      "lhs": "<Space>Si>(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>(')<CR>"
     },
     {
-      "desc": "ysiWf [function]",
+      "desc": "ysi><",
       "noremap": true,
-      "lhs": "<Space>SiWf",
+      "lhs": "<Space>Si><",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiWf')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi><lt>')<CR>"
     },
     {
-      "desc": "ysiWb [bracket]",
+      "desc": "ysi>)",
       "noremap": true,
-      "lhs": "<Space>SiWb",
+      "lhs": "<Space>Si>)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiWb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>)')<CR>"
     },
     {
-      "desc": "ysiW)",
+      "desc": "ysi>`",
       "noremap": true,
-      "lhs": "<Space>SiW)",
+      "lhs": "<Space>Si>`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW)')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>`')<CR>"
     },
     {
-      "desc": "ysiW`",
+      "desc": "ysi>'",
       "noremap": true,
-      "lhs": "<Space>SiW`",
+      "lhs": "<Space>Si>'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>''')<CR>"
     },
     {
-      "desc": "ysiW{",
+      "desc": "ysi>{",
       "noremap": true,
-      "lhs": "<Space>SiW{",
+      "lhs": "<Space>Si>{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiW{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>{')<CR>"
     },
     {
-      "desc": "ysiWw [word]",
+      "desc": "ysi>w [word]",
       "noremap": true,
-      "lhs": "<Space>SiWw",
+      "lhs": "<Space>Si>w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiWw')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>w')<CR>"
     },
     {
-      "desc": "ysi](",
+      "desc": "ysi>b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si](",
+      "lhs": "<Space>Si>b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi](')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>b')<CR>"
     },
     {
-      "desc": "ysi]>",
+      "desc": "ysi>W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si]>",
+      "lhs": "<Space>Si>W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>W')<CR>"
     },
     {
-      "desc": "ysi]q [quote]",
+      "desc": "ysi>f [function]",
       "noremap": true,
-      "lhs": "<Space>Si]q",
+      "lhs": "<Space>Si>f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]q')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>f')<CR>"
     },
     {
-      "desc": "ysi]}",
+      "desc": "ysi>}",
       "noremap": true,
-      "lhs": "<Space>Si]}",
+      "lhs": "<Space>Si>}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>}')<CR>"
     },
     {
-      "desc": "ysi]<",
+      "desc": "ysi>q [quote]",
       "noremap": true,
-      "lhs": "<Space>Si]<",
+      "lhs": "<Space>Si>q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi>q')<CR>"
     },
     {
       "desc": "ysi][",
@@ -2869,11 +2452,11 @@
       "rhs": "<Cmd>call feedkeys('ysi][')<CR>"
     },
     {
-      "desc": "ysi]W [WORD]",
+      "desc": "ysi]>",
       "noremap": true,
-      "lhs": "<Space>Si]W",
+      "lhs": "<Space>Si]>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]W')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi]>')<CR>"
     },
     {
       "desc": "ysi]]",
@@ -2890,25 +2473,18 @@
       "rhs": "<Cmd>call feedkeys('ysi]\"')<CR>"
     },
     {
-      "desc": "ysi]'",
+      "desc": "ysi](",
       "noremap": true,
-      "lhs": "<Space>Si]'",
+      "lhs": "<Space>Si](",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi](')<CR>"
     },
     {
-      "desc": "ysi]f [function]",
+      "desc": "ysi]<",
       "noremap": true,
-      "lhs": "<Space>Si]f",
+      "lhs": "<Space>Si]<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]f')<CR>"
-    },
-    {
-      "desc": "ysi]b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Si]b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi]b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi]<lt>')<CR>"
     },
     {
       "desc": "ysi])",
@@ -2925,6 +2501,13 @@
       "rhs": "<Cmd>call feedkeys('ysi]`')<CR>"
     },
     {
+      "desc": "ysi]'",
+      "noremap": true,
+      "lhs": "<Space>Si]'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi]''')<CR>"
+    },
+    {
       "desc": "ysi]{",
       "noremap": true,
       "lhs": "<Space>Si]{",
@@ -2939,39 +2522,39 @@
       "rhs": "<Cmd>call feedkeys('ysi]w')<CR>"
     },
     {
-      "desc": "ysi\"(",
+      "desc": "ysi]b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si\"(",
+      "lhs": "<Space>Si]b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi]b')<CR>"
     },
     {
-      "desc": "ysi\">",
+      "desc": "ysi]W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si\">",
+      "lhs": "<Space>Si]W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\">')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi]W')<CR>"
     },
     {
-      "desc": "ysi\"q [quote]",
+      "desc": "ysi]f [function]",
       "noremap": true,
-      "lhs": "<Space>Si\"q",
+      "lhs": "<Space>Si]f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"q')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi]f')<CR>"
     },
     {
-      "desc": "ysi\"}",
+      "desc": "ysi]}",
       "noremap": true,
-      "lhs": "<Space>Si\"}",
+      "lhs": "<Space>Si]}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi]}')<CR>"
     },
     {
-      "desc": "ysi\"<",
+      "desc": "ysi]q [quote]",
       "noremap": true,
-      "lhs": "<Space>Si\"<",
+      "lhs": "<Space>Si]q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi]q')<CR>"
     },
     {
       "desc": "ysi\"[",
@@ -2981,11 +2564,11 @@
       "rhs": "<Cmd>call feedkeys('ysi\"[')<CR>"
     },
     {
-      "desc": "ysi\"W [WORD]",
+      "desc": "ysi\">",
       "noremap": true,
-      "lhs": "<Space>Si\"W",
+      "lhs": "<Space>Si\">",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"W')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\">')<CR>"
     },
     {
       "desc": "ysi\"]",
@@ -3002,25 +2585,18 @@
       "rhs": "<Cmd>call feedkeys('ysi\"\"')<CR>"
     },
     {
-      "desc": "ysi\"'",
+      "desc": "ysi\"(",
       "noremap": true,
-      "lhs": "<Space>Si\"'",
+      "lhs": "<Space>Si\"(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\"(')<CR>"
     },
     {
-      "desc": "ysi\"f [function]",
+      "desc": "ysi\"<",
       "noremap": true,
-      "lhs": "<Space>Si\"f",
+      "lhs": "<Space>Si\"<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"f')<CR>"
-    },
-    {
-      "desc": "ysi\"b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Si\"b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi\"b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\"<lt>')<CR>"
     },
     {
       "desc": "ysi\")",
@@ -3037,6 +2613,13 @@
       "rhs": "<Cmd>call feedkeys('ysi\"`')<CR>"
     },
     {
+      "desc": "ysi\"'",
+      "noremap": true,
+      "lhs": "<Space>Si\"'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi\"''')<CR>"
+    },
+    {
       "desc": "ysi\"{",
       "noremap": true,
       "lhs": "<Space>Si\"{",
@@ -3051,375 +2634,263 @@
       "rhs": "<Cmd>call feedkeys('ysi\"w')<CR>"
     },
     {
-      "desc": "ysi'(",
+      "desc": "ysi\"b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si'(",
+      "lhs": "<Space>Si\"b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\"b')<CR>"
     },
     {
-      "desc": "ysi'>",
+      "desc": "ysi\"W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si'>",
+      "lhs": "<Space>Si\"W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\"W')<CR>"
     },
     {
-      "desc": "ysi'q [quote]",
+      "desc": "ysi\"f [function]",
       "noremap": true,
-      "lhs": "<Space>Si'q",
+      "lhs": "<Space>Si\"f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''q')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\"f')<CR>"
     },
     {
-      "desc": "ysi'}",
+      "desc": "ysi\"}",
       "noremap": true,
-      "lhs": "<Space>Si'}",
+      "lhs": "<Space>Si\"}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\"}')<CR>"
     },
     {
-      "desc": "ysi'<",
+      "desc": "ysi\"q [quote]",
       "noremap": true,
-      "lhs": "<Space>Si'<",
+      "lhs": "<Space>Si\"q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi\"q')<CR>"
     },
     {
-      "desc": "ysi'[",
+      "desc": "ysi([",
       "noremap": true,
-      "lhs": "<Space>Si'[",
+      "lhs": "<Space>Si([",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi([')<CR>"
     },
     {
-      "desc": "ysi'W [WORD]",
+      "desc": "ysi(>",
       "noremap": true,
-      "lhs": "<Space>Si'W",
+      "lhs": "<Space>Si(>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''W')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(>')<CR>"
     },
     {
-      "desc": "ysi']",
+      "desc": "ysi(]",
       "noremap": true,
-      "lhs": "<Space>Si']",
+      "lhs": "<Space>Si(]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi'']')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(]')<CR>"
     },
     {
-      "desc": "ysi'\"",
+      "desc": "ysi(\"",
       "noremap": true,
-      "lhs": "<Space>Si'\"",
+      "lhs": "<Space>Si(\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(\"')<CR>"
     },
     {
-      "desc": "ysi''",
+      "desc": "ysi((",
       "noremap": true,
-      "lhs": "<Space>Si''",
+      "lhs": "<Space>Si((",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi((')<CR>"
     },
     {
-      "desc": "ysi'f [function]",
+      "desc": "ysi(<",
       "noremap": true,
-      "lhs": "<Space>Si'f",
+      "lhs": "<Space>Si(<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''f')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(<lt>')<CR>"
     },
     {
-      "desc": "ysi'b [bracket]",
+      "desc": "ysi()",
       "noremap": true,
-      "lhs": "<Space>Si'b",
+      "lhs": "<Space>Si()",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi()')<CR>"
     },
     {
-      "desc": "ysi')",
+      "desc": "ysi(`",
       "noremap": true,
-      "lhs": "<Space>Si')",
+      "lhs": "<Space>Si(`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi'')')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(`')<CR>"
     },
     {
-      "desc": "ysi'`",
+      "desc": "ysi('",
       "noremap": true,
-      "lhs": "<Space>Si'`",
+      "lhs": "<Space>Si('",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(''')<CR>"
     },
     {
-      "desc": "ysi'{",
+      "desc": "ysi({",
       "noremap": true,
-      "lhs": "<Space>Si'{",
+      "lhs": "<Space>Si({",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi({')<CR>"
     },
     {
-      "desc": "ysi'w [word]",
+      "desc": "ysi(w [word]",
       "noremap": true,
-      "lhs": "<Space>Si'w",
+      "lhs": "<Space>Si(w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi''w')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(w')<CR>"
     },
     {
-      "desc": "ysif(",
+      "desc": "ysi(b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sif(",
+      "lhs": "<Space>Si(b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(b')<CR>"
     },
     {
-      "desc": "ysif>",
+      "desc": "ysi(W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sif>",
+      "lhs": "<Space>Si(W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(W')<CR>"
     },
     {
-      "desc": "ysifq [quote]",
+      "desc": "ysi(f [function]",
       "noremap": true,
-      "lhs": "<Space>Sifq",
+      "lhs": "<Space>Si(f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysifq')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(f')<CR>"
     },
     {
-      "desc": "ysif}",
+      "desc": "ysi(}",
       "noremap": true,
-      "lhs": "<Space>Sif}",
+      "lhs": "<Space>Si(}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(}')<CR>"
     },
     {
-      "desc": "ysif<",
+      "desc": "ysi(q [quote]",
       "noremap": true,
-      "lhs": "<Space>Sif<",
+      "lhs": "<Space>Si(q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi(q')<CR>"
     },
     {
-      "desc": "ysif[",
+      "desc": "ysi<[",
       "noremap": true,
-      "lhs": "<Space>Sif[",
+      "lhs": "<Space>Si<[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>[')<CR>"
     },
     {
-      "desc": "ysifW [WORD]",
+      "desc": "ysi<>",
       "noremap": true,
-      "lhs": "<Space>SifW",
+      "lhs": "<Space>Si<>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysifW')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>>')<CR>"
     },
     {
-      "desc": "ysif]",
+      "desc": "ysi<]",
       "noremap": true,
-      "lhs": "<Space>Sif]",
+      "lhs": "<Space>Si<]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>]')<CR>"
     },
     {
-      "desc": "ysif\"",
+      "desc": "ysi<\"",
       "noremap": true,
-      "lhs": "<Space>Sif\"",
+      "lhs": "<Space>Si<\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>\"')<CR>"
     },
     {
-      "desc": "ysif'",
+      "desc": "ysi<(",
       "noremap": true,
-      "lhs": "<Space>Sif'",
+      "lhs": "<Space>Si<(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>(')<CR>"
     },
     {
-      "desc": "ysiff [function]",
+      "desc": "ysi<<",
       "noremap": true,
-      "lhs": "<Space>Siff",
+      "lhs": "<Space>Si<<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiff')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt><lt>')<CR>"
     },
     {
-      "desc": "ysifb [bracket]",
+      "desc": "ysi<)",
       "noremap": true,
-      "lhs": "<Space>Sifb",
+      "lhs": "<Space>Si<)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysifb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>)')<CR>"
     },
     {
-      "desc": "ysif)",
+      "desc": "ysi<`",
       "noremap": true,
-      "lhs": "<Space>Sif)",
+      "lhs": "<Space>Si<`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif)')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>`')<CR>"
     },
     {
-      "desc": "ysif`",
+      "desc": "ysi<'",
       "noremap": true,
-      "lhs": "<Space>Sif`",
+      "lhs": "<Space>Si<'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>''')<CR>"
     },
     {
-      "desc": "ysif{",
+      "desc": "ysi<{",
       "noremap": true,
-      "lhs": "<Space>Sif{",
+      "lhs": "<Space>Si<{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysif{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>{')<CR>"
     },
     {
-      "desc": "ysifw [word]",
+      "desc": "ysi<w [word]",
       "noremap": true,
-      "lhs": "<Space>Sifw",
+      "lhs": "<Space>Si<w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysifw')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>w')<CR>"
     },
     {
-      "desc": "ysib(",
+      "desc": "ysi<b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sib(",
+      "lhs": "<Space>Si<b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>b')<CR>"
     },
     {
-      "desc": "ysib>",
+      "desc": "ysi<W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sib>",
+      "lhs": "<Space>Si<W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>W')<CR>"
     },
     {
-      "desc": "ysibq [quote]",
+      "desc": "ysi<f [function]",
       "noremap": true,
-      "lhs": "<Space>Sibq",
+      "lhs": "<Space>Si<f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysibq')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>f')<CR>"
     },
     {
-      "desc": "ysib}",
+      "desc": "ysi<}",
       "noremap": true,
-      "lhs": "<Space>Sib}",
+      "lhs": "<Space>Si<}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>}')<CR>"
     },
     {
-      "desc": "ysib<",
+      "desc": "ysi<q [quote]",
       "noremap": true,
-      "lhs": "<Space>Sib<",
+      "lhs": "<Space>Si<q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib<lt>')<CR>"
-    },
-    {
-      "desc": "ysib[",
-      "noremap": true,
-      "lhs": "<Space>Sib[",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib[')<CR>"
-    },
-    {
-      "desc": "ysibW [WORD]",
-      "noremap": true,
-      "lhs": "<Space>SibW",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysibW')<CR>"
-    },
-    {
-      "desc": "ysib]",
-      "noremap": true,
-      "lhs": "<Space>Sib]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib]')<CR>"
-    },
-    {
-      "desc": "ysib\"",
-      "noremap": true,
-      "lhs": "<Space>Sib\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib\"')<CR>"
-    },
-    {
-      "desc": "ysib'",
-      "noremap": true,
-      "lhs": "<Space>Sib'",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib''')<CR>"
-    },
-    {
-      "desc": "ysibf [function]",
-      "noremap": true,
-      "lhs": "<Space>Sibf",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysibf')<CR>"
-    },
-    {
-      "desc": "ysibb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sibb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysibb')<CR>"
-    },
-    {
-      "desc": "ysib)",
-      "noremap": true,
-      "lhs": "<Space>Sib)",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib)')<CR>"
-    },
-    {
-      "desc": "ysib`",
-      "noremap": true,
-      "lhs": "<Space>Sib`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib`')<CR>"
-    },
-    {
-      "desc": "ysib{",
-      "noremap": true,
-      "lhs": "<Space>Sib{",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysib{')<CR>"
-    },
-    {
-      "desc": "ysibw [word]",
-      "noremap": true,
-      "lhs": "<Space>Sibw",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysibw')<CR>"
-    },
-    {
-      "desc": "ysi)(",
-      "noremap": true,
-      "lhs": "<Space>Si)(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)(')<CR>"
-    },
-    {
-      "desc": "ysi)>",
-      "noremap": true,
-      "lhs": "<Space>Si)>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)>')<CR>"
-    },
-    {
-      "desc": "ysi)q [quote]",
-      "noremap": true,
-      "lhs": "<Space>Si)q",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)q')<CR>"
-    },
-    {
-      "desc": "ysi)}",
-      "noremap": true,
-      "lhs": "<Space>Si)}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)}')<CR>"
-    },
-    {
-      "desc": "ysi)<",
-      "noremap": true,
-      "lhs": "<Space>Si)<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi<lt>q')<CR>"
     },
     {
       "desc": "ysi)[",
@@ -3429,11 +2900,11 @@
       "rhs": "<Cmd>call feedkeys('ysi)[')<CR>"
     },
     {
-      "desc": "ysi)W [WORD]",
+      "desc": "ysi)>",
       "noremap": true,
-      "lhs": "<Space>Si)W",
+      "lhs": "<Space>Si)>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)W')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)>')<CR>"
     },
     {
       "desc": "ysi)]",
@@ -3450,25 +2921,18 @@
       "rhs": "<Cmd>call feedkeys('ysi)\"')<CR>"
     },
     {
-      "desc": "ysi)'",
+      "desc": "ysi)(",
       "noremap": true,
-      "lhs": "<Space>Si)'",
+      "lhs": "<Space>Si)(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)(')<CR>"
     },
     {
-      "desc": "ysi)f [function]",
+      "desc": "ysi)<",
       "noremap": true,
-      "lhs": "<Space>Si)f",
+      "lhs": "<Space>Si)<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)f')<CR>"
-    },
-    {
-      "desc": "ysi)b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Si)b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi)b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)<lt>')<CR>"
     },
     {
       "desc": "ysi))",
@@ -3485,6 +2949,13 @@
       "rhs": "<Cmd>call feedkeys('ysi)`')<CR>"
     },
     {
+      "desc": "ysi)'",
+      "noremap": true,
+      "lhs": "<Space>Si)'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi)''')<CR>"
+    },
+    {
       "desc": "ysi){",
       "noremap": true,
       "lhs": "<Space>Si){",
@@ -3499,39 +2970,39 @@
       "rhs": "<Cmd>call feedkeys('ysi)w')<CR>"
     },
     {
-      "desc": "ysi`(",
+      "desc": "ysi)b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si`(",
+      "lhs": "<Space>Si)b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)b')<CR>"
     },
     {
-      "desc": "ysi`>",
+      "desc": "ysi)W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si`>",
+      "lhs": "<Space>Si)W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)W')<CR>"
     },
     {
-      "desc": "ysi`q [quote]",
+      "desc": "ysi)f [function]",
       "noremap": true,
-      "lhs": "<Space>Si`q",
+      "lhs": "<Space>Si)f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`q')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)f')<CR>"
     },
     {
-      "desc": "ysi`}",
+      "desc": "ysi)}",
       "noremap": true,
-      "lhs": "<Space>Si`}",
+      "lhs": "<Space>Si)}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)}')<CR>"
     },
     {
-      "desc": "ysi`<",
+      "desc": "ysi)q [quote]",
       "noremap": true,
-      "lhs": "<Space>Si`<",
+      "lhs": "<Space>Si)q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi)q')<CR>"
     },
     {
       "desc": "ysi`[",
@@ -3541,11 +3012,11 @@
       "rhs": "<Cmd>call feedkeys('ysi`[')<CR>"
     },
     {
-      "desc": "ysi`W [WORD]",
+      "desc": "ysi`>",
       "noremap": true,
-      "lhs": "<Space>Si`W",
+      "lhs": "<Space>Si`>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`W')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`>')<CR>"
     },
     {
       "desc": "ysi`]",
@@ -3562,25 +3033,18 @@
       "rhs": "<Cmd>call feedkeys('ysi`\"')<CR>"
     },
     {
-      "desc": "ysi`'",
+      "desc": "ysi`(",
       "noremap": true,
-      "lhs": "<Space>Si`'",
+      "lhs": "<Space>Si`(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`(')<CR>"
     },
     {
-      "desc": "ysi`f [function]",
+      "desc": "ysi`<",
       "noremap": true,
-      "lhs": "<Space>Si`f",
+      "lhs": "<Space>Si`<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`f')<CR>"
-    },
-    {
-      "desc": "ysi`b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Si`b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi`b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`<lt>')<CR>"
     },
     {
       "desc": "ysi`)",
@@ -3597,6 +3061,13 @@
       "rhs": "<Cmd>call feedkeys('ysi``')<CR>"
     },
     {
+      "desc": "ysi`'",
+      "noremap": true,
+      "lhs": "<Space>Si`'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi`''')<CR>"
+    },
+    {
       "desc": "ysi`{",
       "noremap": true,
       "lhs": "<Space>Si`{",
@@ -3611,39 +3082,151 @@
       "rhs": "<Cmd>call feedkeys('ysi`w')<CR>"
     },
     {
-      "desc": "ysi{(",
+      "desc": "ysi`b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Si{(",
+      "lhs": "<Space>Si`b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`b')<CR>"
     },
     {
-      "desc": "ysi{>",
+      "desc": "ysi`W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Si{>",
+      "lhs": "<Space>Si`W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`W')<CR>"
     },
     {
-      "desc": "ysi{q [quote]",
+      "desc": "ysi`f [function]",
       "noremap": true,
-      "lhs": "<Space>Si{q",
+      "lhs": "<Space>Si`f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{q')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`f')<CR>"
     },
     {
-      "desc": "ysi{}",
+      "desc": "ysi`}",
       "noremap": true,
-      "lhs": "<Space>Si{}",
+      "lhs": "<Space>Si`}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`}')<CR>"
     },
     {
-      "desc": "ysi{<",
+      "desc": "ysi`q [quote]",
       "noremap": true,
-      "lhs": "<Space>Si{<",
+      "lhs": "<Space>Si`q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi`q')<CR>"
+    },
+    {
+      "desc": "ysi'[",
+      "noremap": true,
+      "lhs": "<Space>Si'[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''[')<CR>"
+    },
+    {
+      "desc": "ysi'>",
+      "noremap": true,
+      "lhs": "<Space>Si'>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''>')<CR>"
+    },
+    {
+      "desc": "ysi']",
+      "noremap": true,
+      "lhs": "<Space>Si']",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi'']')<CR>"
+    },
+    {
+      "desc": "ysi'\"",
+      "noremap": true,
+      "lhs": "<Space>Si'\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''\"')<CR>"
+    },
+    {
+      "desc": "ysi'(",
+      "noremap": true,
+      "lhs": "<Space>Si'(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''(')<CR>"
+    },
+    {
+      "desc": "ysi'<",
+      "noremap": true,
+      "lhs": "<Space>Si'<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''<lt>')<CR>"
+    },
+    {
+      "desc": "ysi')",
+      "noremap": true,
+      "lhs": "<Space>Si')",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi'')')<CR>"
+    },
+    {
+      "desc": "ysi'`",
+      "noremap": true,
+      "lhs": "<Space>Si'`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''`')<CR>"
+    },
+    {
+      "desc": "ysi''",
+      "noremap": true,
+      "lhs": "<Space>Si''",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''''')<CR>"
+    },
+    {
+      "desc": "ysi'{",
+      "noremap": true,
+      "lhs": "<Space>Si'{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''{')<CR>"
+    },
+    {
+      "desc": "ysi'w [word]",
+      "noremap": true,
+      "lhs": "<Space>Si'w",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''w')<CR>"
+    },
+    {
+      "desc": "ysi'b [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Si'b",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''b')<CR>"
+    },
+    {
+      "desc": "ysi'W [WORD]",
+      "noremap": true,
+      "lhs": "<Space>Si'W",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''W')<CR>"
+    },
+    {
+      "desc": "ysi'f [function]",
+      "noremap": true,
+      "lhs": "<Space>Si'f",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''f')<CR>"
+    },
+    {
+      "desc": "ysi'}",
+      "noremap": true,
+      "lhs": "<Space>Si'}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''}')<CR>"
+    },
+    {
+      "desc": "ysi'q [quote]",
+      "noremap": true,
+      "lhs": "<Space>Si'q",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi''q')<CR>"
     },
     {
       "desc": "ysi{[",
@@ -3653,11 +3236,11 @@
       "rhs": "<Cmd>call feedkeys('ysi{[')<CR>"
     },
     {
-      "desc": "ysi{W [WORD]",
+      "desc": "ysi{>",
       "noremap": true,
-      "lhs": "<Space>Si{W",
+      "lhs": "<Space>Si{>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{W')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{>')<CR>"
     },
     {
       "desc": "ysi{]",
@@ -3674,25 +3257,18 @@
       "rhs": "<Cmd>call feedkeys('ysi{\"')<CR>"
     },
     {
-      "desc": "ysi{'",
+      "desc": "ysi{(",
       "noremap": true,
-      "lhs": "<Space>Si{'",
+      "lhs": "<Space>Si{(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{(')<CR>"
     },
     {
-      "desc": "ysi{f [function]",
+      "desc": "ysi{<",
       "noremap": true,
-      "lhs": "<Space>Si{f",
+      "lhs": "<Space>Si{<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{f')<CR>"
-    },
-    {
-      "desc": "ysi{b [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Si{b",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysi{b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{<lt>')<CR>"
     },
     {
       "desc": "ysi{)",
@@ -3709,6 +3285,13 @@
       "rhs": "<Cmd>call feedkeys('ysi{`')<CR>"
     },
     {
+      "desc": "ysi{'",
+      "noremap": true,
+      "lhs": "<Space>Si{'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi{''')<CR>"
+    },
+    {
       "desc": "ysi{{",
       "noremap": true,
       "lhs": "<Space>Si{{",
@@ -3723,39 +3306,39 @@
       "rhs": "<Cmd>call feedkeys('ysi{w')<CR>"
     },
     {
-      "desc": "ysiw(",
+      "desc": "ysi{b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Siw(",
+      "lhs": "<Space>Si{b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiw(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{b')<CR>"
     },
     {
-      "desc": "ysiw>",
+      "desc": "ysi{W [WORD]",
       "noremap": true,
-      "lhs": "<Space>Siw>",
+      "lhs": "<Space>Si{W",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiw>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{W')<CR>"
     },
     {
-      "desc": "ysiwq [quote]",
+      "desc": "ysi{f [function]",
       "noremap": true,
-      "lhs": "<Space>Siwq",
+      "lhs": "<Space>Si{f",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiwq')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{f')<CR>"
     },
     {
-      "desc": "ysiw}",
+      "desc": "ysi{}",
       "noremap": true,
-      "lhs": "<Space>Siw}",
+      "lhs": "<Space>Si{}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiw}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{}')<CR>"
     },
     {
-      "desc": "ysiw<",
+      "desc": "ysi{q [quote]",
       "noremap": true,
-      "lhs": "<Space>Siw<",
+      "lhs": "<Space>Si{q",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiw<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi{q')<CR>"
     },
     {
       "desc": "ysiw[",
@@ -3765,11 +3348,11 @@
       "rhs": "<Cmd>call feedkeys('ysiw[')<CR>"
     },
     {
-      "desc": "ysiwW [WORD]",
+      "desc": "ysiw>",
       "noremap": true,
-      "lhs": "<Space>SiwW",
+      "lhs": "<Space>Siw>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiwW')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiw>')<CR>"
     },
     {
       "desc": "ysiw]",
@@ -3786,25 +3369,18 @@
       "rhs": "<Cmd>call feedkeys('ysiw\"')<CR>"
     },
     {
-      "desc": "ysiw'",
+      "desc": "ysiw(",
       "noremap": true,
-      "lhs": "<Space>Siw'",
+      "lhs": "<Space>Siw(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiw''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiw(')<CR>"
     },
     {
-      "desc": "ysiwf [function]",
+      "desc": "ysiw<",
       "noremap": true,
-      "lhs": "<Space>Siwf",
+      "lhs": "<Space>Siw<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiwf')<CR>"
-    },
-    {
-      "desc": "ysiwb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Siwb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysiwb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiw<lt>')<CR>"
     },
     {
       "desc": "ysiw)",
@@ -3821,6 +3397,13 @@
       "rhs": "<Cmd>call feedkeys('ysiw`')<CR>"
     },
     {
+      "desc": "ysiw'",
+      "noremap": true,
+      "lhs": "<Space>Siw'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiw''')<CR>"
+    },
+    {
       "desc": "ysiw{",
       "noremap": true,
       "lhs": "<Space>Siw{",
@@ -3835,452 +3418,599 @@
       "rhs": "<Cmd>call feedkeys('ysiww')<CR>"
     },
     {
-      "desc": "ysa((",
+      "desc": "ysiwb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa((",
+      "lhs": "<Space>Siwb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa((')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiwb')<CR>"
     },
     {
-      "desc": "ysa(>",
+      "desc": "ysiwW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sa(>",
+      "lhs": "<Space>SiwW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiwW')<CR>"
     },
     {
-      "desc": "ysa(<",
+      "desc": "ysiwf [function]",
       "noremap": true,
-      "lhs": "<Space>Sa(<",
+      "lhs": "<Space>Siwf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiwf')<CR>"
     },
     {
-      "desc": "ysa(}",
+      "desc": "ysiw}",
       "noremap": true,
-      "lhs": "<Space>Sa(}",
+      "lhs": "<Space>Siw}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiw}')<CR>"
     },
     {
-      "desc": "ysa([",
+      "desc": "ysiwq [quote]",
       "noremap": true,
-      "lhs": "<Space>Sa([",
+      "lhs": "<Space>Siwq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa([')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiwq')<CR>"
     },
     {
-      "desc": "ysa(]",
+      "desc": "ysib[",
       "noremap": true,
-      "lhs": "<Space>Sa(]",
+      "lhs": "<Space>Sib[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib[')<CR>"
     },
     {
-      "desc": "ysa(\"",
+      "desc": "ysib>",
       "noremap": true,
-      "lhs": "<Space>Sa(\"",
+      "lhs": "<Space>Sib>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib>')<CR>"
     },
     {
-      "desc": "ysa('",
+      "desc": "ysib]",
       "noremap": true,
-      "lhs": "<Space>Sa('",
+      "lhs": "<Space>Sib]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib]')<CR>"
     },
     {
-      "desc": "ysa(b [bracket]",
+      "desc": "ysib\"",
       "noremap": true,
-      "lhs": "<Space>Sa(b",
+      "lhs": "<Space>Sib\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib\"')<CR>"
     },
     {
-      "desc": "ysa()",
+      "desc": "ysib(",
       "noremap": true,
-      "lhs": "<Space>Sa()",
+      "lhs": "<Space>Sib(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa()')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib(')<CR>"
     },
     {
-      "desc": "ysa(`",
+      "desc": "ysib<",
       "noremap": true,
-      "lhs": "<Space>Sa(`",
+      "lhs": "<Space>Sib<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa(`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib<lt>')<CR>"
     },
     {
-      "desc": "ysa({",
+      "desc": "ysib)",
       "noremap": true,
-      "lhs": "<Space>Sa({",
+      "lhs": "<Space>Sib)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa({')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib)')<CR>"
     },
     {
-      "desc": "ysa>(",
+      "desc": "ysib`",
       "noremap": true,
-      "lhs": "<Space>Sa>(",
+      "lhs": "<Space>Sib`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib`')<CR>"
     },
     {
-      "desc": "ysa>>",
+      "desc": "ysib'",
       "noremap": true,
-      "lhs": "<Space>Sa>>",
+      "lhs": "<Space>Sib'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib''')<CR>"
     },
     {
-      "desc": "ysa><",
+      "desc": "ysib{",
       "noremap": true,
-      "lhs": "<Space>Sa><",
+      "lhs": "<Space>Sib{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa><lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib{')<CR>"
     },
     {
-      "desc": "ysa>}",
+      "desc": "ysibw [word]",
       "noremap": true,
-      "lhs": "<Space>Sa>}",
+      "lhs": "<Space>Sibw",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysibw')<CR>"
     },
     {
-      "desc": "ysa>[",
+      "desc": "ysibb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa>[",
+      "lhs": "<Space>Sibb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysibb')<CR>"
     },
     {
-      "desc": "ysa>]",
+      "desc": "ysibW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sa>]",
+      "lhs": "<Space>SibW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysibW')<CR>"
     },
     {
-      "desc": "ysa>\"",
+      "desc": "ysibf [function]",
       "noremap": true,
-      "lhs": "<Space>Sa>\"",
+      "lhs": "<Space>Sibf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysibf')<CR>"
     },
     {
-      "desc": "ysa>'",
+      "desc": "ysib}",
       "noremap": true,
-      "lhs": "<Space>Sa>'",
+      "lhs": "<Space>Sib}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysib}')<CR>"
     },
     {
-      "desc": "ysa>b [bracket]",
+      "desc": "ysibq [quote]",
       "noremap": true,
-      "lhs": "<Space>Sa>b",
+      "lhs": "<Space>Sibq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysibq')<CR>"
     },
     {
-      "desc": "ysa>)",
+      "desc": "ysiW[",
       "noremap": true,
-      "lhs": "<Space>Sa>)",
+      "lhs": "<Space>SiW[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>)')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW[')<CR>"
     },
     {
-      "desc": "ysa>`",
+      "desc": "ysiW>",
       "noremap": true,
-      "lhs": "<Space>Sa>`",
+      "lhs": "<Space>SiW>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW>')<CR>"
     },
     {
-      "desc": "ysa>{",
+      "desc": "ysiW]",
       "noremap": true,
-      "lhs": "<Space>Sa>{",
+      "lhs": "<Space>SiW]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa>{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW]')<CR>"
     },
     {
-      "desc": "ysaq(",
+      "desc": "ysiW\"",
       "noremap": true,
-      "lhs": "<Space>Saq(",
+      "lhs": "<Space>SiW\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW\"')<CR>"
     },
     {
-      "desc": "ysaq>",
+      "desc": "ysiW(",
       "noremap": true,
-      "lhs": "<Space>Saq>",
+      "lhs": "<Space>SiW(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW(')<CR>"
     },
     {
-      "desc": "ysaq<",
+      "desc": "ysiW<",
       "noremap": true,
-      "lhs": "<Space>Saq<",
+      "lhs": "<Space>SiW<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW<lt>')<CR>"
     },
     {
-      "desc": "ysaq}",
+      "desc": "ysiW)",
       "noremap": true,
-      "lhs": "<Space>Saq}",
+      "lhs": "<Space>SiW)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW)')<CR>"
     },
     {
-      "desc": "ysaq[",
+      "desc": "ysiW`",
       "noremap": true,
-      "lhs": "<Space>Saq[",
+      "lhs": "<Space>SiW`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW`')<CR>"
     },
     {
-      "desc": "ysaq]",
+      "desc": "ysiW'",
       "noremap": true,
-      "lhs": "<Space>Saq]",
+      "lhs": "<Space>SiW'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW''')<CR>"
     },
     {
-      "desc": "ysaq\"",
+      "desc": "ysiW{",
       "noremap": true,
-      "lhs": "<Space>Saq\"",
+      "lhs": "<Space>SiW{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW{')<CR>"
     },
     {
-      "desc": "ysaq'",
+      "desc": "ysiWw [word]",
       "noremap": true,
-      "lhs": "<Space>Saq'",
+      "lhs": "<Space>SiWw",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiWw')<CR>"
     },
     {
-      "desc": "ysaqb [bracket]",
+      "desc": "ysiWb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Saqb",
+      "lhs": "<Space>SiWb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaqb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiWb')<CR>"
     },
     {
-      "desc": "ysaq)",
+      "desc": "ysiWW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Saq)",
+      "lhs": "<Space>SiWW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq)')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiWW')<CR>"
     },
     {
-      "desc": "ysaq`",
+      "desc": "ysiWf [function]",
       "noremap": true,
-      "lhs": "<Space>Saq`",
+      "lhs": "<Space>SiWf",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiWf')<CR>"
     },
     {
-      "desc": "ysaq{",
+      "desc": "ysiW}",
       "noremap": true,
-      "lhs": "<Space>Saq{",
+      "lhs": "<Space>SiW}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaq{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiW}')<CR>"
     },
     {
-      "desc": "ysa}(",
+      "desc": "ysiWq [quote]",
       "noremap": true,
-      "lhs": "<Space>Sa}(",
+      "lhs": "<Space>SiWq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiWq')<CR>"
     },
     {
-      "desc": "ysa}>",
+      "desc": "ysif[",
       "noremap": true,
-      "lhs": "<Space>Sa}>",
+      "lhs": "<Space>Sif[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif[')<CR>"
     },
     {
-      "desc": "ysa}<",
+      "desc": "ysif>",
       "noremap": true,
-      "lhs": "<Space>Sa}<",
+      "lhs": "<Space>Sif>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif>')<CR>"
     },
     {
-      "desc": "ysa}}",
+      "desc": "ysif]",
       "noremap": true,
-      "lhs": "<Space>Sa}}",
+      "lhs": "<Space>Sif]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif]')<CR>"
     },
     {
-      "desc": "ysa}[",
+      "desc": "ysif\"",
       "noremap": true,
-      "lhs": "<Space>Sa}[",
+      "lhs": "<Space>Sif\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif\"')<CR>"
     },
     {
-      "desc": "ysa}]",
+      "desc": "ysif(",
       "noremap": true,
-      "lhs": "<Space>Sa}]",
+      "lhs": "<Space>Sif(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif(')<CR>"
     },
     {
-      "desc": "ysa}\"",
+      "desc": "ysif<",
       "noremap": true,
-      "lhs": "<Space>Sa}\"",
+      "lhs": "<Space>Sif<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif<lt>')<CR>"
     },
     {
-      "desc": "ysa}'",
+      "desc": "ysif)",
       "noremap": true,
-      "lhs": "<Space>Sa}'",
+      "lhs": "<Space>Sif)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif)')<CR>"
     },
     {
-      "desc": "ysa}b [bracket]",
+      "desc": "ysif`",
       "noremap": true,
-      "lhs": "<Space>Sa}b",
+      "lhs": "<Space>Sif`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif`')<CR>"
     },
     {
-      "desc": "ysa})",
+      "desc": "ysif'",
       "noremap": true,
-      "lhs": "<Space>Sa})",
+      "lhs": "<Space>Sif'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa})')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif''')<CR>"
     },
     {
-      "desc": "ysa}`",
+      "desc": "ysif{",
       "noremap": true,
-      "lhs": "<Space>Sa}`",
+      "lhs": "<Space>Sif{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif{')<CR>"
     },
     {
-      "desc": "ysa}{",
+      "desc": "ysifw [word]",
       "noremap": true,
-      "lhs": "<Space>Sa}{",
+      "lhs": "<Space>Sifw",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa}{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysifw')<CR>"
     },
     {
-      "desc": "ysa<(",
+      "desc": "ysifb [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa<(",
+      "lhs": "<Space>Sifb",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysifb')<CR>"
     },
     {
-      "desc": "ysa<>",
+      "desc": "ysifW [WORD]",
       "noremap": true,
-      "lhs": "<Space>Sa<>",
+      "lhs": "<Space>SifW",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysifW')<CR>"
     },
     {
-      "desc": "ysa<<",
+      "desc": "ysiff [function]",
       "noremap": true,
-      "lhs": "<Space>Sa<<",
+      "lhs": "<Space>Siff",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt><lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysiff')<CR>"
     },
     {
-      "desc": "ysa<}",
+      "desc": "ysif}",
       "noremap": true,
-      "lhs": "<Space>Sa<}",
+      "lhs": "<Space>Sif}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysif}')<CR>"
     },
     {
-      "desc": "ysa<[",
+      "desc": "ysifq [quote]",
       "noremap": true,
-      "lhs": "<Space>Sa<[",
+      "lhs": "<Space>Sifq",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysifq')<CR>"
     },
     {
-      "desc": "ysa<]",
+      "desc": "ysi}[",
       "noremap": true,
-      "lhs": "<Space>Sa<]",
+      "lhs": "<Space>Si}[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}[')<CR>"
     },
     {
-      "desc": "ysa<\"",
+      "desc": "ysi}>",
       "noremap": true,
-      "lhs": "<Space>Sa<\"",
+      "lhs": "<Space>Si}>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}>')<CR>"
     },
     {
-      "desc": "ysa<'",
+      "desc": "ysi}]",
       "noremap": true,
-      "lhs": "<Space>Sa<'",
+      "lhs": "<Space>Si}]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}]')<CR>"
     },
     {
-      "desc": "ysa<b [bracket]",
+      "desc": "ysi}\"",
       "noremap": true,
-      "lhs": "<Space>Sa<b",
+      "lhs": "<Space>Si}\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}\"')<CR>"
     },
     {
-      "desc": "ysa<)",
+      "desc": "ysi}(",
       "noremap": true,
-      "lhs": "<Space>Sa<)",
+      "lhs": "<Space>Si}(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>)')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}(')<CR>"
     },
     {
-      "desc": "ysa<`",
+      "desc": "ysi}<",
       "noremap": true,
-      "lhs": "<Space>Sa<`",
+      "lhs": "<Space>Si}<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}<lt>')<CR>"
     },
     {
-      "desc": "ysa<{",
+      "desc": "ysi})",
       "noremap": true,
-      "lhs": "<Space>Sa<{",
+      "lhs": "<Space>Si})",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa<lt>{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi})')<CR>"
     },
     {
-      "desc": "ysa[(",
+      "desc": "ysi}`",
       "noremap": true,
-      "lhs": "<Space>Sa[(",
+      "lhs": "<Space>Si}`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa[(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}`')<CR>"
     },
     {
-      "desc": "ysa[>",
+      "desc": "ysi}'",
       "noremap": true,
-      "lhs": "<Space>Sa[>",
+      "lhs": "<Space>Si}'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa[>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}''')<CR>"
     },
     {
-      "desc": "ysa[<",
+      "desc": "ysi}{",
       "noremap": true,
-      "lhs": "<Space>Sa[<",
+      "lhs": "<Space>Si}{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa[<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}{')<CR>"
     },
     {
-      "desc": "ysa[}",
+      "desc": "ysi}w [word]",
       "noremap": true,
-      "lhs": "<Space>Sa[}",
+      "lhs": "<Space>Si}w",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa[}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysi}w')<CR>"
+    },
+    {
+      "desc": "ysi}b [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Si}b",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi}b')<CR>"
+    },
+    {
+      "desc": "ysi}W [WORD]",
+      "noremap": true,
+      "lhs": "<Space>Si}W",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi}W')<CR>"
+    },
+    {
+      "desc": "ysi}f [function]",
+      "noremap": true,
+      "lhs": "<Space>Si}f",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi}f')<CR>"
+    },
+    {
+      "desc": "ysi}}",
+      "noremap": true,
+      "lhs": "<Space>Si}}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi}}')<CR>"
+    },
+    {
+      "desc": "ysi}q [quote]",
+      "noremap": true,
+      "lhs": "<Space>Si}q",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysi}q')<CR>"
+    },
+    {
+      "desc": "ysiq[",
+      "noremap": true,
+      "lhs": "<Space>Siq[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq[')<CR>"
+    },
+    {
+      "desc": "ysiq>",
+      "noremap": true,
+      "lhs": "<Space>Siq>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq>')<CR>"
+    },
+    {
+      "desc": "ysiq]",
+      "noremap": true,
+      "lhs": "<Space>Siq]",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq]')<CR>"
+    },
+    {
+      "desc": "ysiq\"",
+      "noremap": true,
+      "lhs": "<Space>Siq\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq\"')<CR>"
+    },
+    {
+      "desc": "ysiq(",
+      "noremap": true,
+      "lhs": "<Space>Siq(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq(')<CR>"
+    },
+    {
+      "desc": "ysiq<",
+      "noremap": true,
+      "lhs": "<Space>Siq<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq<lt>')<CR>"
+    },
+    {
+      "desc": "ysiq)",
+      "noremap": true,
+      "lhs": "<Space>Siq)",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq)')<CR>"
+    },
+    {
+      "desc": "ysiq`",
+      "noremap": true,
+      "lhs": "<Space>Siq`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq`')<CR>"
+    },
+    {
+      "desc": "ysiq'",
+      "noremap": true,
+      "lhs": "<Space>Siq'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq''')<CR>"
+    },
+    {
+      "desc": "ysiq{",
+      "noremap": true,
+      "lhs": "<Space>Siq{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq{')<CR>"
+    },
+    {
+      "desc": "ysiqw [word]",
+      "noremap": true,
+      "lhs": "<Space>Siqw",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiqw')<CR>"
+    },
+    {
+      "desc": "ysiqb [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Siqb",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiqb')<CR>"
+    },
+    {
+      "desc": "ysiqW [WORD]",
+      "noremap": true,
+      "lhs": "<Space>SiqW",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiqW')<CR>"
+    },
+    {
+      "desc": "ysiqf [function]",
+      "noremap": true,
+      "lhs": "<Space>Siqf",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiqf')<CR>"
+    },
+    {
+      "desc": "ysiq}",
+      "noremap": true,
+      "lhs": "<Space>Siq}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiq}')<CR>"
+    },
+    {
+      "desc": "ysiqq [quote]",
+      "noremap": true,
+      "lhs": "<Space>Siqq",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysiqq')<CR>"
     },
     {
       "desc": "ysa[[",
@@ -4288,6 +4018,13 @@
       "lhs": "<Space>Sa[[",
       "mode": "n",
       "rhs": "<Cmd>call feedkeys('ysa[[')<CR>"
+    },
+    {
+      "desc": "ysa[>",
+      "noremap": true,
+      "lhs": "<Space>Sa[>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa[>')<CR>"
     },
     {
       "desc": "ysa[]",
@@ -4304,18 +4041,18 @@
       "rhs": "<Cmd>call feedkeys('ysa[\"')<CR>"
     },
     {
-      "desc": "ysa['",
+      "desc": "ysa[(",
       "noremap": true,
-      "lhs": "<Space>Sa['",
+      "lhs": "<Space>Sa[(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa[''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa[(')<CR>"
     },
     {
-      "desc": "ysa[b [bracket]",
+      "desc": "ysa[<",
       "noremap": true,
-      "lhs": "<Space>Sa[b",
+      "lhs": "<Space>Sa[<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa[b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa[<lt>')<CR>"
     },
     {
       "desc": "ysa[)",
@@ -4332,6 +4069,13 @@
       "rhs": "<Cmd>call feedkeys('ysa[`')<CR>"
     },
     {
+      "desc": "ysa['",
+      "noremap": true,
+      "lhs": "<Space>Sa['",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa[''')<CR>"
+    },
+    {
       "desc": "ysa[{",
       "noremap": true,
       "lhs": "<Space>Sa[{",
@@ -4339,116 +4083,102 @@
       "rhs": "<Cmd>call feedkeys('ysa[{')<CR>"
     },
     {
-      "desc": "ysaW(",
+      "desc": "ysa[b [bracket]",
       "noremap": true,
-      "lhs": "<Space>SaW(",
+      "lhs": "<Space>Sa[b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa[b')<CR>"
     },
     {
-      "desc": "ysaW>",
+      "desc": "ysa[}",
       "noremap": true,
-      "lhs": "<Space>SaW>",
+      "lhs": "<Space>Sa[}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa[}')<CR>"
     },
     {
-      "desc": "ysaW<",
+      "desc": "ysa>[",
       "noremap": true,
-      "lhs": "<Space>SaW<",
+      "lhs": "<Space>Sa>[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>[')<CR>"
     },
     {
-      "desc": "ysaW}",
+      "desc": "ysa>>",
       "noremap": true,
-      "lhs": "<Space>SaW}",
+      "lhs": "<Space>Sa>>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>>')<CR>"
     },
     {
-      "desc": "ysaW[",
+      "desc": "ysa>]",
       "noremap": true,
-      "lhs": "<Space>SaW[",
+      "lhs": "<Space>Sa>]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>]')<CR>"
     },
     {
-      "desc": "ysaW]",
+      "desc": "ysa>\"",
       "noremap": true,
-      "lhs": "<Space>SaW]",
+      "lhs": "<Space>Sa>\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>\"')<CR>"
     },
     {
-      "desc": "ysaW\"",
+      "desc": "ysa>(",
       "noremap": true,
-      "lhs": "<Space>SaW\"",
+      "lhs": "<Space>Sa>(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>(')<CR>"
     },
     {
-      "desc": "ysaW'",
+      "desc": "ysa><",
       "noremap": true,
-      "lhs": "<Space>SaW'",
+      "lhs": "<Space>Sa><",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa><lt>')<CR>"
     },
     {
-      "desc": "ysaWb [bracket]",
+      "desc": "ysa>)",
       "noremap": true,
-      "lhs": "<Space>SaWb",
+      "lhs": "<Space>Sa>)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaWb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>)')<CR>"
     },
     {
-      "desc": "ysaW)",
+      "desc": "ysa>`",
       "noremap": true,
-      "lhs": "<Space>SaW)",
+      "lhs": "<Space>Sa>`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW)')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>`')<CR>"
     },
     {
-      "desc": "ysaW`",
+      "desc": "ysa>'",
       "noremap": true,
-      "lhs": "<Space>SaW`",
+      "lhs": "<Space>Sa>'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>''')<CR>"
     },
     {
-      "desc": "ysaW{",
+      "desc": "ysa>{",
       "noremap": true,
-      "lhs": "<Space>SaW{",
+      "lhs": "<Space>Sa>{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaW{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>{')<CR>"
     },
     {
-      "desc": "ysa](",
+      "desc": "ysa>b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa](",
+      "lhs": "<Space>Sa>b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa](')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>b')<CR>"
     },
     {
-      "desc": "ysa]>",
+      "desc": "ysa>}",
       "noremap": true,
-      "lhs": "<Space>Sa]>",
+      "lhs": "<Space>Sa>}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa]>')<CR>"
-    },
-    {
-      "desc": "ysa]<",
-      "noremap": true,
-      "lhs": "<Space>Sa]<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa]<lt>')<CR>"
-    },
-    {
-      "desc": "ysa]}",
-      "noremap": true,
-      "lhs": "<Space>Sa]}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa]}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa>}')<CR>"
     },
     {
       "desc": "ysa][",
@@ -4456,6 +4186,13 @@
       "lhs": "<Space>Sa][",
       "mode": "n",
       "rhs": "<Cmd>call feedkeys('ysa][')<CR>"
+    },
+    {
+      "desc": "ysa]>",
+      "noremap": true,
+      "lhs": "<Space>Sa]>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa]>')<CR>"
     },
     {
       "desc": "ysa]]",
@@ -4472,18 +4209,18 @@
       "rhs": "<Cmd>call feedkeys('ysa]\"')<CR>"
     },
     {
-      "desc": "ysa]'",
+      "desc": "ysa](",
       "noremap": true,
-      "lhs": "<Space>Sa]'",
+      "lhs": "<Space>Sa](",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa]''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa](')<CR>"
     },
     {
-      "desc": "ysa]b [bracket]",
+      "desc": "ysa]<",
       "noremap": true,
-      "lhs": "<Space>Sa]b",
+      "lhs": "<Space>Sa]<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa]b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa]<lt>')<CR>"
     },
     {
       "desc": "ysa])",
@@ -4500,6 +4237,13 @@
       "rhs": "<Cmd>call feedkeys('ysa]`')<CR>"
     },
     {
+      "desc": "ysa]'",
+      "noremap": true,
+      "lhs": "<Space>Sa]'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa]''')<CR>"
+    },
+    {
       "desc": "ysa]{",
       "noremap": true,
       "lhs": "<Space>Sa]{",
@@ -4507,32 +4251,18 @@
       "rhs": "<Cmd>call feedkeys('ysa]{')<CR>"
     },
     {
-      "desc": "ysa\"(",
+      "desc": "ysa]b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa\"(",
+      "lhs": "<Space>Sa]b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa\"(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa]b')<CR>"
     },
     {
-      "desc": "ysa\">",
+      "desc": "ysa]}",
       "noremap": true,
-      "lhs": "<Space>Sa\">",
+      "lhs": "<Space>Sa]}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa\">')<CR>"
-    },
-    {
-      "desc": "ysa\"<",
-      "noremap": true,
-      "lhs": "<Space>Sa\"<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa\"<lt>')<CR>"
-    },
-    {
-      "desc": "ysa\"}",
-      "noremap": true,
-      "lhs": "<Space>Sa\"}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa\"}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa]}')<CR>"
     },
     {
       "desc": "ysa\"[",
@@ -4540,6 +4270,13 @@
       "lhs": "<Space>Sa\"[",
       "mode": "n",
       "rhs": "<Cmd>call feedkeys('ysa\"[')<CR>"
+    },
+    {
+      "desc": "ysa\">",
+      "noremap": true,
+      "lhs": "<Space>Sa\">",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa\">')<CR>"
     },
     {
       "desc": "ysa\"]",
@@ -4556,18 +4293,18 @@
       "rhs": "<Cmd>call feedkeys('ysa\"\"')<CR>"
     },
     {
-      "desc": "ysa\"'",
+      "desc": "ysa\"(",
       "noremap": true,
-      "lhs": "<Space>Sa\"'",
+      "lhs": "<Space>Sa\"(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa\"''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa\"(')<CR>"
     },
     {
-      "desc": "ysa\"b [bracket]",
+      "desc": "ysa\"<",
       "noremap": true,
-      "lhs": "<Space>Sa\"b",
+      "lhs": "<Space>Sa\"<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa\"b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa\"<lt>')<CR>"
     },
     {
       "desc": "ysa\")",
@@ -4584,6 +4321,13 @@
       "rhs": "<Cmd>call feedkeys('ysa\"`')<CR>"
     },
     {
+      "desc": "ysa\"'",
+      "noremap": true,
+      "lhs": "<Space>Sa\"'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa\"''')<CR>"
+    },
+    {
       "desc": "ysa\"{",
       "noremap": true,
       "lhs": "<Space>Sa\"{",
@@ -4591,284 +4335,186 @@
       "rhs": "<Cmd>call feedkeys('ysa\"{')<CR>"
     },
     {
-      "desc": "ysa'(",
+      "desc": "ysa\"b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa'(",
+      "lhs": "<Space>Sa\"b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa\"b')<CR>"
     },
     {
-      "desc": "ysa'>",
+      "desc": "ysa\"}",
       "noremap": true,
-      "lhs": "<Space>Sa'>",
+      "lhs": "<Space>Sa\"}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa\"}')<CR>"
     },
     {
-      "desc": "ysa'<",
+      "desc": "ysa([",
       "noremap": true,
-      "lhs": "<Space>Sa'<",
+      "lhs": "<Space>Sa([",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa([')<CR>"
     },
     {
-      "desc": "ysa'}",
+      "desc": "ysa(>",
       "noremap": true,
-      "lhs": "<Space>Sa'}",
+      "lhs": "<Space>Sa(>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(>')<CR>"
     },
     {
-      "desc": "ysa'[",
+      "desc": "ysa(]",
       "noremap": true,
-      "lhs": "<Space>Sa'[",
+      "lhs": "<Space>Sa(]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(]')<CR>"
     },
     {
-      "desc": "ysa']",
+      "desc": "ysa(\"",
       "noremap": true,
-      "lhs": "<Space>Sa']",
+      "lhs": "<Space>Sa(\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa'']')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(\"')<CR>"
     },
     {
-      "desc": "ysa'\"",
+      "desc": "ysa((",
       "noremap": true,
-      "lhs": "<Space>Sa'\"",
+      "lhs": "<Space>Sa((",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa((')<CR>"
     },
     {
-      "desc": "ysa''",
+      "desc": "ysa(<",
       "noremap": true,
-      "lhs": "<Space>Sa''",
+      "lhs": "<Space>Sa(<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(<lt>')<CR>"
     },
     {
-      "desc": "ysa'b [bracket]",
+      "desc": "ysa()",
       "noremap": true,
-      "lhs": "<Space>Sa'b",
+      "lhs": "<Space>Sa()",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa()')<CR>"
     },
     {
-      "desc": "ysa')",
+      "desc": "ysa(`",
       "noremap": true,
-      "lhs": "<Space>Sa')",
+      "lhs": "<Space>Sa(`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa'')')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(`')<CR>"
     },
     {
-      "desc": "ysa'`",
+      "desc": "ysa('",
       "noremap": true,
-      "lhs": "<Space>Sa'`",
+      "lhs": "<Space>Sa('",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(''')<CR>"
     },
     {
-      "desc": "ysa'{",
+      "desc": "ysa({",
       "noremap": true,
-      "lhs": "<Space>Sa'{",
+      "lhs": "<Space>Sa({",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa''{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa({')<CR>"
     },
     {
-      "desc": "ysaf(",
+      "desc": "ysa(b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Saf(",
+      "lhs": "<Space>Sa(b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(b')<CR>"
     },
     {
-      "desc": "ysaf>",
+      "desc": "ysa(}",
       "noremap": true,
-      "lhs": "<Space>Saf>",
+      "lhs": "<Space>Sa(}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa(}')<CR>"
     },
     {
-      "desc": "ysaf<",
+      "desc": "ysa<[",
       "noremap": true,
-      "lhs": "<Space>Saf<",
+      "lhs": "<Space>Sa<[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>[')<CR>"
     },
     {
-      "desc": "ysaf}",
+      "desc": "ysa<>",
       "noremap": true,
-      "lhs": "<Space>Saf}",
+      "lhs": "<Space>Sa<>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>>')<CR>"
     },
     {
-      "desc": "ysaf[",
+      "desc": "ysa<]",
       "noremap": true,
-      "lhs": "<Space>Saf[",
+      "lhs": "<Space>Sa<]",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf[')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>]')<CR>"
     },
     {
-      "desc": "ysaf]",
+      "desc": "ysa<\"",
       "noremap": true,
-      "lhs": "<Space>Saf]",
+      "lhs": "<Space>Sa<\"",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf]')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>\"')<CR>"
     },
     {
-      "desc": "ysaf\"",
+      "desc": "ysa<(",
       "noremap": true,
-      "lhs": "<Space>Saf\"",
+      "lhs": "<Space>Sa<(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf\"')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>(')<CR>"
     },
     {
-      "desc": "ysaf'",
+      "desc": "ysa<<",
       "noremap": true,
-      "lhs": "<Space>Saf'",
+      "lhs": "<Space>Sa<<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt><lt>')<CR>"
     },
     {
-      "desc": "ysafb [bracket]",
+      "desc": "ysa<)",
       "noremap": true,
-      "lhs": "<Space>Safb",
+      "lhs": "<Space>Sa<)",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysafb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>)')<CR>"
     },
     {
-      "desc": "ysaf)",
+      "desc": "ysa<`",
       "noremap": true,
-      "lhs": "<Space>Saf)",
+      "lhs": "<Space>Sa<`",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf)')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>`')<CR>"
     },
     {
-      "desc": "ysaf`",
+      "desc": "ysa<'",
       "noremap": true,
-      "lhs": "<Space>Saf`",
+      "lhs": "<Space>Sa<'",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf`')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>''')<CR>"
     },
     {
-      "desc": "ysaf{",
+      "desc": "ysa<{",
       "noremap": true,
-      "lhs": "<Space>Saf{",
+      "lhs": "<Space>Sa<{",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaf{')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>{')<CR>"
     },
     {
-      "desc": "ysab(",
+      "desc": "ysa<b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sab(",
+      "lhs": "<Space>Sa<b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>b')<CR>"
     },
     {
-      "desc": "ysab>",
+      "desc": "ysa<}",
       "noremap": true,
-      "lhs": "<Space>Sab>",
+      "lhs": "<Space>Sa<}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab>')<CR>"
-    },
-    {
-      "desc": "ysab<",
-      "noremap": true,
-      "lhs": "<Space>Sab<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab<lt>')<CR>"
-    },
-    {
-      "desc": "ysab}",
-      "noremap": true,
-      "lhs": "<Space>Sab}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab}')<CR>"
-    },
-    {
-      "desc": "ysab[",
-      "noremap": true,
-      "lhs": "<Space>Sab[",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab[')<CR>"
-    },
-    {
-      "desc": "ysab]",
-      "noremap": true,
-      "lhs": "<Space>Sab]",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab]')<CR>"
-    },
-    {
-      "desc": "ysab\"",
-      "noremap": true,
-      "lhs": "<Space>Sab\"",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab\"')<CR>"
-    },
-    {
-      "desc": "ysab'",
-      "noremap": true,
-      "lhs": "<Space>Sab'",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab''')<CR>"
-    },
-    {
-      "desc": "ysabb [bracket]",
-      "noremap": true,
-      "lhs": "<Space>Sabb",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysabb')<CR>"
-    },
-    {
-      "desc": "ysab)",
-      "noremap": true,
-      "lhs": "<Space>Sab)",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab)')<CR>"
-    },
-    {
-      "desc": "ysab`",
-      "noremap": true,
-      "lhs": "<Space>Sab`",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab`')<CR>"
-    },
-    {
-      "desc": "ysab{",
-      "noremap": true,
-      "lhs": "<Space>Sab{",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysab{')<CR>"
-    },
-    {
-      "desc": "ysa)(",
-      "noremap": true,
-      "lhs": "<Space>Sa)(",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa)(')<CR>"
-    },
-    {
-      "desc": "ysa)>",
-      "noremap": true,
-      "lhs": "<Space>Sa)>",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa)>')<CR>"
-    },
-    {
-      "desc": "ysa)<",
-      "noremap": true,
-      "lhs": "<Space>Sa)<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa)<lt>')<CR>"
-    },
-    {
-      "desc": "ysa)}",
-      "noremap": true,
-      "lhs": "<Space>Sa)}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa)}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa<lt>}')<CR>"
     },
     {
       "desc": "ysa)[",
@@ -4876,6 +4522,13 @@
       "lhs": "<Space>Sa)[",
       "mode": "n",
       "rhs": "<Cmd>call feedkeys('ysa)[')<CR>"
+    },
+    {
+      "desc": "ysa)>",
+      "noremap": true,
+      "lhs": "<Space>Sa)>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa)>')<CR>"
     },
     {
       "desc": "ysa)]",
@@ -4892,18 +4545,18 @@
       "rhs": "<Cmd>call feedkeys('ysa)\"')<CR>"
     },
     {
-      "desc": "ysa)'",
+      "desc": "ysa)(",
       "noremap": true,
-      "lhs": "<Space>Sa)'",
+      "lhs": "<Space>Sa)(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa)''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa)(')<CR>"
     },
     {
-      "desc": "ysa)b [bracket]",
+      "desc": "ysa)<",
       "noremap": true,
-      "lhs": "<Space>Sa)b",
+      "lhs": "<Space>Sa)<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa)b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa)<lt>')<CR>"
     },
     {
       "desc": "ysa))",
@@ -4920,6 +4573,13 @@
       "rhs": "<Cmd>call feedkeys('ysa)`')<CR>"
     },
     {
+      "desc": "ysa)'",
+      "noremap": true,
+      "lhs": "<Space>Sa)'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa)''')<CR>"
+    },
+    {
       "desc": "ysa){",
       "noremap": true,
       "lhs": "<Space>Sa){",
@@ -4927,32 +4587,18 @@
       "rhs": "<Cmd>call feedkeys('ysa){')<CR>"
     },
     {
-      "desc": "ysa`(",
+      "desc": "ysa)b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa`(",
+      "lhs": "<Space>Sa)b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa`(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa)b')<CR>"
     },
     {
-      "desc": "ysa`>",
+      "desc": "ysa)}",
       "noremap": true,
-      "lhs": "<Space>Sa`>",
+      "lhs": "<Space>Sa)}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa`>')<CR>"
-    },
-    {
-      "desc": "ysa`<",
-      "noremap": true,
-      "lhs": "<Space>Sa`<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa`<lt>')<CR>"
-    },
-    {
-      "desc": "ysa`}",
-      "noremap": true,
-      "lhs": "<Space>Sa`}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa`}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa)}')<CR>"
     },
     {
       "desc": "ysa`[",
@@ -4960,6 +4606,13 @@
       "lhs": "<Space>Sa`[",
       "mode": "n",
       "rhs": "<Cmd>call feedkeys('ysa`[')<CR>"
+    },
+    {
+      "desc": "ysa`>",
+      "noremap": true,
+      "lhs": "<Space>Sa`>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa`>')<CR>"
     },
     {
       "desc": "ysa`]",
@@ -4976,18 +4629,18 @@
       "rhs": "<Cmd>call feedkeys('ysa`\"')<CR>"
     },
     {
-      "desc": "ysa`'",
+      "desc": "ysa`(",
       "noremap": true,
-      "lhs": "<Space>Sa`'",
+      "lhs": "<Space>Sa`(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa`''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa`(')<CR>"
     },
     {
-      "desc": "ysa`b [bracket]",
+      "desc": "ysa`<",
       "noremap": true,
-      "lhs": "<Space>Sa`b",
+      "lhs": "<Space>Sa`<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa`b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa`<lt>')<CR>"
     },
     {
       "desc": "ysa`)",
@@ -5004,6 +4657,13 @@
       "rhs": "<Cmd>call feedkeys('ysa``')<CR>"
     },
     {
+      "desc": "ysa`'",
+      "noremap": true,
+      "lhs": "<Space>Sa`'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa`''')<CR>"
+    },
+    {
       "desc": "ysa`{",
       "noremap": true,
       "lhs": "<Space>Sa`{",
@@ -5011,32 +4671,102 @@
       "rhs": "<Cmd>call feedkeys('ysa`{')<CR>"
     },
     {
-      "desc": "ysa{(",
+      "desc": "ysa`b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Sa{(",
+      "lhs": "<Space>Sa`b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa{(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa`b')<CR>"
     },
     {
-      "desc": "ysa{>",
+      "desc": "ysa`}",
       "noremap": true,
-      "lhs": "<Space>Sa{>",
+      "lhs": "<Space>Sa`}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa{>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa`}')<CR>"
     },
     {
-      "desc": "ysa{<",
+      "desc": "ysa'[",
       "noremap": true,
-      "lhs": "<Space>Sa{<",
+      "lhs": "<Space>Sa'[",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa{<lt>')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa''[')<CR>"
     },
     {
-      "desc": "ysa{}",
+      "desc": "ysa'>",
       "noremap": true,
-      "lhs": "<Space>Sa{}",
+      "lhs": "<Space>Sa'>",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa{}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa''>')<CR>"
+    },
+    {
+      "desc": "ysa']",
+      "noremap": true,
+      "lhs": "<Space>Sa']",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa'']')<CR>"
+    },
+    {
+      "desc": "ysa'\"",
+      "noremap": true,
+      "lhs": "<Space>Sa'\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''\"')<CR>"
+    },
+    {
+      "desc": "ysa'(",
+      "noremap": true,
+      "lhs": "<Space>Sa'(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''(')<CR>"
+    },
+    {
+      "desc": "ysa'<",
+      "noremap": true,
+      "lhs": "<Space>Sa'<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''<lt>')<CR>"
+    },
+    {
+      "desc": "ysa')",
+      "noremap": true,
+      "lhs": "<Space>Sa')",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa'')')<CR>"
+    },
+    {
+      "desc": "ysa'`",
+      "noremap": true,
+      "lhs": "<Space>Sa'`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''`')<CR>"
+    },
+    {
+      "desc": "ysa''",
+      "noremap": true,
+      "lhs": "<Space>Sa''",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''''')<CR>"
+    },
+    {
+      "desc": "ysa'{",
+      "noremap": true,
+      "lhs": "<Space>Sa'{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''{')<CR>"
+    },
+    {
+      "desc": "ysa'b [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Sa'b",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''b')<CR>"
+    },
+    {
+      "desc": "ysa'}",
+      "noremap": true,
+      "lhs": "<Space>Sa'}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa''}')<CR>"
     },
     {
       "desc": "ysa{[",
@@ -5044,6 +4774,13 @@
       "lhs": "<Space>Sa{[",
       "mode": "n",
       "rhs": "<Cmd>call feedkeys('ysa{[')<CR>"
+    },
+    {
+      "desc": "ysa{>",
+      "noremap": true,
+      "lhs": "<Space>Sa{>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa{>')<CR>"
     },
     {
       "desc": "ysa{]",
@@ -5060,18 +4797,18 @@
       "rhs": "<Cmd>call feedkeys('ysa{\"')<CR>"
     },
     {
-      "desc": "ysa{'",
+      "desc": "ysa{(",
       "noremap": true,
-      "lhs": "<Space>Sa{'",
+      "lhs": "<Space>Sa{(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa{''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa{(')<CR>"
     },
     {
-      "desc": "ysa{b [bracket]",
+      "desc": "ysa{<",
       "noremap": true,
-      "lhs": "<Space>Sa{b",
+      "lhs": "<Space>Sa{<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysa{b')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa{<lt>')<CR>"
     },
     {
       "desc": "ysa{)",
@@ -5088,6 +4825,13 @@
       "rhs": "<Cmd>call feedkeys('ysa{`')<CR>"
     },
     {
+      "desc": "ysa{'",
+      "noremap": true,
+      "lhs": "<Space>Sa{'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa{''')<CR>"
+    },
+    {
       "desc": "ysa{{",
       "noremap": true,
       "lhs": "<Space>Sa{{",
@@ -5095,32 +4839,18 @@
       "rhs": "<Cmd>call feedkeys('ysa{{')<CR>"
     },
     {
-      "desc": "ysaw(",
+      "desc": "ysa{b [bracket]",
       "noremap": true,
-      "lhs": "<Space>Saw(",
+      "lhs": "<Space>Sa{b",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaw(')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa{b')<CR>"
     },
     {
-      "desc": "ysaw>",
+      "desc": "ysa{}",
       "noremap": true,
-      "lhs": "<Space>Saw>",
+      "lhs": "<Space>Sa{}",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaw>')<CR>"
-    },
-    {
-      "desc": "ysaw<",
-      "noremap": true,
-      "lhs": "<Space>Saw<",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaw<lt>')<CR>"
-    },
-    {
-      "desc": "ysaw}",
-      "noremap": true,
-      "lhs": "<Space>Saw}",
-      "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaw}')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysa{}')<CR>"
     },
     {
       "desc": "ysaw[",
@@ -5128,6 +4858,13 @@
       "lhs": "<Space>Saw[",
       "mode": "n",
       "rhs": "<Cmd>call feedkeys('ysaw[')<CR>"
+    },
+    {
+      "desc": "ysaw>",
+      "noremap": true,
+      "lhs": "<Space>Saw>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaw>')<CR>"
     },
     {
       "desc": "ysaw]",
@@ -5144,18 +4881,18 @@
       "rhs": "<Cmd>call feedkeys('ysaw\"')<CR>"
     },
     {
-      "desc": "ysaw'",
+      "desc": "ysaw(",
       "noremap": true,
-      "lhs": "<Space>Saw'",
+      "lhs": "<Space>Saw(",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysaw''')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysaw(')<CR>"
     },
     {
-      "desc": "ysawb [bracket]",
+      "desc": "ysaw<",
       "noremap": true,
-      "lhs": "<Space>Sawb",
+      "lhs": "<Space>Saw<",
       "mode": "n",
-      "rhs": "<Cmd>call feedkeys('ysawb')<CR>"
+      "rhs": "<Cmd>call feedkeys('ysaw<lt>')<CR>"
     },
     {
       "desc": "ysaw)",
@@ -5172,6 +4909,13 @@
       "rhs": "<Cmd>call feedkeys('ysaw`')<CR>"
     },
     {
+      "desc": "ysaw'",
+      "noremap": true,
+      "lhs": "<Space>Saw'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaw''')<CR>"
+    },
+    {
       "desc": "ysaw{",
       "noremap": true,
       "lhs": "<Space>Saw{",
@@ -5179,53 +4923,445 @@
       "rhs": "<Cmd>call feedkeys('ysaw{')<CR>"
     },
     {
+      "desc": "ysawb [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Sawb",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysawb')<CR>"
+    },
+    {
+      "desc": "ysaw}",
+      "noremap": true,
+      "lhs": "<Space>Saw}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaw}')<CR>"
+    },
+    {
+      "desc": "ysab[",
+      "noremap": true,
+      "lhs": "<Space>Sab[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab[')<CR>"
+    },
+    {
+      "desc": "ysab>",
+      "noremap": true,
+      "lhs": "<Space>Sab>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab>')<CR>"
+    },
+    {
+      "desc": "ysab]",
+      "noremap": true,
+      "lhs": "<Space>Sab]",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab]')<CR>"
+    },
+    {
+      "desc": "ysab\"",
+      "noremap": true,
+      "lhs": "<Space>Sab\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab\"')<CR>"
+    },
+    {
+      "desc": "ysab(",
+      "noremap": true,
+      "lhs": "<Space>Sab(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab(')<CR>"
+    },
+    {
+      "desc": "ysab<",
+      "noremap": true,
+      "lhs": "<Space>Sab<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab<lt>')<CR>"
+    },
+    {
+      "desc": "ysab)",
+      "noremap": true,
+      "lhs": "<Space>Sab)",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab)')<CR>"
+    },
+    {
+      "desc": "ysab`",
+      "noremap": true,
+      "lhs": "<Space>Sab`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab`')<CR>"
+    },
+    {
+      "desc": "ysab'",
+      "noremap": true,
+      "lhs": "<Space>Sab'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab''')<CR>"
+    },
+    {
+      "desc": "ysab{",
+      "noremap": true,
+      "lhs": "<Space>Sab{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab{')<CR>"
+    },
+    {
+      "desc": "ysabb [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Sabb",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysabb')<CR>"
+    },
+    {
+      "desc": "ysab}",
+      "noremap": true,
+      "lhs": "<Space>Sab}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysab}')<CR>"
+    },
+    {
+      "desc": "ysaW[",
+      "noremap": true,
+      "lhs": "<Space>SaW[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW[')<CR>"
+    },
+    {
+      "desc": "ysaW>",
+      "noremap": true,
+      "lhs": "<Space>SaW>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW>')<CR>"
+    },
+    {
+      "desc": "ysaW]",
+      "noremap": true,
+      "lhs": "<Space>SaW]",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW]')<CR>"
+    },
+    {
+      "desc": "ysaW\"",
+      "noremap": true,
+      "lhs": "<Space>SaW\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW\"')<CR>"
+    },
+    {
+      "desc": "ysaW(",
+      "noremap": true,
+      "lhs": "<Space>SaW(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW(')<CR>"
+    },
+    {
+      "desc": "ysaW<",
+      "noremap": true,
+      "lhs": "<Space>SaW<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW<lt>')<CR>"
+    },
+    {
+      "desc": "ysaW)",
+      "noremap": true,
+      "lhs": "<Space>SaW)",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW)')<CR>"
+    },
+    {
+      "desc": "ysaW`",
+      "noremap": true,
+      "lhs": "<Space>SaW`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW`')<CR>"
+    },
+    {
+      "desc": "ysaW'",
+      "noremap": true,
+      "lhs": "<Space>SaW'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW''')<CR>"
+    },
+    {
+      "desc": "ysaW{",
+      "noremap": true,
+      "lhs": "<Space>SaW{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW{')<CR>"
+    },
+    {
+      "desc": "ysaWb [bracket]",
+      "noremap": true,
+      "lhs": "<Space>SaWb",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaWb')<CR>"
+    },
+    {
+      "desc": "ysaW}",
+      "noremap": true,
+      "lhs": "<Space>SaW}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaW}')<CR>"
+    },
+    {
+      "desc": "ysaf[",
+      "noremap": true,
+      "lhs": "<Space>Saf[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf[')<CR>"
+    },
+    {
+      "desc": "ysaf>",
+      "noremap": true,
+      "lhs": "<Space>Saf>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf>')<CR>"
+    },
+    {
+      "desc": "ysaf]",
+      "noremap": true,
+      "lhs": "<Space>Saf]",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf]')<CR>"
+    },
+    {
+      "desc": "ysaf\"",
+      "noremap": true,
+      "lhs": "<Space>Saf\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf\"')<CR>"
+    },
+    {
+      "desc": "ysaf(",
+      "noremap": true,
+      "lhs": "<Space>Saf(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf(')<CR>"
+    },
+    {
+      "desc": "ysaf<",
+      "noremap": true,
+      "lhs": "<Space>Saf<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf<lt>')<CR>"
+    },
+    {
+      "desc": "ysaf)",
+      "noremap": true,
+      "lhs": "<Space>Saf)",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf)')<CR>"
+    },
+    {
+      "desc": "ysaf`",
+      "noremap": true,
+      "lhs": "<Space>Saf`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf`')<CR>"
+    },
+    {
+      "desc": "ysaf'",
+      "noremap": true,
+      "lhs": "<Space>Saf'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf''')<CR>"
+    },
+    {
+      "desc": "ysaf{",
+      "noremap": true,
+      "lhs": "<Space>Saf{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf{')<CR>"
+    },
+    {
+      "desc": "ysafb [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Safb",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysafb')<CR>"
+    },
+    {
+      "desc": "ysaf}",
+      "noremap": true,
+      "lhs": "<Space>Saf}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaf}')<CR>"
+    },
+    {
+      "desc": "ysa}[",
+      "noremap": true,
+      "lhs": "<Space>Sa}[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}[')<CR>"
+    },
+    {
+      "desc": "ysa}>",
+      "noremap": true,
+      "lhs": "<Space>Sa}>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}>')<CR>"
+    },
+    {
+      "desc": "ysa}]",
+      "noremap": true,
+      "lhs": "<Space>Sa}]",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}]')<CR>"
+    },
+    {
+      "desc": "ysa}\"",
+      "noremap": true,
+      "lhs": "<Space>Sa}\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}\"')<CR>"
+    },
+    {
+      "desc": "ysa}(",
+      "noremap": true,
+      "lhs": "<Space>Sa}(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}(')<CR>"
+    },
+    {
+      "desc": "ysa}<",
+      "noremap": true,
+      "lhs": "<Space>Sa}<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}<lt>')<CR>"
+    },
+    {
+      "desc": "ysa})",
+      "noremap": true,
+      "lhs": "<Space>Sa})",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa})')<CR>"
+    },
+    {
+      "desc": "ysa}`",
+      "noremap": true,
+      "lhs": "<Space>Sa}`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}`')<CR>"
+    },
+    {
+      "desc": "ysa}'",
+      "noremap": true,
+      "lhs": "<Space>Sa}'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}''')<CR>"
+    },
+    {
+      "desc": "ysa}{",
+      "noremap": true,
+      "lhs": "<Space>Sa}{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}{')<CR>"
+    },
+    {
+      "desc": "ysa}b [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Sa}b",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}b')<CR>"
+    },
+    {
+      "desc": "ysa}}",
+      "noremap": true,
+      "lhs": "<Space>Sa}}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysa}}')<CR>"
+    },
+    {
+      "desc": "ysaq[",
+      "noremap": true,
+      "lhs": "<Space>Saq[",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq[')<CR>"
+    },
+    {
+      "desc": "ysaq>",
+      "noremap": true,
+      "lhs": "<Space>Saq>",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq>')<CR>"
+    },
+    {
+      "desc": "ysaq]",
+      "noremap": true,
+      "lhs": "<Space>Saq]",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq]')<CR>"
+    },
+    {
+      "desc": "ysaq\"",
+      "noremap": true,
+      "lhs": "<Space>Saq\"",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq\"')<CR>"
+    },
+    {
+      "desc": "ysaq(",
+      "noremap": true,
+      "lhs": "<Space>Saq(",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq(')<CR>"
+    },
+    {
+      "desc": "ysaq<",
+      "noremap": true,
+      "lhs": "<Space>Saq<",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq<lt>')<CR>"
+    },
+    {
+      "desc": "ysaq)",
+      "noremap": true,
+      "lhs": "<Space>Saq)",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq)')<CR>"
+    },
+    {
+      "desc": "ysaq`",
+      "noremap": true,
+      "lhs": "<Space>Saq`",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq`')<CR>"
+    },
+    {
+      "desc": "ysaq'",
+      "noremap": true,
+      "lhs": "<Space>Saq'",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq''')<CR>"
+    },
+    {
+      "desc": "ysaq{",
+      "noremap": true,
+      "lhs": "<Space>Saq{",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq{')<CR>"
+    },
+    {
+      "desc": "ysaqb [bracket]",
+      "noremap": true,
+      "lhs": "<Space>Saqb",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaqb')<CR>"
+    },
+    {
+      "desc": "ysaq}",
+      "noremap": true,
+      "lhs": "<Space>Saq}",
+      "mode": "n",
+      "rhs": "<Cmd>call feedkeys('ysaq}')<CR>"
+    },
+    {
       "desc": "Buffer Local Keymaps (which-key)",
       "noremap": true,
       "lhs": "<Space>?",
       "mode": "n",
       "rhs": "<function>"
-    },
-    {
-      "desc": "Symbols (Trouble)",
-      "noremap": true,
-      "lhs": "<Space>cs",
-      "mode": "n",
-      "rhs": "<Cmd>Trouble symbols toggle focus=false<CR>"
-    },
-    {
-      "desc": "Buffer Diagnostics (Trouble)",
-      "noremap": true,
-      "lhs": "<Space>xX",
-      "mode": "n",
-      "rhs": "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>"
-    },
-    {
-      "desc": "Diagnostics (Trouble)",
-      "noremap": true,
-      "lhs": "<Space>xx",
-      "mode": "n",
-      "rhs": "<Cmd>Trouble diagnostics toggle<CR>"
-    },
-    {
-      "desc": "Quickfix List (Trouble)",
-      "noremap": true,
-      "lhs": "<Space>xQ",
-      "mode": "n",
-      "rhs": "<Cmd>Trouble qflist toggle<CR>"
-    },
-    {
-      "desc": "Location List (Trouble)",
-      "noremap": true,
-      "lhs": "<Space>xL",
-      "mode": "n",
-      "rhs": "<Cmd>Trouble loclist toggle<CR>"
-    },
-    {
-      "desc": "LSP Definitions / references / ... (Trouble)",
-      "noremap": true,
-      "lhs": "<Space>cl",
-      "mode": "n",
-      "rhs": "<Cmd>Trouble lsp toggle focus=false win.position=right<CR>"
     },
     {
       "desc": "Add buffer diagnostics to the location list",
@@ -5238,6 +5374,13 @@
       "desc": "Show diagnostics in a floating window",
       "noremap": true,
       "lhs": "<Space>e",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Restore buffer",
+      "noremap": true,
+      "lhs": "<Space>sc",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -5312,13 +5455,6 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Goto buffer in 2",
-      "noremap": true,
-      "lhs": "<Space>b2",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
       "desc": "Goto buffer in 1",
       "noremap": true,
       "lhs": "<Space>b1",
@@ -5354,9 +5490,9 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Sort automatically by WindowNumber",
+      "desc": "Goto buffer in 2",
       "noremap": true,
-      "lhs": "<Space>bw",
+      "lhs": "<Space>b2",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -5364,6 +5500,13 @@
       "desc": "Sort automatically by Language",
       "noremap": true,
       "lhs": "<Space>bl",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Sort automatically by WindowNumber",
+      "noremap": true,
+      "lhs": "<Space>bw",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -5389,23 +5532,58 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Restore buffer",
+      "desc": "LSP Definitions / references / ... (Trouble)",
       "noremap": true,
-      "lhs": "<Space>sc",
+      "lhs": "<Space>cl",
       "mode": "n",
+      "rhs": "<Cmd>Trouble lsp toggle focus=false win.position=right<CR>"
+    },
+    {
+      "desc": "Symbols (Trouble)",
+      "noremap": true,
+      "lhs": "<Space>cs",
+      "mode": "n",
+      "rhs": "<Cmd>Trouble symbols toggle focus=false<CR>"
+    },
+    {
+      "desc": "Buffer Diagnostics (Trouble)",
+      "noremap": true,
+      "lhs": "<Space>xX",
+      "mode": "n",
+      "rhs": "<Cmd>Trouble diagnostics toggle filter.buf=0<CR>"
+    },
+    {
+      "desc": "Diagnostics (Trouble)",
+      "noremap": true,
+      "lhs": "<Space>xx",
+      "mode": "n",
+      "rhs": "<Cmd>Trouble diagnostics toggle<CR>"
+    },
+    {
+      "desc": "Quickfix List (Trouble)",
+      "noremap": true,
+      "lhs": "<Space>xQ",
+      "mode": "n",
+      "rhs": "<Cmd>Trouble qflist toggle<CR>"
+    },
+    {
+      "desc": "Location List (Trouble)",
+      "noremap": true,
+      "lhs": "<Space>xL",
+      "mode": "n",
+      "rhs": "<Cmd>Trouble loclist toggle<CR>"
+    },
+    {
+      "desc": "run `:nohlsearch` and export results to quickfix",
+      "noremap": true,
+      "lhs": "<Space>L",
+      "mode": "x",
       "rhs": "<function>"
     },
     {
-      "desc": "Search for files (respecting .gitignore)",
+      "desc": "run `:nohlsearch` and export results to quickfix",
       "noremap": true,
-      "lhs": "<Space>ff",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Lists available help tags and opens a new window with the relevant help info on <CR>",
-      "noremap": true,
-      "lhs": "<Space>fh",
+      "lhs": "<Space>L",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -5424,86 +5602,37 @@
       "rhs": "<function>"
     },
     {
-      "desc": "run `:nohlsearch` and export results to quickfix",
+      "desc": "Search for files (respecting .gitignore)",
       "noremap": true,
-      "lhs": "<Space>L",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "run `:nohlsearch` and export results to quickfix",
-      "noremap": true,
-      "lhs": "<Space>L",
+      "lhs": "<Space>ff",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "avante: display repo map",
+      "desc": "Lists available help tags and opens a new window with the relevant help info on <CR>",
       "noremap": true,
-      "lhs": "<Space>aR",
+      "lhs": "<Space>fh",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "avante: toggle suggestion",
+      "desc": "HopWord",
       "noremap": true,
-      "lhs": "<Space>as",
+      "lhs": "<Space>h",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "avante: toggle hint",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>ah",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "avante: toggle debug",
-      "noremap": true,
-      "lhs": "<Space>ad",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "avante: toggle",
-      "noremap": true,
-      "lhs": "<Space>at",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "avante: focus",
-      "noremap": true,
-      "lhs": "<Space>af",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "avante: refresh",
-      "noremap": true,
-      "lhs": "<Space>ar",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "avante: edit",
-      "noremap": true,
-      "lhs": "<Space>ae",
+      "lhs": "<Space>a",
       "mode": "v",
       "rhs": "<function>"
     },
     {
-      "desc": "avante: ask",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>aa",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "avante: ask",
-      "noremap": true,
-      "lhs": "<Space>aa",
+      "lhs": "<Space>a",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -5525,27 +5654,6 @@
       "desc": "Split or Join code block with autodetect",
       "noremap": true,
       "lhs": "<Space>m",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>a",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>a",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "HopWord",
-      "noremap": true,
-      "lhs": "<Space>h",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -6369,17 +6477,17 @@
       "rhs": "<function>"
     },
     {
-      "desc": "visual mode decrement",
-      "noremap": true,
-      "lhs": "<C-X>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
       "desc": "normal mode decrement",
       "noremap": true,
       "lhs": "<C-X>",
       "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "visual mode decrement",
+      "noremap": true,
+      "lhs": "<C-X>",
+      "mode": "v",
       "rhs": "<function>"
     },
     {
@@ -6425,17 +6533,17 @@
       "rhs": "<Plug>(skkeleton-toggle)"
     },
     {
-      "desc": "normal mode increment",
-      "noremap": true,
-      "lhs": "<C-A>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
       "desc": "visual mode increment",
       "noremap": true,
       "lhs": "<C-A>",
       "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "normal mode increment",
+      "noremap": true,
+      "lhs": "<C-A>",
+      "mode": "n",
       "rhs": "<function>"
     },
     {
@@ -6460,182 +6568,7 @@
       "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
     }
   ],
-  "plugins": [
-    "2kabhishek/octohub.nvim",
-    "2kabhishek/utils.nvim",
-    "3rd/image.nvim",
-    "Bilal2453/luvit-meta",
-    "CopilotC-Nvim/CopilotChat.nvim",
-    "HakonHarnes/img-clip.nvim",
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    "L3MON4D3/LuaSnip",
-    "LhKipp/nvim-nu",
-    "MeanderingProgrammer/render-markdown.nvim",
-    "MunifTanjim/nui.nvim",
-    "NachoNievaG/atac.nvim",
-    "OXY2DEV/helpview.nvim",
-    "OXY2DEV/markview.nvim",
-    "Omochice/dps-translate-vim",
-    "RRethy/nvim-treesitter-textsubjects",
-    "RRethy/vim-illuminate",
-    "SmiteshP/nvim-navbuddy",
-    "SmiteshP/nvim-navic",
-    "Wansmer/treesj",
-    "Zeioth/mason-extra-cmds",
-    "adigitoleo/haunt.nvim",
-    "akinsho/toggleterm.nvim",
-    "alker0/chezmoi.vim",
-    "b0o/nvim-tree-preview.lua",
-    "b0o/schemastore.nvim",
-    "cespare/vim-toml",
-    "creativenull/dotfyle-metadata.nvim",
-    "danielfalk/smart-open.nvim",
-    "delphinus/skkeleton_indicator.nvim",
-    "echasnovski/mini.icons",
-    "echasnovski/mini.nvim",
-    "epwalsh/obsidian.nvim",
-    "fladson/vim-kitty",
-    "folke/lazy.nvim",
-    "folke/lazydev.nvim",
-    "folke/neoconf.nvim",
-    "folke/noice.nvim",
-    "folke/snacks.nvim",
-    "folke/todo-comments.nvim",
-    "folke/tokyonight.nvim",
-    "folke/trouble.nvim",
-    "folke/which-key.nvim",
-    "gen740/SmoothCursor.nvim",
-    "goolord/alpha-nvim",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-emoji",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
-    "iguanacucumber/magazine.nvim",
-    "j-hui/fidget.nvim",
-    "jay-babu/mason-null-ls.nvim",
-    "jay-babu/mason-nvim-dap.nvim",
-    "jghauser/mkdir.nvim",
-    "justinsgithub/wezterm-types",
-    "k-takata/vim-teraterm",
-    "kevinhwang91/nvim-bqf",
-    "kevinhwang91/nvim-hlslens",
-    "kkharji/sqlite.lua",
-    "kylechui/nvim-surround",
-    "lewis6991/gitsigns.nvim",
-    "lewis6991/satellite.nvim",
-    "lukas-reineke/indent-blankline.nvim",
-    "mei28/luminate.nvim",
-    "mfussenegger/nvim-dap",
-    "monaqa/dial.nvim",
-    "mrcjkb/rustaceanvim",
-    "nastevens/vim-cargo-make",
-    "nastevens/vim-duckscript",
-    "neovim/nvim-lspconfig",
-    "numToStr/Comment.nvim",
-    "nvim-lua/plenary.nvim",
-    "nvim-lualine/lualine.nvim",
-    "nvim-neotest/nvim-nio",
-    "nvim-telescope/telescope-fzf-native.nvim",
-    "nvim-telescope/telescope.nvim",
-    "nvim-tree/nvim-tree.lua",
-    "nvim-tree/nvim-web-devicons",
-    "nvim-treesitter/nvim-treesitter",
-    "nvimdev/lspsaga.nvim",
-    "nvimdev/template.nvim",
-    "nvimtools/none-ls.nvim",
-    "olimorris/codecompanion.nvim",
-    "onsails/lspkind.nvim",
-    "pauchiner/pastelnight.nvim",
-    "poljar/typos.nvim",
-    "projekt0n/github-nvim-theme",
-    "rafamadriz/friendly-snippets",
-    "rainbowhxch/accelerated-jk.nvim",
-    "rcarriga/cmp-dap",
-    "rcarriga/nvim-dap-ui",
-    "rcarriga/nvim-notify",
-    "refractalize/oil-git-status.nvim",
-    "romgrk/barbar.nvim",
-    "roobert/surround-ui.nvim",
-    "saadparwaiz1/cmp_luasnip",
-    "saecki/crates.nvim",
-    "smoka7/hop.nvim",
-    "stevearc/dressing.nvim",
-    "stevearc/oil.nvim",
-    "subnut/nvim-ghost.nvim",
-    "svampkorg/moody.nvim",
-    "tadashi-aikawa/silhouette.nvim",
-    "thinca/vim-quickrun",
-    "uga-rosa/ccc.nvim",
-    "vague2k/huez.nvim",
-    "vim-denops/denops-shared-server.vim",
-    "vim-denops/denops.vim",
-    "vim-fall/fall.vim",
-    "vim-jp/vimdoc-ja",
-    "vim-skk/skkeleton",
-    "vuki656/package-info.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason.nvim",
-    "windwp/nvim-autopairs",
-    "windwp/nvim-ts-autotag",
-    "xiyaowong/transparent.nvim",
-    "yamatsum/nvim-cursorline",
-    "yetone/avante.nvim",
-    "zapling/mason-lock.nvim",
-    "zbirenbaum/copilot-cmp",
-    "zbirenbaum/copilot.lua"
-  ],
-  "pluginManager": "lazy.nvim",
-  "treesitterParsers": [
-    "bash",
-    "c",
-    "c_sharp",
-    "cmake",
-    "cpp",
-    "css",
-    "dockerfile",
-    "fish",
-    "git_config",
-    "git_rebase",
-    "gitattributes",
-    "gitcommit",
-    "gitignore",
-    "html",
-    "ini",
-    "javascript",
-    "json",
-    "json5",
-    "jsonc",
-    "latex",
-    "lua",
-    "lua",
-    "luadoc",
-    "luap",
-    "luau",
-    "make",
-    "markdown",
-    "markdown",
-    "markdown_inline",
-    "markdown_inline",
-    "nu",
-    "ocaml",
-    "ocaml_interface",
-    "powershell",
-    "python",
-    "query",
-    "regex",
-    "rust",
-    "toml",
-    "tsx",
-    "typescript",
-    "vim",
-    "vim",
-    "vimdoc",
-    "vimdoc",
-    "vue",
-    "xml",
-    "yaml"
-  ],
+  "leaderKey": "<Space>",
   "lspServers": [
     "bashls",
     "cssls",
@@ -6656,6 +6589,5 @@
     "typos_lsp",
     "vimls",
     "yamlls"
-  ],
-  "leaderKey": "<Space>"
+  ]
 }
