@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.11.27]
+
+### Added - 新機能について
+
+- feat(pip): add some packages
+- feat(cargo): add some packages
+- feat(gup): add ali
+- feat(nvim): add new banner
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(snacks.nvim): update
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): resolve some TODO
+- chore(nvim): remove autocmds.lua
+- docs(alpha.nvim): remove comments
+- chore(alpha.nvim): disabled
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.11.26]
 
 ### Added - 新機能について
