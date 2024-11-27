@@ -14,21 +14,11 @@ local is_human_rights = global.is_human_rights
 ---@type number|nil
 local concurrency
 
--- TODO: choice
 if is_human_rights then
     concurrency = is_windows and (vim.uv.available_parallelism() * 2) or nil
 else
     concurrency = is_windows and 4 or 6
 end
-
--- TODO: choice
---[[
-if is_windows then
-    concurrency = is_human_rights and (vim.uv.available_parallelism() * 2) or 4
-else
-    concurrency = is_human_rights and nil or 6
-end
-]]
 
 ---@type string
 local lazy_root = table.concat({ global.data_dir, "lazy" }, path_sep)
