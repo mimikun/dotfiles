@@ -88,7 +88,7 @@ packages:
 - name: zyedidia/eget@v1.3.4
 - name: aandrew-me/tgpt@v2.8.2
 - name: schollz/croc@v10.1.0
-- name: k1LoW/octocov@v0.62.2
+- name: k1LoW/octocov@v0.62.3
 - name: termkit/gama@v1.1.4
 - name: mattn/efm-langserver@v0.0.54
 - name: dev.yorhel.nl/ncdu
