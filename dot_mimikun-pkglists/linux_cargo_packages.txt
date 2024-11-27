@@ -26,6 +26,7 @@ cargo-msrv
 cargo-nextest
 cargo-outdated
 cargo-release
+cargo-selector
 cargo-tarpaulin
 cargo-udeps
 cargo-update
@@ -157,6 +158,7 @@ tui-journal
 tuisky
 typos-cli
 typst-cli
+tzupdate
 usage-cli
 viddy
 vscli
