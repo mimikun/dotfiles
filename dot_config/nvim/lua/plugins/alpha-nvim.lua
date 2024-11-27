@@ -38,8 +38,8 @@ local spec = {
 
         alpha.setup(theta.config)
     end,
-    --cond = false,
-    --enabled = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
