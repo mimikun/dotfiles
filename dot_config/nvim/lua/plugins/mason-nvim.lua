@@ -53,6 +53,9 @@ local spec = {
             ["yamlls"] = function()
                 lspconfig.yamlls.setup(require("plugins.configs.lspconfigs.yamlls"))
             end,
+            ["markdown_oxide"] = function()
+                lspconfig.markdown_oxide.setup(require("plugins.configs.lspconfigs.markdown-oxide"))
+            end,
         })
 
         lspconfig.bashls.setup({})
