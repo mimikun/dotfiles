@@ -72,6 +72,7 @@ complete -c uv -n "__fish_uv_needs_command" -f -a "version" -d 'Display uv\'s ve
 complete -c uv -n "__fish_uv_needs_command" -f -a "generate-shell-completion" -d 'Generate shell completion'
 complete -c uv -n "__fish_uv_needs_command" -f -a "help" -d 'Display documentation for a command'
 complete -c uv -n "__fish_uv_using_subcommand run" -l extra -d 'Include optional dependencies from the specified extra name' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l group -d 'Include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-group -d 'Only include dependencies from the specified dependency group' -r
@@ -347,6 +348,7 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l no-config -d 'Avoid dis
 complete -c uv -n "__fish_uv_using_subcommand remove" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand remove" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l extra -d 'Include optional dependencies from the specified extra name' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l group -d 'Include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-group -d 'Only include dependencies from the specified dependency group' -r
@@ -490,7 +492,9 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -s h -l help -d 'Display the
 complete -c uv -n "__fish_uv_using_subcommand lock" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand export" -l format -d 'The format to which `uv.lock` should be exported' -r -f -a "{requirements-txt\t'Export in `requirements.txt` format'}"
 complete -c uv -n "__fish_uv_using_subcommand export" -l package -d 'Export the dependencies for a specific package in the workspace' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l prune -d 'Prune the given package from the dependency tree' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra -d 'Include optional dependencies from the specified extra name' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l group -d 'Include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-group -d 'Only include dependencies from the specified dependency group' -r
@@ -880,12 +884,12 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s p -l python -d 'Upgrade a tool, and specify it to use the given Python interpreter to build its environment. Use with `--all` to apply to all tools.' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
@@ -906,9 +910,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l all -d 'Upgrade all tools'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-upgrade
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l reinstall -d 'Reinstall all packages, regardless of whether they\'re already installed. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-reinstall
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l pre
