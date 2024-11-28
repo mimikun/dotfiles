@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.11.28]
+
+### Added - 新機能について
+
+- feat: add markdown-oxide settings
+- feat(nvim): add markdown-oxide settings
+
+### Changed - 既存機能の変更について
+
+- docs(nvim): update URL.md
+- chore(nvim): update lockfiles
+- chore(nvim): use vim.system instead vim.fn.system
+- chore(fish): update some completions
+- chore(mise-tasks): improved git:empty-commits
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove atac.nvim
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.11.27]
 
 ### Added - 新機能について
