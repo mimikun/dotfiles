@@ -10,8 +10,8 @@ M.xsel = {
     paste = {
         ["+"] = "xsel -bo",
         ["*"] = function()
-            -- TODO: Use vim.system()
-            return vim.fn.systemlist('xsel -bo | tr -d "\r"')
+            local xsel_cmd = { "xsel", "-bo" }
+            return vim.system(xsel_cmd, { text = true }):wait().stdout
         end,
     },
     cache_enabled = true,
@@ -56,8 +56,8 @@ M.wl_clipboard_2 = {
     },
     paste = {
         ["+"] = function()
-            -- TODO: Use vim.system()
-            return vim.fn.systemlist('wl-paste | tr -d "\r"')
+            local wl_cmd = { "wl-paste" }
+            return vim.system(wl_cmd, { text = true }):wait().stdout
         end,
         ["*"] = "wl-paste",
     },

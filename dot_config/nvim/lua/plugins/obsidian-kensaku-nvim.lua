@@ -1,10 +1,5 @@
---- enabled check
---- 2. and if executable cmigemo command
----@return boolean
-local enabled = function()
-    local has_cmigemo = (1 == vim.fn.executable("cmigemo")) and true or false
-    return has_cmigemo
-end
+--- If executable cmigemo command
+local enabled = require("utils.is_executable").is_executable({ "cmigemo" })
 
 ---@type table
 local opts = {

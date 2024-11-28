@@ -36,16 +36,22 @@ local icons = {
     misc = iconsets.get("misc"),
 }
 
+---@type table
+local lazynvim_clone_cmd = {
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazy_path,
+}
+
 if not vim.uv.fs_stat(lazy_path) then
-    -- TODO: Use vim.system()
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",
-        lazy_path,
-    })
+    vim.system(lazynvim_clone_cmd, { text = true }, function(job)
+        if job.code == 0 then
+            print("Install Lazy.nvim!!!")
+        end
+    end)
 end
 
 ---@type table
