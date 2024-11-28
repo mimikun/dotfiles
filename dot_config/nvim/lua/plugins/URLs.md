@@ -2,9 +2,6 @@
 
 ## installed
 
-- https://github.com/goolord/alpha-nvim
-	- https://github.com/nvim-tree/nvim-web-devicons
-	- https://github.com/nvim-lua/plenary.nvim
 - https://github.com/rainbowhxch/accelerated-jk.nvim
 - https://github.com/romgrk/barbar.nvim
 	- https://github.com/lewis6991/gitsigns.nvim
@@ -41,13 +38,7 @@
 - https://github.com/saecki/crates.nvim
 - https://github.com/nvimdev/template.nvim
 - https://github.com/folke/snacks.nvim
-	- https://github.com/echasnovski/mini.nvim
 	- https://github.com/nvim-tree/nvim-web-devicons
-- https://github.com/folke/snacks.nvim
-	- https://github.com/echasnovski/mini.nvim
-	- https://github.com/nvim-tree/nvim-web-devicons
-- https://github.com/Kurama622/profile.nvim
-	- https://github.com/3rd/image.nvim
 - https://github.com/3rd/image.nvim
 - https://github.com/monaqa/dial.nvim
 - https://github.com/creativenull/dotfyle-metadata.nvim
@@ -176,8 +167,6 @@
 - https://github.com/2kabhishek/octohub.nvim
 	- https://github.com/2kabhishek/utils.nvim
 	- https://github.com/nvim-telescope/telescope.nvim
-- https://github.com/NachoNievaG/atac.nvim
-	- https://github.com/akinsho/toggleterm.nvim
 - https://github.com/yetone/avante.nvim
 	- https://github.com/nvim-treesitter/nvim-treesitter
 	- https://github.com/stevearc/dressing.nvim
@@ -217,6 +206,9 @@
 
 ## not installed
 
+- https://github.com/goolord/alpha-nvim
+	- https://github.com/nvim-tree/nvim-web-devicons
+	- https://github.com/nvim-lua/plenary.nvim
 - https://github.com/saghen/blink.cmp
     - https://github.com/saghen/blink.compat
 	- https://github.com/rafamadriz/friendly-snippets
