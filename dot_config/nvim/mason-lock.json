@@ -2,7 +2,8 @@
   "bash-debug-adapter": "untagged-438733f35feb8659d939",
   "bash-language-server": "5.4.2",
   "css-lsp": "4.10.0",
-  "deno": "v2.0.6",
+  "debugpy": "1.8.9",
+  "deno": "v2.1.2",
   "docker-compose-language-service": "0.2.0",
   "dockerfile-language-server": "0.13.0",
   "eslint-lsp": "4.10.0",
@@ -11,7 +12,7 @@
   "lua-language-server": "3.13.2",
   "luau-lsp": "1.35.0",
   "markdown-oxide": "v0.24.3",
-  "marksman": "2024-10-07",
+  "marksman": "2024-11-20",
   "powershell-editor-services": "v4.0.0",
   "pyright": "1.1.389",
   "rust-analyzer": "2024-11-25",
@@ -19,6 +20,5 @@
   "typescript-language-server": "4.3.3",
   "typos-lsp": "v0.1.30",
   "vim-language-server": "2.3.1",
-  "yaml-language-server": "1.15.0",
-
+  "yaml-language-server": "1.15.0"
 }
