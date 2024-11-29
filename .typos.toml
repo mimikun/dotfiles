@@ -14,23 +14,18 @@ sur = "sur"
 chec = "chec"
 # key mapping in dot_config/nvim/lua/plugins/telescope-nvim.lua
 fo = "fo"
-# telescope-nvim
-tabe = "tabe"
 # dot_config/nvim/lua/plugins/configs/nvim-tree/actions.lua
 nd = "nd"
 # dot_mimikun-pkglists
 serie = "serie"
 tre = "tre"
 tere = "tere"
-# dot_config/nvim/lua/plugins/w3m-vim.lua
-Extenal = "Extenal"
 
 [files]
 extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
   "dot_config/foot/foot.ini",
   "dot_config/moe/moerc.toml",
-  "dot_config/nvim/lua/plugins/profile-nvim.lua",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: This is cobra bug, but glow use 1.7.0(has bug)
   "dot_config/fish/completions/glow.fish",
