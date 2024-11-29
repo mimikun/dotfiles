@@ -38,8 +38,7 @@ zig = [
 [settings]
 asdf_compat = true
 experimental = true
-# FIX: search and configuring
-jobs = 4
+jobs = 1
 
 [settings.cargo]
 binstall = false

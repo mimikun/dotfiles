@@ -194,12 +194,6 @@ function lk {
 }
 
 # mise
-# If not human rights, MISE_JOBS = 1.
-{{ if (eq .chezmoi.hostname "TanakaPC") -}}
-export MISE_JOBS=1
-{{ else -}}
-export MISE_JOBS=4
-{{ end -}}
 eval "$(mise activate bash)"
 alias paleovim="$XDG_DATA_HOME/mise/installs/vim/ref-master/bin/vim"
 alias pvim=paleovim

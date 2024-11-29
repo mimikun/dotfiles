@@ -225,11 +225,6 @@ if is_linux then
         table.concat({ home, ".dotnet", "tools" }, path_sep)
     )
 
-    -- mise
-    -- If not human rights, MISE_JOBS = 1.
-    local mise_jobs = is_not_human_rights and 1 or 4
-    nyagos.envadd("MISE_JOBS", nyagos.getenv("MISE_JOBS") or mise_jobs)
-
     -- cabal config
     local cabal_bin = table.concat({ home, ".cabal", "bin" }, path_sep)
     nyagos.envadd("PATH", cabal_bin)

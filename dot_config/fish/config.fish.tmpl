@@ -233,14 +233,6 @@ if command -v dotnet >/dev/null 2>&1
     complete -f -c dotnet -a "(dotnet complete)"
 end
 
-# mise
-# If not human rights, MISE_JOBS = 1.
-{{ if (eq .chezmoi.hostname "TanakaPC") -}}
-set -x MISE_JOBS 1
-{{ else -}}
-set -x MISE_JOBS 4
-{{ end -}}
-
 # aqua
 set -x AQUA_ROOT_DIR $XDG_DATA_HOME/aqua
 set -x AQUA_CONFIG_DIR $XDG_CONFIG_HOME/aqua/
