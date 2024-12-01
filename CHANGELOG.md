@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.12.01]
+
+### Added - 新機能について
+
+- feat: add superfile config
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update mise completion
+- chore(fish): update some completions
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(mise): jobs = 1
+
 ## [v2024.11.28]
 
 ### Added - 新機能について
