@@ -1,5 +1,14 @@
 local M = {}
 
+M.update_all = function()
+    -- :Lazy sync
+    require("lazy").sync()
+    -- :TSUpdate
+    require("nvim-treesitter.install").commands.TSUpdate.run()
+    -- :MasonUpdateAll
+    require("masonextracmds.mason").update_all()
+end
+
 ---@param cmds table
 ---@return boolean
 M.is_executable = function(cmds)
