@@ -345,6 +345,10 @@ if command -v pay-respects >/dev/null 2>&1; then
     eval "$(pay-respects bash --alias)"
 fi
 
+# jujutsu
+if command -v jj >/dev/null 2>&1; then
+    source | jj util completion bash
+fi
 
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき

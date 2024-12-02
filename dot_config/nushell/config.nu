@@ -848,3 +848,6 @@ use ~/.cache/starship/init.nu
 
 # atuin config
 source ~/.local/share/atuin/init.nu
+
+# jujutsu config
+use ~/.cache/jj/completions-jj.nu

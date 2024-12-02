@@ -287,6 +287,11 @@ export PATH="$HOME/.nimble/bin:$PATH"
 # pay-respects
 eval "$(pay-respects zsh --alias)"
 
+# jujutsu
+autoload -U compinit
+compinit
+source | jj util completion zsh
+
 # zeno.zsh
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
 

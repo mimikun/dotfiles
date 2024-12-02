@@ -101,3 +101,7 @@ $env.NU_PLUGIN_DIRS = [
 # starship config
 mkdir ~/.cache/starship
 starship init nu | save -f ~/.cache/starship/init.nu
+
+# jujutsu config
+mkdir ~/.cache/jj
+jj util completion nushell | save -f ~/.cache/jj/completions-jj.nu
