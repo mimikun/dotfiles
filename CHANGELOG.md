@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2024.12.02]
+
+### Added - 新機能について
+
+- feat: add jujutsu completions
+- feat(cargo): add jj-cli
+- feat(nvim): add update_all func
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(nvim): improved utils
+- chore(fish): update mise completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): is_executable(cmigemo) error
+- fix(bash): command check
+
 ## [v2024.12.01]
 
 ### Added - 新機能について
