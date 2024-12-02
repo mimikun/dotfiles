@@ -1,5 +1,8 @@
+---@type string
+local cmigemo_bin = require("config.global").is_windows and "cmigemo.exe" or "cmigemo"
+
 --- If executable cmigemo command
-local enabled = require("utils.is_executable").is_executable({ "cmigemo" })
+local enabled = require("utils").is_executable({ cmigemo_bin })
 
 ---@type LazyKeysSpec[]
 local keys = {
