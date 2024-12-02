@@ -341,7 +341,10 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
 # pay-respects
-eval "$(pay-respects bash --alias)"
+if command -v pay-respects >/dev/null 2>&1; then
+    eval "$(pay-respects bash --alias)"
+fi
+
 
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
