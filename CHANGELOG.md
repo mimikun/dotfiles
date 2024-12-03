@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2024.12.03]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore: update windows_cargo_packages.txt
+- chore(nvim): update lockfiles
+- chore(nvim): improved utils
+- chore(aqua): update
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.02]
 
 ### Added - 新機能について
