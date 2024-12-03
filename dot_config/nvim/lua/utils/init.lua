@@ -1,5 +1,6 @@
 local M = {}
 
+---Update some tools
 M.update_all = function()
     -- :Lazy sync
     require("lazy").sync()
@@ -9,7 +10,8 @@ M.update_all = function()
     require("masonextracmds.mason").update_all()
 end
 
----@param cmds table
+---Check if cmds executable
+---@param cmds any
 ---@return boolean
 M.is_executable = function(cmds)
     local ok, err = pcall(vim.system, cmds)
