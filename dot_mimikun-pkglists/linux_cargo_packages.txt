@@ -3,6 +3,7 @@ aichat
 aim
 atac
 atuin
+bacon
 bandwhich
 basilk
 bat
@@ -50,6 +51,7 @@ erdtree
 erg
 eva
 eza
+fblog
 fd-find
 felix
 fend
@@ -143,6 +145,7 @@ tabiew
 taplo-cli
 tauri-cli
 tealdeer
+television
 tenere
 tere
 testing-language-server
