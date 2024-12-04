@@ -1,6 +1,5 @@
 ---@class snacks.dashboard.Config
 local config = {
-    -- NOTE: conflict alpha.nvim
     enabled = true,
     preset = {
         keys = require("plugins.configs.snacks-nvim.dashboard.keys"),
