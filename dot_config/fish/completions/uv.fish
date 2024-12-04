@@ -819,6 +819,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with -d 'Include the following extra requirements' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-editable -d 'Include the given packages as editables' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Run all requirements listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l overrides -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -1123,6 +1125,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s r -l reinstall -d 'Reinstall the requested Python version, if it\'s already installed'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s f -l force -d 'Replace existing Python executables during installation'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l default -d 'Use as the default Python version'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
@@ -1580,6 +1583,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-system
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l break-system-packages -d 'Allow uv to modify an `EXTERNALLY-MANAGED` Python installation'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-break-system-packages
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l dry-run -d 'Perform a dry run, i.e., don\'t actually uninstall anything but print the resulting plan'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
@@ -1864,6 +1868,7 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l sdist -d 'Build a source
 complete -c uv -n "__fish_uv_using_subcommand build" -l wheel -d 'Build a binary distribution ("wheel") from the given directory'
 complete -c uv -n "__fish_uv_using_subcommand build" -l build-logs
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-logs -d 'Hide logs from the build backend'
+complete -c uv -n "__fish_uv_using_subcommand build" -l force-pep517 -d 'Always build through PEP 517, don\'t use the fast path for the uv build backend'
 complete -c uv -n "__fish_uv_using_subcommand build" -l require-hashes -d 'Require a matching hash for each requirement'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-require-hashes
 complete -c uv -n "__fish_uv_using_subcommand build" -l verify-hashes
