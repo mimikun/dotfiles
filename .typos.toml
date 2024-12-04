@@ -24,6 +24,7 @@ tere = "tere"
 [files]
 extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
+  "dot_config/nvim/lua/plugins/neoscroll-nvim.lua",
   "dot_config/foot/foot.ini",
   "dot_config/moe/moerc.toml",
   # NOTE: DO NOT expect an upstream fix
