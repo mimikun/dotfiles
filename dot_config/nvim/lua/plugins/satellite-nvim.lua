@@ -48,8 +48,9 @@ local spec = {
     event = "VimEnter",
     dependencies = dependencies,
     opts = opts,
-    --cond = false,
-    --enabled = false,
+    -- TODO: NOW fixing scroll speed
+    cond = false,
+    enabled = false,
 }
 
 return spec

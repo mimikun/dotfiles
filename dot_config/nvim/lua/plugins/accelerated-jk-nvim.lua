@@ -11,8 +11,9 @@ local spec = {
     event = "BufRead",
     keys = keys,
     opts = {},
-    --cond = false,
-    --enabled = false,
+    -- TODO: NOW fixing scroll speed
+    cond = false,
+    enabled = false,
 }
 
 return spec
