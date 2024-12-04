@@ -204,6 +204,7 @@
     - https://github.com/vim-denops/denops.vim
     - https://github.com/delphinus/skkeleton_indicator.nvim
 - https://github.com/karb94/neoscroll.nvim
+- https://github.com/sphamba/smear-cursor.nvim
 
 ## not installed
 
