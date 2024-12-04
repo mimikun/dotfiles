@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.12.04]
+
+### Added - 新機能について
+
+- feat(gup): add kplay
+- feat(nvim): add smear-cursor.nvim
+- feat(nvim): add neoscroll.nvim
+- feat(cargo): add some packages
+- feat(snacks.nvim): add ShowNotifyHistory user-command
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+
+### Removed - 今回で削除された機能について
+
+- chore(alpha.nvim): remove
+- chore(nvim): disable some plugins
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.03]
 
 ### Added - 新機能について
