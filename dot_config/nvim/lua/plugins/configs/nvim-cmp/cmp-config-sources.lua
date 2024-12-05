@@ -15,6 +15,7 @@ local cmp_config_sources = {
     },
     { name = "emoji" },
     { name = "crates" },
+    { name = "cmp_yanky" },
 }
 
 if require("config.settings").use_github_copilot then

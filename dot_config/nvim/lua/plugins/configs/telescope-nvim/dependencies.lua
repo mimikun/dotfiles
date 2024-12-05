@@ -4,6 +4,7 @@ local dependencies = {
     "nvim-lua/plenary.nvim",
     --"nvim-telescope/telescope-frecency.nvim",
     "danielfalk/smart-open.nvim",
+    "gbprod/yanky.nvim",
     --"rcarriga/nvim-notify",
     --"ghassan0/telescope-glyph.nvim",
     --"xiyaowong/telescope-emoji.nvim",

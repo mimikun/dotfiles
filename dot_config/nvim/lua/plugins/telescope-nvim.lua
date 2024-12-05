@@ -34,6 +34,7 @@ local spec = {
         end
         --telescope.load_extension("frecency")
         telescope.load_extension("smart_open")
+        telescope.load_extension("yank_history")
         --telescope.load_extension("notify")
         --telescope.load_extension("glyph")
         --telescope.load_extension("emoji")

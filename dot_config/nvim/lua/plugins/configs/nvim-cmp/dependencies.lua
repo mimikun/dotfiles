@@ -10,6 +10,7 @@ local dependencies = {
     "folke/lazydev.nvim",
     "hrsh7th/cmp-emoji",
     "rcarriga/cmp-dap",
+    "chrisgrieser/cmp_yanky",
 }
 
 if require("config.settings").use_github_copilot then
