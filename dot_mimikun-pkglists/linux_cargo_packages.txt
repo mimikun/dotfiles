@@ -129,6 +129,7 @@ rrc
 rscls
 rucola-notes
 rust-script
+rustfinity
 rustscan
 sd
 selene
