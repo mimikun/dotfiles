@@ -91,6 +91,7 @@ packages:
 - name: k1LoW/octocov@v0.62.3
 - name: termkit/gama@v1.1.4
 - name: mattn/efm-langserver@v0.0.54
+- name: gitleaks/gitleaks@v8.21.2
 - name: dev.yorhel.nl/ncdu
   version: '2.4'
 # Use custom registry
