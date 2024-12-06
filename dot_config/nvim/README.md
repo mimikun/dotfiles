@@ -215,6 +215,9 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
 - https://github.com/yochem/jq-playground.nvim
 - https://github.com/gbprod/yanky.nvim
     - https://github.com/kkharji/sqlite.lua
+- https://github.com/m4xshen/hardtime.nvim
+    - https://github.com/MunifTanjim/nui.nvim
+    - https://github.com/nvim-lua/plenary.nvim
 
 ### not installed
 
