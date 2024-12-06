@@ -305,6 +305,38 @@ if (Test-Path($env:PSGhqPath)) {
     Set-Alias -Name gcd -Value Set-GhqLocation
 }
 
+# alias pueues
+Get-Command pueue -ErrorAction Ignore | Out-Null
+$res = $?
+if ($res) {
+    # alias pu pueue
+    Set-Alias -Name pu -Value pueue
+
+    # alias puc "pueue clean -s"
+    function Invoke-PueueCleanSuccessfulOnly() {
+        pueue clean --successful-only
+    }
+    Set-Alias -Name puc -Value Invoke-PueueCleanSuccessfulOnly
+
+    # alias pucf "pueue clean"
+    function Invoke-PueueClean() {
+        pueue clean
+    }
+    Set-Alias -Name pucf -Value Invoke-PueueClean
+
+    # alias puf "pueue follow"
+    function Invoke-PueueFollow() {
+        pueue follow
+    }
+    Set-Alias -Name puf -Value Invoke-PueueFollow
+
+    # alias pul "pueue log"
+    function Invoke-PueueLog() {
+        pueue log
+    }
+    Set-Alias -Name pul -Value Invoke-PueueLog
+}
+
 # alias windows_cargo_packages
 $windows_cargo_packages = Join-Path -Path $env:USERPROFILE -ChildPath ".mimikun-pkglists" -AdditionalChildPath "windows_cargo_packages.txt"
 
