@@ -1,6 +1,9 @@
+[add]
+secrets = "ignore"
+
 {{ if eq .chezmoi.os "windows" }}
 [cd]
-    command = "pwsh.exe"
+command = "pwsh.exe"
 {{ end }}
 
 [hooks.apply.pre]
@@ -10,6 +13,7 @@ command = "chezmoi_pre_apply_hook"
 command = "pwsh"
 args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
 {{ end }}
+
 [hooks.apply.post]
 {{ if eq .chezmoi.os "linux" }}
 command = "chezmoi_post_apply_hook"
@@ -19,4 +23,6 @@ args = ["-c", "& {Invoke-RunAfterChezmoiApply}"]
 {{ end }}
 
 [diff]
-    command = "delta"
+command = "delta"
+
+# vim:ft=toml.chezmoitmpl
