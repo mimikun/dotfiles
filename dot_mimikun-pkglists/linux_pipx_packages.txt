@@ -1,6 +1,7 @@
 calcure
-gptme
 dotenvhub
+glances
+gptme
 kaskade
 moneyterm
 pocker-tui
