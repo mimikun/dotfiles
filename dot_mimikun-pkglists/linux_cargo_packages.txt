@@ -85,6 +85,7 @@ just
 kbt
 kibi
 koji
+lazyjj
 logria
 lsd
 lychee
