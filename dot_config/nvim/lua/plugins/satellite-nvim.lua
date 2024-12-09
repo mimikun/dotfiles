@@ -10,36 +10,6 @@ local dependencies = {
     "lewis6991/gitsigns.nvim",
 }
 
----@type table
-local opts = {
-    excluded_filetypes = {
-        "cmp_docs",
-        "cmp_menu",
-        "noice",
-        "prompt",
-        "TelescopePrompt",
-        "alpha",
-    },
-    handlers = {
-        cursor = {
-            symbols = { "⎺", "⎻", "⎼", "⎽" },
-        },
-        diagnostic = {
-            signs = { "-", "=", "≡" },
-        },
-        gitsigns = {
-            signs = {
-                add = "│",
-                change = "│",
-                delete = "-",
-            },
-        },
-        quickfix = {
-            signs = { "-", "=", "≡" },
-        },
-    },
-}
-
 ---@type LazySpec
 local spec = {
     "lewis6991/satellite.nvim",
@@ -47,10 +17,9 @@ local spec = {
     cmd = cmds,
     event = "VimEnter",
     dependencies = dependencies,
-    opts = opts,
-    -- TODO: NOW fixing scroll speed
-    cond = false,
-    enabled = false,
+    opts = require("plugins.configs.satellite-nvim.opts"),
+    --cond = false,
+    --enabled = false,
 }
 
 return spec
