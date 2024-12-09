@@ -1,5 +1,40 @@
 # Changelog
 
+## [v2024.12.09]
+
+### Added - 新機能について
+
+- feat: add .gitleaksignore
+- feat(aqua): add gitleaks
+- feat(aqua): add some packages
+- feat(pipx): add glances
+- feat(nvim): add hardtime.nvim
+- feat(cargo): add lazyjj
+- feat(cargo): add rustfinity
+- feat(cargo): add mcfly
+- feat(powershell): add pueue aliases
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- docs(nvim): update README.md
+- chore: update chezmoi config
+- chore(aqua): update package
+- chore(nvim): update lockfiles
+- chore(nvim): update lockfiles
+- chore(satellite.nvim): improve config
+- chore(fish): update uv completion
+- chore(fish): update mise completion
+- chore(fish): update deno completion
+
+### Removed - 今回で削除された機能について
+
+- docs(nvim): remove unused comments
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.05]
 
 ### Added - 新機能について
