@@ -89,6 +89,7 @@ logria
 lsd
 lychee
 mask
+mcfly
 mdbook
 mise
 menyoki
