@@ -1,6 +1,5 @@
 ---@type table
 local opts = {
-    open_programs = { "wsl-open", "xdg-open", "open" },
     text = {
         searching = "   Searching",
         loading = "   Loading",
