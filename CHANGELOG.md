@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.12.10]
+
+### Added - 新機能について
+
+なし
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update mise completion
+- chore(wezterm): chose icons
+- chore(mise-tasks): improve git:morning-routine
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(crates.nvim): remove deprecated opts
+
 ## [v2024.12.09]
 
 ### Added - 新機能について
