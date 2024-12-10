@@ -1,48 +1,24 @@
+local global = require("global")
 local wezterm = require("wezterm")
+
+local SPACE_1 = global.SPACE_1
+local SPACE_3 = global.SPACE_3
 local nf = wezterm.nerdfonts
-
--- Right icons
-local normal_key_icon = "" .. " "
-normal_key_icon = nf.md_alphabetical_variant .. " "
-local leader_key_icon = "" .. " "
-leader_key_icon = nf.fa_keyboard_o .. " "
-local ime_icon = "あ" .. " "
-ime_icon = nf.md_syllabary_hiragana .. " "
-
--- Left icons
-local host_icon = "" .. " "
-host_icon = nf.md_monitor .. " "
-local date_icon = "󱪺" .. " "
-date_icon = nf.fa_calendar .. " "
-local battery_icon = "" .. " "
-battery_icon = nf.fa_battery_three_quarters .. " "
-
--- TODO: choice icon
-local cwd_icon = "" .. " "
-cwd_icon = nf.cod_folder_opened .. " "
-cwd_icon = nf.custom_folder_open .. " "
-cwd_icon = nf.fa_folder_open .. " "
-cwd_icon = nf.fa_folder_open_o .. " "
-cwd_icon = nf.md_folder_open .. " "
-cwd_icon = nf.md_folder_open_outline .. " "
-cwd_icon = nf.oct_file_directory_fill .. " "
-cwd_icon = nf.oct_file_directory .. " "
-cwd_icon = nf.oct_file_directory_open_fill .. " "
-
--- TODO: choice icon
-local time_icon = "" .. " "
-time_icon = nf.fa_clock_o .. " "
-time_icon = nf.md_clock .. " "
-time_icon = nf.md_clock_outline .. " "
-time_icon = nf.oct_clock_fill .. " "
-time_icon = nf.oct_clock .. " "
-time_icon = nf.seti_clock .. " "
 
 local DEFAULT_FG = { Color = "#9a9eab" }
 local DEFAULT_BG = { Color = "#333333" }
 
-local SPACE_1 = " "
-local SPACE_3 = "   "
+-- Left icons
+local normal_key_icon = nf.md_alphabetical_variant .. SPACE_1
+local leader_key_icon = nf.md_keyboard_outline .. SPACE_1
+local ime_icon = nf.md_syllabary_hiragana .. SPACE_1
+
+-- Right icons
+local host_icon = nf.md_monitor .. SPACE_1
+local date_icon = nf.md_calendar_month .. SPACE_1
+local cwd_icon = nf.md_folder_open .. SPACE_1
+local time_icon = nf.md_clock_outline .. SPACE_1
+local battery_icon = nf.fa_battery_three_quarters .. SPACE_1
 
 -- Left Status
 local HEADER_KEY_NORMAL = { Foreground = DEFAULT_FG, Text = normal_key_icon }
@@ -118,7 +94,7 @@ end
 
 local function GetTime(elems)
     -- disable clock when human rights are being violated
-    if not require("global").is_human_rights() then
+    if not global.is_human_rights() then
         return
     end
 
@@ -135,35 +111,25 @@ local function GetBatteryWithIcon(elems)
         local battery_state_of_charge = b.state_of_charge * 100
         local battery_charge_icon = ""
         if battery_state_of_charge >= 90 then
-            battery_charge_icon = nf.md_battery .. " "
-            battery_charge_icon = nf.md_battery_charging_100 .. " "
+            battery_charge_icon = nf.md_battery .. SPACE_1
         elseif battery_state_of_charge >= 80 then
-            battery_charge_icon = nf.md_battery_90 .. " "
-            battery_charge_icon = nf.md_battery_charging_90 .. " "
+            battery_charge_icon = nf.md_battery_90 .. SPACE_1
         elseif battery_state_of_charge >= 70 then
-            battery_charge_icon = nf.md_battery_80 .. " "
-            battery_charge_icon = nf.md_battery_charging_80 .. " "
+            battery_charge_icon = nf.md_battery_80 .. SPACE_1
         elseif battery_state_of_charge >= 60 then
-            battery_charge_icon = nf.md_battery_70 .. " "
-            battery_charge_icon = nf.md_battery_charging_70 .. " "
+            battery_charge_icon = nf.md_battery_70 .. SPACE_1
         elseif battery_state_of_charge >= 50 then
-            battery_charge_icon = nf.md_battery_60 .. " "
-            battery_charge_icon = nf.md_battery_charging_60 .. " "
+            battery_charge_icon = nf.md_battery_60 .. SPACE_1
         elseif battery_state_of_charge >= 40 then
-            battery_charge_icon = nf.md_battery_50 .. " "
-            battery_charge_icon = nf.md_battery_charging_50 .. " "
+            battery_charge_icon = nf.md_battery_50 .. SPACE_1
         elseif battery_state_of_charge >= 30 then
-            battery_charge_icon = nf.md_battery_40 .. " "
-            battery_charge_icon = nf.md_battery_charging_40 .. " "
+            battery_charge_icon = nf.md_battery_40 .. SPACE_1
         elseif battery_state_of_charge >= 20 then
-            battery_charge_icon = nf.md_battery_30 .. " "
-            battery_charge_icon = nf.md_battery_charging_30 .. " "
+            battery_charge_icon = nf.md_battery_30 .. SPACE_1
         elseif battery_state_of_charge >= 10 then
-            battery_charge_icon = nf.md_battery_20 .. " "
-            battery_charge_icon = nf.md_battery_charging_20 .. " "
+            battery_charge_icon = nf.md_battery_20 .. SPACE_1
         else
-            battery_charge_icon = nf.md_battery_outline .. " "
-            battery_charge_icon = nf.md_battery_charging_outline .. " "
+            battery_charge_icon = nf.md_battery_outline .. SPACE_1
         end
 
         local HEADER_BATTERY_ICON = { Foreground = { Color = "#dfe166" }, Text = battery_charge_icon }

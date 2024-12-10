@@ -1,16 +1,9 @@
+local global = require("global")
+local SPACE_1 = global.SPACE_1
 local wezterm = require("wezterm")
 local nf = wezterm.nerdfonts
-local console_icon = "" .. " "
-console_icon = nf.md_console_line .. " "
-local zoom_icon = "🔎" .. " "
---TODO: choice icon
-zoom_icon = nf.cod_zoom_in .. " "
-zoom_icon = nf.oct_zoom_in .. " "
-zoom_icon = nf.md_magnify .. " "
-zoom_icon = nf.md_magnify_plus .. " "
-zoom_icon = nf.fa_expand .. " "
-zoom_icon = nf.md_arrow_expand_all .. " "
-zoom_icon = nf.md_arrow_expand .. " "
+local console_icon = nf.md_console_line .. SPACE_1
+local zoom_icon = nf.md_magnify_plus_outline .. SPACE_1
 
 local function BaseName(s)
     return string.gsub(s, "(.*[/\\])(.*)", "%2")

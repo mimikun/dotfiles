@@ -5,7 +5,7 @@ local os_name = wezterm.target_triple
 local hostname = wezterm.hostname()
 
 -- NOTE: wezterm cannot get sysinfo
-function global:is_human_rights()
+global.is_human_rights = function()
     if hostname == "YutoWindows" then
         return true
     elseif hostname == "TanakaPC" then
@@ -32,5 +32,7 @@ global.config_file = wezterm.config_file
 global.version = wezterm.version
 global.exec_dir = wezterm.executable_dir
 global.path_sep = global.is_windows and "\\" or "/"
+global.SPACE_1 = " "
+global.SPACE_3 = "   "
 
 return global
