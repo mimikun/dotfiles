@@ -20,6 +20,8 @@ nd = "nd"
 serie = "serie"
 tre = "tre"
 tere = "tere"
+# stylus lang ext: https://github.com/stylus/stylus
+styl = "styl"
 
 [files]
 extend-exclude = [
