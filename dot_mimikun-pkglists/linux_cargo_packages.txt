@@ -86,6 +86,7 @@ kbt
 kibi
 koji
 lazyjj
+lla
 logria
 lsd
 lychee
@@ -111,6 +112,8 @@ oxker
 parallel-disk-usage
 pastel
 pay-respects
+pay-respects-module-request-ai
+pay-respects-module-runtime-rules
 pik
 pipr
 procs
@@ -141,6 +144,7 @@ shellharden
 sigrs
 silicon
 skim
+smartcat
 sshx
 starship
 stylua
@@ -167,6 +171,7 @@ typos-cli
 typst-cli
 tzupdate
 usage-cli
+uuinfo
 viddy
 vscli
 watchexec-cli
@@ -174,6 +179,7 @@ wireman
 wthrr
 xh
 xsv
+yazi-cli
 yazi-fm
 zeitfetch
 zellij
