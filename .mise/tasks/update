@@ -1,9 +1,8 @@
 #!/bin/bash
 # mise description="Run update"
+# mise depends=["clean"]
 
 host_name=$(cat /etc/hostname)
-
-mise tasks run clean
 
 # fish
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/
