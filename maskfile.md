@@ -242,6 +242,17 @@ host_name=$(cat /etc/hostname)
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/
 cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
 
+# yazi-fm
+chezmoi add ~/.config/yazi/keymap.toml
+chezmoi add ~/.config/yazi/yazi.toml
+chezmoi add ~/.config/yazi/theme.toml
+chezmoi add ~/.config/yazi/package.toml
+chezmoi add ~/.config/yazi/init.lua
+taplo fmt dot_config/yazi/keymap.toml
+taplo fmt dot_config/yazi/yazi.toml
+taplo fmt dot_config/yazi/theme.toml
+taplo fmt dot_config/yazi/package.toml
+
 # mise
 chezmoi add ~/.config/mise/config.toml
 
