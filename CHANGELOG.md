@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.12.11]
+
+### Added - 新機能について
+
+- feat: add lla config
+- feat(gup): add some packages
+- feat(yazi): add some plugins
+- feat(cargo): add some packages
+
+### Changed - 既存機能の変更について
+
+- chore(yazi): update configs
+- chore(fish): update mise completion
+- chore(fish): update deno completion
+- chore(pwsh): update cargo_packages_funcs
+- chore(typos): update config
+- chore(tasks): update update-task
+- chore(mise-tasks): improved :update
+- chore(pay-respects): update shell configs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.10]
 
 ### Added - 新機能について
