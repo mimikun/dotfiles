@@ -1,0 +1,12 @@
+[plugin]
+deps = [
+  { use = "yazi-rs/plugins:chmod", rev = "ec97f88" },
+  { use = "yazi-rs/plugins:full-border", rev = "ec97f88" },
+  { use = "yazi-rs/plugins:git", rev = "ec97f88" },
+  { use = "dawsers/toggle-view", rev = "d326a53" },
+  { use = "TD-Sky/sudo", rev = "a8287ea" },
+  { use = "imsi32/yatline", rev = "1b4a9a1" },
+]
+
+[flavor]
+deps = []
