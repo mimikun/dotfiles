@@ -346,8 +346,14 @@ if ($res) {
     Set-Alias -Name pul -Value Invoke-PueueLog
 }
 
-# alias windows_cargo_packages
-$windows_cargo_packages = Join-Path -Path $env:USERPROFILE -ChildPath ".mimikun-pkglists" -AdditionalChildPath "windows_cargo_packages.txt"
+# alias cargo packages
+if ($IsLinux) {
+    $tmp = Join-Path -Path $env:HOME -ChildPath ".mimikun-pkglists"
+    $cargo_packages = Join-Path -Path $tmp -ChildPath "linux_cargo_packages.txt"
+} else {
+    $tmp = Join-Path -Path $env:USERPROFILE -ChildPath ".mimikun-pkglists"
+    $cargo_packages = Join-Path -Path $tmp -ChildPath "windows_cargo_packages.txt"
+}
 
 function Invoke-ExistsCmd() {
     Param($cmdName)
@@ -361,14 +367,14 @@ function Invoke-GenerateCargoPackageLists() {
     Select-Object -Skip 3 |
     ForEach-Object { $_.Split(" ")[0] } |
     Where-Object { $_ -ne "" } |
-    Out-File -FilePath $windows_cargo_packages -Encoding utf8
+    Out-File -FilePath $cargo_packages -Encoding utf8
 }
 
 Set-Alias -Name generate_cargo_package_list -Value Invoke-GenerateCargoPackageLists
 Set-Alias -Name genecapa -Value Invoke-GenerateCargoPackageLists
 
 function Invoke-InstallCargoPackages() {
-    Get-Content -Path $windows_cargo_packages |
+    Get-Content -Path $cargo_packages |
     ForEach-Object {
         $pkg = $_
         $cond = Invoke-ExistsCmd $pkg
