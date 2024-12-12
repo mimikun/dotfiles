@@ -123,6 +123,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-sync -d 'Avoid syncing 
 complete -c uv -n "__fish_uv_using_subcommand run" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand run" -l frozen -d 'Run without updating the `uv.lock` file'
 complete -c uv -n "__fish_uv_using_subcommand run" -s s -l script -d 'Run the given path as a Python script'
+complete -c uv -n "__fish_uv_using_subcommand run" -l gui-script -d 'Run the given path as a Python GUI script'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand run" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-upgrade
@@ -462,8 +463,8 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l allow-insecure-host -d 'A
 complete -c uv -n "__fish_uv_using_subcommand lock" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand lock" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
-complete -c uv -n "__fish_uv_using_subcommand lock" -l frozen -d 'Assert that a `uv.lock` exists, without updating it'
+complete -c uv -n "__fish_uv_using_subcommand lock" -l check -d 'Check if the lockfile is up-to-date'
+complete -c uv -n "__fish_uv_using_subcommand lock" -l check-exists -d 'Assert that a `uv.lock` exists without checking if it is up-to-date'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l dry-run -d 'Perform a dry run, without writing the lockfile'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
@@ -1113,7 +1114,10 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l all-versions -d 'List all Python versions, including old patch versions'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l all-platforms -d 'List Python downloads for all platforms'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l all-arches -d 'List Python downloads for all architectures'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l only-installed -d 'Only show installed Python versions, exclude available downloads'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l only-downloads -d 'Only show Python downloads, exclude installed distributions'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l show-urls -d 'Show the URLs of available Python downloads'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
@@ -1133,6 +1137,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s V -l version -d 'Display the uv version'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s i -l install-dir -d 'The directory to store the Python installation in' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l mirror -d 'Set the URL to use as the source for downloading Python installations' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l pypy-mirror -d 'Set the URL to use as the source for downloading PyPy installations' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
@@ -1253,6 +1258,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s V -l version -d 'Display the uv version'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s i -l install-dir -d 'The directory where the Python was installed' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
@@ -1942,12 +1948,13 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l no-installer-metadata -d
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand build" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build" -s V -l version -d 'Display the uv version'
-complete -c uv -n "__fish_uv_using_subcommand publish" -l publish-url -d 'The URL of the upload endpoint (not the index URL)' -r
+complete -c uv -n "__fish_uv_using_subcommand publish" -l index -d 'The name of an index in the configuration to use for publishing' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s u -l username -d 'The username for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s p -l password -d 'The password for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s t -l token -d 'The token for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l trusted-publishing -d 'Configure using trusted publishing through GitHub Actions' -r -f -a "{automatic\t'Try trusted publishing when we\'re already in GitHub Actions, continue if that fails',always\t'',never\t''}"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
+complete -c uv -n "__fish_uv_using_subcommand publish" -l publish-url -d 'The URL of the upload endpoint (not the index URL)' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l check-url -d 'Check an index URL for existing files to skip duplicate uploads' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
