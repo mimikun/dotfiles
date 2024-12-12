@@ -136,6 +136,7 @@ rucola-notes
 rust-script
 rustfinity
 rustscan
+scooter
 sd
 selene
 serie
