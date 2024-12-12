@@ -5,7 +5,6 @@ local spec = {
     cmds = require("plugins.configs.smoothcursor-nvim.cmds"),
     event = "BufEnter",
     opts = require("plugins.configs.smoothcursor-nvim.opts"),
-    -- TODO: NOW fixing scroll speed
     cond = false,
     enabled = false,
 }
