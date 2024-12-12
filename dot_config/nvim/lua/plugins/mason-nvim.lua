@@ -78,6 +78,7 @@ local spec = {
         lspconfig.yamlls.setup({})
         if not global.is_windows then
             lspconfig.markdown_oxide.setup({})
+            lspconfig.svelte.setup({})
             if need_all_servers then
                 lspconfig.csharp_ls.setup({})
                 lspconfig.esbonio.setup({})

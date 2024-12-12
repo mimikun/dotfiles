@@ -27,6 +27,7 @@ local base_servers = {
 ---@type table
 local not_windows = {
     "markdown_oxide",
+    "svelte",
 }
 
 ---@type table
