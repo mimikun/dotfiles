@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2024.12.12]
+
+### Added - 新機能について
+
+- feat: add svelte ts-parser and LSP
+- feat(cargo): add scooter
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(snacks.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove some plugins
+
+### Fixed - 不具合修正について
+
+- fix(neoscroll.nvim): typo and more
+
 ## [v2024.12.11]
 
 ### Added - 新機能について
