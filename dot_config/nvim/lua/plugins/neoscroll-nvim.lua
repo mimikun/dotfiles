@@ -6,8 +6,6 @@ local cmds = {
     "NeoscrollDisablePM",
     "NeoscrollDisableBufferPM",
     "NeoscrollDisableGlobalePM",
-    -- BUG: has typo
-    --"NeoscrollDisablGlobalePM",
 }
 
 ---@type table
@@ -25,16 +23,7 @@ local spec = {
     --lazy = false,
     cmd = cmds,
     event = "BufRead",
-    config = function()
-        require("neoscroll").setup(opts)
-
-        -- WORKAROUND: typo
-        vim.api.nvim_create_user_command("NeoscrollDisableGlobalePM", function()
-            vim.g.neoscroll_performance_mode = false
-        end, {})
-        vim.api.nvim_del_user_command("NeoscrollDisablGlobalePM")
-    end,
-    -- TODO: NOW fixing scroll speed
+    opts = opts,
     --cond = false,
     --enabled = false,
 }
