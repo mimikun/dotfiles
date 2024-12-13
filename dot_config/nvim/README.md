@@ -219,6 +219,7 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/nvim-lua/plenary.nvim
 - https://github.com/lewis6991/satellite.nvim
     - https://github.com/lewis6991/gitsigns.nvim
+- https://github.com/sarrisv/readermode.nvim
 
 ### not installed
 
