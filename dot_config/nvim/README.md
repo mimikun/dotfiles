@@ -221,6 +221,9 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/lewis6991/gitsigns.nvim
 - https://github.com/sarrisv/readermode.nvim
 - https://github.com/hat0uma/csvview.nvim
+- https://github.com/philosofonusus/ecolog.nvim
+    - https://github.com/nvimdev/lspsaga.nvim
+    - https://github.com/iguanacucumber/magazine.nvim
 
 ### not installed
 

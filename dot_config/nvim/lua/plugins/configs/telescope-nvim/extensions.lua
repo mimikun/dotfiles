@@ -7,6 +7,7 @@ local extensions = {
     --zoxide = require("plugins.configs.telescope-nvim.zoxide"),
     --undo = require("plugins.configs.telescope-nvim.undo"),
     --aerial = require("plugins.configs.telescope-nvim.aerial"),
+    ecolog = require("plugins.configs.telescope-nvim.ecolog"),
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
