@@ -53,3 +53,5 @@ WIP (I have not mac now)
 ## Glossary
 
 - [Glossary](docs/src/glossary.md)
+
+![Alt](https://repobeats.axiom.co/api/embed/b273effbcaf8fb062bc44b4a00b7b64b5ec1beba.svg "Repobeats analytics image")
