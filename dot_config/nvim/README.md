@@ -220,6 +220,7 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
 - https://github.com/lewis6991/satellite.nvim
     - https://github.com/lewis6991/gitsigns.nvim
 - https://github.com/sarrisv/readermode.nvim
+- https://github.com/hat0uma/csvview.nvim
 
 ### not installed
 
