@@ -218,6 +218,8 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
 - https://github.com/m4xshen/hardtime.nvim
     - https://github.com/MunifTanjim/nui.nvim
     - https://github.com/nvim-lua/plenary.nvim
+- https://github.com/lewis6991/satellite.nvim
+    - https://github.com/lewis6991/gitsigns.nvim
 
 ### not installed
 
@@ -231,6 +233,4 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/giuxtaposition/blink-cmp-copilot
     - https://github.com/mikavilpas/blink-ripgrep.nvim
 - https://github.com/gen740/SmoothCursor.nvim
-- https://github.com/lewis6991/satellite.nvim
-    - https://github.com/lewis6991/gitsigns.nvim
 - https://github.com/rainbowhxch/accelerated-jk.nvim
