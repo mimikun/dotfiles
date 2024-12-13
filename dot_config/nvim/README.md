@@ -204,7 +204,6 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
 - https://github.com/vim-denops/denops.vim
 - https://github.com/Omochice/dps-translate-vim
     - https://github.com/vim-denops/denops.vim
-- https://github.com/hrsh7th/nvim-deck
 - https://github.com/tadashi-aikawa/silhouette.nvim
     - https://github.com/vim-denops/denops.vim
 - https://github.com/vim-skk/skkeleton
@@ -234,3 +233,4 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/mikavilpas/blink-ripgrep.nvim
 - https://github.com/gen740/SmoothCursor.nvim
 - https://github.com/rainbowhxch/accelerated-jk.nvim
+- https://github.com/hrsh7th/nvim-deck
