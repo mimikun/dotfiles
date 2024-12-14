@@ -234,6 +234,16 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/nvim-lua/plenary.nvim
     - https://github.com/sindrets/diffview.nvim
     - https://github.com/nvim-telescope/telescope.nvim
+- https://github.com/nvim-neotest/neotest
+    - https://github.com/nvim-neotest/nvim-nio
+    - https://github.com/nvim-lua/plenary.nvim
+    - https://github.com/nvim-treesitter/nvim-treesitter
+    - https://github.com/marilari88/neotest-vitest
+    - https://github.com/mrcjkb/rustaceanvim
+    - https://github.com/markemmons/neotest-deno
+    - https://github.com/rcasia/neotest-bash
+    - https://github.com/vim-test/vim-test
+    - https://github.com/nvim-neotest/neotest-vim-test
 
 ### not installed
 
