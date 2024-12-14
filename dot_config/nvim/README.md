@@ -227,6 +227,10 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
 - https://github.com/delphinus/open-official-doc.nvim
 - https://github.com/ysmb-wtsg/in-and-out.nvim
 - https://github.com/mistweaverco/kulala.nvim
+- https://github.com/MagicDuck/grug-far.nvim
+    - https://github.com/nvim-tree/nvim-web-devicons
+
+
 
 ### not installed
 
