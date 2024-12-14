@@ -224,6 +224,7 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
 - https://github.com/philosofonusus/ecolog.nvim
     - https://github.com/nvimdev/lspsaga.nvim
     - https://github.com/iguanacucumber/magazine.nvim
+- https://github.com/delphinus/open-official-doc.nvim
 
 ### not installed
 
