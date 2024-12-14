@@ -226,6 +226,7 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/iguanacucumber/magazine.nvim
 - https://github.com/delphinus/open-official-doc.nvim
 - https://github.com/ysmb-wtsg/in-and-out.nvim
+- https://github.com/mistweaverco/kulala.nvim
 
 ### not installed
 
