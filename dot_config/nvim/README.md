@@ -230,7 +230,10 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
 - https://github.com/MagicDuck/grug-far.nvim
     - https://github.com/nvim-tree/nvim-web-devicons
 - https://github.com/mikavilpas/yazi.nvim
-
+- https://github.com/NeogitOrg/neogit
+    - https://github.com/nvim-lua/plenary.nvim
+    - https://github.com/sindrets/diffview.nvim
+    - https://github.com/nvim-telescope/telescope.nvim
 
 ### not installed
 
