@@ -17,7 +17,7 @@ packages:
 - name: twpayne/chezmoi@v2.56.0
 - name: direnv/direnv@v2.35.0
 - name: muesli/duf@v0.8.1
-- name: junegunn/fzf@v0.56.3
+- name: junegunn/fzf@v0.57.0
 - name: x-motemen/ghq@v1.7.1
 - name: cli/cli@v2.63.2
 - name: jqlang/jq@jq-1.7.1
