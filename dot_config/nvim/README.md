@@ -245,6 +245,8 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/vim-test/vim-test
     - https://github.com/nvim-neotest/neotest-vim-test
     - https://github.com/MisanthropicBit/neotest-busted
+- https://github.com/sindrets/diffview.nvim
+    - https://github.com/nvim-tree/nvim-web-devicons
 
 ### not installed
 
