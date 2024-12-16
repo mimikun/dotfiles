@@ -1,5 +1,45 @@
 # Changelog
 
+## [v2024.12.16]
+
+### Added - 新機能について
+
+- docs: add repobeats image
+- feat(pip): add some packages
+- feat(nvim): add neotest
+- feat(nvim): add neogit
+- feat(nvim): add yazi.nvim
+- feat(nvim): add kulala.nvim
+- feat(nvim): add ecolog.nvim
+- feat(nvim): add csvview.nvim
+- feat(nvim): add diffview.nvim
+- feat(nvim): add grug-far.nvim
+- feat(nvim): add readermode.nvim
+- feat(nvim): add in-and-out.nvim
+- feat(nvim): add open-official-doc.nvim
+- feat(yazi): add yatline.yazi config
+- feat(fish): add zoxide config
+- feat(cargo): add ouch
+- feat(neotest): add neotest-busted adapter
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- docs(nvim): update
+- chore(fish): update uv completion
+- chore(fish): update mise completion
+- chore(neotest): split config
+
+### Removed - 今回で削除された機能について
+
+- chore(fish): remove README.md
+- chore(fish): remove some plugins
+- chore(nvim): remove nvim-deck
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.12]
 
 ### Added - 新機能について
