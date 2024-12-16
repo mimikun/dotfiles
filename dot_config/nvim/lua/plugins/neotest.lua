@@ -11,6 +11,7 @@ local dependencies = {
     "rcasia/neotest-bash",
     "vim-test/vim-test",
     "nvim-neotest/neotest-vim-test",
+    "MisanthropicBit/neotest-busted",
 }
 
 ---@type LazySpec
@@ -31,6 +32,10 @@ local spec = {
                 require("neotest-deno"),
                 require("neotest-bash"),
                 require("neotest-vim-test")({ ignore_filetypes = { "lua" } }),
+                require("neotest-busted")({
+                    local_luarocks_only = true,
+                    parametric_test_discovery = false,
+                }),
             },
         })
     end,

@@ -244,6 +244,7 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/rcasia/neotest-bash
     - https://github.com/vim-test/vim-test
     - https://github.com/nvim-neotest/neotest-vim-test
+    - https://github.com/MisanthropicBit/neotest-busted
 
 ### not installed
 
