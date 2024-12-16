@@ -417,4 +417,8 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
 end
 source $CACHE_CONFIG_FISH
 
+# NOTE: NEED end of config file!
+# see: https://github.com/ajeetdsouza/zoxide#installation
+zoxide init fish | source
+
 # vim:ft=fish.chezmoitmpl
