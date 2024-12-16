@@ -108,6 +108,7 @@ nu_plugin_polars
 nu_plugin_query
 onefetch
 os_info_cli
+ouch
 oxker
 parallel-disk-usage
 pastel
