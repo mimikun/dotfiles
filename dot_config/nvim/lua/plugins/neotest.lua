@@ -1,28 +1,10 @@
----@type LazySpec[]
-local dependencies = {
-    "nvim-neotest/nvim-nio",
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
-    -- adapters
-    "nvim-neotest/neotest-plenary",
-    "marilari88/neotest-vitest",
-    "mrcjkb/rustaceanvim",
-    "markemmons/neotest-deno",
-    "rcasia/neotest-bash",
-    "vim-test/vim-test",
-    "nvim-neotest/neotest-vim-test",
-    "MisanthropicBit/neotest-busted",
-}
-
 ---@type LazySpec
 local spec = {
     "nvim-neotest/neotest",
     --lazy = false,
-    --ft = "",
-    --cmd = "CMDNAME",
+    cmd = "Neotest",
     --keys = "",
-    --event = "VeryLazy",
-    dependencies = dependencies,
+    dependencies = require("plugins.configs.neotest.dependencies"),
     config = function()
         require("neotest").setup({
             adapters = {
