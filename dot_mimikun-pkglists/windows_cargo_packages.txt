@@ -77,6 +77,7 @@ menyoki
 mise
 mocword
 navi
+nu
 nu_plugin_formats
 nu_plugin_gstat
 nu_plugin_inc
@@ -84,6 +85,7 @@ nu_plugin_polars
 nu_plugin_query
 onefetch
 os_info_cli
+ouch
 oxker
 parallel-disk-usage
 pastel
@@ -139,6 +141,5 @@ xh
 xsv
 yazi-fm
 zeitfetch
-zellij
 zenith
 zoxide
