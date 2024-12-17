@@ -29,7 +29,7 @@ update_sharkdp_tool_completions() {
 
 pueue add -- "fish -c 'fish_update_completions'"
 
-for cmd in "poetry" "rustup" "starship" "deno" "mdbook"; do
+for cmd in "poetry" "rustup" "starship" "deno" "mdbook" "ast-grep"; do
   if command_exist "${cmd}"; then
     pueue add -- "'${cmd}' completions fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
   fi
