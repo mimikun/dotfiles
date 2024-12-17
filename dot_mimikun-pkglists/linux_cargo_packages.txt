@@ -1,6 +1,7 @@
 ag
 aichat
 aim
+ast-grep
 atac
 atuin
 bacon
