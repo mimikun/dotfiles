@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
+[build]
+jobs = 1
+{{ end -}}
+
+[net]
+git-fetch-with-cli = true
+
+# vim:ft=toml.chezmoitmpl
