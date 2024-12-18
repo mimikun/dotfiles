@@ -34,7 +34,7 @@ packages:
 - name: stateful/runme@v3.10.2
 - name: bronze1man/yaml2json@v1.3.4
 - name: sclevine/yj@v5.1.0
-- name: FiloSottile/age@v1.2.0
+- name: FiloSottile/age@v1.2.1
 - name: mattn/algia@v0.0.84
 - name: chriswalz/bit@v1.1.2
 - name: koki-develop/gat@v0.19.3
