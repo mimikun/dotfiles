@@ -135,6 +135,7 @@ soupsieve
 SpeechRecognition
 spiel
 SQLAlchemy
+ssh-para
 sshclick
 standard-aifc
 standard-chunk
