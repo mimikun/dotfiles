@@ -190,22 +190,21 @@ if command -v codon >/dev/null 2>&1
     set -x PATH $HOME/.codon/bin $PATH
 end
 
-# ls alias
+# ls abbrs
+# TODO: improve
 if command -v eza >/dev/null 2>&1
-    alias ls eza
-
-    # ls abbr
-    abbr -a ll "ls -l --git-ignore"
-    abbr -a la "ls -a --git-ignore"
-    abbr -a lla "ls -l -a --git-ignore"
-    abbr -a l1 "ls -1 --git-ignore"
-    abbr -a ll1 "ls -l -1 --git-ignore"
-    abbr -a lt "ls --tree --git-ignore"
-    abbr -a lta "ls --tree -a --git-ignore"
-    abbr -a llt "ls -l --tree --git-ignore"
-    abbr -a ll1 "ls -l -1 --git-ignore"
-    abbr -a lt1 "ls --tree -1 --git-ignore"
-    abbr -a lat "ls -a --tree --git-ignore"
+    abbr -a ls "eza"
+    abbr -a ll "eza -l --git-ignore"
+    abbr -a la "eza -a --git-ignore"
+    abbr -a lla "eza -l -a --git-ignore"
+    abbr -a l1 "eza -1 --git-ignore"
+    abbr -a ll1 "eza -l -1 --git-ignore"
+    abbr -a lt "eza --tree --git-ignore"
+    abbr -a lta "eza --tree -a --git-ignore"
+    abbr -a llt "eza -l --tree --git-ignore"
+    abbr -a ll1 "eza -l -1 --git-ignore"
+    abbr -a lt1 "eza --tree -1 --git-ignore"
+    abbr -a lat "eza -a --tree --git-ignore"
 end
 
 # Rye
