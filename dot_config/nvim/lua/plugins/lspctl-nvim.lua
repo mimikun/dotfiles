@@ -9,14 +9,16 @@ local opts = {
 
 ---@type LazySpec
 local spec = {
-    "clxmochamalefic/lspctl.nvim",
+    -- NOTE:WORKAROUND: use my fork until fix bug
+    "mimikun/lspctl.nvim",
+    branch = "fix-doc",
+    --"clxmochamalefic/lspctl.nvim",
     --lazy = false,
     cmd = "Lspctl",
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = opts,
-    -- BUG: can't install now
-    cond = false,
-    enabled = false,
+    --cond = false,
+    --enabled = false,
 }
 
 return spec
