@@ -247,6 +247,8 @@ Follow [rocks-config.nvim's Note](https://github.com/nvim-neorocks/rocks-config.
     - https://github.com/MisanthropicBit/neotest-busted
 - https://github.com/sindrets/diffview.nvim
     - https://github.com/nvim-tree/nvim-web-devicons
+- https://github.com/clxmochamalefic/lspctl.nvim
+    - https://github.com/MunifTanjim/nui.nvim
 
 ### not installed
 
