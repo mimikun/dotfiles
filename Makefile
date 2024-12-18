@@ -77,6 +77,11 @@ delete-branch :
 pull :
 	mise tasks run git:pull
 
+## Run git push
+.PHONY : push
+push :
+	mise tasks run git:push
+
 ## Create a patch branch
 .PHONY : patch-branch
 patch-branch :

@@ -813,3 +813,29 @@ mask delete-branch
 ```powershell
 mask delete-branch
 ```
+
+## push
+
+> Push to remote repository (Linux Only)
+
+```bash
+host_name=$(cat /etc/hostname)
+
+if [ "$host_name" = "TanakaPC" ]; then
+    echo "        THIS IS WORK-PC!!!        "
+    echo "DON'T PUSH TO REMOTE REPOSITORY!!!"
+else
+    echo "Pushing to origin..."
+    git fetch origin
+    git push origin master
+    git push origin --tags
+    echo "Pushing to codeberg..."
+    git fetch codeberg
+    git push codeberg master
+    git push codeberg --tags
+fi
+```
+
+```powershell
+Write-Output "Windows is not support now!"
+```
