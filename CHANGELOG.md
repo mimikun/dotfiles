@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2024.12.18]
+
+### Added - 新機能について
+
+- feat: add git:push task
+- feat(pip): add ssh-para
+- feat(nvim): add lspctl.nvim
+- feat(fish): add ast-grep completion
+- feat(cargo): add ast-grep in linux
+- feat(cargo): add some packages in linux
+- feat(cargo): set a limit on the number of parallel compiler processes
+    - if human rights violation, machine speed SLOW.
+- feat(gitconfig): add codeberg credential config
+
+### Changed - 既存機能の変更について
+
+- chore(pip): update package-list
+- chore(nvim): update lockfiles
+- chore(fish): improved ls command
+- chore(fish): update some completions
+- chore(cargo): update windows_cargo_packages
+- chore(localbin): update update_fish_completions
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove vim-fall
+
+### Fixed - 不具合修正について
+
+- fix(lspctl.nvim): doc bug
+
 ## [v2024.12.16]
 
 ### Added - 新機能について
