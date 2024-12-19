@@ -1,126 +1,120 @@
 ---
-# aqua - Declarative CLI Version Manager
-# https://aquaproj.github.io/
-# checksum:
-#   enabled: true
-#   require_checksum: true
-#   supported_envs:
-#   - all
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
 registries:
-- type: standard
-  ref: v4.279.0 # renovate: depName=aquaproj/aqua-registry
-- name: custom
-  type: local
-  path: ./registry.yaml
+  - type: standard
+    ref: v4.279.0 # renovate: depName=aquaproj/aqua-registry
+  - name: custom
+    type: local
+    path: ./registry.yaml
 packages:
-- name: bitwarden/clients@cli-v2024.12.0
-- name: twpayne/chezmoi@v2.56.0
-- name: direnv/direnv@v2.35.0
-- name: muesli/duf@v0.8.1
-- name: junegunn/fzf@v0.57.0
-- name: x-motemen/ghq@v1.7.1
-- name: cli/cli@v2.63.2
-- name: jqlang/jq@jq-1.7.1
-- name: peco/peco@v0.5.11
-- name: koalaman/shellcheck@v0.10.0
-- name: mvdan/sh@v3.10.0
-- name: mikefarah/yq@v4.44.6
-- name: mrtazz/checkmake@0.2.2
-- name: editorconfig-checker/editorconfig-checker@v3.0.3
-- name: osteele/gojekyll@v0.2.14
-- name: golangci/golangci-lint@v1.62.2
-- name: tdewolff/minify@v2.21.2
-- name: sheepla/pingu@v0.0.5
-- name: stateful/runme@v3.10.2
-- name: bronze1man/yaml2json@v1.3.4
-- name: sclevine/yj@v5.1.0
-- name: FiloSottile/age@v1.2.1
-- name: mattn/algia@v0.0.84
-- name: chriswalz/bit@v1.1.2
-- name: koki-develop/gat@v0.19.3
-- name: golang/tools/goimports@v0.28.0
-- name: golang/tools/gorename@v0.25.0
-- name: hherman1/gq@v0.0.3
-- name: itchyny/json2yaml@v0.1.4
-- name: koki-develop/sheep@v0.4.0
-- name: rhysd/vim-startuptime@v1.3.2
-- name: antonmedv/walk@v1.10.0
-- name: dominikh/go-tools/staticcheck@2024.1.1
-- name: rhysd/actionlint@v1.7.4
-- name: koki-develop/clive@v0.12.9
-- name: tsl0922/ttyd@1.7.7
-- name: charmbracelet/vhs@v0.8.0
-- name: mattn/bsky@v0.0.67
-- name: jesseduffield/lazygit@v0.44.1
-- name: jesseduffield/horcrux@v0.2
-- name: jesseduffield/lazydocker@v0.24.1
-- name: astral-sh/uv@0.5.10
-- name: charmbracelet/freeze@v0.1.6
-- name: charmbracelet/gum@v0.14.5
-- name: charmbracelet/mods@v1.6.0
-- name: charmbracelet/skate@v1.0.0
-- name: charmbracelet/glow@v2.0.0
-- name: babarot/gomi@v1.1.6
-- name: Songmu/make2help@v0.2.1
-- name: mgechev/revive@v1.5.1
-- name: aquaproj/registry-tool@v0.3.1
-- name: suzuki-shunsuke/cmdx@v1.7.4
-- name: xxxserxxx/gotop@v4.2.0
-- name: aristocratos/btop@v1.4.0
-- name: antonmedv/fx@35.0.0
-- name: joerdav/xc@v0.8.0
-- name: pkgxdev/pkgx@v1.3.1
-- name: natecraddock/zf@0.10.2
-- name: bloznelis/typioca@3.1.0
-- name: gopasspw/gopass@v1.15.15
-- name: wader/fq@v0.13.0
-- name: homeport/dyff@v1.9.4
-- name: guumaster/hostctl@v1.1.4
-- name: JFryy/qq@v0.2.3
-- name: dotenvx/dotenvx@v1.31.0
-- name: pvolok/mprocs@v0.7.1
-- name: sqshq/sampler@v1.1.0
-- name: tstack/lnav@v0.12.3
-# - name: go-task/task@v3.40.1
-- name: magefile/mage@v1.15.0
-- name: boyter/scc@v3.4.0
-- name: maaslalani/slides@v0.9.0
-- name: zyedidia/eget@v1.3.4
-- name: aandrew-me/tgpt@v2.8.3
-- name: schollz/croc@v10.1.3
-- name: k1LoW/octocov@v0.62.3
-- name: termkit/gama@v1.1.4
-- name: mattn/efm-langserver@v0.0.54
-- name: gitleaks/gitleaks@v8.21.2
-- name: rs/curlie@v1.7.2
-- name: mr-karan/doggo@v1.0.5
-- name: pamburus/hl@v0.29.11
-- name: kdabir/has@v1.5.0
-- name: dev.yorhel.nl/ncdu
-  version: '2.4'
-# Use custom registry
-- name: mikuta0407/misskey-cli@v0.3.1
-  registry: custom
-- name: mattn/sleepy@v0.0.3
-  registry: custom
-- name: Mayowa-Ojo/chmod-cli@v0.2.0
-  registry: custom
-- name: github.com/kisielk/errcheck
-  registry: custom
-  version: 'v1.6.3'
-- name: nao1215/sqly@v0.8.1
-  registry: custom
-- name: github.com/fatih/motion
-  registry: custom
-  version: 'v1.2.0'
-- name: github.com/fatih/gomodifytags
-  registry: custom
-  version: 'v1.16.0'
-- name: klauspost/asmfmt@v1.3.2
-  registry: custom
-- name: github.com/nyaosorg/nyagos@4.4.14_0
-  registry: custom
-- name: github.com/charmbracelet/pop@v0.2.0
-  registry: custom
-- name: github.com/catatsuy/purl@v0.0.4
-  registry: custom
+  - name: bitwarden/clients@cli-v2024.12.0
+  - name: twpayne/chezmoi@v2.56.0
+  - name: direnv/direnv@v2.35.0
+  - name: muesli/duf@v0.8.1
+  - name: junegunn/fzf@v0.57.0
+  - name: x-motemen/ghq@v1.7.1
+  - name: cli/cli@v2.63.2
+  - name: jqlang/jq@jq-1.7.1
+  - name: peco/peco@v0.5.11
+  - name: koalaman/shellcheck@v0.10.0
+  - name: mvdan/sh@v3.10.0
+  - name: mikefarah/yq@v4.44.6
+  - name: mrtazz/checkmake@0.2.2
+  - name: editorconfig-checker/editorconfig-checker@v3.0.3
+  - name: osteele/gojekyll@v0.2.14
+  - name: golangci/golangci-lint@v1.62.2
+  - name: tdewolff/minify@v2.21.2
+  - name: sheepla/pingu@v0.0.5
+  - name: stateful/runme@v3.10.2
+  - name: bronze1man/yaml2json@v1.3.4
+  - name: sclevine/yj@v5.1.0
+  - name: FiloSottile/age@v1.2.1
+  - name: mattn/algia@v0.0.84
+  - name: chriswalz/bit@v1.1.2
+  - name: koki-develop/gat@v0.19.3
+  - name: golang/tools/goimports@v0.28.0
+  - name: golang/tools/gorename@v0.25.0
+  - name: hherman1/gq@v0.0.3
+  - name: itchyny/json2yaml@v0.1.4
+  - name: koki-develop/sheep@v0.4.0
+  - name: rhysd/vim-startuptime@v1.3.2
+  - name: antonmedv/walk@v1.10.0
+  - name: dominikh/go-tools/staticcheck@2024.1.1
+  - name: rhysd/actionlint@v1.7.4
+  - name: koki-develop/clive@v0.12.9
+  - name: tsl0922/ttyd@1.7.7
+  - name: charmbracelet/vhs@v0.8.0
+  - name: mattn/bsky@v0.0.67
+  - name: jesseduffield/lazygit@v0.44.1
+  - name: jesseduffield/horcrux@v0.2
+  - name: jesseduffield/lazydocker@v0.24.1
+  - name: astral-sh/uv@0.5.10
+  - name: charmbracelet/freeze@v0.1.6
+  - name: charmbracelet/gum@v0.14.5
+  - name: charmbracelet/mods@v1.6.0
+  - name: charmbracelet/skate@v1.0.0
+  - name: charmbracelet/glow@v2.0.0
+  - name: babarot/gomi@v1.1.6
+  - name: Songmu/make2help@v0.2.1
+  - name: mgechev/revive@v1.5.1
+  - name: aquaproj/registry-tool@v0.3.1
+  - name: suzuki-shunsuke/cmdx@v1.7.4
+  - name: xxxserxxx/gotop@v4.2.0
+  - name: aristocratos/btop@v1.4.0
+  - name: antonmedv/fx@35.0.0
+  - name: joerdav/xc@v0.8.0
+  - name: pkgxdev/pkgx@v1.3.1
+  - name: natecraddock/zf@0.10.2
+  - name: bloznelis/typioca@3.1.0
+  - name: gopasspw/gopass@v1.15.15
+  - name: wader/fq@v0.13.0
+  - name: homeport/dyff@v1.9.4
+  - name: guumaster/hostctl@v1.1.4
+  - name: JFryy/qq@v0.2.3
+  - name: dotenvx/dotenvx@v1.31.0
+  - name: pvolok/mprocs@v0.7.1
+  - name: sqshq/sampler@v1.1.0
+  - name: tstack/lnav@v0.12.3
+  # - name: go-task/task@v3.40.1
+  - name: magefile/mage@v1.15.0
+  - name: boyter/scc@v3.4.0
+  - name: maaslalani/slides@v0.9.0
+  - name: zyedidia/eget@v1.3.4
+  - name: aandrew-me/tgpt@v2.8.3
+  - name: schollz/croc@v10.1.3
+  - name: k1LoW/octocov@v0.62.3
+  - name: termkit/gama@v1.1.4
+  - name: mattn/efm-langserver@v0.0.54
+  - name: gitleaks/gitleaks@v8.21.2
+  - name: rs/curlie@v1.7.2
+  - name: mr-karan/doggo@v1.0.5
+  - name: pamburus/hl@v0.29.11
+  - name: kdabir/has@v1.5.0
+  - name: dev.yorhel.nl/ncdu
+    version: '2.4'
+  # Use custom registry
+  - name: mikuta0407/misskey-cli@v0.3.1
+    registry: custom
+  - name: mattn/sleepy@v0.0.3
+    registry: custom
+  - name: Mayowa-Ojo/chmod-cli@v0.2.0
+    registry: custom
+  - name: github.com/kisielk/errcheck
+    registry: custom
+    version: 'v1.6.3'
+  - name: nao1215/sqly@v0.8.1
+    registry: custom
+  - name: github.com/fatih/motion
+    registry: custom
+    version: 'v1.2.0'
+  - name: github.com/fatih/gomodifytags
+    registry: custom
+    version: 'v1.16.0'
+  - name: klauspost/asmfmt@v1.3.2
+    registry: custom
+  - name: github.com/nyaosorg/nyagos@4.4.14_0
+    registry: custom
+  - name: github.com/charmbracelet/pop@v0.2.0
+    registry: custom
+  - name: github.com/catatsuy/purl@v0.0.4
+    registry: custom

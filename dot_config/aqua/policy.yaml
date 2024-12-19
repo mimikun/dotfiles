@@ -1,6 +1,5 @@
 ---
-# aqua Policy
-# https://aquaproj.github.io/
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/refs/heads/main/json-schema/policy.json
 registries:
   - name: custom
     type: local

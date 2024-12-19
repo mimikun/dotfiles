@@ -1,13 +1,11 @@
 ---
-# mimikun's Local registry
+# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/refs/heads/main/json-schema/registry.json
 packages:
-
-#########################
-# type: github_release  #
-#########################
-
-#misskey-cli
-#https://github.com/mikuta0407/misskey-cli
+  #########################
+  # type: github_release  #
+  #########################
+  # misskey-cli
+  # https://github.com/mikuta0407/misskey-cli
   - type: github_release
     repo_owner: mikuta0407
     repo_name: misskey-cli
@@ -30,8 +28,8 @@ packages:
           - darwin
           - windows
           - amd64
-#sleepy
-#https://github.com/mattn/sleepy
+  # sleepy
+  # https://github.com/mattn/sleepy
   - type: github_release
     repo_owner: mattn
     repo_name: sleepy
@@ -47,8 +45,8 @@ packages:
     files:
       - name: sleepy
         src: sleepy_{{.SemVer}}_{{.OS}}_{{.Arch}}/sleepy
-#chmod-cli
-#https://github.com/Mayowa-Ojo/chmod-cli
+  # chmod-cli
+  # https://github.com/Mayowa-Ojo/chmod-cli
   - type: github_release
     repo_owner: Mayowa-Ojo
     repo_name: chmod-cli
@@ -68,8 +66,8 @@ packages:
           type: github_release
           asset: checksums.txt
           algorithm: sha256
-#sqly
-#https://github.com/nao1215/sqly
+  # sqly
+  # https://github.com/nao1215/sqly
   - type: github_release
     repo_owner: nao1215
     repo_name: sqly
@@ -150,8 +148,8 @@ packages:
           type: github_release
           asset: checksums.txt
           algorithm: sha256
-#asmfmt
-#https://github.com/klauspost/asmfmt/cmd/asmfmt
+  # asmfmt
+  # https://github.com/klauspost/asmfmt/cmd/asmfmt
   - type: github_release
     repo_owner: klauspost
     repo_name: asmfmt
@@ -194,57 +192,57 @@ packages:
           asset: checksums.txt
           algorithm: sha256
 
-####################
-# type: go_install #
-####################
+  ####################
+  # type: go_install #
+  ####################
 
-#gotags
-#https://github.com/jstemmer/gotags
+  # gotags
+  # https://github.com/jstemmer/gotags
   - type: go_install
     path: github.com/jstemmer/gotags
     description: ctags-compatible tag generator for Go
-#godef
-#https://github.com/rogpeppe/godef
+  # godef
+  # https://github.com/rogpeppe/godef
   - type: go_install
     path: github.com/rogpeppe/godef
     description: Print where symbols are defined in Go source code
-#motion
-#https://github.com/fatih/motion
+  # motion
+  # https://github.com/fatih/motion
   - type: go_install
     path: github.com/fatih/motion
     description: Navigation and insight in Go
-#dlv
-#https://github.com/go-delve/delve/cmd/dlv
+  # dlv
+  # https://github.com/go-delve/delve/cmd/dlv
   - type: go_install
     path: github.com/go-delve/delve/cmd/dlv
     description: Delve is a debugger for the Go programming language.
-#gomodifytags
-#https://github.com/fatih/gomodifytags
+  # gomodifytags
+  # https://github.com/fatih/gomodifytags
   - type: go_install
     path: github.com/fatih/gomodifytags
     description: Go tool to modify struct field tags
-#impl
-#https://github.com/josharian/impl
+  # impl
+  # https://github.com/josharian/impl
   - type: go_install
     path: github.com/josharian/impl
     description: impl generates method stubs for implementing an interface.
-#errcheck
-#https://github.com/kisielk/errcheck
+  # errcheck
+  # https://github.com/kisielk/errcheck
   - type: go_install
     path: github.com/kisielk/errcheck
     description: errcheck checks that you checked errors.
-#nyagos
-#https://github.com/nyaosorg/nyagos
+  # nyagos
+  # https://github.com/nyaosorg/nyagos
   - type: go_install
     path: github.com/nyaosorg/nyagos
     description: NYAGOS - The hybrid Commandline Shell between UNIX & DOS
-#pop
-#https://github.com/charmbracelet/pop
+  # pop
+  # https://github.com/charmbracelet/pop
   - type: go_install
     path: github.com/charmbracelet/pop
     description: Send emails from your terminal 📬
-#purl
-#https://github.com/catatsuy/purl
+  # purl
+  # https://github.com/catatsuy/purl
   - type: go_install
     path: github.com/catatsuy/purl
     description: Streamlining Text Processing
