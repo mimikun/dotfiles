@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.12.19]
+
+### Added - 新機能について
+
+- feat(aqua): add go-delve/delve
+- feat(aqua): add some commands
+- style(aqua): use JSON schema in configs
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update mise completion
+
+### Removed - 今回で削除された機能について
+
+- chore(aqua): remove dlv from personal registry
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.18]
 
 ### Added - 新機能について
