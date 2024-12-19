@@ -167,10 +167,12 @@ local opts = {
         -- NOTE: Should without `999_Templates/`
         template = "dailyNoteTemplateFromObsidianNvim.md",
     },
+    --[[
     completion = {
         nvim_cmp = true,
         min_chars = 2,
     },
+    ]]
     new_notes_location = "notes_subdir",
     preferred_link_style = "wiki",
     disable_frontmatter = true,
