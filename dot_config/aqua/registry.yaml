@@ -211,11 +211,6 @@ packages:
   - type: go_install
     path: github.com/fatih/motion
     description: Navigation and insight in Go
-  # dlv
-  # https://github.com/go-delve/delve/cmd/dlv
-  - type: go_install
-    path: github.com/go-delve/delve/cmd/dlv
-    description: Delve is a debugger for the Go programming language.
   # gomodifytags
   # https://github.com/fatih/gomodifytags
   - type: go_install
