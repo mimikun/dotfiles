@@ -6,11 +6,6 @@ local cmds = {
     "BqfAutoToggle",
 }
 
----@type LazySpec[]
-local dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-}
-
 ---@type table
 local opts = {
     auto_enable = true,
@@ -23,7 +18,7 @@ local spec = {
     --lazy = false,
     ft = "qf",
     cmd = cmds,
-    dependencies = dependencies,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = opts,
     --cond = false,
     --enabled = false,

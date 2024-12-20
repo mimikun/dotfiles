@@ -1,7 +1,7 @@
 ---@type LazySpec[]
 local dependencies = {
-    { "Bilal2453/luvit-meta", lazy = true },
-    { "justinsgithub/wezterm-types", lazy = true },
+    "Bilal2453/luvit-meta",
+    "justinsgithub/wezterm-types",
 }
 
 ---@type lazydev.Config
@@ -13,7 +13,7 @@ local opts = {
     },
     integrations = {
         lspconfig = true,
-        cmp = true,
+        --cmp = true,
     },
 }
 

@@ -2,7 +2,7 @@ local global = require("config.global")
 
 ---@type LazySpec[]
 local dependencies = {
-    "saadparwaiz1/cmp_luasnip",
+    --"saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
 }
 
