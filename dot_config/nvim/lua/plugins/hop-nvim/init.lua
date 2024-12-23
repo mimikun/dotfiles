@@ -23,8 +23,8 @@ local spec = {
     keys = keys,
     cmd = require("plugins.hop-nvim.cmds"),
     opts = opts,
-    --cond = false,
-    --enabled = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
