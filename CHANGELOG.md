@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2024.12.23]
+
+### Added - 新機能について
+
+- feat(nvim): add winresizer
+- feat(nvim): add flash.nvim
+- feat(nvim): add screenkey.nvim
+- feat(nvim): add multicursor.nvim
+- feat(nvim): add nvim-treesitter cmds
+- feat(nvim): add nvim-treesitter-context
+
+### Changed - 既存機能の変更について
+
+- refactor(nvim): update to v6 config
+    - and use blink.cmp(but, now setting...)
+- chore(fish): update mise completion
+- chore(nvim): update lockfiles
+- chore(nvim-treesitter): merge nvim-ts-context-commentstring
+- chore(smear-cursor.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(hop.nvim): disabled
+
+### Fixed - 不具合修正について
+
+- fix(fish): some abbrs
+
 ## [v2024.12.19]
 
 ### Added - 新機能について
