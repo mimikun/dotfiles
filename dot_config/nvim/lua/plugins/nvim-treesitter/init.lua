@@ -2,6 +2,7 @@
 local dependencies = {
     "windwp/nvim-ts-autotag",
     "RRethy/nvim-treesitter-textsubjects",
+    "nvim-treesitter/nvim-treesitter-context",
     "JoosepAlviste/nvim-ts-context-commentstring",
 }
 
@@ -15,6 +16,7 @@ local spec = {
     config = function()
         require("nvim-ts-autotag").setup({})
         require("nvim-treesitter.configs").setup(require("plugins.nvim-treesitter.opts"))
+        require("treesitter-context").setup({})
         require("ts_context_commentstring").setup({
             enable_autocmd = false,
         })
