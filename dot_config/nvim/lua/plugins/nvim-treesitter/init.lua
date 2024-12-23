@@ -11,6 +11,7 @@ local spec = {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     --lazy = false,
+    cmd = require("plugins.nvim-treesitter.cmds"),
     event = "VeryLazy",
     dependencies = dependencies,
     config = function()
