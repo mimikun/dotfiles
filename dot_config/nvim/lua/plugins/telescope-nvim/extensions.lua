@@ -8,6 +8,7 @@ local extensions = {
     --undo = require("plugins.telescope-nvim.undo"),
     --aerial = require("plugins.telescope-nvim.aerial"),
     ecolog = require("plugins.telescope-nvim.ecolog"),
+    --live_grep_args =require("plugins.telescope-nvim.live-grep-args"),
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

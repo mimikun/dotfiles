@@ -36,6 +36,7 @@ local spec = {
         telescope.load_extension("smart_open")
         telescope.load_extension("yank_history")
         telescope.load_extension("ecolog")
+        --telescope.load_extension("live_grep_args")
         --telescope.load_extension("notify")
         --telescope.load_extension("glyph")
         --telescope.load_extension("emoji")

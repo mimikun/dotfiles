@@ -28,6 +28,7 @@ local dependencies = {
     --"nvimdev/template.nvim",
     --"stevearc/aerial.nvim",
     --"2KAbhishek/octohub.nvim",
+    --"nvim-telescope/telescope-live-grep-args.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
