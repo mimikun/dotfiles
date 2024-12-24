@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2024.12.24]
+
+### Added - 新機能について
+
+- feat(nvim): add twilight.nvim
+- feat(nvim): add gitlinker.nvim
+- feat(nvim): add gitgraph.nvim
+- feat(telescope.nvim): add live-grep-args extension
+- chore(obsidian.nvim): add blink.cmp workaround
+- chore(codecompanion.nvim) add blink.cmp in deps
+
+### Changed - 既存機能の変更について
+
+- WIP: update blink.cmp config
+- chore(fish): update mise completion
+- chore(ecolog.nvim): update config
+- chore(lazydev.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.23]
 
 ### Added - 新機能について
