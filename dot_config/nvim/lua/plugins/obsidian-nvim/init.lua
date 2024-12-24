@@ -28,7 +28,15 @@ local spec = {
     init = function()
         vim.opt.conceallevel = 2
     end,
-    opts = require("plugins.obsidian-nvim.opts"),
+    config = function()
+        require("obsidian").setup(require("plugins.obsidian-nvim.opts"))
+
+        -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
+        local cmp = require("cmp")
+        cmp.register_source("obsidian", require("cmp_obsidian").new())
+        cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
+        cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
+    end,
     --cond = false,
     --enabled = false,
 }
