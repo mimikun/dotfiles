@@ -10,6 +10,8 @@ local opts = {
 ---@type LazySpec
 local spec = {
     "svampkorg/moody.nvim",
+    -- HACK: WORKAROUND doc/tags bug
+    dev = true,
     --lazy = false,
     event = events,
     opts = opts,
