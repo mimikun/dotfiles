@@ -137,6 +137,7 @@ shellingham
 six
 smmap
 sniffio
+snowmachine
 soupsieve
 SpeechRecognition
 spiel
