@@ -74,6 +74,7 @@ grex
 hex-patch
 hexyl
 hf
+hoard-rs
 ht
 hwatch
 hyperfine
