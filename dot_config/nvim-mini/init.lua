@@ -115,48 +115,6 @@ now(function()
     vim.cmd.colorscheme("vscode")
 end)
 
-now(function()
-    require("mini.files").setup()
-    vim.keymap.set("n", "<C-n>", function()
-        MiniFiles.open()
-    end, { silent = true })
-end)
-
-now(function()
-    require("mini.icons").setup()
-end)
-
-now(function()
-    require("mini.notify").setup()
-end)
-
-now(function()
-    local quick_links = "Quick Links"
-    local starter = require("mini.starter")
-    starter.setup({
-        header = table.concat(require("bannars").get("covid_19").Japan, "\n"),
-        items = {
-            { name = "e  󰝒  New file", action = "enew", section = quick_links },
-            { name = "u  󰚰  Update plugins", action = "DepsUpdate", section = quick_links },
-            { name = "t  󰐅  Update nvim-treesitter", action = "TSUpdate", section = quick_links },
-            { name = "c  󰿶  Run checkhealth", action = "checkhealth", section = quick_links },
-            { name = "q  󰅚  Quit", action = "qa", section = quick_links },
-        },
-        content_hooks = {
-            starter.gen_hook.aligning("center", "center"),
-        },
-        footer = "",
-    })
-end)
-
-now(function()
-    require("mini.statusline").setup()
-end)
-
-now(function()
-    require("mini.tabline").setup()
-end)
-
 -- Lazy loading
 later(function()
     add({
@@ -190,9 +148,23 @@ later(function()
     })
 end)
 
+-- NOTE: mini.ai is not for me
+-- NOTE: mini.align is not for me
+
 later(function()
     require("mini.animate").setup()
 end)
+
+-- NOTE: mini.base16 not for me
+-- NOTE: mini.basics not for me
+-- NOTE: mini.bracketed not for me
+
+later(function()
+    require("mini.bufremove").setup()
+end)
+
+-- NOTE: mini.clue not for me
+-- NOTE: mini.colors not for me
 
 later(function()
     require("mini.comment").setup()
@@ -249,6 +221,13 @@ later(function()
     require("mini.extra").setup()
 end)
 
+now(function()
+    require("mini.files").setup()
+    vim.keymap.set("n", "<C-n>", function()
+        MiniFiles.open()
+    end, { silent = true })
+end)
+
 later(function()
     require("mini.fuzzy").setup()
 end)
@@ -268,6 +247,12 @@ later(function()
             hex_color = hipatterns.gen_highlighter.hex_color(),
         },
     })
+end)
+
+-- NOTE: mini.hues not for me
+
+now(function()
+    require("mini.icons").setup()
 end)
 
 later(function()
@@ -292,8 +277,16 @@ later(function()
 end)
 
 later(function()
-    require("mini.misc").setup()
+    require("mini.map").setup()
 end)
+
+-- NOTE: mini.move not for me
+
+now(function()
+    require("mini.notify").setup()
+end)
+
+-- NOTE: mini.operators not for me
 
 later(function()
     require("mini.pairs").setup()
@@ -303,12 +296,44 @@ later(function()
     require("mini.pick").setup()
 end)
 
+-- NOTE: mini.sessions not for me
+
+-- TODO: https://github.com/echasnovski/mini.snippets
+
+-- NOTE: mini.splitjoin
+
+now(function()
+    local quick_links = "Quick Links"
+    local starter = require("mini.starter")
+    starter.setup({
+        header = table.concat(require("bannars").get("covid_19").Japan, "\n"),
+        items = {
+            { name = "e  󰝒  New file", action = "enew", section = quick_links },
+            { name = "u  󰚰  Update plugins", action = "DepsUpdate", section = quick_links },
+            { name = "t  󰐅  Update nvim-treesitter", action = "TSUpdate", section = quick_links },
+            { name = "c  󰿶  Run checkhealth", action = "checkhealth", section = quick_links },
+            { name = "q  󰅚  Quit", action = "qa", section = quick_links },
+        },
+        content_hooks = {
+            starter.gen_hook.aligning("center", "center"),
+        },
+    })
+end)
+
+now(function()
+    require("mini.statusline").setup()
+end)
+
 later(function()
     require("mini.surround").setup()
 end)
 
 later(function()
     require("mini.test").setup()
+end)
+
+now(function()
+    require("mini.tabline").setup()
 end)
 
 later(function()
