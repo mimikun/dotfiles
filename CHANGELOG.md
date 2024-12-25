@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2024.12.25]
+
+### Added - 新機能について
+
+- feat(pip): add snowmachine
+- feat(aqua): add dstask
+- feat(cargo): add hoard-rs
+- feat(nvim): add hover.nvim
+- feat(nvim): add extend_word_motion.nvim
+- feat(nvim-mini): add some treesitter parsers
+
+### Changed - 既存機能の変更について
+
+- chore(nvim-mini): update
+
+### Removed - 今回で削除された機能について
+
+- chore(none-ls.nvim): remove hover
+- chore(nvim-lspconfig): disable vim.lsp.buf.hover mapping
+
+### Fixed - 不具合修正について
+
+- fix(moody.nvim): use WORKAROUND solution
+
 ## [v2024.12.24]
 
 ### Added - 新機能について
