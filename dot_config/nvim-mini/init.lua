@@ -115,6 +115,17 @@ now(function()
     vim.cmd.colorscheme("vscode")
 end)
 
+---@type table
+local need_parsers = {
+    "c",
+    "lua",
+    "markdown",
+    "markdown_inline",
+    "query",
+    "vim",
+    "vimdoc",
+}
+
 -- Lazy loading
 later(function()
     add({
@@ -127,7 +138,7 @@ later(function()
         },
     })
     require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "vimdoc" },
+        ensure_installed = need_parsers,
         highlight = { enable = true },
         sync_install = true,
     })
