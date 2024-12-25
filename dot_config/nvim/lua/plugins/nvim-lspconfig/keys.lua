@@ -38,7 +38,8 @@ local keys = {
     -- Buffer local mappings
     { "gD", desc = "Jumps to the declaration of the symbol under the cursor" },
     { "gd", desc = "Jumps to the definition of the symbol under the cursor" },
-    { "K", desc = "Displays hover information about the symbol under the cursor in a floating window" },
+    -- NOTE: use hover.nvim
+    --{ "K", desc = "Displays hover information about the symbol under the cursor in a floating window" },
     { "gi", desc = "Lists all the implementations for the symbol under the cursor in the quickfix window" },
     { "<C-k>", desc = "Displays signature information about the symbol under the cursor in a floating window" },
     { "<space>wa", desc = "Add the folder at path to the workspace folders" },
