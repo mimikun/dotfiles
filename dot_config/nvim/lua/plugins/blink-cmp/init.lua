@@ -1,7 +1,7 @@
 ---@type LazySpec
 local spec = {
     "saghen/blink.cmp",
-    version = "*",
+    build = "cargo build --release",
     lazy = false,
     --event = "VeryLazy",
     dependencies = require("plugins.blink-cmp.dependencies"),
