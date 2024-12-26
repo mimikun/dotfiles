@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2024.12.26]
+
+### Added - 新機能について
+
+- feat(blink.cmp): use self-build binary
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update mise completion
+- chore(localbin): update update_fish_completions
+
+### Removed - 今回で削除された機能について
+
+- chore(multicursor.nvim): disabled visual mode mappings
+
+### Fixed - 不具合修正について
+
+- fix(moody.nvim): remove hack
+- fix(yanky.nvim): failed first setup
+
 ## [v2024.12.25]
 
 ### Added - 新機能について
