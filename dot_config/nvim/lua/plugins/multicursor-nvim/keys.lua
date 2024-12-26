@@ -1,13 +1,12 @@
-local n_v_mode = { "n", "v" }
-
 ---@type LazyKeysSpec[]
 local keys = {
+    -- Normal and Visual maps
     {
         "<up>",
         function()
             require("multicursor-nvim").lineAddCursor(-1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Add cursor above/below the main cursor",
     },
     {
@@ -15,7 +14,7 @@ local keys = {
         function()
             require("multicursor-nvim").lineAddCursor(1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Add cursor above/below the main cursor",
     },
     {
@@ -23,7 +22,7 @@ local keys = {
         function()
             require("multicursor-nvim").lineSkipCursor(-1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Skip cursor above/below the main cursor",
     },
     {
@@ -31,7 +30,7 @@ local keys = {
         function()
             require("multicursor-nvim").lineSkipCursor(1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Skip cursor above/below the main cursor",
     },
     {
@@ -39,7 +38,7 @@ local keys = {
         function()
             require("multicursor-nvim").matchAddCursor(1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Add adding a new cursor by matching word/selection",
     },
     {
@@ -47,7 +46,7 @@ local keys = {
         function()
             require("multicursor-nvim").matchSkipCursor(1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Skip adding a new cursor by matching word/selection",
     },
     {
@@ -55,7 +54,7 @@ local keys = {
         function()
             require("multicursor-nvim").matchAddCursor(-1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Add adding a new cursor by matching word/selection",
     },
     {
@@ -63,7 +62,7 @@ local keys = {
         function()
             require("multicursor-nvim").matchSkipCursor(-1)
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Skip adding a new cursor by matching word/selection",
     },
     {
@@ -71,35 +70,15 @@ local keys = {
         function()
             require("multicursor-nvim").matchAllAddCursors()
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Add all matches in the document",
     },
-    --###############################################
-    --[[
-    {
-        "<right>",
-        function()
-            require("multicursor-nvim").addCursor("w")
-        end,
-        mode = "n",
-        desc = "You can also add cursors with any motion you prefer",
-    },
-    {
-        "<leader><right>",
-        function()
-            require("multicursor-nvim").skipCursor("w")
-        end,
-        mode = "n",
-        desc = "You can also add cursors with any motion you prefer",
-    },
-    ]]
-    --###############################################
     {
         "<left>",
         function()
             require("multicursor-nvim").nextCursor()
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Rotate the main cursor",
     },
     {
@@ -107,7 +86,7 @@ local keys = {
         function()
             require("multicursor-nvim").prevCursor()
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Rotate the main cursor",
     },
     {
@@ -115,23 +94,15 @@ local keys = {
         function()
             require("multicursor-nvim").deleteCursor()
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Delete the main cursor",
-    },
-    {
-        "<c-leftmouse>",
-        function()
-            require("multicursor-nvim").handleMouse()
-        end,
-        mode = "n",
-        desc = "Add and remove cursors with control + left click",
     },
     {
         "<c-q>",
         function()
             require("multicursor-nvim").toggleCursor()
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Easy way to add and remove cursors using the main cursor",
     },
     {
@@ -139,8 +110,33 @@ local keys = {
         function()
             require("multicursor-nvim").duplicateCursors()
         end,
-        mode = n_v_mode,
+        mode = { "n", "v" },
         desc = "Clone every cursor and disable the originals",
+    },
+    {
+        "<c-i>",
+        function()
+            require("multicursor-nvim").jumpForward()
+        end,
+        mode = { "n", "v" },
+        desc = "Jumplist support",
+    },
+    {
+        "<c-o>",
+        function()
+            require("multicursor-nvim").jumpBackward()
+        end,
+        mode = { "n", "v" },
+        desc = "Jumplist support",
+    },
+    -- Normal mode maps
+    {
+        "<c-leftmouse>",
+        function()
+            require("multicursor-nvim").handleMouse()
+        end,
+        mode = "n",
+        desc = "Add and remove cursors with control + left click",
     },
     {
         "<esc>",
@@ -169,6 +165,9 @@ local keys = {
         mode = "n",
         desc = "Align cursor columns",
     },
+    -- Visual mode maps
+    -- HACK: Disabled to prevent unintended behavior
+    --[[
     {
         "S",
         function()
@@ -217,22 +216,7 @@ local keys = {
         mode = "v",
         desc = "Rotate visual selection contents",
     },
-    {
-        "<c-i>",
-        function()
-            require("multicursor-nvim").jumpForward()
-        end,
-        mode = n_v_mode,
-        desc = "Jumplist support",
-    },
-    {
-        "<c-o>",
-        function()
-            require("multicursor-nvim").jumpBackward()
-        end,
-        mode = n_v_mode,
-        desc = "Jumplist support",
-    },
+    ]]
 }
 
 return keys
