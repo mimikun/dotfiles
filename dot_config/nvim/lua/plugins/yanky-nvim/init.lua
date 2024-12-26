@@ -5,7 +5,9 @@ local spec = {
     cmd = "YankyClearHistory",
     keys = require("plugins.yanky-nvim.keys"),
     dependencies = { "kkharji/sqlite.lua" },
-    opts = require("plugins.yanky-nvim.opts"),
+    config = function()
+        require("yanky").setup(require("plugins.yanky-nvim.opts"))
+    end,
     --cond = false,
     --enabled = false,
 }
