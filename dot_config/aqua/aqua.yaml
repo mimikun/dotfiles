@@ -88,7 +88,7 @@ packages:
   - name: gitleaks/gitleaks@v8.22.0
   - name: rs/curlie@v1.7.2
   - name: mr-karan/doggo@v1.0.5
-  - name: pamburus/hl@v0.30.0
+  - name: pamburus/hl@v0.30.1
   - name: kdabir/has@v1.5.0
   - name: go-delve/delve@v1.24.0
   - name: naggie/dstask@0.27
