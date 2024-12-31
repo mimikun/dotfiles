@@ -62,7 +62,7 @@ packages:
   - name: xxxserxxx/gotop@v4.2.0
   - name: aristocratos/btop@v1.4.0
   - name: antonmedv/fx@35.0.0
-  - name: joerdav/xc@v0.8.0
+  - name: joerdav/xc@v0.8.5
   - name: pkgxdev/pkgx@v1.3.1
   - name: natecraddock/zf@0.10.2
   - name: bloznelis/typioca@3.1.0
