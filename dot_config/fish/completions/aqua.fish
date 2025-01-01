@@ -109,6 +109,8 @@ complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l select-version
 complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l only-registry -s r -d 'Update only registries'
 complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l only-package -s p -d 'Update only packages'
 complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l limit -s l -r -d 'The maximum number of versions. Non-positive number refers to no limit.'
+complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l tags -s t -r -d 'filter installed packages with tags'
+complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l exclude-tags -r -d 'exclude installed packages with tags'
 complete -c aqua -n '__fish_seen_subcommand_from help h' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'help h' -d 'Shows a list of commands or help for one command'
 
