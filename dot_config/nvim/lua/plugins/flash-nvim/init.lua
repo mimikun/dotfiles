@@ -5,8 +5,8 @@ local spec = {
     keys = require("plugins.flash-nvim.keys"),
     event = "VeryLazy",
     opts = {},
-    cond = false,
-    enabled = false,
+    --cond = false,
+    --enabled = false,
 }
 
 return spec
