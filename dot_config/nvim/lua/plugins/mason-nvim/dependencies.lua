@@ -22,6 +22,9 @@ local dependencies = {
     -- mason-conform.nvim
     "stevearc/conform.nvim",
     "pedrog14/mason-conform.nvim",
+    -- mason-nvim-lint
+    "mfussenegger/nvim-lint",
+    "rshkarin/mason-nvim-lint",
 }
 
 return dependencies

@@ -1,6 +1,8 @@
 local null_ls = require("null-ls")
 --local code_actions = null_ls.builtins.code_actions
-local diagnostics = null_ls.builtins.diagnostics
+-- TODO: remove it, now testing
+-- NOTE: use nvim-lint
+--local diagnostics = null_ls.builtins.diagnostics
 -- TODO: remove it, now testing
 -- NOTE: use conform.nvim
 --local formatting = null_ls.builtins.formatting
@@ -11,10 +13,12 @@ local opts = {
         --- Code Actions
         --code_actions.gitsigns,
         --- Diagnostics
-        diagnostics.fish,
-        diagnostics.selene,
+        -- TODO: remove it, now testing
+        -- NOTE: use nvim-lint
+        --diagnostics.fish,
+        --diagnostics.selene,
         --diagnostics.textlint.with({ only_local = "node_modules/.bin" }),
-        diagnostics.yamllint,
+        --diagnostics.yamllint,
         --- Formatting
         -- TODO: remove it, now testing
         -- NOTE: use conform.nvim

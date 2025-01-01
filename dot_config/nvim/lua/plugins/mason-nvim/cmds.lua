@@ -21,6 +21,8 @@ local cmds = {
     -- mason-conform.nvim
     "ConformInstall",
     "ConformUninstall",
+    -- mason-nvim-lint
+    -- TODO:
 }
 
 return cmds

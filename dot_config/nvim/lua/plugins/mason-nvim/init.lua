@@ -112,6 +112,12 @@ local spec = {
             },
         })
 
+        require("mason-nvim-lint").setup({
+            ensure_installed = require("plugins.mason-nvim.linters"),
+            automatic_installation = true,
+            quiet_mode = false,
+        })
+
         -- DAP
         mason_nvim_dap.setup({
             ensure_installed = require("plugins.mason-nvim.dap-adapters"),
