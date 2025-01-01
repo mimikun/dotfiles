@@ -18,6 +18,9 @@ local cmds = {
     -- mason-null-ls.nvim
     "NoneLsInstall",
     "NoneLsUninstall",
+    -- mason-conform.nvim
+    "ConformInstall",
+    "ConformUninstall",
 }
 
 return cmds

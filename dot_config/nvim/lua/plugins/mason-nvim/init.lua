@@ -13,6 +13,7 @@ local spec = {
     config = function()
         local lspconfig = require("lspconfig")
         local mason_lspconfig = require("mason-lspconfig")
+        local mason_conform = require("mason-conform")
         local mason_nvim_dap = require("mason-nvim-dap")
 
         require("neoconf").setup({})
@@ -100,6 +101,15 @@ local spec = {
         -- All-in-one Linter, Formatter
         require("mason-null-ls").setup({
             handlers = {},
+        })
+
+        mason_conform.setup({
+            ensure_installed = require("plugins.mason-nvim.formatters"),
+            handlers = {
+                function(formatter_name)
+                    require("conform").formatters_by_ft = mason_conform.formatter_handler(formatter_name)
+                end,
+            },
         })
 
         -- DAP
