@@ -17,8 +17,8 @@ local dependencies = {
     "b0o/schemastore.nvim",
     { "Zeioth/mason-extra-cmds", opts = {} },
     -- mason-null-ls.nvim
-    "nvimtools/none-ls.nvim",
-    "jay-babu/mason-null-ls.nvim",
+    --"nvimtools/none-ls.nvim",
+    --"jay-babu/mason-null-ls.nvim",
     -- mason-conform.nvim
     "stevearc/conform.nvim",
     "pedrog14/mason-conform.nvim",

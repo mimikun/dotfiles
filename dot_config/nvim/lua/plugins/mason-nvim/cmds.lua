@@ -16,8 +16,8 @@ local cmds = {
     "DapInstall",
     "DapUninstall",
     -- mason-null-ls.nvim
-    "NoneLsInstall",
-    "NoneLsUninstall",
+    --"NoneLsInstall",
+    --"NoneLsUninstall",
     -- mason-conform.nvim
     "ConformInstall",
     "ConformUninstall",

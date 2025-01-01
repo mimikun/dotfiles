@@ -6,8 +6,8 @@ local spec = {
     config = function()
         require("null-ls").setup(require("plugins.none-ls-nvim.opts"))
     end,
-    --cond = false,
-    --enabled = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec

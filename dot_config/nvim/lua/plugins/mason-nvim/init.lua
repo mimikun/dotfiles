@@ -99,9 +99,9 @@ local spec = {
         end
 
         -- All-in-one Linter, Formatter
-        require("mason-null-ls").setup({
-            handlers = {},
-        })
+        --require("mason-null-ls").setup({
+        --    handlers = {},
+        --})
 
         mason_conform.setup({
             ensure_installed = require("plugins.mason-nvim.formatters"),
