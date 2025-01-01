@@ -9,7 +9,7 @@ local cmds = {
 local dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
-    --{ "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
+    { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
 }
 
 ---@type LazySpec

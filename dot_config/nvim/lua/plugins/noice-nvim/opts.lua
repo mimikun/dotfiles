@@ -6,7 +6,7 @@ local opts = {
             ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
             ["vim.lsp.util.stylize_markdown"] = true,
             -- NOTE: requires hrsh7th/nvim-cmp
-            --["cmp.entry.get_documentation"] = true,
+            ["cmp.entry.get_documentation"] = true,
         },
     },
     -- you can enable a preset for easier configuration

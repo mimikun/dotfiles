@@ -10,7 +10,7 @@ local events = {
 ---@type LazySpec[]
 local dependencies = {
     "nvim-lua/plenary.nvim",
-    --{ "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
+    { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
     "nvim-telescope/telescope.nvim",
     "nvim-treesitter/nvim-treesitter",
     --"epwalsh/pomo.nvim",
@@ -32,10 +32,12 @@ local spec = {
         require("obsidian").setup(require("plugins.obsidian-nvim.opts"))
 
         -- HACK: fix error, disable completion.nvim_cmp option, manually register sources
+        --[[
         local cmp = require("cmp")
         cmp.register_source("obsidian", require("cmp_obsidian").new())
         cmp.register_source("obsidian_new", require("cmp_obsidian_new").new())
         cmp.register_source("obsidian_tags", require("cmp_obsidian_tags").new())
+        ]]
     end,
     --cond = false,
     --enabled = false,

@@ -1,7 +1,7 @@
 ---@type LazySpec[]
 local dependencies = {
     "nvimdev/lspsaga.nvim",
-    --{ "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
+    { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
 }
 
 ---@type LazySpec
