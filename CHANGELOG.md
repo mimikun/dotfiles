@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2025.01.01]
+
+### Added - 新機能について
+
+- feat(fish): add hoard completion
+- feat(nvim): add nvim-lint
+- feat(nvim): add quicker.nvim
+- feat(nvim): add conform.nvim
+    - disable null_ls formatting
+- feat(nvim): add tiny-inline-diagnostic.nvim
+- feat(nvim-cmp): enabled
+- feat(flash.nvim): enabled
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove hop.nvim
+- chore(nvim): remove blink.cmp
+    - It was added halfway, so reset it.
+- chore(none-ls.nvim): disabled
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2024.12.26]
 
 ### Added - 新機能について
