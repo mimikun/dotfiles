@@ -88,8 +88,8 @@ local spec = {
             },
         })
     end,
-    cond = false,
-    enabled = false,
+    --cond = false,
+    --enabled = false,
 }
 
 return spec
