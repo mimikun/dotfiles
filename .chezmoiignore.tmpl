@@ -88,6 +88,8 @@ utilities/miniz-flux-mining.bat
 utilities/t-rex-mining.bat
 .config/vim/**
 .vim/**
+{{ else }}
+.config/systemd/user/wsl-wayland-symlink.service
 {{ end }}
 
 # If not Linux
@@ -115,6 +117,7 @@ utilities/t-rex-mining.bat
 .config/gitu/**
 .config/lazydocker/**
 .config/lazygit/**
+.config/systemd/**
 .ghcup/**
 .local/bin/**
 

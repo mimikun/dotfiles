@@ -1,0 +1,10 @@
+[Unit]
+Description=Create Wayland symlinks for WSL
+After=default.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'USER_ID=$(id -u); find /mnt/wslg/runtime-dir -name "wayland-*" -type s -exec ln -sf {} /run/user/$USER_ID/ \;'
+
+[Install]
+WantedBy=default.target
