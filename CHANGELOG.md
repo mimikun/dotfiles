@@ -1,5 +1,39 @@
 # Changelog
 
+## [v2025.01.06]
+
+### Added - 新機能について
+
+- feat: add ghostty config
+- feat: add wsl-wayland-symlink.service user-systemd unit
+- feat(nvim): add hlargs.nvim
+- feat(nvim): add orphans.nvim
+- feat(nvim): add ghostty.nvim
+- feat(nvim): add hlchunk.nvim
+- feat(nvim): add rssfeed.nvim
+- feat(nvim): add treewalker.nvim
+- feat(nvim): add treesorter.nvim
+- feat(nvim): add nvim_context_vt
+- feat(nvim): add animatedbd.nvim
+- feat(nvim): add nvim-dap-commands
+- feat(nvim): add telekasten.nvim WIP
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(typos): update config
+- chore(wezterm): rename Ubuntu-20.04 to Ubuntu
+- docs(CHANGELOG): Happy New Year! 2025!
+
+### Removed - 今回で削除された機能について
+
+- chore(indent-blankline): disable
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.01.01]
 
 ### Added - 新機能について
