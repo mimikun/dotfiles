@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_berg_global_optspecs
-	string join \n non-interactive h/help V/version
+	string join \n non-interactive w/max-width= h/help V/version
 end
 
 function __fish_berg_needs_command
@@ -24,7 +24,8 @@ function __fish_berg_using_subcommand
 	contains -- $cmd[1] $argv
 end
 
-complete -c berg -n "__fish_berg_needs_command" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console! '
+complete -c berg -n "__fish_berg_needs_command" -s w -l max-width -d 'Maximum with of the stdout output,  - negative numbers indicate using \'infinite\' width per line - zero indicates using the terminals width - positive numbers are interpreted as max width. You may specify   widths that can lead to weird linebreaks. This is a feature for tools   which process stdout output line by line. You may also just negative   widths in this case.  Falls back to `max_width` value in config or defaults to 80 otherwise.' -r
+complete -c berg -n "__fish_berg_needs_command" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!  Still WIP'
 complete -c berg -n "__fish_berg_needs_command" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_needs_command" -s V -l version -d 'Print version'
 complete -c berg -n "__fish_berg_needs_command" -f -a "api" -d 'API subcommands'
@@ -107,6 +108,7 @@ complete -c berg -n "__fish_berg_using_subcommand pull; and not __fish_seen_subc
 complete -c berg -n "__fish_berg_using_subcommand pull; and not __fish_seen_subcommand_from list create edit view comment help" -f -a "comment" -d 'Add comment to selected pull request'
 complete -c berg -n "__fish_berg_using_subcommand pull; and not __fish_seen_subcommand_from list create edit view comment help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -s c -l count -d 'Number of pull requests to be displayed' -r
+complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -l sort -d 'Sort using a certain criteria' -r -f -a "{oldest\t'',recentupdate\t'',leastupdate\t'',mostcomment\t'',leastcomment\t'',priority\t''}"
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -s s -l state -d 'Filter pull requests with the chosen state' -r -f -a "{closed\t'',open\t'',all\t''}"
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from create" -s a -l assignees -d 'Comma-delimited list of assignee names' -r
