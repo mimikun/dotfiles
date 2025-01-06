@@ -16,8 +16,9 @@ local spec = {
     cmd = cmds,
     event = "BufEnter",
     opts = require("plugins.indent-blankline.opts"),
-    --cond = false,
-    --enabled = false,
+    -- NOTE: use hlchunk.nvim
+    cond = false,
+    enabled = false,
 }
 
 return spec
