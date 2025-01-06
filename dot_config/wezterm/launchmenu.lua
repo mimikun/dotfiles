@@ -1,4 +1,4 @@
-local wsl_domain = require("global").is_human_rights and "WSL:Ubuntu" or "WSL:Ubuntu-20.04"
+local wsl_domain = "WSL:Ubuntu"
 
 local M = {}
 
