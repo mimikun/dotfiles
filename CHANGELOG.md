@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2025.01.07]
+
+### Added - 新機能について
+
+- feat(nvim): add use_blink_cmp flag
+- feat(cargo): add mairu
+- feat(ghostty): add os-specific config files
+- feat(lualine): add lualine-lsp-status component
+- feat(telescope.nvim): add telescope-media-files.nvim extension
+
+### Changed - 既存機能の変更について
+
+- chore(typos): update config
+- chore(fish): update some completions
+- chore(pwsh): use pay-respects is Linux only
+- chore(telekasten.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.01.06]
 
 ### Added - 新機能について
