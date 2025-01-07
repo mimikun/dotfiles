@@ -181,7 +181,7 @@ if ($cond) {
     # pay-respects completion
     Get-Command pay-respects -ErrorAction Ignore | Out-Null
     $res = $?
-    if ($res) {
+    if ($res -and $IsLinux) {
         Write-Output "# pay-respects completion" >> $env:CACHE_PROFILE
         $pay_respects_completion = pay-respects pwsh --alias
         Write-Output $pay_respects_completion >> $env:CACHE_PROFILE
