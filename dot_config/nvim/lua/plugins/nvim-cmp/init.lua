@@ -1,3 +1,6 @@
+---@type boolean
+local cond = not require("config.settings").use_blink_cmp
+
 ---@type LazySpec
 local spec = {
     "iguanacucumber/magazine.nvim",
@@ -88,8 +91,8 @@ local spec = {
             },
         })
     end,
-    --cond = false,
-    --enabled = false,
+    cond = cond,
+    enabled = cond,
 }
 
 return spec

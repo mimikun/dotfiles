@@ -169,8 +169,6 @@ local opts = {
     },
     completion = {
         nvim_cmp = true,
-        -- HACK: https://github.com/epwalsh/obsidian.nvim/issues/770#issuecomment-2557300925
-        --nvim_cmp = false,
     },
     new_notes_location = "notes_subdir",
     preferred_link_style = "wiki",

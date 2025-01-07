@@ -3,7 +3,7 @@ local opts = {
     integrations = {
         lsp = true,
         lspsaga = true,
-        --blink_cmp = true,
+        blink_cmp = true,
         nvim_cmp = true,
     },
     shelter = {

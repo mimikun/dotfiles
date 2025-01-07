@@ -12,7 +12,6 @@ local dependencies = {
     "Bilal2453/luvit-meta",
     "justinsgithub/wezterm-types",
     "hrsh7th/cmp-nvim-lsp",
-    --"saghen/blink.cmp",
     "zapling/mason-lock.nvim",
     "b0o/schemastore.nvim",
     { "Zeioth/mason-extra-cmds", opts = {} },
@@ -26,5 +25,11 @@ local dependencies = {
     "mfussenegger/nvim-lint",
     "rshkarin/mason-nvim-lint",
 }
+
+if require("config.settings").use_blink_cmp then
+    table.insert(dependencies, {
+        { "saghen/blink.cmp" },
+    })
+end
 
 return dependencies

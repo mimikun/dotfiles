@@ -69,4 +69,7 @@ settings.use_avante = check_avante()
 -- NOTE: only be enabled at Home-azusa and Home-WSL
 settings.use_denops = (is_home and global.is_linux) and true or false
 
+---use blink.cmp
+settings.use_blink_cmp = false
+
 return settings

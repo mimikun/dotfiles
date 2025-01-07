@@ -1,16 +1,12 @@
 ---@type LazySpec[]
 local dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
     "nvim-telescope/telescope.nvim",
-    "stevearc/dressing.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    --"epwalsh/pomo.nvim",
 }
 
-if require("config.settings").use_blink_cmp then
-    table.insert(dependencies, {
-        { "saghen/blink.cmp" },
-    })
-else
+if not require("config.settings").use_blink_cmp then
     table.insert(dependencies, {
         { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
     })

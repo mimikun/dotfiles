@@ -5,20 +5,13 @@ local cmds = {
     "NoiceDisable",
 }
 
----@type LazySpec[]
-local dependencies = {
-    "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
-    { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
-}
-
 ---@type LazySpec
 local spec = {
     "folke/noice.nvim",
     --lazy = false,
     event = "VeryLazy",
     cmd = cmds,
-    dependencies = dependencies,
+    dependencies = require("plugins.noice-nvim.dependencies"),
     opts = require("plugins.noice-nvim.opts"),
     --cond = false,
     --enabled = false,
