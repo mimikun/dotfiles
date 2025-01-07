@@ -27,6 +27,7 @@ styl = "styl"
 extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
   "dot_config/nvim/lua/plugins/telekasten-nvim/init.lua",
+  "dot_config/ghostty/core.conf",
   "dot_config/foot/foot.ini",
   "dot_config/moe/moerc.toml",
   # NOTE: DO NOT expect an upstream fix
