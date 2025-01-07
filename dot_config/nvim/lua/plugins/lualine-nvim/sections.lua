@@ -36,6 +36,7 @@ local sections = {
                 hint = "",
             },
         },
+        { "lsp-status" },
         { "navic" },
     },
     lualine_x = {
