@@ -16,6 +16,7 @@ local extensions = {
 if not require("config.global").is_windows then
     table.insert(extensions, { fzf = require("plugins.telescope-nvim.fzf") })
     --table.insert(extensions, { media = require("plugins.telescope-nvim.media") })
+    table.insert(extensions, { media_files = require("plugins.telescope-nvim.media-files") })
 end
 
 return extensions

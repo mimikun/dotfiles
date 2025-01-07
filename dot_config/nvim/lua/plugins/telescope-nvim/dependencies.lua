@@ -36,6 +36,7 @@ local dependencies = {
 if not require("config.global").is_windows then
     table.insert(dependencies, { "nvim-telescope/telescope-fzf-native.nvim", build = "make" })
     --table.insert(dependencies, { "mimikun/telescope-media.nvim" })
+    table.insert(dependencies, { "nvim-telescope/telescope-media-files.nvim" })
 end
 
 return dependencies
