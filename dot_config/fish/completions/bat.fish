@@ -129,9 +129,19 @@ set -l tabs_opts '
     8\t
 '
 
+set -l special_themes '
+    auto\tdefault,\ Choose\ a\ theme\ based\ on\ dark\ or\ light\ mode
+    auto:always\tChoose\ a\ theme\ based\ on\ dark\ or\ light\ mode
+    auto:system\tChoose\ a\ theme\ based\ on\ dark\ or\ light\ mode
+    dark\tUse\ the\ theme\ specified\ by\ --theme-dark
+    light\tUse\ the\ theme\ specified\ by\ --theme-light
+'
+
 # Completions:
 
 complete -c $bat -l acknowledgements -d "Print acknowledgements" -n __fish_is_first_arg
+
+complete -c $bat -l cache-dir -f -d "Show bat's cache directory" -n __fish_is_first_arg
 
 complete -c $bat -l color -x -a "$color_opts" -d "When to use colored output" -n __bat_no_excl_args
 
@@ -146,6 +156,8 @@ complete -c $bat -l diagnostic -d "Print diagnostic info for bug reports" -n __f
 complete -c $bat -s d -l diff -d "Only show lines with Git changes" -n __bat_no_excl_args
 
 complete -c $bat -l diff-context -x -d "Show N context lines around Git changes" -n "__fish_seen_argument -s d -l diff"
+
+complete -c $bat -l generate-config-file -f -d "Generates a default configuration file" -n __fish_is_first_arg
 
 complete -c $bat -l file-name -x -d "Specify the display name" -n __bat_no_excl_args
 
@@ -173,6 +185,12 @@ complete -c $bat -l list-themes -f -d "List syntax highlighting themes" -n __fis
 
 complete -c $bat -s m -l map-syntax -x -a "(__bat_complete_map_syntax)" -d "Map <glob pattern>:<language syntax>" -n __bat_no_excl_args
 
+complete -c $bat -l no-config -d "Do not use the configuration file"
+
+complete -c $bat -l no-custom-assets -d "Do not load custom assets"
+
+complete -c $bat -l no-lessopen -d "Disable the $LESSOPEN preprocessor if enabled (overrides --lessopen)"
+
 complete -c $bat -s n -l number -d "Only show line numbers, no other decorations" -n __bat_no_excl_args
 
 complete -c $bat -l pager -x -a "$pager_opts" -d "Which pager to use" -n __bat_no_excl_args
@@ -193,7 +211,11 @@ complete -c $bat -l tabs -x -a "$tabs_opts" -d "Set tab width" -n __bat_no_excl_
 
 complete -c $bat -l terminal-width -x -d "Set terminal <width>, +<offset>, or -<offset>" -n __bat_no_excl_args
 
-complete -c $bat -l theme -x -a "(command $bat --list-themes | command cat)" -d "Set the syntax highlighting theme" -n __bat_no_excl_args
+complete -c $bat -l theme -x -a "$special_themes(command $bat --list-themes | command cat)" -d "Set the syntax highlighting theme" -n __bat_no_excl_args
+
+complete -c $bat -l theme-dark -x -a "(command $bat --list-themes | command cat)" -d "Set the syntax highlighting theme for dark backgrounds" -n __bat_no_excl_args
+
+complete -c $bat -l theme-light -x -a "(command $bat --list-themes | command cat)" -d "Set the syntax highlighting theme for light backgrounds" -n __bat_no_excl_args
 
 complete -c $bat -s V -l version -f -d "Show version information" -n __fish_is_first_arg
 
