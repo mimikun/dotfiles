@@ -186,6 +186,15 @@ if ($cond) {
         $pay_respects_completion = pay-respects pwsh --alias
         Write-Output $pay_respects_completion >> $env:CACHE_PROFILE
     }
+
+    # sunbeam completion
+    Get-Command sunbeam -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res -and $IsLinux) {
+        Write-Output "# sunbeam completion" >> $env:CACHE_PROFILE
+        $sunbeam_completion = sunbeam completion powershell
+        Write-Output $sunbeam_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile

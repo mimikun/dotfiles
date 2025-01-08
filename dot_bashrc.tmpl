@@ -350,6 +350,11 @@ if command -v jj >/dev/null 2>&1; then
     source | jj util completion bash
 fi
 
+# sunbeam
+if command -v sunbeam >/dev/null 2>&1; then
+    sunbeam completion bash | source
+fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
