@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.8.0"
+readonly PRODUCT_VERSION="1.9.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -149,6 +149,9 @@ use_pueue() {
   aqua_task_id=$(pueue add --after "$aqua_task_id" -p -- "aqua install --all")
   aqua_task_id=$(pueue add --after "$aqua_task_id" -p -- "aqua update")
   pueue add --after "$aqua_task_id" -- "aqua install --all"
+
+  echo "sunbeam extension upgrade --all"
+  pueue add -- "sunbeam extension upgrade --all"
 }
 
 no_pueue() {
@@ -212,6 +215,9 @@ no_pueue() {
   aqua install --all
   aqua update
   aqua install --all
+
+  echo "sunbeam extension upgrade --all"
+  sunbeam extension upgrade --all
 }
 
 other() {
