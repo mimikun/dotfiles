@@ -14,10 +14,7 @@ chezmoi add ~/.config/yazi/yazi.toml
 chezmoi add ~/.config/yazi/theme.toml
 chezmoi add ~/.config/yazi/package.toml
 chezmoi add ~/.config/yazi/init.lua
-taplo fmt dot_config/yazi/keymap.toml
-taplo fmt dot_config/yazi/yazi.toml
-taplo fmt dot_config/yazi/theme.toml
-taplo fmt dot_config/yazi/package.toml
+taplo fmt dot_config/yazi/*.toml
 
 # mise
 chezmoi add ~/.config/mise/config.toml
