@@ -1,0 +1,31 @@
+{
+  "oneliners": [
+    {
+      "title": "Open Sunbeam Docs",
+      "command": "sunbeam open https://sunbeam.pomdtr.me/docs",
+      "exit": true
+    },
+    {
+      "title": "Open Sunbeam Repository",
+      "command": "sunbeam open https://github.com/pomdtr/sunbeam",
+      "exit": true
+    }
+  ],
+  "extensions": {
+    "bitwarden": {
+      "origin": "https://raw.githubusercontent.com/pomdtr/sunbeam/main/extensions/bitwarden.sh"
+    },
+    "files": {
+      "origin": "https://raw.githubusercontent.com/pomdtr/sunbeam/main/extensions/files.py"
+    },
+    "github": {
+      "origin": "https://raw.githubusercontent.com/pomdtr/sunbeam/main/extensions/github.ts"
+    },
+    "google": {
+      "origin": "https://raw.githubusercontent.com/pomdtr/sunbeam/main/extensions/google.sh"
+    },
+    "rss": {
+      "origin": "https://raw.githubusercontent.com/pomdtr/sunbeam/main/extensions/rss.ts"
+    }
+  }
+}
