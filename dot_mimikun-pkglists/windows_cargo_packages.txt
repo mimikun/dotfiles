@@ -1,5 +1,8 @@
 ag
 aichat
+ast-grep
+atuin
+bacon
 bandwhich
 basilk
 bat
@@ -39,6 +42,7 @@ ducker
 du-dust
 eva
 eza
+fblog
 fd-find
 felix
 fend
@@ -65,6 +69,7 @@ i3-style
 impala
 jj-cli
 jnv
+jql
 just
 kbt
 kibi
@@ -72,11 +77,13 @@ koji
 logria
 lsd
 mask
+mcfly
 mdbook
 menyoki
 mise
 mocword
 navi
+nomino
 nu
 nu_plugin_formats
 nu_plugin_gstat
@@ -90,6 +97,8 @@ oxker
 parallel-disk-usage
 pastel
 pay-respects
+pay-respects-module-request-ai
+pay-respects-module-runtime-rules
 pik
 pipr
 procs
@@ -105,17 +114,22 @@ ripgrep_all
 rrc
 rscls
 rucola-notes
+rustfinity
 rust-script
+scooter
 sd
 selene
 shellharden
 sigrs
+smartcat
+spiko
 starship
 stylua
 tabiew
 taplo-cli
 tauri-cli
 tealdeer
+television
 tenere
 tere
 testing-language-server
@@ -132,6 +146,7 @@ tui-journal
 tuisky
 typos-cli
 typst-cli
+uuinfo
 viddy
 vscli
 watchexec-cli
@@ -139,6 +154,7 @@ wireman
 wthrr
 xh
 xsv
+yazi-cli
 yazi-fm
 zeitfetch
 zenith

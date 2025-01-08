@@ -83,6 +83,7 @@ i3-style
 impala
 jj-cli
 jnv
+jql
 just
 kbt
 kibi
@@ -96,8 +97,8 @@ mairu
 mask
 mcfly
 mdbook
-mise
 menyoki
+mise
 mocword
 monolith
 natls
@@ -139,9 +140,9 @@ ripgrep_all
 rrc
 rscls
 rucola-notes
-rust-script
 rustfinity
 rustscan
+rust-script
 scooter
 sd
 selene
@@ -152,6 +153,7 @@ sigrs
 silicon
 skim
 smartcat
+spiko
 sshx
 starship
 stylua
