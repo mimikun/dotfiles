@@ -37,6 +37,12 @@ local opts = {
         auto_apply_diff_after_generation = false,
         support_paste_from_clipboard = false,
     },
+    file_selector = {
+        --- @alias FileSelectorProvider "native" | "fzf" | "telescope" | string
+        provider = "telescope",
+        -- Options override for custom providers
+        provider_opts = {},
+    },
 }
 
 return opts
