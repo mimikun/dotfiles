@@ -10,3 +10,4 @@ posting
 rsyncy
 sherlock-project
 toolong
+trash-cli
