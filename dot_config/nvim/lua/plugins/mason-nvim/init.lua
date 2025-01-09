@@ -1,7 +1,8 @@
 local global = require("config.global")
+local settings = require("config.settings")
 
 ---@type boolean
-local need_all_servers = require("config.settings").need_all_servers
+local need_all_servers = settings.need_all_servers
 
 ---@type LazySpec
 local spec = {
@@ -41,9 +42,7 @@ local spec = {
         mason_lspconfig.setup_handlers({
             function(server_name)
                 lspconfig[server_name].setup({
-                    -- TODO:
-                    capabilities = require("config.settings").use_blink_cmp
-                            and require("blink.cmp").get_lsp_capabilities()
+                    capabilities = settings.use_blink_cmp and require("blink.cmp").get_lsp_capabilities()
                         or require("cmp_nvim_lsp").default_capabilities(),
                 })
             end,
@@ -99,11 +98,6 @@ local spec = {
             lspconfig.neocmake.setup({})
             lspconfig.zls.setup({})
         end
-
-        -- All-in-one Linter, Formatter
-        --require("mason-null-ls").setup({
-        --    handlers = {},
-        --})
 
         mason_conform.setup({
             ensure_installed = require("plugins.mason-nvim.formatters"),

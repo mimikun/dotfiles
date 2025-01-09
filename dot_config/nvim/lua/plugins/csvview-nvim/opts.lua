@@ -3,7 +3,6 @@
 local opts = {
     parser = {
         ---@type integer
-        -- TODO: try reducing this value, human rights
         async_chunksize = 50,
 
         --- @type string[]

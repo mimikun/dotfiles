@@ -22,7 +22,7 @@ local cmds = {
     "ConformInstall",
     "ConformUninstall",
     -- mason-nvim-lint
-    -- TODO:
+    -- TODO: add LinterInstall command
 }
 
 return cmds

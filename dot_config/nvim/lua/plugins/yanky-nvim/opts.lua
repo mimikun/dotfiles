@@ -4,7 +4,6 @@ local storage_path =
 local opts = {
     ring = {
         storage = "sqlite",
-        -- TODO: fix
         storage_path = storage_path,
         permanent_wrapper = require("yanky.wrappers").remove_carriage_return,
     },

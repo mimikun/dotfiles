@@ -1,8 +1,6 @@
 ---@type GrugFarOptions
 local opts = {
-    -- TODO: human rights support
-    -- max number of parallel replacements tasks
-    maxWorkers = 4,
+    maxWorkers = require("config.global").is_human_rights and 4 or 1,
     resultsSeparatorLineChar = "",
     spinnerStates = {
         "󱑋 ",
