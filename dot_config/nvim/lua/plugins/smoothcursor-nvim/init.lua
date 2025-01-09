@@ -2,9 +2,9 @@
 local spec = {
     "gen740/SmoothCursor.nvim",
     --lazy = false,
-    cmds = require("plugins.configs.smoothcursor-nvim.cmds"),
+    cmds = require("plugins.smoothcursor-nvim.cmds"),
     event = "BufEnter",
-    opts = require("plugins.configs.smoothcursor-nvim.opts"),
+    opts = require("plugins.smoothcursor-nvim.opts"),
     cond = false,
     enabled = false,
 }
