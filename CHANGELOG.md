@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2025.01.08]
+
+### Added - 新機能について
+
+- feat: add sunbeam config
+- feat(gup): add some tools
+- feat(aqua): add ycd/dstp
+- feat(cargo): add some packages
+- feat(shells): add sunbeam completion
+    - bash, zsh, fish and pwsh
+- feat(task-update): sunbeam config
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(fish): update bat completion
+- chore(task-update): improve
+- chore(avante.nvim): update opts
+- chore(localbin): update vup
+- chore(localbin): update update_fish_completions
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.01.07]
 
 ### Added - 新機能について
