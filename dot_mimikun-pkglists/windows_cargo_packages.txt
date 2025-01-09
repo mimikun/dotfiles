@@ -116,6 +116,7 @@ rscls
 rucola-notes
 rustfinity
 rust-script
+sccache
 scooter
 sd
 selene
