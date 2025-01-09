@@ -3,12 +3,15 @@ local key_opts = { noremap = true, silent = true }
 
 ---@type LazyKeysSpec[]
 local keys = {
+    -- WARN: conflict dial.nvim
+    --[[
     {
         "<C-a>",
         "<cmd>CodeCompanionActions<cr>",
         key_opts,
         mode = { "n", "v" },
     },
+    ]]
     {
         "<LocalLeader>a",
         "<cmd>CodeCompanionChat Toggle<cr>",
