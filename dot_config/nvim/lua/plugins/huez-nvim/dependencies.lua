@@ -46,6 +46,7 @@ local other = {
     { "bakageddy/alduin.nvim", optional = true },
     { "diegoulloao/neofusion.nvim", optional = true },
     { "masisz/ashikaga.nvim", optional = true },
+    { "jackplus-xyz/binary.nvim", optional = true },
     -- 'named' colorscheme
     { "catppuccin/nvim", name = "catppuccin", optional = true },
     { "Everblush/nvim", name = "everblush", optional = true },
