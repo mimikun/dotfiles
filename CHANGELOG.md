@@ -1,5 +1,45 @@
 # Changelog
 
+## [v2025.01.10]
+
+### Added - 新機能について
+
+- feat(cargo): add sccache
+- feat(cargo): add railwayapp
+- feat(gup): add byawitz/ggh
+- feat(pipx): add trash-cli
+- feat(nvim): add key-analyzer.nvim
+- feat(nvim): add output-panel.nvim
+- feat(nvim): add scroll-it.nvim
+- feat(nvim): add legendary.nvim
+- feat(nvim): add smart-splits.nvim
+- feat(nvim): add gamify.nvim
+- feat(nvim): add binary.nvim colorscheme
+- feat(nvim): add ashikaga.nvim colorscheme
+- feat(nvim): add bunnyhop.nvim
+- feat(nvim): add blink.cmp
+- feat(nvim): add obsidian-bridge.nvim
+- feat(nvim): add some deleted plugins
+- feat(lualine): add copilot-lualine
+
+### Changed - 既存機能の変更について
+
+- chore(huez.nvim): improve configs
+- chore(fish): update mise completion
+- chore(nvim): resolve some TODO
+- chore(localbin): update generate_xxx_packages
+- chore(aqua): bump version, golang/tools/goimports
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): disable C-a mapping with codecompanion.nvim
+    - keymap conflicted with dial.nvim
+
 ## [v2025.01.08]
 
 ### Added - 新機能について
