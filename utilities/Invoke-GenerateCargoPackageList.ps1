@@ -6,6 +6,7 @@ function Invoke-GenerateCargoPackageList() {
     Select-Object -Skip 3 |
     ForEach-Object { $_.Split(" ")[0] } |
     Where-Object { $_ -ne "" } |
+    Sort-Object |
     Out-File -FilePath $filepath -Encoding utf8
 }
 

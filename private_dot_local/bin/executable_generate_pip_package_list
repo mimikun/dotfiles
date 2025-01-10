@@ -3,5 +3,6 @@
 pip freeze |
     sed \
         -e "s/=.*//g" \
-        -e "s/ @.*//g" \
-        >"$HOME/.mimikun-pkglists/linux_pip_packages.txt"
+        -e "s/ @.*//g" |
+    sort > \
+        "$HOME/.mimikun-pkglists/linux_pip_packages.txt"
