@@ -82,7 +82,7 @@ packages:
   - name: zyedidia/eget@v1.3.4
   - name: aandrew-me/tgpt@v2.8.3
   - name: schollz/croc@v10.2.1
-  - name: k1LoW/octocov@v0.62.4
+  - name: k1LoW/octocov@v0.62.5
   - name: termkit/gama@v1.2.0
   - name: mattn/efm-langserver@v0.0.54
   - name: gitleaks/gitleaks@v8.22.1
