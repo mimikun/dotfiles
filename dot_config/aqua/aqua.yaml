@@ -18,7 +18,7 @@ packages:
   - name: peco/peco@v0.5.11
   - name: koalaman/shellcheck@v0.10.0
   - name: mvdan/sh@v3.10.0
-  - name: mikefarah/yq@v4.44.6
+  - name: mikefarah/yq@v4.45.1
   - name: mrtazz/checkmake@0.2.2
   - name: editorconfig-checker/editorconfig-checker@v3.1.1
   - name: osteele/gojekyll@v0.2.14
