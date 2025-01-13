@@ -71,7 +71,7 @@ packages:
   - name: homeport/dyff@v1.9.4
   - name: guumaster/hostctl@v1.1.4
   - name: JFryy/qq@v0.2.3
-  - name: dotenvx/dotenvx@v1.32.1
+  - name: dotenvx/dotenvx@v1.33.0
   - name: pvolok/mprocs@v0.7.1
   - name: sqshq/sampler@v1.1.0
   - name: tstack/lnav@v0.12.3
