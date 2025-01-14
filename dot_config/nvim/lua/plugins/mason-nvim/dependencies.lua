@@ -20,10 +20,7 @@ local dependencies = {
     --"jay-babu/mason-null-ls.nvim",
     -- mason-conform.nvim
     "stevearc/conform.nvim",
-    -- TODO: remove its
-    { "pedrog14/mason-conform.nvim", dev = true },
-    -- TODO: un-comment it
-    --"mimikun/mason-conform.nvim",
+    "mimikun/mason-conform.nvim",
     -- mason-nvim-lint
     "mfussenegger/nvim-lint",
     "rshkarin/mason-nvim-lint",
