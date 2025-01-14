@@ -774,7 +774,7 @@ Write-Output "Windows is not support now!"
 > Run workday morning routine
 
 ```bash
-git cleanfetch
+git fetch --all --prune --tags --prune-tags
 mask delete-branch
 git pull
 mask patch-branch

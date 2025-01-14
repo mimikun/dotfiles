@@ -2,6 +2,6 @@
 # mise description="git cleanfetch"
 # mise alias=["clean-fetch", "cleanfetch"]
 
-git cleanfetch
+git fetch --all --prune --tags --prune-tags
 
 # vim:ft=bash
