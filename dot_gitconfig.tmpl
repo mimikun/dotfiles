@@ -16,9 +16,9 @@
 	quotepath = false
 	excludesfile = ~/.gitignore_global
 	pager = delta
-	{{ if eq .chezmoi.os "windows" -}}
+	{{- if eq .chezmoi.os "windows" }}
 	filemode = false
-	{{ end }}
+	{{- end }}
 [color]
 	ui = true
 [credential]
@@ -26,14 +26,7 @@
 	helper = manager
 	{{ else -}}
 	helper = cache --timeout=475200
-	{{ end }}
-[alias]
-	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
-	ls = "ls-files"
-	graph = "log --graph"
-	file-diff = "diff --name-only"
-	amecomi = "commit --amend --no-edit"
-	cleanfetch = "fetch --all --prune --tags --prune-tags"
+	{{- end }}
 [init]
 	defaultBranch = master
 	templatedir = ~/.git-templates/git-secrets
@@ -42,6 +35,12 @@
 [commit]
 	verbose = true
 {{ if eq .chezmoi.os "windows" -}}
+[alias]
+	ls = "ls-files"
+	graph = "log --graph"
+	file-diff = "diff --name-only"
+	amecomi = "commit --amend --no-edit"
+	cleanfetch = "fetch --all --prune --tags --prune-tags"
 [winUpdater]
 	recentlySeenVersion = 2.25.0.windows.1
 [credential "helperselector"]
