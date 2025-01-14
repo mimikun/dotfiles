@@ -1,22 +1,13 @@
----@type table
-local cmds = {
-    "Legendary",
-    "LegendaryRepeat",
-}
-
 ---@type LazySpec
 local spec = {
     "mrjones2014/legendary.nvim",
     lazy = false,
     priority = 10000,
-    --ft = "",
-    cmd = cmds,
-    --keys = "",
-    --event = "VeryLazy",
+    cmd = require("plugins.legendary-nvim.cmds"),
     dependencies = { "kkharji/sqlite.lua" },
-    opts = {},
-    --cond = false,
-    --enabled = false,
+    opts = require("plugins.legendary-nvim.opts"),
+    cond = false,
+    enabled = false,
 }
 
 return spec
