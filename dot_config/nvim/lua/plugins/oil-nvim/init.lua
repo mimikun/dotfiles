@@ -7,6 +7,7 @@ local dependencies = {
         "refractalize/oil-git-status.nvim",
         ft = "oil",
     },
+    "JezerM/oil-lsp-diagnostics.nvim",
     "nvim-tree/nvim-web-devicons",
 }
 
@@ -79,6 +80,7 @@ local spec = {
             },
         })
         require("oil-git-status").setup({})
+        require("oil-lsp-diagnostics").setup({})
     end,
     --cond = false,
     --enabled = false,
