@@ -106,6 +106,14 @@ abbr -a ragee "rage -e -r $AGE_PUBKEY"
 abbr -a raged "rage -d -i ~/.age/key.txt"
 # forgejo-cli
 abbr -a cb "fj --host codeberg.org"
+# git subcommands(abbr)
+abbr --add --command git ls 'ls-files'
+abbr --add --command git graph 'log-graph'
+abbr --add --command git file-diff 'diff --name-only'
+abbr --add --command git amecomi 'commit --amend --no-edit'
+abbr --add --command git cleanfetch 'fetch --all --prune --tags --prune-tags'
+abbr --add --command git hash 'log --format=%H | sed -n 1p'
+abbr --add --command git shallow-clone 'git clone --depth 1'
 
 set -x LOCALBIN $HOME/.local/bin
 
