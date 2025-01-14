@@ -78,34 +78,35 @@ alias patch "patch -p1 <"
 alias imgcat "wezterm imgcat"
 
 # abbrs
-abbr -a pueued_enable "systemctl --user enable pueue"
-abbr -a pueued_start "systemctl --user start pueue"
-abbr -a pueued_restart "systemctl --user restart pueue"
-abbr -a ccd "chezmoi cd"
-abbr -a chd "chezmoi cd"
-abbr -a chec "chezmoi cd"
-abbr -a cap "chezmoi apply"
-abbr -a chp "chezmoi apply"
-abbr -a chep "chezmoi apply"
-abbr -a pu pueue
-abbr -a puc "pueue clean -s"
-abbr -a pucf "pueue clean"
-abbr -a puf "pueue follow"
-abbr -a pul "pueue log"
+abbr --add --command sudo rm 'echo "sudo rm は使用禁止"'
+abbr --add pueued_enable "systemctl --user enable pueue"
+abbr --add pueued_start "systemctl --user start pueue"
+abbr --add pueued_restart "systemctl --user restart pueue"
+abbr --add ccd "chezmoi cd"
+abbr --add chd "chezmoi cd"
+abbr --add chec "chezmoi cd"
+abbr --add cap "chezmoi apply"
+abbr --add chp "chezmoi apply"
+abbr --add chep "chezmoi apply"
+abbr --add pu pueue
+abbr --add puc "pueue clean -s"
+abbr --add pucf "pueue clean"
+abbr --add puf "pueue follow"
+abbr --add pul "pueue log"
 if command -v trashy >/dev/null 2>&1
-    abbr -a trash "trashy"
+    abbr --add trash "trashy"
 end
-abbr -a ghview "gh repo view -w"
-abbr -a ghissue "gh issue ls"
-abbr -a emacs "emacs --no-window-system"
-abbr -a mmo "make morning-routine"
+abbr --add ghview "gh repo view -w"
+abbr --add ghissue "gh issue ls"
+abbr --add emacs "emacs --no-window-system"
+abbr --add mmo "make morning-routine"
 # https://github.com/ryoppippi/na.fish
-abbr -a n -f _na
+abbr --add n -f _na
 # rage
-abbr -a ragee "rage -e -r $AGE_PUBKEY"
-abbr -a raged "rage -d -i ~/.age/key.txt"
+abbr --add ragee "rage -e -r $AGE_PUBKEY"
+abbr --add raged "rage -d -i ~/.age/key.txt"
 # forgejo-cli
-abbr -a cb "fj --host codeberg.org"
+abbr --add cb "fj --host codeberg.org"
 # git subcommands(abbr)
 abbr --add --command git ls 'ls-files'
 abbr --add --command git graph 'log-graph'
@@ -155,9 +156,9 @@ alias pip "python3 -m pip"
 alias pipx "python3 -m pipx"
 
 {{ if (ne .chezmoi.hostname "azusa") -}}
-abbr -a open wsl-open
+abbr --add open wsl-open
 {{ end -}}
-abbr -a zel zellij
+abbr --add zel zellij
 alias pueuexec "pueue add --"
 
 # Bun
@@ -201,18 +202,18 @@ end
 # ls abbrs
 # TODO: improve
 if command -v eza >/dev/null 2>&1
-    abbr -a ls "eza"
-    abbr -a ll "eza -l --git-ignore"
-    abbr -a la "eza -a --git-ignore"
-    abbr -a lla "eza -l -a --git-ignore"
-    abbr -a l1 "eza -1 --git-ignore"
-    abbr -a ll1 "eza -l -1 --git-ignore"
-    abbr -a lt "eza --tree --git-ignore"
-    abbr -a lta "eza --tree -a --git-ignore"
-    abbr -a llt "eza -l --tree --git-ignore"
-    abbr -a ll1 "eza -l -1 --git-ignore"
-    abbr -a lt1 "eza --tree -1 --git-ignore"
-    abbr -a lat "eza -a --tree --git-ignore"
+    abbr --add ls "eza"
+    abbr --add ll "eza -l --git-ignore"
+    abbr --add la "eza -a --git-ignore"
+    abbr --add lla "eza -l -a --git-ignore"
+    abbr --add l1 "eza -1 --git-ignore"
+    abbr --add ll1 "eza -l -1 --git-ignore"
+    abbr --add lt "eza --tree --git-ignore"
+    abbr --add lta "eza --tree -a --git-ignore"
+    abbr --add llt "eza -l --tree --git-ignore"
+    abbr --add ll1 "eza -l -1 --git-ignore"
+    abbr --add lt1 "eza --tree -1 --git-ignore"
+    abbr --add lat "eza -a --tree --git-ignore"
 end
 
 # Rye
@@ -366,13 +367,13 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo "# alias" >> $CACHE_CONFIG_FISH
         echo 'alias paleovim "$XDG_DATA_HOME/mise/installed/vim/ref-master/vim"' >> $CACHE_CONFIG_FISH
         echo "# abbr" >> $CACHE_CONFIG_FISH
-        echo 'abbr -a pvim paleovim' >> $CACHE_CONFIG_FISH
+        echo 'abbr --add pvim paleovim' >> $CACHE_CONFIG_FISH
     end
 
     # bob neovim version manager
     echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
     echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
-    echo 'abbr -a vim nvim' >> $CACHE_CONFIG_FISH
+    echo 'abbr --add vim nvim' >> $CACHE_CONFIG_FISH
 
     # starship config
     if command -v starship >/dev/null 2>&1
