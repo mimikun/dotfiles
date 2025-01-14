@@ -155,7 +155,6 @@ sigrs
 silicon
 skim
 smartcat
-spiko
 sshx
 starship
 stylua
