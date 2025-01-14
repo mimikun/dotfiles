@@ -92,7 +92,7 @@ packages:
   - name: kdabir/has@v1.5.0
   - name: go-delve/delve@v1.24.0
   - name: naggie/dstask@0.27
-  - name: ycd/dstp@v0.4.0
+  - name: ycd/dstp@v0.4.23
   - name: PowerShell/PowerShell@v7.4.6
   - name: PowerShell/PowerShell
     version: v7.5.0-rc.1
