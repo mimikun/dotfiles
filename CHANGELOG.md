@@ -1,5 +1,37 @@
 # Changelog
 
+## [v2025.01.14]
+
+### Added - 新機能について
+
+- feat(aqua): add PowerShell
+- feat(nvim): add tetris.nvim
+- feat(nvim): add snake.nvim
+- feat(nvim): add hydra.nvim
+- feat(nvim): add oil-lsp-diagnostics.nvim
+- feat(fish): add git subcommands abbrs
+
+### Changed - 既存機能の変更について
+
+- chore(aqua): update
+- chore(fish): improved abbrs
+- chore(fish): update uv completion
+- chore(nvim): update lockfiles
+- chore(gitconfig): aliases is enable in windows only
+- chore(mason-nvim): use mimikun/mason-conform.nvim
+- chore(mason-conform.nvim): update
+
+### Removed - 今回で削除された機能について
+
+- fix(cargo): remove spiko [WORKAROUND]
+- chore(nvim): disable legendary.nvim
+- chore(mise): remove powershell-core
+- chore(localbin): remove git subcommands
+
+### Fixed - 不具合修正について
+
+- fix(mise-tasks): git cleanfetch
+
 ## [v2025.01.10]
 
 ### Added - 新機能について
