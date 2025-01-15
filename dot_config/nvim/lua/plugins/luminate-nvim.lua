@@ -1,9 +1,27 @@
+---@type table
+local opts = {
+    yank = {
+        enabled = false,
+        -- TODO: temp
+        --enabled = true,
+    },
+    paste = {
+        enabled = true,
+    },
+    undo = {
+        enabled = true,
+    },
+    redo = {
+        enabled = true,
+    },
+}
+
 ---@type LazySpec
 local spec = {
     "mei28/luminate.nvim",
     --lazy = false,
     event = "VeryLazy",
-    opts = {},
+    opts = opts,
     --cond = false,
     --enabled = false,
 }
