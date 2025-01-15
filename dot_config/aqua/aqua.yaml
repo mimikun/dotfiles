@@ -43,7 +43,7 @@ packages:
   - name: rhysd/actionlint@v1.7.6
   - name: koki-develop/clive@v0.12.9
   - name: tsl0922/ttyd@1.7.7
-  - name: charmbracelet/vhs@v0.8.0
+  - name: charmbracelet/vhs@v0.9.0
   - name: mattn/bsky@v0.0.67
   - name: jesseduffield/lazygit@v0.45.0
   - name: jesseduffield/horcrux@v0.2
