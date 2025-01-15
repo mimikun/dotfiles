@@ -1,17 +1,17 @@
 local global = require("config.global")
-local path_sep = "/"
+local path_sep = global.path_sep
 
-local base_path = global.is_windows and table.concat({ "C:", "Users", "USER_NAME", "zettelkasten" }, path_sep)
-    or vim.fn.expand("~/zettelkasten")
+local base_path = vim.fn.expand("$zettelkasten_root")
+local templates_path = table.concat({ base_path, "templates" }, path_sep)
 
 local opts = {
     home = base_path,
     dailies = base_path,
     weeklies = base_path,
     templates = base_path,
-    template_new_note = base_path .. path_sep .. "templates" .. path_sep .. "basenote.md",
-    template_new_daily = base_path .. path_sep .. "templates" .. path_sep .. "daily.md",
-    template_new_weekly = base_path .. path_sep .. "templates" .. path_sep .. "weekly.md",
+    template_new_note = table.concat({ templates_path, "basenote.md" }, path_sep),
+    template_new_daily = table.concat({ templates_path, "daily.md" }, path_sep),
+    template_new_weekly = table.concat({ templates_path, "weekly.md" }, path_sep),
     image_subdir = "img",
     extension = ".md",
     new_note_filename = "title-uuid",

@@ -1,21 +1,13 @@
----@type LazySpec[]
-local dependencies = {
-    "nvim-telescope/telescope.nvim",
-    "nvim-telekasten/calendar-vim",
-}
-
 ---@type LazySpec
 local spec = {
     "renerocksai/telekasten.nvim",
     --lazy = false,
     cmd = "Telekasten",
-    --keys = keys,
-    dependencies = dependencies,
-    config = function()
-        require("telekasten").setup(require("plugins.telekasten-nvim.opts"))
-    end,
-    cond = false,
-    enabled = false,
+    keys = require("plugins.telekasten-nvim.keys"),
+    dependencies = require("plugins.telekasten-nvim.dependencies"),
+    opts = require("plugins.telekasten-nvim.opts"),
+    --cond = false,
+    --enabled = false,
 }
 
 return spec
