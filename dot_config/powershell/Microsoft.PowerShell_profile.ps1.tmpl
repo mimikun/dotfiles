@@ -279,7 +279,11 @@ Set-Alias -Name touch -Value New-Item
 
 # alias chezmoi cd
 function ChezmoiCd {
-    chezmoi cd
+    if ($IsLinux) {
+        Set-Location $env:CHEZMOI_DIR
+    } else {
+        chezmoi cd
+    }
 }
 Set-Alias -Name chec -Value ChezmoiCd
 
@@ -477,14 +481,6 @@ function Invoke-GenerateEditorConfig() {
     }
 }
 Set-Alias -Name editorconfig Invoke-GenerateEditorConfig
-
-if ($IsLinux) {
-    # alias chezmoi_cd
-    function Set-ChezmoiDirLocation() {
-        Set-Location $env:CHEZMOI_DIR
-    }
-    Set-Alias -Name chezmoi_cd -Value Set-ChezmoiDirLocation
-}
 
 # inshellisense
 if ($IsLinux) {
