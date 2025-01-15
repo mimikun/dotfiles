@@ -3,7 +3,6 @@ local need_servers = {}
 
 ---@type table
 local base_servers = {
-    "bashls",
     "cssls",
     "denols",
     "docker_compose_language_service",
@@ -26,6 +25,7 @@ local base_servers = {
 
 ---@type table
 local not_windows = {
+    "bashls",
     "markdown_oxide",
     "svelte",
 }
