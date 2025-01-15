@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2025.01.15]
+
+### Added - 新機能について
+
+- feat(git): add git-amecomi(new)
+- feat(shells): add zettelkasten_root path
+- feat(nvim): add richclip.nvim
+- feat(nvim): add tiny-glimmer.nvim
+- feat(cargo): add drft
+- feat(pipx): add braindrop
+- feat(aqua): add dlvhdr/diffnav
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(telekasten.nvim): update config
+- chore(luminate.nvim): update config
+- chore(mason-nvim-lint): update config
+    - and, fix yamllint can't install with windows
+- chore(git): rename amecomi to namecomi
+- chore(pwsh): improve vim/nvim alias
+- chore(pwsh): improve chezmoi cd
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(mason-lspconfig): bashls can't install with windows
+
 ## [v2025.01.14]
 
 ### Added - 新機能について
