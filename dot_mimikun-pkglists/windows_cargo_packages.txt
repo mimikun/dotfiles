@@ -37,6 +37,7 @@ csvlens
 cyme
 desed
 diskonaut
+drft
 dua-cli
 ducker
 du-dust
