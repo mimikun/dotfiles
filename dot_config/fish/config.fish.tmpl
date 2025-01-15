@@ -350,6 +350,9 @@ set -x GOPATH $HOME/go
 set -x GOBIN $GOPATH/bin
 set -x PATH $GOBIN $PATH
 
+# zettelkasten
+set -x zettelkasten_root "$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
+
 # cache
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     mkdir -p $FISH_CACHE_DIR

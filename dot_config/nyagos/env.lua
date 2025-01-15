@@ -151,6 +151,10 @@ nyagos.envadd("obsidian_dailynote_path", obsidian_dailynote_path)
 nyagos.envadd("obsidian", obsidian_dailynote_path)
 nyagos.envadd("today_dailynote", today_dailynote)
 
+-- zettelkasten
+local zettelkasten_root = table.concat({ ghq_root, "codeberg.org", "mimikun", "zettelkasten" }, path_sep)
+nyagos.envadd("zettelkasten_root", zettelkasten_root)
+
 --- Neovide env-vars
 --[[
 --- Functionality
