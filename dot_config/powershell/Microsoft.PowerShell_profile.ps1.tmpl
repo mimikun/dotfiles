@@ -312,13 +312,16 @@ if ($res) {
     Set-Alias -Name la -Value Invoke-EzaLa
 }
 
-# alias vim
-Get-Command neovim -ErrorAction Ignore | Out-Null
-$res = $?
-if ($res) {
-    # alias vim neovim
-    Set-Alias -Name vim -Value neovim
+# alias vims
+if ($isMSWindows) {
+    $nvimBinPath = (Get-Command -Name nvim.exe).Path
+    $pvimBinPath = (Get-Command -Name vim.exe).Path
+} else {
+    $nvimBinPath = (Get-Command -Name nvim).Path
+    $pvimBinPath = (Get-Command -Name vim).Path
 }
+Set-Alias -Name pvim -Value $pvimBinPath
+Set-Alias -Name vim -Value $nvimBinPath
 
 # alias gcd
 $env:PSGhqPath = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com/mimikun/PSGhq/Set-GhqLocation.ps1"
