@@ -75,7 +75,7 @@ packages:
   - name: pvolok/mprocs@v0.7.1
   - name: sqshq/sampler@v1.1.0
   - name: tstack/lnav@v0.12.3
-  - name: go-task/task@v3.40.1
+  - name: go-task/task@v3.41.0
   - name: magefile/mage@v1.15.0
   - name: boyter/scc@v3.4.0
   - name: maaslalani/slides@v0.9.0
