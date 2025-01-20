@@ -19,7 +19,7 @@ local dependencies = {
     --"debugloop/telescope-undo.nvim",
     --"epwalsh/pomo.nvim",
     --"GianniBYoung/chezmoi-telescope.nvim",
-    --"roycrippen4/telescope-treesitter-info.nvim",
+    "roycrippen4/telescope-treesitter-info.nvim",
     --"illia-shkroba/telescope-completion.nvim",
     --"cljoly/telescope-repo.nvim",
     --"cbochs/grapple.nvim",

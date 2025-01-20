@@ -50,7 +50,7 @@ local spec = {
         --telescope.load_extension("undo")
         --telescope.load_extension("pomodori")
         --telescope.load_extension("chezmoi")
-        --telescope.load_extension("treesitter_info")
+        telescope.load_extension("treesitter_info")
         --telescope.load_extension("completion")
         --telescope.load_extension("repo")
         --telescope.load_extension("grapple")
