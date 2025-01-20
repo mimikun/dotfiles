@@ -22,6 +22,8 @@ tre = "tre"
 tere = "tere"
 # stylus lang ext: https://github.com/stylus/stylus
 styl = "styl"
+# dot_config/fish/completions/starship.fish
+mis = "mis"
 
 [files]
 extend-exclude = [
