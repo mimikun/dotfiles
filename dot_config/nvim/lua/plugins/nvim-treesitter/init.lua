@@ -1,11 +1,3 @@
----@type LazySpec[]
-local dependencies = {
-    "windwp/nvim-ts-autotag",
-    "RRethy/nvim-treesitter-textsubjects",
-    "nvim-treesitter/nvim-treesitter-context",
-    "JoosepAlviste/nvim-ts-context-commentstring",
-}
-
 ---@type LazySpec
 local spec = {
     "nvim-treesitter/nvim-treesitter",
@@ -13,7 +5,7 @@ local spec = {
     --lazy = false,
     cmd = require("plugins.nvim-treesitter.cmds"),
     event = "VeryLazy",
-    dependencies = dependencies,
+    dependencies = require("plugins.nvim-treesitter.dependencies"),
     config = function()
         require("nvim-ts-autotag").setup({})
         require("nvim-treesitter.configs").setup(require("plugins.nvim-treesitter.opts"))
