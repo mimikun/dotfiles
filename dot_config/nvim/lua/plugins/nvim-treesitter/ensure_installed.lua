@@ -58,6 +58,7 @@ local addisional_parsers = {
     linux_only = {
         "ocaml",
         "ocaml_interface",
+        "ghostty",
     },
     others = {
         "djot",
