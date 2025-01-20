@@ -195,4 +195,5 @@ yazi-fm
 zeitfetch
 zellij
 zenith
+zipsign
 zoxide

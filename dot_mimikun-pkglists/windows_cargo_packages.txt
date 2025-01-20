@@ -160,4 +160,5 @@ yazi-cli
 yazi-fm
 zeitfetch
 zenith
+zipsign
 zoxide
