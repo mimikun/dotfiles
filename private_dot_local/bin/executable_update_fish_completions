@@ -155,6 +155,10 @@ if command_exist hoard; then
   pueue add -- "curl -L https://raw.githubusercontent.com/Hyde46/hoard/refs/heads/main/src/shell/hoard.fish -o '${COMPLETIONS_DIR}'/hoard.fish"
 fi
 
+if command_exist qsv; then
+  pueue add -- "curl -L https://raw.githubusercontent.com/dathere/qsv/refs/heads/master/contrib/completions/examples/qsv.fish -o '${COMPLETIONS_DIR}'/qsv.fish"
+fi
+
 for cmd in "bat" "hyperfine" "pastel"; do
   if command_exist "${cmd}"; then
     update_sharkdp_tool_completions "${cmd}"
