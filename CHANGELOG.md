@@ -1,5 +1,45 @@
 # Changelog
 
+## [v2025.01.20]
+
+### Added - 新機能について
+
+- feat(nvim-treesitter): add ghostty parser
+- feat(nvim): add nvzone/showkeys
+- feat(nvim): add nvzone/minty
+- feat(nvim): add nvzone/menu
+- feat(nvim): add you-are-an-idiot.nvim
+- feat(mason): add ghostty-ls
+- feat(nvim): add nvzone/typr
+- feat(nvim): add nvzone/timerly
+- feat(nvim): add interference.nvim
+- feat(telescope.nvim): add telescope-treesitter-info.nvim
+- feat(cargo): add zipsign
+- feat(fish): add qsv completion
+- feat(hydra.nvim): add update-menu head
+- feat(hydra.nvim): add winbuf-manage head
+- feat(hydra.nvim): add telescope-menu head
+
+### Changed - 既存機能の変更について
+
+- chore(nvim-treesitter): split deps.lua
+- chore(typos): update config
+- chore(fish): update some completions
+- chore(snacks.nvim): update dashboard keys
+    - use update-menu hydra head
+- chore(fish): update some plugins config
+- chore(nvim): update lockfiles
+- chore(localbin): update update_fish_completions
+- chore(hydra.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): resolve some todo
+
 ## [v2025.01.15]
 
 ### Added - 新機能について
