@@ -20,6 +20,10 @@ local spec = {
         require("neoconf").setup({})
         require("mason").setup({
             max_concurrent_installers = global.is_human_rights and 4 or 1,
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:mkindberg/ghostty-ls",
+            },
             ui = {
                 check_outdated_packages_on_open = true,
                 border = "rounded",

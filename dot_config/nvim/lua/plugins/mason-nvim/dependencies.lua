@@ -15,6 +15,7 @@ local dependencies = {
     "zapling/mason-lock.nvim",
     "b0o/schemastore.nvim",
     { "Zeioth/mason-extra-cmds", opts = {} },
+    { "mkindberg/ghostty-ls", config = true },
     -- mason-null-ls.nvim
     --"nvimtools/none-ls.nvim",
     --"jay-babu/mason-null-ls.nvim",
