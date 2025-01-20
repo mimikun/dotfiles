@@ -51,7 +51,6 @@ complete -c starship -n "__fish_starship_using_subcommand explain" -s P -l logic
 complete -c starship -n "__fish_starship_using_subcommand explain" -s d -l cmd-duration -d 'The execution duration of the last command, in milliseconds' -r
 complete -c starship -n "__fish_starship_using_subcommand explain" -s k -l keymap -d 'The keymap of fish/zsh/cmd' -r
 complete -c starship -n "__fish_starship_using_subcommand explain" -s j -l jobs -d 'The number of currently running jobs' -r
-complete -c starship -n "__fish_starship_using_subcommand explain" -l shlvl -d 'The current value of SHLVL, for shells that mis-handle it in $()' -r
 complete -c starship -n "__fish_starship_using_subcommand explain" -s h -l help -d 'Print help'
 complete -c starship -n "__fish_starship_using_subcommand init" -l print-full-init
 complete -c starship -n "__fish_starship_using_subcommand init" -s h -l help -d 'Print help'
@@ -63,7 +62,6 @@ complete -c starship -n "__fish_starship_using_subcommand module" -s P -l logica
 complete -c starship -n "__fish_starship_using_subcommand module" -s d -l cmd-duration -d 'The execution duration of the last command, in milliseconds' -r
 complete -c starship -n "__fish_starship_using_subcommand module" -s k -l keymap -d 'The keymap of fish/zsh/cmd' -r
 complete -c starship -n "__fish_starship_using_subcommand module" -s j -l jobs -d 'The number of currently running jobs' -r
-complete -c starship -n "__fish_starship_using_subcommand module" -l shlvl -d 'The current value of SHLVL, for shells that mis-handle it in $()' -r
 complete -c starship -n "__fish_starship_using_subcommand module" -s l -l list -d 'List out all supported modules'
 complete -c starship -n "__fish_starship_using_subcommand module" -s h -l help -d 'Print help'
 complete -c starship -n "__fish_starship_using_subcommand preset" -s o -l output -d 'Output the preset to a file instead of stdout' -r -F
@@ -80,7 +78,6 @@ complete -c starship -n "__fish_starship_using_subcommand prompt" -s P -l logica
 complete -c starship -n "__fish_starship_using_subcommand prompt" -s d -l cmd-duration -d 'The execution duration of the last command, in milliseconds' -r
 complete -c starship -n "__fish_starship_using_subcommand prompt" -s k -l keymap -d 'The keymap of fish/zsh/cmd' -r
 complete -c starship -n "__fish_starship_using_subcommand prompt" -s j -l jobs -d 'The number of currently running jobs' -r
-complete -c starship -n "__fish_starship_using_subcommand prompt" -l shlvl -d 'The current value of SHLVL, for shells that mis-handle it in $()' -r
 complete -c starship -n "__fish_starship_using_subcommand prompt" -l right -d 'Print the right prompt (instead of the standard left prompt)'
 complete -c starship -n "__fish_starship_using_subcommand prompt" -l continuation -d 'Print the continuation prompt (instead of the standard left prompt)'
 complete -c starship -n "__fish_starship_using_subcommand prompt" -s h -l help -d 'Print help'
@@ -94,7 +91,6 @@ complete -c starship -n "__fish_starship_using_subcommand timings" -s P -l logic
 complete -c starship -n "__fish_starship_using_subcommand timings" -s d -l cmd-duration -d 'The execution duration of the last command, in milliseconds' -r
 complete -c starship -n "__fish_starship_using_subcommand timings" -s k -l keymap -d 'The keymap of fish/zsh/cmd' -r
 complete -c starship -n "__fish_starship_using_subcommand timings" -s j -l jobs -d 'The number of currently running jobs' -r
-complete -c starship -n "__fish_starship_using_subcommand timings" -l shlvl -d 'The current value of SHLVL, for shells that mis-handle it in $()' -r
 complete -c starship -n "__fish_starship_using_subcommand timings" -s h -l help -d 'Print help'
 complete -c starship -n "__fish_starship_using_subcommand toggle" -s h -l help -d 'Print help'
 complete -c starship -n "__fish_starship_using_subcommand help; and not __fish_seen_subcommand_from bug-report completions config explain init module preset print-config prompt session time timings toggle help" -f -a "bug-report" -d 'Create a pre-populated GitHub issue with information about your configuration'
