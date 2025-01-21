@@ -1,0 +1,65 @@
+---@type table
+local opts = {
+    -- Highlight the window being moved
+    highlight_moving_win = true,
+    -- The highlight group used for the moving window
+    focused_hl_group = "Visual",
+    moving_win_options = {
+        -- These are local options applied to the moving window while it's
+        -- being moved. They are unset when you leave Win-Move mode.
+        wrap = false,
+        cursorline = false,
+        cursorcolumn = false,
+        colorcolumn = "",
+    },
+    keymaps = {
+        -- Disable the default keymaps
+        disable_defaults = false,
+        win_move_mode = {
+            ["h"] = "left",
+            ["j"] = "down",
+            ["k"] = "up",
+            ["l"] = "right",
+            ["H"] = "far_left",
+            ["J"] = "far_down",
+            ["K"] = "far_up",
+            ["L"] = "far_right",
+            ["<left>"] = "left",
+            ["<down>"] = "down",
+            ["<up>"] = "up",
+            ["<right>"] = "right",
+            ["<S-left>"] = "far_left",
+            ["<S-down>"] = "far_down",
+            ["<S-up>"] = "far_up",
+            ["<S-right>"] = "far_right",
+        },
+    },
+    ---A function that should prompt the user to select a window.
+    ---
+    ---The window picker is used to select a window while swapping windows with
+    ---`:WinShift swap`.
+    ---@return integer? winid # Either the selected window ID, or `nil` to
+    ---   indicate that the user cancelled / gave an invalid selection.
+    window_picker = function()
+        return require("winshift.lib").pick_window({
+            -- A string of chars used as identifiers by the window picker.
+            picker_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+            filter_rules = {
+                -- This table allows you to indicate to the window picker that a window
+                -- should be ignored if its buffer matches any of the following criteria.
+                -- Filter out the current window
+                cur_win = true,
+                -- Filter out floating windows
+                floats = true,
+                -- List of ignored file types
+                filetype = {},
+                -- List of ignored buftypes
+                buftype = {},
+                -- List of vim regex patterns matching ignored buffer names
+                bufname = {},
+            },
+        })
+    end,
+}
+
+return opts
