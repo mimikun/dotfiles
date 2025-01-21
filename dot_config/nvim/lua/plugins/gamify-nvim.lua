@@ -11,7 +11,6 @@ local spec = {
     --lazy = false,
     cmd = cmds,
     opts = {},
-    -- TODO: try now
     --cond = false,
     --enabled = false,
 }

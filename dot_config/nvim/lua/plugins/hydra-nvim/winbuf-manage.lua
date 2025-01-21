@@ -1,3 +1,10 @@
+-- NOTE: need install and enable its
+-- https://github.com/romgrk/barbar.nvim
+-- https://github.com/jlanzarotta/bufexplorer
+-- https://github.com/sindrets/winshift.nvim
+-- https://github.com/mrjones2014/smart-splits.nvim
+-- https://github.com/anuvyklack/windows.nvim
+
 local Hydra = require("hydra")
 local splits = require("smart-splits")
 

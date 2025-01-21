@@ -163,7 +163,7 @@ complete -c rg  -l type-clear -d 'Clear globs for a file type.' -r -f
 complete -c rg  -l type-list -d 'Show all supported file types.'
 complete -c rg -s u -l unrestricted -d 'Reduce the level of "smart" filtering.'
 complete -c rg -s V -l version -d 'Print ripgrep\'s version.'
-complete -c rg  -l vimgrep -d 'Print results im a vim compatible format.'
+complete -c rg  -l vimgrep -d 'Print results in a vim compatible format.'
 complete -c rg -s H -l with-filename -d 'Print the file path with each matching line.'
 complete -c rg -s I -l no-filename -d 'Never print the path with each matching line.'
 complete -c rg -s w -l word-regexp -d 'Show matches surrounded by word boundaries.'

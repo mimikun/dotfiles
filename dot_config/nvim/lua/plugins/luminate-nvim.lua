@@ -2,8 +2,6 @@
 local opts = {
     yank = {
         enabled = false,
-        -- TODO: temp
-        --enabled = true,
     },
     paste = {
         enabled = true,
