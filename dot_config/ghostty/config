@@ -1,1 +1,5 @@
-theme = catppuccin-frappe
+config-file = ?work_wsl.conf
+#config-file = ?home_wsl.conf
+#config-file = ?home_azusa.conf
+
+# vim:ft=ghostty
