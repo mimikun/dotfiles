@@ -32,6 +32,7 @@ local spec = {
         vim.g.winresizer_keycode_finish = 13 --<Enter>
         vim.g.winresizer_keycode_cancel = 113 --q
     end,
+    -- TODO: parts of winbuf-manage head
     --cond = false,
     --enabled = false,
 }
