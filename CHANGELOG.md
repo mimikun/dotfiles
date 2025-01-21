@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2025.01.21]
+
+### Added - 新機能について
+
+- feat(nvim): add windows.nvim
+- feat(nvim): add winshift.nvim
+- docs(nvim): add parts of winbuf-manage head comment
+- feat(conform.nvim): add textlint
+- feat(nvim-lint): add textlint
+- WIP feat(nvim): add nvim-orgmode
+
+### Changed - 既存機能の変更について
+
+- chore(ghostty): rewrite config
+- chore(nvim-cursorline): update
+- chore(snacks.nvim): update config
+- chore(fish): update some completions
+- docs(nvim): update comments
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- WORKAROUND: nvim-lspconfig HEAD bug
+    - see: https://github.com/neovim/nvim-lspconfig/pull/3571
+- WORKAROUND: 💩 denops server stop bug 💩
+    - see: https://github.com/vim-denops/denops.vim/issues/433
+
 ## [v2025.01.20]
 
 ### Added - 新機能について
