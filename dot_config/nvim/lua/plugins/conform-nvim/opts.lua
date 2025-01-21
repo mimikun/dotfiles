@@ -20,18 +20,7 @@ local opts = {
         txt = { "textlint" },
     },
     formatters = {
-        textlint = {
-            command = function()
-                -- TODO: Configuring: use local-installed textlint
-                -- `node_modules/.bin/textlint`
-                -- table.concat({ "node_modules", ".bin", "textlint" }, global.path_sep)
-                -- node_modulesが入ったディレクトリ or nil が返る
-                -- ex. `/home/user/.local/share/chezmoi`
-                -- vim.fs.root(0, "node_modules")
-                return "textlint"
-            end,
-            args = { "--fix", "$FILENAME" },
-        },
+        textlint = require("plugins.conform-nvim.textlint"),
     },
     default_format_opts = {
         lsp_format = "fallback",

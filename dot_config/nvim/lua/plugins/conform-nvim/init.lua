@@ -8,7 +8,9 @@ local spec = {
     init = function()
         vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
-    opts = require("plugins.conform-nvim.opts"),
+    config = function()
+        require("conform").setup(require("plugins.conform-nvim.opts"))
+    end,
     --cond = false,
     --enabled = false,
 }
