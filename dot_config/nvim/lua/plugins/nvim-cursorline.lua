@@ -14,7 +14,7 @@ local opts = {
 
 ---@type LazySpec
 local spec = {
-    "yamatsum/nvim-cursorline",
+    "ya2s/nvim-cursorline",
     --lazy = false,
     opts = opts,
     --cond = false,
