@@ -8,6 +8,9 @@ local dependencies = {
 ---@type LazySpec
 local spec = {
     "neovim/nvim-lspconfig",
+    -- HACK: e118ce58dab72c17216292eef7df4cee3cf60885 has bug
+    -- https://github.com/neovim/nvim-lspconfig/commit/e118ce58dab72c17216292eef7df4cee3cf60885
+    commit = "46de45200afab642a134cf4e26f8f495ab7a49dd",
     --lazy = false,
     keys = require("plugins.nvim-lspconfig.keys"),
     dependencies = dependencies,
