@@ -17,6 +17,7 @@ local cmp_config_sources = {
     { name = "crates" },
     { name = "cmp_yanky" },
     { name = "ecolog" },
+    { name = "orgmode" },
 }
 
 if require("config.settings").use_github_copilot then
