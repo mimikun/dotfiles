@@ -47,4 +47,5 @@ extend-exclude = [
   # NOTE: has many typos
   "dot_config/nvim/dotfyle.json",
   "CHANGELOG.md",
+  "dot_config/nvim/lua/plugins/nvim-orgmode/org-list-opts.lua",
 ]
