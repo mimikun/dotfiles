@@ -1,7 +1,5 @@
-local global = require("config.global")
-
 ---@type boolean
-local cond = global.is_home
+local cond = require("config.settings").use_denops
 
 ---@type table
 local cmds = {
@@ -17,7 +15,7 @@ local spec = {
     cmd = cmds,
     dependencies = { "vim-denops/denops.vim" },
     init = function()
-        if not global.is_human_rights then
+        if not require("config.global").is_human_rights then
             vim.g.denops_server_addr = "127.0.0.1:32123"
         end
     end,

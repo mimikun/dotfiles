@@ -1,36 +1,18 @@
 ---@type boolean
-local cond = require("config.global").is_home
-
----@type LazyKeysSpec[]
-local keys = {
-    {
-        "<C-j>",
-        mode = { "n", "i", "c" },
-        desc = "Toggle Kana-mode skkeleton",
-    },
-}
-
----@type LazySpec[]
-local dependencies = {
-    "vim-denops/denops.vim",
-    "delphinus/skkeleton_indicator.nvim",
-}
+local cond = require("config.settings").use_denops
 
 ---@type LazySpec
 local spec = {
     "vim-skk/skkeleton",
     lazy = false,
-    keys = keys,
-    --event = "User DenopsReady",
-    dependencies = dependencies,
+    keys = require("plugins.skkeleton.keys"),
+    dependencies = require("plugins.skkeleton.dependencies"),
     config = function()
         vim.fn["skkeleton#config"] = require("plugins.skkeleton.opts")
         vim.fn["skkeleton#initialize"]()
         vim.notify("skkeleton initialized!", vim.log.levels.DEBUG)
 
-        vim.keymap.set("n", "<C-j>", "<Plug>(skkeleton-toggle)")
-        vim.keymap.set("i", "<C-j>", "<Plug>(skkeleton-toggle)")
-        vim.keymap.set("c", "<C-j>", "<Plug>(skkeleton-toggle)")
+        vim.keymap.set({ "n", "i", "c" }, "<C-j>", "<Plug>(skkeleton-toggle)")
 
         require("skkeleton_indicator").setup(require("plugins.skkeleton.indicator-opts"))
     end,

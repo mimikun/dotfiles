@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.global").is_home
+local cond = require("config.settings").use_denops
 
 ---@type LazySpec
 local spec = {

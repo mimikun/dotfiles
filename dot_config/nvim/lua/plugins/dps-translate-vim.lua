@@ -1,12 +1,11 @@
 ---@type boolean
-local cond = require("config.global").is_home
+local cond = require("config.settings").use_denops
 
 ---@type LazySpec
 local spec = {
     "Omochice/dps-translate-vim",
     lazy = false,
     cmd = "Translate",
-    --event = "User DenopsReady",
     dependencies = { "vim-denops/denops.vim" },
     init = function()
         vim.g.dps_translate_source = "en"
