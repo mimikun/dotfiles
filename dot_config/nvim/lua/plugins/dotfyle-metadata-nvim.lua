@@ -6,7 +6,10 @@ local cmds = {
 
 ---@type LazySpec
 local spec = {
-    "creativenull/dotfyle-metadata.nvim",
+    -- HACK: workaround for lspconfig breaking change
+    "mimikun/dotfyle-metadata.nvim",
+    branch = "fix/lspconfig",
+    --"creativenull/dotfyle-metadata.nvim",
     --lazy = false,
     cmd = cmds,
     --cond = false,
