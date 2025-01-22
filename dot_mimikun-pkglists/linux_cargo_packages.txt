@@ -72,6 +72,7 @@ gitui
 glitchcat
 gping
 grex
+heh
 hex-patch
 hexyl
 hf
