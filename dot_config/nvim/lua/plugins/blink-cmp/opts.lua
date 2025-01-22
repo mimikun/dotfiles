@@ -8,6 +8,9 @@ local opts = {
     snippets = { preset = "luasnip" },
     sources = {
         default = require("plugins.blink-cmp.sources.default"),
+        per_filetype = {
+            org = { "orgmode" },
+        },
         providers = require("plugins.blink-cmp.sources.providers"),
     },
 }

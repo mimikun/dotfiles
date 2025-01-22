@@ -85,6 +85,11 @@ local providers = {
             return items
         end,
     },
+    orgmode = {
+        name = "Orgmode",
+        module = "orgmode.org.autocompletion.blink",
+        fallbacks = { "buffer" },
+    },
 }
 
 return providers
