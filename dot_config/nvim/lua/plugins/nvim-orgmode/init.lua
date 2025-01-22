@@ -1,38 +1,19 @@
 ---@type LazySpec
 local spec = {
-    "mimikun/spec-template",
-    --dir = ""
-    --url = ""
-    --name = ""
-    --dev = false
-    --build = "",
-    --branch = "",
-    --tag = "",
-    --commit = "",
-    --version = "",
+    "nvim-orgmode/orgmode",
     --lazy = false,
-    enabled = false,
-    --ft = "",
-    --cmd = "CMDNAME",
-    --keys = "",
-    --event = "VeryLazy",
-    --dependencies = { "nvim-tree/nvim-web-devicons" },
-    --init = function()
-    --    INIT
-    --end,
-    --opts = {
-    --    OPTS
-    --},
-    --config = function()
-    --    INIT
-    --end,
+    ft = "org",
+    cmd = "Org",
+    event = "VeryLazy",
+    dependencies = require("plugins.nvim-orgmode.dependencies"),
+    config = function()
+        require("orgmode").setup(require("plugins.nvim-orgmode.opts"))
+        require("org-bullets").setup()
+        require("org-mouse").setup()
+        require("org-list").setup(require("plugins.nvim-orgmode.org-list-opts"))
+    end,
     cond = false,
-    --main = ""
-    --pin = false,
-    --submodules = false,
-    --module = false,
-    --priority = 1000,
-    --optional = false,
+    enabled = false,
 }
 
 return spec
