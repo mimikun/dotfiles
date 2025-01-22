@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2025.01.22]
+
+### Added - 新機能について
+
+- feat(aqua): add wtetsu/gaze
+- feat(gaze): add config
+- feat(gup): add ghfetch
+- feat: use lit.nvim config
+- feat(cargo): add heh
+- feat(telescope.nvim): add telescope-orgmode.nvim
+- feat(nvim): add feed.nvim
+- feat(nvim): add org-roam.nvim
+- feat(nvim-cmp): add nvim-orgmode cmp source
+- feat(blink.cmp): add nvim-orgmode cmp source
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(typos): update config
+- chore(nvim-orgmode): update config
+- chore(ghostty): update work_wsl.conf
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim-lspconfig): bug fixed now
+- fix(denops): more fix
+- WORKAROUND: lspconfig breaking change
+
 ## [v2025.01.21]
 
 ### Added - 新機能について
