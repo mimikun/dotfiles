@@ -10,6 +10,7 @@ local opts = {
     input = { enabled = false },
     notifier = { enabled = true },
     quickfile = { enabled = true },
+    picker = { enabled = true },
     scope = { enabled = false },
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
