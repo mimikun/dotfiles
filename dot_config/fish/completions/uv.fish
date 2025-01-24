@@ -114,6 +114,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l all-extras -d 'Include all
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand run" -l dev -d 'Include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-dev -d 'Omit the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-default-groups -d 'Exclude dependencies from default groups'
 complete -c uv -n "__fish_uv_using_subcommand run" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand run" -s m -l module -d 'Run a Python module'
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-dev -d 'Only include the development dependency group'
@@ -399,6 +400,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand sync" -l dev -d 'Include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-dev -d 'Omit the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-dev -d 'Only include the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-default-groups -d 'Exclude dependencies from default groups'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l inexact -d 'Do not remove extraneous packages present in the environment'
@@ -551,6 +553,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand export" -l dev -d 'Include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-dev -d 'Omit the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-dev -d 'Only include the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-default-groups -d 'Exclude dependencies from default groups'
 complete -c uv -n "__fish_uv_using_subcommand export" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-header -d 'Exclude the comment header at the top of the generated output file'
 complete -c uv -n "__fish_uv_using_subcommand export" -l header
@@ -635,6 +638,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l outdated -d 'Show the lat
 complete -c uv -n "__fish_uv_using_subcommand tree" -l dev -d 'Include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l only-dev -d 'Only include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-dev -d 'Omit the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-default-groups -d 'Exclude dependencies from default groups'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l frozen -d 'Display the requirements without locking the project'
@@ -1866,6 +1870,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l index-strategy -d 'The st
 complete -c uv -n "__fish_uv_using_subcommand venv" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand venv" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand venv" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
@@ -1882,6 +1887,8 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-existing -d 'Preser
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l relocatable -d 'Make the virtual environment relocatable'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l refresh -d 'Refresh all cached data'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand venv" -l clear
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-seed
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-pip
