@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2025.01.24]
+
+### Added - 新機能について
+
+- feat(aqua): add PowerShell v7.6.0-preview.2
+    - and remove PowerShell v7.5.0-rc.1
+    - and change alias name pwsh-75rc1 to pwsh-unstable
+- feat(nvim): add neovimcraft.nvim
+    - and add telescope extension
+- feat(snacks.nvim): add snacks.picker
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completions
+- chore(nvim): update lockfiles
+- chore(ghostty): update config
+- refactor(telescope.nvim): re-structured
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.01.22]
 
 ### Added - 新機能について
