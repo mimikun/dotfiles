@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local media_config = {
     backend = "file",
     flags = {
         catimg = { move = false },
@@ -43,4 +44,4 @@ local ext = {
     },
 }
 
-return ext
+return media_config

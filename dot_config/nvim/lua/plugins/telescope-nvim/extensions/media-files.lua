@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local media_files_config = {
     -- filetypes whitelist
     filetypes = {
         "png",
@@ -12,4 +13,4 @@ local ext = {
     find_cmd = "rg",
 }
 
-return ext
+return media_files_config

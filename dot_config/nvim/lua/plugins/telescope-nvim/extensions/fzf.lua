@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local fzf_config = {
     -- false will only do exact matching
     fuzzy = true,
     -- override the generic sorter
@@ -11,4 +12,4 @@ local ext = {
     --case_mode = "respect_case",
 }
 
-return ext
+return fzf_config

@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local frecency_config = {
     auto_validate = true,
     db_root = vim.fn.stdpath("state"),
     db_safe_mode = true,
@@ -42,4 +43,4 @@ local ext = {
     workspaces = {},
 }
 
-return ext
+return frecency_config

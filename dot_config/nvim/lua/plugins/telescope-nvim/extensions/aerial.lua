@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local aerial_config = {
     -- How to format the symbols
     format_symbol = function(symbol_path, filetype)
         if filetype == "json" or filetype == "yaml" then
@@ -11,4 +12,4 @@ local ext = {
     show_columns = "both",
 }
 
-return ext
+return aerial_config

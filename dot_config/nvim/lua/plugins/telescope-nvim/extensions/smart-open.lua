@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local smart_open_config = {
     show_scores = true,
     ignore_patterns = { "*.git/*", "*/tmp/*" },
     match_algorithm = require("config.global").is_windows and "fzy" or "fzf",
@@ -6,4 +7,4 @@ local ext = {
     open_buffer_indicators = { previous = "•", others = "∘" },
 }
 
-return ext
+return smart_open_config

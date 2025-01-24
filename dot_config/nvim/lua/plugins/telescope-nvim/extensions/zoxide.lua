@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local zoxide_config = {
     prompt_title = "[ Walking on the shoulders of TJ ]",
     mappings = {
         default = {
@@ -20,4 +21,4 @@ local ext = {
     },
 }
 
-return ext
+return zoxide_config

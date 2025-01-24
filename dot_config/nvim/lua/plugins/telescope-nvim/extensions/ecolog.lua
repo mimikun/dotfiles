@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local ecolog_config = {
     shelter = {
         -- Whether to show masked values when copying to clipboard
         mask_on_copy = false,
@@ -16,4 +17,4 @@ local ext = {
     },
 }
 
-return ext
+return ecolog_config

@@ -8,24 +8,9 @@ local spec = {
     config = function()
         local telescope = require("telescope")
 
-        telescope.setup({
-            defaults = {
-                mappings = {
-                    i = {
-                        ["<C-h>"] = "which_key",
-                        ["<esc>"] = require("telescope.actions").close,
-                    },
-                    n = {
-                        ["<C-h>"] = "which_key",
-                    },
-                },
-                winblend = 20,
-            },
-            extensions = require("plugins.telescope-nvim.extensions"),
-        })
+        telescope.setup(require("plugins.telescope-nvim.opts"))
 
         -- Load some extensions
-
         -- NOTE: Add fzf_sorter if not a Windows
         -- Very difficult to build fzf on Windows
         if not require("config.global").is_windows then

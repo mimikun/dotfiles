@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local undo_config = {
     use_delta = true,
     -- should be in this format: { "bash", "-c", "echo '$DIFF' | delta" }
     use_custom_command = nil,
@@ -26,4 +27,4 @@ local ext = {
     },
 }
 
-return ext
+return undo_config

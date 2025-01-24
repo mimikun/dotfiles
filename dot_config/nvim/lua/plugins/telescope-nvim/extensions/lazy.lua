@@ -1,4 +1,5 @@
-local ext = {
+---@type table
+local lazy_config = {
     -- Optional theme (the extension doesn't set a default theme)
     theme = "ivy",
     -- Whether or not to show the icon in the first column
@@ -40,4 +41,4 @@ local ext = {
     },
 }
 
-return ext
+return lazy_config
