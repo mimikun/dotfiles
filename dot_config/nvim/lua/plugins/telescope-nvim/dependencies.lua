@@ -31,6 +31,7 @@ local dependencies = {
     --"nvim-telescope/telescope-live-grep-args.nvim",
     --"nvim-orgmode/orgmode",
     --"nvim-orgmode/telescope-orgmode.nvim",
+    --"janwvjaarsveld/neovimcraft.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

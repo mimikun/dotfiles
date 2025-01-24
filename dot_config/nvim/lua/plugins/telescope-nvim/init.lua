@@ -60,6 +60,7 @@ local spec = {
         --telescope.load_extension("aerial")
         --telescope.load_extension("repos")
         --telescope.load_extension("orgmode")
+        --telescope.load_extension("neovimcraft")
     end,
     --cond = false,
     --enabled = false,
