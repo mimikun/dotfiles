@@ -95,7 +95,7 @@ packages:
   - name: ycd/dstp@v0.4.23
   - name: dlvhdr/diffnav@v0.3.0
   - name: wtetsu/gaze@v1.1.6
-  - name: PowerShell/PowerShell@v7.4.6
+  - name: PowerShell/PowerShell@v7.5.0
   - name: PowerShell/PowerShell
     version: v7.5.0-rc.1
     command_aliases:
