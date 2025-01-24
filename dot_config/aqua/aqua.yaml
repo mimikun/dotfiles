@@ -97,10 +97,10 @@ packages:
   - name: wtetsu/gaze@v1.1.6
   - name: PowerShell/PowerShell@v7.5.0
   - name: PowerShell/PowerShell
-    version: v7.5.0-rc.1
+    version: v7.6.0-preview.2
     command_aliases:
       - command: pwsh
-        alias: pwsh-75rc1
+        alias: pwsh-unstable
   # Not GitHub hosted
   - name: dev.yorhel.nl/ncdu
     version: '2.4'
