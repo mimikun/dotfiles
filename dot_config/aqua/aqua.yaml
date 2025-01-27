@@ -63,7 +63,7 @@ packages:
   - name: aristocratos/btop@v1.4.0
   - name: antonmedv/fx@35.0.0
   - name: joerdav/xc@v0.8.5
-  - name: pkgxdev/pkgx@v2.1.3
+  - name: pkgxdev/pkgx@v2.1.4
   - name: natecraddock/zf@0.10.2
   - name: bloznelis/typioca@3.1.0
   - name: gopasspw/gopass@v1.15.15
