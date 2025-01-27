@@ -38,6 +38,7 @@ local addisional_servers = {
         "graphql",
         "neocmake",
         "zls",
+        "sqls",
     },
     not_windows = {
         "csharp_ls",

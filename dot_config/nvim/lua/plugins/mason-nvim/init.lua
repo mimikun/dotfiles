@@ -101,6 +101,7 @@ local spec = {
             lspconfig.graphql.setup({})
             lspconfig.neocmake.setup({})
             lspconfig.zls.setup({})
+            lspconfig.sqls.setup({})
         end
 
         mason_conform.setup({
