@@ -79,6 +79,9 @@ if is_wsl then
     }
 end
 
+---@type string
+local lit_path = table.concat({ vim.fn.stdpath("data"), "lit", "lit.nvim" }, path_sep)
+
 ---@type table
 local litnvim_clone_cmd = {
     "git",
@@ -88,8 +91,6 @@ local litnvim_clone_cmd = {
     lit_path,
 }
 
----@type string
-local lit_path = table.concat({ vim.fn.stdpath("data"), "site", "pack", "lit", "lit.nvim" }, path_sep)
 if not vim.uv.fs_stat(lit_path) then
     vim.system(litnvim_clone_cmd, { text = true }, function(job)
         if job.code == 0 then
