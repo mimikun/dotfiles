@@ -2,7 +2,7 @@
 
 function __fish_aqua_no_subcommand --description 'Test if there has been any subcommand yet'
     for i in (commandline -opc)
-        if contains -- $i info init policy allow deny init init-policy install i update-aqua upa generate g which exec list generate-registry gr completion bash zsh fish help h help h version cp root-dir update-checksum upc remove rm update up help h
+        if contains -- $i info init policy allow deny init init-policy install i update-aqua upa generate g which exec list generate-registry gr completion bash zsh fish help h help h version cp root-dir update-checksum upc remove rm update up vacuum help h
             return 1
         end
     end
@@ -111,6 +111,10 @@ complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l only-package -
 complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l limit -s l -r -d 'The maximum number of versions. Non-positive number refers to no limit.'
 complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l tags -s t -r -d 'filter installed packages with tags'
 complete -c aqua -n '__fish_seen_subcommand_from update up' -f -l exclude-tags -r -d 'exclude installed packages with tags'
+complete -c aqua -n '__fish_seen_subcommand_from vacuum' -f -l help -s h -d 'show help'
+complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'vacuum' -d 'Remove unused installed packages'
+complete -c aqua -n '__fish_seen_subcommand_from vacuum' -f -l init -d 'Create timestamp files.'
+complete -c aqua -n '__fish_seen_subcommand_from vacuum' -f -l days -s d -r -d 'Expiration days'
 complete -c aqua -n '__fish_seen_subcommand_from help h' -f -l help -s h -d 'show help'
 complete -r -c aqua -n '__fish_aqua_no_subcommand' -a 'help h' -d 'Shows a list of commands or help for one command'
 
