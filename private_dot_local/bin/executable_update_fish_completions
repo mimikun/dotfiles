@@ -135,6 +135,10 @@ if command_exist atuin; then
   pueue add -- "atuin gen-completions --shell fish> '${COMPLETIONS_DIR}'/atuin.fish"
 fi
 
+if command_exist ccsum; then
+  pueue add -- "ccsum --completion fish> '${COMPLETIONS_DIR}'/ccsum.fish"
+fi
+
 if command_exist foot; then
   pueue add -- "curl -L https://codeberg.org/dnkl/foot/raw/branch/master/completions/fish/foot.fish -o '${COMPLETIONS_DIR}'/foot.fish"
 fi
