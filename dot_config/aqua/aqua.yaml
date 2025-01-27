@@ -20,7 +20,7 @@ packages:
   - name: mvdan/sh@v3.10.0
   - name: mikefarah/yq@v4.45.1
   - name: mrtazz/checkmake@0.2.2
-  - name: editorconfig-checker/editorconfig-checker@v3.1.2
+  - name: editorconfig-checker/editorconfig-checker@v3.2.0
   - name: osteele/gojekyll@v0.2.14
   - name: golangci/golangci-lint@v1.63.4
   - name: tdewolff/minify@v2.21.3
