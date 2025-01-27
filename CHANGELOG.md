@@ -1,5 +1,37 @@
 # Changelog
 
+## [v2025.01.27]
+
+### Added - 新機能について
+
+- feat(nvim): add colorful-menu.nvim
+    - and add blink.cmp, nvim-cmp
+- feat(cargo): add ccsum
+- feat(cargo): add mamediff
+- feat(nvim): add toc.nvim
+- feat(gup): add easycron
+- feat(nvim): add sqls.nvim
+- feat(nvim): add nvim-dap config
+- feat(nvim): add nvim-dap-view
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(dotfyle-metadata.nvim): update config
+- chore(fish): update some completions
+- chore(nvim-lit): update
+- chore(nvim-dap-ui): update config
+    - and disabled
+- chore(nvim-dap-commands): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.01.24]
 
 ### Added - 新機能について
