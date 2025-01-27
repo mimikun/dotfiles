@@ -10,6 +10,7 @@ local spec = {
     "mimikun/dotfyle-metadata.nvim",
     branch = "fix/lspconfig",
     --"creativenull/dotfyle-metadata.nvim",
+    dev = true,
     --lazy = false,
     cmd = cmds,
     --cond = false,
