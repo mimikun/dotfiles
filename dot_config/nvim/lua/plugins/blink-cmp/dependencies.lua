@@ -12,6 +12,7 @@ local blink_compat = {
 
 ---@type LazySpec[]
 local dependencies = {
+    { "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
     { "L3MON4D3/LuaSnip", version = "v2.*" },
     "folke/lazydev.nvim",
     "moyiz/blink-emoji.nvim",

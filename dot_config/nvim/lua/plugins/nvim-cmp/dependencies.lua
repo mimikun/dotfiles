@@ -11,6 +11,7 @@ local dependencies = {
     "hrsh7th/cmp-emoji",
     "rcarriga/cmp-dap",
     "chrisgrieser/cmp_yanky",
+    { "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
 }
 
 if require("config.settings").use_github_copilot then

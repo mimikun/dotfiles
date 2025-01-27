@@ -34,25 +34,7 @@ local completion = {
         winblend = 0,
         scrollbar = true,
         auto_show = true,
-        draw = {
-            treesitter = { "lsp" },
-
-            -- Components to render, grouped by column
-            columns = {
-                { "item_idx" },
-                { "kind_icon" },
-                { "label", "label_description", gap = 1 },
-            },
-
-            components = {
-                item_idx = {
-                    text = function(ctx)
-                        return ctx.idx == 10 and "0" or ctx.idx >= 10 and " " or tostring(ctx.idx)
-                    end,
-                    highlight = "BlinkCmpItemIdx",
-                },
-            },
-        },
+        draw = require("plugins.blink-cmp.completion.draw"),
     },
     ghost_text = { enabled = true },
 }
