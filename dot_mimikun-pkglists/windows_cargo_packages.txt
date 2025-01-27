@@ -28,6 +28,7 @@ cargo-tarpaulin
 cargo-udeps
 cargo-update
 cargo-wipe
+ccsum
 choose
 codeberg-cli
 colorgen-nvim

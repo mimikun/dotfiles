@@ -34,6 +34,7 @@ cargo-udeps
 cargo-update
 cargo-wipe
 carl
+ccsum
 choose
 codeberg-cli
 colorgen-nvim
