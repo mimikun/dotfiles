@@ -16,7 +16,7 @@
   "powershell-editor-services": "v4.2.0",
   "prettier": "3.4.2",
   "pyright": "1.1.392",
-  "rust-analyzer": "2025-01-20",
+  "rust-analyzer": "2025-01-27",
   "selene": "0.28.0",
   "stylua": "v2.0.2",
   "svelte-language-server": "0.17.10",
