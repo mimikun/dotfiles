@@ -70,53 +70,6 @@ set -x today_dailynote "$obsidian_dailynote_path/$dailynote_slug.md"
 
 set -x CHEZMOI_DIR "$XDG_DATA_HOME/chezmoi"
 
-# aliases
-alias rm "rm -i"
-alias mkdir "mkdir -p"
-alias untar "tar xvf"
-alias patch "patch -p1 <"
-alias imgcat "wezterm imgcat"
-
-# abbrs
-abbr --add --command sudo rm 'echo "sudo rm は使用禁止"'
-abbr --add pueued_enable "systemctl --user enable pueue"
-abbr --add pueued_start "systemctl --user start pueue"
-abbr --add pueued_restart "systemctl --user restart pueue"
-abbr --add ccd "chezmoi cd"
-abbr --add chd "chezmoi cd"
-abbr --add chec "chezmoi cd"
-abbr --add cap "chezmoi apply"
-abbr --add chp "chezmoi apply"
-abbr --add chep "chezmoi apply"
-abbr --add pu pueue
-abbr --add puc "pueue clean -s"
-abbr --add pucf "pueue clean"
-abbr --add puf "pueue follow"
-abbr --add pul "pueue log"
-if command -v trashy >/dev/null 2>&1
-    abbr --add trash "trashy"
-end
-abbr --add ghview "gh repo view -w"
-abbr --add ghissue "gh issue ls"
-abbr --add emacs "emacs --no-window-system"
-abbr --add mmo "make morning-routine"
-# https://github.com/ryoppippi/na.fish
-abbr --add n -f _na
-# rage
-abbr --add ragee "rage -e -r $AGE_PUBKEY"
-abbr --add raged "rage -d -i ~/.age/key.txt"
-# forgejo-cli
-abbr --add cb "fj --host codeberg.org"
-# git subcommands(abbr)
-abbr --add --command git ls 'ls-files'
-abbr --add --command git graph 'log-graph'
-abbr --add --command git file-diff 'diff --name-only'
-abbr --add --command git amecomi 'commit --amend'
-abbr --add --command git namecomi 'commit --amend --no-edit'
-abbr --add --command git cleanfetch 'fetch --all --prune --tags --prune-tags'
-abbr --add --command git hash 'log --format=%H | sed -n 1p'
-abbr --add --command git shallow-clone 'clone --depth 1'
-
 set -x LOCALBIN $HOME/.local/bin
 
 set -x PATH /usr/bin $PATH
@@ -152,15 +105,6 @@ set -x LESS "-R"
 set -x LESSCHARSET "utf-8"
 set -x PAGER less
 set -x GIT_PAGER less
-
-alias pip "python3 -m pip"
-alias pipx "python3 -m pipx"
-
-{{ if (ne .chezmoi.hostname "azusa") -}}
-abbr --add open wsl-open
-{{ end -}}
-abbr --add zel zellij
-alias pueuexec "pueue add --"
 
 # Bun
 set -x BUN_INSTALL $HOME/.bun
@@ -198,23 +142,6 @@ end
 # codon config
 if command -v codon >/dev/null 2>&1
     set -x PATH $HOME/.codon/bin $PATH
-end
-
-# ls abbrs
-# TODO: improve
-if command -v eza >/dev/null 2>&1
-    abbr --add ls "eza"
-    abbr --add ll "eza -l --git-ignore"
-    abbr --add la "eza -a --git-ignore"
-    abbr --add lla "eza -l -a --git-ignore"
-    abbr --add l1 "eza -1 --git-ignore"
-    abbr --add ll1 "eza -l -1 --git-ignore"
-    abbr --add lt "eza --tree --git-ignore"
-    abbr --add lta "eza --tree -a --git-ignore"
-    abbr --add llt "eza -l --tree --git-ignore"
-    abbr --add ll1 "eza -l -1 --git-ignore"
-    abbr --add lt1 "eza --tree -1 --git-ignore"
-    abbr --add lat "eza -a --tree --git-ignore"
 end
 
 # Rye
@@ -352,6 +279,129 @@ set -x PATH $GOBIN $PATH
 
 # zettelkasten
 set -x zettelkasten_root "$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
+
+## aliases
+alias rm "rm -i"
+alias mkdir "mkdir -p"
+alias untar "tar xvf"
+alias patch "patch -p1 <"
+alias imgcat "wezterm imgcat"
+alias pip "python3 -m pip"
+alias pipx "python3 -m pipx"
+
+## abbrs
+# disable sudo rm
+abbr --add --command sudo rm 'echo "sudo rm は使用禁止"'
+
+# pueued.service manage shortcuts
+abbr --add pueued_enable "systemctl --user enable pueue"
+abbr --add pueued_start "systemctl --user start pueue"
+abbr --add pueued_restart "systemctl --user restart pueue"
+
+# chezmoi abbrs
+if command -v chezmoi >/dev/null 2>&1
+    abbr --add ccd "chezmoi cd"
+    abbr --add chd "chezmoi cd"
+    abbr --add chec "chezmoi cd"
+    abbr --add cap "chezmoi apply"
+    abbr --add chp "chezmoi apply"
+    abbr --add chep "chezmoi apply"
+end
+
+# pueue abbrs
+if command -v pueue >/dev/null 2>&1
+    abbr --add pu pueue
+    abbr --add puc "pueue clean -s"
+    abbr --add pucf "pueue clean"
+    abbr --add puf "pueue follow"
+    abbr --add pul "pueue log"
+end
+
+# trashy abbrs
+if command -v trashy >/dev/null 2>&1
+    abbr --add trash "trashy"
+end
+
+# gh cli abbrs
+if command -v gh >/dev/null 2>&1
+    abbr --add ghview "gh repo view -w"
+    abbr --add ghissue "gh issue ls"
+end
+
+# rage abbrs
+if command -v rage >/dev/null 2>&1
+    abbr --add ragee "rage -e -r $AGE_PUBKEY"
+    abbr --add raged "rage -d -i ~/.age/key.txt"
+end
+
+# ls abbrs
+### eza
+#if command -v eza >/dev/null 2>&1
+#    abbr --add ls "eza"
+#    abbr --add ll "eza -l"
+#    abbr --add la "eza -a"
+#    abbr --add lla "eza -l -a"
+#    abbr --add l1 "eza -1"
+#    abbr --add ll1 "eza -l -1"
+#    abbr --add lt "eza --tree"
+#    abbr --add lta "eza --tree -a"
+#    abbr --add llt "eza -l --tree"
+#    abbr --add ll1 "eza -l -1"
+#    abbr --add lt1 "eza --tree -1"
+#    abbr --add lat "eza -a --tree"
+#end
+
+### lla
+# TODO: config now
+if command -v lla >/dev/null 2>&1
+    abbr --add ls "lla"
+    #abbr --add ll "eza -l"
+    #abbr --add la "eza -a"
+    #abbr --add lla "eza -l -a"
+    #abbr --add l1 "eza -1"
+    #abbr --add ll1 "eza -l -1"
+    #abbr --add lt "eza --tree"
+    #abbr --add lta "eza --tree -a"
+    #abbr --add llt "eza -l --tree"
+    #abbr --add ll1 "eza -l -1"
+    #abbr --add lt1 "eza --tree -1"
+    #abbr --add lat "eza -a --tree"
+end
+
+# git subcommands(abbr)
+abbr --add --command git ls 'ls-files'
+abbr --add --command git graph 'log-graph'
+abbr --add --command git file-diff 'diff --name-only'
+abbr --add --command git empty 'commit --allow-empty -nm'
+abbr --add --command git commitn 'commit -nm'
+abbr --add --command git commitan 'commit -anm'
+abbr --add --command git amecomi 'commit --amend'
+abbr --add --command git amecomin 'commit --amend --no-verify'
+abbr --add --command git namecomi 'commit --amend --no-edit'
+abbr --add --command git namecomin 'commit --amend --no-edit --no-verify'
+abbr --add --command git cleanfetch 'fetch --all --prune --tags --prune-tags'
+abbr --add --command git hash 'log --format=%H | sed -n 1p'
+abbr --add --command git shallow-clone 'clone --depth 1'
+
+# emacs from CLI abbrs
+abbr --add emacs "emacs --no-window-system"
+
+# util abbrs
+abbr --add mmo "make morning-routine"
+
+# https://github.com/ryoppippi/na.fish
+abbr --add n -f _na
+
+# forgejo-cli
+abbr --add cb "fj --host codeberg.org"
+
+# zellij abbrs
+abbr --add zel zellij
+
+# WSL only abbrs
+{{ if (ne .chezmoi.hostname "azusa") -}}
+abbr --add open wsl-open
+{{ end -}}
 
 # cache
 if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
