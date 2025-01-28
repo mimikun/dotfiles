@@ -1,8 +1,10 @@
+-- HACK: disable temporary
 ---@type string
-local cmigemo_bin = require("config.global").is_windows and "cmigemo.exe" or "cmigemo"
+--local cmigemo_bin = require("config.global").is_windows and "cmigemo.exe" or "cmigemo"
 
 --- If executable cmigemo command
-local enabled = require("utils").is_executable({ cmigemo_bin })
+--local enabled = require("utils").is_executable({ cmigemo_bin })
+local enabled = false
 
 ---@type table
 local opts = {
