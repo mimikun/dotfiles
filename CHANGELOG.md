@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2025.01.28]
+
+### Added - 新機能について
+
+- feat(fish): add ccsum completion
+- feat(nvim-cmp): add cmp-tmux source
+- feat(nvim-treesitter): add tmux parser
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- refactor(fish): update config
+- chore(fish): update ast-grep completion
+- chore(tmux): update and move config-file
+- chore(markview.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): disable some plugins temporary
+
+### Fixed - 不具合修正について
+
+- fix(dotfyle-metadata.nvim): issue solved
+    - breaking changes in nvim-lspconfig reverted by https://github.com/neovim/nvim-lspconfig/pull/3589
+
 ## [v2025.01.27]
 
 ### Added - 新機能について
