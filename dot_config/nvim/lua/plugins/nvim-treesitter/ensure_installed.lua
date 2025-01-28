@@ -43,6 +43,7 @@ local base_parsers = {
     "regex",
     "rust",
     "svelte",
+    "tmux",
     "toml",
     "tsx",
     "typescript",
