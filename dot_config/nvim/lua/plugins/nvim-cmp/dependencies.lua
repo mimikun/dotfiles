@@ -11,6 +11,7 @@ local dependencies = {
     "hrsh7th/cmp-emoji",
     "rcarriga/cmp-dap",
     "chrisgrieser/cmp_yanky",
+    "andersevenrud/cmp-tmux",
     { "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
 }
 

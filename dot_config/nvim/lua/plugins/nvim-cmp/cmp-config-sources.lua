@@ -18,6 +18,7 @@ local cmp_config_sources = {
     { name = "cmp_yanky" },
     { name = "ecolog" },
     { name = "orgmode" },
+    { name = "tmux" },
 }
 
 if require("config.settings").use_github_copilot then
