@@ -80,59 +80,103 @@ if ($cond) {
     Write-Output $namespace1 >> $env:CACHE_PROFILE
     Write-Output $namespace2 >> $env:CACHE_PROFILE
 
-    # starship setup
-    Write-Output "# cache starship setup" >> $env:CACHE_PROFILE
-    starship init powershell --print-full-init >> $env:CACHE_PROFILE
-
-    # starship completion
-    Write-Output "# cache starship completion" >> $env:CACHE_PROFILE
-    $starship_completion = starship completions powershell |
-        ForEach-Object { $_ -replace $namespace1, "" } |
-        ForEach-Object { $_ -replace $namespace2, "" }
-    Write-Output $starship_completion >> $env:CACHE_PROFILE
-
-    # wezterm completion
-    Write-Output "# cache wezterm completion" >> $env:CACHE_PROFILE
-    $wezterm_completion = wezterm shell-completion --shell power-shell |
-        ForEach-Object { $_ -replace $namespace1, "" } |
-        ForEach-Object { $_ -replace $namespace2, "" }
-    Write-Output $wezterm_completion >> $env:CACHE_PROFILE
-
-    # rustup completion
-    Write-Output "# cache rustup completion" >> $env:CACHE_PROFILE
-    $rustup_completion = rustup completions powershell |
-        ForEach-Object { $_ -replace $namespace1, "" } |
-        ForEach-Object { $_ -replace $namespace2, "" }
-    Write-Output $rustup_completion >> $env:CACHE_PROFILE
-
     # chezmoi completion
-    Write-Output "# cache chezmoi completion" >> $env:CACHE_PROFILE
-    chezmoi completion powershell >> $env:CACHE_PROFILE
+    Get-Command chezmoi -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache chezmoi completion" >> $env:CACHE_PROFILE
+        chezmoi completion powershell >> $env:CACHE_PROFILE
+    }
 
     # github-cli completion
-    Write-Output "# cache github-cli completion" >> $env:CACHE_PROFILE
-    gh completion -s powershell >> $env:CACHE_PROFILE
-
-    # zoxide setup
-    Write-Output "# cache zoxide setup" >> $env:CACHE_PROFILE
-    zoxide init powershell >> $env:CACHE_PROFILE
-
-    # zoxide completion
-    Write-Output "# cache zoxide completion" >> $env:CACHE_PROFILE
-    $zoxideCompleteFilePath = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com\ajeetdsouza\zoxide\contrib\completions\_zoxide.ps1"
-    if (Test-Path($zoxideCompleteFilePath)) {
-        $zoxide_completion = Get-Content $zoxideCompleteFilePath |
-        ForEach-Object { $_ -replace $namespace1, "" } |
-        ForEach-Object { $_ -replace $namespace2, "" }
+    Get-Command gh -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache github-cli completion" >> $env:CACHE_PROFILE
+        gh completion -s powershell >> $env:CACHE_PROFILE
     }
-    Write-Output $zoxide_completion >> $env:CACHE_PROFILE
+
+    # pay-respects completion
+    Get-Command pay-respects -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res -and $IsLinux) {
+        Write-Output "# pay-respects completion" >> $env:CACHE_PROFILE
+        pay-respects pwsh --alias >> $env:CACHE_PROFILE
+    }
+
+    # sunbeam completion
+    Get-Command sunbeam -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res -and $IsLinux) {
+        Write-Output "# sunbeam completion" >> $env:CACHE_PROFILE
+        sunbeam completion powershell >> $env:CACHE_PROFILE
+    }
+
+    # starship setup and completion
+    Get-Command starship -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        # setup
+        Write-Output "# cache starship setup" >> $env:CACHE_PROFILE
+        starship init powershell --print-full-init >> $env:CACHE_PROFILE
+        # completion
+        Write-Output "# cache starship completion" >> $env:CACHE_PROFILE
+        $starship_completion = starship completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $starship_completion >> $env:CACHE_PROFILE
+    }
+
+    # zoxide setup and completion
+    Get-Command zoxide -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        # setup
+        Write-Output "# cache zoxide setup" >> $env:CACHE_PROFILE
+        zoxide init powershell >> $env:CACHE_PROFILE
+        # completion
+        Write-Output "# cache zoxide completion" >> $env:CACHE_PROFILE
+        $zoxideCompleteFilePath = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com\ajeetdsouza\zoxide\contrib\completions\_zoxide.ps1"
+        if (Test-Path($zoxideCompleteFilePath)) {
+            $zoxide_completion = Get-Content $zoxideCompleteFilePath |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        }
+        Write-Output $zoxide_completion >> $env:CACHE_PROFILE
+    }
+
+    # wezterm completion
+    Get-Command wezterm -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache wezterm completion" >> $env:CACHE_PROFILE
+        $wezterm_completion = wezterm shell-completion --shell power-shell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $wezterm_completion >> $env:CACHE_PROFILE
+    }
+
+    # rustup completion
+    Get-Command rustup -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache rustup completion" >> $env:CACHE_PROFILE
+        $rustup_completion = rustup completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $rustup_completion >> $env:CACHE_PROFILE
+    }
 
     # ripgrep completion
-    Write-Output "# cache ripgrep completion" >> $env:CACHE_PROFILE
-    $ripgrep_completion = rg --generate complete-powershell |
-        ForEach-Object { $_ -replace $namespace1, "" } |
-        ForEach-Object { $_ -replace $namespace2, "" }
-    Write-Output $ripgrep_completion >> $env:CACHE_PROFILE
+    Get-Command rg -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache ripgrep completion" >> $env:CACHE_PROFILE
+        $ripgrep_completion = rg --generate complete-powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $ripgrep_completion >> $env:CACHE_PROFILE
+    }
 
     # rbw completion
     Get-Command rbw -ErrorAction Ignore | Out-Null
@@ -176,24 +220,6 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace1, "" } |
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $berg_completion >> $env:CACHE_PROFILE
-    }
-
-    # pay-respects completion
-    Get-Command pay-respects -ErrorAction Ignore | Out-Null
-    $res = $?
-    if ($res -and $IsLinux) {
-        Write-Output "# pay-respects completion" >> $env:CACHE_PROFILE
-        $pay_respects_completion = pay-respects pwsh --alias
-        Write-Output $pay_respects_completion >> $env:CACHE_PROFILE
-    }
-
-    # sunbeam completion
-    Get-Command sunbeam -ErrorAction Ignore | Out-Null
-    $res = $?
-    if ($res -and $IsLinux) {
-        Write-Output "# sunbeam completion" >> $env:CACHE_PROFILE
-        $sunbeam_completion = sunbeam completion powershell
-        Write-Output $sunbeam_completion >> $env:CACHE_PROFILE
     }
 }
 
