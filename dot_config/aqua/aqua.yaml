@@ -85,7 +85,7 @@ packages:
   - name: k1LoW/octocov@v0.62.5
   - name: termkit/gama@v1.2.1
   - name: mattn/efm-langserver@v0.0.54
-  - name: gitleaks/gitleaks@v8.23.2
+  - name: gitleaks/gitleaks@v8.23.3
   - name: rs/curlie@v1.7.2
   - name: mr-karan/doggo@v1.0.5
   - name: pamburus/hl@v0.30.3
