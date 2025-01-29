@@ -166,6 +166,7 @@ tabiew
 taplo-cli
 tauri-cli
 tealdeer
+tegratop
 television
 tenere
 tere
