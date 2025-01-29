@@ -35,7 +35,8 @@ complete -c mdbook -n "__fish_mdbook_needs_command" -f -a "watch" -d 'Watches a 
 complete -c mdbook -n "__fish_mdbook_needs_command" -f -a "serve" -d 'Serves a book at http://localhost:3000, and rebuilds it on changes'
 complete -c mdbook -n "__fish_mdbook_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c mdbook -n "__fish_mdbook_using_subcommand init" -l title -d 'Sets the book title' -r
-complete -c mdbook -n "__fish_mdbook_using_subcommand init" -l ignore -d 'Creates a VCS ignore file (i.e. .gitignore)' -r -f -a "{none\t'',git\t''}"
+complete -c mdbook -n "__fish_mdbook_using_subcommand init" -l ignore -d 'Creates a VCS ignore file (i.e. .gitignore)' -r -f -a "none\t''
+git\t''"
 complete -c mdbook -n "__fish_mdbook_using_subcommand init" -l theme -d 'Copies the default theme into your source folder'
 complete -c mdbook -n "__fish_mdbook_using_subcommand init" -l force -d 'Skips confirmation prompts'
 complete -c mdbook -n "__fish_mdbook_using_subcommand init" -s h -l help -d 'Print help'
@@ -55,14 +56,16 @@ complete -c mdbook -n "__fish_mdbook_using_subcommand clean" -s V -l version -d 
 complete -c mdbook -n "__fish_mdbook_using_subcommand completions" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand completions" -s V -l version -d 'Print version'
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
-complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -l watcher -d 'The filesystem watching technique' -r -f -a "{poll\t'',native\t''}"
+complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -l watcher -d 'The filesystem watching technique' -r -f -a "poll\t''
+native\t''"
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s o -l open -d 'Opens the compiled book in a web browser'
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s V -l version -d 'Print version'
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s n -l hostname -d 'Hostname to listen on for HTTP connections' -r
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s p -l port -d 'Port to use for HTTP connections' -r
-complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -l watcher -d 'The filesystem watching technique' -r -f -a "{poll\t'',native\t''}"
+complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -l watcher -d 'The filesystem watching technique' -r -f -a "poll\t''
+native\t''"
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s o -l open -d 'Opens the compiled book in a web browser'
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s V -l version -d 'Print version'
