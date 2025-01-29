@@ -12,3 +12,4 @@ rsyncy
 sherlock-project
 toolong
 trash-cli
+wut-cli
