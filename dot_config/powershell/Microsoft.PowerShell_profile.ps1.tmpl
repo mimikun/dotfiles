@@ -221,6 +221,17 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $berg_completion >> $env:CACHE_PROFILE
     }
+
+    # ccsum completion
+    Get-Command ccsum -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# ccsum completion" >> $env:CACHE_PROFILE
+        $ccsum_completion = ccsum --completion powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $ccsum_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile
