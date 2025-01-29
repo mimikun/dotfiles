@@ -18,25 +18,7 @@ local spec = {
         local mason_nvim_dap = require("mason-nvim-dap")
 
         require("neoconf").setup({})
-        require("mason").setup({
-            max_concurrent_installers = global.is_human_rights and 4 or 1,
-            registries = {
-                "github:mason-org/mason-registry",
-                "github:mkindberg/ghostty-ls",
-            },
-            ui = {
-                check_outdated_packages_on_open = true,
-                border = "rounded",
-                width = 0.88,
-                height = 0.8,
-                icons = {
-                    package_installed = "󰗠",
-                    package_pending = "󰊠",
-                    package_uninstalled = "󰅙",
-                },
-            },
-            log_level = vim.log.levels.DEBUG,
-        })
+        require("mason").setup(require("plugins.mason-nvim.opts"))
 
         -- LSP
         mason_lspconfig.setup({
