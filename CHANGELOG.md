@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2025.01.29]
+
+### Added - 新機能について
+
+- feat(cargo-linux): add tegratop
+- feat(nvim): add filename_cc.nvim
+- feat(pwsh): add ccsum completion
+- feat(nvim): add tmux.nvim
+- feat(gup): add some tools
+- feat(pipx): add wut-cli
+
+### Changed - 既存機能の変更について
+
+- chore(tmux): update config
+- chore(fish): update mdbook completion
+- refactor(nvim): split mason-nvim opts
+- refactor(pwsh): cache process
+
+### Removed - 今回で削除された機能について
+
+- chore(aqua): remove nao1215/sqly
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.01.28]
 
 ### Added - 新機能について
