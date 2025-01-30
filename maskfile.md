@@ -383,13 +383,6 @@ chezmoi add $env:USERPROFILE\AppData\Roaming\lsd\config.yaml
 # pueue
 chezmoi add $env:USERPROFILE\AppData\Roaming\pueue\pueue.yml
 
-# komorebi files
-chezmoi add $env:USERPROFILE\applications.yaml
-chezmoi add $env:USERPROFILE\komorebi.json
-
-# whkd config
-chezmoi add $env:USERPROFILE\.config\whkdrc
-
 # GlazeWM config
 chezmoi add $env:USERPROFILE\.glaze-wm\config.yaml
 
