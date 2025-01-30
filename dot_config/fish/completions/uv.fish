@@ -138,7 +138,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-build-isolation -d 'Dis
 complete -c uv -n "__fish_uv_using_subcommand run" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand run" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand run" -l build
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -262,7 +262,7 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l no-build-isolation -d 'Dis
 complete -c uv -n "__fish_uv_using_subcommand add" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand add" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand add" -l build
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -334,7 +334,7 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l no-build-isolation -d '
 complete -c uv -n "__fish_uv_using_subcommand remove" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand remove" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand remove" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand remove" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l build
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -419,7 +419,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-isolation -d 'Di
 complete -c uv -n "__fish_uv_using_subcommand sync" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand sync" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l build
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -483,7 +483,7 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l no-upgrade
 complete -c uv -n "__fish_uv_using_subcommand lock" -l pre
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-isolation -d 'Disable isolation when building source distributions'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l build-isolation
-complete -c uv -n "__fish_uv_using_subcommand lock" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand lock" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l build
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -570,7 +570,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-upgrade
 complete -c uv -n "__fish_uv_using_subcommand export" -l pre
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-build-isolation -d 'Disable isolation when building source distributions'
 complete -c uv -n "__fish_uv_using_subcommand export" -l build-isolation
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand export" -l build
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -652,7 +652,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l no-upgrade
 complete -c uv -n "__fish_uv_using_subcommand tree" -l pre
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-isolation -d 'Disable isolation when building source distributions'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l build-isolation
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
@@ -751,7 +751,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l build
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -821,7 +821,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l build
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -892,7 +892,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l build
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -956,7 +956,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l build
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-binary -d 'Don\'t install pre-built wheels'
@@ -1396,7 +1396,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l pre
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-build-isolation -d 'Disable isolation when building source distributions'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l build-isolation
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-deps -d 'Ignore package dependencies, instead only add those packages explicitly listed on the command line to the resulting the requirements file'
@@ -1495,7 +1495,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l require-hashes -d 'Require a matching hash for each requirement'
@@ -1584,7 +1584,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l build-isolation
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-compile-bytecode
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-deps -d 'Ignore package dependencies, instead only installing those packages explicitly listed on the command line or in the requirements files'
@@ -1960,7 +1960,7 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l no-upgrade
 complete -c uv -n "__fish_uv_using_subcommand build" -l pre
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-isolation -d 'Disable isolation when building source distributions'
 complete -c uv -n "__fish_uv_using_subcommand build" -l build-isolation
-complete -c uv -n "__fish_uv_using_subcommand build" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any local or Git sources'
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build -d 'Don\'t build source distributions'
 complete -c uv -n "__fish_uv_using_subcommand build" -l build
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-binary -d 'Don\'t install pre-built wheels'
