@@ -4,6 +4,7 @@ local keybinds = require("keybinds")
 local mousebinds = require("mousebinds")
 local kabegami = require("kabegami")
 local lm = require("launchmenu")
+local fonts = require("fonts")
 
 local M = {}
 
@@ -14,9 +15,6 @@ end
 local hostname = global.hostname
 local is_azusa = global.is_azusa
 local is_human_rights = global.is_human_rights
-
-local base_font_size = is_azusa and 22 or 14
-local wf_font_size = is_azusa and 12 or 10
 
 local kabegami_name
 --kabegami_name = kabegami.get("butasan").nesoberi
@@ -39,16 +37,11 @@ if is_human_rights then
     }
 end
 
--- font
-M.font = wezterm.font_with_fallback({
-    { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
-})
-M.font_size = base_font_size
-
+M.font = wezterm.font_with_fallback(fonts.base)
+M.font_size = fonts.size.base
 M.window_frame = {
-    font = wezterm.font({ family = "Roboto", weight = "Bold" }),
-    font_size = wf_font_size,
+    font = wezterm.font_with_fallback(fonts.window_frame),
+    font_size = fonts.size.window_frame,
 }
 M.leader = keybinds.leader
 M.keys = keybinds.keys
