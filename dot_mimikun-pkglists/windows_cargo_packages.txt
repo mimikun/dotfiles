@@ -37,6 +37,7 @@ csvlens
 cyme
 desed
 diskonaut
+dns-doge
 drft
 dua-cli
 ducker
