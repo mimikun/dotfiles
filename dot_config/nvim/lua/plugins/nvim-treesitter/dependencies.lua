@@ -4,10 +4,15 @@ local dependencies = {
     "RRethy/nvim-treesitter-textsubjects",
     "nvim-treesitter/nvim-treesitter-context",
     "JoosepAlviste/nvim-ts-context-commentstring",
-    {
-        "bezhermoso/tree-sitter-ghostty",
-        build = "make nvim_install",
-    },
 }
+
+if require("config.global").is_linux then
+    table.insert(dependencies, {
+        {
+            "bezhermoso/tree-sitter-ghostty",
+            build = "make nvim_install",
+        },
+    })
+end
 
 return dependencies
