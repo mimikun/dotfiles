@@ -186,6 +186,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l no-package -d 'Do not set
 complete -c uv -n "__fish_uv_using_subcommand init" -l app -d 'Create a project for an application'
 complete -c uv -n "__fish_uv_using_subcommand init" -l lib -d 'Create a project for a library'
 complete -c uv -n "__fish_uv_using_subcommand init" -l script -d 'Create a script'
+complete -c uv -n "__fish_uv_using_subcommand init" -l backend -d 'Invalid option name for build backend'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-readme -d 'Do not create a `README.md` file'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-pin-python -d 'Do not create a `.python-version` file for the project'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-workspace -d 'Avoid discovering a workspace and create a standalone project'
@@ -1399,7 +1400,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-refresh
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-deps -d 'Ignore package dependencies, instead only add those packages explicitly listed on the command line to the resulting the requirements file'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-deps -d 'Ignore package dependencies, instead only add those packages explicitly listed on the command line to the resulting requirements file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l deps
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-strip-extras -d 'Include extras in the output file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l strip-extras

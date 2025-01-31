@@ -265,6 +265,7 @@ complete -c qsv -n "__fish_qsv_using_subcommand diff" -l sort-columns
 complete -c qsv -n "__fish_qsv_using_subcommand diff" -l drop-equal-fields
 complete -c qsv -n "__fish_qsv_using_subcommand diff" -l jobs
 complete -c qsv -n "__fish_qsv_using_subcommand diff" -l output
+complete -c qsv -n "__fish_qsv_using_subcommand diff" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand diff" -s h -l help -d 'Print help'
 complete -c qsv -n "__fish_qsv_using_subcommand edit" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand edit" -l no-headers
@@ -284,13 +285,13 @@ complete -c qsv -n "__fish_qsv_using_subcommand enum" -s h -l help -d 'Print hel
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l sheet
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l header-row
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l metadata
+complete -c qsv -n "__fish_qsv_using_subcommand excel" -l table
+complete -c qsv -n "__fish_qsv_using_subcommand excel" -l range
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l error-format
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l flexible
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l trim
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l date-format
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l keep-zero-time
-complete -c qsv -n "__fish_qsv_using_subcommand excel" -l table
-complete -c qsv -n "__fish_qsv_using_subcommand excel" -l range
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l jobs
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand excel" -l delimiter
@@ -307,6 +308,7 @@ complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l no-output
 complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l dupes-output
 complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l human-readable
 complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l memory-limit
+complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l temp-dir
 complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand extdedup" -l quiet
@@ -387,11 +389,13 @@ complete -c qsv -n "__fish_qsv_using_subcommand fill" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand fill" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand fill" -s h -l help -d 'Print help'
 complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l length
+complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l remove-empty
 complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l insert
 complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l quote
 complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l escape
 complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l delimiter
+complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -l quiet
 complete -c qsv -n "__fish_qsv_using_subcommand fixlengths" -s h -l help -d 'Print help'
 complete -c qsv -n "__fish_qsv_using_subcommand flatten" -l condense
 complete -c qsv -n "__fish_qsv_using_subcommand flatten" -l field-separator
@@ -700,48 +704,61 @@ complete -c qsv -n "__fish_qsv_using_subcommand input" -l encoding-errors
 complete -c qsv -n "__fish_qsv_using_subcommand input" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand input" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand input" -s h -l help -d 'Print help'
-complete -c qsv -n "__fish_qsv_using_subcommand join" -l ignore-case
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l left
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l left-anti
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l left-semi
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l right
+complete -c qsv -n "__fish_qsv_using_subcommand join" -l right-anti
+complete -c qsv -n "__fish_qsv_using_subcommand join" -l right-semi
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l full
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l cross
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l nulls
+complete -c qsv -n "__fish_qsv_using_subcommand join" -l keys-output
+complete -c qsv -n "__fish_qsv_using_subcommand join" -l ignore-case
+complete -c qsv -n "__fish_qsv_using_subcommand join" -l ignore-leading-zeros
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand join" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand join" -s h -l help -d 'Print help'
-complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l ignore-case
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l left
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l left-anti
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l left-semi
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l right
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l right-anti
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l right-semi
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l full
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l cross
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l non-equi
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l coalesce
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l filter-left
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l filter-right
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l validate
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l maintain-order
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l nulls
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l streaming
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l try-parsedates
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l infer-len
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l cache-schema
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l low-memory
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l no-optimizations
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l ignore-errors
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l decimal-comma
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l asof
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l no-sort
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l left_by
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l right_by
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l strategy
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l tolerance
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l allow-exact-matches
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l sql-filter
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l datetime-format
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l date-format
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l time-format
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l float-precision
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l null-value
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l ignore-case
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l ignore-leading-zeros
+complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l norm-unicode
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand joinp" -l quiet
@@ -1135,11 +1152,20 @@ complete -c qsv -n "__fish_qsv_using_subcommand table" -l memcheck
 complete -c qsv -n "__fish_qsv_using_subcommand table" -s h -l help -d 'Print help'
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l template
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l template-file
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l globals-json
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l outfilename
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l outsubdir-size
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l customfilter-error
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l jobs
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l batch
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l timeout
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l cache-dir
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l ckan-api
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l ckan-token
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l delimiter
+complete -c qsv -n "__fish_qsv_using_subcommand template" -l progressbar
 complete -c qsv -n "__fish_qsv_using_subcommand template" -s h -l help -d 'Print help'
 complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l print-package
 complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l dump
@@ -1240,6 +1266,9 @@ complete -c qsv -n "__fish_qsv_using_subcommand validate" -l valid-output
 complete -c qsv -n "__fish_qsv_using_subcommand validate" -l jobs
 complete -c qsv -n "__fish_qsv_using_subcommand validate" -l batch
 complete -c qsv -n "__fish_qsv_using_subcommand validate" -l timeout
+complete -c qsv -n "__fish_qsv_using_subcommand validate" -l cache-dir
+complete -c qsv -n "__fish_qsv_using_subcommand validate" -l ckan-api
+complete -c qsv -n "__fish_qsv_using_subcommand validate" -l ckan-token
 complete -c qsv -n "__fish_qsv_using_subcommand validate" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand validate" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand validate" -l progressbar
