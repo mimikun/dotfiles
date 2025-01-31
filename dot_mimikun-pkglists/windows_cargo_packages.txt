@@ -7,7 +7,6 @@ bandwhich
 basilk
 bat
 bingrep
-bob-nvim
 bottom
 broot
 cargo-about
