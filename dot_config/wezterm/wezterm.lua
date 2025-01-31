@@ -4,7 +4,6 @@ local keybinds = require("keybinds")
 local mousebinds = require("mousebinds")
 local kabegami = require("kabegami")
 local lm = require("launchmenu")
-local fonts = require("fonts")
 
 local M = {}
 
@@ -23,6 +22,11 @@ kabegami_name = kabegami.get("azusa").kuroinu
 local kabegami_path
 kabegami_path = table.concat({ global.home, ".kabegami", "random", kabegami_name }, global.path_sep)
 
+local font_size = {
+    base = is_azusa and 22 or 14,
+    window_frame = is_azusa and 12 or 10,
+}
+
 require("format")
 require("status")
 require("event")
@@ -40,11 +44,18 @@ if is_human_rights then
     }
 end
 
-M.font = wezterm.font_with_fallback(fonts.base)
-M.font_size = fonts.size.base
+M.font = wezterm.font_with_fallback({
+    { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
+    -- BuiltIn fonts
+    --"JetBrains Mono",
+    --"Noto Color Emoji",
+    --"Symbols Nerd Font Mono",
+})
+M.font_size = font_size.base
 M.window_frame = {
-    font = wezterm.font_with_fallback(fonts.window_frame),
-    font_size = fonts.size.window_frame,
+    font = wezterm.font_with_fallback({ family = "Roboto", weight = "Bold" }),
+    font_size = font_size.window_frame,
 }
 M.leader = keybinds.leader
 M.keys = keybinds.keys
