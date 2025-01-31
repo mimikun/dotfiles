@@ -1,5 +1,40 @@
 # Changelog
 
+## [v2025.01.31]
+
+### Added - 新機能について
+
+- feat(cargo): add atac for windows
+- feat(cargo): add kdash
+- feat(cargo): add dns-doge
+- feat(aqua): add some packages
+- feat(feed.nvim): add deps
+- feat: add zebar config
+- feat: add glazewm v3 config
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(wezterm): update font config
+- chore(fish): update some completions
+- chore(fish): update some completions
+- chore(wezterm): update kabegami path
+- chore(wezterm): update launchmenu
+
+### Removed - 今回で削除された機能について
+
+- chore: remove komorebi
+    - memo: komorebi does not using the license defined by the osd.
+- WORKAROUND: remove bob-nvim
+    - bob-nvim is not create any new releases
+- chore(gup): remove ktop
+- chore(mason.nvim): remove yamllint from work-windows
+
+### Fixed - 不具合修正について
+
+- fix(wezterm): font error
+- fix(nvim-treesitter): ts-ghostty build is failed in windows
+
 ## [v2025.01.29]
 
 ### Added - 新機能について
