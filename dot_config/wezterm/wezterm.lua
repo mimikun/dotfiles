@@ -20,6 +20,9 @@ local kabegami_name
 --kabegami_name = kabegami.get("butasan").nesoberi
 kabegami_name = kabegami.get("azusa").kuroinu
 
+local kabegami_path
+kabegami_path = table.concat({ global.home, ".kabegami", "random", kabegami_name }, global.path_sep)
+
 require("format")
 require("status")
 require("event")
@@ -29,7 +32,7 @@ M.color_scheme = "GitHub Dark"
 M.window_background_opacity = 0.93
 
 if is_human_rights then
-    M.window_background_image = table.concat({ global.home, ".kabegami", "random", kabegami_name }, global.path_sep)
+    M.window_background_image = kabegami_path
     M.window_background_image_hsb = {
         hue = 1.0,
         saturation = 1.0,
