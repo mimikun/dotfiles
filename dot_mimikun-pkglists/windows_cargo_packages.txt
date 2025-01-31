@@ -1,6 +1,7 @@
 ag
 aichat
 ast-grep
+atac
 atuin
 bacon
 bandwhich
