@@ -27,7 +27,7 @@ packages:
   - name: charmbracelet/skate@v1.0.0
   - name: charmbracelet/vhs@v0.9.0
   - name: chriswalz/bit@v1.1.2
-  - name: cli/cli@v2.66.0
+  - name: cli/cli@v2.66.1
   - name: derailed/k9s@v0.32.7
   - name: direnv/direnv@v2.35.0
   - name: dlvhdr/diffnav@v0.3.0
