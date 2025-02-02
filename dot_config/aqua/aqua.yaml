@@ -77,7 +77,7 @@ packages:
   - name: osteele/gojekyll@v0.2.14
   - name: pamburus/hl@v0.30.3
   - name: peco/peco@v0.5.11
-  - name: pkgxdev/pkgx@v2.1.4
+  - name: pkgxdev/pkgx@v2.2.0
   - name: pvolok/mprocs@v0.7.2
   - name: rhysd/actionlint@v1.7.7
   - name: rhysd/vim-startuptime@v1.3.2
