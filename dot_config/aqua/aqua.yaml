@@ -35,9 +35,11 @@ packages:
   - name: dotenvx/dotenvx@v1.34.0
   - name: editorconfig-checker/editorconfig-checker@v3.2.0
   - name: FiloSottile/age@v1.2.1
+  - name: gleam-lang/gleam@v1.7.0
   - name: gitleaks/gitleaks@v8.23.3
   - name: go-delve/delve@v1.24.0
   - name: golangci/golangci-lint@v1.63.4
+  - name: golang/go@go1.23.5
   - name: golang/tools/goimports@v0.29.0
   - name: golang/tools/gorename@v0.25.0
   - name: gopasspw/gopass@v1.15.15
