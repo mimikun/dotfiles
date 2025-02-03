@@ -1,0 +1,5 @@
+{
+  "files": ["**/*.{md,txt}"],
+  "dictionaries": ["yaju"],
+  "import": ["cspell-dict-yaju/cspell-ext.json"]
+}
