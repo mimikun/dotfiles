@@ -384,7 +384,6 @@ chezmoi add $env:USERPROFILE\AppData\Roaming\lsd\config.yaml
 chezmoi add $env:USERPROFILE\AppData\Roaming\pueue\pueue.yml
 
 # GlazeWM config
-chezmoi add $env:USERPROFILE\.glaze-wm\config.yaml
 
 # nyagos config
 chezmoi add $env:USERPROFILE\.nyagos
