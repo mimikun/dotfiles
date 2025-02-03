@@ -5,6 +5,12 @@ gleam = "latest"
 go = "latest"
 ruby = "latest"
 lua = "5.1"
+"asdf:neovim" = [
+    "nightly",
+    "stable",
+    "0.10.4",
+    "ref:master",
+]
 node = [
     "lts",
     "22",
