@@ -45,12 +45,16 @@ if is_human_rights then
 end
 
 M.font = wezterm.font_with_fallback({
+    -- FiraCode Nerd Font
+    --{ family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
+    { family = "FiraCode Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "UDEV Gothic NF", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "0xProto Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
-    -- BuiltIn fonts
-    --"JetBrains Mono",
-    --"Noto Color Emoji",
-    --"Symbols Nerd Font Mono",
+    { family = "Cascadia Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "BIZ UDGothic", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "Consolas", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "MS Gothic", weight = "Regular", stretch = "Normal", style = "Normal" },
 })
 M.font_size = font_size.base
 M.window_frame = {
