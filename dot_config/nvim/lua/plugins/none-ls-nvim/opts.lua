@@ -1,3 +1,4 @@
+local cspell = require("cspell")
 local null_ls = require("null-ls")
 local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
@@ -5,6 +6,8 @@ local formatting = null_ls.builtins.formatting
 ---@type table
 local opts = {
     sources = {
+        --- Code Actions
+        cspell.code_actions,
         --- Diagnostics
         diagnostics.fish,
         diagnostics.selene,
@@ -12,6 +15,7 @@ local opts = {
             only_local = "node_modules/.bin",
         }),
         diagnostics.yamllint,
+        cspell.diagnostics,
         --- Formatting
         formatting.fish_indent,
         formatting.nixfmt,
