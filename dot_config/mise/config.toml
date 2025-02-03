@@ -1,8 +1,6 @@
 [tools]
 dotnet-core = "latest"
 erlang = "latest"
-gleam = "latest"
-go = "latest"
 ruby = "latest"
 lua = "5.1"
 "asdf:neovim" = [
