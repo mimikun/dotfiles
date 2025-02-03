@@ -54,7 +54,7 @@ packages:
   - name: joerdav/xc@v0.8.5
   - name: jqlang/jq@jq-1.7.1
   - name: junegunn/fzf@v0.59.0
-  - name: k1LoW/octocov@v0.62.5
+  - name: k1LoW/octocov@v0.62.6
   - name: kdabir/has@v1.5.0
   - name: koalaman/shellcheck@v0.10.0
   - name: koki-develop/clive@v0.12.9
