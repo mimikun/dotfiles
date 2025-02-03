@@ -425,8 +425,9 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     end
 
     # bob neovim version manager
-    echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
-    echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
+    # HACK: bob not compatible with latest release assets of neovim
+    #echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
+    #echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
     echo 'abbr --add vim nvim' >> $CACHE_CONFIG_FISH
 
     # starship config

@@ -257,8 +257,9 @@ if command -v mdbook >/dev/null 2>&1; then
 fi
 
 # bob neovim version manager
-export BOB_CONFIG="$XDG_CONFIG_HOME/bob/config.toml"
-export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
+# HACK: bob not compatible with latest release assets of neovim
+#export BOB_CONFIG="$XDG_CONFIG_HOME/bob/config.toml"
+#export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
 alias vim=nvim
 
 # Neovide env-vars
