@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.9.0"
+readonly PRODUCT_VERSION="1.10.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -109,13 +109,14 @@ use_pueue() {
   pueue add --after "$pvim_task_id" -- "update_mise paleovim-latest --use-pueue"
   pueue add --after "$mise_task_id" -- "update_mise zig-master --use-pueue"
 
-  echo "update neovim managed by bob"
-  bob_task_id=$(pueue add -p -- "bob use latest")
-  bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update nightly")
-  bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob use nightly")
-  bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update stable")
-  bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update latest")
-  pueue add --after "$bob_task_id" -- "bob install head"
+  # HACK: bob not compatible with latest release assets of neovim
+  #echo "update neovim managed by bob"
+  #bob_task_id=$(pueue add -p -- "bob use latest")
+  #bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update nightly")
+  #bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob use nightly")
+  #bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update stable")
+  #bob_task_id=$(pueue add -p --after "$bob_task_id" -- "bob update latest")
+  #pueue add --after "$bob_task_id" -- "bob install head"
 
   echo "fisher update"
   fish -c 'fisher update'
@@ -184,13 +185,14 @@ no_pueue() {
   update_mise paleovim-latest
   update_mise zig-master
 
-  echo "update neovim managed by bob"
-  bob use latest
-  bob update nightly
-  bob use nightly
-  bob update stable
-  bob update latest
-  bob install head
+  # HACK: bob not compatible with latest release assets of neovim
+  #echo "update neovim managed by bob"
+  #bob use latest
+  #bob update nightly
+  #bob use nightly
+  #bob update stable
+  #bob update latest
+  #bob install head
 
   echo "fisher update"
   fish -c 'fisher update'
