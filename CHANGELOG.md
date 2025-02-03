@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2025.02.03]
+
+### Added - 新機能について
+
+- feat(nvim): add atac.nvim
+- feat(nvim): add specs.nvim
+- feat(nvim): add vim-sonictemplate
+- feat(nvim): add nvim-swm
+- feat(none-ls): add cspell source
+- feat(cspell): add config file
+- feat(deps): add cspell
+- feat(aqua): add some packages
+    - gleam and golang
+- feat(mise): add neovim
+    - add nightly, stable(0.10.4) and ref:master
+- feat(glazewm): manage files
+
+### Changed - 既存機能の変更について
+
+- chore(wezterm): update fonts
+- chore(localbin): update vup
+
+### Removed - 今回で削除された機能について
+
+- chore(mise): remove some packages
+    - gleam and golang
+- chore(shells): WORKAROUND: remove bob-nvim
+- chore(glazewm): remove old config
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.01.31]
 
 ### Added - 新機能について
