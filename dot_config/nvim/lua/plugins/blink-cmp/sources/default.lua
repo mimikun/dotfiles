@@ -16,6 +16,7 @@ local default = {
     "crates",
     "ecolog",
     "render_markdown",
+    --"minuet"
 }
 
 if s.use_github_copilot then

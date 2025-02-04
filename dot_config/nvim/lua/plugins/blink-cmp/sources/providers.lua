@@ -90,6 +90,13 @@ local providers = {
         module = "orgmode.org.autocompletion.blink",
         fallbacks = { "buffer" },
     },
+    --[[
+    minuet = {
+        name = "minuet",
+        module = "minuet.blink",
+        score_offset = 8,
+    },
+    ]]
 }
 
 return providers

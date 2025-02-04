@@ -19,6 +19,7 @@ local cmp_config_sources = {
     { name = "ecolog" },
     { name = "orgmode" },
     { name = "tmux" },
+    --{ name = "minuet" },
 }
 
 if require("config.settings").use_github_copilot then

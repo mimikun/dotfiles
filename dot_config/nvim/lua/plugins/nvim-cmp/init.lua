@@ -81,6 +81,9 @@ local spec = {
                 local is_dap_buffer = require("cmp_dap").is_dap_buffer()
                 return is_prompt_buftype or is_dap_buffer
             end,
+            performance = {
+                --fetching_timeout = 2000,
+            },
         })
         cmp.setup.cmdline(":", {
             mapping = cmp.mapping.preset.cmdline(),
