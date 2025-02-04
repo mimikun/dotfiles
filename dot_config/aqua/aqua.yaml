@@ -7,7 +7,7 @@ registries:
     type: local
     path: ./registry.yaml
 packages:
-  - name: aandrew-me/tgpt@v2.9.0
+  - name: aandrew-me/tgpt@v2.9.1
   - name: ahmetb/kubectx@v0.9.5
   - name: antonmedv/fx@35.0.0
   - name: antonmedv/walk@v1.10.0
