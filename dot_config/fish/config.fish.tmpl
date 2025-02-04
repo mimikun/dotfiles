@@ -335,38 +335,58 @@ if command -v rage >/dev/null 2>&1
 end
 
 # ls abbrs
-### eza
+## eza
+# TODO: config now
 #if command -v eza >/dev/null 2>&1
-#    abbr --add ls "eza"
-#    abbr --add ll "eza -l"
-#    abbr --add la "eza -a"
-#    abbr --add lla "eza -l -a"
-#    abbr --add l1 "eza -1"
-#    abbr --add ll1 "eza -l -1"
-#    abbr --add lt "eza --tree"
-#    abbr --add lta "eza --tree -a"
-#    abbr --add llt "eza -l --tree"
-#    abbr --add ll1 "eza -l -1"
-#    abbr --add lt1 "eza --tree -1"
-#    abbr --add lat "eza -a --tree"
+#    abbr --add ls "eza --color=always --icons=always --group-directories-first"
+#    abbr --add la "eza --color=always --icons=always --group-directories-first --all"
+#    abbr --add l1 "eza --color=always --icons=always --group-directories-first --oneline"
+#
+#    abbr --add ll "eza --color=always --icons=always --group-directories-first --long --header"
+#    abbr --add lla "eza --color=always --icons=always --group-directories-first --long --header --all"
+#    abbr --add ll1 "eza --color=always --icons=always --group-directories-first --long --header --oneline"
+#
+#    abbr --add lt "eza --color=always --icons=always --group-directories-first --tree"
+#    abbr --add lta "eza --color=always --icons=always --group-directories-first --tree --all"
+#    abbr --add lt1 "eza --color=always --icons=always --group-directories-first --tree --oneline"
+#    abbr --add llt "eza --color=always --icons=always --group-directories-first --tree --long --header"
 #end
 
-### lla
+## lla
 # TODO: config now
-if command -v lla >/dev/null 2>&1
-    abbr --add ls "lla"
-    #abbr --add ll "eza -l"
-    #abbr --add la "eza -a"
-    #abbr --add lla "eza -l -a"
-    #abbr --add l1 "eza -1"
-    #abbr --add ll1 "eza -l -1"
-    #abbr --add lt "eza --tree"
-    #abbr --add lta "eza --tree -a"
-    #abbr --add llt "eza -l --tree"
-    #abbr --add ll1 "eza -l -1"
-    #abbr --add lt1 "eza --tree -1"
-    #abbr --add lat "eza -a --tree"
-end
+#if command -v lla >/dev/null 2>&1
+#    abbr --add ls "lla --icons --sort-dirs-first --grid --no-dotfiles"
+#    abbr --add la "lla --icons --sort-dirs-first --grid"
+#    abbr --add l1 "lla --icons --sort-dirs-first --no-dotfiles"
+#
+#    abbr --add ll "lla --icons --sort-dirs-first --grid --no-dotfiles --long"
+#    abbr --add lla "lla --icons --sort-dirs-first --grid --long"
+#    abbr --add ll1 "lla --icons --sort-dirs-first --long"
+#
+#    abbr --add lt "lla --icons --sort-dirs-first --no-dotfiles --tree"
+#    abbr --add lta "lla --icons --sort-dirs-first --tree"
+#    abbr --add lt1 "lla --icons --sort-dirs-first --no-dotfiles --tree"
+#    abbr --add llt "lla --icons --sort-dirs-first --no-dotfiles --long --tree"
+#
+#    #Use table listing format
+#    #--table
+#    #Organized grid layout you can use `-g --grid-ignore` to ignore terminal width (Warning: may extend beyond screen)
+#    #--grid
+#    #Visual representation of file sizes
+#    #--sizemap
+#    #Group files by time periods
+#    #--timeline
+#    #Show git status and information
+#    #--git
+#    #Interactive fuzzy finder (Experimental)
+#    #--fuzzy
+#end
+
+## lsd
+# TODO: config now
+#if command -v lsd >/dev/null 2>&1
+#    abbr --add ls "lsd"
+#end
 
 # git subcommands(abbr)
 abbr --add --command git ls 'ls-files'
