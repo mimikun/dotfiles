@@ -1,5 +1,30 @@
 # Changelog
 
+## [v2025.02.04]
+
+### Added - 新機能について
+
+- feat(cargo): add some packages
+- feat(aqua): add some packages
+- feat(nvim): add md-agenda.nvim
+- feat(nvim): add quicktest.nvim
+- feat(nvim): add mstdn.vim(denops)
+- feat(nvim): add mastodon.nvim
+- feat(nvim): add ex-colors.nvim
+- feat(nvim): add minuet-ai.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update ls abbrs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.02.03]
 
 ### Added - 新機能について
