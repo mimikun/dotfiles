@@ -35,13 +35,15 @@ packages:
   - name: dotenvx/dotenvx@v1.34.0
   - name: editorconfig-checker/editorconfig-checker@v3.2.0
   - name: FiloSottile/age@v1.2.1
-  - name: gleam-lang/gleam@v1.7.0
   - name: gitleaks/gitleaks@v8.23.3
+  - name: gleam-lang/gleam@v1.7.0
   - name: go-delve/delve@v1.24.0
+  - name: gokcehan/lf@r33
   - name: golangci/golangci-lint@v1.63.4
   - name: golang/go@go1.23.5
   - name: golang/tools/goimports@v0.29.0
   - name: golang/tools/gorename@v0.25.0
+  - name: google/yamlfmt@v0.15.0
   - name: gopasspw/gopass@v1.15.15
   - name: go-task/task@v3.41.0
   - name: grafana/k6@v0.56.0
@@ -103,7 +105,9 @@ packages:
   - name: wtetsu/gaze@v1.1.6
   - name: x-motemen/ghq@v1.7.1
   - name: xxxserxxx/gotop@v4.2.0
+  - name: yassinebenaid/bunster@v0.7.1
   - name: ycd/dstp@v0.4.23
+  - name: yorukot/superfile@v1.1.7.1
   - name: zyedidia/eget@v1.3.4
   # Multi version
   - name: PowerShell/PowerShell@v7.5.0
