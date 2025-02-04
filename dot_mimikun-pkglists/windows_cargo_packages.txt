@@ -71,6 +71,8 @@ hwatch
 hyperfine
 i3-style
 impala
+iwe
+iwes
 jj-cli
 jnv
 jql
@@ -166,4 +168,5 @@ yazi-fm
 zeitfetch
 zenith
 zipsign
+zix
 zoxide

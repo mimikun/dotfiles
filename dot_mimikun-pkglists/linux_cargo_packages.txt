@@ -84,6 +84,8 @@ hyperfine
 hysp
 i3-style
 impala
+iwe
+iwes
 jj-cli
 jnv
 jql
