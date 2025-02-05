@@ -153,6 +153,7 @@ treefmt
 tree-sitter-cli
 tui-journal
 tuisky
+tukai
 typos-cli
 typst-cli
 uuinfo
