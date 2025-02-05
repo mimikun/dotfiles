@@ -270,9 +270,13 @@ chezmoi add ~/Brewfile
 chezmoi add ~/.config/gup/gup.conf
 
 # managed by aqua
+chezmoi add ~/.config/aqua/aqua/aqua.yaml
+chezmoi add ~/.config/aqua/aqua/other.yaml
+chezmoi add ~/.config/aqua/aqua/custom.yaml
 chezmoi add ~/.config/aqua/aqua.yaml
 chezmoi add ~/.config/aqua/policy.yaml
-chezmoi add ~/.config/aqua/registry.yaml
+chezmoi add ~/.config/aqua/registries/go-install.yaml
+chezmoi add ~/.config/aqua/registries/github-release.yaml
 
 # neovim lockfiles
 chezmoi add ~/.config/nvim/lazy-lock.json

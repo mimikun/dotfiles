@@ -1,0 +1,26 @@
+---
+packages:
+  # Use custom registry
+  - name: mikuta0407/misskey-cli@v0.3.1
+    registry: github-release
+  - name: mattn/sleepy@v0.0.3
+    registry: github-release
+  - name: Mayowa-Ojo/chmod-cli@v0.2.0
+    registry: github-release
+  - name: klauspost/asmfmt@v1.3.2
+    registry: github-release
+  - name: github.com/fatih/motion
+    registry: go-install
+    version: 'v1.2.0'
+  - name: github.com/fatih/gomodifytags
+    registry: go-install
+    version: 'v1.16.0'
+  - name: github.com/kisielk/errcheck
+    registry: go-install
+    version: 'v1.6.3'
+  - name: github.com/nyaosorg/nyagos@4.4.14_0
+    registry: go-install
+  - name: github.com/charmbracelet/pop@v0.2.0
+    registry: go-install
+  - name: github.com/catatsuy/purl@v0.0.4
+    registry: go-install

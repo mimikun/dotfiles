@@ -1,0 +1,12 @@
+---
+packages:
+  # Multi version
+  - name: PowerShell/PowerShell@v7.5.0
+  - name: PowerShell/PowerShell
+    version: v7.6.0-preview.2
+    command_aliases:
+      - command: pwsh
+        alias: pwsh-unstable
+  # Not GitHub hosted
+  - name: dev.yorhel.nl/ncdu
+    version: '2.4'

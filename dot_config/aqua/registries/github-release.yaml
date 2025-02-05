@@ -1,9 +1,6 @@
 ---
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/refs/heads/main/json-schema/registry.json
 packages:
-  #########################
-  # type: github_release  #
-  #########################
   # misskey-cli
   # https://github.com/mikuta0407/misskey-cli
   - type: github_release
@@ -109,53 +106,3 @@ packages:
           type: github_release
           asset: checksums.txt
           algorithm: sha256
-
-  ####################
-  # type: go_install #
-  ####################
-
-  # gotags
-  # https://github.com/jstemmer/gotags
-  - type: go_install
-    path: github.com/jstemmer/gotags
-    description: ctags-compatible tag generator for Go
-  # godef
-  # https://github.com/rogpeppe/godef
-  - type: go_install
-    path: github.com/rogpeppe/godef
-    description: Print where symbols are defined in Go source code
-  # motion
-  # https://github.com/fatih/motion
-  - type: go_install
-    path: github.com/fatih/motion
-    description: Navigation and insight in Go
-  # gomodifytags
-  # https://github.com/fatih/gomodifytags
-  - type: go_install
-    path: github.com/fatih/gomodifytags
-    description: Go tool to modify struct field tags
-  # impl
-  # https://github.com/josharian/impl
-  - type: go_install
-    path: github.com/josharian/impl
-    description: impl generates method stubs for implementing an interface.
-  # errcheck
-  # https://github.com/kisielk/errcheck
-  - type: go_install
-    path: github.com/kisielk/errcheck
-    description: errcheck checks that you checked errors.
-  # nyagos
-  # https://github.com/nyaosorg/nyagos
-  - type: go_install
-    path: github.com/nyaosorg/nyagos
-    description: NYAGOS - The hybrid Commandline Shell between UNIX & DOS
-  # pop
-  # https://github.com/charmbracelet/pop
-  - type: go_install
-    path: github.com/charmbracelet/pop
-    description: Send emails from your terminal 📬
-  # purl
-  # https://github.com/catatsuy/purl
-  - type: go_install
-    path: github.com/catatsuy/purl
-    description: Streamlining Text Processing
