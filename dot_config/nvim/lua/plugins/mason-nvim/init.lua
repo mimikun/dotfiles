@@ -84,6 +84,9 @@ local spec = {
         if not global.is_windows then
             lspconfig.markdown_oxide.setup({})
             lspconfig.svelte.setup({})
+            lspconfig.fish_lsp.setup({})
+            lspconfig.kulala_ls.setup({})
+            lspconfig.superhtml.setup({})
             lspconfig.iwes.setup({})
             if need_all_servers then
                 lspconfig.csharp_ls.setup({})
