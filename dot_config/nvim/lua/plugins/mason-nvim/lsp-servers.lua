@@ -15,7 +15,7 @@ local base_servers = {
     "marksman",
     "powershell_es",
     "pyright",
-    "rust_analyzer",
+    --"rust_analyzer",
     "taplo",
     "ts_ls",
     "typos_lsp",
