@@ -337,20 +337,20 @@ end
 # ls abbrs
 ## eza
 # TODO: config now
-#if command -v eza >/dev/null 2>&1
-#    abbr --add ls "eza --color=always --icons=always --group-directories-first"
-#    abbr --add la "eza --color=always --icons=always --group-directories-first --all"
-#    abbr --add l1 "eza --color=always --icons=always --group-directories-first --oneline"
-#
-#    abbr --add ll "eza --color=always --icons=always --group-directories-first --long --header"
-#    abbr --add lla "eza --color=always --icons=always --group-directories-first --long --header --all"
-#    abbr --add ll1 "eza --color=always --icons=always --group-directories-first --long --header --oneline"
-#
-#    abbr --add lt "eza --color=always --icons=always --group-directories-first --tree"
-#    abbr --add lta "eza --color=always --icons=always --group-directories-first --tree --all"
-#    abbr --add lt1 "eza --color=always --icons=always --group-directories-first --tree --oneline"
-#    abbr --add llt "eza --color=always --icons=always --group-directories-first --tree --long --header"
-#end
+if command -v eza >/dev/null 2>&1
+    abbr --add ls "eza --color=always --icons=always --group-directories-first"
+    abbr --add la "eza --color=always --icons=always --group-directories-first --all"
+    abbr --add l1 "eza --color=always --icons=always --group-directories-first --oneline"
+
+    abbr --add ll "eza --color=always --icons=always --group-directories-first --long --header"
+    abbr --add lla "eza --color=always --icons=always --group-directories-first --long --header --all"
+    abbr --add ll1 "eza --color=always --icons=always --group-directories-first --long --header --oneline"
+
+    abbr --add lt "eza --color=always --icons=always --group-directories-first --tree"
+    abbr --add lta "eza --color=always --icons=always --group-directories-first --tree --all"
+    abbr --add lt1 "eza --color=always --icons=always --group-directories-first --tree --oneline"
+    abbr --add llt "eza --color=always --icons=always --group-directories-first --tree --long --header"
+end
 
 ## lla
 # TODO: config now
