@@ -13,6 +13,7 @@ local spec = {
     dependencies = require("plugins.mason-nvim.dependencies"),
     config = function()
         local lspconfig = require("lspconfig")
+        local configs = require("lspconfig.configs")
         local mason_lspconfig = require("mason-lspconfig")
         local mason_conform = require("mason-conform")
         local mason_nvim_dap = require("mason-nvim-dap")
@@ -47,6 +48,21 @@ local spec = {
             end,
         })
 
+        if not configs.iwes then
+            configs.iwes = {
+                default_config = {
+                    cmd = { "iwes" },
+                    filetypes = { "markdown" },
+                    root_dir = function(fname)
+                        local root_git = vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+                        local root_iwe = vim.fs.dirname(vim.fs.find(".iwe", { path = fname, upward = true })[1])
+                        return root_git or root_iwe
+                    end,
+                    single_file_support = true,
+                },
+            }
+        end
+
         lspconfig.bashls.setup({})
         lspconfig.cssls.setup({})
         lspconfig.denols.setup({})
@@ -68,6 +84,7 @@ local spec = {
         if not global.is_windows then
             lspconfig.markdown_oxide.setup({})
             lspconfig.svelte.setup({})
+            lspconfig.iwes.setup({})
             if need_all_servers then
                 lspconfig.csharp_ls.setup({})
                 lspconfig.esbonio.setup({})
