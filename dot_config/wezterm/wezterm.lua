@@ -45,10 +45,9 @@ if is_human_rights then
 end
 
 M.font = wezterm.font_with_fallback({
-    -- FiraCode Nerd Font
     --{ family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
-    { family = "FiraCode Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "UDEV Gothic NF", weight = "Regular", stretch = "Normal", style = "Normal" },
+    { family = "FiraCode Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "0xProto Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "Cascadia Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
@@ -58,7 +57,14 @@ M.font = wezterm.font_with_fallback({
 })
 M.font_size = font_size.base
 M.window_frame = {
-    font = wezterm.font_with_fallback({ family = "Roboto", weight = "Bold" }),
+    font = wezterm.font_with_fallback({
+        { family = "UDEV Gothic NF", weight = "Bold", stretch = "Normal", style = "Normal" },
+        { family = "FiraCode Nerd Font Mono", weight = "Bold", stretch = "Normal", style = "Normal" },
+        { family = "0xProto Nerd Font Mono", weight = "Bold", stretch = "Normal", style = "Normal" },
+        { family = "Cica", weight = "Bold", stretch = "Normal", style = "Normal" },
+        { family = "Cascadia Mono", weight = "Bold", stretch = "Normal", style = "Normal" },
+        { family = "Roboto", weight = "Bold", stretch = "Normal", style = "Normal" },
+    }),
     font_size = font_size.window_frame,
 }
 M.leader = keybinds.leader
