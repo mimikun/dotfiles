@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2025.02.05]
+
+### Added - 新機能について
+
+- feat(mason.nvim): add some lspconfigs
+- feat(mason.nvim): use mimikun registry
+- feat(mason.nvim): add iwes lspconfig
+- feat(fish): use eza abbrs
+- feat(fish): add lsd abbrs
+- feat(cargo): add tukai
+- feat(gup): add godap
+- feat(nvim): add cord.nvim
+
+### Changed - 既存機能の変更について
+
+- refactor(aqua): split some files
+- chore(wezterm): update fonts more
+- chore(fish): update some completions
+
+### Removed - 今回で削除された機能について
+
+- chore(gup): remove some packages
+- chore(mason.nvim): remove rust_analyzer from ensure_installed
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.02.04]
 
 ### Added - 新機能について
