@@ -25,9 +25,16 @@ function __fish_uv_using_subcommand
 end
 
 complete -c uv -n "__fish_uv_needs_command" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_needs_command" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_needs_command" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_needs_command" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_needs_command" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_needs_command" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_needs_command" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_needs_command" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_needs_command" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_needs_command" -l project -d 'Run the command within the given project directory' -r -F
@@ -88,24 +95,44 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l extra-index-url -d '(Depre
 complete -c uv -n "__fish_uv_using_subcommand run" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand run" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand run" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand run" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand run" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand run" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand run" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand run" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand run" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand run" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l package -d 'Run the command in a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s p -l python -d 'The Python interpreter to use for the run environment.' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand run" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand run" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand run" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand run" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand run" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand run" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand run" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -l project -d 'Run the command within the given project directory' -r -F
@@ -168,14 +195,29 @@ complete -c uv -n "__fish_uv_using_subcommand run" -s h -l help -d 'Display the 
 complete -c uv -n "__fish_uv_using_subcommand run" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand init" -l name -d 'The name of the project' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l description -d 'Set the project description' -r
-complete -c uv -n "__fish_uv_using_subcommand init" -l vcs -d 'Initialize a version control system for the project' -r -f -a "{git\t'Use Git for version control',none\t'Do not use any version control system'}"
-complete -c uv -n "__fish_uv_using_subcommand init" -l build-backend -d 'Initialize a build-backend of choice for the project' -r -f -a "{hatch\t'Use [hatchling](https://pypi.org/project/hatchling) as the project build backend',flit\t'Use [flit-core](https://pypi.org/project/flit-core) as the project build backend',pdm\t'Use [pdm-backend](https://pypi.org/project/pdm-backend) as the project build backend',setuptools\t'Use [setuptools](https://pypi.org/project/setuptools) as the project build backend',maturin\t'Use [maturin](https://pypi.org/project/maturin) as the project build backend',scikit\t'Use [scikit-build-core](https://pypi.org/project/scikit-build-core) as the project build backend'}"
-complete -c uv -n "__fish_uv_using_subcommand init" -l author-from -d 'Fill in the `authors` field in the `pyproject.toml`' -r -f -a "{auto\t'Fetch the author information from some sources (e.g., Git) automatically',git\t'Fetch the author information from Git configuration only',none\t'Do not infer the author information'}"
+complete -c uv -n "__fish_uv_using_subcommand init" -l vcs -d 'Initialize a version control system for the project' -r -f -a "git\t'Use Git for version control'
+none\t'Do not use any version control system'"
+complete -c uv -n "__fish_uv_using_subcommand init" -l build-backend -d 'Initialize a build-backend of choice for the project' -r -f -a "hatch\t'Use [hatchling](https://pypi.org/project/hatchling) as the project build backend'
+flit\t'Use [flit-core](https://pypi.org/project/flit-core) as the project build backend'
+pdm\t'Use [pdm-backend](https://pypi.org/project/pdm-backend) as the project build backend'
+setuptools\t'Use [setuptools](https://pypi.org/project/setuptools) as the project build backend'
+maturin\t'Use [maturin](https://pypi.org/project/maturin) as the project build backend'
+scikit\t'Use [scikit-build-core](https://pypi.org/project/scikit-build-core) as the project build backend'"
+complete -c uv -n "__fish_uv_using_subcommand init" -l author-from -d 'Fill in the `authors` field in the `pyproject.toml`' -r -f -a "auto\t'Fetch the author information from some sources (e.g., Git) automatically'
+git\t'Fetch the author information from Git configuration only'
+none\t'Do not infer the author information'"
 complete -c uv -n "__fish_uv_using_subcommand init" -s p -l python -d 'The Python interpreter to use to determine the minimum supported Python version.' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand init" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand init" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand init" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand init" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand init" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand init" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand init" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand init" -l project -d 'Run the command within the given project directory' -r -F
@@ -223,15 +265,28 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l extra-index-url -d '(Depre
 complete -c uv -n "__fish_uv_using_subcommand add" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand add" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand add" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand add" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand add" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand add" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand add" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand add" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand add" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand add" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand add" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand add" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand add" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand add" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l refresh-package -d 'Refresh cached data for a specific package' -r
@@ -239,9 +294,16 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l package -d 'Add the depend
 complete -c uv -n "__fish_uv_using_subcommand add" -l script -d 'Add the dependency to the specified Python script, rather than to a project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand add" -s p -l python -d 'The Python interpreter to use for resolving and syncing.' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand add" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand add" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand add" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand add" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand add" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand add" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand add" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand add" -l project -d 'Run the command within the given project directory' -r -F
@@ -298,15 +360,28 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l extra-index-url -d '(De
 complete -c uv -n "__fish_uv_using_subcommand remove" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand remove" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand remove" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand remove" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand remove" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand remove" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand remove" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l refresh-package -d 'Refresh cached data for a specific package' -r
@@ -314,9 +389,16 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l package -d 'Remove the 
 complete -c uv -n "__fish_uv_using_subcommand remove" -l script -d 'Remove the dependency from the specified Python script, rather than from a project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand remove" -s p -l python -d 'The Python interpreter to use for resolving and syncing.' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand remove" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand remove" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand remove" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand remove" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand remove" -l project -d 'Run the command within the given project directory' -r -F
@@ -374,24 +456,44 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l extra-index-url -d '(Depr
 complete -c uv -n "__fish_uv_using_subcommand sync" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand sync" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand sync" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand sync" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand sync" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand sync" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l package -d 'Sync for a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -s p -l python -d 'The Python interpreter to use for the project environment.' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand sync" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand sync" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand sync" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand sync" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -l project -d 'Run the command within the given project directory' -r -F
@@ -454,23 +556,43 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -s i -l index-url -d '(Depre
 complete -c uv -n "__fish_uv_using_subcommand lock" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand lock" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand lock" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand lock" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand lock" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand lock" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand lock" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -s p -l python -d 'The Python interpreter to use during resolution.' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand lock" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand lock" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand lock" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand lock" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l project -d 'Run the command within the given project directory' -r -F
@@ -510,7 +632,7 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l no-installer-metadata -d 
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s V -l version -d 'Display the uv version'
-complete -c uv -n "__fish_uv_using_subcommand export" -l format -d 'The format to which `uv.lock` should be exported' -r -f -a "{requirements-txt\t'Export in `requirements.txt` format'}"
+complete -c uv -n "__fish_uv_using_subcommand export" -l format -d 'The format to which `uv.lock` should be exported' -r -f -a "requirements-txt\t'Export in `requirements.txt` format'"
 complete -c uv -n "__fish_uv_using_subcommand export" -l package -d 'Export the dependencies for a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l prune -d 'Prune the given package from the dependency tree' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra -d 'Include optional dependencies from the specified extra name' -r
@@ -526,24 +648,44 @@ complete -c uv -n "__fish_uv_using_subcommand export" -s i -l index-url -d '(Dep
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand export" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand export" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand export" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand export" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand export" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand export" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand export" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand export" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand export" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand export" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand export" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l script -d 'Export the dependencies for the specified PEP 723 Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -s p -l python -d 'The Python interpreter to use during resolution.' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand export" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand export" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand export" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand export" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand export" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand export" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand export" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l project -d 'Run the command within the given project directory' -r -F
@@ -611,23 +753,79 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -s i -l index-url -d '(Depre
 complete -c uv -n "__fish_uv_using_subcommand tree" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand tree" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand tree" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand tree" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand tree" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -l script -d 'Show the dependency tree the specified PEP 723 Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tree" -l python-version -d 'The Python version to use when filtering the tree' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l python-platform -d 'The platform to use when filtering the tree' -r -f -a "{windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target',i686-pc-windows-msvc\t'A 32-bit x86 Windows target',x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`',aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin\t'An x86 macOS target',aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`',aarch64-unknown-linux-musl\t'An ARM64 Linux target',x86_64-unknown-linux-musl\t'An `x86_64` Linux target',x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`',x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform',x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform',x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform',x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform',x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform',x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform',x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform',x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform',x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform',x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform',x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform',x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform',aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`',aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform',aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform',aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform',aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform',aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform',aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform',aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform',aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform',aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform',aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform',aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform',aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'}"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l python-platform -d 'The platform to use when filtering the tree' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -s p -l python -d 'The Python interpreter to use for locking and filtering.' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tree" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tree" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tree" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tree" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tree" -l project -d 'Run the command within the given project directory' -r -F
@@ -674,9 +872,16 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l no-config -d 'Avoid disco
 complete -c uv -n "__fish_uv_using_subcommand tree" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l project -d 'Run the command within the given project directory' -r -F
@@ -719,24 +924,49 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l generate-shell-completion -r -f -a "{bash\t'',elvish\t'',fish\t'',nushell\t'',powershell\t'',zsh\t''}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l generate-shell-completion -r -f -a "bash\t''
+elvish\t''
+fish\t''
+nushell\t''
+powershell\t''
+zsh\t''"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l project -d 'Run the command within the given project directory' -r -F
@@ -789,24 +1019,49 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l generate-shell-completion -r -f -a "{bash\t'',elvish\t'',fish\t'',nushell\t'',powershell\t'',zsh\t''}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l generate-shell-completion -r -f -a "bash\t''
+elvish\t''
+fish\t''
+nushell\t''
+powershell\t''
+zsh\t''"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l project -d 'Run the command within the given project directory' -r -F
@@ -861,23 +1116,43 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter to use to build the tool environment.' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
@@ -928,21 +1203,41 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l project -d 'Run the command within the given project directory' -r -F
@@ -981,10 +1276,17 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s V -l version -d 'Display the uv version'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l python-preference -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l project -d 'Run the command within the given project directory' -r -F
@@ -1011,9 +1313,16 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l project -d 'Run the command within the given project directory' -r -F
@@ -1039,9 +1348,16 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l project -d 'Run the command within the given project directory' -r -F
@@ -1066,9 +1382,16 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
@@ -1094,9 +1417,16 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -l project -d 'Run the command within the given project directory' -r -F
@@ -1126,11 +1456,19 @@ complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcom
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -f -a "pin" -d 'Pin to a specific Python version'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -f -a "dir" -d 'Show the uv Python installation directory'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -f -a "uninstall" -d 'Uninstall Python versions'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l output-format -d 'Select the output format' -r -f -a "{text\t'Plain text (for humans)',json\t'JSON (for computers)'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l output-format -d 'Select the output format' -r -f -a "text\t'Plain text (for humans)'
+json\t'JSON (for computers)'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l project -d 'Run the command within the given project directory' -r -F
@@ -1164,9 +1502,16 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l mirror -d 'Set the URL to use as the source for downloading Python installations' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l pypy-mirror -d 'Set the URL to use as the source for downloading PyPy installations' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
@@ -1194,9 +1539,16 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l project -d 'Run the command within the given project directory' -r -F
@@ -1224,9 +1576,16 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l project -d 'Run the command within the given project directory' -r -F
@@ -1254,9 +1613,16 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
@@ -1283,9 +1649,16 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s i -l install-dir -d 'The directory where the Python was installed' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l project -d 'Run the command within the given project directory' -r -F
@@ -1311,9 +1684,16 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l project -d 'Run the command within the given project directory' -r -F
@@ -1356,35 +1736,93 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s o -l output-file -d 'Write the compiled requirements to the given `requirements.txt` file' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l annotation-style -d 'The style of the annotation comments included in the output file, used to indicate the source of each package' -r -f -a "{line\t'Render the annotations on a single, comma-separated line',split\t'Render each annotation on its own line'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l annotation-style -d 'The style of the annotation comments included in the output file, used to indicate the source of each package' -r -f -a "line\t'Render the annotations on a single, comma-separated line'
+split\t'Render each annotation on its own line'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l custom-compile-command -d 'The header comment to include at the top of the output file generated by `uv pip compile`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python -d 'The Python interpreter to use during resolution.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-binary -d 'Don\'t install pre-built wheels' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l only-binary -d 'Only use pre-built wheels; don\'t build source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s p -l python-version -d 'The Python version to use for resolution' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python-platform -d 'The platform for which requirements should be resolved' -r -f -a "{windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target',i686-pc-windows-msvc\t'A 32-bit x86 Windows target',x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`',aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin\t'An x86 macOS target',aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`',aarch64-unknown-linux-musl\t'An ARM64 Linux target',x86_64-unknown-linux-musl\t'An `x86_64` Linux target',x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`',x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform',x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform',x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform',x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform',x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform',x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform',x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform',x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform',x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform',x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform',x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform',x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform',aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`',aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform',aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform',aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform',aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform',aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform',aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform',aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform',aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform',aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform',aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform',aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform',aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python-platform -d 'The platform for which requirements should be resolved' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-emit-package -d 'Specify a package to omit from the output resolution. Its dependencies will still be included in the resolution. Equivalent to pip-compile\'s `--unsafe-package` option' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l resolver -r -f -a "{backtracking\t'',legacy\t''}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l resolver -r -f -a "backtracking\t''
+legacy\t''"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l max-rounds -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l client-cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l config -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l pip-args -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l project -d 'Run the command within the given project directory' -r -F
@@ -1463,11 +1901,17 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l target -d 'Install packages into the specified directory, rather than into the virtual or system Python environment. The packages will be installed at the top-level of the directory' -r -F
@@ -1475,16 +1919,59 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-binary -d 'Don\'t install pre-built wheels' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l only-binary -d 'Only use pre-built wheels; don\'t build source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-version -d 'The minimum Python version that should be supported by the requirements (e.g., `3.7` or `3.7.9`)' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "{windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target',i686-pc-windows-msvc\t'A 32-bit x86 Windows target',x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`',aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin\t'An x86 macOS target',aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`',aarch64-unknown-linux-musl\t'An ARM64 Linux target',x86_64-unknown-linux-musl\t'An `x86_64` Linux target',x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`',x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform',x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform',x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform',x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform',x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform',x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform',x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform',x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform',x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform',x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform',x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform',x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform',aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`',aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform',aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform',aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform',aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform',aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform',aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform',aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform',aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform',aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform',aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform',aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform',aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-executable -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l client-cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l config -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l pip-args -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l project -d 'Run the command within the given project directory' -r -F
@@ -1548,15 +2035,28 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l target -d 'Install packages into the specified directory, rather than into the virtual or system Python environment. The packages will be installed at the top-level of the directory' -r -F
@@ -1564,11 +2064,54 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-binary -d 'Don\'t install pre-built wheels' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l only-binary -d 'Only use pre-built wheels; don\'t build source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-version -d 'The minimum Python version that should be supported by the requirements (e.g., `3.7` or `3.7.9`)' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "{windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows',linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux',macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS',x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target',i686-pc-windows-msvc\t'A 32-bit x86 Windows target',x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`',aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices',x86_64-apple-darwin\t'An x86 macOS target',aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`',aarch64-unknown-linux-musl\t'An ARM64 Linux target',x86_64-unknown-linux-musl\t'An `x86_64` Linux target',x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`',x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform',x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform',x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform',x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform',x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform',x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform',x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform',x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform',x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform',x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform',x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform',x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform',aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`',aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform',aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform',aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform',aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform',aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform',aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform',aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform',aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform',aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform',aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform',aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform',aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
@@ -1628,13 +2171,21 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s r -l requirements -d 'Uninstall all packages listed in the given requirements files' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s p -l python -d 'The Python interpreter from which packages should be uninstalled.' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l target -d 'Uninstall packages from the specified `--target` directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l prefix -d 'Uninstall packages from the specified `--prefix` directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l project -d 'Run the command within the given project directory' -r -F
@@ -1667,9 +2218,16 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l path -d 'Restrict to the specified installation path for listing packages (can be used multiple times)' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l project -d 'Run the command within the given project directory' -r -F
@@ -1700,20 +2258,32 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l exclude -d 'Exclude the specified package(s) from the output' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l format -d 'Select the output format' -r -f -a "{columns\t'Display the list of packages in a human-readable table',freeze\t'Display the list of packages in a `pip freeze`-like format, with one package per line alongside its version',json\t'Display the list of packages in a machine-readable JSON format'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l format -d 'Select the output format' -r -f -a "columns\t'Display the list of packages in a human-readable table'
+freeze\t'Display the list of packages in a `pip freeze`-like format, with one package per line alongside its version'
+json\t'Display the list of packages in a machine-readable JSON format'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l project -d 'Run the command within the given project directory' -r -F
@@ -1749,9 +2319,16 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s p -l python -d 'The Python interpreter to find the package in.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l project -d 'Run the command within the given project directory' -r -F
@@ -1789,14 +2366,24 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l project -d 'Run the command within the given project directory' -r -F
@@ -1832,9 +2419,16 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -s p -l python -d 'The Python interpreter for which packages should be checked.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l project -d 'Run the command within the given project directory' -r -F
@@ -1867,15 +2461,28 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l default-index -d 'The URL
 complete -c uv -n "__fish_uv_using_subcommand venv" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
-complete -c uv -n "__fish_uv_using_subcommand venv" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand venv" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
+complete -c uv -n "__fish_uv_using_subcommand venv" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand venv" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand venv" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand venv" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand venv" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand venv" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand venv" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand venv" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand venv" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand venv" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand venv" -l project -d 'Run the command within the given project directory' -r -F
@@ -1924,22 +2531,42 @@ complete -c uv -n "__fish_uv_using_subcommand build" -s i -l index-url -d '(Depr
 complete -c uv -n "__fish_uv_using_subcommand build" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
-complete -c uv -n "__fish_uv_using_subcommand build" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "{first-index\t'Only use results from the first index that returns a match for a given package name',unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next',unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'}"
-complete -c uv -n "__fish_uv_using_subcommand build" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
-complete -c uv -n "__fish_uv_using_subcommand build" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "{highest\t'Resolve the highest compatible version of each package',lowest\t'Resolve the lowest compatible version of each package',lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'}"
-complete -c uv -n "__fish_uv_using_subcommand build" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "{disallow\t'Disallow all pre-release versions',allow\t'Allow all pre-release versions',if-necessary\t'Allow pre-release versions if all versions of a package are pre-release',explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements',if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'}"
-complete -c uv -n "__fish_uv_using_subcommand build" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "{fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms',requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'}"
+complete -c uv -n "__fish_uv_using_subcommand build" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand build" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand build" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand build" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand build" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand build" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand build" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "{clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory',copy\t'Copy packages from the wheel into the `site-packages` directory',hardlink\t'Hard link packages from the wheel into the `site-packages` directory',symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'}"
+complete -c uv -n "__fish_uv_using_subcommand build" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
+copy\t'Copy packages from the wheel into the `site-packages` directory'
+hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
+symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l project -d 'Run the command within the given project directory' -r -F
@@ -1991,14 +2618,24 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l index -d 'The name of 
 complete -c uv -n "__fish_uv_using_subcommand publish" -s u -l username -d 'The username for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s p -l password -d 'The password for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s t -l token -d 'The token for the upload' -r
-complete -c uv -n "__fish_uv_using_subcommand publish" -l trusted-publishing -d 'Configure using trusted publishing through GitHub Actions' -r -f -a "{automatic\t'Try trusted publishing when we\'re already in GitHub Actions, continue if that fails',always\t'',never\t''}"
-complete -c uv -n "__fish_uv_using_subcommand publish" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "{disabled\t'Do not use keyring for credential lookup',subprocess\t'Use the `keyring` command for credential lookup'}"
+complete -c uv -n "__fish_uv_using_subcommand publish" -l trusted-publishing -d 'Configure using trusted publishing through GitHub Actions' -r -f -a "automatic\t'Try trusted publishing when we\'re already in GitHub Actions, continue if that fails'
+always\t''
+never\t''"
+complete -c uv -n "__fish_uv_using_subcommand publish" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l publish-url -d 'The URL of the upload endpoint (not the index URL)' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l check-url -d 'Check an index URL for existing files to skip duplicate uploads' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand publish" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand publish" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand publish" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand publish" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand publish" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand publish" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l project -d 'Run the command within the given project directory' -r -F
@@ -2024,9 +2661,16 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l no-config -d 'Avoid di
 complete -c uv -n "__fish_uv_using_subcommand publish" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand publish" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l project -d 'Run the command within the given project directory' -r -F
@@ -2059,9 +2703,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -f -a "get-requires-for-build-editable" -d 'PEP 660 hook `get_requires_for_build_editable`'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -f -a "prepare-metadata-for-build-editable" -d 'PEP 660 hook `prepare_metadata_for_build_editable`'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l project -d 'Run the command within the given project directory' -r -F
@@ -2087,9 +2738,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l metadata-directory -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l project -d 'Run the command within the given project directory' -r -F
@@ -2115,9 +2773,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l metadata-directory -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l project -d 'Run the command within the given project directory' -r -F
@@ -2142,9 +2807,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l project -d 'Run the command within the given project directory' -r -F
@@ -2169,9 +2841,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l project -d 'Run the command within the given project directory' -r -F
@@ -2196,9 +2875,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l project -d 'Run the command within the given project directory' -r -F
@@ -2223,9 +2909,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l project -d 'Run the command within the given project directory' -r -F
@@ -2250,9 +2943,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l project -d 'Run the command within the given project directory' -r -F
@@ -2277,9 +2977,16 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l project -d 'Run the command within the given project directory' -r -F
@@ -2307,9 +3014,16 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -f -a "prune" -d 'Prune all unreachable objects from the cache'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -f -a "dir" -d 'Show the cache directory'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l project -d 'Run the command within the given project directory' -r -F
@@ -2334,9 +3048,16 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l project -d 'Run the command within the given project directory' -r -F
@@ -2362,9 +3083,16 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
@@ -2389,9 +3117,16 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -l project -d 'Run the command within the given project directory' -r -F
@@ -2418,9 +3153,16 @@ complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update" -f -a "update" -d 'Update uv'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l token -d 'A GitHub token for authentication. A token is not required but can be used to reduce the chance of encountering rate limits' -r
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l project -d 'Run the command within the given project directory' -r -F
@@ -2445,9 +3187,16 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand clean" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand clean" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand clean" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand clean" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand clean" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand clean" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand clean" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand clean" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand clean" -l project -d 'Run the command within the given project directory' -r -F
@@ -2471,11 +3220,19 @@ complete -c uv -n "__fish_uv_using_subcommand clean" -l no-installer-metadata -d
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand clean" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand clean" -s V -l version -d 'Display the uv version'
-complete -c uv -n "__fish_uv_using_subcommand version" -l output-format -r -f -a "{text\t'Display the version as plain text',json\t'Display the version as JSON'}"
+complete -c uv -n "__fish_uv_using_subcommand version" -l output-format -r -f -a "text\t'Display the version as plain text'
+json\t'Display the version as JSON'"
 complete -c uv -n "__fish_uv_using_subcommand version" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand version" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand version" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand version" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand version" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand version" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand version" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand version" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand version" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand version" -l project -d 'Run the command within the given project directory' -r -F
@@ -2500,10 +3257,17 @@ complete -c uv -n "__fish_uv_using_subcommand version" -l no-config -d 'Avoid di
 complete -c uv -n "__fish_uv_using_subcommand version" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand version" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l cache-dir -r -F
-complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l python-preference -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l color -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l color -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l config-file -r -F
-complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
+complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l project -d 'Run the command within the given project directory' -r -F
@@ -2527,9 +3291,16 @@ complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l isol
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l show-settings -d 'Show the resolved settings for the current command'
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand help" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand help" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "{only-managed\t'Only use managed Python installations; never use system Python installations',managed\t'Prefer managed Python installations over system Python installations',system\t'Prefer system Python installations over managed Python installations',only-system\t'Only use system Python installations; never use managed Python installations'}"
-complete -c uv -n "__fish_uv_using_subcommand help" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "{automatic\t'Automatically download managed Python installations when needed',manual\t'Do not automatically download managed Python installations; require explicit installation',never\t'Do not ever allow Python downloads'}"
-complete -c uv -n "__fish_uv_using_subcommand help" -l color -d 'Control the use of color in output' -r -f -a "{auto\t'Enables colored output only when the output is going to a terminal or TTY with support',always\t'Enables colored output regardless of the detected environment',never\t'Disables colored output'}"
+complete -c uv -n "__fish_uv_using_subcommand help" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand help" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand help" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand help" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
 complete -c uv -n "__fish_uv_using_subcommand help" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand help" -l project -d 'Run the command within the given project directory' -r -F
