@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2025.02.06]
+
+### Added - 新機能について
+
+- feat(nvim): add gitportal.nvim
+- feat(nvim): add stalker.nvim
+- feat(chezmoiscripts): add clink_vfox.lua download script
+
+### Changed - 既存機能の変更について
+
+- chore(mason.nvim): update iwes lspconfig
+- chore(localbin): update vup
+- chore(nvim): update helpview.nvim config
+
+### Removed - 今回で削除された機能について
+
+- chore(mise): remove asdf:neovim
+
+### Fixed - 不具合修正について
+
+- fix(shells): use bob-nvim
+- fix(nvim): resolve denops bug
+
 ## [v2025.02.05]
 
 ### Added - 新機能について
