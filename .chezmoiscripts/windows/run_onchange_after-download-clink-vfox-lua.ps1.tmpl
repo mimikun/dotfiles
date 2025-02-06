@@ -1,0 +1,15 @@
+{{ if eq .chezmoi.os "windows" -}}
+
+# download clink_vfox.lua
+$clinkVfoxLuaBaseDirectory = Join-Path -Path $env:LOCALAPPDATA -ChildPath "clink"
+$clinkVfoxLua = "clink_vfox.lua"
+$clinkVfoxLuaFullPath = Join-Path -Path $clinkVfoxLuaBaseDirectory -ChildPath $clinkVfoxLua
+
+if (-not (Test-Path -Path $clinkVfoxLuaFullPath))
+{
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/version-fox/vfox/refs/heads/main/internal/shell/clink_vfox.lua" -OutFile $clinkVfoxLuaFullPath
+}
+
+# vim:ft=ps1.chezmoitmpl
+
+{{ end -}}
