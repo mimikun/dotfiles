@@ -68,8 +68,6 @@ settings.use_avante = check_avante()
 ---use denops
 -- NOTE: only be enabled at Home-azusa and Home-WSL
 local use_denops = (is_home and global.is_linux) and true or false
--- HACK: deno has bug
-use_denops = false
 settings.use_denops = use_denops
 
 ---use blink.cmp
