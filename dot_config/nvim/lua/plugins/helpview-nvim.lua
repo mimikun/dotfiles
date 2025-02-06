@@ -6,7 +6,7 @@ local spec = {
     ft = "help",
     cmd = "Helpview",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = require("plugins.helpview-nvim.opts"),
+    opts = {},
     --cond = false,
     --enabled = false,
 }
