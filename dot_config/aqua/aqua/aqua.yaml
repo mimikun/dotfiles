@@ -9,7 +9,7 @@ packages:
   - name: astral-sh/uv@0.5.28
   - name: babarot/gomi@v1.2.2
   - name: bcicen/ctop@v0.7.7
-  - name: bitwarden/clients@cli-v2025.1.2
+  - name: bitwarden/clients@cli-v2025.1.3
   - name: bloznelis/typioca@3.1.0
   - name: boyter/scc@v3.4.0
   - name: bronze1man/yaml2json@v1.3.4
