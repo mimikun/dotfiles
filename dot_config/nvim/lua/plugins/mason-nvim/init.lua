@@ -54,9 +54,10 @@ local spec = {
                     cmd = { "iwes" },
                     filetypes = { "markdown" },
                     root_dir = function(fname)
-                        local root_git = vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+                        --local root_git = vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
                         local root_iwe = vim.fs.dirname(vim.fs.find(".iwe", { path = fname, upward = true })[1])
-                        return root_git or root_iwe
+                        --return root_git or root_iwe
+                        return root_iwe
                     end,
                     single_file_support = true,
                 },
