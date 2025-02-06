@@ -317,11 +317,10 @@ if is_linux then
     nyagos.envadd("PATH", aqua_bin)
 
     -- bob neovim version manager
-    -- HACK: bob not compatible with latest release assets of neovim
-    --local bob_config = table.concat({ xdg_config_home, "bob", "config.toml" }, path_sep)
-    --local bob_bin = table.concat({ xdg_data_home, "bob", "nvim-bin" }, path_sep)
-    --nyagos.envadd("BOB_CONFIG", bob_config)
-    --nyagos.envadd("PATH", bob_bin)
+    local bob_config = table.concat({ xdg_config_home, "bob", "config.toml" }, path_sep)
+    local bob_bin = table.concat({ xdg_data_home, "bob", "nvim-bin" }, path_sep)
+    nyagos.envadd("BOB_CONFIG", bob_config)
+    nyagos.envadd("PATH", bob_bin)
 
     -- Neovide env-vars
     --[[
