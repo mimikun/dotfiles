@@ -1,16 +1,16 @@
-# rofi customize now
+# HACK: rofi customize now
 .config/rofi/**
 
-# emacs customize now
+# HACK: emacs customize now
 .emacs.d/**
 
-# Windows Terminal configs
+# HACK: Windows Terminal configs
 AppData/Local/Packages/Microsoft.WindowsTerminal*
 
 # TODO: create github only ssh-key
 .ssh/conf.d/github
 
-## All
+# All
 .editorconfig
 .github/**
 .gitignore
@@ -57,7 +57,7 @@ scripts/**
 game_settings/**
 misc/**
 
-# If not archlinux(azusa)
+# NOTE: If NOT Home-azusa
 {{ if ne .chezmoi.hostname "azusa" }}
 .Xresources
 .xinitrc
@@ -73,7 +73,7 @@ misc/**
 .config/zed/**
 {{ end }}
 
-# If work-pc
+# NOTE: If Work-Windows or Work-WSL
 {{ if eq .chezmoi.hostname "TanakaPC" }}
 utilities/StopTrex.ps1
 utilities/GamingMode.bat
@@ -88,11 +88,12 @@ utilities/miniz-flux-mining.bat
 utilities/t-rex-mining.bat
 .config/vim/**
 .vim/**
+# NOTE: If NOT Work-Windows or Work-WSL
 {{ else }}
 .config/systemd/user/wsl-wayland-symlink.service
 {{ end }}
 
-# If not Linux
+# NOTE: If NOT Linux
 {{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
 
@@ -127,12 +128,12 @@ Brewfile
 .mimikun-pkglists/linux_rubygem_list
 {{ end }}
 
-# If not macOS
+# NOTE: If NOT macOS
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/macos/**
 {{ end }}
 
-# If not windows
+# NOTE: If NOTE windows
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
 
