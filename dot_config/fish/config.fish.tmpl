@@ -502,6 +502,13 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo "jj util completion fish | source" >> $CACHE_CONFIG_FISH
     end
 
+    # vfox
+    # NOTE: can't use now
+    #if command -v vfox >/dev/null 2>&1
+    #    echo "# cache vfox config" >> $CACHE_CONFIG_FISH
+    #    echo "vfox activate fish | source" >> $CACHE_CONFIG_FISH
+    #end
+
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") -}}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH

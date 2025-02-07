@@ -358,6 +358,12 @@ fi
 # zettelkasten
 export zettelkasten_root="$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
 
+# vfox
+# NOTE: can't use it now
+#if command -v vfox >/dev/null 2>&1; then
+#    eval "$(vfox activate bash)"
+#fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}

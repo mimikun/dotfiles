@@ -232,6 +232,16 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $ccsum_completion >> $env:CACHE_PROFILE
     }
+
+    # vfox setup
+    # NOTE: can't use now
+    #Get-Command vfox -ErrorAction Ignore | Out-Null
+    #$res = $?
+    #if ($res) {
+    #    Write-Output "# vfox setup" >> $env:CACHE_PROFILE
+    #    $vfox_setup = vfox activate pwsh
+    #    Write-Output $vfox_setup >> $env:CACHE_PROFILE
+    #}
 }
 
 # Loading from cache profile
