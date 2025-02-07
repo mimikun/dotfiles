@@ -11,6 +11,7 @@ bat
 bingrep
 binsider
 bluetui
+bob-nvim
 bottom
 bpf-linker
 broot
