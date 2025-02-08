@@ -103,7 +103,7 @@ packages:
   - name: wtetsu/gaze@v1.2.0
   - name: x-motemen/ghq@v1.7.1
   - name: xxxserxxx/gotop@v4.2.0
-  - name: yassinebenaid/bunster@v0.7.1
+  - name: yassinebenaid/bunster@v0.8.0
   - name: ycd/dstp@v0.4.23
   - name: yorukot/superfile@v1.1.7.1
   - name: zyedidia/eget@v1.3.4
