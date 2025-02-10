@@ -32,6 +32,10 @@ local dependencies = {
     --"nvim-orgmode/orgmode",
     --"nvim-orgmode/telescope-orgmode.nvim",
     --"janwvjaarsveld/neovimcraft.nvim",
+    {
+        "oleksiiluchnikov/telescope-avante.nvim",
+        dependencies = "yetone/avante.nvim",
+    },
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

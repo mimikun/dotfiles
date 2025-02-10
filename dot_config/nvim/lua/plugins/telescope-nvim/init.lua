@@ -46,6 +46,7 @@ local spec = {
         --telescope.load_extension("repos")
         --telescope.load_extension("orgmode")
         --telescope.load_extension("neovimcraft")
+        --telescope.load_extension("avante")
     end,
     --cond = false,
     --enabled = false,
