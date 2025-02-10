@@ -3,7 +3,7 @@ packages:
   - name: aandrew-me/tgpt@v2.9.1
   - name: ahmetb/kubectx@v0.9.5
   - name: antonmedv/fx@35.0.0
-  - name: antonmedv/walk@v1.11.0
+  - name: antonmedv/walk@v1.12.0
   - name: aquaproj/registry-tool@v0.3.1
   - name: aristocratos/btop@v1.4.0
   - name: astral-sh/uv@0.5.30
