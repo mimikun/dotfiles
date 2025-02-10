@@ -36,7 +36,7 @@ packages:
   - name: golang/go@go1.23.6
   - name: golang/tools/goimports@v0.29.0
   - name: golang/tools/gorename@v0.25.0
-  - name: google/yamlfmt@v0.15.0
+  - name: google/yamlfmt@v0.16.0
   - name: gopasspw/gopass@v1.15.15
   - name: go-task/task@v3.41.0
   - name: grafana/k6@v0.56.0
