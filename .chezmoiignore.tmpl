@@ -1,155 +1,125 @@
-# HACK: rofi customize now
+# HACK: Now configuration...
+.emacs.d/**
 .config/rofi/**
 
-# HACK: emacs customize now
-.emacs.d/**
-
-# HACK: Windows Terminal configs
-AppData/Local/Packages/Microsoft.WindowsTerminal*
-
-# TODO: create github only ssh-key
-.ssh/conf.d/github
-
-# All
+# Ignore: All envs
+*.zip
+*.patch
+*.patch.gpg
+.textlintcache
+.chezmoiexternal.toml.tmpl
+.chezmoiignore.tmpl
+.chezmoi.toml.tmpl
+.cspell.json
+.czrc
+.config/README.md
+.config/i3/README.md
+.config/nvim/README.md
+.config/vim/README.md
+.config/powershell/Invoke-FixEncode.ps1
+.config/powershell/PSScriptAnalyzerSettings.psd1
 .editorconfig
-.github/**
 .gitignore
 .gitleaksignore
-.textlintcache
-.textlintrc.json
+.luarc.json
+.mise.toml
 .prettierignore
 .prettierrc
+.textlintrc.json
 .typos.toml
-.luarc.json
-.config/README.md
-.config/fish/README.md
-.config/nvim/README.md
-.config/nvim-old/README.md
-.config/vim/README.md
-.vim/README.md
-commitlint.config.ts
-.husky/**
-.mise/**
 
+node_modules
+Brewfile
 CHANGELOG.md
+commitlint.config.ts
+get_ipv4.sh
 LICENSE.txt
 Makefile
 maskfile.md
-README.md
-STARTUPTIME.md
-TODO.md
-node_modules
-WSLInterop.conf
-wsl.conf
-renovate.json5
-selene.toml
-stylua.toml
-vim.yml
 nyagos.yml
-package.yml
-table.yml
 package.json
+package.yml
 pnpm-lock.yaml
 PSScriptAnalyzerSettings.psd1
-docs/**
+README.md
+renovate.json5
+selene.toml
+STARTUPTIME.md
+stylua.toml
+table.yml
+vim.yml
+
+.chezmoiscripts/linux/**
+.chezmoiscripts/macos/**
+.chezmoiscripts/windows/**
+.config/nvim-lit/**
+.config/nvim-rocks/**
+.github/**
+.husky/**
+.mise/**
+
 assets/**
-scripts/**
+docs/**
 game_settings/**
 misc/**
+scripts/**
 
-# NOTE: If NOT Home-azusa
-{{ if ne .chezmoi.hostname "azusa" }}
-.Xresources
-.xinitrc
-.xmodmap
-.xsession
-
-.config/i3/**
-.config/i3status-rust/**
-.config/fcitx5/**
-.config/betterlockscreen/**
-.config/polybar/**
-.config/rofi/**
-.config/zed/**
-{{ end }}
-
-# NOTE: If Work-Windows or Work-WSL
-{{ if eq .chezmoi.hostname "TanakaPC" }}
-utilities/StopTrex.ps1
-utilities/GamingMode.bat
-utilities/Mining.bat
-utilities/MiningMode.bat
-utilities/StopTrex.bat
-utilities/dual-gminer-mining.bat
-utilities/gminer-flux-mining.bat
-utilities/gminer-mining.bat
-utilities/lolminer-mining.bat
-utilities/miniz-flux-mining.bat
-utilities/t-rex-mining.bat
-.config/vim/**
-.vim/**
-# NOTE: If NOT Work-Windows or Work-WSL
-{{ else }}
-.config/systemd/user/wsl-wayland-symlink.service
-{{ end }}
-
-# NOTE: If NOT Linux
+# Ignore: Not eq OS: Linux
 {{ if ne .chezmoi.os "linux" }}
-.chezmoiscripts/linux/**
-
-.actrc
-.exrc
-.nanorc
-.mise.toml
-.zshrc
-.tcshrc
-.xonshrc
-.tmux.conf
+.local/bin/**
 .config/elvish/**
-.config/emacs/**
 .config/fish/**
+.config/foot/**
+.config/ghostty/**
+.config/gup/**
+.config/home-manager/**
+.config/Hyper/**
 .config/ion/**
 .config/mise/**
-.config/neofetch/**
-.config/nushell/**
-.config/pueue/**
-.config/rbw/**
-.config/sheldon/**
-.config/yazi/**
-.config/gitu/**
-.config/lazydocker/**
-.config/lazygit/**
+.config/moxide/**
+.config/zeno/**
 .config/systemd/**
-.ghcup/**
-.local/bin/**
-
-Brewfile
+.config/systemd/user/wsl-wayland-symlink.service
 .mimikun-pkglists/linux_cargo_packages.txt
-.mimikun-pkglists/linux_pip_packages.txt
-.mimikun-pkglists/linux_rubygem_list
+.exrc
+.nanorc
+.profile
+.zshrc.tmpl
+.tcshrc
 {{ end }}
 
-# NOTE: If NOT macOS
-{{ if ne .chezmoi.os "darwin" }}
-.chezmoiscripts/macos/**
+# Ignore: Not eq hostname: azusa
+{{ if ne .chezmoi.hostname "azusa" }}
+.config/betterlockscreen/**
+.config/fcitx5/**
+.config/flameshot
+.config/flameshot/**
+.config/i3/**
+.config/i3status-rust/**
+.config/polybar/**
+.config/rofi/**
+.xinitrc
+.xmodmap
+.xonshrc
+.Xresources
+.xsession
 {{ end }}
 
-# NOTE: If NOTE windows
+# Ignore: Not eq OS: Windows
 {{ if ne .chezmoi.os "windows" }}
-.chezmoiscripts/windows/**
-
-.config/winfetch/**
-.glzr/zebar/**
-.glzr/glazewm/**
-.wslconfig.tmpl
-.inputrc
-
-macros.txt
-utilities/**
-.mimikun-pkglists/windows_cargo_packages.txt
 AppData/**
 Documents/**
 OneDrive/**
+macros.txt
+.glzr/**
+.mimikun-pkglists/windows_cargo_packages.txt
+.wslconfig.tmpl
+utilities/**
+{{ end }}
+
+# Ignore: Not eq Hostname: TanakaPC
+{{ if ne .chezmoi.hostname "TanakaPC" }}
+!utilities/**
 {{ end }}
 
 # vim:ft=gitignore.tmpl
