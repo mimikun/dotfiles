@@ -154,6 +154,7 @@ rustscan
 rust-script
 sccache
 scooter
+scraps
 sd
 selene
 serie

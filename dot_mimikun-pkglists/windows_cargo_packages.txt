@@ -127,6 +127,7 @@ rustfinity
 rust-script
 sccache
 scooter
+scraps
 sd
 selene
 shellharden
