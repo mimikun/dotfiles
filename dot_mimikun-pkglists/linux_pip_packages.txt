@@ -13,6 +13,9 @@ atomicwrites
 attr
 attrs
 audioop-lts
+azure-ai-documentintelligence
+azure-core
+azure-identity
 babel
 beartype
 beautifulsoup4
@@ -83,6 +86,8 @@ mkdocs
 mkdocs-exclude
 mkdocs-get-deps
 more-itertools
+msal
+msal-extensions
 msgpack
 natsort
 neovim
@@ -104,6 +109,7 @@ pillow
 pipupgrade
 pipx
 platformdirs
+portalocker
 prompt-toolkit
 psutil
 pur
@@ -113,6 +119,7 @@ pydantic
 pydantic_core
 pydub
 Pygments
+PyJWT
 pylatexenc
 pynvim
 pyparsing
