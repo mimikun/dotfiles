@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2025.02.10]
+
+### Added - 新機能について
+
+- feat(cargo): add scraps
+- feat(cargo-linux): add bob-nvim
+- feat(gup): add ttyimg
+- feat(nvim): add vimcino
+- feat(nvim): add flatjson.nvim
+- feat(nvim): add buffer-reopen.nvim
+- feat(telescope): add telescope-avante.nvim
+- feat(shells): add vfox shell integration
+- feat(nvim): add neo-img
+- feat(nvim): add select-undo.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update uv completion
+- chore(tiny-glimmer.nvim): update config
+- chore(smear-cursor.nvim): update config
+- chore(nushell): update config
+- chore(chezmoiignore): update
+- chore(chezmoiignore): ignore .tmux.conf if windows
+- refactor(chezmoiignore): update
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.02.06]
 
 ### Added - 新機能について
