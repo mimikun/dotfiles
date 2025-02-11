@@ -82,11 +82,11 @@ complete -c uv -n "__fish_uv_needs_command" -f -a "help" -d 'Display documentati
 complete -c uv -n "__fish_uv_using_subcommand run" -l extra -d 'Include optional dependencies from the specified extra name' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l group -d 'Include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Disable the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-group -d 'Only include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l env-file -d 'Load environment variables from a `.env` file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -l with -d 'Run with the given packages installed' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed as editables' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
@@ -140,8 +140,8 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l config-file -d 'The path t
 complete -c uv -n "__fish_uv_using_subcommand run" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand run" -l dev -d 'Include the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-dev -d 'Omit the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-default-groups -d 'Exclude dependencies from default groups'
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-dev -d 'Disable the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-default-groups -d 'Ignore the the default dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand run" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand run" -s m -l module -d 'Run a Python module'
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-dev -d 'Only include the development dependency group'
@@ -455,7 +455,7 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -s V -l version -d 'Displa
 complete -c uv -n "__fish_uv_using_subcommand sync" -l extra -d 'Include optional dependencies from the specified extra name' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l group -d 'Include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-group -d 'Disable the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-group -d 'Only include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-package -d 'Do not install the given package(s)' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -510,9 +510,9 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l config-file -d 'The path 
 complete -c uv -n "__fish_uv_using_subcommand sync" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand sync" -l dev -d 'Include the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-dev -d 'Omit the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-dev -d 'Disable the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-dev -d 'Only include the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-default-groups -d 'Exclude dependencies from default groups'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-default-groups -d 'Ignore the the default dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l inexact -d 'Do not remove extraneous packages present in the environment'
@@ -523,6 +523,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-project -d 'Do
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-workspace -d 'Do not install any workspace members, including the root project'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l frozen -d 'Sync without updating the `uv.lock` file'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l dry-run -d 'Perform a dry run, without writing the lockfile or modifying the project environment'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand sync" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-upgrade
@@ -649,7 +650,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l prune -d 'Prune the giv
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra -d 'Include optional dependencies from the specified extra name' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l group -d 'Include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-group -d 'Disable the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-group -d 'Only include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s o -l output-file -d 'Write the exported requirements to the given file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-package -d 'Do not emit the given package(s)' -r
@@ -705,9 +706,9 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l all-packages -d 'Export
 complete -c uv -n "__fish_uv_using_subcommand export" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand export" -l dev -d 'Include the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-dev -d 'Omit the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-dev -d 'Disable the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-dev -d 'Only include the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-default-groups -d 'Exclude dependencies from default groups'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-default-groups -d 'Ignore the the default dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand export" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-header -d 'Exclude the comment header at the top of the generated output file'
 complete -c uv -n "__fish_uv_using_subcommand export" -l header
@@ -754,7 +755,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -s d -l depth -d 'Maximum di
 complete -c uv -n "__fish_uv_using_subcommand tree" -l prune -d 'Prune the given package from the display of the dependency tree' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l package -d 'Display only the specified packages' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l group -d 'Include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-group -d 'Exclude dependencies from the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-group -d 'Disable the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l only-group -d 'Only include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
@@ -847,8 +848,8 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l invert -d 'Show the rever
 complete -c uv -n "__fish_uv_using_subcommand tree" -l outdated -d 'Show the latest available version of each package in the tree'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l dev -d 'Include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l only-dev -d 'Only include the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-dev -d 'Omit the development dependency group'
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-default-groups -d 'Exclude dependencies from default groups'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-dev -d 'Disable the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-default-groups -d 'Ignore the the default dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l frozen -d 'Display the requirements without locking the project'
@@ -926,7 +927,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "dir" -d 'Show the path to the uv tools directory'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l from -d 'Use the given package to provide the command' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with -d 'Run with the given packages installed' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-editable -d 'Run with the given packages installed as editables' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
@@ -1021,7 +1022,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l from -d 'Use the given package to provide the command' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with -d 'Run with the given packages installed' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-editable -d 'Run with the given packages installed as editables' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
@@ -1116,8 +1117,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l from -d 'The package to install commands from' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with -d 'Include the following extra requirements' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-editable -d 'Include the given packages as editables' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Run all requirements listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-editable -d 'Include the given packages in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l overrides -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -1168,7 +1169,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s e -l editable
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s e -l editable -d 'Install the target package in editable mode, such that changes in the package\'s source directory are reflected without reinstallation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-upgrade
