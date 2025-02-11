@@ -1,24 +1,10 @@
----@type table
-local cmds = {
-    "TodoQuickFix",
-    "TodoLocList",
-    "TodoTelescope",
-}
-
----@type LazySpec[]
-local dependencies = {
-    "nvim-telescope/telescope.nvim",
-    "nvim-lua/plenary.nvim",
-    "folke/trouble.nvim",
-}
-
 ---@type LazySpec
 local spec = {
     "folke/todo-comments.nvim",
     --lazy = false,
-    cmd = cmds,
+    cmd = require("plugins.todo-comments-nvim.cmds"),
     event = "BufEnter",
-    dependencies = dependencies,
+    dependencies = require("plugins.todo-comments-nvim.dependencies"),
     opts = require("plugins.todo-comments-nvim.opts"),
     --cond = false,
     --enabled = false,
