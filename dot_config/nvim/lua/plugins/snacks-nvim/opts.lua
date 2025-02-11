@@ -1,25 +1,46 @@
 ---@class snacks.Config
 local opts = {
+    --animate = {},
     bigfile = {
         enabled = true,
         -- 150KB, 1KB = 1024byte
         size = 150 * 1024,
+        line_length = 1000,
     },
+    --bufdelete = nil,
     dashboard = require("plugins.snacks-nvim.dashboard"),
+    --debug = nil,
+    --dim = {},
+    --git = nil,
+    --gitbrowse = {},
+    --health = nil,
+    --image = {},
     indent = { enabled = false },
     input = { enabled = false },
+    --layout = {},
+    --lazygit = {},
+    --meta = nil,
     notifier = { enabled = true },
+    --notify = nil,
+    --profiler = {},
     quickfile = { enabled = true },
     picker = { enabled = true },
+    --rename = nil,
     scope = { enabled = false },
+    --scratch = {},
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
-    words = { enabled = true },
     styles = {
         notification = {
             wo = { wrap = true },
         },
     },
+    --terminal = {},
+    --toggle = {},
+    --util = nil,
+    --win = nil,
+    words = { enabled = true },
+    --zen = {},
 }
 
 return opts
