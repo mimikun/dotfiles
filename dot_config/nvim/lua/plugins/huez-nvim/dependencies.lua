@@ -12,6 +12,7 @@ local main = {
 
 ---@type LazySpec[]
 local other = {
+    { "mistweaverco/retro-theme.nvim", optional = true },
     { "Mofiqul/vscode.nvim", optional = true },
     { "qaptoR-nvim/chocolatier.nvim", optional = true },
     { "paulo-granthon/hyper.nvim", optional = true },
