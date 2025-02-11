@@ -119,9 +119,9 @@ macros.txt
 utilities/**
 {{ end }}
 
-# Ignore: Not eq Hostname: TanakaPC
-{{ if ne .chezmoi.hostname "TanakaPC" }}
-!utilities/**
+# Ignore: eq Hostname: TanakaPC
+{{ if eq .chezmoi.hostname "TanakaPC" }}
+utilities/**
 {{ end }}
 
 # vim:ft=gitignore.tmpl
