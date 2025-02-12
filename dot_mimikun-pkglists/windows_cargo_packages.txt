@@ -49,6 +49,7 @@ fblog
 fd-find
 felix
 fend
+flamelens
 flawz
 forgejo-cli
 fselect
