@@ -701,8 +701,8 @@ TODAY=$(date "+%Y.%m.%d")
 RESULT_FILE="CHANGELOG.md"
 LATEST_GIT_TAG=$(git tag | head -n 1)
 GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
-HOSTNAME=$(hostname)
-home() {
+
+function generate_changelog() {
     echo "## [v$TODAY]"
     echo ""
     echo "$GIT_LOG" |
@@ -731,7 +731,13 @@ home() {
     echo ""
 }
 
-work() {
+generate_changelog >>$RESULT_FILE
+```
+
+```powershell
+Write-Output "Windows is not support now!"
+```
+
     echo "## run"
     echo ""
     echo '```bash'
