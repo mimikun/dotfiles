@@ -738,6 +738,17 @@ generate_changelog >>$RESULT_FILE
 Write-Output "Windows is not support now!"
 ```
 
+## generate-commit-msg
+
+> Add commit message up to `origin/master` for mask to CHANGELOG.md
+
+```bash
+RESULT_FILE="CHANGELOG.md"
+LATEST_GIT_TAG=$(git tag | head -n 1)
+GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")
+HOSTNAME=$(hostname)
+
+function generate_commit_msg () {
     echo "## run"
     echo ""
     echo '```bash'
@@ -759,13 +770,9 @@ Write-Output "Windows is not support now!"
     echo '```'
 }
 
-if [[ "$HOSTNAME" = "TanakaPC" ]]; then
-    work >>$RESULT_FILE
-    git add $RESULT_FILE
-    git commit -m "changelog" --no-verify
-else
-    home >>$RESULT_FILE
-fi
+generate_commit_msg >>$RESULT_FILE
+git add "$RESULT_FILE"
+git commit -m "docs(changelog): add maskfile msg" --no-verify
 ```
 
 ```powershell

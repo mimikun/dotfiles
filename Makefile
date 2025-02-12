@@ -62,6 +62,15 @@ benchmark :
 changelog :
 	mise tasks run changelog
 
+## Add commit message up to `origin/master` for mask to CHANGELOG.md
+.PHONY : generate-commit-msg
+generate-commit-msg :
+	mise tasks run generate-commit-msg
+
+## Run generate-commit-msg
+.PHONY : gcm
+gcm : generate-commit-msg
+
 ## Run git cleanfetch
 .PHONY : clean-fetch
 clean-fetch :
