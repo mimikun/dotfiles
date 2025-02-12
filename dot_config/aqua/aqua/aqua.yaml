@@ -24,7 +24,7 @@ packages:
   - name: derailed/k9s@v0.32.7
   - name: direnv/direnv@v2.35.0
   - name: dlvhdr/diffnav@v0.3.0
-  - name: dominikh/go-tools/staticcheck@2024.1.1
+  - name: dominikh/go-tools/staticcheck@2025.1
   - name: dotenvx/dotenvx@v1.35.0
   - name: editorconfig-checker/editorconfig-checker@v3.2.0
   - name: FiloSottile/age@v1.2.1
