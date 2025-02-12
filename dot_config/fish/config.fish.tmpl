@@ -509,6 +509,13 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     #    echo "vfox activate fish | source" >> $CACHE_CONFIG_FISH
     #end
 
+    # Equationzhao/g
+    # NOTE: can't use now
+    #if command -v g >/dev/null 2>&1
+    #    echo "# cache Equationzhao/g config" >> $CACHE_CONFIG_FISH
+    #    echo "g --init fish | source" >> $CACHE_CONFIG_FISH
+    #end
+
     # work pc only tools
     {{ if (eq .chezmoi.hostname "TanakaPC") -}}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
