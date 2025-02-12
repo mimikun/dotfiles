@@ -66,8 +66,10 @@ jellex
 jello
 Jinja2
 jiter
+k2l
 kb-manager
 khal
+kimg4
 leather
 linkify-it-py
 littletable
@@ -114,6 +116,7 @@ prompt-toolkit
 psutil
 pur
 puremagic
+pyaes
 pycparser
 pydantic
 pydantic_core
