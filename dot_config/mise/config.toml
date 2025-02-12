@@ -25,9 +25,10 @@ zig = [
 # npm backends
 "npm:commitizen" = "latest"
 "npm:cz-conventional-changelog-ja" = "latest"
-"npm:envinfo" = "latest"
 "npm:npkill" = "latest"
 "npm:prettier" = "latest"
+#"npm:envinfo" = "latest"
+#"npm:httpyac" = "latest"
 
 [settings]
 asdf_compat = true
