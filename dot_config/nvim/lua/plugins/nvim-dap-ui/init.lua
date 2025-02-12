@@ -1,25 +1,12 @@
----@type LazySpec[]
-local dependencies = {
-    "mfussenegger/nvim-dap",
-    "nvim-neotest/nvim-nio",
-}
-
----@type table
-local opts = {
-    floating = {
-        border = "single",
-    },
-}
-
 ---@type LazySpec
 local spec = {
     "rcarriga/nvim-dap-ui",
     --lazy = false,
     cmd = "ToggleDapUi",
-    dependencies = dependencies,
+    dependencies = require("plugins.nvim-dap-ui.dependencies"),
     config = function()
         local dapui = require("dap-ui")
-        dapui.setup(opts)
+        dapui.setup(require("plugins.nvim-dap-ui.opts"))
 
         -- Toggle dap-ui
         vim.api.nvim_create_user_command("ToggleDapUi", function()

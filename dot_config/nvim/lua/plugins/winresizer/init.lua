@@ -1,18 +1,9 @@
-local keys = {
-    {
-        "<C-e>",
-        ":WinResizerStartResize",
-        mode = "n",
-        desc = "Start a winresizer resize mode",
-    },
-}
-
 ---@type LazySpec
 local spec = {
     "simeji/winresizer",
     --lazy = false,
     cmd = "WinResizerStartResize",
-    keys = keys,
+    keys = require("plugins.winresizer.keys"),
     init = function()
         vim.g.winresizer_enable = 1
         vim.g.winresizer_gui_enable = 0

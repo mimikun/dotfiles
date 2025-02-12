@@ -15,14 +15,4 @@ local opts = {
     treesitter = false,
 }
 
----@type LazySpec
-local spec = {
-    "mistweaverco/kulala.nvim",
-    --lazy = false,
-    ft = "http",
-    opts = opts,
-    --cond = false,
-    --enabled = false,
-}
-
-return spec
+return opts
