@@ -1,5 +1,47 @@
 # Changelog
 
+## [v2025.02.13]
+
+### Added - 新機能について
+
+- feat(gup): add some tools
+- feat(pip): add some packages
+- feat(nvim): add no-neck-pain.nvim
+- feat(nvim): add registers.nvim
+- feat(nvim): add notesium vim plugin
+- feat(nvim): add zen-mode.nvim
+- feat(fish): add Equationzhao/g completion
+- feat(cargo): add flamelens
+- feat(shells): add Equationzhao/g configs
+- feat(mise-npm): add httpyac
+- feat(mise-task): add generate-commit-msg
+- feat(huez.nvim): add retro-theme
+- feat(snacks.nvim): add some configs
+- feat(cargo-config): use mold linker on Linux
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(localbin): update update_fish_completions
+- chore(utilities): move unused scripts
+- chore(todo-comments.nvim): update config
+- chore(nvim-treesitter): update ensure_installed parsers
+- refactor(mise-task): changelog task
+- refactor(nvim): update config.global
+- refactor(nvim): update some plugin configs
+
+### Removed - 今回で削除された機能について
+
+- chore(utilities): remove unused scripts
+- chore(cargo-config): remove mold setting
+
+### Fixed - 不具合修正について
+
+- fix(windows): ignore more files
+- fix(hydra.nvim): deprecation warning
+- fix(chezmoiignore): ignore work pc only
+
 ## [v2025.02.10]
 
 ### Added - 新機能について
