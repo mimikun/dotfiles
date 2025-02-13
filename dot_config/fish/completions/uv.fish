@@ -122,6 +122,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-binary-package -d 'Don\
 complete -c uv -n "__fish_uv_using_subcommand run" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l package -d 'Run the command in a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s p -l python -d 'The Python interpreter to use for the run environment.' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l max-recursion-depth -d 'Number of times that `uv run` will allow recursive invocations' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -491,6 +492,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-package -d 'Don\
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l package -d 'Sync for a specific package in the workspace' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l script -d 'Sync the environment for a Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -s p -l python -d 'The Python interpreter to use for the project environment.' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -l python-preference -d 'Whether to prefer uv-managed or system Python installations' -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
