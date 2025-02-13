@@ -4,7 +4,7 @@ local opts = {
         enable = true,
         disable = {},
     },
-    ensure_installed = require("plugins.nvim-treesitter.ensure_installed"),
+    ensure_installed = require("plugins.nvim-treesitter.parsers"),
     -- NOTE:
     -- If your human rights are being violated,
     -- you will need to repeatedly press the Enter-key during initial setup.
