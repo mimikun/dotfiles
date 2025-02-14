@@ -10,9 +10,6 @@ local animations = {
 ---@type table
 local opts = {
     enabled = true,
-    default_animation = animations.fade,
-    refresh_interval_ms = 6,
-    transparency_color = vim.g.transparent_enabled,
     overwrite = {
         search = {
             enabled = false,
@@ -22,13 +19,22 @@ local opts = {
             enabled = true,
             default_animation = animations.reverse_fade,
         },
-    },
-    support = {
-        substitute = {
-            enabled = false,
-            default_animation = animations.fade,
+        undo = {
+            enabled = true,
+            default_animation = {
+                name = animations.fade,
+            },
+        },
+        redo = {
+            enabled = true,
+            default_animation = {
+                name = animations.fade,
+            },
         },
     },
+    default_animation = animations.fade,
+    refresh_interval_ms = 6,
+    transparency_color = vim.g.transparent_enabled,
 }
 
 return opts
