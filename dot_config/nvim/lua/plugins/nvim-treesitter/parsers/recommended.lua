@@ -3,7 +3,6 @@ local parsers = {
     recommended = {
         "jq",
         "jsdoc",
-        "jsx",
         "tsx",
         "typescript",
         "xml",
