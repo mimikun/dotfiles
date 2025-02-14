@@ -78,7 +78,7 @@ packages:
   - name: osteele/gojekyll@v0.2.14
   - name: pamburus/hl@v0.30.3
   - name: peco/peco@v0.5.11
-  - name: pkgxdev/pkgx@v2.2.1
+  - name: pkgxdev/pkgx@v2.3.0
   - name: pomdtr/sunbeam@v1.0.1
   - name: pvolok/mprocs@v0.7.2
   - name: rhysd/actionlint@v1.7.7
