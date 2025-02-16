@@ -4,6 +4,7 @@ local dependencies = {
     "lewis6991/gitsigns.nvim",
     "SmiteshP/nvim-navic",
     "pnx/lualine-lsp-status",
+    --"stevearc/aerial.nvim",
 }
 
 if require("config.settings").use_github_copilot then

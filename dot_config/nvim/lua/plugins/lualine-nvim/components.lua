@@ -73,4 +73,16 @@ M.copilot_or_nothing = function()
     end
 end
 
+---@return table|nil
+M.aerial_parts = function()
+    return {
+        "aerial",
+        sep = " ) ",
+        depth = nil,
+        dense = false,
+        dense_sep = ".",
+        colored = true,
+    }
+end
+
 return M
