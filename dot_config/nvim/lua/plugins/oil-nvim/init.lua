@@ -1,22 +1,12 @@
 ---@type boolean
 local detail = false
 
----@type LazySpec[]
-local dependencies = {
-    {
-        "refractalize/oil-git-status.nvim",
-        ft = "oil",
-    },
-    "JezerM/oil-lsp-diagnostics.nvim",
-    "nvim-tree/nvim-web-devicons",
-}
-
 ---@type LazySpec
 local spec = {
     "stevearc/oil.nvim",
     lazy = false,
     cmd = "Oil",
-    dependencies = dependencies,
+    dependencies = require("plugins.oil-nvim.dependencies"),
     init = function()
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
