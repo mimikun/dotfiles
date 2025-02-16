@@ -1,0 +1,15 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/bash
+
+bin_path="/usr/local/bin/numi-cli"
+
+# /usr/local/bin/numi-cli check
+if [[ ! -e "$bin_path" ]]; then
+    echo "Run numi-cli install script"
+    curl -sSL https://s.numi.app/cli | sh
+else
+    echo "numi-cli is already installed."
+fi
+
+{{ end -}}
