@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2025.02.17]
+
+### Added - 新機能について
+
+- feat: add yashrc
+- feat(gup): add httptap
+- feat(aqua): add google/osv-scanner
+- feat(aqua): add fastfetch-cli/fastfetch
+- feat(nvim): add nvumi
+- feat(nvim): add namu.nvim
+- feat(nvim): add aerial.nvim
+- feat(nvim): add nvim-dap-virtual-text
+- feat(nvim): add player-one.nvim
+- feat(chezmoiscripts-linux): add numi-cli install script
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(typos): update config
+- chore(neo-img): update config
+- chore(oil.nvim): update config
+- chore(localbin): update vup
+- chore(tiny-glimmer.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim-treesitter): remove unsupported parser
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.02.13]
 
 ### Added - 新機能について
