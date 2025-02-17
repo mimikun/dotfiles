@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.10.1"
+readonly PRODUCT_VERSION="1.11.0"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -79,6 +79,18 @@ os_pkg_update() {
   esac
 }
 
+# HACK: tabiew can't build
+update_cargo_tabiew() {
+  echo "compiling \"tabiew\" takes a SO LONG time"
+  echo "can't install it from crates.io"
+}
+
+# HACK: pueue is rc now
+update_cargo_pueue() {
+  echo "using rc version now, install from github url"
+  pueue add -p --after "$rust_task_id" -- "cargo install --git https://github.com/Nukesor/pueue.git"
+}
+
 use_pueue() {
   echo "rustup update"
   rust_task_id=$(pueue add -p -- "rustup update")
@@ -125,7 +137,11 @@ use_pueue() {
   echo "Update these packages:"
   echo "$cargo_outdated_pkgs"
   for i in $cargo_outdated_pkgs; do
-    task_id=$(pueue add -p --after "$rust_task_id" -- "cargo install $i")
+    case "$i" in
+      "tabiew" ) update_cargo_tabiew ;;
+      "pueue" ) update_cargo_pueue ;;
+      * ) task_id=$(pueue add -p --after "$rust_task_id" -- "cargo install $i") ;;
+    esac
   done
 
   echo "generate_cargo_package_list"
