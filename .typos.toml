@@ -28,6 +28,7 @@ mis = "mis"
 [files]
 extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
+  "dot_config/nvim/lua/plugins/neo-img/opts.lua",
   "dot_config/nvim/lua/plugins/telekasten-nvim/init.lua",
   "dot_config/ghostty/*",
   "dot_config/foot/foot.ini",
