@@ -7,6 +7,8 @@ local opts = {
         run = "<CR>",
         -- reset buffer
         reset = "R",
+        -- yank last output
+        yank = "<leader>y",
     },
 }
 

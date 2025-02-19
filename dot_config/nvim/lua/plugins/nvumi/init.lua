@@ -5,8 +5,8 @@ local spec = {
     cmd = "Nvumi",
     dependencies = { "folke/snacks.nvim" },
     opts = require("plugins.nvumi.opts"),
-    cond = false,
-    enabled = false,
+    --cond = false,
+    --enabled = false,
 }
 
 return spec
