@@ -79,6 +79,7 @@ heh
 hex-patch
 hexyl
 hf
+hk
 hoard-rs
 ht
 hwatch

@@ -67,6 +67,7 @@ heh
 hex-patch
 hexyl
 hf
+hk
 ht
 hwatch
 hyperfine
