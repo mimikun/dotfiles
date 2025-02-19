@@ -280,6 +280,10 @@ set -x PATH $GOBIN $PATH
 # zettelkasten
 set -x zettelkasten_root "$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
 
+# forgit
+set -x PATH $FISH_CONFIG_DIR/conf.d/bin $PATH
+set -x FORGIT_NO_ALIASES true
+
 ## aliases
 alias rm "rm -i"
 alias mkdir "mkdir -p"
