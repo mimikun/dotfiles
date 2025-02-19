@@ -1,4 +1,5 @@
 ---@class snacks.picker.Config
+---@field enabled? boolean
 local config = {
     enabled = true,
     prompt = " ",
