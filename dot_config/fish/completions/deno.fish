@@ -104,7 +104,7 @@ complete -c deno -n "__fish_deno_needs_command" -a "serve" -d 'Run a server defi
 complete -c deno -n "__fish_deno_needs_command" -a "add" -d 'Add dependencies to your configuration file.   deno add jsr:@std/path  You can also add npm packages:   deno add npm:react  Or multiple dependencies at once:   deno add jsr:@std/path jsr:@std/assert npm:chalk'
 complete -c deno -n "__fish_deno_needs_command" -a "remove" -d 'Remove dependencies from the configuration file.   deno remove @std/path  You can remove multiple dependencies at once:   deno remove @std/path @std/assert '
 complete -c deno -n "__fish_deno_needs_command" -a "bench" -d 'Run benchmarks using Deno\'s built-in bench tool.  Evaluate the given files, run all benches declared with \'Deno.bench()\' and report results to standard output:   deno bench src/fetch_bench.ts src/signal_bench.ts  If you specify a directory instead of a file, the path is expanded to all contained files matching the glob {*_,*.,}bench.{js,mjs,ts,mts,jsx,tsx}:   deno bench src/  Read more: https://docs.deno.com/go/bench'
-complete -c deno -n "__fish_deno_needs_command" -a "bundle" -d '⚠️ `deno bundle` was removed in Deno 2.  See the Deno 1.x to 2.x Migration Guide for migration instructions: https://docs.deno.com/runtime/manual/advanced/migrate_deprecations'
+complete -c deno -n "__fish_deno_needs_command" -a "bundle" -d '`deno bundle` was removed in Deno 2.  See the Deno 1.x to 2.x Migration Guide for migration instructions: https://docs.deno.com/runtime/manual/advanced/migrate_deprecations'
 complete -c deno -n "__fish_deno_needs_command" -a "cache" -d 'Cache and compile remote dependencies.  Download and compile a module with all of its static dependencies and save them in the local cache, without running any code:   deno cache jsr:@std/http/file-server  Future runs of this module will trigger no downloads or compilation unless --reload is specified  Read more: https://docs.deno.com/go/cache'
 complete -c deno -n "__fish_deno_needs_command" -a "check" -d 'Download and type-check without execution.    deno check jsr:@std/http/file-server  Unless --reload is specified, this command will not re-download already cached dependencies  Read more: https://docs.deno.com/go/check'
 complete -c deno -n "__fish_deno_needs_command" -a "clean" -d 'Remove the cache directory ($DENO_DIR)'
@@ -130,7 +130,7 @@ complete -c deno -n "__fish_deno_needs_command" -a "task" -d 'Run a task defined
 complete -c deno -n "__fish_deno_needs_command" -a "test" -d 'Run tests using Deno\'s built-in test runner.  Evaluate the given modules, run all tests declared with Deno.test() and report results to standard output:   deno test src/fetch_test.ts src/signal_test.ts  Directory arguments are expanded to all contained files matching the glob {*_,*.,}test.{js,mjs,ts,mts,jsx,tsx} or **/__tests__/**:  deno test src/  Read more: https://docs.deno.com/go/test'
 complete -c deno -n "__fish_deno_needs_command" -a "types" -d 'Print runtime TypeScript declarations.    deno types > lib.deno.d.ts  The declaration file could be saved and used for typing information.'
 complete -c deno -n "__fish_deno_needs_command" -a "upgrade" -d 'Upgrade deno executable to the given version.  Latest   deno upgrade  Specific version   deno upgrade 1.45.0   deno upgrade 1.46.0-rc.1   deno upgrade 9bc2dd29ad6ba334fd57a20114e367d3c04763d4  Channel   deno upgrade stable   deno upgrade rc   deno upgrade canary  The version is downloaded from https://dl.deno.land and is used to replace the current executable.  If you want to not replace the current Deno executable but instead download an update to a different location, use the --output flag:   deno upgrade --output $HOME/my_deno  Read more: https://docs.deno.com/go/upgrade'
-complete -c deno -n "__fish_deno_needs_command" -a "vendor" -d '⚠️ `deno vendor` was removed in Deno 2.  See the Deno 1.x to 2.x Migration Guide for migration instructions: https://docs.deno.com/runtime/manual/advanced/migrate_deprecations'
+complete -c deno -n "__fish_deno_needs_command" -a "vendor" -d '`deno vendor` was removed in Deno 2.  See the Deno 1.x to 2.x Migration Guide for migration instructions: https://docs.deno.com/runtime/manual/advanced/migrate_deprecations'
 complete -c deno -n "__fish_deno_needs_command" -a "help"
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
@@ -402,6 +402,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l cached-only -d 'Requ
 complete -c deno -n "__fish_deno_using_subcommand bench" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l json -d 'UNSTABLE: Output benchmark result in JSON format'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-run -d 'Cache bench modules, but don\'t run benchmarks'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l permit-no-files -d 'Don\'t return an error code if no bench files were found'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -s h -l help -r -f -a "{unstable\t''}"
@@ -504,6 +505,7 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l no-remote -d 'Do not
 complete -c deno -n "__fish_deno_using_subcommand check" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_deno_using_subcommand check" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand check" -l no-lock -d 'Disable auto discovery of the lock file'
+complete -c deno -n "__fish_deno_using_subcommand check" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand check" -l all -d 'Type-check all code, including remote modules and npm packages'
 complete -c deno -n "__fish_deno_using_subcommand check" -l remote -d 'Type-check all modules, including remote ones'
 complete -c deno -n "__fish_deno_using_subcommand check" -l doc -d 'Type-check code blocks in JSDoc as well as actual code'
@@ -1082,9 +1084,10 @@ complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-webgpu -
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l no-lock -d 'Disable auto discovery of the lock file'
-complete -c deno -n "__fish_deno_using_subcommand outdated" -l latest -d 'Update to the latest version, regardless of semver constraints'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l latest -d 'Consider the latest version, regardless of semver constraints'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -s u -l update -d 'Update dependency versions'
-complete -c deno -n "__fish_deno_using_subcommand outdated" -l compatible -d 'Only output versions that satisfy semver requirements'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s i -l interactive -d 'Interactively select which dependencies to update'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l compatible -d 'Only consider versions that satisfy semver requirements'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -s r -l recursive -d 'include all workspace members'
 complete -c deno -n "__fish_deno_using_subcommand lsp" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand lsp" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
@@ -1230,8 +1233,9 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l enable-testing-featur
 complete -c deno -n "__fish_deno_using_subcommand task" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand task" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand task" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand task" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
 complete -c deno -n "__fish_deno_using_subcommand task" -l cwd -d 'Specify the directory to run the task in' -r -f -a "(__fish_complete_directories)"
-complete -c deno -n "__fish_deno_using_subcommand task" -s f -l filter -d 'Filter members of the workspace by name - should be used with --recursive' -r
+complete -c deno -n "__fish_deno_using_subcommand task" -s f -l filter -d 'Filter members of the workspace by name, implies --recursive flag' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -1255,7 +1259,7 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-webgpu -d 'E
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand task" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand task" -s r -l recursive -d 'Run the task in all projects in the workspace'
-complete -c deno -n "__fish_deno_using_subcommand task" -l eval -d 'Evaluate the passed value as if, it was a task in a configuration file'
+complete -c deno -n "__fish_deno_using_subcommand task" -l eval -d 'Evaluate the passed value as if it was a task in a configuration file'
 complete -c deno -n "__fish_deno_using_subcommand test" -s h -l help -r -f -a "{unstable\t''}"
 complete -c deno -n "__fish_deno_using_subcommand test" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
