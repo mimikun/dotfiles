@@ -60,6 +60,18 @@ local feeds = {
         name = "console.dev",
         tags = { "tech", "tool" },
     },
+    -- neovim sub-reddit
+    {
+        "https://www.reddit.com/r/neovim.rss",
+        name = "neovim sub-reddit",
+        tags = { "tech", "neovim" },
+    },
+    -- tadashi-aikawa - Bluesky
+    {
+        "https://bsky.app/profile/did:plc:bi2l5vkitdtgw364ixidbint/rss",
+        name = "tadashi-aikawa - Bluesky",
+        tags = { "sns" },
+    },
 }
 
 return feeds
