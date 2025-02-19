@@ -8,6 +8,7 @@ anyio
 argcomplete
 arxiv
 arxiv2bib
+asciidoc
 asyncio
 atomicwrites
 attr
