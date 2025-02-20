@@ -29,7 +29,7 @@ packages:
   - name: editorconfig-checker/editorconfig-checker@v3.2.0
   - name: fastfetch-cli/fastfetch@2.37.0
   - name: FiloSottile/age@v1.2.1
-  - name: gitleaks/gitleaks@v8.23.3
+  - name: gitleaks/gitleaks@v8.24.0
   - name: gleam-lang/gleam@v1.8.1
   - name: go-delve/delve@v1.24.0
   - name: gokcehan/lf@r34
