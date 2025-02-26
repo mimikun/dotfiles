@@ -49,7 +49,7 @@ packages:
   - name: jesseduffield/horcrux@v0.2
   - name: jesseduffield/lazydocker@v0.24.1
   - name: jesseduffield/lazygit@v0.47.2
-  - name: JFryy/qq@v0.2.4
+  - name: JFryy/qq@v0.2.5
   - name: joerdav/xc@v0.8.5
   - name: jorgerojas26/lazysql@v0.3.5
   - name: jqlang/jq@jq-1.7.1
