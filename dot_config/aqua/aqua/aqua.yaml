@@ -25,7 +25,7 @@ packages:
   - name: direnv/direnv@v2.35.0
   - name: dlvhdr/diffnav@v0.3.0
   - name: dominikh/go-tools/staticcheck@2025.1
-  - name: dotenvx/dotenvx@v1.36.0
+  - name: dotenvx/dotenvx@v1.38.3
   - name: editorconfig-checker/editorconfig-checker@v3.2.0
   - name: fastfetch-cli/fastfetch@2.37.0
   - name: FiloSottile/age@v1.2.1
