@@ -54,7 +54,7 @@ packages:
   - name: jorgerojas26/lazysql@v0.3.5
   - name: jqlang/jq@jq-1.7.1
   - name: junegunn/fzf@v0.60.2
-  - name: k1LoW/octocov@v0.63.0
+  - name: k1LoW/octocov@v0.64.0
   - name: kdabir/has@v1.5.0
   - name: koalaman/shellcheck@v0.10.0
   - name: koki-develop/clive@v0.12.9
