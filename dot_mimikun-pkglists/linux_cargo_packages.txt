@@ -59,6 +59,7 @@ fblog
 fd-find
 felix
 fend
+flamegraph
 flamelens
 flawz
 forgejo-cli
@@ -97,6 +98,7 @@ kbt
 kdash
 kibi
 koji
+krafna
 lazyjj
 lla
 logria
