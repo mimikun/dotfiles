@@ -8,9 +8,12 @@ local Config = {
     min_size = 2,
     -- try to expand the scope to this size
     max_size = nil,
-    cursor = true, -- when true, the column of the cursor is used to determine the scope
-    edge = true, -- include the edge of the scope (typically the line above and below with smaller indent)
-    siblings = false, -- expand single line scopes with single line siblings
+    -- when true, the column of the cursor is used to determine the scope
+    cursor = true,
+    -- include the edge of the scope (typically the line above and below with smaller indent)
+    edge = true,
+    -- expand single line scopes with single line siblings
+    siblings = false,
     -- what buffers to attach to
     filter = function(buf)
         return vim.bo[buf].buftype == ""
@@ -21,10 +24,12 @@ local Config = {
         -- detect scope based on treesitter.
         -- falls back to indent based detection if not available
         enabled = true,
-        injections = true, -- include language injections when detecting scope (useful for languages like `vue`)
+        -- include language injections when detecting scope (useful for languages like `vue`)
+        injections = true,
         ---@type string[]|{enabled?:boolean}
         blocks = {
-            enabled = false, -- enable to use the following blocks
+            -- enable to use the following blocks
+            enabled = false,
             "function_declaration",
             "function_definition",
             "method_declaration",
@@ -49,15 +54,18 @@ local Config = {
         ---@type table<string, snacks.scope.TextObject|{desc?:string}>
         textobject = {
             ii = {
-                min_size = 2, -- minimum size of the scope
-                edge = false, -- inner scope
+                -- minimum size of the scope
+                min_size = 2,
+                -- inner scope
+                edge = false,
                 cursor = false,
                 treesitter = { blocks = { enabled = false } },
                 desc = "inner scope",
             },
             ai = {
                 cursor = false,
-                min_size = 2, -- minimum size of the scope
+                -- minimum size of the scope
+                min_size = 2,
                 treesitter = { blocks = { enabled = false } },
                 desc = "full scope",
             },
@@ -65,7 +73,8 @@ local Config = {
         ---@type table<string, snacks.scope.Jump|{desc?:string}>
         jump = {
             ["[i"] = {
-                min_size = 1, -- allow single line scopes
+                -- allow single line scopes
+                min_size = 1,
                 bottom = false,
                 cursor = false,
                 edge = true,
@@ -73,7 +82,8 @@ local Config = {
                 desc = "jump to top edge of scope",
             },
             ["]i"] = {
-                min_size = 1, -- allow single line scopes
+                -- allow single line scopes
+                min_size = 1,
                 bottom = true,
                 cursor = false,
                 edge = true,

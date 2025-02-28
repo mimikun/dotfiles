@@ -3,8 +3,7 @@ local opts = {
     bigfile = require("plugins.snacks-nvim.bigfile"),
     dashboard = require("plugins.snacks-nvim.dashboard"),
     explorer = require("plugins.snacks-nvim.explorer"),
-    -- TODO: atode
-    --image = require("plugins.snacks-nvim.image"),
+    image = require("plugins.snacks-nvim.image"),
     indent = require("plugins.snacks-nvim.indent"),
     input = require("plugins.snacks-nvim.input"),
     notifier = require("plugins.snacks-nvim.notifier"),

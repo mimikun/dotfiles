@@ -9,7 +9,8 @@ local Config = {
     },
     -- faster animation when repeating scroll after delay
     animate_repeat = {
-        delay = 100, -- delay in ms before using the repeat animation
+        -- delay in ms before using the repeat animation
+        delay = 100,
         duration = { step = 5, total = 50 },
         easing = "linear",
     },

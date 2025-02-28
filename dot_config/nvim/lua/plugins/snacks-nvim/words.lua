@@ -2,12 +2,18 @@
 ---@field enabled? boolean
 local Config = {
     enabled = true,
-    debounce = 200, -- time in ms to wait before updating
-    notify_jump = false, -- show a notification when jumping
-    notify_end = true, -- show a notification when reaching the end
-    foldopen = true, -- open folds after jumping
-    jumplist = true, -- set jump point before jumping
-    modes = { "n", "i", "c" }, -- modes to show references
+    -- time in ms to wait before updating
+    debounce = 200,
+    -- show a notification when jumping
+    notify_jump = false,
+    -- show a notification when reaching the end
+    notify_end = true,
+    -- open folds after jumping
+    foldopen = true,
+    -- set jump point before jumping
+    jumplist = true,
+    -- modes to show references
+    modes = { "n", "i", "c" },
 }
 
 return Config
