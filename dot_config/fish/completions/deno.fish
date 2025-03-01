@@ -27,32 +27,34 @@ end
 complete -c deno -n "__fish_deno_needs_command" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_needs_command" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_needs_command" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_needs_command" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_needs_command" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_needs_command" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_needs_command" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_needs_command" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_needs_command" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_needs_command" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_needs_command" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_needs_command" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_needs_command" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_needs_command" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_needs_command" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_needs_command" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_needs_command" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_needs_command" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_needs_command" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_needs_command" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_needs_command" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_needs_command" -l deny-read -r -F
+complete -c deno -n "__fish_deno_needs_command" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_needs_command" -l deny-write -r -F
+complete -c deno -n "__fish_deno_needs_command" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_needs_command" -l deny-net -r
+complete -c deno -n "__fish_deno_needs_command" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_needs_command" -l deny-env -r
+complete -c deno -n "__fish_deno_needs_command" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_needs_command" -l deny-sys -r
+complete -c deno -n "__fish_deno_needs_command" -l allow-run -r
+complete -c deno -n "__fish_deno_needs_command" -l deny-run -r
+complete -c deno -n "__fish_deno_needs_command" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_needs_command" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_needs_command" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_needs_command" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_needs_command" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_needs_command" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_needs_command" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
-complete -c deno -n "__fish_deno_needs_command" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_needs_command" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_needs_command" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_needs_command" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_needs_command" -l seed -d 'Set the random number generator seed' -r
@@ -61,18 +63,24 @@ complete -c deno -n "__fish_deno_needs_command" -l check -d 'Enable type-checkin
 complete -c deno -n "__fish_deno_needs_command" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
-complete -c deno -n "__fish_deno_needs_command" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
+complete -c deno -n "__fish_deno_needs_command" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''"
 complete -c deno -n "__fish_deno_needs_command" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_needs_command" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_needs_command" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_needs_command" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_needs_command" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_needs_command" -l no-remote -d 'Do not resolve remote modules'
 complete -c deno -n "__fish_deno_needs_command" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_deno_needs_command" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_needs_command" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_needs_command" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_needs_command" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_needs_command" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_needs_command" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_needs_command" -l allow-hrtime
+complete -c deno -n "__fish_deno_needs_command" -l deny-hrtime
+complete -c deno -n "__fish_deno_needs_command" -l no-prompt
 complete -c deno -n "__fish_deno_needs_command" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_needs_command" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_needs_command" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
@@ -135,32 +143,34 @@ complete -c deno -n "__fish_deno_needs_command" -a "help"
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand run" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand run" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand run" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand run" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand run" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l seed -d 'Set the random number generator seed' -r
@@ -169,10 +179,16 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l check -d 'Enable type-
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
+complete -c deno -n "__fish_deno_using_subcommand run" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand run" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand run" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand run" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -198,9 +214,9 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l no-npm -d 'Do not reso
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand run" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand run" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand run" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand run" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand run" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand run" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand run" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand run" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand run" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
@@ -209,32 +225,34 @@ complete -c deno -n "__fish_deno_using_subcommand run" -s q -l quiet -d 'Suppres
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand serve" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand serve" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand serve" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l seed -d 'Set the random number generator seed' -r
@@ -245,10 +263,16 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l check -d 'Enable typ
 complete -c deno -n "__fish_deno_using_subcommand serve" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
+complete -c deno -n "__fish_deno_using_subcommand serve" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand serve" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand serve" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand serve" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -274,17 +298,20 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l no-npm -d 'Do not re
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand serve" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand serve" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand serve" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand serve" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l parallel -d 'Run multiple server workers in parallel. Parallelism defaults to the number of available CPUs or the value of the DENO_JOBS environment variable'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand serve" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand add" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand add" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand add" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand add" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand add" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -308,8 +335,11 @@ complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-webgpu -d 'En
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand add" -s D -l dev -d 'Add as a dev dependency'
-complete -c deno -n "__fish_deno_using_subcommand remove" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand remove" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand remove" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand remove" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -331,34 +361,39 @@ complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-unsafe-pro
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand remove" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand bench" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand bench" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand bench" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand bench" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand bench" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand bench" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand bench" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l seed -d 'Set the random number generator seed' -r
@@ -368,7 +403,10 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l ignore -d 'Ignore fi
 complete -c deno -n "__fish_deno_using_subcommand bench" -l filter -d 'Run benchmarks with this string or regexp pattern in the bench name' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
+complete -c deno -n "__fish_deno_using_subcommand bench" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -395,9 +433,9 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l no-npm -d 'Do not re
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand bench" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand bench" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand bench" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand bench" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l json -d 'UNSTABLE: Output benchmark result in JSON format'
@@ -405,8 +443,11 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l no-run -d 'Cache ben
 complete -c deno -n "__fish_deno_using_subcommand bench" -l permit-no-files -d 'Don\'t return an error code if no bench files were found'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
-complete -c deno -n "__fish_deno_using_subcommand bundle" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand bundle" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand bundle" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand bundle" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -428,19 +469,24 @@ complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-unsafe-pro
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand cache" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand cache" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand cache" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand cache" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand cache" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand cache" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand cache" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand cache" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
-complete -c deno -n "__fish_deno_using_subcommand cache" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand cache" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand cache" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
@@ -468,17 +514,22 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l no-remote -d 'Do not
 complete -c deno -n "__fish_deno_using_subcommand cache" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l no-lock -d 'Disable auto discovery of the lock file'
-complete -c deno -n "__fish_deno_using_subcommand check" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand check" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand check" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand check" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand check" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand check" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand check" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand check" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand check" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand check" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand check" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -510,8 +561,11 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l all -d 'Type-check a
 complete -c deno -n "__fish_deno_using_subcommand check" -l remote -d 'Type-check all modules, including remote ones'
 complete -c deno -n "__fish_deno_using_subcommand check" -l doc -d 'Type-check code blocks in JSDoc as well as actual code'
 complete -c deno -n "__fish_deno_using_subcommand check" -l doc-only -d 'Type-check code blocks in JSDoc and Markdown only'
-complete -c deno -n "__fish_deno_using_subcommand clean" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand clean" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand clean" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand clean" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -533,34 +587,39 @@ complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-unsafe-prot
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand clean" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand compile" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand compile" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand compile" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand compile" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand compile" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand compile" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand compile" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand compile" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand compile" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l seed -d 'Set the random number generator seed' -r
@@ -568,9 +627,16 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l strace-ops -d 'Tra
 complete -c deno -n "__fish_deno_using_subcommand compile" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l include -d 'Includes an additional module or file/directory in the compiled executable.   Use this flag if a dynamically imported module or a web worker main module   fails to load in the executable or to embed a file or directory in the executable.   This flag can be passed multiple times, to include multiple additional modules.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -s o -l output -d 'Output file (defaults to $PWD/<inferred-name>)' -r -F
-complete -c deno -n "__fish_deno_using_subcommand compile" -l target -d 'Target OS architecture' -r -f -a "{x86_64-unknown-linux-gnu\t'',aarch64-unknown-linux-gnu\t'',x86_64-pc-windows-msvc\t'',x86_64-apple-darwin\t'',aarch64-apple-darwin\t''}"
+complete -c deno -n "__fish_deno_using_subcommand compile" -l target -d 'Target OS architecture' -r -f -a "x86_64-unknown-linux-gnu\t''
+aarch64-unknown-linux-gnu\t''
+x86_64-pc-windows-msvc\t''
+x86_64-apple-darwin\t''
+aarch64-apple-darwin\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l icon -d 'Set the icon of the executable on Windows (.ico)' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
+complete -c deno -n "__fish_deno_using_subcommand compile" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -598,15 +664,18 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l no-npm -d 'Do not 
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand compile" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand compile" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand compile" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand compile" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-terminal -d 'Hide terminal on Windows'
-complete -c deno -n "__fish_deno_using_subcommand completions" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand completions" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand completions" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand completions" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -628,8 +697,11 @@ complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-unsaf
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand completions" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand coverage" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand coverage" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand coverage" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand coverage" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l ignore -d 'Ignore coverage files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l include -d 'Include source files in the report' -r
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l exclude -d 'Exclude source files from the report' -r
@@ -658,8 +730,11 @@ complete -c deno -n "__fish_deno_using_subcommand coverage" -s q -l quiet -d 'Su
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l lcov -d 'Output coverage report in lcov format'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l html -d 'Output coverage report in HTML format in the given directory'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l detailed -d 'Output coverage report in detailed format in the terminal'
-complete -c deno -n "__fish_deno_using_subcommand doc" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand doc" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand doc" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand doc" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand doc" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand doc" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand doc" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
@@ -699,12 +774,16 @@ complete -c deno -n "__fish_deno_using_subcommand doc" -l html -d 'Output docume
 complete -c deno -n "__fish_deno_using_subcommand doc" -l strip-trailing-html -d 'Remove trailing .html from various links. Will still generate files with a .html extension'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l private -d 'Output private documentation'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l lint -d 'Output documentation diagnostics.'
-complete -c deno -n "__fish_deno_using_subcommand eval" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand eval" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand eval" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand eval" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand eval" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand eval" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
@@ -714,13 +793,17 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect -d 'Activate 
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
-complete -c deno -n "__fish_deno_using_subcommand eval" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand eval" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand eval" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l strace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
-complete -c deno -n "__fish_deno_using_subcommand eval" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
+complete -c deno -n "__fish_deno_using_subcommand eval" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -750,18 +833,46 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l no-lock -d 'Disable a
 complete -c deno -n "__fish_deno_using_subcommand eval" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand eval" -s p -l print -d 'print result to stdout'
-complete -c deno -n "__fish_deno_using_subcommand fmt" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand fmt" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t'',md\t'',json\t'',jsonc\t'',css\t'',scss\t'',sass\t'',less\t'',html\t'',svelte\t'',vue\t'',astro\t'',yml\t'',yaml\t'',ipynb\t'',sql\t''}"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''
+md\t''
+json\t''
+jsonc\t''
+css\t''
+scss\t''
+sass\t''
+less\t''
+html\t''
+svelte\t''
+vue\t''
+astro\t''
+yml\t''
+yaml\t''
+ipynb\t''
+sql\t''
+vto\t''
+njk\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l ignore -d 'Ignore formatting particular source files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l use-tabs -d 'Use tabs instead of spaces for indentation [default: false]' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l use-tabs -d 'Use tabs instead of spaces for indentation [default: false]' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l line-width -d 'Define maximum line width [default: 80]' -r
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l indent-width -d 'Define indentation width [default: 2]' -r
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l single-quote -d 'Use single quotes [default: false]' -r -f -a "{true\t'',false\t''}"
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l prose-wrap -d 'Define how prose should be wrapped [default: always]' -r -f -a "{always\t'',never\t'',preserve\t''}"
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l no-semicolons -d 'Don\'t use semicolons except where necessary [default: false]' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l single-quote -d 'Use single quotes [default: false]' -r -f -a "true\t''
+false\t''"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l prose-wrap -d 'Define how prose should be wrapped [default: always]' -r -f -a "always\t''
+never\t''
+preserve\t''"
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l no-semicolons -d 'Don\'t use semicolons except where necessary [default: false]' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -792,8 +903,11 @@ complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-html -d 'Enab
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-component -d 'Enable formatting Svelte, Vue, Astro and Angular files'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-yaml -d 'Enable formatting YAML files'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-sql -d 'Enable formatting SQL files.'
-complete -c deno -n "__fish_deno_using_subcommand init" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand init" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand init" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand init" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -819,8 +933,11 @@ complete -c deno -n "__fish_deno_using_subcommand init" -l npm -d 'Generate a np
 complete -c deno -n "__fish_deno_using_subcommand init" -l lib -d 'Generate an example library project'
 complete -c deno -n "__fish_deno_using_subcommand init" -l serve -d 'Generate an example project for `deno serve`'
 complete -c deno -n "__fish_deno_using_subcommand info" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
-complete -c deno -n "__fish_deno_using_subcommand info" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand info" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand info" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand info" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand info" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand info" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand info" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
@@ -830,7 +947,8 @@ complete -c deno -n "__fish_deno_using_subcommand info" -l lock -d 'Check the sp
 complete -c deno -n "__fish_deno_using_subcommand info" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand info" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand info" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand info" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand info" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -857,12 +975,16 @@ complete -c deno -n "__fish_deno_using_subcommand info" -l no-remote -d 'Do not 
 complete -c deno -n "__fish_deno_using_subcommand info" -l no-npm -d 'Do not resolve npm modules'
 complete -c deno -n "__fish_deno_using_subcommand info" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand info" -l json -d 'UNSTABLE: Outputs the information in JSON format'
-complete -c deno -n "__fish_deno_using_subcommand install" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand install" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand install" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand install" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand install" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand install" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand install" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
@@ -871,25 +993,26 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l unsafely-ignore-ce
 complete -c deno -n "__fish_deno_using_subcommand install" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand install" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand install" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand install" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l strace-ops -d 'Trace low-level op calls' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand install" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand install" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand install" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand install" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -924,19 +1047,23 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l no-lock -d 'Disabl
 complete -c deno -n "__fish_deno_using_subcommand install" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand install" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand install" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand install" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand install" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand install" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand install" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand install" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand install" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand install" -s f -l force -d 'Forcefully overwrite existing installation'
 complete -c deno -n "__fish_deno_using_subcommand install" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand install" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
 complete -c deno -n "__fish_deno_using_subcommand install" -s D -l dev -d 'Add as a dev dependency'
-complete -c deno -n "__fish_deno_using_subcommand i" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand i" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand i" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand i" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand i" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand i" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand i" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
@@ -945,25 +1072,26 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l unsafely-ignore-certific
 complete -c deno -n "__fish_deno_using_subcommand i" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand i" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand i" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand i" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l strace-ops -d 'Trace low-level op calls' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand i" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand i" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand i" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand i" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -998,19 +1126,25 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l no-lock -d 'Disable auto
 complete -c deno -n "__fish_deno_using_subcommand i" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand i" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand i" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand i" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand i" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand i" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand i" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand i" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand i" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand i" -s f -l force -d 'Forcefully overwrite existing installation'
 complete -c deno -n "__fish_deno_using_subcommand i" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand i" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
 complete -c deno -n "__fish_deno_using_subcommand i" -s D -l dev -d 'Add as a dev dependency'
-complete -c deno -n "__fish_deno_using_subcommand json_reference" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand json_reference" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand json_reference" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand json_reference" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand json_reference" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l conn -d 'Path to JSON file describing connection parameters, provided by Jupyter' -r -F
-complete -c deno -n "__fish_deno_using_subcommand jupyter" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand jupyter" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1034,8 +1168,11 @@ complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-worker-op
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l install -d 'Installs kernelspec, requires \'jupyter\' command to be available.'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l kernel -d 'Start the kernel'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand uninstall" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand uninstall" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l root -d 'Installation root' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -1059,8 +1196,11 @@ complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-webgpu 
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -s g -l global -d 'Remove globally installed package or module'
-complete -c deno -n "__fish_deno_using_subcommand outdated" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand outdated" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand outdated" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -1089,11 +1229,17 @@ complete -c deno -n "__fish_deno_using_subcommand outdated" -s u -l update -d 'U
 complete -c deno -n "__fish_deno_using_subcommand outdated" -s i -l interactive -d 'Interactively select which dependencies to update'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l compatible -d 'Only consider versions that satisfy semver requirements'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -s r -l recursive -d 'include all workspace members'
-complete -c deno -n "__fish_deno_using_subcommand lsp" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand lsp" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand lsp" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand lsp" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand lsp" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand lint" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand lint" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand lint" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand lint" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand lint" -l ext -d 'Specify the file extension to lint when reading from stdin.For example, use `jsx` to lint JSX files or `tsx` for TSX files.This argument is necessary because stdin input does not automatically infer the file type.Example usage: `cat file.jsx | deno lint - --ext=jsx`.' -r
 complete -c deno -n "__fish_deno_using_subcommand lint" -l rules-tags -d 'Use set of rules with a tag' -r
 complete -c deno -n "__fish_deno_using_subcommand lint" -l rules-include -d 'Include lint rules' -r
@@ -1130,8 +1276,11 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l json -d 'Output lint 
 complete -c deno -n "__fish_deno_using_subcommand lint" -l compact -d 'Output lint result in compact format'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
-complete -c deno -n "__fish_deno_using_subcommand publish" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand publish" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand publish" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand publish" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand publish" -l token -d 'The API token to use when publishing. If unset, interactive authentication is be used' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand publish" -l set-version -d 'Set version for a package to be published.   This flag can be used while publishing individual packages and cannot be used in a workspace.' -r
@@ -1164,11 +1313,15 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -l allow-slow-types -
 complete -c deno -n "__fish_deno_using_subcommand publish" -l allow-dirty -d 'Allow publishing if the repository has uncommitted changed'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l no-provenance -d 'Disable provenance attestation.   Enabled by default on Github actions, publicly links the package to where it was built and published from.'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand repl" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand repl" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand repl" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand repl" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand repl" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand repl" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand repl" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
@@ -1177,22 +1330,23 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l unsafely-ignore-certi
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand repl" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand repl" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand repl" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand repl" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand repl" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l seed -d 'Set the random number generator seed' -r
@@ -1225,15 +1379,19 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l no-npm -d 'Do not res
 complete -c deno -n "__fish_deno_using_subcommand repl" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand repl" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand repl" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand repl" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand repl" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand repl" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand repl" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
-complete -c deno -n "__fish_deno_using_subcommand task" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand task" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand task" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand task" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
-complete -c deno -n "__fish_deno_using_subcommand task" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand task" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -l cwd -d 'Specify the directory to run the task in' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_deno_using_subcommand task" -s f -l filter -d 'Filter members of the workspace by name, implies --recursive flag' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
@@ -1260,37 +1418,42 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-worker-optio
 complete -c deno -n "__fish_deno_using_subcommand task" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand task" -s r -l recursive -d 'Run the task in all projects in the workspace'
 complete -c deno -n "__fish_deno_using_subcommand task" -l eval -d 'Evaluate the passed value as if it was a task in a configuration file'
-complete -c deno -n "__fish_deno_using_subcommand test" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand test" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand test" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand test" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand test" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -s R -l allow-read -d 'Allow file system read access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-read -d 'Deny file system read access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -s W -l allow-write -d 'Allow file system write access. Optionally specify allowed paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-write -d 'Deny file system write access. Optionally specify denied paths' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -s N -l allow-net -d 'Allow network access. Optionally specify allowed IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-net -d 'Deny network access. Optionally specify denied IP addresses and host names, with ports as necessary' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -s E -l allow-env -d 'Allow access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-env -d 'Deny access to system environment information. Optionally specify accessible environment variables' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -s S -l allow-sys -d 'Allow access to OS information. Optionally allow specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-sys -d 'Deny access to OS information. Optionally deny specific APIs by function name' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l allow-run -d 'Allow running subprocesses. Optionally specify allowed runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-run -d 'Deny running subprocesses. Optionally specify denied runnable program names' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l allow-ffi -d '(Unstable) Allow loading dynamic libraries. Optionally specify allowed directories or files' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-ffi -d '(Unstable) Deny loading dynamic libraries. Optionally specify denied directories or files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -s R -l allow-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-read -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -s W -l allow-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-write -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -s N -l allow-net -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-net -r
+complete -c deno -n "__fish_deno_using_subcommand test" -s E -l allow-env -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-env -r
+complete -c deno -n "__fish_deno_using_subcommand test" -s S -l allow-sys -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-sys -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l allow-run -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-run -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l allow-ffi -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "{true\t'',false\t''}"
+complete -c deno -n "__fish_deno_using_subcommand test" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
+false\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand test" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l seed -d 'Set the random number generator seed' -r
@@ -1304,9 +1467,15 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l coverage -d 'Collect 
 complete -c deno -n "__fish_deno_using_subcommand test" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l junit-path -d 'Write a JUnit XML test report to PATH. Use \'-\' to write to stdout which is the default when PATH is not provided' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -l reporter -d 'Select reporter to use. Default to \'pretty\'' -r -f -a "{pretty\t'',dot\t'',junit\t'',tap\t''}"
+complete -c deno -n "__fish_deno_using_subcommand test" -l reporter -d 'Select reporter to use. Default to \'pretty\'' -r -f -a "pretty\t''
+dot\t''
+junit\t''
+tap\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -l ext -d 'Set content type of the supplied file' -r -f -a "{ts\t'',tsx\t'',js\t'',jsx\t''}"
+complete -c deno -n "__fish_deno_using_subcommand test" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
+tsx\t''
+js\t''
+jsx\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1333,9 +1502,9 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l no-npm -d 'Do not res
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-config -d 'Disable automatic loading of the configuration file'
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand test" -s A -l allow-all -d 'Allow all permissions'
-complete -c deno -n "__fish_deno_using_subcommand test" -l allow-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand test" -l deny-hrtime -d 'REMOVED in Deno 2.0'
-complete -c deno -n "__fish_deno_using_subcommand test" -l no-prompt -d 'Always throw if required permission wasn\'t passed'
+complete -c deno -n "__fish_deno_using_subcommand test" -l allow-hrtime
+complete -c deno -n "__fish_deno_using_subcommand test" -l deny-hrtime
+complete -c deno -n "__fish_deno_using_subcommand test" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand test" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand test" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-run -d 'Cache test modules, but don\'t run tests'
@@ -1346,8 +1515,11 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l clean -d 'Empty the t
 complete -c deno -n "__fish_deno_using_subcommand test" -l parallel -d 'Run test modules in parallel. Parallelism defaults to the number of available CPUs or the value of the DENO_JOBS environment variable'
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand test" -l hide-stacktraces -d 'Hide stack traces for errors in failure test results.'
-complete -c deno -n "__fish_deno_using_subcommand types" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand types" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand types" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand types" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1369,8 +1541,11 @@ complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-unsafe-prot
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand types" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand upgrade" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand upgrade" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l version -d 'The version to upgrade to' -r
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l output -d 'The path to output the updated version to' -r -F
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -1400,8 +1575,11 @@ complete -c deno -n "__fish_deno_using_subcommand upgrade" -l dry-run -d 'Perfor
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -s f -l force -d 'Replace current exe even if not out-of-date'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l canary -d 'Upgrade to canary builds'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l rc -d 'Upgrade to a release candidate'
-complete -c deno -n "__fish_deno_using_subcommand vendor" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand vendor" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand vendor" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand vendor" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1423,8 +1601,11 @@ complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-unsafe-pro
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1477,96 +1658,189 @@ complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subc
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "types"
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "upgrade"
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types upgrade vendor" -f -a "vendor"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from run" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from serve" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from serve" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from serve" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from serve" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from serve" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from add" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from add" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from add" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from add" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from add" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from remove" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from remove" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from remove" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from remove" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from remove" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bench" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bench" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bench" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bench" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bench" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bundle" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bundle" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bundle" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bundle" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from bundle" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from cache" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from cache" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from cache" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from cache" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from cache" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from check" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from check" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from check" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from check" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from check" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from clean" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from clean" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from clean" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from clean" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from clean" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from compile" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from compile" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from compile" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from compile" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from compile" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from completions" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from completions" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from completions" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from completions" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from completions" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from coverage" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from coverage" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from coverage" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from coverage" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from coverage" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from doc" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from doc" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from doc" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from doc" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from doc" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from eval" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from eval" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from eval" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from eval" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from eval" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from fmt" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from fmt" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from fmt" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from fmt" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from fmt" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from init" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from init" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from init" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from init" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from init" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from info" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from info" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from info" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from info" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from info" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from install" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from install" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from install" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from install" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from json_reference" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from json_reference" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from json_reference" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from json_reference" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from json_reference" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from jupyter" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from jupyter" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from jupyter" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from jupyter" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from jupyter" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from outdated" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lsp" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lint" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lint" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lint" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lint" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from lint" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from publish" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from publish" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from publish" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from publish" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from publish" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from repl" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from repl" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from repl" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from repl" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from repl" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from task" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from task" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from task" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from task" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from task" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from test" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from test" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from test" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from test" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from test" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from types" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from types" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from types" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from types" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from types" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from upgrade" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from upgrade" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from upgrade" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from upgrade" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from upgrade" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from vendor" -s h -l help -r -f -a "{unstable\t''}"
-complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from vendor" -s L -l log-level -d 'Set log level' -r -f -a "{trace\t'',debug\t'',info\t''}"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from vendor" -s h -l help -r -f -a "unstable\t''
+full\t''"
+complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from vendor" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
+debug\t''
+info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and __fish_seen_subcommand_from vendor" -s q -l quiet -d 'Suppress diagnostic output'

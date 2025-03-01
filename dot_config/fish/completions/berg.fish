@@ -24,7 +24,7 @@ function __fish_berg_using_subcommand
 	contains -- $cmd[1] $argv
 end
 
-complete -c berg -n "__fish_berg_needs_command" -s w -l max-width -d 'Maximum with of the stdout output,  - negative numbers indicate using \'infinite\' width per line - zero indicates using the terminals width - positive numbers are interpreted as max width. You may specify   widths that can lead to weird linebreaks. This is a feature for tools   which process stdout output line by line. You may also just negative   widths in this case.  Falls back to `max_width` value in config or defaults to 80 otherwise.' -r
+complete -c berg -n "__fish_berg_needs_command" -s w -l max-width -d 'Maximum with of the stdout output,  - negative numbers indicate using \'infinite\' width per line - zero indicates using the terminals width - positive numbers are interpreted as max width. You may specify   widths that can lead to weird linebreaks. This is a feature for tools   which process stdout output line by line. You may also just negative   widths in this case. We discourage use of widths <= 25  Falls back to `max_width` value in config or defaults to 80 otherwise.' -r
 complete -c berg -n "__fish_berg_needs_command" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!  Still WIP'
 complete -c berg -n "__fish_berg_needs_command" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_needs_command" -s V -l version -d 'Print version'
@@ -62,7 +62,8 @@ complete -c berg -n "__fish_berg_using_subcommand config; and not __fish_seen_su
 complete -c berg -n "__fish_berg_using_subcommand config; and not __fish_seen_subcommand_from info generate help" -f -a "generate" -d 'Generate standard configuration at certain locations'
 complete -c berg -n "__fish_berg_using_subcommand config; and not __fish_seen_subcommand_from info generate help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from info" -s h -l help -d 'Print help'
-complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from generate" -s l -l location -d 'Specify location at which default config should be dumped' -r -f -a "{global\t'',local\t''}"
+complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from generate" -s l -l location -d 'Specify location at which default config should be dumped' -r -f -a "global\t''
+local\t''"
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from generate" -s r -l replace -d 'Specifies whether overwriting already existing configs is allowed'
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from generate" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "info" -d 'Display short overview of which config values are used'
@@ -90,7 +91,9 @@ complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcomm
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from create" -s m -l milestone -d 'Name of the milestone the issue is related to' -r
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from comment" -s h -l help -d 'Print help'
-complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from issues with the chosen state' -r -f -a "{closed\t'',open\t'',all\t''}"
+complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from issues with the chosen state' -r -f -a "closed\t''
+open\t''
+all\t''"
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s c -l comments -d 'Disabled: display issue summary | Enabled: display issue comment history'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from edit" -s h -l help -d 'Print help'
@@ -108,8 +111,15 @@ complete -c berg -n "__fish_berg_using_subcommand pull; and not __fish_seen_subc
 complete -c berg -n "__fish_berg_using_subcommand pull; and not __fish_seen_subcommand_from list create edit view comment help" -f -a "comment" -d 'Add comment to selected pull request'
 complete -c berg -n "__fish_berg_using_subcommand pull; and not __fish_seen_subcommand_from list create edit view comment help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -s c -l count -d 'Number of pull requests to be displayed' -r
-complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -l sort -d 'Sort using a certain criteria' -r -f -a "{oldest\t'',recentupdate\t'',leastupdate\t'',mostcomment\t'',leastcomment\t'',priority\t''}"
-complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -s s -l state -d 'Filter pull requests with the chosen state' -r -f -a "{closed\t'',open\t'',all\t''}"
+complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -l sort -d 'Sort using a certain criteria' -r -f -a "oldest\t''
+recentupdate\t''
+leastupdate\t''
+mostcomment\t''
+leastcomment\t''
+priority\t''"
+complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -s s -l state -d 'Filter pull requests with the chosen state' -r -f -a "closed\t''
+open\t''
+all\t''"
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from create" -s a -l assignees -d 'Comma-delimited list of assignee names' -r
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from create" -s t -l target-branch -d 'Target branch for the pull request' -r
@@ -121,7 +131,9 @@ complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcomma
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from create" -s i -l interactive -d 'Interactive mode which guides the user through optional argument options'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from edit" -s h -l help -d 'Print help'
-complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from pull requests with the chosen state' -r -f -a "{closed\t'',open\t'',all\t''}"
+complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from pull requests with the chosen state' -r -f -a "closed\t''
+open\t''
+all\t''"
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from view" -s c -l comments -d 'Disabled: display issue summary | Enabled: display issue comment history'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from view" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand pull; and __fish_seen_subcommand_from comment" -s h -l help -d 'Print help'
@@ -162,7 +174,8 @@ complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcomma
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s d -l description -d 'Repository description' -r
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l org -d 'Organization name' -r
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s n -l name -d 'Repository name' -r
-complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s p -l private -d 'Repository visibility' -r -f -a "{private\t'',public\t''}"
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s p -l private -d 'Repository visibility' -r -f -a "private\t''
+public\t''"
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from clone" -l use-ssh -d 'Whether or not to clone via ssh'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from clone" -s h -l help -d 'Print help'
@@ -185,7 +198,9 @@ complete -c berg -n "__fish_berg_using_subcommand milestone; and not __fish_seen
 complete -c berg -n "__fish_berg_using_subcommand milestone; and not __fish_seen_subcommand_from list view create edit help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand milestone; and __fish_seen_subcommand_from list" -s c -l count -d 'Number of milestones to be displayed' -r
 complete -c berg -n "__fish_berg_using_subcommand milestone; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
-complete -c berg -n "__fish_berg_using_subcommand milestone; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from milestones with the chosen state' -r -f -a "{closed\t'',open\t'',all\t''}"
+complete -c berg -n "__fish_berg_using_subcommand milestone; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from milestones with the chosen state' -r -f -a "closed\t''
+open\t''
+all\t''"
 complete -c berg -n "__fish_berg_using_subcommand milestone; and __fish_seen_subcommand_from view" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand milestone; and __fish_seen_subcommand_from create" -s t -l title -d 'Title or summary' -r
 complete -c berg -n "__fish_berg_using_subcommand milestone; and __fish_seen_subcommand_from create" -s d -l description -d 'Main description of milestone' -r

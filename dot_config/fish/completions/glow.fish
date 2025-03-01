@@ -79,7 +79,7 @@ function __glow_clear_perform_completion_once_result
     __glow_debug ""
     __glow_debug "========= clearing previously set __glow_perform_completion_once_result variable =========="
     set --erase __glow_perform_completion_once_result
-    __glow_debug "Succesfully erased the variable __glow_perform_completion_once_result"
+    __glow_debug "Successfully erased the variable __glow_perform_completion_once_result"
 end
 
 function __glow_requires_order_preservation
