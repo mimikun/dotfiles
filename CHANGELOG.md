@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2025.02.28]
+
+### Added - 新機能について
+
+- feat(gup): add jjui
+- feat(pip): add asciidoc
+- feat(fish): add wfxr/forgit
+- feat(nvim): add chrome-remote.nvim
+- feat(nvim): add perec.nvim
+- feat(nvim): add patterns.nvim
+- feat(cargo): add flamegraph, krafna and hk
+- chore(feed.nvim): add some feeds
+
+### Changed - 既存機能の変更について
+
+- docs: update STARTUPTIME.md
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(nvumi): update config
+- chore(snacks.nvim): update config
+- style(snacks.nvim): update code comments
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.02.17]
 
 ### Added - 新機能について
