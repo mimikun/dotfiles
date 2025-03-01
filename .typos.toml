@@ -24,6 +24,8 @@ tere = "tere"
 styl = "styl"
 # dot_config/fish/completions/starship.fish
 mis = "mis"
+# dot_config/starship/starship.toml
+typ = "typ"
 
 [files]
 extend-exclude = [
