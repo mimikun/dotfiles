@@ -2,6 +2,7 @@
 local opts = {
     max_concurrent_installers = require("config.global").is_human_rights and 4 or 1,
     registries = {
+        "github:crashdummyy/mason-registry",
         "github:mimikun/mason-registry",
         "github:mkindberg/ghostty-ls",
         "github:mason-org/mason-registry",
