@@ -34,10 +34,9 @@ local dependencies = {
     --"janwvjaarsveld/neovimcraft.nvim",
     --"wsdjeg/mru.nvim",
     --"wsdjeg/rooter.nvim",
-    {
-        "oleksiiluchnikov/telescope-avante.nvim",
-        dependencies = "yetone/avante.nvim",
-    },
+    --{ "yetone/avante.nvim", optional = true },
+    --"oleksiiluchnikov/telescope-avante.nvim",
+    --"oleksiiluchnikov/telescope-prompts.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

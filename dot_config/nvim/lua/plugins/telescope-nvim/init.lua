@@ -47,6 +47,7 @@ local spec = {
         --telescope.load_extension("orgmode")
         --telescope.load_extension("neovimcraft")
         --telescope.load_extension("avante")
+        --telescope.load_extension("prompts")
     end,
     --cond = false,
     --enabled = false,
