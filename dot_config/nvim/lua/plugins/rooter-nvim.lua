@@ -1,5 +1,3 @@
--- TODO: add this plugin to telescope.nvim config
-
 ---@type table
 local opts = {
     root_patterns = { ".git/" },

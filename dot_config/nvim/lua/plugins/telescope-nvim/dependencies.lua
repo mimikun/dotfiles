@@ -33,6 +33,7 @@ local dependencies = {
     --"nvim-orgmode/telescope-orgmode.nvim",
     --"janwvjaarsveld/neovimcraft.nvim",
     --"wsdjeg/mru.nvim",
+    --"wsdjeg/rooter.nvim",
     {
         "oleksiiluchnikov/telescope-avante.nvim",
         dependencies = "yetone/avante.nvim",
