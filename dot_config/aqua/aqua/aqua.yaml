@@ -56,7 +56,7 @@ packages:
   - name: joerdav/xc@v0.8.5
   - name: jorgerojas26/lazysql@v0.3.5
   - name: jqlang/jq@jq-1.7.1
-  - name: junegunn/fzf@v0.60.2
+  - name: junegunn/fzf@v0.60.3
   - name: k1LoW/octocov@v0.64.0
   - name: kdabir/has@v1.5.0
   - name: knqyf263/sou@v0.2.0
