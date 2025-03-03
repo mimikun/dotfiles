@@ -1,5 +1,63 @@
 # Changelog
 
+## [v2025.03.02]
+
+### Added - 新機能について
+
+- feat(aqua): add some packages
+- feat(nvim): add backout.nvim
+- feat(nvim): add roslyn.nvim
+- feat(nvim): add rzls.nvim
+- feat(nvim): add nvim-webicons
+- feat(nvim): add material-icons.nvim
+- feat(nvim): add neospeller.nvim
+- feat(nvim): add livemd.nvim
+- feat(nvim): add nvim-scaffolder
+- feat(nvim): add clasp.nvim
+- feat(nvim): add chime.nvim
+- feat(nvim): add local-highlight.nvim
+- feat(nvim): add stackwalk.nvim
+- feat(nvim): add rooter.nvim
+- feat(nvim): add mru.nvim
+- feat(nvim): add logger.nvim
+- feat(nvim): add lazy-patcher.nvim
+- feat(nvim): add hierarchy.nvim
+- feat(nvim): add displace.nvim
+- feat(nvim): add snacks-picker-firefox.nvim
+- feat(nvim): add ripple.nvim
+- feat(nvim): add file-history.nvim
+- feat(nvim): add devdocs.nvim
+- feat(nvim): add markmark.nvim
+- feat(nvim): add buffon.nvim
+- feat(nvim): add zendiagram.nvim
+- feat(telescope.nvim): add telescope-prompts.nvim
+- feat(telescope.nvim): add rooter.nvim in dependencies
+- feat(telescope.nvim): add mru.nvim in dependencies
+- feat(lazy-patcher.nvim): add commands for lazy-loaded
+- Add .whitesource configuration file
+- chore(cargo): add some packages
+
+### Changed - 既存機能の変更について
+
+- chore(img-clip.nvim): update config
+- chore(nvumi): update config
+- chore(feed.nvim): update config
+- chore(chezmoi): ignore .whitesource
+- chore(fish): update some completions
+- chore(nvim): update lockfiles
+- chore(lazy-patcher.nvim): update config
+- chore(mru.nvim): update config
+- chore(games): update CookieClicker savedata
+- chore(typos): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(chezmoiignore): ignore git-forgit.bash
+
 ## [v2025.02.28]
 
 ### Added - 新機能について
