@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2025.03.03]
+
+### Added - 新機能について
+
+- feat(nvim): add direx.nvim
+- feat(nvim): add treeporter.nvim
+- feat(nvim): add nvim-opposites
+- feat(nvim): add endec.nvim
+
+### Changed - 既存機能の変更について
+
+なし
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(nvim): some plugin spec miss
+
 ## [v2025.03.02]
 
 ### Added - 新機能について
