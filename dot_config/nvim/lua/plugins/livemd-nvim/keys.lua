@@ -2,13 +2,17 @@
 local keys = {
     {
         "<leader>lms",
-        vim.cmd(":LiveMDStart<CR>"),
+        function()
+            vim.cmd("LiveMDStart")
+        end,
         mode = "n",
         { noremap = true, silent = true },
     },
     {
         "<leader>lmx",
-        vim.cmd(":LiveMDStop<CR>"),
+        function()
+            vim.cmd("LiveMDStop")
+        end,
         mode = "n",
         { noremap = true, silent = true },
     },

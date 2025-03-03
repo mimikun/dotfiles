@@ -2,7 +2,9 @@
 local keys = {
     {
         "<leader>on",
-        vim.cmd("Nvumi"),
+        function()
+            vim.cmd("Nvumi")
+        end,
         mode = "n",
         desc = "[O]pen [N]vumi",
     },

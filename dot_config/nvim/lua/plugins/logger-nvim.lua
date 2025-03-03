@@ -12,7 +12,7 @@ local keys = {
 
 ---@type LazySpec
 local spec = {
-    "mimikun/spec-template",
+    "wsdjeg/logger.nvim",
     --lazy = false,
     keys = keys,
     opts = {},
