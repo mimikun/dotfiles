@@ -4,6 +4,7 @@ local dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-telescope/telescope.nvim",
     "stevearc/dressing.nvim",
+    "ravitemer/mcphub.nvim",
 }
 
 if require("config.settings").use_blink_cmp then
