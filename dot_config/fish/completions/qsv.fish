@@ -780,6 +780,7 @@ complete -c qsv -n "__fish_qsv_using_subcommand lens" -l columns
 complete -c qsv -n "__fish_qsv_using_subcommand lens" -l filter
 complete -c qsv -n "__fish_qsv_using_subcommand lens" -l find
 complete -c qsv -n "__fish_qsv_using_subcommand lens" -l ignore-case
+complete -c qsv -n "__fish_qsv_using_subcommand lens" -l freeze-columns
 complete -c qsv -n "__fish_qsv_using_subcommand lens" -l echo-column
 complete -c qsv -n "__fish_qsv_using_subcommand lens" -l debug
 complete -c qsv -n "__fish_qsv_using_subcommand lens" -s h -l help -d 'Print help'
@@ -1137,6 +1138,8 @@ complete -c qsv -n "__fish_qsv_using_subcommand stats" -l force
 complete -c qsv -n "__fish_qsv_using_subcommand stats" -l jobs
 complete -c qsv -n "__fish_qsv_using_subcommand stats" -l stats-jsonl
 complete -c qsv -n "__fish_qsv_using_subcommand stats" -l cache-threshold
+complete -c qsv -n "__fish_qsv_using_subcommand stats" -l vis-whitespace
+complete -c qsv -n "__fish_qsv_using_subcommand stats" -l dataset-stats
 complete -c qsv -n "__fish_qsv_using_subcommand stats" -l output
 complete -c qsv -n "__fish_qsv_using_subcommand stats" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand stats" -l delimiter
