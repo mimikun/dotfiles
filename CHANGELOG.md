@@ -1,5 +1,26 @@
 # Changelog
 
+## [v2025.03.04]
+
+### Added - 新機能について
+
+- feat(nvim): add smart-motion.nvim
+- feat(nvim): add undo-glow.nvim
+- feat(nvim): add otter.nvim
+- feat(nvim): add mcphub.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completions
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.03]
 
 ### Added - 新機能について
