@@ -3,6 +3,7 @@ calcure
 dotenvhub
 glances
 gptme
+hike
 kaskade
 moneyterm
 pocker-tui
@@ -12,4 +13,5 @@ rsyncy
 sherlock-project
 toolong
 trash-cli
+vectorcode
 wut-cli
