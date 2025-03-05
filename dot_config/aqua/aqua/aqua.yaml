@@ -47,7 +47,7 @@ packages:
   - name: grafana/k6@v0.57.0
   - name: guumaster/hostctl@v1.1.4
   - name: hherman1/gq@v0.0.3
-  - name: homeport/dyff@v1.9.4
+  - name: homeport/dyff@v1.10.0
   - name: itchyny/json2yaml@v0.1.4
   - name: jesseduffield/horcrux@v0.2
   - name: jesseduffield/lazydocker@v0.24.1
