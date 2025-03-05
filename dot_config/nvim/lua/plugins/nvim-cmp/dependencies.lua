@@ -13,6 +13,7 @@ local dependencies = {
     "chrisgrieser/cmp_yanky",
     "andersevenrud/cmp-tmux",
     { "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
+    --"jghauser/papis.nvim",
 }
 
 if require("config.settings").use_github_copilot then
