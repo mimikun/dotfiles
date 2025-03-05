@@ -9,8 +9,7 @@ local events = {
 
 ---@type LazySpec
 local spec = {
-    "epwalsh/obsidian.nvim",
-    version = "*",
+    "obsidian-nvim/obsidian.nvim",
     --lazy = false,
     ft = "markdown",
     cmd = require("plugins.obsidian-nvim.cmds"),
