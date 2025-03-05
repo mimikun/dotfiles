@@ -8,6 +8,7 @@ bacon
 bandwhich
 basilk
 bat
+bibiman
 bingrep
 binsider
 bluetui
@@ -52,6 +53,7 @@ ducker
 du-dust
 dusage
 dutree
+envfetch
 erdtree
 erg
 eva
@@ -168,6 +170,7 @@ shellharden
 sigrs
 silicon
 skim
+slumber
 smartcat
 sshx
 starship
@@ -205,6 +208,7 @@ vscli
 watchexec-cli
 wireman
 wthrr
+xbps-tui
 xh
 xsv
 yazi-cli
