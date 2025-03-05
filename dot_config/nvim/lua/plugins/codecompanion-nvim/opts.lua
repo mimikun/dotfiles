@@ -80,13 +80,13 @@ local strategies = {
                     api_key = nil,
                 },
             },
-            ["mcp"] = {
-                callback = require("mcphub.extensions.codecompanion"),
-                description = "Call tools and resources from the MCP Servers",
-                opts = {
-                    user_approval = true,
-                },
-            },
+            --["mcp"] = {
+            --    callback = require("mcphub.extensions.codecompanion"),
+            --    description = "Call tools and resources from the MCP Servers",
+            --    opts = {
+            --        user_approval = true,
+            --    },
+            --},
             opts = {
                 -- Send any errors to the LLM automatically?
                 auto_submit_errors = false,
