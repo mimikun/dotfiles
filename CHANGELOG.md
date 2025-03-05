@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2025.03.05]
+
+### Added - 新機能について
+
+- feat(nvim): add staba.nvim
+- feat(nvim): add papis.nvim
+- feat(nvim): add nvim-scrollview
+- feat(mise): add npm:git-truck
+- feat(pipx): add some tools
+- feat(cargo): add some packages in linux
+
+### Changed - 既存機能の変更について
+
+- chore(obsidian.nvim): use community fork
+    - original repo is no longer maintained
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(codecompanion.nvim): config error
+
 ## [v2025.03.04]
 
 ### Added - 新機能について
