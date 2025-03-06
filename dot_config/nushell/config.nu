@@ -24,3 +24,6 @@ broot --print-shell-function nushell | save -f ($nu.data-dir | path join "vendor
 #    }
 #}
 #alias g = ^g
+
+# rip
+rip completions nushell | save -f ($nu.data-dir | path join "vendor/autoload/rip.nu")
