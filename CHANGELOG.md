@@ -1,5 +1,34 @@
 # Changelog
 
+## [v2025.03.06]
+
+### Added - 新機能について
+
+- feat: use lefthook
+- feat(nvim): add nvim_winpick
+- feat(nvim): add nvim-window-picker
+- feat(nvim): add dropbar.nvim
+- feat(cargo): add rip2 in linux
+- feat(fish): add some completions
+    - lefthook, gitleaks, rip
+- feat(powershell): add some completions
+    - gitleaks, lefthook, rip
+- feat(chezmoiscripts): add download fuzpad in linux
+- feat(nushell): add rip completion
+
+### Changed - 既存機能の変更について
+
+- chore(localbin): update update_fish_completions
+- chore(fish): update deno completion
+
+### Removed - 今回で削除された機能について
+
+- chore: remove husky
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.05]
 
 ### Added - 新機能について
