@@ -1,0 +1,20 @@
+{{ if eq .chezmoi.os "linux" -}}
+
+#!/bin/bash
+
+base_url="https://raw.githubusercontent.com/JianZcar/FuzPad/refs/heads/main/bin/fuzpad"
+bin_name="fuzpad"
+file_path="$HOME/.local/bin/$bin_name"
+
+download_url="$base_url"
+
+# $HOME/.local/bin/fuzpad check
+if [[ ! -e "$file_path" ]]; then
+    echo "Download from $download_url"
+    curl -sSL "$download_url" -o "$file_path"
+    chmod +x "$file_path"
+else
+    echo "$file_path is exist."
+fi
+
+{{ end -}}
