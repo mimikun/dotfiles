@@ -6,7 +6,6 @@
     "cspell": "^8.17.3",
     "cspell-dict-yaju": "^0.0.3",
     "cz-conventional-changelog-ja": "^0.0.2",
-    "husky": "^9.1.7",
     "prettier": "3.5.3",
     "textlint": "^14.3.0",
     "textlint-rule-preset-ja-technical-writing": "^12.0.0"
@@ -15,7 +14,6 @@
     "textlint": "textlint --cache ./*.md",
     "lint:prettier": "prettier --check .",
     "fmt:prettier": "prettier --write .",
-    "commit": "cz",
-    "prepare": "husky"
+    "commit": "cz"
   }
 }
