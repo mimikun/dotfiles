@@ -233,6 +233,39 @@ if ($cond) {
         Write-Output $ccsum_completion >> $env:CACHE_PROFILE
     }
 
+    # gitleaks completion
+    Get-Command gitleaks -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# gitleaks completion" >> $env:CACHE_PROFILE
+        $gitleaks_completion = gitleaks completion powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $gitleaks_completion >> $env:CACHE_PROFILE
+    }
+
+    # lefthook completion
+    Get-Command lefthook -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# lefthook completion" >> $env:CACHE_PROFILE
+        $lefthook_completion = lefthook completion powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $lefthook_completion >> $env:CACHE_PROFILE
+    }
+
+    # rip completion
+    Get-Command rip -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# rip completion" >> $env:CACHE_PROFILE
+        $rip_completion = rip completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $rip_completion >> $env:CACHE_PROFILE
+    }
+
     # vfox setup
     # NOTE: can't use now
     #Get-Command vfox -ErrorAction Ignore | Out-Null
