@@ -151,6 +151,7 @@ rascii_art
 rbw
 redu
 rioterm
+rip2
 ripgrep
 ripgrep_all
 rrc
