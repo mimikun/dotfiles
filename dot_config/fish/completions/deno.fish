@@ -334,7 +334,7 @@ complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-unsafe-proto 
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-webgpu -d 'Enable unstable `WebGPU` APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand add" -s D -l dev -d 'Add as a dev dependency'
+complete -c deno -n "__fish_deno_using_subcommand add" -s D -l dev -d 'Add the package as a dev dependency. Note: This only applies when adding to a `package.json` file.'
 complete -c deno -n "__fish_deno_using_subcommand remove" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand remove" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
@@ -1053,7 +1053,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand install" -s f -l force -d 'Forcefully overwrite existing installation'
 complete -c deno -n "__fish_deno_using_subcommand install" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand install" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
-complete -c deno -n "__fish_deno_using_subcommand install" -s D -l dev -d 'Add as a dev dependency'
+complete -c deno -n "__fish_deno_using_subcommand install" -s D -l dev -d 'Add the package as a dev dependency. Note: This only applies when adding to a `package.json` file.'
 complete -c deno -n "__fish_deno_using_subcommand i" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand i" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
@@ -1132,7 +1132,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand i" -s f -l force -d 'Forcefully overwrite existing installation'
 complete -c deno -n "__fish_deno_using_subcommand i" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand i" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
-complete -c deno -n "__fish_deno_using_subcommand i" -s D -l dev -d 'Add as a dev dependency'
+complete -c deno -n "__fish_deno_using_subcommand i" -s D -l dev -d 'Add the package as a dev dependency. Note: This only applies when adding to a `package.json` file.'
 complete -c deno -n "__fish_deno_using_subcommand json_reference" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand json_reference" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
