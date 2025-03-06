@@ -26,7 +26,7 @@ packages:
   - name: derailed/k9s@v0.40.5
   - name: direnv/direnv@v2.35.0
   - name: dlvhdr/diffnav@v0.3.0
-  - name: dominikh/go-tools/staticcheck@2025.1
+  - name: dominikh/go-tools/staticcheck@2025.1.1
   - name: dotenvx/dotenvx@v1.38.4
   - name: editorconfig-checker/editorconfig-checker@v3.2.0
   - name: evilmartians/lefthook@v1.11.2
