@@ -931,6 +931,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l overrides -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -1026,6 +1028,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l overrides -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
