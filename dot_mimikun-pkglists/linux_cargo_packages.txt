@@ -40,6 +40,7 @@ ccsum
 choose
 codeberg-cli
 colorgen-nvim
+commitlint-rs
 create-tauri-app
 csview
 csvlens
