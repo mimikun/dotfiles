@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=https://github.com/KeisukeYamashita/commitlint-rs/releases/latest/download/schema.json
+---
+# ref: https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#readme
+rules:
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/body-empty/
+  body-empty:
+    level: ignore
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/body-max-length/
+  body-max-length:
+    level: error
+    length: 100
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/description-empty/
+  description-empty:
+    level: error
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/description-format/
+  description-format:
+    level: ignore
+    format: ^[A-Z].*$
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/description-max-length/
+  description-max-length:
+    level: error
+    length: 100
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/footers-empty/
+  footers-empty:
+    level: ignore
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/scope/
+  scope:
+    level: ignore
+    optional: true
+    options: []
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/scope-empty/
+  scope-empty:
+    level: ignore
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/scope-format/
+  scope-format:
+    level: error
+    format: ^[a-z]*$
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/scope-max-length/
+  scope-max-length:
+    level: ignore
+    length: 100
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/subject-empty/
+  subject-empty:
+    level: error
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/type/
+  type:
+    level: error
+    options:
+      - build
+      - chore
+      - ci
+      - docs
+      - feat
+      - fix
+      - perf
+      - refactor
+      - revert
+      - style
+      - test
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/type-empty/
+  type-empty:
+    level: error
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/type-format/
+  type-format:
+    level: error
+    format: ^[a-z].*$
+  # https://keisukeyamashita.github.io/commitlint-rs/rules/type-max-length/
+  type-max-length:
+    level: ignore
+    length: 12
