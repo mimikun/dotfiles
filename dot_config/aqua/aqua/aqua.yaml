@@ -29,7 +29,7 @@ packages:
   - name: dominikh/go-tools/staticcheck@2025.1.1
   - name: dotenvx/dotenvx@v1.38.4
   - name: editorconfig-checker/editorconfig-checker@v3.2.0
-  - name: evilmartians/lefthook@v1.11.2
+  - name: evilmartians/lefthook@v1.11.3
   - name: fastfetch-cli/fastfetch@2.38.0
   - name: FiloSottile/age@v1.2.1
   - name: gitleaks/gitleaks@v8.24.0
