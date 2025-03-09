@@ -43,7 +43,7 @@ packages:
   - name: google/osv-scanner@v1.9.2
   - name: google/yamlfmt@v0.16.0
   - name: gopasspw/gopass@v1.15.15
-  - name: go-task/task@v3.41.0
+  - name: go-task/task@v3.42.0
   - name: grafana/k6@v0.57.0
   - name: guumaster/hostctl@v1.1.4
   - name: hherman1/gq@v0.0.3
