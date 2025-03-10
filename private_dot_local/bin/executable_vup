@@ -4,7 +4,7 @@
 # 変数定義
 #=======================
 
-readonly PRODUCT_VERSION="1.11.0"
+readonly PRODUCT_VERSION="1.11.1"
 PRODUCT_NAME="$(basename "${0}")"
 OS_INFO=$(os_info -t)
 
@@ -85,12 +85,6 @@ update_cargo_tabiew() {
   echo "can't install it from crates.io"
 }
 
-# HACK: pueue is rc now
-update_cargo_pueue() {
-  echo "using rc version now, install from github url"
-  pueue add -p --after "$rust_task_id" -- "cargo install --git https://github.com/Nukesor/pueue.git"
-}
-
 use_pueue() {
   echo "rustup update"
   rust_task_id=$(pueue add -p -- "rustup update")
@@ -139,7 +133,6 @@ use_pueue() {
   for i in $cargo_outdated_pkgs; do
     case "$i" in
       "tabiew" ) update_cargo_tabiew ;;
-      "pueue" ) update_cargo_pueue ;;
       * ) task_id=$(pueue add -p --after "$rust_task_id" -- "cargo install $i") ;;
     esac
   done
