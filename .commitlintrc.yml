@@ -7,7 +7,7 @@ rules:
     level: ignore
   # https://keisukeyamashita.github.io/commitlint-rs/rules/body-max-length/
   body-max-length:
-    level: error
+    level: ignore
     length: 100
   # https://keisukeyamashita.github.io/commitlint-rs/rules/description-empty/
   description-empty:
