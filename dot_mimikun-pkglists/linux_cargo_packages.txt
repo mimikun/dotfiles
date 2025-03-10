@@ -139,9 +139,11 @@ pay-respects-module-request-ai
 pay-respects-module-runtime-rules
 pik
 pipr
+presenterm
 procs
 pueue
 pumas
+punktf
 pylyzer
 qrtool
 rage
