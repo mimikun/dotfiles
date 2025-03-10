@@ -37,6 +37,7 @@ local dependencies = {
     --{ "yetone/avante.nvim", optional = true },
     --"oleksiiluchnikov/telescope-avante.nvim",
     --"oleksiiluchnikov/telescope-prompts.nvim",
+    --"ThePrimeagen/refactoring.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

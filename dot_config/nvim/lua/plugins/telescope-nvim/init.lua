@@ -48,6 +48,7 @@ local spec = {
         --telescope.load_extension("neovimcraft")
         --telescope.load_extension("avante")
         --telescope.load_extension("prompts")
+        --telescope.load_extension("refactoring")
     end,
     --cond = false,
     --enabled = false,
