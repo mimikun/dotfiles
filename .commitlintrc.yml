@@ -34,7 +34,7 @@ rules:
   # https://keisukeyamashita.github.io/commitlint-rs/rules/scope-format/
   scope-format:
     level: error
-    format: ^[a-z]*$
+    format: ^[a-z\-]*$
   # https://keisukeyamashita.github.io/commitlint-rs/rules/scope-max-length/
   scope-max-length:
     level: ignore
