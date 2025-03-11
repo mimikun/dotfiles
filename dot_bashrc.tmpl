@@ -157,8 +157,16 @@ fi
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export STARSHIP_CACHE="$XDG_CONFIG_HOME/.config/starship/cache"
 
-if command -v starship >/dev/null 2>&1; then
-    eval "$(starship init bash)"
+# HACK: Temporarily disabled to try omp
+#if command -v starship >/dev/null 2>&1; then
+#    eval "$(starship init bash)"
+#fi
+
+# HACK: Temporarily enable to try omp
+# oh-my-posh
+if command -v oh-my-posh >/dev/null 2>&1; then
+    #eval "$(oh-my-posh init bash)"
+    eval "$(oh-my-posh init bash --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
 fi
 
 # fly.io

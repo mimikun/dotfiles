@@ -465,9 +465,18 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     echo 'abbr --add vim nvim' >> $CACHE_CONFIG_FISH
 
     # starship config
-    if command -v starship >/dev/null 2>&1
-        echo "# cache starship config" >> $CACHE_CONFIG_FISH
-        starship init fish --print-full-init >> $CACHE_CONFIG_FISH
+    # HACK: Temporarily disable to try omp
+    #if command -v starship >/dev/null 2>&1
+    #    echo "# cache starship config" >> $CACHE_CONFIG_FISH
+    #    starship init fish --print-full-init >> $CACHE_CONFIG_FISH
+    #end
+
+    # oh-my-posh config
+    # HACK: Temporarily enable to try omp
+    if command -v oh-my-posh >/dev/null 2>&1
+        echo "# cache oh-my-posh config" >> $CACHE_CONFIG_FISH
+        #oh-my-posh init fish >> $CACHE_CONFIG_FISH
+        oh-my-posh init fish --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' >> $CACHE_CONFIG_FISH
     end
 
     # navi

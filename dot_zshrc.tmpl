@@ -94,10 +94,18 @@ alias pip="python3 -m pip"
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
 # starship config
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-export STARSHIP_CACHE="$XDG_CONFIG_HOME/starship/cache"
-if command -v starship>/dev/null 2>&1; then
-    eval "$(starship init zsh)"
+#export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+#export STARSHIP_CACHE="$XDG_CONFIG_HOME/starship/cache"
+# HACK: Temporarily disable to try omp
+#if command -v starship>/dev/null 2>&1; then
+#    eval "$(starship init zsh)"
+#fi
+
+# oh-my-posh config
+# HACK: Temporarily disable to try omp
+if command -v oh-my-posh>/dev/null 2>&1; then
+    #eval "$(oh-my-posh init zsh)"
+    eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
 fi
 
 # zoxide
