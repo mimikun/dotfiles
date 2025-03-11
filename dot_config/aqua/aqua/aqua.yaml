@@ -14,7 +14,7 @@ packages:
   - name: bitwarden/clients@cli-v2025.1.3
   - name: bloznelis/typioca@3.1.0
   - name: boyter/scc@v3.5.0
-  - name: bronze1man/yaml2json@v1.3.4
+  - name: bronze1man/yaml2json@v1.3.5
   - name: charmbracelet/freeze@v0.1.6
   - name: charmbracelet/glow@v2.1.0
   - name: charmbracelet/gum@v0.16.0
