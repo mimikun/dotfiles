@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mfontanini/presenterm/master/config-file-schema.json
+---
+defaults:
+  theme: light
+  terminal_font_size: 16
+  image_protocol: auto
+  # image_protocol: kitty-local
+  # image_protocol: kitty-remote
+  # image_protocol: iterm2
+  # image_protocol: sixel
+  max_columns: 100
+
+bindings:
+  # the keys that cause the presentation to move forwards.
+  next: ["l", "j", "<right>", "<page_down>", "<down>", " "]
+
+  # the keys that cause the presentation to move backwards.
+  previous: ["h", "k", "<left>", "<page_up>", "<up>"]
+
+  # the key binding to jump to the first slide.
+  first_slide: ["gg"]
+
+  # the key binding to jump to the last slide.
+  last_slide: ["G"]
+
+  # the key binding to jump to a specific slide.
+  go_to_slide: ["<number>G"]
+
+  # the key binding to execute a piece of shell code.
+  execute_code: ["<c-e>"]
+
+  # the key binding to reload the presentation.
+  reload: ["<c-r>"]
+
+  # the key binding to toggle the slide index modal.
+  toggle_slide_index: ["<c-p>"]
+
+  # the key binding to toggle the key bindings modal.
+  toggle_bindings: ["?"]
+
+  # the key binding to close the currently open modal.
+  close_modal: ["<esc>"]
+
+  # the key binding to close the application.
+  exit: ["<c-c>", "q"]
+
+  # the key binding to suspend the application.
+  suspend: ["<c-z>"]
+
+snippet:
+  exec:
+    enable: false
+  exec_replace:
+    enable: false
+  render:
+    threads: 2
+
+mermaid:
+  scale: 2
+
+speaker_notes:
+  always_pubblish: true
