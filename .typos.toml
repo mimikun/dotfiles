@@ -26,6 +26,9 @@ styl = "styl"
 mis = "mis"
 # dot_config/starship/starship.toml
 typ = "typ"
+# iterm2
+# dot_config/presenterm/config.yaml
+iterm = "iterm"
 
 [files]
 extend-exclude = [
