@@ -1,5 +1,38 @@
 # Changelog
 
+## [v2025.03.11]
+
+### Added - 新機能について
+
+- feat: use commitlint-rs
+- feat(aqua): add yokecd/yoke
+- feat(nvim): add harpoon
+- feat(nvim): add vuffers.nvim
+- feat(nvim): add buvvers.nvim
+- feat(nvim): add refactoring.nvim
+    - and add telescope extension
+- feat(cargo): add cargo-cache in linux
+- feat(cargo): add some packages in linux
+- feat(cargo): add commitlint-rs in linux
+- feat(config): add presenterm
+- feat(shells): use oh-my-posh
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completions
+- chore(typos): update config
+- chore(localbin): update vup
+- chore(commitlint-rs): ignore body-max-length rule
+- chore(commitlint-rs): allow scopes containing hyphens
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.06]
 
 ### Added - 新機能について
