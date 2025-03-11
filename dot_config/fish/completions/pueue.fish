@@ -82,7 +82,7 @@ complete -c pueue -n "__fish_pueue_using_subcommand start" -s a -l all -d 'Resum
 complete -c pueue -n "__fish_pueue_using_subcommand start" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c pueue -n "__fish_pueue_using_subcommand restart" -s g -l failed-in-group -d 'Like `--all-failed`, but only restart tasks failed tasks of a specific group' -r
 complete -c pueue -n "__fish_pueue_using_subcommand restart" -s a -l all-failed -d 'Restart all failed tasks across all groups'
-complete -c pueue -n "__fish_pueue_using_subcommand restart" -s k -l start-immediately -d 'Immediately start the tasks, no matter how many open slots there are. This will ignore any dependencies tasks may have'
+complete -c pueue -n "__fish_pueue_using_subcommand restart" -s k -l immediate -d 'Immediately start the tasks, no matter how many open slots there are. This will ignore any dependencies tasks may have'
 complete -c pueue -n "__fish_pueue_using_subcommand restart" -s s -l stashed -d 'Set the restarted task to a "Stashed" state. Useful to avoid immediate execution'
 complete -c pueue -n "__fish_pueue_using_subcommand restart" -s i -l in-place -d 'Restart the task by reusing the already existing tasks. This will overwrite any previous logs of the restarted tasks'
 complete -c pueue -n "__fish_pueue_using_subcommand restart" -l not-in-place -d 'Restart the task by creating a new identical tasks. Only necessary if you have the `restart_in_place` configuration set to true'
