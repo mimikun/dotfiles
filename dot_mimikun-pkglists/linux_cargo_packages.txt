@@ -46,6 +46,7 @@ create-tauri-app
 csview
 csvlens
 cyme
+ddv
 desed
 diskonaut
 dns-doge
