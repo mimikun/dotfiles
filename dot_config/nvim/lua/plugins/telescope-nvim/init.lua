@@ -49,6 +49,7 @@ local spec = {
         --telescope.load_extension("avante")
         --telescope.load_extension("prompts")
         --telescope.load_extension("refactoring")
+        --telescope.load_extension("nerdy")
     end,
     --cond = false,
     --enabled = false,
