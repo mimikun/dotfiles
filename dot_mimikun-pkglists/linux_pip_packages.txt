@@ -23,10 +23,12 @@ beautifulsoup4
 bibtexparser
 bkp
 bpyutils
+castero
 certifi
 cffi
 chardet
 charset-normalizer
+CJKwrap
 click
 click-help-colors
 click-log
@@ -45,11 +47,13 @@ dominate
 et_xmlfile
 feedparser
 filetype
+gevent
 ghp-import
 gitdb
 GitPython
 glob2
 greenlet
+grequests
 h11
 h5py
 h5ui
@@ -130,8 +134,10 @@ pyparsing
 pyte
 python-dateutil
 python-doi
+python-mpv
 python-pptx
 python-slugify
+python-vlc
 pytimeparse
 pytz
 pyxdg
@@ -184,3 +190,5 @@ xmltodict
 yamllint
 youtube-transcript-api
 zipp
+zope.event
+zope.interface
