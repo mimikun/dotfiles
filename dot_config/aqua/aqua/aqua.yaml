@@ -111,6 +111,6 @@ packages:
   - name: xxxserxxx/gotop@v4.2.0
   - name: yassinebenaid/bunster@v0.9.0
   - name: ycd/dstp@v0.4.23
-  - name: yokecd/yoke@v0.10.5
+  - name: yokecd/yoke@v0.10.7
   - name: yorukot/superfile@v1.1.7.1
   - name: zyedidia/eget@v1.3.4
