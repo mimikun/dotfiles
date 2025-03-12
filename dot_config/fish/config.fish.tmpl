@@ -6,6 +6,11 @@ set -x PIPENV_VENV_IN_PROJECT 1
 set -x TODAY (date +"%Y/%m/%d")
 set -x TZ "Asia/Tokyo"
 
+set -x USE_SHELL_PROMPT "oh-my-posh"
+#set -x USE_SHELL_PROMPT "starship"
+#set -x USE_NVIM_VERSION_MANAGER "nvs"
+set -x USE_NVIM_VERSION_MANAGER "bob"
+
 # XDG Base Directory
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
@@ -459,21 +464,29 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo 'abbr --add pvim paleovim' >> $CACHE_CONFIG_FISH
     end
 
-    # bob neovim version manager
-    echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
-    echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
+    # NOTE: neovim version manager
+    # bob-nvim
+    if ($USE_NVIM_VERSION_MANAGER = "bob") -a (command -v bob >/dev/null 2>&1)
+        echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
+        echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
+    end
+
+    # nvs
+    if ($USE_NVIM_VERSION_MANAGER = "nvs") -a (command -v nvs >/dev/null 2>&1)
+        # TODO: it
+    end
+
     echo 'abbr --add vim nvim' >> $CACHE_CONFIG_FISH
 
-    # starship config
-    # HACK: Temporarily disable to try omp
-    #if command -v starship >/dev/null 2>&1
-    #    echo "# cache starship config" >> $CACHE_CONFIG_FISH
-    #    starship init fish --print-full-init >> $CACHE_CONFIG_FISH
-    #end
+    # NOTE: shell prompt
+    # starship
+    if ($USE_SHELL_PROMPT = "starship") -a (command -v starship >/dev/null 2>&1)
+        echo "# cache starship config" >> $CACHE_CONFIG_FISH
+        starship init fish --print-full-init >> $CACHE_CONFIG_FISH
+    end
 
-    # oh-my-posh config
-    # HACK: Temporarily enable to try omp
-    if command -v oh-my-posh >/dev/null 2>&1
+    # oh-my-posh
+    if ($USE_SHELL_PROMPT = "oh-my-posh") -a (command -v oh-my-posh >/dev/null 2>&1)
         echo "# cache oh-my-posh config" >> $CACHE_CONFIG_FISH
         #echo "oh-my-posh init fish | source" >> $CACHE_CONFIG_FISH
         echo "oh-my-posh init fish --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | source" >> $CACHE_CONFIG_FISH
