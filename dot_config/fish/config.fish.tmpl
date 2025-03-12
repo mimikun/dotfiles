@@ -475,8 +475,8 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     # HACK: Temporarily enable to try omp
     if command -v oh-my-posh >/dev/null 2>&1
         echo "# cache oh-my-posh config" >> $CACHE_CONFIG_FISH
-        #oh-my-posh init fish >> $CACHE_CONFIG_FISH
-        oh-my-posh init fish --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' >> $CACHE_CONFIG_FISH
+        #echo "oh-my-posh init fish | source" >> $CACHE_CONFIG_FISH
+        echo "oh-my-posh init fish --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | source" >> $CACHE_CONFIG_FISH
     end
 
     # navi
