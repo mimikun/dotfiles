@@ -50,6 +50,7 @@ local spec = {
         --telescope.load_extension("prompts")
         --telescope.load_extension("refactoring")
         --telescope.load_extension("nerdy")
+        --telescope.load_extension("import")
     end,
     --cond = false,
     --enabled = false,

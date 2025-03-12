@@ -12,6 +12,7 @@ local extensions = {
     --live_grep_args =require("plugins.telescope-nvim.extensions.live-grep-args"),
     --orgmode = require("plugins.telescope-nvim.extensions.orgmode"),
     --prompts = require("plugins.telescope-nvim.extensions.prompts"),
+    --import = require("plugins.telescope-nvim.extensions.import"),
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
