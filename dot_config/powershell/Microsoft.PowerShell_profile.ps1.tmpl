@@ -70,6 +70,9 @@ if ($IsLinux) {
 
 $GHQ_ROOT = $env:GHQ_ROOT
 
+$useShellPrompt = "oh-my-posh"
+#$useShellPrompt = "starship"
+
 if ($cond) {
     New-Item $env:CACHE_PROFILE_DIR -ItemType Directory -Force 2>&1 > $null
     New-Item $env:CACHE_PROFILE -ItemType File -Value "" -Force 2>&1 > $null
@@ -112,30 +115,26 @@ if ($cond) {
         sunbeam completion powershell >> $env:CACHE_PROFILE
     }
 
+    # NOTE: shell prompts
+    Get-Command starship -ErrorAction Ignore | Out-Null
+    $isExistStarship = $?
+    Get-Command oh-my-posh -ErrorAction Ignore | Out-Null
+    $isExistOmp = $?
+
     # starship setup and completion
-    # HACK: Temporarily disable to try omp
-    #Get-Command starship -ErrorAction Ignore | Out-Null
-    #$res = $?
-    #if ($res) {
-    #    # setup
-    #    Write-Output "# cache starship setup" >> $env:CACHE_PROFILE
-    #    starship init powershell --print-full-init >> $env:CACHE_PROFILE
-    #    # completion
-    #    Write-Output "# cache starship completion" >> $env:CACHE_PROFILE
-    #    $starship_completion = starship completions powershell |
-    #        ForEach-Object { $_ -replace $namespace1, "" } |
-    #        ForEach-Object { $_ -replace $namespace2, "" }
-    #    Write-Output $starship_completion >> $env:CACHE_PROFILE
-    #}
+    if ( ($isExistStarship) -and ($useShellPrompt -eq "starship") ) {
+        Write-Output "# cache starship setup" >> $env:CACHE_PROFILE
+        starship init powershell --print-full-init >> $env:CACHE_PROFILE
+        Write-Output "# cache starship completion" >> $env:CACHE_PROFILE
+        $starship_completion = starship completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $starship_completion >> $env:CACHE_PROFILE
+    }
 
     # oh-my-posh setup and completion
-    # HACK: Temporarily enable to try omp
-    Get-Command oh-my-posh -ErrorAction Ignore | Out-Null
-    $res = $?
-    if ($res) {
-        # setup
+    if ( ($isExistOmp) -and ($useShellPrompt -eq "oh-my-posh") ) {
         Write-Output "# cache oh-my-posh setup" >> $env:CACHE_PROFILE
-        #oh-my-posh init pwsh | Invoke-Expression
         oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | Invoke-Expression
     }
 
