@@ -1,5 +1,41 @@
 # Changelog
 
+## [v2025.03.12]
+
+### Added - 新機能について
+
+- feat(gup): add termpicker
+- feat(pip): add some packages
+- feat(pipx): add git-filter-repo
+- feat(aqua): add some packages
+- feat(fish): add nvs completion
+- feat(cargo): add ddv in linux
+- feat(nvim): add bookmarks.nvim
+    - and bookmarks.nvim head in hydra
+- feat(nvim): add marks.nvim
+- feat(nvim): add context-menu.nvim
+- feat(nvim): add nerdy.nvim
+- feat(telescope.nvim): add telescope-import.nvim
+- feat(telescope.nvim): add nerdy.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(localbin): update update_fish_completions
+- chore(powershell): update some configs
+    - use shell prompt, and use nvim version manager
+- chore(fish): update some configs
+    - use shell prompt, and use nvim version manager
+- chore(commitlint-rs): allow dots in scopes
+- chore(aqua): update some packages
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(fish): oh-my-posh caching
+
 ## [v2025.03.11]
 
 ### Added - 新機能について
