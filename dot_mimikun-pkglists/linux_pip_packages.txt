@@ -3,6 +3,9 @@ agate-dbf
 agate-excel
 agate-sql
 aiofiles
+aiohappyeyeballs
+aiohttp
+aiosignal
 annotated-types
 anyio
 argcomplete
@@ -44,9 +47,11 @@ decorator
 defusedxml
 distro
 dominate
+edge-tts
 et_xmlfile
 feedparser
 filetype
+frozenlist
 gevent
 ghp-import
 gitdb
@@ -96,6 +101,7 @@ more-itertools
 msal
 msal-extensions
 msgpack
+multidict
 natsort
 neovim
 numpy
@@ -118,6 +124,7 @@ pipx
 platformdirs
 portalocker
 prompt-toolkit
+propcache
 psutil
 pur
 puremagic
@@ -160,10 +167,12 @@ SpeechRecognition
 spiel
 SQLAlchemy
 ssh-para
+srt
 sshclick
 standard-aifc
 standard-chunk
 stevedore
+tabulate
 terminaltexteffects
 text-unidecode
 textual
@@ -188,6 +197,7 @@ xlrd
 XlsxWriter
 xmltodict
 yamllint
+yarl
 youtube-transcript-api
 zipp
 zope.event
