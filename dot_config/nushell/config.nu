@@ -2,12 +2,9 @@
 mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # starship
-# HACK: Temporarily disable to try omp
 #starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # oh-my-posh
-# HACK: Temporarily enable to try omp
-#oh-my-posh init nu | save -f ($nu.data-dir | path join "vendor/autoload/oh-my-posh.nu")
 oh-my-posh init nu --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | save -f ($nu.data-dir | path join "vendor/autoload/oh-my-posh.nu")
 
 # atuin

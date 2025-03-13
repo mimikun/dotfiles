@@ -10,6 +10,11 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+export USE_SHELL_PROMPT="oh-my-posh"
+#export USE_SHELL_PROMPT="starship"
+#export USE_NVIM_VERSION_MANAGER="nvs"
+export USE_NVIM_VERSION_MANAGER="bob"
+
 {{ if (eq .chezmoi.hostname "azusa") -}}
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
@@ -94,18 +99,23 @@ alias pip="python3 -m pip"
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
 # starship config
-#export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-#export STARSHIP_CACHE="$XDG_CONFIG_HOME/starship/cache"
-# HACK: Temporarily disable to try omp
-#if command -v starship>/dev/null 2>&1; then
-#    eval "$(starship init zsh)"
-#fi
+export STARSHIP_CONFIG_DIR="$XDG_CONFIG_HOME/starship"
+export STARSHIP_CONFIG="$STARSHIP_CONFIG_DIR/starship.toml"
+export STARSHIP_CACHE="$XDG_CACHE_HOME/starship"
 
-# oh-my-posh config
-# HACK: Temporarily disable to try omp
-if command -v oh-my-posh>/dev/null 2>&1; then
-    #eval "$(oh-my-posh init zsh)"
+# NOTE: shell prompt
+# starship
+if command -v starship >/dev/null 2>&1; then
+    if [["$USE_SHELL_PROMPT" == "starship"]]; then
+        eval "$(starship init zsh)"
+    fi
+fi
+
+# oh-my-posh
+if command -v oh-my-posh >/dev/null 2>&1; then
+    if [["$USE_SHELL_PROMPT" == "oh-my-posh"]]; then
     eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
+    fi
 fi
 
 # zoxide
@@ -209,9 +219,23 @@ if command -v mdbook>/dev/null 2>&1; then
     eval "$(mdbook completions zsh)"
 fi
 
-# bob neovim version manager
+# neovim version manager
+
+# bob-nvim
 export BOB_CONFIG="$XDG_CONFIG_HOME/bob/config.toml"
-export PATH="$XDG_DATA_HOME/bob/nvim-bin:$PATH"
+export BOB_BIN_DIR="$XDG_DATA_HOME/bob/nvim-bin"
+
+# nvs
+export NVS_BIN_DIR="$XDG_DATA_HOME/nvs/bin"
+
+if [[ "$USE_NVIM_VERSION_MANAGER" == "bob" ]]; then
+    export PATH="$BOB_BIN_DIR:$PATH"
+fi
+
+if [[ "$USE_NVIM_VERSION_MANAGER" == "nvs" ]]; then
+    export PATH="$NVS_BIN_DIR:$PATH"
+fi
+
 alias vim=nvim
 
 # atuin

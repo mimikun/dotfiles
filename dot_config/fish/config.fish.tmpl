@@ -86,9 +86,16 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x DENO_INSTALL $HOME/.deno
 set -x PATH $DENO_INSTALL/bin $PATH
 
+# starship
 set -x STARSHIP_CONFIG_DIR $XDG_CONFIG_HOME/starship
 set -x STARSHIP_CONFIG $STARSHIP_CONFIG_DIR/starship.toml
-set -x STARSHIP_CACHE $STARSHIP_CONFIG_DIR/cache
+set -x STARSHIP_CACHE $XDG_CACHE_HOME/starship
+
+# bob-nvim
+set -x BOB_CONFIG $XDG_CONFIG_HOME/bob/config.toml
+
+# nvs
+set -x NVS_BIN_DIR $XDG_DATA_HOME/nvs/bin
 
 #Ubuntu
 set -x PATH /bin $PATH
@@ -468,7 +475,6 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     # bob-nvim
     if command -v bob >/dev/null 2>&1
         if test "$USE_NVIM_VERSION_MANAGER" = "bob"
-            echo 'set -x BOB_CONFIG "$XDG_CONFIG_HOME/bob/config.toml"' >> $CACHE_CONFIG_FISH
             echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
         end
     end
@@ -476,7 +482,7 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     # nvs
     if command -v nvs >/dev/null 2>&1
         if test "$USE_NVIM_VERSION_MANAGER" = "nvs"
-        # TODO: it
+            echo 'set -x PATH "$NVS_BIN_DIR" $PATH' >> $CACHE_CONFIG_FISH
         end
     end
 

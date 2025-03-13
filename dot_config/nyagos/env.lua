@@ -205,7 +205,7 @@ if is_linux then
     nyagos.envadd("PIPENV_VENV_IN_PROJECT", nyagos.getenv("PIPENV_VENV_IN_PROJECT") or 1)
     nyagos.envadd("TZ", nyagos.getenv("TZ") or "Asia/Tokyo")
     nyagos.envadd("TODAY", nyagos.getenv("TODAY") or today)
-    local starship_cache = table.concat({ starship_path, "cache" }, path_sep)
+    local starship_cache = table.concat({ xdg_cache_home, "cache" }, path_sep)
     nyagos.envadd("STARSHIP_CACHE", nyagos.getenv("STARSHIP_CACHE") or starship_cache)
 
     nyagos.envadd(
@@ -316,11 +316,22 @@ if is_linux then
     local aqua_bin = table.concat({ nyagos.getenv("AQUA_ROOT_DIR"), "bin" }, path_sep)
     nyagos.envadd("PATH", aqua_bin)
 
-    -- bob neovim version manager
+    -- bob-nvim
     local bob_config = table.concat({ xdg_config_home, "bob", "config.toml" }, path_sep)
     local bob_bin = table.concat({ xdg_data_home, "bob", "nvim-bin" }, path_sep)
     nyagos.envadd("BOB_CONFIG", bob_config)
-    nyagos.envadd("PATH", bob_bin)
+
+    -- nvs
+    local nvs_bin = table.concat({ xdg_data_home, "nvs", "bin" }, path_sep)
+
+    -- NOTE: neovim version manager
+    local use_nvs = false
+
+    if use_nvs then
+        nyagos.envadd("PATH", nvs_bin)
+    else
+        nyagos.envadd("PATH", bob_bin)
+    end
 
     -- Neovide env-vars
     --[[
