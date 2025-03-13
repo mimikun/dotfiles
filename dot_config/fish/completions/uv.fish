@@ -258,6 +258,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l no-config -d 'Avoid disco
 complete -c uv -n "__fish_uv_using_subcommand init" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand init" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand add" -s r -l requirements -d 'Add all packages listed in the given `requirements.txt` files' -r -F
+complete -c uv -n "__fish_uv_using_subcommand add" -s m -l marker -d 'Apply this marker to all added packages' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l optional -d 'Add the requirements to the package\'s optional dependencies for the specified extra' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l group -d 'Add the requirements to the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l rev -d 'Commit to use when adding a dependency from Git' -r
