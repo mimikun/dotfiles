@@ -1,6 +1,7 @@
 braindrop
 calcure
 dotenvhub
+edge-tts
 git-filter-repo
 glances
 gptme
@@ -9,7 +10,6 @@ kaskade
 moneyterm
 pocker-tui
 poetry
-posting
 rsyncy
 sherlock-project
 toolong
