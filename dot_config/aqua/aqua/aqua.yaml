@@ -99,7 +99,7 @@ packages:
   - name: sqshq/sampler@v1.1.0
   - name: stateful/runme@v3.12.6
   - name: suzuki-shunsuke/cmdx@v1.7.7
-  - name: tdewolff/minify@v2.21.3
+  - name: tdewolff/minify@v2.22.2
   - name: termkit/gama@v1.2.1
   - name: tsenart/vegeta@v12.12.0
   - name: tsl0922/ttyd@1.7.7
