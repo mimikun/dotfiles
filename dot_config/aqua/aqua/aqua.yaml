@@ -39,6 +39,7 @@ packages:
   - name: gokcehan/lf@r34
   - name: golangci/golangci-lint@v1.64.7
   - name: golang/go@go1.24.1
+  - name: golang.org/x/tools/gopls@v0.18.1
   - name: golang/tools/goimports@v0.31.0
   - name: golang/tools/gorename@v0.25.0
   - name: google/osv-scanner@v1.9.2
@@ -88,6 +89,7 @@ packages:
   - name: peco/peco@v0.5.11
   - name: pkgxdev/pkgx@v2.4.0
   - name: pomdtr/sunbeam@v1.0.1
+  - name: project-copacetic/copacetic@v0.10.0
   - name: pvolok/mprocs@v0.7.2
   - name: rhysd/actionlint@v1.7.7
   - name: rhysd/vim-startuptime@v1.3.2
