@@ -5,8 +5,8 @@ local spec = {
     cmd = "Namu",
     keys = require("plugins.namu-nvim.keys"),
     opts = {},
-    cond = false,
-    enabled = false,
+    --cond = false,
+    --enabled = false,
 }
 
 return spec
