@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_deno_global_optspecs
-	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= c/config= no-config r/reload= lock= no-lock cert= unsafely-ignore-certificate-errors= A/allow-all R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= inspect= inspect-brk= inspect-wait= allow-scripts= frozen= cached-only location= v8-flags= seed= enable-testing-features-do-not-use strace-ops= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache unstable unstable-bare-node-builtins unstable-detect-cjs unstable-byonm unstable-sloppy-imports unstable-npm-lazy-caching unstable-broadcast-channel unstable-cron unstable-ffi unstable-fs unstable-http unstable-kv unstable-net unstable-node-globals unstable-otel unstable-process unstable-temporal unstable-unsafe-proto unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
+	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= c/config= no-config r/reload= lock= no-lock cert= unsafely-ignore-certificate-errors= A/allow-all R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= inspect= inspect-brk= inspect-wait= allow-scripts= frozen= cached-only location= v8-flags= seed= enable-testing-features-do-not-use strace-ops= eszip-internal-do-not-use check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache unstable unstable-bare-node-builtins unstable-detect-cjs unstable-byonm unstable-sloppy-imports unstable-npm-lazy-caching unstable-broadcast-channel unstable-cron unstable-ffi unstable-fs unstable-http unstable-kv unstable-net unstable-node-globals unstable-otel unstable-process unstable-temporal unstable-unsafe-proto unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
 end
 
 function __fish_deno_needs_command
@@ -29,7 +29,7 @@ complete -c deno -n "__fish_deno_needs_command" -l import-map -d 'Load import ma
 complete -c deno -n "__fish_deno_needs_command" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_needs_command" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_needs_command" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_needs_command" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_needs_command" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -83,6 +83,7 @@ complete -c deno -n "__fish_deno_needs_command" -l deny-hrtime
 complete -c deno -n "__fish_deno_needs_command" -l no-prompt
 complete -c deno -n "__fish_deno_needs_command" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_needs_command" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_needs_command" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_needs_command" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_needs_command" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_needs_command" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
@@ -116,7 +117,7 @@ complete -c deno -n "__fish_deno_needs_command" -a "bundle" -d '`deno bundle` wa
 complete -c deno -n "__fish_deno_needs_command" -a "cache" -d 'Cache and compile remote dependencies.  Download and compile a module with all of its static dependencies and save them in the local cache, without running any code:   deno cache jsr:@std/http/file-server  Future runs of this module will trigger no downloads or compilation unless --reload is specified  Read more: https://docs.deno.com/go/cache'
 complete -c deno -n "__fish_deno_needs_command" -a "check" -d 'Download and type-check without execution.    deno check jsr:@std/http/file-server  Unless --reload is specified, this command will not re-download already cached dependencies  Read more: https://docs.deno.com/go/check'
 complete -c deno -n "__fish_deno_needs_command" -a "clean" -d 'Remove the cache directory ($DENO_DIR)'
-complete -c deno -n "__fish_deno_needs_command" -a "compile" -d 'Compiles the given script into a self contained executable.    deno compile --allow-read --allow-net jsr:@std/http/file-server   deno compile --output file_server jsr:@std/http/file-server  Any flags specified which affect runtime behavior will be applied to the resulting binary.  This allows distribution of a Deno application to systems that do not have Deno installed. Under the hood, it bundles a slimmed down version of the Deno runtime along with your JavaScript or TypeScript code.  Cross-compiling to different target architectures is supported using the --target flag. On the first invocation with deno will download the proper binary and cache it in $DENO_DIR.  Read more: https://docs.deno.com/go/compile '
+complete -c deno -n "__fish_deno_needs_command" -a "compile" -d 'Compiles the given script into a self contained executable.    deno compile --allow-read --allow-net jsr:@std/http/file-server   deno compile --output file_server jsr:@std/http/file-server  Any flags specified which affect runtime behavior will be applied to the resulting binary.  This allows distribution of a Deno application to systems that do not have Deno installed. Under the hood, it bundles a slimmed down version of the Deno runtime along with your JavaScript or TypeScript code.  Cross-compiling to different target architectures is supported using the --target flag. On the first invocation of `deno compile`, Deno will download the relevant binary and cache it in $DENO_DIR.  Read more: https://docs.deno.com/go/compile '
 complete -c deno -n "__fish_deno_needs_command" -a "completions" -d 'Output shell completion script to standard output.    deno completions bash > /usr/local/etc/bash_completion.d/deno.bash   source /usr/local/etc/bash_completion.d/deno.bash'
 complete -c deno -n "__fish_deno_needs_command" -a "coverage" -d 'Print coverage reports from coverage profiles.  Collect a coverage profile with deno test:   deno test --coverage=cov_profile  Print a report to stdout:   deno coverage cov_profile  Include urls that start with the file schema and exclude files ending with test.ts and test.js, for an url to match it must match the include pattern and not match the exclude pattern:   deno coverage --include="^file:" --exclude="test\\.(ts|js)" cov_profile  Write a report using the lcov format:   deno coverage --lcov --output=cov.lcov cov_profile/  Generate html reports from lcov:   genhtml -o html_cov cov.lcov  Read more: https://docs.deno.com/go/coverage'
 complete -c deno -n "__fish_deno_needs_command" -a "doc" -d 'Show documentation for a module.  Output documentation to standard output:     deno doc ./path/to/module.ts  Output documentation in HTML format:     deno doc --html --name="My library" ./path/to/module.ts  Lint a module for documentation diagnostics:     deno doc --lint ./path/to/module.ts  Target a specific symbol:     deno doc ./path/to/module.ts MyClass.someField  Show documentation for runtime built-ins:     deno doc     deno doc --filter Deno.Listener  Read more: https://docs.deno.com/go/doc'
@@ -145,7 +146,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l import-map -d 'Load im
 complete -c deno -n "__fish_deno_using_subcommand run" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand run" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -219,6 +220,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand run" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand run" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand run" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand run" -s q -l quiet -d 'Suppress diagnostic output'
@@ -227,7 +229,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l import-map -d 'Load 
 complete -c deno -n "__fish_deno_using_subcommand serve" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand serve" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -303,6 +305,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand serve" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand serve" -l parallel -d 'Run multiple server workers in parallel. Parallelism defaults to the number of available CPUs or the value of the DENO_JOBS environment variable'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-code-cache -d 'Disable V8 code cache feature'
@@ -371,7 +374,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l import-map -d 'Load 
 complete -c deno -n "__fish_deno_using_subcommand bench" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand bench" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -438,6 +441,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand bench" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand bench" -l json -d 'UNSTABLE: Output benchmark result in JSON format'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-run -d 'Cache bench modules, but don\'t run benchmarks'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l permit-no-files -d 'Don\'t return an error code if no bench files were found'
@@ -479,7 +483,7 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l import-map -d 'Load 
 complete -c deno -n "__fish_deno_using_subcommand cache" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand cache" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand cache" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -523,7 +527,7 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l import-map -d 'Load 
 complete -c deno -n "__fish_deno_using_subcommand check" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand check" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand check" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand check" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -597,7 +601,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l import-map -d 'Loa
 complete -c deno -n "__fish_deno_using_subcommand compile" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand compile" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -669,6 +673,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand compile" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-terminal -d 'Hide terminal on Windows'
 complete -c deno -n "__fish_deno_using_subcommand completions" -s h -l help -r -f -a "unstable\t''
@@ -784,7 +789,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l import-map -d 'Load i
 complete -c deno -n "__fish_deno_using_subcommand eval" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand eval" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand eval" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -832,13 +837,14 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l no-config -d 'Disable
 complete -c deno -n "__fish_deno_using_subcommand eval" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand eval" -s p -l print -d 'print result to stdout'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
 debug\t''
 info\t''"
-complete -c deno -n "__fish_deno_using_subcommand fmt" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand fmt" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
@@ -944,7 +950,7 @@ complete -c deno -n "__fish_deno_using_subcommand info" -l unsafely-ignore-certi
 complete -c deno -n "__fish_deno_using_subcommand info" -l location -d 'Show files used for origin bound APIs like the Web Storage API when running a script with --location=<HREF>' -r -f
 complete -c deno -n "__fish_deno_using_subcommand info" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand info" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
-complete -c deno -n "__fish_deno_using_subcommand info" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand info" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand info" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
 complete -c deno -n "__fish_deno_using_subcommand info" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand info" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
@@ -985,7 +991,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l import-map -d 'Loa
 complete -c deno -n "__fish_deno_using_subcommand install" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand install" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -1046,6 +1052,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l no-config -d 'Disa
 complete -c deno -n "__fish_deno_using_subcommand install" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand install" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand install" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand install" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand install" -s A -l allow-all -d 'Allow all permissions'
 complete -c deno -n "__fish_deno_using_subcommand install" -l allow-hrtime
 complete -c deno -n "__fish_deno_using_subcommand install" -l deny-hrtime
@@ -1064,7 +1071,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l import-map -d 'Load impo
 complete -c deno -n "__fish_deno_using_subcommand i" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand i" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -1125,6 +1132,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l no-config -d 'Disable au
 complete -c deno -n "__fish_deno_using_subcommand i" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand i" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand i" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand i" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand i" -s A -l allow-all -d 'Allow all permissions'
 complete -c deno -n "__fish_deno_using_subcommand i" -l allow-hrtime
 complete -c deno -n "__fish_deno_using_subcommand i" -l deny-hrtime
@@ -1244,7 +1252,7 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l ext -d 'Specify the f
 complete -c deno -n "__fish_deno_using_subcommand lint" -l rules-tags -d 'Use set of rules with a tag' -r
 complete -c deno -n "__fish_deno_using_subcommand lint" -l rules-include -d 'Include lint rules' -r
 complete -c deno -n "__fish_deno_using_subcommand lint" -l rules-exclude -d 'Exclude lint rules' -r
-complete -c deno -n "__fish_deno_using_subcommand lint" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand lint" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand lint" -l ignore -d 'Ignore linting particular source files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand lint" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand lint" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
@@ -1282,7 +1290,7 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -s L -l log-level -d 
 debug\t''
 info\t''"
 complete -c deno -n "__fish_deno_using_subcommand publish" -l token -d 'The API token to use when publishing. If unset, interactive authentication is be used' -r
-complete -c deno -n "__fish_deno_using_subcommand publish" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand publish" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand publish" -l set-version -d 'Set version for a package to be published.   This flag can be used while publishing individual packages and cannot be used in a workspace.' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
@@ -1322,7 +1330,7 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l import-map -d 'Load i
 complete -c deno -n "__fish_deno_using_subcommand repl" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand repl" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -1384,12 +1392,13 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand repl" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand repl" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand repl" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand task" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
 debug\t''
 info\t''"
-complete -c deno -n "__fish_deno_using_subcommand task" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand task" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand task" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -l cwd -d 'Specify the directory to run the task in' -r -f -a "(__fish_complete_directories)"
@@ -1428,7 +1437,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l import-map -d 'Load i
 complete -c deno -n "__fish_deno_using_subcommand test" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
-complete -c deno -n "__fish_deno_using_subcommand test" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -s r -l reload -d 'Reload source code cache (recompile TypeScript)   no value                                                 Reload everything   jsr:@std/http/file-server,jsr:@std/assert/assert-equals  Reloads specific modules   npm:                                                     Reload all npm modules   npm:chalk                                                Reload specific npm module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
@@ -1507,6 +1516,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand test" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand test" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
+complete -c deno -n "__fish_deno_using_subcommand test" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand test" -l no-run -d 'Cache test modules, but don\'t run tests'
 complete -c deno -n "__fish_deno_using_subcommand test" -l trace-leaks -d 'Enable tracing of leaks. Useful when debugging leaking ops in test, but impacts test execution time'
 complete -c deno -n "__fish_deno_using_subcommand test" -l doc -d 'Evaluate code blocks in JSDoc and Markdown'
