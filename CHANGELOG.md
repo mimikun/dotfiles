@@ -1,5 +1,40 @@
 # Changelog
 
+## [v2025.03.17]
+
+### Added - 新機能について
+
+- feat(gup): add gore
+- feat(mise): add up-fetch
+- feat(aqua): add some packages
+- feat(nvim): add tts.nvim
+- feat(nvim): add ctx.nvim
+- feat(nvim): add oops.nvim
+- feat(nvim): add devto.nvim
+- feat(nvim): add buftrack.nvim
+- feat(nvim): add nvim-scrollbar
+- feat(nvim): add jsx-element.nvim
+- feat(nvim): add persist-quickfix.nvim
+- feat(namu.nvim): add options, and enable plugin
+- feat(pip): add some packages
+- feat(pipx): add edge-tts
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update some completions
+- chore(fish): update zellij completion
+- chore(shells): improve configs
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(fish): incorrect if statement
+
 ## [v2025.03.12]
 
 ### Added - 新機能について
