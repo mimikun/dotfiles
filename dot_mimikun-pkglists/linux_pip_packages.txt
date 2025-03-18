@@ -55,6 +55,7 @@ frozenlist
 gevent
 ghp-import
 gitdb
+gitingest
 GitPython
 glob2
 greenlet
@@ -151,6 +152,7 @@ pyxdg
 PyYAML
 pyyaml_env_tag
 recoverpy
+regex
 requests
 rexi
 rich
@@ -178,7 +180,9 @@ text-unidecode
 textual
 textual-fspicker
 textual-imageview
+tiktoken
 toml
+tomli
 tqdm
 Typeinc
 typer
