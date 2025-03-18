@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2025.03.18]
+
+### Added - 新機能について
+
+- feat(pip): add some packages
+- feat(nvim): add iron.nvim
+- feat(nvim): add nvim-ctx-ingest
+- feat(nvim): add comment-box.nvim
+- feat(nvim): add range-highlight.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update uv completion
+- chore(typos): ignore iron.nvim
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.17]
 
 ### Added - 新機能について
