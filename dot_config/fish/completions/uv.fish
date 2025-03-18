@@ -258,6 +258,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l no-config -d 'Avoid disco
 complete -c uv -n "__fish_uv_using_subcommand init" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand init" -s V -l version -d 'Display the uv version'
 complete -c uv -n "__fish_uv_using_subcommand add" -s r -l requirements -d 'Add all packages listed in the given `requirements.txt` files' -r -F
+complete -c uv -n "__fish_uv_using_subcommand add" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -s m -l marker -d 'Apply this marker to all added packages' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l optional -d 'Add the requirements to the package\'s optional dependencies for the specified extra' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l group -d 'Add the requirements to the specified dependency group' -r
@@ -1612,6 +1613,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l resolved -d 'Write the resolved Python interpreter path instead of the request'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-resolved
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-project -d 'Avoid validating the Python pin is compatible with the project or workspace'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l global -d 'Update the global Python version pin'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
@@ -1778,6 +1780,7 @@ copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
 symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l refresh-package -d 'Refresh cached data for a specific package' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l group -d 'Install the specified dependency group from a `pyproject.toml`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s o -l output-file -d 'Write the compiled requirements to the given `requirements.txt` file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l annotation-style -d 'The style of the annotation comments included in the output file, used to indicate the source of each package' -r -f -a "line\t'Render the annotations on a single, comma-separated line'
 split\t'Render each annotation on its own line'"
@@ -2077,6 +2080,7 @@ copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
 symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l refresh-package -d 'Refresh cached data for a specific package' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l group -d 'Install the specified dependency group from a `pyproject.toml`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l target -d 'Install packages into the specified directory, rather than into the virtual or system Python environment. The packages will be installed at the top-level of the directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l prefix -d 'Install packages into `lib`, `bin`, and other top-level folders under the specified directory, as if a virtual environment were present at that location' -r -F
