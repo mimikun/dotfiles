@@ -65,6 +65,7 @@ h5py
 h5ui
 habanero
 httpcore
+httpstat
 httpx
 humanize
 icalendar
@@ -124,12 +125,14 @@ pipupgrade
 pipx
 platformdirs
 portalocker
+pqviewer
 prompt-toolkit
 propcache
 psutil
 pur
 puremagic
 pyaes
+pyarrow
 pycparser
 pydantic
 pydantic_core
