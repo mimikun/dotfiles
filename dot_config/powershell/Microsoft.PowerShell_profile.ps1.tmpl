@@ -115,6 +115,14 @@ if ($cond) {
         sunbeam completion powershell >> $env:CACHE_PROFILE
     }
 
+    # mani completion
+    Get-Command mani -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res -and $IsLinux) {
+        Write-Output "# mani completion" >> $env:CACHE_PROFILE
+        mani completion powershell >> $env:CACHE_PROFILE
+    }
+
     # NOTE: shell prompts
     Get-Command starship -ErrorAction Ignore | Out-Null
     $isExistStarship = $?
