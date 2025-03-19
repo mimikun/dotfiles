@@ -28,7 +28,7 @@ zig = [
 "npm:npkill" = "latest"
 "npm:prettier" = "latest"
 "npm:git-truck" = "latest"
-"npm:up-fetch" = "2.0.0-beta.10"
+#"npm:up-fetch" = "2.0.0-beta.10"
 #"npm:envinfo" = "latest"
 #"npm:httpyac" = "latest"
 
