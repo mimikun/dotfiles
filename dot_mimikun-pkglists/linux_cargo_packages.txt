@@ -121,6 +121,7 @@ mocword
 monolith
 natls
 navi
+ncspot
 nomino
 nsh
 nu
