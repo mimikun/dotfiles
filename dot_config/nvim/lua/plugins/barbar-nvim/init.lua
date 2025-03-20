@@ -21,8 +21,8 @@ local spec = {
         vim.g.barbar_auto_setup = false
     end,
     opts = opts,
-    --cond = false,
-    --enabled = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
