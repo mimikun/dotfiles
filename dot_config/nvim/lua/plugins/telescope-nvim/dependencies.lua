@@ -40,6 +40,7 @@ local dependencies = {
     --"ThePrimeagen/refactoring.nvim",
     --{ "2kabhishek/nerdy.nvim", optional = true },
     --"piersolenski/telescope-import.nvim",
+    "kiyoon/telescope-insert-path.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
