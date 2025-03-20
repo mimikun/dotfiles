@@ -100,7 +100,7 @@ packages:
   - name: sheepla/pingu@v0.0.5
   - name: Songmu/make2help@v0.2.1
   - name: sqshq/sampler@v1.1.0
-  - name: stateful/runme@v3.12.6
+  - name: stateful/runme@v3.12.7
   - name: suzuki-shunsuke/cmdx@v1.7.7
   - name: tdewolff/minify@v2.22.3
   - name: termkit/gama@v1.2.1
