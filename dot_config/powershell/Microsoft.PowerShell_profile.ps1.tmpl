@@ -144,6 +144,7 @@ if ($cond) {
     if ( ($isExistOmp) -and ($useShellPrompt -eq "oh-my-posh") ) {
         Write-Output "# cache oh-my-posh setup" >> $env:CACHE_PROFILE
         oh-my-posh init pwsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' >> $env:CACHE_PROFILE
+        Write-Output "" >> $env:CACHE_PROFILE
     }
 
     # zoxide setup and completion
