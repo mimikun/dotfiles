@@ -13,8 +13,8 @@ local spec = {
     config = function()
         require("bufferline").setup(require("plugins.bufferline-nvim.opts"))
     end,
-    --cond = false,
-    --enabled = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
