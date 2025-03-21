@@ -3,13 +3,12 @@
 memory=3GB
 processors=3
 swap=8GB
+localhostforwarding=true
 {{ else -}}
 memory=8GB
 processors=12
 swap=0
 {{ end -}}
-
-localhostforwarding=true
 
 {{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # NOTE: Only available on Windows 11
