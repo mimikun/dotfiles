@@ -1,5 +1,41 @@
 # Changelog
 
+## [v2025.03.21]
+
+### Added - 新機能について
+
+- feat(pip): add some packages
+- feat(gup): add some tools
+- feat(nvim): add nvim-ufo
+- feat(nvim): add nvim-scissors
+- feat(nvim): add fastspell.nvim
+- feat(nvim): add bufferline.nvim
+- feat(aqua): add alajmo/mani
+- feat(fish): add some completions
+- feat(cargo): add ncspot in linux
+- feat(telescope.nvim): add telescope-insert-path.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(nvim): re-enabled barbar.nvim
+    - disabled bufferline.nvim
+- chore(fish): update uv completion
+- chore(fish): update mise completion
+- chore(localbin): update update_fish_completions
+- chore(powershell): add mani completion
+- chore(barbar.nvim): disabled
+
+### Removed - 今回で削除された機能について
+
+- chore(mise): remove npm:up-fetch
+
+### Fixed - 不具合修正について
+
+- fix(ci): typo check error
+- fix(powershell): cache error
+- fix(powershell): omp setup process
+
 ## [v2025.03.18]
 
 ### Added - 新機能について
