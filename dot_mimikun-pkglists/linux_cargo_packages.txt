@@ -57,6 +57,7 @@ du-dust
 dusage
 dutree
 envfetch
+epiq
 erdtree
 erg
 eva
@@ -182,8 +183,8 @@ smartcat
 sshx
 starship
 stylua
-tabiew
 systemctl-tui
+tabiew
 taplo-cli
 tauri-cli
 tealdeer
