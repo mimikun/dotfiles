@@ -26,7 +26,9 @@ function Invoke-RunAfterChezmoiApply() {
     ####################################
 
     $windows_nvim_config = Join-Path -Path $env:LOCALAPPDATA -ChildPath "nvim\"
-    $linux_nvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_config\nvim\*"
+    #$linux_nvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_config\nvim\*"
+    # HACK: Use nvim-mini
+    $linux_nvim_config = Join-Path -Path $env:CHEZMOI_DIR -ChildPath "dot_config\nvim-mini\*"
 
     Write-Output "Remove old nvim(neovim) configuration"
     Remove-Item $windows_nvim_config -Force -Recurse
