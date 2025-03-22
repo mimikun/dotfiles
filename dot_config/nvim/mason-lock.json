@@ -3,7 +3,7 @@
   "bash-language-server": "5.4.3",
   "css-lsp": "4.10.0",
   "debugpy": "1.8.13",
-  "deno": "v2.2.4",
+  "deno": "v2.2.5",
   "docker-compose-language-service": "0.3.0",
   "dockerfile-language-server": "0.13.0",
   "eslint-lsp": "4.10.0",
