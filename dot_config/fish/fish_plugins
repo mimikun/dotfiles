@@ -4,6 +4,7 @@ eskori/penumbra-theme.fish
 halostatue/fish-docker@v1.x
 jorgebucaran/fisher
 jorgebucaran/getopts.fish
+kyohsuke/fish-evalcache
 mimikun/bw.fish
 mimikun/fish-ghq
 mimikun/gcd
