@@ -51,6 +51,7 @@ local spec = {
         --telescope.load_extension("refactoring")
         --telescope.load_extension("nerdy")
         --telescope.load_extension("import")
+        --telescope.load_extension("live_grep_history")
     end,
     --cond = false,
     --enabled = false,

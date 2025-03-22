@@ -41,6 +41,7 @@ local dependencies = {
     --{ "2kabhishek/nerdy.nvim", optional = true },
     --"piersolenski/telescope-import.nvim",
     "kiyoon/telescope-insert-path.nvim",
+    --"happy663/telescope-livegrep-history.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
