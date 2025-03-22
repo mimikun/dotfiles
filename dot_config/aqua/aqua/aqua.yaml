@@ -60,7 +60,7 @@ packages:
   - name: jorgerojas26/lazysql@v0.3.6
   - name: jqlang/jq@jq-1.7.1
   - name: junegunn/fzf@v0.60.3
-  - name: k1LoW/octocov@v0.65.0
+  - name: k1LoW/octocov@v0.65.1
   - name: kdabir/has@v1.5.0
   - name: knqyf263/sou@v0.2.0
   - name: koalaman/shellcheck@v0.10.0
