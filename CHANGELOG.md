@@ -1,5 +1,40 @@
 # Changelog
 
+## [v2025.03.24]
+
+### Added - 新機能について
+
+- feat(cargo): add epiq(ynqa/empiriqa)
+- feat(fish-plugin): add kyohsuke/fish-evalcache
+- feat(nvim): add netria
+- feat(nvim): add eagle.nvim
+- feat(nvim): add blink.pairs
+- feat(nvim): add glance.nvim
+- feat(nvim): add symbols.nvim
+- feat(nvim): add bufstack.nvim
+- feat(nvim): add harpoon-lists.nvim
+- feat(nvim): add digraph-picker.nvim
+- feat(nvim): add scratch-runner.nvim
+- feat(nvim): add rainbow-delimiters.nvim
+- feat(telescope.nvim): add telescope-livegrep-history.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(pip): update package-list
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(windows-nvim): use nvim-mini configurations
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(wsl): use localhostforwarding is work-pc only
+    - Close #1488
+- fix(eagle.nvim): module path typo
+
 ## [v2025.03.21]
 
 ### Added - 新機能について
