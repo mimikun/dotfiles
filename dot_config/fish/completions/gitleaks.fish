@@ -18,7 +18,8 @@ function __gitleaks_perform_completion
     __gitleaks_debug "args: $args"
     __gitleaks_debug "last arg: $lastArg"
 
-    set -l requestComp "$args[1] __complete $args[2..-1] $lastArg"
+    # Disable ActiveHelp which is not supported for fish shell
+    set -l requestComp "GITLEAKS_ACTIVE_HELP=0 $args[1] __complete $args[2..-1] $lastArg"
 
     __gitleaks_debug "Calling $requestComp"
     set -l results (eval $requestComp 2> /dev/null)
@@ -54,6 +55,60 @@ function __gitleaks_perform_completion
     printf "%s\n" "$directiveLine"
 end
 
+# this function limits calls to __gitleaks_perform_completion, by caching the result behind $__gitleaks_perform_completion_once_result
+function __gitleaks_perform_completion_once
+    __gitleaks_debug "Starting __gitleaks_perform_completion_once"
+
+    if test -n "$__gitleaks_perform_completion_once_result"
+        __gitleaks_debug "Seems like a valid result already exists, skipping __gitleaks_perform_completion"
+        return 0
+    end
+
+    set --global __gitleaks_perform_completion_once_result (__gitleaks_perform_completion)
+    if test -z "$__gitleaks_perform_completion_once_result"
+        __gitleaks_debug "No completions, probably due to a failure"
+        return 1
+    end
+
+    __gitleaks_debug "Performed completions and set __gitleaks_perform_completion_once_result"
+    return 0
+end
+
+# this function is used to clear the $__gitleaks_perform_completion_once_result variable after completions are run
+function __gitleaks_clear_perform_completion_once_result
+    __gitleaks_debug ""
+    __gitleaks_debug "========= clearing previously set __gitleaks_perform_completion_once_result variable =========="
+    set --erase __gitleaks_perform_completion_once_result
+    __gitleaks_debug "Successfully erased the variable __gitleaks_perform_completion_once_result"
+end
+
+function __gitleaks_requires_order_preservation
+    __gitleaks_debug ""
+    __gitleaks_debug "========= checking if order preservation is required =========="
+
+    __gitleaks_perform_completion_once
+    if test -z "$__gitleaks_perform_completion_once_result"
+        __gitleaks_debug "Error determining if order preservation is required"
+        return 1
+    end
+
+    set -l directive (string sub --start 2 $__gitleaks_perform_completion_once_result[-1])
+    __gitleaks_debug "Directive is: $directive"
+
+    set -l shellCompDirectiveKeepOrder 32
+    set -l keeporder (math (math --scale 0 $directive / $shellCompDirectiveKeepOrder) % 2)
+    __gitleaks_debug "Keeporder is: $keeporder"
+
+    if test $keeporder -ne 0
+        __gitleaks_debug "This does require order preservation"
+        return 0
+    end
+
+    __gitleaks_debug "This doesn't require order preservation"
+    return 1
+end
+
+
 # This function does two things:
 # - Obtain the completions and store them in the global __gitleaks_comp_results
 # - Return false if file completion should be performed
@@ -64,17 +119,17 @@ function __gitleaks_prepare_completions
     # Start fresh
     set --erase __gitleaks_comp_results
 
-    set -l results (__gitleaks_perform_completion)
-    __gitleaks_debug "Completion results: $results"
+    __gitleaks_perform_completion_once
+    __gitleaks_debug "Completion results: $__gitleaks_perform_completion_once_result"
 
-    if test -z "$results"
+    if test -z "$__gitleaks_perform_completion_once_result"
         __gitleaks_debug "No completion, probably due to a failure"
         # Might as well do file completion, in case it helps
         return 1
     end
 
-    set -l directive (string sub --start 2 $results[-1])
-    set --global __gitleaks_comp_results $results[1..-2]
+    set -l directive (string sub --start 2 $__gitleaks_perform_completion_once_result[-1])
+    set --global __gitleaks_comp_results $__gitleaks_perform_completion_once_result[1..-2]
 
     __gitleaks_debug "Completions are: $__gitleaks_comp_results"
     __gitleaks_debug "Directive is: $directive"
@@ -170,7 +225,11 @@ end
 # Remove any pre-existing completions for the program since we will be handling all of them.
 complete -c gitleaks -e
 
+# this will get called after the two calls below and clear the $__gitleaks_perform_completion_once_result global
+complete -c gitleaks -n '__gitleaks_clear_perform_completion_once_result'
 # The call to __gitleaks_prepare_completions will setup __gitleaks_comp_results
 # which provides the program's completion choices.
-complete -c gitleaks -n '__gitleaks_prepare_completions' -f -a '$__gitleaks_comp_results'
-
+# If this doesn't require order preservation, we don't use the -k flag
+complete -c gitleaks -n 'not __gitleaks_requires_order_preservation && __gitleaks_prepare_completions' -f -a '$__gitleaks_comp_results'
+# otherwise we use the -k flag
+complete -k -c gitleaks -n '__gitleaks_requires_order_preservation && __gitleaks_prepare_completions' -f -a '$__gitleaks_comp_results'
