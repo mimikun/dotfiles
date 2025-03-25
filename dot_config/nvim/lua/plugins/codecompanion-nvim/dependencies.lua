@@ -5,6 +5,7 @@ local dependencies = {
     "nvim-telescope/telescope.nvim",
     "stevearc/dressing.nvim",
     "ravitemer/mcphub.nvim",
+    "banjo/contextfiles.nvim",
 }
 
 if require("config.settings").use_blink_cmp then
