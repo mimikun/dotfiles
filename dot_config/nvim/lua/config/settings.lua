@@ -73,4 +73,8 @@ settings.use_denops = use_denops
 ---use blink.cmp
 settings.use_blink_cmp = false
 
+---@type boolean
+local is_throttling = false
+settings.is_throttling = is_throttling
+
 return settings

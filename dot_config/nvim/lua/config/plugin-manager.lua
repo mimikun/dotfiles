@@ -64,13 +64,10 @@ local lazy_settings = {
     concurrency = concurrency,
     git = {
         timeout = 300,
-        -- rate of network related git operations (clone, fetch, checkout)
         throttle = {
-            -- not enabled by default
-            enabled = false,
-            -- max 2 ops every 5 seconds
+            enabled = require("config.settings").is_throttling,
             rate = 2,
-            -- in ms
+            -- 5 sec
             duration = 5 * 1000,
         },
     },
