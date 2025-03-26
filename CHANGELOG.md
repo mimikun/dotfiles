@@ -1,5 +1,31 @@
 # Changelog
 
+## [v2025.03.26]
+
+### Added - 新機能について
+
+- feat(nvim): add timber.nvim
+- feat(nvim): add VectorCode
+- feat(nvim): add haskell-tools.nvim
+- feat(nvim): add palette.nvim
+- feat(nvim): add nvim-shadcn
+- feat(nvim): add colorbox.nvim
+- feat(aqua): add some packages
+
+### Changed - 既存機能の変更について
+
+- chore(typos): ignore haskell-tools.nvim
+- chore(fish): update some completions
+- chore(lazy.nvim): use throttle
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.25]
 
 ### Added - 新機能について
