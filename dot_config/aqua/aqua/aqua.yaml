@@ -52,7 +52,7 @@ packages:
   - name: guumaster/hostctl@v1.1.4
   - name: hherman1/gq@v0.0.3
   - name: homeport/dyff@v1.10.1
-  - name: idursun/jjui@v0.8
+  - name: idursun/jjui@v0.8.1
   - name: itchyny/json2yaml@v0.1.4
   - name: jesseduffield/horcrux@v0.2
   - name: jesseduffield/lazydocker@v0.24.1
