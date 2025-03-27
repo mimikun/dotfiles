@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2025.03.27]
+
+### Added - 新機能について
+
+- feat(nvim): add auto-save.nvim
+- feat(nvim): add BufClose.nvim
+- feat(nvim): add nvim-insx
+- feat(nvim): add commit-ai.nvim
+- feat(aqua): add some packages
+- feat(cargo): add zizmor
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completions
+
+### Removed - 今回で削除された機能について
+
+- chore(gup): remove some packages
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.26]
 
 ### Added - 新機能について
