@@ -225,4 +225,5 @@ zeitfetch
 zellij
 zenith
 zipsign
+zizmor
 zoxide
