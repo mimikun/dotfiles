@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Actions Repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: Run actionlint
         uses: koki-develop/github-actions-lint/actionlint@cd40a2834e54895146e4a73ae17dcc37944ffb0f # v1.1.0
