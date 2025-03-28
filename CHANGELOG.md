@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2025.03.28]
+
+### Added - 新機能について
+
+- ci: add github-actions-lint
+    - use actionlint, ghalint, zizmor
+- ci: setting permissions at the top level
+- ci: set job permissions
+- ci: set job timeout minute to 10
+- ci: checkout persist credentials is false
+- feat(mise-task): add github actions lint
+- feat(nvim): add pathfinder.nvim
+- feat(nvim): add yarepl.nvim
+- feat(nvim): add gui-font-resize.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completions
+- ci: use commit hashes instead of version numbers
+    - use pinact
+- ci(script-analyze): using v2.4.0 with github-action-psscriptanalyzer
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.27]
 
 ### Added - 新機能について
