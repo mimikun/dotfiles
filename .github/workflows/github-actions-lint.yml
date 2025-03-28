@@ -1,0 +1,28 @@
+name: Run GitHub Actions Lints
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  github-actions-lint:
+    name: Run lints
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Actions Repository
+        uses: actions/checkout@v4
+
+      - name: Run actionlint
+        uses: koki-develop/github-actions-lint/actionlint@v1
+
+      - name: Run ghalint
+        uses: koki-develop/github-actions-lint/ghalint@v1
+        with:
+          action-path: ./.github/workflows/*.yml
+
+      - name: Run zizmor
+        uses: koki-develop/github-actions-lint/zizmor@v1
+        with:
+          github-token: ${{ github.token }}
+          persona: auditor
