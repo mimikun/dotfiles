@@ -4,6 +4,8 @@ on:
     # Runs every day at 1:30 AM
     - cron: "30 1 * * *"
 
+permissions: {}
+
 jobs:
   stale:
     runs-on: ubuntu-latest
