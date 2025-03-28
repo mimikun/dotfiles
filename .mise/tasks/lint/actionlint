@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Lint by actionlint"
+# mise hide=true
+
+actionlint
+
+# vim:ft=bash

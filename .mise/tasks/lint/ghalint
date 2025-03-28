@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Lint by ghalint"
+# mise hide=true
+
+ghalint run
+
+# vim:ft=bash

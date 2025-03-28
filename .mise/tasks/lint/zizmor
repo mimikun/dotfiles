@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise description="Lint by zizmor"
+# mise hide=true
+
+zizmor .
+
+# vim:ft=bash
