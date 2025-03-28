@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Actions Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run Stylua
-        uses: JohnnyMorganz/stylua-action@v4
+        uses: JohnnyMorganz/stylua-action@b6661824b86c9c33121bed87a778b660ba90cf77 # v4.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # NOTE: we recommend pinning to a specific version in case of formatting changes

@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Actions Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run PSSA
-        uses: devblackops/github-action-psscriptanalyzer@v2.4.0
+        uses: devblackops/github-action-psscriptanalyzer@854038567344559afaaa8ccb7a014452b99d86ee # v2.4.0
         with:
           failOnErrors: true
           failOnWarnings: true
