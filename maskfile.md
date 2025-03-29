@@ -496,6 +496,9 @@ mask textlint
 mask typo-check
 mask pwsh-test
 mask shell-lint
+mask ghalint
+mask actionlint
+mask zizmor
 ```
 
 ```powershell
@@ -505,6 +508,9 @@ mask textlint
 mask typo-check
 mask pwsh-test
 mask shell-lint
+mask ghalint
+mask actionlint
+mask zizmor
 ```
 
 ## stylua-lint
@@ -587,6 +593,42 @@ shellcheck --shell=bash --external-sources \
 
 shfmt --language-dialect bash --diff \
 	./**/*
+```
+
+```powershell
+Write-Output "Windows is not support!"
+```
+
+## ghalint
+
+> Run ghalint (Linux only)
+
+```bash
+ghalint run
+```
+
+```powershell
+Write-Output "Windows is not support!"
+```
+
+## actionlint
+
+> Run actionlint (Linux only)
+
+```bash
+actionlint
+```
+
+```powershell
+Write-Output "Windows is not support!"
+```
+
+## zizmor
+
+> Run zizmor (Linux only)
+
+```bash
+zizmor .
 ```
 
 ```powershell
