@@ -127,5 +127,5 @@ packages:
   - name: yassinebenaid/bunster@v0.11.0
   - name: ycd/dstp@v0.4.23
   - name: yokecd/yoke@v0.11.2
-  - name: yorukot/superfile@v1.2.0.0
+  - name: yorukot/superfile@v1.2.1
   - name: zyedidia/eget@v1.3.4
