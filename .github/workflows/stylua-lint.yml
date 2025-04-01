@@ -24,7 +24,7 @@ jobs:
           persist-credentials: false
 
       - name: Run Stylua
-        uses: JohnnyMorganz/stylua-action@b6661824b86c9c33121bed87a778b660ba90cf77 # v4.0.0
+        uses: JohnnyMorganz/stylua-action@479972f01e665acfcba96ada452c36608bdbbb5e # v4.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # NOTE: we recommend pinning to a specific version in case of formatting changes
