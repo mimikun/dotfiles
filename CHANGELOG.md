@@ -1,5 +1,37 @@
 # Changelog
 
+## [v2025.04.01]
+
+### Added - 新機能について
+
+- feat(gup): add lazytrivy
+- feat(aqua): add aquasecurity/trivy
+- feat(pkglist): add uv tool
+- feat(localbin): add uv tool commands
+- feat(mask): add gha lints
+- feat(nvim): add flutter-tools.nvim
+- feat(nvim): add yasp.nvim
+- feat(nvim): add remote-sshfs.nvim
+- feat(nvim): add pendulum-nvim
+- feat(telescope.nvim): add telescope-git-recent.nvim extension
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(fish): update uv completion
+- chore(fish): update mise completion
+- chore(fish): update zoxide completion
+- chore(typos): glow completion bug fixed in glow v2.1.0
+- chore(cargo-windows): update package list
+
+### Removed - 今回で削除された機能について
+
+- chore(ci): disable github-actions-lint workflow
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.03.28]
 
 ### Added - 新機能について
