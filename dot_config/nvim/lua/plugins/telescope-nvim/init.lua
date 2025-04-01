@@ -55,6 +55,7 @@ local spec = {
         --telescope.load_extension("REPLShow")
         --telescope.load_extension("remote-sshfs")
         --telescope.load_extension("git_recent")
+        --telescope.load_extension("flutter")
     end,
     --cond = false,
     --enabled = false,
