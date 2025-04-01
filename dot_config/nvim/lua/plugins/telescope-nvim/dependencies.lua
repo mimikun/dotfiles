@@ -44,6 +44,7 @@ local dependencies = {
     --"happy663/telescope-livegrep-history.nvim",
     --{ "milanglacier/yarepl.nvim", optional = true },
     --{ "nosduco/remote-sshfs.nvim", optional = true },
+    --{ "unwarlikepoodle/telescope-git-recent.nvim", optional = true },
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
