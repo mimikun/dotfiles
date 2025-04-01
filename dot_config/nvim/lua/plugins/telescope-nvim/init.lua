@@ -53,6 +53,7 @@ local spec = {
         --telescope.load_extension("import")
         --telescope.load_extension("live_grep_history")
         --telescope.load_extension("REPLShow")
+        --telescope.load_extension("remote-sshfs")
     end,
     --cond = false,
     --enabled = false,

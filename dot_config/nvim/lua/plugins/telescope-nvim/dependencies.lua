@@ -43,6 +43,7 @@ local dependencies = {
     "kiyoon/telescope-insert-path.nvim",
     --"happy663/telescope-livegrep-history.nvim",
     --{ "milanglacier/yarepl.nvim", optional = true },
+    --{ "nosduco/remote-sshfs.nvim", optional = true },
 }
 
 -- NOTE: Add fzf_sorter if not a Windows
