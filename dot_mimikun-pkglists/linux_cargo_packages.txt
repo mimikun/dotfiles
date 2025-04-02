@@ -42,6 +42,7 @@ choose
 codeberg-cli
 colorgen-nvim
 commitlint-rs
+countryfetch
 create-tauri-app
 csview
 csvlens
