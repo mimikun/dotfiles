@@ -92,7 +92,7 @@ packages:
   - name: natecraddock/zf@0.10.2
   - name: neilotoole/sq@v0.48.5
   - name: osteele/gojekyll@v0.2.14
-  - name: pamburus/hl@v0.30.4
+  - name: pamburus/hl@v0.31.0
   - name: peco/peco@v0.5.11
   - name: pkgxdev/pkgx@v2.5.0
   - name: pomdtr/sunbeam@v1.0.1
