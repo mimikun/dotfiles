@@ -35,6 +35,7 @@ CJKwrap
 click
 click-help-colors
 click-log
+click-plugins
 cobble
 colorama
 colored
@@ -50,6 +51,7 @@ dominate
 edge-tts
 et_xmlfile
 feedparser
+filelock
 filetype
 frozenlist
 gevent
@@ -145,6 +147,7 @@ pyparsing
 pyte
 python-dateutil
 python-doi
+python-dotenv
 python-mpv
 python-pptx
 python-slugify
@@ -157,12 +160,14 @@ pyyaml_env_tag
 recoverpy
 regex
 requests
+requests-file
 rexi
 rich
 ruamel.yaml
 setuptools
 sgmllib3k
 shellingham
+shodan
 six
 smmap
 sniffio
@@ -184,6 +189,7 @@ textual-fspicker
 textual-imageview
 text-unidecode
 tiktoken
+tldextract
 toml
 tomli
 tqdm
@@ -200,6 +206,7 @@ vignore
 watchdog
 watchfiles
 wcwidth
+wtfis
 xlrd
 XlsxWriter
 xmltodict
