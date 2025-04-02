@@ -2,6 +2,7 @@
 local dependencies = {
     "nvim-lua/plenary.nvim",
     "davidmh/cspell.nvim",
+    "idanarye/nvim-buffls",
 }
 
 ---@type LazySpec

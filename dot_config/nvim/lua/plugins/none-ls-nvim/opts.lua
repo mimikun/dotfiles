@@ -6,6 +6,7 @@ local formatting = null_ls.builtins.formatting
 ---@type table
 local opts = {
     sources = {
+        require("buffls"),
         --- Code Actions
         cspell.code_actions,
         --- Diagnostics
