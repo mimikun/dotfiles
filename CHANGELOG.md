@@ -1,5 +1,32 @@
 # Changelog
 
+## [v2025.04.02]
+
+### Added - 新機能について
+
+- feat(gup): add lazypkg
+- feat(pip): add some packages
+- feat(aqua): add ymtdzzz/otel-tui
+- feat(nvim): add time.nvim
+- feat(nvim): add tardis.nvim
+- feat(nvim): add visual-whitespace.nvim
+- feat(nvim): add nvim-lsp-file-operations
+- feat(none-ls.nvim): add buffls
+- feat(cargo): add countryfetch
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update mise completion
+- chore(none-ls.nvim): split dependencies.lua
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.04.01]
 
 ### Added - 新機能について
