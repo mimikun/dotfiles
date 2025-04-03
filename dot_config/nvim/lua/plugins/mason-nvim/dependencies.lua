@@ -11,7 +11,6 @@ local dependencies = {
     "folke/neoconf.nvim",
     "Bilal2453/luvit-meta",
     "justinsgithub/wezterm-types",
-    "hrsh7th/cmp-nvim-lsp",
     "zapling/mason-lock.nvim",
     "b0o/schemastore.nvim",
     { "Zeioth/mason-extra-cmds", opts = {} },
@@ -27,10 +26,14 @@ local dependencies = {
     "rshkarin/mason-nvim-lint",
 }
 
-if require("config.settings").use_blink_cmp then
-    table.insert(dependencies, {
-        { "saghen/blink.cmp" },
-    })
+-- NOTE: completion
+
+-- NOTE: When Using `nvim-cmp` ( `use_blink_cmp = false` ), add `cmp-nvim-lsp` to dependencies.
+if not require("config.settings").use_blink_cmp then
+    table.insert(dependencies, "hrsh7th/cmp-nvim-lsp")
+-- NOTE: When Using `blink.cmp` ( `use_blink_cmp = true` ), add `blink.cmp` to dependencies.
+else
+    table.insert(dependencies, "saghen/blink.cmp")
 end
 
 return dependencies
