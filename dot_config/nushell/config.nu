@@ -30,3 +30,5 @@ broot --print-shell-function nushell | save -f ($nu.data-dir | path join "vendor
 
 # rip
 rip completions nushell | save -f ($nu.data-dir | path join "vendor/autoload/rip.nu")
+
+#use '/home/yuto/.x-cmd.root/local/data/nu/rc.nu' *; source '/home/yuto/.x-cmd.root/local/data/nu/advise.nu'; # boot up x-cmd.

@@ -26,4 +26,7 @@ fi
 {{ else -}}
 #その他のOSのとき
 {{ end }}
+
+#[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
+
 # vim:ft=bash
