@@ -5,6 +5,10 @@ local cond = require("config.settings").use_github_copilot
 local opts = {
     suggestion = { enabled = false },
     panel = { enabled = false },
+    filetypes = {
+        markdown = true,
+        help = true,
+    },
 }
 
 ---@type LazySpec
