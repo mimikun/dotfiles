@@ -9,14 +9,15 @@ local is_home = require("config.global").is_home
 local build = is_home and "cargo build --release" or false
 
 ---@type boolean|string
-local version = is_home and false or "*"
+local version = is_home and false or "1.*"
 
 ---@type LazySpec
 local spec = {
     "saghen/blink.cmp",
+    lazy = false,
     build = build,
     version = version,
-    lazy = false,
+    event = "InsertEnter",
     dependencies = require("plugins.blink-cmp.dependencies"),
     opts = require("plugins.blink-cmp.opts"),
     cond = cond,

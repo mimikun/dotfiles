@@ -1,28 +1,30 @@
--- NOTE: if is_home, use nightly feature, otherwise use pre-compiled binary
----@type boolean|string
-local version = require("config.global").is_home and false or "*"
-
----@type LazySpec
-local blink_compat = {
-    "saghen/blink.compat",
-    --lazy = false,
-    version = version,
-    opts = {},
-}
+local settings = require("config.settings")
 
 ---@type LazySpec[]
 local dependencies = {
-    { "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
+    "saghen/blink.compat",
     { "L3MON4D3/LuaSnip", version = "v2.*" },
     "folke/lazydev.nvim",
     "moyiz/blink-emoji.nvim",
-    "zbirenbaum/copilot.lua",
-    "giuxtaposition/blink-cmp-copilot",
+    "philosofonusus/ecolog.nvim",
+    "nvim-orgmode/orgmode",
     "mikavilpas/blink-ripgrep.nvim",
-    -- blink.compat
-    blink_compat,
-    "chrisgrieser/cmp_yanky",
+    "folke/snacks.nvim",
+    "MahanRahmati/blink-nerdfont.nvim",
     --"rcarriga/cmp-dap",
+    --"chrisgrieser/cmp_yanky",
+    --"andersevenrud/cmp-tmux",
+    --{ "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
+    -- XXX: AI solution
+    --"milanglacier/minuet-ai.nvim",
 }
+
+if settings.use_github_copilot then
+    table.insert(dependencies, { "fang2hou/blink-copilot" })
+end
+
+if settings.use_avante then
+    table.insert(dependencies, { "Kaiser-Yang/blink-cmp-avante" })
+end
 
 return dependencies

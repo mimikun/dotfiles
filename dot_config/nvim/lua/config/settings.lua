@@ -71,7 +71,7 @@ local use_denops = (is_home and global.is_linux) and true or false
 settings.use_denops = use_denops
 
 ---use blink.cmp
-settings.use_blink_cmp = false
+settings.use_blink_cmp = true
 
 ---@type boolean
 local is_throttling = false
