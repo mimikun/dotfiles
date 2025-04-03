@@ -1,12 +1,12 @@
 ---@type LazySpec[]
 local dependencies = {
-    -- LSP plugins
+    -- NOTE: LSP plugins
     "neovim/nvim-lspconfig",
     "williamboman/mason-lspconfig.nvim",
-    -- DAP plugins
+    -- NOTE: DAP plugins
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
-    -- Other deps
+    -- NOTE: Other deps
     "folke/lazydev.nvim",
     "folke/neoconf.nvim",
     "Bilal2453/luvit-meta",
@@ -16,13 +16,13 @@ local dependencies = {
     "b0o/schemastore.nvim",
     { "Zeioth/mason-extra-cmds", opts = {} },
     { "mkindberg/ghostty-ls", config = true },
-    -- mason-null-ls.nvim
+    -- NOTE: mason-null-ls.nvim
     --"nvimtools/none-ls.nvim",
     --"jay-babu/mason-null-ls.nvim",
-    -- mason-conform.nvim
+    -- NOTE: mason-conform.nvim
     "stevearc/conform.nvim",
     "mimikun/mason-conform.nvim",
-    -- mason-nvim-lint
+    -- NOTE: mason-nvim-lint
     "mfussenegger/nvim-lint",
     "rshkarin/mason-nvim-lint",
 }
