@@ -71,7 +71,7 @@ packages:
   - name: koki-develop/gat@v0.21.2
   - name: koki-develop/sheep@v0.4.0
   - name: kubescape/kubescape@v3.0.34
-  - name: Lifailon/lazyjournal@0.7.6
+  - name: Lifailon/lazyjournal@0.7.7
   - name: maaslalani/slides@v0.9.0
   - name: Macmod/godap@v2.10.4
   - name: magefile/mage@v1.15.0
