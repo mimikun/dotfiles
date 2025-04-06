@@ -128,6 +128,6 @@ packages:
   - name: yassinebenaid/bunster@v0.11.0
   - name: ycd/dstp@v0.4.23
   - name: ymtdzzz/otel-tui@v0.4.8
-  - name: yokecd/yoke@v0.11.3
+  - name: yokecd/yoke@v0.11.4
   - name: yorukot/superfile@v1.2.1
   - name: zyedidia/eget@v1.3.4
