@@ -13,7 +13,6 @@ local dependencies = {
     "moyiz/blink-emoji.nvim",
     "philosofonusus/ecolog.nvim",
     --"bydlw98/blink-cmp-env",
-    "nvim-orgmode/orgmode",
     "mikavilpas/blink-ripgrep.nvim",
     "MahanRahmati/blink-nerdfont.nvim",
     "folke/snacks.nvim",
@@ -22,6 +21,7 @@ local dependencies = {
     "mgalliou/blink-cmp-tmux",
     "ribru17/blink-cmp-spell",
     -- BUG: can't use
+    --"nvim-orgmode/orgmode",
     --"jdrupal-dev/css-vars.nvim",
     --"jmbuhr/cmp-pandoc-references",
     "disrupted/blink-cmp-conventional-commits",
@@ -29,20 +29,10 @@ local dependencies = {
     "Jezda1337/nvim-html-css",
     "rcarriga/cmp-dap",
     "chrisgrieser/cmp_yanky",
+    -- NOTE: llm features
+    { "milanglacier/minuet-ai.nvim", optional = true },
+    { "fang2hou/blink-copilot", optional = true },
+    { "Kaiser-Yang/blink-cmp-avante", optional = true },
 }
-
-local use_minuet = false
-
-if use_minuet then
-    table.insert(dependencies, { "milanglacier/minuet-ai.nvim" })
-end
-
-if settings.use_github_copilot then
-    table.insert(dependencies, { "fang2hou/blink-copilot" })
-end
-
-if settings.use_avante then
-    table.insert(dependencies, { "Kaiser-Yang/blink-cmp-avante" })
-end
 
 return dependencies

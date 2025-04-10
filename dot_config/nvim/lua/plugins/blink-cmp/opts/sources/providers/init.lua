@@ -24,22 +24,10 @@ local providers = {
     ["html-css"] = require("plugins.blink-cmp.opts.sources.providers.html-css"),
     -- NOTE: built-in providers
     cmdline = require("plugins.blink-cmp.opts.sources.providers.cmdline"),
+    -- NOTE: llm features
+    minuet = require("plugins.blink-cmp.opts.sources.providers.minuet"),
+    avante = require("plugins.blink-cmp.opts.sources.providers.avante"),
+    copilot = require("plugins.blink-cmp.opts.sources.providers.copilot"),
 }
-
-local providers_minuet = require("plugins.blink-cmp.opts.sources.providers.minuet")
-local providers_avante = require("plugins.blink-cmp.opts.sources.providers.avante")
-local providers_copilot = require("plugins.blink-cmp.opts.sources.providers.copilot")
-
-if settings.use_minuet then
-    providers = vim.tbl_deep_extend("force", providers, providers_minuet)
-end
-
-if settings.use_github_copilot then
-    providers = vim.tbl_deep_extend("force", providers, providers_copilot)
-end
-
-if settings.use_avante then
-    providers = vim.tbl_deep_extend("force", providers, providers_avante)
-end
 
 return providers
