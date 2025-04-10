@@ -1,5 +1,58 @@
 # Changelog
 
+## [v2025.04.10]
+
+### Added - 新機能について
+
+- feat(gup): add ctags-lsp
+- feat(aqua): add some packages
+- feat(cargo): add some packages
+- feat(shells): add x-cmd config
+- feat(nvim): use blink-cmp
+- feat(nvim): add colorful-menu.nvim
+- feat(nvim): add senpai.nvim
+- feat(nvim): add rustowl
+- feat(nvim): add css-vars.nvim
+- feat(nvim): add patcher.nvim
+- feat(nvim): add nvim-html-css
+- feat(nvim): add triptych.nvim
+- feat(nvim): add slowreader.nvim
+- feat(nvim): add pivot.nvim
+- feat(nvim): add debugprint.nvim
+- feat(nvim): add auto-input-switch.nvim
+- feat(nvim): add auto-cmdheight.nvim
+- feat(nvim): add cursor_open.nvim
+- feat(nvim): add debugmaster.nvim
+- feat(nvim): add neogit-ai-commit.nvim
+- feat(nvim): add nvim-buddy
+- feat(nvim): add dropship.nvim
+- feat(nvim): add cmdline.nvim
+- feat(nvim): add ss.nvim
+- feat(nvim): add use_llm flag
+- docs(mason.nvim): add note comment
+
+### Changed - 既存機能の変更について
+
+- chore(typos): update config
+- refactoring(blink.cmp): update configs
+- feat(copilot.lua): add copiloutre.nvim dependencies
+- refactor(rendear-markdown.nvim): config update
+- chore(tiny-inline-diagnostic.nvim): rename directory
+- refactor(nvim-config): minor fix
+- docs(commentary): update glossary.md
+- chore(copilot.lua): update config
+- chore(mason.nvim): split completion plugins
+- chore(luasnip): split files
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+- fix(atuin): chezmoi template miss
+- fix(kulala.nvim): vimdoc bug
+
 ## [v2025.04.02]
 
 ### Added - 新機能について
