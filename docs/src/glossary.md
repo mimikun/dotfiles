@@ -29,9 +29,38 @@
 
 ![banitasu](images/banitasu.png)
 
+### `wakamo`
+
+[Kosaka Wakamo](https://bluearchive.fandom.com/wiki/Kosaka_Wakamo)
+
 ## Machine name
 
-### `Home-Windows`
+### `Wakamo` ( `Home-Windows` )
+
+highest human rights
+
+- CPU
+    - AMD Ryzen 7 9700X3D
+- RAM
+    - 96GB
+- DISK
+    - 1TB SSD(NVMe 5th)
+    - 2TB SSD(NVMe 4th)
+    - 2TB SSD(SATA)
+- GPU
+    - RTX 5090
+
+### `Home-WSL`
+
+highest human rights
+
+- RAM
+    - 8GB(swap 0GB)
+
+<details>
+<summary>old machines</summary>
+
+### `Home-Windows(old)`
 
 highest human rights, but almost disk full.
 
@@ -44,12 +73,14 @@ highest human rights, but almost disk full.
 - GPU
     - RTX 2080 SUPER
 
-### `Home-WSL`
+### `Home-WSL(old)`
 
 highest human rights, but almost disk full.
 
 - RAM
     - 8GB(swap 0GB)
+
+</details>
 
 ### `Home-azusa`
 
