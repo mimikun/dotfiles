@@ -1,6 +1,7 @@
 local global = require("config.global")
 
 local is_windows = global.is_windows
+local is_linux = global.is_linux
 local is_work = global.is_work
 local is_home = global.is_home
 local is_azusa = global.is_azusa
@@ -67,7 +68,7 @@ settings.use_avante = check_avante()
 
 ---use denops
 -- NOTE: only be enabled at Home-azusa and Home-WSL
-local use_denops = (is_home and global.is_linux) and true or false
+local use_denops = (is_home and is_linux) and true or false
 settings.use_denops = use_denops
 
 ---use blink.cmp
