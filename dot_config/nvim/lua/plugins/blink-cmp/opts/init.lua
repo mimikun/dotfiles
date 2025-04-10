@@ -4,13 +4,8 @@ local opts = {
     keymap = require("plugins.blink-cmp.opts.keymap"),
     snippets = { preset = "luasnip" },
     completion = require("plugins.blink-cmp.opts.completion"),
-    sources = {
-        default = require("plugins.blink-cmp.opts.sources.default"),
-        per_filetype = {
-            org = { "orgmode" },
-        },
-        providers = require("plugins.blink-cmp.opts.sources.providers"),
-    },
+    --fuzzy = require("plugins.blink-cmp.opts.fuzzy"),
+    sources = require("plugins.blink-cmp.opts.sources"),
     cmdline = require("plugins.blink-cmp.opts.cmdline"),
     term = require("plugins.blink-cmp.opts.term"),
 }

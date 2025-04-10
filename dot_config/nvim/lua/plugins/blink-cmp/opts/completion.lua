@@ -1,5 +1,5 @@
 ---@module 'blink.cmp'
----@type blink.cmp.CompletionConfig
+---@type blink.cmp.CompletionConfigPartial
 local completion = {
     -- NOTE: Recommended to avoid unnecessary request (milanglacier/minuet-ai.nvim)
     trigger = { prefetch_on_insert = false },

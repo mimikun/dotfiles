@@ -2,24 +2,36 @@ local settings = require("config.settings")
 
 ---@type table
 local default = {
+    "git",
+    "dictionary",
     "lazydev",
+    "conventional_commits",
     "lsp",
     "snippets",
     "buffer",
-    "ripgrep", -- 👈🏻 add "ripgrep" here
+    "ripgrep",
     "path",
     -- NOTE: No need to setting it now
     -- markdown_oxide
     "emoji",
     -- NOTE: No need to setting it now
     -- crates
-    -- NOTE: Not supported. use blink-compat
-    -- cmp_yanky
     "ecolog",
+    --"env",
     "nerdfont",
-    -- XXX: AI solutions
-    --"minuet",
+    "spell",
+    -- BUG: can't use
+    --"css-vars",
+    --"pandoc-references",
+    -- NOTE: blink-compat sources
+    "cmp_yanky",
+    "html-css",
 }
+
+local use_minuet = false
+if use_minuet then
+    table.insert(default, { "minuet" })
+end
 
 if settings.use_github_copilot then
     table.insert(default, { "copilot" })
