@@ -1,3 +1,5 @@
+-- TODO: Dynamically change provider
+
 local settings = require("config.settings")
 
 ---@module 'blink.cmp'
