@@ -1,15 +1,8 @@
----@type table
-local cmds = {
-    "TinyInlineDiagnosticEnable",
-    "TinyInlineDiagnosticDisable",
-    "TinyInlineDiagnosticToggle",
-}
-
 ---@type LazySpec
 local spec = {
     "rachartier/tiny-inline-diagnostic.nvim",
     --lazy = false,
-    cmd = cmds,
+    cmd = require("plugins.tiny-inline-diagnostic-nvim.cmds"),
     event = "LspAttach",
     priority = 1000,
     --[[
@@ -19,7 +12,7 @@ local spec = {
     ]]
     config = function()
         local tid = require("tiny-inline-diagnostic")
-        tid.setup(require("plugins.tiny-inline-diagnostic.opts"))
+        tid.setup(require("plugins.tiny-inline-diagnostic-nvim.opts"))
 
         vim.api.nvim_create_user_command("TinyInlineDiagnosticEnable", function()
             tid.enable()
