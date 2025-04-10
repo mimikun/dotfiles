@@ -5,6 +5,7 @@ ast-grep
 atac
 atuin
 bacon
+ballast
 bandwhich
 basilk
 bat
@@ -166,6 +167,7 @@ rrc
 rscls
 rucola-notes
 rustfinity
+rustowl
 rustscan
 rust-script
 sccache
@@ -183,6 +185,7 @@ slumber
 smartcat
 sshx
 starship
+stu
 stylua
 systemctl-tui
 tabiew
@@ -217,6 +220,7 @@ vscli
 watchexec-cli
 wireman
 wthrr
+xan
 xbps-tui
 xh
 xsv
