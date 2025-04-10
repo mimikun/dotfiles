@@ -4,7 +4,7 @@ local spec = {
     --lazy = false,
     cmd = require("plugins.pivot-nvim.cmds"),
     keys = require("plugins.pivot-nvim.keys"),
-    opts = require("plugins.pivot-nvim.optsj"),
+    opts = require("plugins.pivot-nvim.opts"),
     cond = false,
     enabled = false,
 }
