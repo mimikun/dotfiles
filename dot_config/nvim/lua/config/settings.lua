@@ -78,4 +78,9 @@ settings.use_blink_cmp = true
 local is_throttling = false
 settings.is_throttling = is_throttling
 
+-- use llm feature, only enable home and linux(WSL)
+---@type boolean
+local use_llm = is_home and is_linux
+settings.use_llm = use_llm
+
 return settings
