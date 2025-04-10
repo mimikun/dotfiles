@@ -25,15 +25,15 @@ local default = {
 }
 
 if settings.use_minuet then
-    default = vim.tbl_deep_extend("force", default, { "minuet" })
+    default = vim.tbl_extend("force", default, { "minuet" })
 end
 
 if settings.use_github_copilot then
-    default = vim.tbl_deep_extend("force", default, { "copilot" })
+    default = vim.tbl_extend("force", default, { "copilot" })
 end
 
 if settings.use_avante then
-    default = vim.tbl_deep_extend("force", default, { "avante" })
+    default = vim.tbl_extend("force", default, { "avante" })
 end
 
 return default
