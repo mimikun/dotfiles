@@ -1,5 +1,3 @@
--- TODO: Dynamically change provider
-
 local settings = require("config.settings")
 
 ---@module 'blink.cmp'
@@ -28,20 +26,21 @@ local providers = {
     cmdline = require("plugins.blink-cmp.opts.sources.providers.cmdline"),
 }
 
-local providers_minuet = require("plugins.blink-cmp.opts.sources.providers.minuet")
-local providers_avante = require("plugins.blink-cmp.opts.sources.providers.avante")
-local providers_copilot = require("plugins.blink-cmp.opts.sources.providers.copilot")
+-- NOTE: llm features
+local providers_minuet = { minuet = require("plugins.blink-cmp.opts.sources.providers.minuet") }
+local providers_avante = { avante = require("plugins.blink-cmp.opts.sources.providers.avante") }
+local providers_copilot = { copilot = require("plugins.blink-cmp.opts.sources.providers.copilot") }
 
 if settings.use_minuet then
-    providers = vim.tbl_deep_extend("force", providers, providers_minuet)
+    providers = vim.tbl_extend("force", providers, providers_minuet)
 end
 
 if settings.use_github_copilot then
-    providers = vim.tbl_deep_extend("force", providers, providers_copilot)
+    providers = vim.tbl_extend("force", providers, providers_copilot)
 end
 
 if settings.use_avante then
-    providers = vim.tbl_deep_extend("force", providers, providers_avante)
+    providers = vim.tbl_extend("force", providers, providers_avante)
 end
 
 return providers
