@@ -15,6 +15,7 @@ local dependencies = {
     "b0o/schemastore.nvim",
     { "Zeioth/mason-extra-cmds", opts = {} },
     { "mkindberg/ghostty-ls", config = true },
+    "netmute/ctags-lsp.nvim",
     -- NOTE: mason-null-ls.nvim
     --"nvimtools/none-ls.nvim",
     --"jay-babu/mason-null-ls.nvim",

@@ -100,6 +100,7 @@ local spec = {
         end
         if need_all_servers then
             lspconfig.clangd.setup({})
+            lspconfig.ctags_lsp.setup({})
             lspconfig.efm.setup({})
             lspconfig.graphql.setup({})
             lspconfig.neocmake.setup({})
