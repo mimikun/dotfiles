@@ -17,6 +17,7 @@ local spec = {
     --lazy = false,
     cmd = "Copilot",
     event = "InsertEnter",
+    dependencies = { "fuegoio/copiloutre.nvim" },
     opts = opts,
     cond = cond,
     enabled = cond,
