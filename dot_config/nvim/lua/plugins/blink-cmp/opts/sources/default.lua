@@ -11,11 +11,7 @@ local default = {
     "buffer",
     "ripgrep",
     "path",
-    -- NOTE: No need to setting it now
-    -- markdown_oxide
     "emoji",
-    -- NOTE: No need to setting it now
-    -- crates
     "ecolog",
     --"env",
     "nerdfont",
@@ -28,17 +24,16 @@ local default = {
     "html-css",
 }
 
-local use_minuet = false
-if use_minuet then
-    table.insert(default, { "minuet" })
+if settings.use_minuet then
+    default = vim.tbl_deep_extend("force", default, { "minuet" })
 end
 
 if settings.use_github_copilot then
-    table.insert(default, { "copilot" })
+    default = vim.tbl_deep_extend("force", default, { "copilot" })
 end
 
 if settings.use_avante then
-    table.insert(default, { "avante" })
+    default = vim.tbl_deep_extend("force", default, { "avante" })
 end
 
 return default

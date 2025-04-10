@@ -83,4 +83,8 @@ settings.is_throttling = is_throttling
 local use_llm = is_home and is_linux
 settings.use_llm = use_llm
 
+---@type boolean
+local use_minuet = false
+settings.use_minuet = use_minuet
+
 return settings
