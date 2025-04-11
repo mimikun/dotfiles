@@ -12,6 +12,8 @@ global.is_human_rights = function()
         return false
     elseif hostname == "azusa" then
         return true
+    elseif hostname == "Wakamo" then
+        return true
     else
         return false
     end
