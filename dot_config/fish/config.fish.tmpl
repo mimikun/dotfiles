@@ -35,15 +35,36 @@ setxkbmap -option ctrl:nocaps
 {{ end -}}
 
 # env-vars
+# GITHUB_USERNAME
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
 set -x GITHUB_USERNAME "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
-{{ if eq .chezmoi.hostname "azusa" -}}
-set -x OBSIDIAN_VAULT_ROOT "$HOME/Documents/Obsidian/mimikun"
-set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/linux_config.yml"
+{{ else -}}
+set -x GITHUB_USERNAME "mimikun"
+{{ end -}}
+
+# WIN_HOME
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+set -x WIN_HOME "/mnt/c/Users/mimikun"
 {{ else -}}
 set -x WIN_HOME "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
+{{ end -}}
+
+# OBSIDIAN_VAULT_ROOT
+{{ if eq .chezmoi.hostname "azusa" -}}
+set -x OBSIDIAN_VAULT_ROOT "Obsidian/mimikun"
+{{ else if eq .chezmoi.hostname "Wakamo" -}}
+set -x OBSIDIAN_VAULT_ROOT "Obsidian/mimikun"
+{{ else -}}
 set -x OBSIDIAN_VAULT_ROOT "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+{{ end -}}
+
+# LG_CONFIG_FILE
+{{ if eq .chezmoi.hostname "azusa" -}}
+set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/linux_config.yml"
+{{ else -}}
 set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
 {{ end -}}
+
 set -x WORKSPACE "$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 set -x WORKSPACE_MIMIKUN "$GHQ_ROOT/github.com/mimikun"
 set -x NVIM_DEV_PLUGINS "$WORKSPACE_MIMIKUN/dev-plugins"
@@ -55,16 +76,14 @@ set -x CODEBERG_PAT "{{ (rbwFields "dotfiles-chezmoi").codeberg_pat.value }}"
 set -x GITEA_PAT "{{ (rbwFields "dotfiles-chezmoi").gitea_pat.value }}"
 {{ end -}}
 
-{{ if (ne .chezmoi.hostname "azusa") -}}
+{{ if eq .chezmoi.hostname "azusa" -}}
+set -x obsidian_vault_root_path "$HOME/Documents/$OBSIDIAN_VAULT_ROOT"
+{{ else -}}
 set -x windl "$WIN_HOME/Downloads"
 set -x WIN_DESKTOP "$WIN_HOME/Desktop"
 set -x WIN_DOCUMENTS "$WIN_HOME/Documents"
-
 set -x obsidian_vault_root_path "$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
-
 set -x DISPLAY ":0"
-{{ else -}}
-set -x obsidian_vault_root_path "$OBSIDIAN_VAULT_ROOT"
 {{ end -}}
 
 set -x obsidian_vault_path $obsidian_vault_root_path
@@ -198,6 +217,8 @@ set -x AQUA_DISABLE_POLICY true
 # If not human rights, AQUA_MAX_PARALLELISM = 1.
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
 set -x AQUA_MAX_PARALLELISM 1
+{{ else if (eq .chezmoi.hostname "Wakamo") -}}
+set -x AQUA_MAX_PARALLELISM 3
 {{ else -}}
 set -x AQUA_MAX_PARALLELISM 5
 {{ end -}}
