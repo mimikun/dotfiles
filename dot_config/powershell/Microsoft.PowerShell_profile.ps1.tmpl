@@ -39,28 +39,92 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
 }
 
 # env-var
+# GITHUB_USERNAME
 {{ if eq .chezmoi.os "windows" -}}
 {{ if eq .chezmoi.hostname "TanakaPC" -}}
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+{{ else -}}
+$GITHUB_USERNAME = "mimikun"
+{{ end -}}
+{{ else -}}
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
+$GITHUB_USERNAME = "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
+{{ else -}}
+$GITHUB_USERNAME = "mimikun"
+{{ end -}}
+{{ end -}}
+
+# WIN_HOME
+{{ if eq .chezmoi.os "windows" -}}
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+$WIN_HOME = "/mnt/c/Users/mimikun"
+{{ else if eq .chezmoi.hostname "TanakaPC" -}}
 $WIN_HOME = "/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
+{{ else -}}
+$WIN_HOME = "/mnt/c/Users/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
+{{ end -}}
+{{ else -}}
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+$WIN_HOME = "/mnt/c/Users/mimikun"
+{{ else -}}
+$WIN_HOME = "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
+{{ end -}}
+{{ end -}}
+
+# OBSIDIAN_VAULT_ROOT
+{{ if eq .chezmoi.os "windows" -}}
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
+{{ else if eq .chezmoi.hostname "TanakaPC" -}}
 $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
 {{ else -}}
-$GITHUB_USERNAME = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
-$WIN_HOME = "/mnt/c/Users/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
 $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
 {{ end -}}
 {{ else -}}
-$GITHUB_USERNAME = "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
-$WIN_HOME = "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
-$OBSIDIAN_VAULT_ROOT = "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+{{ if eq .chezmoi.hostname "azusa" -}}
+$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
+{{ else if eq .chezmoi.hostname "Wakamo" -}}
+$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
 {{ else -}}
-$OBSIDIAN_VAULT_ROOT = "$HOME/Documents/Obsidian/mimikun"
+$OBSIDIAN_VAULT_ROOT = "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
 {{ end -}}
 {{ end -}}
+
 $env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
 $env:obsidian_vault_root = $OBSIDIAN_VAULT_ROOT
 $obsidian_vault_root = $OBSIDIAN_VAULT_ROOT
+
+{{ if (ne .chezmoi.hostname "azusa") }}
+# Windows Documents folder
+$env:WIN_DOCUMENTS = Join-Path -Path $env:WIN_HOME -ChildPath "Documents"
+$env:win_documents = $env:WIN_DOCUMENTS
+$win_documents = $env:win_documents
+
+# Windows Downloads folder
+$env:WIN_DOWNLOADS = Join-Path -Path $env:WIN_HOME -ChildPath "Downloads"
+$env:win_downloads = $env:WIN_DOWNLOADS
+$win_downloads = $env:win_downloads
+$env:windl = $env:win_downloads
+$windl = $env:windl
+
+# Windows Desktop folder
+$env:WIN_DESKTOP = Join-Path -Path $env:WIN_HOME -ChildPath "Desktop"
+$env:win_desktop = $env:WIN_DESKTOP
+$win_desktop = $env:win_desktop
+
+$env:obsidian_vault_root_path = Join-Path -Path $env:WIN_DOCUMENTS -ChildPath "$env:obsidian_vault_root"
+{{ else -}}
+$tmp = Join-Path -Path $env:HOME -ChildPath "Documents"
+$env:obsidian_vault_root_path = Join-Path -Path $tmp -ChildPath "$env:obsidian_vault_root"
+{{ end }}
+
+$env:obsidian_vault_path = $env:obsidian_vault_root_path
+$env:obsidian_dailynote_path = Join-Path -Path $env:obsidian_vault_path -ChildPath "001_DailyNotes"
+$env:obsidian = $env:obsidian_dailynote_path
+$obsidian_vault_root_path = $env:obsidian_vault_root_path
+$obsidian_vault_path = $env:obsidian_vault_path
+$obsidian_dailynote_path = $env:obsidian_dailynote_path
+$obsidian = $env:obsidian
 
 if ($IsLinux) {
     $env:GHQ_ROOT = Join-Path -Path $env:HOME -ChildPath "ghq"
@@ -335,25 +399,6 @@ if ($isMSWindows) {
     $env:CHEZMOI_DIR = Join-Path $env:HOME -ChildPath ".local\share\chezmoi"
 }
 
-{{ if (ne .chezmoi.hostname "azusa") }}
-# Windows Documents folder
-$env:WIN_DOCUMENTS = Join-Path -Path $env:WIN_HOME -ChildPath "Documents"
-$env:win_documents = $env:WIN_DOCUMENTS
-$win_documents = $env:win_documents
-
-# Windows Downloads folder
-$env:WIN_DOWNLOADS = Join-Path -Path $env:WIN_HOME -ChildPath "Downloads"
-$env:win_downloads = $env:WIN_DOWNLOADS
-$win_downloads = $env:win_downloads
-$env:windl = $env:win_downloads
-$windl = $env:windl
-
-# Windows Desktop folder
-$env:WIN_DESKTOP = Join-Path -Path $env:WIN_HOME -ChildPath "Desktop"
-$env:win_desktop = $env:WIN_DESKTOP
-$win_desktop = $env:win_desktop
-{{ end }}
-
 $tmp = Join-Path -Path $env:GHQ_ROOT -ChildPath "github.com"
 $env:WORKSPACE = Join-Path -Path $tmp -ChildPath $env:GITHUB_USERNAME
 $env:WORKSPACE_MIMIKUN = Join-Path -Path $tmp -ChildPath "mimikun"
@@ -362,21 +407,6 @@ $env:NVIM_DEV_PLUGINS = Join-Path $env:WORKSPACE_MIMIKUN -ChildPath "dev-plugins
 $WORKSPACE = $env:WORKSPACE
 $WORKSPACE_MIMIKUN = $env:WORKSPACE_MIMIKUN
 $NVIM_DEV_PLUGINS = $env:NVIM_DEV_PLUGINS
-
-# Obsidian
-{{ if (ne .chezmoi.hostname "azusa") }}
-$env:obsidian_vault_root_path = Join-Path -Path $env:WIN_DOCUMENTS -ChildPath "$env:obsidian_vault_root"
-$obsidian_vault_root_path = $env:obsidian_vault_root_path
-
-$env:obsidian_vault_path = $env:obsidian_vault_root_path
-$obsidian_vault_path = $env:obsidian_vault_path
-
-$env:obsidian_dailynote_path = Join-Path -Path $env:obsidian_vault_path -ChildPath "001_DailyNotes"
-$obsidian_dailynote_path = $env:obsidian_dailynote_path
-
-$env:obsidian = $env:obsidian_dailynote_path
-$obsidian = $env:obsidian
-{{ end }}
 
 # alias bd
 function Set-ParentLocation() {
