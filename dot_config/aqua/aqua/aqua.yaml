@@ -82,7 +82,7 @@ packages:
   - name: mattn/algia@v0.0.84
   - name: mattn/bsky@v0.0.73
   - name: mattn/efm-langserver@v0.0.54
-  - name: mgechev/revive@v1.8.0
+  - name: mgechev/revive@v1.9.0
   - name: mikefarah/yq@v4.45.1
   - name: mistakenelf/fm@v1.1.0
   - name: mr-karan/doggo@v1.0.5
