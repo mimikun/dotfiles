@@ -128,7 +128,7 @@ packages:
   - name: wtetsu/gaze@v1.2.1
   - name: x-motemen/ghq@v1.8.0
   - name: xxxserxxx/gotop@v4.2.0
-  - name: yassinebenaid/bunster@v0.11.0
+  - name: yassinebenaid/bunster@v0.12.1
   - name: ycd/dstp@v0.4.23
   - name: ymtdzzz/otel-tui@v0.4.9
   - name: yokecd/yoke@v0.11.6
