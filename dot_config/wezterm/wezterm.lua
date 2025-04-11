@@ -83,7 +83,8 @@ if not is_azusa then
     if is_human_rights then
         M.default_domain = lm.wsl_domain
     else
-        M.default_prog = { "pwsh.exe" }
+        -- NOTE: If human rights violation, PowerShell takes 2 min to start.
+        M.default_prog = { "pwsh.exe", "-NoProfile" }
     end
 
     M.launch_menu = lm.launch_menu
