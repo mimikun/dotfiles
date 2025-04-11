@@ -24,13 +24,33 @@ setxkbmap -option ctrl:nocaps
 {{ end -}}
 
 # env-vars
+# GITHUB_USERNAME
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
 export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
+{{ else -}}
+export GITHUB_USERNAME="mimikun"
+{{ end -}}
+
+# WIN_HOME
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+export WIN_HOME="/mnt/c/Users/mimikun"
+{{ else if eq .chezmoi.hostname "TanakaPC" -}}
+export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
+{{ end -}}
+
+# OBSIDIAN_VAULT_ROOT
 {{ if eq .chezmoi.hostname "azusa" -}}
-export OBSIDIAN_VAULT_ROOT="$HOME/Documents/Obsidian/mimikun"
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ else if eq .chezmoi.hostname "Wakamo" -}}
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ else -}}
+export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+{{ end -}}
+
+# LG_CONFIG_FILE
+{{ if eq .chezmoi.hostname "azusa" -}}
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/linux_config.yml"
 {{ else -}}
-export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
-export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
 {{ end -}}
 
@@ -43,10 +63,9 @@ export windl="$WIN_HOME/Downloads"
 export WIN_DESKTOP="$WIN_HOME/Desktop"
 export WIN_DOCUMENTS="$WIN_HOME/Documents"
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
-
 export DISPLAY=":0"
 {{ else -}}
-export obsidian_vault_root_path="$OBSIDIAN_VAULT_ROOT"
+export obsidian_vault_root_path="$HOME/Documents/$OBSIDIAN_VAULT_ROOT"
 {{ end -}}
 
 export obsidian_vault_path="$obsidian_vault_root_path"
@@ -166,7 +185,6 @@ export LUA_PATH="/usr/local/share/lua/5.3/?.lua;/usr/local/share/lua/5.3/?/init.
 export LUA_CPATH="/usr/local/lib/lua/5.3/?.so;/usr/local/lib/lua/5.3/loadall.so;./?.so;$HOME/.luarocks/lib/lua/5.3/?.so"
 
 # aqua
-# aqua
 export AQUA_ROOT_DIR="$XDG_DATA_HOME/aqua"
 export AQUA_CONFIG_DIR="$XDG_CONFIG_HOME/aqua"
 export AQUA_BIN="$AQUA_ROOT_DIR/bin"
@@ -182,6 +200,8 @@ if command -v aqua >/dev/null 2>&1; then
     export AQUA_DISABLE_POLICY=true
     {{ if (eq .chezmoi.hostname "TanakaPC") -}}
     export AQUA_MAX_PARALLELISM=1
+    {{ else if (eq .chezmoi.hostname "Wakamo") -}}
+    export AQUA_MAX_PARALLELISM=3
     {{ else -}}
     export AQUA_MAX_PARALLELISM=5
     {{ end -}}
