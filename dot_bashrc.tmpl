@@ -1,4 +1,12 @@
-[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+# TODO: reconf all
+
+if [ -f ~/.local/share/blesh/ble.sh ]; then
+    source ~/.local/share/blesh/ble.sh --attach=none
+else
+    # エラーメッセージを表示したい場合（オプション）
+    echo "Note: ble.sh not found. Please install ble.sh"
+    echo "https://github.com/akinomyoga/ble.sh"
+fi
 
 # All platform 共通
 export EDITOR=nvim
@@ -6,6 +14,8 @@ export LESS="-R"
 export LESSCHARSET="utf-8"
 export PAGER=less
 export GIT_PAGER=less
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 export USE_SHELL_PROMPT="oh-my-posh"
 #export USE_SHELL_PROMPT="starship"
@@ -40,52 +50,6 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    color_prompt=yes
-    else
-    color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-case "$TERM" in
-xterm*|rxvt*)
-    PS1='\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1'
-    ;;
-*)
-    ;;
-esac
-
-if [ -x /usr/bin/dircolors ]; then
-    if test -r ~/.dircolors
-    then
-        eval "$(dircolors -b ~/.dircolors)"
-    else
-        eval "$(dircolors -b)"
-    fi
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -97,58 +61,82 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-#--------------------------------------------------------------------------------------
 
 # chezmoi
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
 # 仕事PCでのみdockerd実行チェックをする
-{{ if (eq .chezmoi.hostname "TanakaPC") -}}
 # Start Docker daemon automatically when logging in if not running.
 RUNNING=$(pgrep -f dockerd)
 if [ -z "$RUNNING" ]; then
     sudo dockerd > /dev/null 2>&1 &
     disown
 fi
+# GITHUB_USERNAME
+export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+{{ else -}}
+# GITHUB_USERNAME
+export GITHUB_USERNAME="mimikun"
 {{ end -}}
 
-# env-vars
+# WIN_HOME
 {{ if eq .chezmoi.os "windows" -}}
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
-export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+export WIN_HOME="/mnt/c/Users/mimikun"
+{{ else if eq .chezmoi.hostname "TanakaPC" -}}
 export WIN_HOME="/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
-export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
 {{ else -}}
-export GITHUB_USERNAME="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}"
 export WIN_HOME="/mnt/c/Users/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
-export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
 {{ end -}}
-{{ else -}}
-export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
-{{ if eq .chezmoi.hostname "azusa" -}}
-export OBSIDIAN_VAULT_ROOT="$HOME/Documents/Obsidian/mimikun"
-export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/linux_config.yml"
+{{ else if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+export WIN_HOME="/mnt/c/Users/mimikun"
 {{ else -}}
 export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
+{{ end -}}
+{{ end -}}
+   
+# OBSIDIAN_VAULT_ROOT
+{{ if eq .chezmoi.os "windows" -}}
+{{ if eq .chezmoi.hostname "Wakamo" -}}
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ else if eq .chezmoi.hostname "TanakaPC" -}}
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+{{ else -}}
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
+{{ end -}}
+{{ else if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.hostname "azusa" -}}
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ else if eq .chezmoi.hostname "Wakamo" -}}
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ else -}}
 export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+{{ end -}}
+{{ end -}}
+    
+# LG_CONFIG_FILE
+{{ if eq .chezmoi.hostname "azusa" -}}
+export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/linux_config.yml"
+{{ else -}}
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
 {{ end -}}
-{{ end -}}
+
 export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
 export WORKSPACE_MIMIKUN="$GHQ_ROOT/github.com/mimikun"
 export NVIM_DEV_PLUGINS="$WORKSPACE_MIMIKUN/dev-plugins"
 
-{{ if (ne .chezmoi.hostname "azusa") -}}
+{{ if eq .chezmoi.hostname "azusa" -}}
+export obsidian_vault_root_path="$HOME/Documents/$OBSIDIAN_VAULT_ROOT"
+{{ else -}}
 export windl="$WIN_HOME/Downloads"
 export WIN_DESKTOP="$WIN_HOME/Desktop"
 export WIN_DOCUMENTS="$WIN_HOME/Documents"
-
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 export DISPLAY=":0"
-{{ else -}}
-export obsidian_vault_root_path="$OBSIDIAN_VAULT_ROOT"
 {{ end -}}
-
+    
 export obsidian_vault_path=$obsidian_vault_root_path
 export obsidian_dailynote_path=$obsidian_vault_path/001_DailyNotes
 export obsidian=$obsidian_dailynote_path
@@ -166,14 +154,14 @@ export STARSHIP_CACHE="$XDG_CACHE_HOME/starship"
 # NOTE: shell prompt
 # starship
 if command -v starship >/dev/null 2>&1; then
-    if [["$USE_SHELL_PROMPT" == "starship"]]; then
+    if [[ "$USE_SHELL_PROMPT" == "starship" ]]; then
         eval "$(starship init bash)"
     fi
 fi
 
 # oh-my-posh
 if command -v oh-my-posh >/dev/null 2>&1; then
-    if [["$USE_SHELL_PROMPT" == "oh-my-posh"]]; then
+    if [[ "$USE_SHELL_PROMPT" == "oh-my-posh" ]]; then
         eval "$(oh-my-posh init bash --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
     fi
 fi
@@ -192,17 +180,26 @@ fi
 
 # broot
 if command -v broot >/dev/null 2>&1; then
-    source "$XDG_CONFIG_HOME/broot/launcher/bash/br"
+    export BROOT_FILE="$XDG_CONFIG_HOME/broot/launcher/bash/br"
+    if [ -f "$BROOT_FILE" ]; then
+        source "$BROOT_FILE"
+    fi
 fi
 
 # Rye
 if command -v rye >/dev/null 2>&1; then
-    source "$HOME/.rye/env"
+    export RYE_FILE="$HOME/.rye/env"
+    if [ -f "$RYE_FILE" ]; then
+        source "$RYE_FILE"
+    fi
 fi
 
 # Linuxbrew
 if command -v brew >/dev/null 2>&1; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    export BREW_FILE="/home/linuxbrew/.linuxbrew/bin/brew"
+    if [ -f "$BREW_FILE" ]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    fi
 fi
 
 # walk
@@ -234,8 +231,10 @@ if command -v aqua >/dev/null 2>&1; then
     # If true, Policy is disabled
     # NOTE: It's just idiot to care about security.
     export AQUA_DISABLE_POLICY=true
-    {{ if (eq .chezmoi.hostname "TanakaPC") -}}
+    {{ if eq .chezmoi.hostname "TanakaPC" -}}
     export AQUA_MAX_PARALLELISM=1
+    {{ else if eq .chezmoi.hostname "Wakamo" -}}
+    export AQUA_MAX_PARALLELISM=3
     {{ else -}}
     export AQUA_MAX_PARALLELISM=5
     {{ end -}}
@@ -247,7 +246,7 @@ fi
 #then
 #    source ~/.inshellisense/key-bindings.bash
 #fi
-
+    
 # sheldon
 export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/bash"
 export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/bash"
@@ -359,13 +358,13 @@ export AGE_PUBKEY_HOME="age1cktdwc8u4z76kawluyswaruyeg7eg6078rw3t0kkmx5wqkk40d2q
 export AGE_PUBKEY_WORK="age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6qpl9x7l"
 # TODO: config
 export AGE_PUBKEY_AZUSA=""
-
+    
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
 export AGE_PUBKEY="$AGE_PUBKEY_HOME"
 {{ else -}}
 export AGE_PUBKEY="$AGE_PUBKEY_WORK"
 {{ end -}}
-
+    
 # golang
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
@@ -409,7 +408,10 @@ alias patch="patch -p1 <"
 # その他OSのとき
 {{ end -}}
 
-[[ ! ${BLE_VERSION-} ]] || ble-attach
+if [ -f ~/.local/share/blesh/ble.sh ]; then
+    [[ ! ${BLE_VERSION-} ]] || ble-attach
+fi
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
+
 # vim:ft=bash.chezmoitmpl
