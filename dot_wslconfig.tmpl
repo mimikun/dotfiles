@@ -6,7 +6,11 @@ swap=8GB
 localhostforwarding=true
 {{ else -}}
 memory=8GB
+{{ if (eq .chezmoi.hostname "Wakamo") -}}
+processors=8
+{{ else -}}
 processors=12
+{{ end -}}
 swap=0
 {{ end -}}
 
