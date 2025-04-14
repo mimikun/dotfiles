@@ -533,12 +533,6 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         cat $XDG_CONFIG_HOME/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
     end
 
-    # pnpm
-    if command -v pnpm >/dev/null 2>&1
-        echo "# cache pnpm tab completion" >> $CACHE_CONFIG_FISH
-        cat $XDG_CONFIG_HOME/tabtab/fish/pnpm.fish >> $CACHE_CONFIG_FISH
-    end
-
     # atuin
     if command -v atuin >/dev/null 2>&1
         echo "# cache atuin config" >> $CACHE_CONFIG_FISH

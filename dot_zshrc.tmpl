@@ -149,8 +149,8 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-if test -f "$XDG_CONFIG_HOME/tabtab/zsh/__tabtab.zsh"; then
-    . "$XDG_CONFIG_HOME/tabtab/zsh/__tabtab.zsh"
+if command -v pnpm>/dev/null 2>&1; then
+    eval "$(pnpm completion zsh)"
 fi
 
 # broot
