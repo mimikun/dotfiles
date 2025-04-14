@@ -65,57 +65,58 @@ fi
 # chezmoi
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
+# 仕事PC
 {{ if eq .chezmoi.hostname "TanakaPC" -}}
-# 仕事PCでのみdockerd実行チェックをする
+# dockerd chec
 # Start Docker daemon automatically when logging in if not running.
 RUNNING=$(pgrep -f dockerd)
 if [ -z "$RUNNING" ]; then
     sudo dockerd > /dev/null 2>&1 &
     disown
 fi
+{{ end -}}
+
+# 仕事PC
+{{ if eq .chezmoi.hostname "TanakaPC" -}}
+{{ if eq .chezmoi.os "windows" -}}
 # GITHUB_USERNAME
 export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
+# WIN_HOME
+export WIN_HOME = $env:USERPROFILE
+# OBSIDIAN_VAULT_ROOT
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+{{ else if eq .chezmoi.os "linux" -}}
+# GITHUB_USERNAME
+export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
+# WIN_HOME
+export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
+# OBSIDIAN_VAULT_ROOT
+export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+{{ end -}}
+# 非仕事PC
 {{ else -}}
 # GITHUB_USERNAME
 export GITHUB_USERNAME="mimikun"
-{{ end -}}
-
-# WIN_HOME
 {{ if eq .chezmoi.os "windows" -}}
-{{ if eq .chezmoi.hostname "Wakamo" -}}
-export WIN_HOME="/mnt/c/Users/mimikun"
-{{ else if eq .chezmoi.hostname "TanakaPC" -}}
-export WIN_HOME="/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
-{{ else -}}
-export WIN_HOME="/mnt/c/Users/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
-{{ end -}}
+# WIN_HOME
+export WIN_HOME = $env:USERPROFILE
+# OBSIDIAN_VAULT_ROOT
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
 {{ else if eq .chezmoi.os "linux" -}}
+# WIN_HOME
 {{ if eq .chezmoi.hostname "Wakamo" -}}
 export WIN_HOME="/mnt/c/Users/mimikun"
+{{ else if eq .chezmoi.hostname "azusa" -}}
+export WIN_HOME=""
 {{ else -}}
 export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
 {{ end -}}
-{{ end -}}
-   
 # OBSIDIAN_VAULT_ROOT
-{{ if eq .chezmoi.os "windows" -}}
-{{ if eq .chezmoi.hostname "Wakamo" -}}
-export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
-{{ else if eq .chezmoi.hostname "TanakaPC" -}}
-export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
-{{ else -}}
-export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
-{{ end -}}
-{{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.hostname "azusa" -}}
-export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
-{{ else if eq .chezmoi.hostname "Wakamo" -}}
 export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
 {{ else -}}
-export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
 {{ end -}}
 {{ end -}}
-    
+
 # LG_CONFIG_FILE
 {{ if eq .chezmoi.hostname "azusa" -}}
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/linux_config.yml"
