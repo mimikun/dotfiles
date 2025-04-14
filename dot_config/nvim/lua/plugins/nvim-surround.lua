@@ -16,8 +16,8 @@ local spec = {
             root_key = "S",
         })
     end,
-    --cond = false,
-    --enabled = false,
+    cond = false,
+    enabled = false,
 }
 
 return spec
