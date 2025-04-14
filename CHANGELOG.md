@@ -1,5 +1,60 @@
 # Changelog
 
+## [v2025.04.14]
+
+### Added - 新機能について
+
+- feat: add ls-lint config
+- feat(nvim): add use_minuet flag
+- feat(nvim): add smart-i.nvim
+- feat(nvim): add pickme.nvim
+- feat(nvim): add bible-reader.nvim
+- feat(nvim): add lorem-ipsum.nvim
+    - add blink and nvim-cmp source
+- feat(hydra.nvim): add some hydras
+- docs(blink.cmp): add TODO comment
+- feat(fish): add g-plane/pnpm-shell-completion
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(snacks.nvim): update snacks dashboard
+- chore(fish): update some completions
+- chore(blink.cmp): use tbl_extend
+- chore(bashrc): update and adapt work-pc
+- chore(powershell): update and adapt work-pc
+- chore(wezterm): update config
+    - support Wakamo ( Home-Windows (new) )
+- chore(alacritty): update config
+    - support Wakamo ( Home-Windows (new) )
+- chore(wslconfig): update config
+    - support Wakamo ( Home-Windows (new) )
+- chore(bob): update config
+    - support Wakamo ( Home-Windows (new) )
+- chore(fish): update config
+    - support Wakamo ( Home-WSL (new) )
+- chore(zsh): update config
+    - support Wakamo ( Home-WSL (new) )
+- chore(pwsh): update config
+    - support Wakamo ( Home-WSL (new) )
+- chore(bash): update config
+    - support Wakamo ( Home-WSL (new) )
+- chore(gh-cli): update config
+    - support Wakamo ( Home-WSL (new) )
+
+### Removed - 今回で削除された機能について
+
+- chore(shells): remove old style pnpm completions
+- chore(nvim-surround): disable
+
+### Fixed - 不具合修正について
+
+- fix(blink.cmp): provider error
+- fix(wezterm): pwsh slow startup in Windows where human rights violation
+- Revert "fix(blink.cmp): provider error"
+    - This reverts commit 1cf988c9192c1b2b0ade32cd7259cb6be6b16500.
+- fix(pivot.nvim): typo
+
 ## [v2025.04.10]
 
 ### Added - 新機能について
