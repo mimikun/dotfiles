@@ -2,13 +2,13 @@ local Hydra = require("hydra")
 local cmd = require("hydra.keymap-util").cmd
 
 local hint = [[
- ^  󰒲  ^ Update _l_azy       ^
- ^  󰭠  ^ Update _m_ason      ^
- ^  󰐅  ^ Update _t_reesitter ^
+ ^  󰒲  ^ _l_azy       ^
+ ^  󰭠  ^ _m_ason      ^
+ ^  󰐅  ^ _t_reesitter ^
 ]]
 
-local update_menu = Hydra({
-    name = "Update Menu",
+local dashboard_menu = Hydra({
+    name = "Dashboard Menu",
     hint = hint,
     config = {
         invoke_on_body = true,
@@ -20,24 +20,26 @@ local update_menu = Hydra({
         },
     },
     mode = "n",
-    body = "u",
+    body = "d",
     heads = {
         {
             "l",
             function()
-                require("lazy").sync()
+                require("lazy").home()
             end,
-            { exit = true, desc = "Update Plugins" },
+            { exit = true, desc = "Show Lazy Home" },
         },
         {
             "m",
-            cmd("MasonUpdateAll"),
-            { exit = true, desc = "Update Mason tools" },
+            function()
+                require("mason.ui").open()
+            end,
+            { exit = true, desc = "Show Mason tools" },
         },
         {
             "t",
-            cmd("TSUpdate"),
-            { exit = true, desc = "Update Treesitter" },
+            cmd("Telescope treesitter_info"),
+            { exit = true, desc = "Show Treesitter info" },
         },
         {
             "<Esc>",
@@ -47,4 +49,4 @@ local update_menu = Hydra({
     },
 })
 
-return update_menu
+return dashboard_menu

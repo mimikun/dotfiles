@@ -2,9 +2,9 @@ local Hydra = require("hydra")
 local cmd = require("hydra.keymap-util").cmd
 
 local hint = [[
- ^  󰒲  ^ Update _l_azy       ^
- ^  󰭠  ^ Update _m_ason      ^
- ^  󰐅  ^ Update _t_reesitter ^
+ ^  󰑫  ^ Open _f_eed        ^
+ ^  󰃶  ^ Open _d_ailynote   ^
+ ^  󰿶  ^ Run  _c_heckhealth ^
 ]]
 
 local update_menu = Hydra({
@@ -20,24 +20,24 @@ local update_menu = Hydra({
         },
     },
     mode = "n",
-    body = "u",
+    body = "o",
     heads = {
         {
-            "l",
+            "f",
+            cmd("Feed"),
+            { exit = true, desc = "Open feed" },
+        },
+        {
+            "d",
             function()
-                require("lazy").sync()
+                require("telekasten").goto_today()
             end,
-            { exit = true, desc = "Update Plugins" },
+            { exit = true, desc = "Open dailynote" },
         },
         {
-            "m",
-            cmd("MasonUpdateAll"),
-            { exit = true, desc = "Update Mason tools" },
-        },
-        {
-            "t",
-            cmd("TSUpdate"),
-            { exit = true, desc = "Update Treesitter" },
+            "c",
+            cmd("checkhealth"),
+            { exit = true, desc = "Run checkhealth" },
         },
         {
             "<Esc>",
