@@ -29,6 +29,7 @@ local dependencies = {
     "Jezda1337/nvim-html-css",
     "rcarriga/cmp-dap",
     "chrisgrieser/cmp_yanky",
+    "dnnr1/lorem-ipsum.nvim",
 }
 
 local use_minuet = false

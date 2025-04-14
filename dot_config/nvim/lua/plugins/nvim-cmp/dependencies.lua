@@ -14,6 +14,7 @@ local dependencies = {
     "andersevenrud/cmp-tmux",
     { "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
     --"jghauser/papis.nvim",
+    "dnnr1/lorem-ipsum.nvim",
 }
 
 if require("config.settings").use_github_copilot then

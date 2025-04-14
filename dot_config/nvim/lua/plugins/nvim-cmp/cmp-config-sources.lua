@@ -21,6 +21,7 @@ local cmp_config_sources = {
     { name = "tmux" },
     --{ name = "minuet" },
     --{ name = "papis" },
+    { name = "lorem_ipsum" },
 }
 
 if require("config.settings").use_github_copilot then

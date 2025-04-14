@@ -22,6 +22,7 @@ local default = {
     -- NOTE: blink-compat sources
     "cmp_yanky",
     "html-css",
+    "lorem_ipsum",
 }
 
 if settings.use_minuet then
