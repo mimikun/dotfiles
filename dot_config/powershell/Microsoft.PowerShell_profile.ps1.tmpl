@@ -56,15 +56,11 @@ $GITHUB_USERNAME = "mimikun"
 
 # WIN_HOME
 {{ if eq .chezmoi.os "windows" -}}
+$WIN_HOME = $env:USERPROFILE
+{{ else -}}
 {{ if eq .chezmoi.hostname "Wakamo" -}}
 $WIN_HOME = "/mnt/c/Users/mimikun"
-{{ else if eq .chezmoi.hostname "TanakaPC" -}}
-$WIN_HOME = "/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
-{{ else -}}
-$WIN_HOME = "/mnt/c/Users/{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
-{{ end -}}
-{{ else -}}
-{{ if eq .chezmoi.hostname "Wakamo" -}}
+{{ else if eq .chezmoi.hostname "azusa" -}}
 $WIN_HOME = "/mnt/c/Users/mimikun"
 {{ else -}}
 $WIN_HOME = "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
