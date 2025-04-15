@@ -264,7 +264,9 @@ chezmoi add ~/.mimikun-pkglists/linux_uv_tools.txt
 chezmoi add ~/.mimikun-pkglists/gh_extension_list.txt
 
 # Brewfile
-chezmoi add ~/Brewfile
+if [[ "$(uname)" == "Darwin" ]]; then
+    chezmoi add ~/Brewfile
+fi
 
 # go packages (managed by gup)
 chezmoi add ~/.config/gup/gup.conf
