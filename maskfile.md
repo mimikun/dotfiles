@@ -192,7 +192,6 @@ rm -f dot_config/fish/completions/fisher.fish
 rm -f dot_config/fish/completions/gitignore.fish
 rm -f dot_config/fish/completions/spin.fish
 rm -f dot_config/fish/completions/poetry.fish
-rm -f dot_config/fish/completions/hwm.fish
 
 # zip file
 rm -f ./*.zip
@@ -335,10 +334,6 @@ if [ "$host_name" = "azusa" ]; then
     chezmoi add ~/.xinitrc
     chezmoi add ~/.xmodmap
     chezmoi add ~/.Xresources
-# restore wezterm fish completion
-# HOSTNAME != azusa ONLY
-else
-    git restore dot_config/fish/completions/wezterm.fish
 fi
 ```
 
