@@ -93,7 +93,7 @@ vim.opt.updatetime = 250
 vim.g.editorconfig = true
 
 -- Enable syntax highlights
-vim.cmd("syntax enable")
+--vim.cmd("syntax enable")
 
 -- Enables true color's syntax highlight
 ---@type boolean
