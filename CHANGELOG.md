@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2025.04.15]
+
+### Added - 新機能について
+
+- feat(gup): add dhth/cueitup
+- feat(nvim): add dotmd.nvim
+- feat(nvim): add lua-console.nvim
+- feat(nvim): add term-edit.nvim
+- feat(nvim): add editable-term.nvim
+- feat(nvim): add tidy.nvim
+- feat(powershell): add some envvars
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lockfiles
+- chore(aqua): update goimports
+- chore(fish): update mise completion
+- chore(fish): update some completions
+- chore(mcphub.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(fish): chezmoiignore some completions
+- chore(gup): remove git.sr.ht/~timharek/yr
+    - can't download
+
+### Fixed - 不具合修正について
+
+- fix(nvim): error
+- fix(mise-task): update warning
+
 ## [v2025.04.14]
 
 ### Added - 新機能について
