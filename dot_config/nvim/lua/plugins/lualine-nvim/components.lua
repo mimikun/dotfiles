@@ -85,4 +85,11 @@ M.aerial_parts = function()
     }
 end
 
+---@return table|nil
+M.mcphub_or_nothing = function()
+    if require("config.settings").use_llm then
+        return require("mcphub.extensions.lualine")
+    end
+end
+
 return M

@@ -41,6 +41,7 @@ local sections = {
     },
     lualine_x = {
         component.copilot_or_nothing,
+        component.mcphub_or_nothing,
         component.improved_encoding,
         {
             "diff",
