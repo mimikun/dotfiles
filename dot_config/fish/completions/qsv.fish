@@ -1108,6 +1108,9 @@ complete -c qsv -n "__fish_qsv_using_subcommand split" -l kb-size
 complete -c qsv -n "__fish_qsv_using_subcommand split" -l jobs
 complete -c qsv -n "__fish_qsv_using_subcommand split" -l filename
 complete -c qsv -n "__fish_qsv_using_subcommand split" -l pad
+complete -c qsv -n "__fish_qsv_using_subcommand split" -l filter
+complete -c qsv -n "__fish_qsv_using_subcommand split" -l filter-cleanup
+complete -c qsv -n "__fish_qsv_using_subcommand split" -l filter-ignore-errors
 complete -c qsv -n "__fish_qsv_using_subcommand split" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand split" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand split" -l quiet
@@ -1188,24 +1191,26 @@ complete -c qsv -n "__fish_qsv_using_subcommand template" -l no-headers
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand template" -l progressbar
 complete -c qsv -n "__fish_qsv_using_subcommand template" -s h -l help -d 'Print help'
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l print-package
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l dump
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l stats
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l stats-csv
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l quiet
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l schema
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l drop
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l evolve
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l pipe
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l separator
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l jobs
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -l delimiter
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -s h -l help -d 'Print help'
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -f -a "postgres"
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -f -a "sqlite"
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -f -a "xlsx"
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -f -a "datapackage"
-complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx datapackage help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l print-package
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l dump
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l stats
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l stats-csv
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l quiet
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l schema
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l drop
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l evolve
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l pipe
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l separator
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l jobs
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -l delimiter
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -s h -l help -d 'Print help'
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -f -a "postgres"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -f -a "sqlite"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -f -a "xlsx"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -f -a "ods"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -f -a "parquet"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -f -a "datapackage"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and not __fish_seen_subcommand_from postgres sqlite xlsx ods parquet datapackage help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from postgres" -l print-package
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from postgres" -l dump
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from postgres" -l stats
@@ -1245,6 +1250,32 @@ complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_f
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from xlsx" -l jobs
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from xlsx" -l delimiter
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from xlsx" -s h -l help -d 'Print help'
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l print-package
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l dump
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l stats
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l stats-csv
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l quiet
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l schema
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l drop
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l evolve
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l pipe
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l separator
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l jobs
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -l delimiter
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from ods" -s h -l help -d 'Print help'
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l print-package
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l dump
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l stats
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l stats-csv
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l quiet
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l schema
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l drop
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l evolve
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l pipe
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l separator
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l jobs
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -l delimiter
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from parquet" -s h -l help -d 'Print help'
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from datapackage" -l print-package
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from datapackage" -l dump
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from datapackage" -l stats
@@ -1261,6 +1292,8 @@ complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_f
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from help" -f -a "postgres"
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from help" -f -a "sqlite"
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from help" -f -a "xlsx"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from help" -f -a "ods"
+complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from help" -f -a "parquet"
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from help" -f -a "datapackage"
 complete -c qsv -n "__fish_qsv_using_subcommand to; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c qsv -n "__fish_qsv_using_subcommand tojsonl" -l trim
@@ -1389,4 +1422,6 @@ complete -c qsv -n "__fish_qsv_using_subcommand help; and __fish_seen_subcommand
 complete -c qsv -n "__fish_qsv_using_subcommand help; and __fish_seen_subcommand_from to" -f -a "postgres"
 complete -c qsv -n "__fish_qsv_using_subcommand help; and __fish_seen_subcommand_from to" -f -a "sqlite"
 complete -c qsv -n "__fish_qsv_using_subcommand help; and __fish_seen_subcommand_from to" -f -a "xlsx"
+complete -c qsv -n "__fish_qsv_using_subcommand help; and __fish_seen_subcommand_from to" -f -a "ods"
+complete -c qsv -n "__fish_qsv_using_subcommand help; and __fish_seen_subcommand_from to" -f -a "parquet"
 complete -c qsv -n "__fish_qsv_using_subcommand help; and __fish_seen_subcommand_from to" -f -a "datapackage"
