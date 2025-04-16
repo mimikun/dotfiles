@@ -1,3 +1,4 @@
+abdfnx/gh-resto
 advanced-security/gh-sbom
 aymanbagabas/gh-stars
 carlsberg/gh-releaser
