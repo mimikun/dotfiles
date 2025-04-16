@@ -1,5 +1,29 @@
 # Changelog
 
+## [v2025.04.16]
+
+### Added - 新機能について
+
+- feat(pip): add some packages
+- feat(gup): add some packages
+- feat(uv-tool): add parllama
+- feat(cargo): add some packages
+- feat(nvim): add better-type-hover
+- feat(gh-cli): add abdfnx/gh-resto extension
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): update lazy.nvim config
+- chore(mcphub.nvim): update servers.json
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.04.15]
 
 ### Added - 新機能について
