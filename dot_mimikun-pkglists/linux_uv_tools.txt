@@ -1,3 +1,4 @@
 bagels
 euporie
 isd-tui
+parllama
