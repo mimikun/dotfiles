@@ -26,6 +26,12 @@ local lazy_root = table.concat({ global.data_dir, "lazy" }, path_sep)
 ---@type string
 local lazy_path = table.concat({ lazy_root, "lazy.nvim" }, path_sep)
 
+---@type string
+local lazy_state = table.concat({ vim.fn.stdpath("state"), "lazy" }, path_sep)
+
+---@type string
+local lazy_repo = "https://github.com/folke/lazy.nvim.git"
+
 ---@type table
 local icons = {
     kind = iconsets.get("kind"),
@@ -41,8 +47,8 @@ local lazynvim_clone_cmd = {
     "git",
     "clone",
     "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
     "--branch=stable",
+    lazy_repo,
     lazy_path,
 }
 
@@ -54,22 +60,24 @@ if not vim.uv.fs_stat(lazy_path) then
     end)
 end
 
----@type table
-local lazy_settings = {
+vim.opt.rtp:prepend(lazy_path)
+require("lazy").setup({
     root = lazy_root,
     defaults = {
         lazy = true,
         cond = true,
     },
+    spec = {
+        { import = "plugins" },
+    },
+    lockfile = table.concat({ vim.fn.stdpath("config"), "lazy-lock.json" }, path_sep),
     concurrency = concurrency,
     git = {
         timeout = 300,
         throttle = {
             enabled = require("config.settings").is_throttling,
-            rate = 2,
-            -- 5 sec
-            duration = 5 * 1000,
         },
+        cooldown = 1,
     },
     rocks = {
         enabled = false,
@@ -79,14 +87,12 @@ local lazy_settings = {
         fallback = true,
     },
     ui = {
-        size = { width = 0.88, height = 0.8 },
-        wrap = true,
         border = "rounded",
-        -- The backdrop opacity. 0 is fully opaque, 100 is fully transparent.
-        backdrop = 60,
         icons = {
             cmd = icons.misc.Code,
             config = icons.ui.Gear,
+            -- NOTE: utils/icons.lua has not this icon
+            debug = "● ",
             event = icons.kind.Event,
             -- NOTE: utils/icons.lua has not this icon
             -- nf-md-star
@@ -114,27 +120,32 @@ local lazy_settings = {
             },
         },
     },
+    diff = {
+        cmd = "git",
+        --cmd = "diffview.nvim",
+    },
     performance = {
-        cache = {
-            enabled = true,
-        },
-        reset_packpath = true,
         rtp = {
             reset = true,
-            paths = {},
-        },
-        disabled_plugins = {
-            "gzip",
-            "matchit",
-            "matchparen",
-            "netrwPlugin",
-            "tarPlugin",
-            "tohtml",
-            "tutor",
-            "zipPlugin",
+            disabled_plugins = {
+                "gzip",
+                "matchit",
+                "matchparen",
+                "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
         },
     },
-}
-
-vim.opt.rtp:prepend(lazy_path)
-require("lazy").setup("plugins", lazy_settings)
+    readme = {
+        enabled = true,
+        root = table.concat({ lazy_state, "readme" }, path_sep),
+        files = {
+            "README.md",
+            "lua/**/README.md",
+        },
+    },
+    state = table.concat({ lazy_state, "state.json" }, path_sep),
+})
