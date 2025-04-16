@@ -113,6 +113,7 @@ lla
 logria
 lsd
 lychee
+macchina
 mairu
 mamediff
 mask
@@ -159,6 +160,7 @@ rana
 rascii_art
 rbw
 redu
+riffdiff
 rioterm
 rip2
 ripgrep
