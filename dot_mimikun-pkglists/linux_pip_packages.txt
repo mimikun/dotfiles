@@ -39,6 +39,7 @@ click-plugins
 cobble
 colorama
 colored
+coloredlogs
 configobj
 cryptography
 csvkit
@@ -53,6 +54,7 @@ et_xmlfile
 feedparser
 filelock
 filetype
+flatbuffers
 frozenlist
 gevent
 ghp-import
@@ -69,6 +71,7 @@ habanero
 httpcore
 httpstat
 httpx
+humanfriendly
 humanize
 icalendar
 idna
@@ -89,6 +92,7 @@ linkify-it-py
 littletable
 logmerger
 lxml
+magika
 mammoth
 Markdown
 markdownify
@@ -102,6 +106,7 @@ mkdocs
 mkdocs-exclude
 mkdocs-get-deps
 more-itertools
+mpmath
 msal
 msal-extensions
 msgpack
@@ -110,6 +115,7 @@ natsort
 neovim
 numpy
 olefile
+onnxruntime
 openai
 openpyxl
 packaging
@@ -130,6 +136,7 @@ portalocker
 pqviewer
 prompt-toolkit
 propcache
+protobuf
 psutil
 pur
 puremagic
@@ -182,6 +189,7 @@ ssh-para
 standard-aifc
 standard-chunk
 stevedore
+sympy
 tabulate
 terminaltexteffects
 textual
@@ -196,6 +204,7 @@ tqdm
 Typeinc
 typer
 typing_extensions
+typing-inspection
 tzdata
 tzlocal
 uc-micro-py
