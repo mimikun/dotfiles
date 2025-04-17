@@ -1,3 +1,6 @@
+---@type boolean
+local use_blink_cmp = require("config.settings").use_blink_cmp
+
 ---@type number
 local day_sec = 86400
 ---@type number
@@ -168,7 +171,8 @@ local opts = {
         template = "dailyNoteTemplateFromObsidianNvim.md",
     },
     completion = {
-        nvim_cmp = true,
+        nvim_cmp = not use_blink_cmp,
+        blink = use_blink_cmp,
     },
     new_notes_location = "notes_subdir",
     preferred_link_style = "wiki",
