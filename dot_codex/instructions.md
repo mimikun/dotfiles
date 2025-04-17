@@ -1,0 +1,3 @@
+- Always respond with Japanese
+- Always respond with emojis
+- Only use git commands if I explicitly mention you should
