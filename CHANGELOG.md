@@ -1,5 +1,28 @@
 # Changelog
 
+## [v2025.04.17]
+
+### Added - 新機能について
+
+- feat(nvim): add jumble.nvim
+- feat(mise): add npm:@openai/codex
+
+### Changed - 既存機能の変更について
+
+- chore(nvim): split the color scheme definition into `colorschemes`
+- chore(obsidian.nvim): update config
+- chore(undo-glow.nvim): update config
+- chore(huez.nvim): update dependencies
+- chore(tiny-inline-diagnostic.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.04.16]
 
 ### Added - 新機能について
