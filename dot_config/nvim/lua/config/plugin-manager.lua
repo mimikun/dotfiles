@@ -69,6 +69,7 @@ require("lazy").setup({
     },
     spec = {
         { import = "plugins" },
+        { import = "colorschemes" },
     },
     lockfile = table.concat({ vim.fn.stdpath("config"), "lazy-lock.json" }, path_sep),
     concurrency = concurrency,
