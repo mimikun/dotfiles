@@ -120,7 +120,7 @@ packages:
   - name: tsenart/vegeta@v12.12.0
   - name: tsl0922/ttyd@1.7.7
   - name: tstack/lnav@v0.12.4
-  - name: twpayne/chezmoi@v2.62.1
+  - name: twpayne/chezmoi@v2.62.2
   - name: umlx5h/gtrash@v0.0.6
   - name: vladimirvivien/ktop@v0.3.7
   - name: wader/fq@v0.14.0
