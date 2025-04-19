@@ -123,7 +123,7 @@ packages:
   - name: twpayne/chezmoi@v2.62.2
   - name: umlx5h/gtrash@v0.0.6
   - name: vladimirvivien/ktop@v0.3.7
-  - name: wader/fq@v0.14.0
+  - name: wader/fq@v0.15.0
   - name: wagoodman/dive@v0.13.1
   - name: wtetsu/gaze@v1.2.1
   - name: x-motemen/ghq@v1.8.0
