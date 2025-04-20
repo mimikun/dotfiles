@@ -5,10 +5,10 @@ local mousebinds = require("mousebinds")
 local kabegami = require("kabegami")
 local lm = require("launchmenu")
 
-local M = {}
+local config = {}
 
 if wezterm.config_builder then
-    M = wezterm.config_builder()
+    config = wezterm.config_builder()
 end
 
 local hostname = global.hostname
@@ -32,19 +32,19 @@ require("status")
 require("event")
 
 -- appearance
-M.color_scheme = "GitHub Dark"
-M.window_background_opacity = 0.93
+config.color_scheme = "GitHub Dark"
+config.window_background_opacity = 0.93
 
 if is_human_rights then
-    M.window_background_image = kabegami_path
-    M.window_background_image_hsb = {
+    config.window_background_image = kabegami_path
+    config.window_background_image_hsb = {
         hue = 1.0,
         saturation = 1.0,
         brightness = 0.07,
     }
 end
 
-M.font = wezterm.font_with_fallback({
+config.font = wezterm.font_with_fallback({
     --{ family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
     { family = "UDEV Gothic NF", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "FiraCode Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
@@ -55,8 +55,8 @@ M.font = wezterm.font_with_fallback({
     { family = "Consolas", weight = "Regular", stretch = "Normal", style = "Normal" },
     { family = "MS Gothic", weight = "Regular", stretch = "Normal", style = "Normal" },
 })
-M.font_size = font_size.base
-M.window_frame = {
+config.font_size = font_size.base
+config.window_frame = {
     font = wezterm.font_with_fallback({
         { family = "UDEV Gothic NF", weight = "Bold", stretch = "Normal", style = "Normal" },
         { family = "FiraCode Nerd Font Mono", weight = "Bold", stretch = "Normal", style = "Normal" },
@@ -67,27 +67,27 @@ M.window_frame = {
     }),
     font_size = font_size.window_frame,
 }
-M.leader = keybinds.leader
-M.keys = keybinds.keys
-M.key_tables = keybinds.key_tables
-M.mouse_bindings = mousebinds.mouse_bindings
-M.disable_default_key_bindings = true
-M.line_height = 1
-M.use_ime = true
-M.initial_rows = 30
-M.initial_cols = 120
-M.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.leader = keybinds.leader
+config.keys = keybinds.keys
+config.key_tables = keybinds.key_tables
+config.mouse_bindings = mousebinds.mouse_bindings
+config.disable_default_key_bindings = true
+config.line_height = 1
+config.use_ime = true
+config.initial_rows = 30
+config.initial_cols = 120
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- launch menu
 if not is_azusa then
     if is_human_rights then
-        M.default_domain = lm.wsl_domain
+        config.default_domain = lm.wsl_domain
     else
         -- NOTE: If human rights violation, PowerShell takes 2 min to start.
-        M.default_prog = { "pwsh.exe", "-NoProfile" }
+        config.default_prog = { "pwsh.exe", "-NoProfile" }
     end
 
-    M.launch_menu = lm.launch_menu
+    config.launch_menu = lm.launch_menu
 end
 
 local function debug_log_print()
@@ -102,9 +102,9 @@ local function debug_log_print()
     wezterm.log_info("Hostname " .. hostname)
     wezterm.log_info("Path sep " .. global.path_sep)
     wezterm.log_info("Running under wsl" .. tostring(global.is_wsl))
-    M.debug_key_events = true
+    config.debug_key_events = true
 end
 
 debug_log_print()
 
-return M
+return config
