@@ -1,11 +1,13 @@
----@class CsvViewOptions
----@type CsvViewOptions
+---@type table
 local opts = {
     parser = {
-        ---@type integer
-        async_chunksize = 50,
-
-        --- @type string[]
+        delimiter = {
+            default = ",",
+            ft = {
+                tsv = "\t",
+            },
+        },
+        quote_char = '"',
         comments = {
             "#",
             "--",
