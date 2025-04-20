@@ -1,6 +1,6 @@
 std = "vim+nyagos+package+table"
 
-[lints]
+[rules]
 global_usage = "allow"
 unused_variable = "allow"
 shadowing = "allow"
