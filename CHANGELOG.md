@@ -1,5 +1,36 @@
 # Changelog
 
+## [v2025.04.21]
+
+### Added - 新機能について
+
+- feat(nvim): add golf.vim
+- feat(nvim): add command.nvim
+- feat(nvim): add nvim-docx
+- feat(nvim): add codex.nvim
+- feat(nvim): add checkmate.nvim
+- feat(nvim): add lazygit.nvim
+- feat(nvim): add lazysql.nvim
+- feat(nvim): add some lazydocker.nvim
+- feat(nvim): add compile-mode.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(wezterm): use config instead of M
+- chore(csvview.nvim): update config
+- chore(chezmoiignore): wezterm config editing now...
+- chore(mimikun-pkglist): update windows_cargo_packages.txt
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): remove legendary.nvim
+    - was archived on Apr 18, 2025
+
+### Fixed - 不具合修正について
+
+- fix(lua): selene.toml
+- fix(blink.cmp): can't use copilot source
+
 ## [v2025.04.18]
 
 ### Added - 新機能について
