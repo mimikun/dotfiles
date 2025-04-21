@@ -12,7 +12,6 @@ local dependencies = {
     "folke/lazydev.nvim",
     "moyiz/blink-emoji.nvim",
     "philosofonusus/ecolog.nvim",
-    --"bydlw98/blink-cmp-env",
     "nvim-orgmode/orgmode",
     "mikavilpas/blink-ripgrep.nvim",
     "MahanRahmati/blink-nerdfont.nvim",
@@ -21,20 +20,20 @@ local dependencies = {
     "Kaiser-Yang/blink-cmp-git",
     "mgalliou/blink-cmp-tmux",
     "ribru17/blink-cmp-spell",
-    -- BUG: can't use
+    -- WARN: can't use
+    --"bydlw98/blink-cmp-env",
     --"jdrupal-dev/css-vars.nvim",
     --"jmbuhr/cmp-pandoc-references",
     "disrupted/blink-cmp-conventional-commits",
     -- Source(use blink.compat)
-    "Jezda1337/nvim-html-css",
     "rcarriga/cmp-dap",
     "chrisgrieser/cmp_yanky",
     "dnnr1/lorem-ipsum.nvim",
+    -- WARN: can't use
+    --"Jezda1337/nvim-html-css",
 }
 
-local use_minuet = false
-
-if use_minuet then
+if settings.use_minuet then
     table.insert(dependencies, { "milanglacier/minuet-ai.nvim" })
 end
 

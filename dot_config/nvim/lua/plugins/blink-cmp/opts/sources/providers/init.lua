@@ -6,7 +6,6 @@ local providers = {
     lazydev = require("plugins.blink-cmp.opts.sources.providers.lazydev"),
     emoji = require("plugins.blink-cmp.opts.sources.providers.emoji"),
     ecolog = require("plugins.blink-cmp.opts.sources.providers.ecolog"),
-    --env = require("plugins.blink-cmp.opts.sources.providers.env"),
     nerdfont = require("plugins.blink-cmp.opts.sources.providers.nerdfont"),
     ripgrep = require("plugins.blink-cmp.opts.sources.providers.ripgrep"),
     git = require("plugins.blink-cmp.opts.sources.providers.git"),
@@ -14,15 +13,17 @@ local providers = {
     tmux = require("plugins.blink-cmp.opts.sources.providers.tmux"),
     spell = require("plugins.blink-cmp.opts.sources.providers.spell"),
     conventional_commits = require("plugins.blink-cmp.opts.sources.providers.conventional-commits"),
-    -- BUG: can't use
+    -- WARN: can't use
+    --env = require("plugins.blink-cmp.opts.sources.providers.env"),
     --orgmode = require("plugins.blink-cmp.opts.sources.providers.orgmode"),
     --css_vars = require("plugins.blink-cmp.opts.sources.providers.css-vars"),
     --pandoc_references = require("plugins.blink-cmp.opts.sources.providers.pandoc-references"),
     -- NOTE: compat providers
     cmp_yanky = require("plugins.blink-cmp.opts.sources.providers.cmp_yanky"),
     dap = require("plugins.blink-cmp.opts.sources.providers.dap"),
-    ["html-css"] = require("plugins.blink-cmp.opts.sources.providers.html-css"),
     lorem_ipsum = require("plugins.blink-cmp.opts.sources.providers.lorem_ipsum"),
+    -- WARN: can't use
+    --["html-css"] = require("plugins.blink-cmp.opts.sources.providers.html-css"),
     -- NOTE: built-in providers
     cmdline = require("plugins.blink-cmp.opts.sources.providers.cmdline"),
 }

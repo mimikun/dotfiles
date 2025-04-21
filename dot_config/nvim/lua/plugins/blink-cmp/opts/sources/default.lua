@@ -13,28 +13,29 @@ local default = {
     "path",
     "emoji",
     "ecolog",
-    --"env",
     "nerdfont",
     "spell",
-    -- BUG: can't use
+    -- WARN: can't use
     --"css-vars",
     --"pandoc-references",
+    --"env",
     -- NOTE: blink-compat sources
     "cmp_yanky",
-    "html-css",
     "lorem_ipsum",
+    -- WARN: can't use
+    --"html-css",
 }
 
 if settings.use_minuet then
-    default = vim.tbl_extend("force", default, { "minuet" })
+    table.insert(default, "minuet")
 end
 
 if settings.use_github_copilot then
-    default = vim.tbl_extend("force", default, { "copilot" })
+    table.insert(default, "copilot")
 end
 
 if settings.use_avante then
-    default = vim.tbl_extend("force", default, { "avante" })
+    table.insert(default, "avante")
 end
 
 return default
