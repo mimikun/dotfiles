@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_rip_global_optspecs
-	string join \n graveyard= d/decompose s/seance u/unbury i/inspect f/force h/help V/version
+	string join \n graveyard= d/decompose s/seance u/unbury= i/inspect f/force h/help V/version
 end
 
 function __fish_rip_needs_command
@@ -25,9 +25,9 @@ function __fish_rip_using_subcommand
 end
 
 complete -c rip -n "__fish_rip_needs_command" -l graveyard -d 'Directory where deleted files rest' -r -F
+complete -c rip -n "__fish_rip_needs_command" -s u -l unbury -d 'Restore the specified files or the last file if none are specified' -r -F
 complete -c rip -n "__fish_rip_needs_command" -s d -l decompose -d 'Permanently deletes the graveyard'
 complete -c rip -n "__fish_rip_needs_command" -s s -l seance -d 'Prints files that were deleted in the current directory'
-complete -c rip -n "__fish_rip_needs_command" -s u -l unbury -d 'Restore the specified files or the last file if none are specified'
 complete -c rip -n "__fish_rip_needs_command" -s i -l inspect -d 'Print some info about FILES before burying'
 complete -c rip -n "__fish_rip_needs_command" -s f -l force -d 'Non-interactive mode'
 complete -c rip -n "__fish_rip_needs_command" -s h -l help -d 'Print help'
