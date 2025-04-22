@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2025.04.22]
+
+### Added - 新機能について
+
+- feat(nvim): add baleia.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completions
+- chore(dial.nvim): update config
+- chore(mcphub.nvim): update config
+- chore(avante.nvim): update config
+- chore(compile-mode.nvim): update dependencies
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.04.21]
 
 ### Added - 新機能について
