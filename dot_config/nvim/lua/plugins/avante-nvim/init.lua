@@ -1,24 +1,28 @@
-local global = require("config.global")
+local g = require("config.global")
 
--- NOTE: only be enabled at Home-azusa
----@type boolean
-local cond = global.is_azusa
+---@type string|nil
+local build = "make"
 
-local build = function()
-    if global.is_windows then
-        return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-    else
-        return "make BUILD_FROM_SOURCE=true"
-    end
+if g.is_windows then
+    build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+elseif g.is_home then
+    build = "make BUILD_FROM_SOURCE=true"
+else
+    build = "make"
 end
+
+---@type boolean
+local cond = g.is_home
 
 ---@type LazySpec
 local spec = {
     "yetone/avante.nvim",
-    version = false,
     build = build,
+    -- NOTE: Never set this value to "*"! Never!
+    version = false,
     --lazy = false,
     cmd = require("plugins.avante-nvim.cmds"),
+    keys = require("plugins.avante-nvim.keys"),
     event = "VeryLazy",
     dependencies = require("plugins.avante-nvim.dependencies"),
     opts = require("plugins.avante-nvim.opts"),

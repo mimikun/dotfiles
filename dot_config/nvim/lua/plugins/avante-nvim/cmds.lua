@@ -1,14 +1,20 @@
 ---@type table
 local cmds = {
     "AvanteAsk",
-    "AvanteToggle",
     "AvanteBuild",
-    "AvanteEdit",
-    "AvanteRefresh",
-    "AvanteFocus",
-    "AvanteSwitchProvider",
+    "AvanteChat",
+    "AvanteChatNew",
+    "AvanteHistory",
     "AvanteClear",
+    "AvanteEdit",
+    "AvanteFocus",
+    "AvanteRefresh",
+    "AvanteStop",
+    "AvanteSwitchProvider",
     "AvanteShowRepoMap",
+    "AvanteToggle",
+    "AvanteModels",
+    "AvanteSwitchSelectorProvider",
 }
 
 return cmds
