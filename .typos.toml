@@ -29,6 +29,9 @@ typ = "typ"
 # iterm2
 # dot_config/presenterm/config.yaml
 iterm = "iterm"
+# dot_config/fish/completions/srgn.fish
+# `Hashi` is HashiCorp
+Hashi = "Hashi"
 
 [files]
 extend-exclude = [
