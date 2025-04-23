@@ -92,4 +92,16 @@ M.mcphub_or_nothing = function()
     end
 end
 
+---@return table|nil
+M.lazydo_or_nothing = function()
+    return {
+        function()
+            return require("lazydo").get_lualine_stats() -- status
+        end,
+        cond = function()
+            return require("lazydo")._initialized -- condition for lualine
+        end,
+    }
+end
+
 return M

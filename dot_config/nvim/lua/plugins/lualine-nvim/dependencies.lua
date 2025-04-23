@@ -4,6 +4,7 @@ local dependencies = {
     "lewis6991/gitsigns.nvim",
     "SmiteshP/nvim-navic",
     "pnx/lualine-lsp-status",
+    { "Dan7h3x/LazyDo", optional = true },
     --"stevearc/aerial.nvim",
 }
 
