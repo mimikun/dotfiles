@@ -97,6 +97,7 @@ hyperfine
 hysp
 i3-style
 impala
+inspect-cert-chain
 iwe
 iwes
 jj-cli
@@ -178,6 +179,7 @@ scraps
 sd
 selene
 serie
+serpl
 sheldon
 shellharden
 sigrs
@@ -185,6 +187,7 @@ silicon
 skim
 slumber
 smartcat
+srgn
 sshx
 starship
 stu
