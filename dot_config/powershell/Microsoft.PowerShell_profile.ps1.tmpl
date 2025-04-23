@@ -350,6 +350,17 @@ if ($cond) {
         Write-Output $rip_completion >> $env:CACHE_PROFILE
     }
 
+    # srgn completion
+    Get-Command srgn -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# srgn completion" >> $env:CACHE_PROFILE
+        $srgn_completion = srgn --completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $srgn_completion >> $env:CACHE_PROFILE
+    }
+
     # vfox setup
     # NOTE: can't use now
     #Get-Command vfox -ErrorAction Ignore | Out-Null

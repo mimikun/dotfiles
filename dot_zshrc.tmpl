@@ -355,6 +355,11 @@ export zettelkasten_root="$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
 #eval "$(vfox activate zsh)"
 #fi
 
+# srgn
+if command -v srgn >/dev/null 2>&1; then
+    eval "$(srgn --completions zsh)"
+fi
+
 # zeno.zsh
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
 

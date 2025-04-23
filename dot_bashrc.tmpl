@@ -394,6 +394,11 @@ export zettelkasten_root="$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
 #    eval "$(vfox activate bash)"
 #fi
 
+# srgn
+if command -v srgn >/dev/null 2>&1; then
+    eval "$(srgn --completions bash)"
+fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
