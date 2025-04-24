@@ -360,6 +360,11 @@ if command -v srgn >/dev/null 2>&1; then
     eval "$(srgn --completions zsh)"
 fi
 
+# go-task
+if command -v task >/dev/null 2>&1; then
+    eval "$(task --completion zsh)"
+fi
+
 # zeno.zsh
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
 

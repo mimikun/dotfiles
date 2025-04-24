@@ -399,6 +399,11 @@ if command -v srgn >/dev/null 2>&1; then
     eval "$(srgn --completions bash)"
 fi
 
+# go-task
+if command -v task >/dev/null 2>&1; then
+    eval "$(task --completion bash)"
+fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
