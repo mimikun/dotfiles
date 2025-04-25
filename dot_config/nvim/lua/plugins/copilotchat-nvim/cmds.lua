@@ -8,18 +8,9 @@ local cmds = {
     "CopilotChatReset",
     "CopilotChatSave",
     "CopilotChatLoad",
-    "CopilotChatDebugInfo",
+    "CopilotChatPrompts",
     "CopilotChatModels",
-    "CopilotChatModel",
-    "CopilotChatExplain",
-    "CopilotChatReview",
-    "CopilotChatFix",
-    "CopilotChatOptimize",
-    "CopilotChatDocs",
-    "CopilotChatTests",
-    "CopilotChatFixDiagnostic",
-    "CopilotChatCommit",
-    "CopilotChatCommitStaged",
+    "CopilotChatAgents",
 }
 
 return cmds
