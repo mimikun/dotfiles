@@ -6,6 +6,7 @@ local ft = {
     "senpai_chat_input",
     "vimwiki",
     "Avante",
+    "codecompanion",
 }
 
 return ft

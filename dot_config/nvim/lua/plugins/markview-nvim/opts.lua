@@ -11,8 +11,9 @@ local opts = {
         tables = presets.tables.single,
     },
     preview = {
-        filetypes = { "md", "rmd", "quarto" },
+        filetypes = { "md", "rmd", "quarto", "markdown", "codecompanion" },
         ignore_buftypes = { "nofile" },
+        --ignore_buftypes = {},
     },
 }
 

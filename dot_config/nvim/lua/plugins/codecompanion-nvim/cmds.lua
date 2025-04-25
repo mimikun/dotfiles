@@ -1,8 +1,9 @@
 ---@type table
 local cmds = {
     "CodeCompanion",
-    "CodeCompanionActions",
     "CodeCompanionChat",
+    "CodeCompanionCmd",
+    "CodeCompanionActions",
 }
 
 return cmds

@@ -1,28 +1,38 @@
----@type table
-local key_opts = { noremap = true, silent = true }
-
 ---@type LazyKeysSpec[]
 local keys = {
-    -- WARN: conflict dial.nvim
-    --[[
     {
-        "<C-a>",
+        "<leader>ca",
         "<cmd>CodeCompanionActions<cr>",
-        key_opts,
         mode = { "n", "v" },
-    },
-    ]]
-    {
-        "<LocalLeader>a",
-        "<cmd>CodeCompanionChat Toggle<cr>",
-        key_opts,
-        mode = { "n", "v" },
+        --mode = { "n", "x" },
+        { noremap = true, silent = true },
     },
     {
-        "ga",
-        "<cmd>CodeCompanionChat Add<cr>",
-        key_opts,
-        mode = "v",
+        "<leader>cc",
+        "<Cmd>CodeCompanionChat Toggle<CR>",
+        mode = { "n" },
+        { noremap = true, silent = true },
+    },
+    {
+        "<leader>cc",
+        "<Cmd>CodeCompanionChat<CR>",
+        mode = { "v" },
+        { noremap = true, silent = true },
+    },
+    {
+        "<leader>cA",
+        "<Cmd>CodeCompanionChat Add<CR>",
+        mode = { "v" },
+        --mode = { "x" },
+        { noremap = true, silent = true },
+    },
+    {
+        "<leader>cd",
+        function()
+            require("codecompanion").prompt("docs")
+        end,
+        mode = { "n" },
+        { noremap = true, silent = true },
     },
 }
 

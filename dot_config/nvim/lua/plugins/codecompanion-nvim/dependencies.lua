@@ -2,16 +2,15 @@
 local dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim",
-    "stevearc/dressing.nvim",
     "ravitemer/mcphub.nvim",
-    "banjo/contextfiles.nvim",
+    { "nvim-telescope/telescope.nvim", optional = true },
+    { "folke/snacks.nvim", optional = true },
+    { "OXY2DEV/markview.nvim", optional = true },
+    { "MeanderingProgrammer/render-markdown.nvim", optional = true },
 }
 
 if require("config.settings").use_blink_cmp then
-    table.insert(dependencies, {
-        { "saghen/blink.cmp" },
-    })
+    table.insert(dependencies, { "saghen/blink.cmp" })
 else
     table.insert(dependencies, {
         { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
