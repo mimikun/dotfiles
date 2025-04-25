@@ -12,6 +12,7 @@ pocker-tui
 poetry
 rsyncy
 sherlock-project
+terminaltexteffects
 toolong
 trash-cli
 vectorcode
