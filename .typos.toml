@@ -60,4 +60,5 @@ extend-exclude = [
   "dot_config/nvim/lua/plugins/nvim-orgmode/org-list-opts.lua",
   "dot_config/nvim/lua/plugins/pivot-nvim/opts.lua",
   "dot_config/nvim/lua/plugins/pivot-nvim/keys.lua",
+  "dot_config/nvim/lua/plugins/project-notes/keys.lua",
 ]
