@@ -3,7 +3,7 @@ local config = {
     enabled = true,
     preset = {
         keys = require("plugins.snacks-nvim.dashboard.keys"),
-        header = require("plugins.snacks-nvim.dashboard.header"),
+        header = require("plugins.snacks-nvim.dashboard.header").get("covid_19").Japan,
     },
     sections = {
         {
