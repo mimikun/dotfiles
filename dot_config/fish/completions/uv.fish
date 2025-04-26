@@ -1897,6 +1897,7 @@ aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-emit-package -d 'Specify a package to omit from the output resolution. Its dependencies will still be included in the resolution. Equivalent to pip-compile\'s `--unsafe-package` option' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
 cu125\t'Use the PyTorch index for CUDA 12.5'
 cu124\t'Use the PyTorch index for CUDA 12.4'
@@ -2075,6 +2076,7 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
 cu125\t'Use the PyTorch index for CUDA 12.5'
 cu124\t'Use the PyTorch index for CUDA 12.4'
@@ -2248,6 +2250,7 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
 cu125\t'Use the PyTorch index for CUDA 12.5'
 cu124\t'Use the PyTorch index for CUDA 12.4'
