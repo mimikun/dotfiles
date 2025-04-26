@@ -86,7 +86,7 @@
   "interference.nvim": { "branch": "main", "commit": "a5d01b90c67e35732406d6dd10b0c7afe145d021" },
   "jq-playground.nvim": { "branch": "main", "commit": "40256cb9750fe36057850ef3e20f784934b5a6a4" },
   "key-analyzer.nvim": { "branch": "main", "commit": "72d301fb8843c19d8e69e16e0a0b42256edc25cc" },
-  "kulala.nvim": { "branch": "main", "commit": "7e0d12bc5c5347131210157006a861cbb51ccafa" },
+  "kulala.nvim": { "branch": "main", "commit": "48902de58ea576c30f8aa8e0a791d06b54f9f81f" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazydev.nvim": { "branch": "main", "commit": "2367a6c0a01eb9edb0464731cc0fb61ed9ab9d2c" },
   "logger.nvim": { "branch": "master", "commit": "bae8608bb5d8d32442d468e1ec916dcad9b81e63" },
