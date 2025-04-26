@@ -317,6 +317,10 @@ set -x zettelkasten_root "$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
 set -x PATH $FISH_CONFIG_DIR/conf.d/bin $PATH
 set -x FORGIT_NO_ALIASES true
 
+# Claude Desktop
+set -x CLAUDE_DESKTOP_PATH $WIN_HOME/AppData/Roaming/Claude.json
+set -x CLAUDE_DESKTOP_CONFIG $CLAUDE_DESKTOP_PATH/claude_desktop_config.json
+
 ## aliases
 alias rm "rm -i"
 alias mkdir "mkdir -p"
@@ -586,3 +590,4 @@ source $CACHE_CONFIG_FISH
 zoxide init fish | source
 
 # vim:ft=fish.chezmoitmpl
+

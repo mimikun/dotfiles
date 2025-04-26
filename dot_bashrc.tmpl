@@ -404,6 +404,10 @@ if command -v task >/dev/null 2>&1; then
     eval "$(task --completion bash)"
 fi
 
+# Claude Desktop
+export CLAUDE_DESKTOP_PATH="$WIN_HOME/AppData/Roaming/Claude.json"
+export CLAUDE_DESKTOP_CONFIG="$CLAUDE_DESKTOP_PATH/claude_desktop_config.json"
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}

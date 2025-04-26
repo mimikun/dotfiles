@@ -365,6 +365,10 @@ if command -v task >/dev/null 2>&1; then
     eval "$(task --completion zsh)"
 fi
 
+# Claude Desktop
+export CLAUDE_DESKTOP_PATH="$WIN_HOME/AppData/Roaming/Claude.json"
+export CLAUDE_DESKTOP_CONFIG="$CLAUDE_DESKTOP_PATH/claude_desktop_config.json"
+
 # zeno.zsh
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
 

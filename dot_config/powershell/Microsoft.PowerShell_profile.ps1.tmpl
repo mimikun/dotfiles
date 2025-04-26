@@ -752,6 +752,14 @@ $AGE_PUBKEY = $env:AGE_PUBKEY
 $env:zettelkasten_root = Join-Path -Path $env:GHQ_ROOT -ChildPath  "codeberg.org/mimikun/zettelkasten"
 $zettelkasten_root = $env:zettelkasten
 
+# Claude Desktop
+$env:CLAUDE_DESKTOP_PATH = Join-Path -Path $env:WIN_HOME -ChildPath "AppData\Roaming\Claude"
+$env:CLAUDE_DESKTOP_CONFIG = Join-Path -Path $env:CLAUDE_DESKTOP_PATH -ChildPath "claude_desktop_config.json"
+$CLAUDE_DESKTOP_PATH = $env:CLAUDE_DESKTOP_PATH
+$CLAUDE_DESKTOP_CONFIG = $env:CLAUDE_DESKTOP_CONFIG
+$claude_desktop_path = $env:CLAUDE_DESKTOP_PATH
+$claude_desktop_config = $env:CLAUDE_DESKTOP_CONFIG
+
 # Neovide env-vars
 <#
 ## Functionality
