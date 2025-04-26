@@ -5,20 +5,7 @@ local config = {
         keys = require("plugins.snacks-nvim.dashboard.keys"),
         header = require("plugins.snacks-nvim.dashboard.header").get("covid_19").Japan,
     },
-    sections = {
-        {
-            section = "header",
-        },
-        {
-            pane = 2,
-            section = "keys",
-            gap = 1,
-            padding = 1,
-        },
-        {
-            section = "startup",
-        },
-    },
+    sections = require("plugins.snacks-nvim.dashboard.sections"),
 }
 
 return config
