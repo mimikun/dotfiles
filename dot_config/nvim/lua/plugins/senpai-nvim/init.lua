@@ -4,7 +4,7 @@ local cond = require("config.settings").use_llm
 ---@type LazySpec
 local spec = {
     "eetann/senpai.nvim",
-    build = "bun install",
+    build = "bun install --frozen-lockfile",
     --lazy = false,
     cmd = "Senpai",
     keys = require("plugins.senpai-nvim.keys"),
