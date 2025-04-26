@@ -3,6 +3,7 @@ local dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "ravitemer/mcphub.nvim",
+    "atusy/aibou.nvim",
     { "nvim-telescope/telescope.nvim", optional = true },
     { "folke/snacks.nvim", optional = true },
     { "OXY2DEV/markview.nvim", optional = true },

@@ -34,6 +34,15 @@ local keys = {
         mode = { "n" },
         { noremap = true, silent = true },
     },
+    {
+        "<leader>ci",
+        function()
+            require("aibou.codecompanion").start()
+        end,
+        mode = { "n" },
+        { noremap = true, silent = true },
+        desc = "Start aibou",
+    },
 }
 
 return keys
