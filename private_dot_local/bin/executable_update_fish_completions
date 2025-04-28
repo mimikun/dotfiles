@@ -2,173 +2,195 @@
 
 COMPLETIONS_DIR="$HOME/.config/fish/completions"
 
+# Usage: command_exist CMD_NAME
 command_exist() {
-  if type "$1" >/dev/null 2>&1; then
-    return 0
-  else
-    echo "$1: not found"
-    return 1
-  fi
+    if type "$1" >/dev/null 2>&1; then
+        return 0
+    else
+        echo "$1: not found"
+        return 1
+    fi
+}
+
+# Usage: envvar_exist ENV_VAR
+envvar_exist() {
+    if [ -n "${!1}" ]; then
+        return 0
+    else
+        echo "${!1}: not set"
+        return 1
+    fi
 }
 
 update_sharkdp_tool_completions() {
-  CMD_NAME="$1"
-  REPO_NAME="sharkdp/$CMD_NAME"
-  CMD_VERSION=$(curl --silent "https://api.github.com/repos/$REPO_NAME/releases/latest" | jq .tag_name -r)
-  ARCHIVE_NAME="$CMD_NAME-$CMD_VERSION-x86_64-unknown-linux-gnu"
-  ARCHIVE_FORMAT="tar.gz"
-  ARCHIVE_FILE="$ARCHIVE_NAME.$ARCHIVE_FORMAT"
-  DOWNLOAD_URL="https://github.com/$REPO_NAME/releases/download/$CMD_VERSION/$ARCHIVE_FILE"
-  pushd /tmp || exit
-  USTC_TASK_ID=$(pueue add -p -- "wget $DOWNLOAD_URL")
-  USTC_TASK_ID=$(pueue add --after "$USTC_TASK_ID" -p -- "tar xvf $ARCHIVE_FILE")
-  USTC_TASK_ID=$(pueue add --after "$USTC_TASK_ID" -p -- "cp $ARCHIVE_NAME/autocomplete/$CMD_NAME.fish $COMPLETIONS_DIR/$CMD_NAME.fish")
-  pueue add --after "$USTC_TASK_ID" -- "rm -rf $ARCHIVE_FILE*"
-  popd || exit
+    CMD_NAME="$1"
+    REPO_NAME="sharkdp/$CMD_NAME"
+    CMD_VERSION=$(curl --silent "https://api.github.com/repos/$REPO_NAME/releases/latest" | jq .tag_name -r)
+    ARCHIVE_NAME="$CMD_NAME-$CMD_VERSION-x86_64-unknown-linux-gnu"
+    ARCHIVE_FORMAT="tar.gz"
+    ARCHIVE_FILE="$ARCHIVE_NAME.$ARCHIVE_FORMAT"
+    DOWNLOAD_URL="https://github.com/$REPO_NAME/releases/download/$CMD_VERSION/$ARCHIVE_FILE"
+    pushd /tmp || exit
+    USTC_TASK_ID=$(pueue add -p -- "wget $DOWNLOAD_URL")
+    USTC_TASK_ID=$(pueue add --after "$USTC_TASK_ID" -p -- "tar xvf $ARCHIVE_FILE")
+    USTC_TASK_ID=$(pueue add --after "$USTC_TASK_ID" -p -- "cp $ARCHIVE_NAME/autocomplete/$CMD_NAME.fish $COMPLETIONS_DIR/$CMD_NAME.fish")
+    pueue add --after "$USTC_TASK_ID" -- "rm -rf $ARCHIVE_FILE*"
+    popd || exit
 }
 
 pueue add -- "fish -c 'fish_update_completions'"
 
 for cmd in "poetry" "rustup" "starship" "deno" "mdbook" "ast-grep" "rip"; do
-  if command_exist "${cmd}"; then
-    pueue add -- "'${cmd}' completions fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
-  fi
+    if command_exist "${cmd}"; then
+        pueue add -- "'${cmd}' completions fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
+    fi
+done
+
+for cmd in "chezmoi" "flyctl" "runme" "bin" "mise" "luarocks" "gopass" "glow" "pnpm" "aqua" "berg" "sunbeam" "gitleaks" "lefthook" "nvs" "sake" "mani"; do
+    if command_exist "${cmd}"; then
+        pueue add -- "'${cmd}' completion fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
+    fi
+done
+
+for cmd in "ccsum" "task"; do
+    if command_exist "${cmd}"; then
+        pueue add -- "'${cmd}' --completion fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
+    fi
 done
 
 if command_exist bun; then
-  pueue add -- "bun completions"
+    pueue add -- "bun completions"
 fi
 
-for cmd in "chezmoi" "flyctl" "runme" "bin" "mise" "luarocks" "gopass" "glow" "pnpm" "aqua" "berg" "sunbeam" "gitleaks" "lefthook" "nvs" "sake" "mani"; do
-  if command_exist "${cmd}"; then
-    pueue add -- "'${cmd}' completion fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
-  fi
-done
-
 if command_exist yq; then
-  pueue add -- "yq shell-completion fish > '${COMPLETIONS_DIR}'/yq.fish"
+    pueue add -- "yq shell-completion fish > '${COMPLETIONS_DIR}'/yq.fish"
 fi
 
 if command_exist gh; then
-  pueue add -- "gh completion -s fish > '${COMPLETIONS_DIR}'/gh.fish"
+    pueue add -- "gh completion -s fish > '${COMPLETIONS_DIR}'/gh.fish"
 fi
 
 if command_exist fd; then
-  pueue add -- "fd --gen-completions fish > '${COMPLETIONS_DIR}'/fd.fish"
+    pueue add -- "fd --gen-completions fish > '${COMPLETIONS_DIR}'/fd.fish"
 fi
 
 if command_exist zellij; then
-  pueue add -- "zellij setup --generate-completion fish > '${COMPLETIONS_DIR}'/zellij.fish"
+    pueue add -- "zellij setup --generate-completion fish > '${COMPLETIONS_DIR}'/zellij.fish"
 fi
 
 if command_exist pipx; then
-  pueue add -- "register-python-argcomplete --shell fish pipx > '${COMPLETIONS_DIR}'/pipx.fish"
+    pueue add -- "register-python-argcomplete --shell fish pipx > '${COMPLETIONS_DIR}'/pipx.fish"
 fi
 
 if command_exist wezterm; then
-  pueue add -- "wezterm shell-completion --shell fish > '${COMPLETIONS_DIR}'/wezterm.fish"
+    pueue add -- "wezterm shell-completion --shell fish > '${COMPLETIONS_DIR}'/wezterm.fish"
 fi
 
 if command_exist rye; then
-  pueue add -- "rye self completion -s fish > '${COMPLETIONS_DIR}'/rye.fish"
+    pueue add -- "rye self completion -s fish > '${COMPLETIONS_DIR}'/rye.fish"
 fi
 
 if command_exist procs; then
-  pueue add -- "procs --gen-completion-out fish > '${COMPLETIONS_DIR}'/procs.fish"
+    pueue add -- "procs --gen-completion-out fish > '${COMPLETIONS_DIR}'/procs.fish"
 fi
 
 if command_exist pueue; then
-  pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
+    pueue add -- "pueue completions fish '${COMPLETIONS_DIR}'"
 fi
 
 if command_exist rbw; then
-  pueue add -- "rbw gen-completions fish > '${COMPLETIONS_DIR}'/rbw.fish"
+    pueue add -- "rbw gen-completions fish > '${COMPLETIONS_DIR}'/rbw.fish"
 fi
 
 if command_exist brew; then
-  pueue add -- "cp $(brew --prefix)/Homebrew/completions/fish/brew.fish ${COMPLETIONS_DIR}/brew.fish"
-fi
-
-if command_exist eza; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/eza-community/eza/main/completions/fish/eza.fish -o '${COMPLETIONS_DIR}'/eza.fish"
-fi
-
-if command_exist tldr; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/dbrgn/tealdeer/main/completion/fish_tealdeer -o '${COMPLETIONS_DIR}'/tldr.fish"
-fi
-
-if command_exist zoxide; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/zoxide.fish -o '${COMPLETIONS_DIR}'/zoxide.fish"
-fi
-
-if command_exist http; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/http.fish"
-  pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/https.fish"
+    pueue add -- "cp $(brew --prefix)/Homebrew/completions/fish/brew.fish ${COMPLETIONS_DIR}/brew.fish"
 fi
 
 if command_exist rg; then
-  pueue add -- "rg --generate complete-fish > '${COMPLETIONS_DIR}'/rg.fish"
-fi
-
-if command_exist hx | command_exist helix; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/helix-editor/helix/master/contrib/completion/hx.fish -o '${COMPLETIONS_DIR}'/hx.fish"
-  pueue add -- "curl -L https://raw.githubusercontent.com/helix-editor/helix/master/contrib/completion/hx.fish -o '${COMPLETIONS_DIR}'/helix.fish"
-fi
-
-if command_exist alacritty; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/alacritty/alacritty/master/extra/completions/alacritty.fish -o '${COMPLETIONS_DIR}'/alacritty.fish"
+    pueue add -- "rg --generate complete-fish > '${COMPLETIONS_DIR}'/rg.fish"
 fi
 
 if command_exist uv; then
-  pueue add -- "uv --generate-shell-completion fish > '${COMPLETIONS_DIR}'/uv.fish"
-fi
-
-if command_exist ghq; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/x-motemen/ghq/master/misc/fish/ghq.fish -o '${COMPLETIONS_DIR}'/ghq.fish"
+    pueue add -- "uv --generate-shell-completion fish > '${COMPLETIONS_DIR}'/uv.fish"
 fi
 
 if command_exist fish-lsp; then
-  pueue add -- "fish-lsp complete --fish > '${COMPLETIONS_DIR}'/fish-lsp.fish"
+    pueue add -- "fish-lsp complete --fish > '${COMPLETIONS_DIR}'/fish-lsp.fish"
 fi
 
 if command_exist atuin; then
-  pueue add -- "atuin gen-completions --shell fish> '${COMPLETIONS_DIR}'/atuin.fish"
+    pueue add -- "atuin gen-completions --shell fish> '${COMPLETIONS_DIR}'/atuin.fish"
 fi
 
-if command_exist ccsum; then
-  pueue add -- "ccsum --completion fish> '${COMPLETIONS_DIR}'/ccsum.fish"
+if command_exist codex && envvar_exist OPENAI_API_KEY; then
+    pueue add -- "codex completion fish> '${COMPLETIONS_DIR}'/codex.fish"
+fi
+
+if command_exist srgn; then
+    pueue add -- "srgn --completions fish> '${COMPLETIONS_DIR}'/srgn.fish"
+fi
+
+# install via curl
+if command_exist eza; then
+    pueue add -- "curl -L https://raw.githubusercontent.com/eza-community/eza/main/completions/fish/eza.fish -o '${COMPLETIONS_DIR}'/eza.fish"
+fi
+
+if command_exist tldr; then
+    pueue add -- "curl -L https://raw.githubusercontent.com/dbrgn/tealdeer/main/completion/fish_tealdeer -o '${COMPLETIONS_DIR}'/tldr.fish"
+fi
+
+if command_exist zoxide; then
+    pueue add -- "curl -L https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/completions/zoxide.fish -o '${COMPLETIONS_DIR}'/zoxide.fish"
+fi
+
+if command_exist http; then
+    pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/http.fish"
+    pueue add -- "curl -L https://raw.githubusercontent.com/httpie/httpie/master/extras/httpie-completion.fish -o '${COMPLETIONS_DIR}'/https.fish"
+fi
+
+if command_exist hx | command_exist helix; then
+    pueue add -- "curl -L https://raw.githubusercontent.com/helix-editor/helix/master/contrib/completion/hx.fish -o '${COMPLETIONS_DIR}'/hx.fish"
+    pueue add -- "curl -L https://raw.githubusercontent.com/helix-editor/helix/master/contrib/completion/hx.fish -o '${COMPLETIONS_DIR}'/helix.fish"
+fi
+
+if command_exist alacritty; then
+    pueue add -- "curl -L https://raw.githubusercontent.com/alacritty/alacritty/master/extra/completions/alacritty.fish -o '${COMPLETIONS_DIR}'/alacritty.fish"
+fi
+
+if command_exist ghq; then
+    pueue add -- "curl -L https://raw.githubusercontent.com/x-motemen/ghq/master/misc/fish/ghq.fish -o '${COMPLETIONS_DIR}'/ghq.fish"
 fi
 
 if command_exist foot; then
-  pueue add -- "curl -L https://codeberg.org/dnkl/foot/raw/branch/master/completions/fish/foot.fish -o '${COMPLETIONS_DIR}'/foot.fish"
+    pueue add -- "curl -L https://codeberg.org/dnkl/foot/raw/branch/master/completions/fish/foot.fish -o '${COMPLETIONS_DIR}'/foot.fish"
 fi
 
 if command_exist footclient; then
-  pueue add -- "curl -L https://codeberg.org/dnkl/foot/raw/branch/master/completions/fish/footclient.fish -o '${COMPLETIONS_DIR}'/footclient.fish"
+    pueue add -- "curl -L https://codeberg.org/dnkl/foot/raw/branch/master/completions/fish/footclient.fish -o '${COMPLETIONS_DIR}'/footclient.fish"
 fi
 
 if command_exist nix; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/NixOS/nix/master/misc/fish/completion.fish -o '${COMPLETIONS_DIR}'/nix.fish"
+    pueue add -- "curl -L https://raw.githubusercontent.com/NixOS/nix/master/misc/fish/completion.fish -o '${COMPLETIONS_DIR}'/nix.fish"
 fi
 
 if command_exist nb; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/xwmx/nb/refs/heads/master/etc/nb-completion.fish -o '${COMPLETIONS_DIR}'/nb.fish"
+    pueue add -- "curl -L https://raw.githubusercontent.com/xwmx/nb/refs/heads/master/etc/nb-completion.fish -o '${COMPLETIONS_DIR}'/nb.fish"
 fi
 
 if command_exist hoard; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/Hyde46/hoard/refs/heads/main/src/shell/hoard.fish -o '${COMPLETIONS_DIR}'/hoard.fish"
+    pueue add -- "curl -L https://raw.githubusercontent.com/Hyde46/hoard/refs/heads/main/src/shell/hoard.fish -o '${COMPLETIONS_DIR}'/hoard.fish"
 fi
 
 if command_exist qsv; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/dathere/qsv/refs/heads/master/contrib/completions/examples/qsv.fish -o '${COMPLETIONS_DIR}'/qsv.fish"
+    pueue add -- "curl -L https://raw.githubusercontent.com/dathere/qsv/refs/heads/master/contrib/completions/examples/qsv.fish -o '${COMPLETIONS_DIR}'/qsv.fish"
 fi
 
 if command_exist g; then
-  pueue add -- "curl -L https://raw.githubusercontent.com/Equationzhao/g/master/completions/fish/g.fish -o '${COMPLETIONS_DIR}'/g.fish"
+    pueue add -- "curl -L https://raw.githubusercontent.com/Equationzhao/g/master/completions/fish/g.fish -o '${COMPLETIONS_DIR}'/g.fish"
 fi
 
 for cmd in "bat" "hyperfine" "pastel"; do
-  if command_exist "${cmd}"; then
-    update_sharkdp_tool_completions "${cmd}"
-  fi
+    if command_exist "${cmd}"; then
+        update_sharkdp_tool_completions "${cmd}"
+    fi
 done
