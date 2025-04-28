@@ -1,19 +1,21 @@
 #!/bin/bash
 
-if test "$(test -z "$read_prompt"; echo $?)" -eq 0; then
+if test "$(
+  test -z "$read_prompt"
+  echo $?
+)" -eq 0; then
   read_prompt="Continue?"
 fi
 
-while :
-do
+while :; do
   read -r -p "${read_prompt} [y/N]: " confirm
 
   case "${confirm}" in
-    Y | y )
-      exit 0
-      ;;
-    '' | N | n )
-      exit 1
-      ;;
+  Y | y)
+    exit 0
+    ;;
+  '' | N | n)
+    exit 1
+    ;;
   esac
 done
