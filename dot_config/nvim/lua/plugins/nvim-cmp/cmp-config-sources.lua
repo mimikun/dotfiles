@@ -22,6 +22,7 @@ local cmp_config_sources = {
     --{ name = "minuet" },
     --{ name = "papis" },
     { name = "lorem_ipsum" },
+    { name = "go_deep" },
 }
 
 if require("config.settings").use_github_copilot then

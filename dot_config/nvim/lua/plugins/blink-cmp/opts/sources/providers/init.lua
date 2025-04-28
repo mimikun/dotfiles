@@ -22,6 +22,7 @@ local providers = {
     cmp_yanky = require("plugins.blink-cmp.opts.sources.providers.cmp_yanky"),
     dap = require("plugins.blink-cmp.opts.sources.providers.dap"),
     lorem_ipsum = require("plugins.blink-cmp.opts.sources.providers.lorem_ipsum"),
+    go_deep = require("plugins.blink-cmp.opts.sources.providers.go_deep"),
     -- WARN: can't use
     --["html-css"] = require("plugins.blink-cmp.opts.sources.providers.html-css"),
     -- NOTE: built-in providers

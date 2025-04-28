@@ -5,6 +5,7 @@ local per_filetype = {
     ["dap-repl"] = { "dap" },
     dapui_watches = { "dap" },
     dapui_hover = { "dap" },
+    go = { "go_deep" },
 }
 
 return per_filetype

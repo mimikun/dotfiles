@@ -29,6 +29,7 @@ local dependencies = {
     "rcarriga/cmp-dap",
     "chrisgrieser/cmp_yanky",
     "dnnr1/lorem-ipsum.nvim",
+    "samiulsami/cmp-go-deep",
     -- WARN: can't use
     --"Jezda1337/nvim-html-css",
 }

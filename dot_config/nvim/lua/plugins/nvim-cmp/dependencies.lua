@@ -15,6 +15,7 @@ local dependencies = {
     { "xzbdmw/colorful-menu.nvim", opts = {}, optional = true },
     --"jghauser/papis.nvim",
     "dnnr1/lorem-ipsum.nvim",
+    "samiulsami/cmp-go-deep",
 }
 
 if require("config.settings").use_github_copilot then
