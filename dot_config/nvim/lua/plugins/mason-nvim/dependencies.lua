@@ -24,7 +24,11 @@ local dependencies = {
     "mimikun/mason-conform.nvim",
     -- NOTE: mason-nvim-lint
     "mfussenegger/nvim-lint",
-    "rshkarin/mason-nvim-lint",
+    {
+        "rshkarin/mason-nvim-lint",
+        -- WORKAROUND: HEAD is broken
+        commit = "910dadb99cb2bf0d5176026c7a4ab1861c4e561f",
+    },
 }
 
 -- NOTE: completion
