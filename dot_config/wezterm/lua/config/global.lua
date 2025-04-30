@@ -5,7 +5,7 @@ local os_name = wezterm.target_triple
 local hostname = wezterm.hostname()
 
 -- NOTE: wezterm cannot get sysinfo
-global.is_human_rights = function()
+global.check_human_rights = function()
     if hostname == "YutoWindows" then
         return true
     elseif hostname == "TanakaPC" then
@@ -27,7 +27,7 @@ global.is_linux = os_name == "x86_64-unknown-linux-gnu"
 global.is_windows = os_name == "x86_64-pc-windows-msvc"
 global.is_wsl = wezterm.running_under_wsl()
 global.is_azusa = hostname == "azusa"
-global.is_human_rights = global:is_human_rights()
+global.is_human_rights = global:check_human_rights()
 global.home = wezterm.home_dir
 global.config_dir = wezterm.config_dir
 global.config_file = wezterm.config_file

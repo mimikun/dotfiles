@@ -1,10 +1,8 @@
-local wsl_domain = "WSL:Ubuntu"
-
 local wsl = {
     ubuntu = {
         label = "WSL Ubuntu",
         domain = {
-            DomainName = wsl_domain,
+            DomainName = "WSL:Ubuntu",
         },
     },
     nixos = {
@@ -64,27 +62,25 @@ local windows = {
     },
 }
 
-local M = {}
+local function menu(config)
+    config.launch_menu = {
+        -- 1
+        wsl.ubuntu,
+        -- 2
+        windows.pwsh.base,
+        -- 3
+        windows.pwsh.norc,
+        -- 4
+        windows.powershell.base,
+        -- 5
+        windows.powershell.norc,
+        -- 6
+        windows.cmd_exe,
+        -- 7
+        windows.nyagos,
+        -- 8
+        wsl.nixos,
+    }
+end
 
-M.wsl_domain = wsl_domain
-
-M.launch_menu = {
-    -- 1
-    wsl.ubuntu,
-    -- 2
-    windows.pwsh.base,
-    -- 3
-    windows.pwsh.norc,
-    -- 4
-    windows.powershell.base,
-    -- 5
-    windows.powershell.norc,
-    -- 6
-    windows.cmd_exe,
-    -- 7
-    windows.nyagos,
-    -- 8
-    wsl.nixos,
-}
-
-return M
+return menu

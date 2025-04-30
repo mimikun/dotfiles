@@ -1,110 +1,92 @@
+-- ref: https://github.com/michaelbrusegard/dotfiles/blob/5acb063/modules/wezterm/config/wezterm.lua
+
+-- Load wezterm core module
 local wezterm = require("wezterm")
-local global = require("global")
-local keybinds = require("keybinds")
-local mousebinds = require("mousebinds")
-local kabegami = require("kabegami")
-local lm = require("launchmenu")
 
-local config = {}
+-- Define path sep
+local path_sep = (wezterm.target_triple:find("windows")) and "\\" or "/"
 
-if wezterm.config_builder then
-    config = wezterm.config_builder()
-end
-
-local hostname = global.hostname
-local is_azusa = global.is_azusa
-local is_human_rights = global.is_human_rights
-
-local kabegami_name
---kabegami_name = kabegami.get("butasan").nesoberi
-kabegami_name = kabegami.get("azusa").kuroinu
-
-local kabegami_path
-kabegami_path = table.concat({ global.home, ".kabegami", "random", kabegami_name }, global.path_sep)
-
-local font_size = {
-    base = is_azusa and 22 or 14,
-    window_frame = is_azusa and 12 or 10,
+-- Base directories
+local dirs = {
+    lua = wezterm.config_dir .. path_sep .. "lua",
+    plugins = wezterm.config_dir .. path_sep .. "plugins",
 }
 
-require("format")
-require("status")
-require("event")
-
--- appearance
-config.color_scheme = "GitHub Dark"
-config.window_background_opacity = 0.93
-
-if is_human_rights then
-    config.window_background_image = kabegami_path
-    config.window_background_image_hsb = {
-        hue = 1.0,
-        saturation = 1.0,
-        brightness = 0.07,
-    }
-end
-
-config.font = wezterm.font_with_fallback({
-    --{ family = "FiraCode Nerd Font Mono", weight = 450, stretch = "Normal", style = "Normal" },
-    { family = "UDEV Gothic NF", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "FiraCode Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "0xProto Nerd Font Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "Cica", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "Cascadia Mono", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "BIZ UDGothic", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "Consolas", weight = "Regular", stretch = "Normal", style = "Normal" },
-    { family = "MS Gothic", weight = "Regular", stretch = "Normal", style = "Normal" },
-})
-config.font_size = font_size.base
-config.window_frame = {
-    font = wezterm.font_with_fallback({
-        { family = "UDEV Gothic NF", weight = "Bold", stretch = "Normal", style = "Normal" },
-        { family = "FiraCode Nerd Font Mono", weight = "Bold", stretch = "Normal", style = "Normal" },
-        { family = "0xProto Nerd Font Mono", weight = "Bold", stretch = "Normal", style = "Normal" },
-        { family = "Cica", weight = "Bold", stretch = "Normal", style = "Normal" },
-        { family = "Cascadia Mono", weight = "Bold", stretch = "Normal", style = "Normal" },
-        { family = "Roboto", weight = "Bold", stretch = "Normal", style = "Normal" },
-    }),
-    font_size = font_size.window_frame,
+-- Add Search paths
+local search_paths = {
+    dirs.lua .. path_sep .. "?.lua",
+    dirs.lua .. path_sep .. "?" .. path_sep .. "init.lua",
+    dirs.plugins .. path_sep .. "?.lua",
+    dirs.plugins .. path_sep .. "?" .. path_sep .. "init.lua",
 }
-config.leader = keybinds.leader
-config.keys = keybinds.keys
-config.key_tables = keybinds.key_tables
-config.mouse_bindings = mousebinds.mouse_bindings
-config.disable_default_key_bindings = true
-config.line_height = 1
-config.use_ime = true
-config.initial_rows = 30
-config.initial_cols = 120
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
--- launch menu
-if not is_azusa then
-    if is_human_rights then
-        config.default_domain = lm.wsl_domain
-    else
-        -- NOTE: If human rights violation, PowerShell takes 2 min to start.
-        config.default_prog = { "pwsh.exe", "-NoProfile" }
+-- Expand package.path
+package.path = package.path .. ";" .. table.concat(search_paths, ";")
+
+-- Create a special type table object
+local config = wezterm.config_builder and wezterm.config_builder() or {}
+
+-- Load global module
+local g = require("config.global")
+
+-- NOTE: Define safe_require function
+local function safe_require(module_name)
+    local success, module = pcall(require, module_name)
+    if success and type(module) == "function" then
+        return module(config)
+    elseif not success then
+        wezterm.log_info("Failed to load " .. module_name)
+        return config
     end
-
-    config.launch_menu = lm.launch_menu
 end
 
-local function debug_log_print()
-    --wezterm.log_info("Default hyperlink rules " .. wezterm.default_hyperlink_rules())
-    --wezterm.log_info("Default ssh domains" .. wezterm.default_ssh_domains())
-    --wezterm.log_info("Default wsl domains" .. wezterm.default_wsl_domains())
-    wezterm.log_info("Home Dir " .. global.home)
-    wezterm.log_info("Config Dir " .. global.config_dir)
-    wezterm.log_info("Config file " .. global.config_file)
-    wezterm.log_info("Version " .. global.version)
-    wezterm.log_info("Exe dir " .. global.exec_dir)
-    wezterm.log_info("Hostname " .. hostname)
-    wezterm.log_info("Path sep " .. global.path_sep)
-    wezterm.log_info("Running under wsl" .. tostring(global.is_wsl))
-    config.debug_key_events = true
+-- NOTE: Load some Configs
+-- Load color settings
+safe_require("config.colors")
+
+-- Load appearance settings
+safe_require("config.appearance")
+
+-- Load window settings
+safe_require("config.window")
+
+-- Load font settings
+safe_require("config.fonts")
+
+-- Load keyboard settings
+safe_require("config.keyboard")
+
+-- Load mouse settings
+safe_require("config.mouse")
+
+-- Load default program settings
+safe_require("config.programs")
+
+-- Load kabegami settings, if only `is_human_rights=true`
+if g.is_human_rights then
+    safe_require("config.kabegami")
 end
 
-debug_log_print()
+-- Load Launcher-menu settings, if only `hostname!=azusa`
+if not g.is_azusa then
+    safe_require("config.menu")
+end
 
+-- NOTE: Load some Plugins
+safe_require("plugins.battery-wez")
+-- XXX: I don't know how to use it
+--safe_require("plugins.modal-wezterm")
+safe_require("plugins.presentation-wez")
+safe_require("plugins.tabline-wez")
+
+-- NOTE: Load some utils
+-- Debug Log print module
+local success, log = pcall(require, "utils.log")
+if success then
+    log.debug_log_print(config)
+else
+    wezterm.log_info("Failed to load utils.log")
+end
+
+-- Returns a table with ALL-configs
 return config

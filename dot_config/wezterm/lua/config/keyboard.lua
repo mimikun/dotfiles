@@ -1,12 +1,10 @@
--- 参考: https://karukichi-blog.netlify.app/blogs/wezterm
+-- ref: https://karukichi-blog.netlify.app/blogs/wezterm
 local wezterm = require("wezterm")
 local action = wezterm.action
 
-return {
-    -- キーバインドの設定
-    -- leader keyを CTRL + qにマッピング
-    leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 },
-    keys = {
+local function keyboard(config)
+    config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 1000 }
+    config.keys = {
         { key = "Tab", mods = "CTRL", action = action.ActivateTabRelative(1) },
         { key = "Tab", mods = "SHIFT|CTRL", action = action.ActivateTabRelative(-1) },
         -- SHIFT + Enter でQuickSelect・・・画面に表示されている文字をクイックにコピペできる機能
@@ -204,9 +202,9 @@ return {
         { key = "Insert", mods = "CTRL", action = action.CopyTo("PrimarySelection") },
         { key = "Copy", mods = "NONE", action = action.CopyTo("Clipboard") },
         { key = "Paste", mods = "NONE", action = action.PasteFrom("Clipboard") },
-    },
+    }
 
-    key_tables = {
+    config.key_tables = {
         copy_mode = {
             { key = "Tab", mods = "NONE", action = action.CopyMode("MoveForwardWord") },
             { key = "Tab", mods = "SHIFT", action = action.CopyMode("MoveBackwardWord") },
@@ -288,5 +286,10 @@ return {
             { key = "UpArrow", mods = "NONE", action = action.CopyMode("PriorMatch") },
             { key = "DownArrow", mods = "NONE", action = action.CopyMode("NextMatch") },
         },
-    },
-}
+    }
+
+    config.disable_default_key_bindings = true
+    config.use_ime = true
+end
+
+return keyboard
