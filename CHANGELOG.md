@@ -1,5 +1,60 @@
 # Changelog
 
+## [v2025.04.30]
+
+### Added - 新機能について
+
+- docs(readme): add deepwiki badge
+- feat: add gh-dash config
+- feat(gup): add zshist
+- feat(gup): add gmailctl
+- feat(nvim): add ui.nvim
+- feat(nvim): add speed.nvim
+- feat(nvim): add gh-dash.nvim
+- feat(nvim): add project_notes
+- feat(nvim): add neonuget.nvim
+- feat(nvim): add time-machine.nvim
+- feat(nvim): add learn-vim.nvim
+- feat(nvim): add inc-rename.nvim
+- feat(nvim): add cmp-go-deep in deps
+- feat(pipx): add terminaltexteffects
+- feat(shells): add go-task completions
+- feat(shells): add claude desktop paths
+- feat(time-machine.nvim): add cmds.lua
+- feat(snacks.dashboard): add gaming logo
+- feat(snasks.dashboard): add display any-image on the dashboard
+    - display at any time
+- feat(codecompanion.nvim): add aibou.nvim in deps
+
+### Changed - 既存機能の変更について
+
+- chore(aqua): update gokcehan/lf
+- chore(nvim): update lockfiles
+- chore(fish): update mise completion
+- chore(fish): update some completions
+- chore(localbin): update
+- chore(typos): update config
+- chore(wezterm): update some configs
+- chore(noice.nvim): update config
+- chore(mcphub.nvim): update deps
+- chore(lualine.nvim): update configs
+- chore(copilotchat.nvim): update config
+- chore(snacks.dashboard): rename banners to header
+- chore(codecompanion.nvim): update config
+- chore(chezmoiignore): add AppData/Local/Packages/Microsoft.WindowsTerminal*
+- refactor(localbin): some localbins
+
+### Removed - 今回で削除された機能について
+
+- chore(kulala.nvim): remove WORKAROUND
+- chore(nvim): remove unused dir
+
+### Fixed - 不具合修正について
+
+- chore(mason-nvim-lint): use workaround
+- fix(senpai.nvim): plugin update error
+    - ref: https://github.com/eetann/senpai.nvim/commit/d5392ce3dd21d5bd763b50d5e8436f55d9fac044
+
 ## [v2025.04.23]
 
 ### Added - 新機能について
