@@ -5,7 +5,7 @@ local dependencies = {
     "SmiteshP/nvim-navic",
     "pnx/lualine-lsp-status",
     { "Dan7h3x/LazyDo", optional = true },
-    --"stevearc/aerial.nvim",
+    { "stevearc/aerial.nvim", optional = true },
 }
 
 if require("config.settings").use_github_copilot then
