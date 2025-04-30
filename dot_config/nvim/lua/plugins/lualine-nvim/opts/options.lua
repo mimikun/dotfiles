@@ -32,12 +32,4 @@ local options = {
     },
 }
 
----@type table
-local opts = {
-    options = options,
-    sections = require("plugins.lualine-nvim.sections"),
-    tabline = {},
-    winbar = {},
-}
-
-return opts
+return options
