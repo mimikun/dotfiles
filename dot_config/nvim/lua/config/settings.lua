@@ -87,4 +87,8 @@ settings.use_llm = use_llm
 local use_minuet = false
 settings.use_minuet = use_minuet
 
+---@type boolean
+local use_dashboard_image = false
+settings.use_dashboard_image = use_dashboard_image
+
 return settings
