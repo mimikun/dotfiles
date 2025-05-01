@@ -1,5 +1,17 @@
----@type table
-local dashboard_image = require("plugins.snacks-nvim.dashboard.terminal")
+---@type boolean
+local is_human_rights = require("config.global").is_human_rights
+
+---@type boolean
+local use_dashboard_image = require("config.settings").use_dashboard_image
+use_dashboard_image = false
+
+---@type string
+local image_path = vim.fn.expand("~/.kabegami/banitasu.png")
+---@type string
+local gaming_logo = require("plugins.snacks-nvim.dashboard.logos.buruaka.koyuki_face")
+
+local gaming_aa = require("plugins.snacks-nvim.dashboard.terminal").gaming_aa
+local show_image = require("plugins.snacks-nvim.dashboard.terminal").show_image
 
 ---@type table
 local sections = {}
@@ -7,7 +19,13 @@ local sections = {}
 table.insert(sections, {
     section = "header",
 })
-table.insert(sections, dashboard_image)
+if is_human_rights then
+    if use_dashboard_image then
+        table.insert(sections, show_image(image_path))
+    else
+        table.insert(sections, gaming_aa(gaming_logo))
+    end
+end
 table.insert(sections, {
     pane = 2,
     section = "keys",
