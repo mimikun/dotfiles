@@ -1,6 +1,5 @@
 local wezterm = require("wezterm")
 local g = require("config.global")
-local is_not_windows = not g.is_windows
 local is_human_rights = g.is_human_rights
 
 local nf = wezterm.nerdfonts
@@ -75,14 +74,16 @@ return function(config, battery)
         tabline_x = {
             {
                 "ram",
+                use_pwsh = true,
                 cond = function()
-                    return is_not_windows
+                    return is_human_rights
                 end,
             },
             {
                 "cpu",
+                use_pwsh = true,
                 cond = function()
-                    return is_not_windows
+                    return is_human_rights
                 end,
             },
         },

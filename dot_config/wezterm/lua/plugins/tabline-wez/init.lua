@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+local tabline = wezterm.plugin.require("https://github.com/mimikun/tabline.wez")
 local battery = wezterm.plugin.require("https://github.com/rootiest/battery.wez")
 battery.invert = true
 
