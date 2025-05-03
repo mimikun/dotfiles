@@ -3,7 +3,7 @@
   "bash-language-server": "5.6.0",
   "css-lsp": "4.10.0",
   "debugpy": "1.8.14",
-  "deno": "v2.2.12",
+  "deno": "v2.3.1",
   "docker-compose-language-service": "0.4.0",
   "dockerfile-language-server": "0.14.0",
   "eslint-lsp": "4.10.0",
@@ -18,12 +18,12 @@
   "pyright": "1.1.400",
   "selene": "0.28.0",
   "stylua": "v2.1.0",
-  "svelte-language-server": "0.17.12",
+  "svelte-language-server": "0.17.13",
   "taplo": "0.9.3",
   "textlint": "14.6.0",
   "typescript-language-server": "4.3.4",
   "typos-lsp": "v0.1.36",
   "vim-language-server": "2.3.1",
-  "yaml-language-server": "1.17.0",
+  "yaml-language-server": "1.18.0",
   "yamllint": "1.37.0"
 }
