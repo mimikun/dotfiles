@@ -1,12 +1,15 @@
 ---@type table
 local opts = {
-    highlight = { link = "Visual" },
-    space_char = "·",
-    tab_char = "→",
-    nl_char = "↲",
-    cr_char = "←",
-    enabled = true,
-    excluded = {
+    enabled = false,
+    match_types = {
+        lead = false,
+        trail = false,
+    },
+    list_chars = {
+        lead = "‹",
+        trail = "›",
+    },
+    ignore = {
         filetypes = {},
         buftypes = {},
     },

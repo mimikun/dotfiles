@@ -1,15 +1,12 @@
 ---@type LazyKeysSpec[]
 local keys = {
-    { "v" },
-    { "V" },
-    { "<C-v>" },
     {
-        "<leader>vw",
+        "<leader>tw",
         function()
             require("visual-whitespace").toggle()
         end,
-        mode = "n",
-        desc = "Turn visual-whitespace.nvim off (toggles the `enabled` cfg flag)",
+        mode = { "n", "v" },
+        desc = "Turn visual-whitespace.nvim off (toggles the enabled cfg flag)",
     },
 }
 
