@@ -68,6 +68,7 @@ fblog
 fd-find
 felix
 fend
+ferium
 flamegraph
 flamelens
 flawz
