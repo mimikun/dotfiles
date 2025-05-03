@@ -3,7 +3,7 @@ local spec = {
     "dundalek/bloat.nvim",
     --lazy = false,
     cmd = "Bloat",
-    opts = {},
+    --opts = {},
     --cond = false,
     --enabled = false,
 }
