@@ -164,9 +164,10 @@ keybindings:
   - commands: ['wm-redraw']
     bindings: ['alt+shift+w']
 
-  # TODO: check
-  - commands: ['shell-exec wezterm']
+  # ref: https://github.com/glzr-io/glazewm/issues/903#issuecomment-2571665874
+  - commands: ['shell-exec %ProgramFiles%/Wezterm/wezterm.exe']
     bindings: ['alt+enter']
+  # - commands: ['shell-exec %ProgramFiles%/Wezterm/wezterm-gui.exe']
 
   - commands: ['focus --next-active-workspace']
     bindings: ['alt+s']
