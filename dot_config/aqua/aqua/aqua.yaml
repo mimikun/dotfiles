@@ -51,7 +51,7 @@ packages:
   - name: google/yamlfmt@v0.16.0
   - name: gopasspw/gopass@v1.15.16
   - name: go-task/task@v3.43.3
-  - name: grafana/k6@v0.58.0
+  - name: grafana/k6@v0.59.0
   - name: guumaster/hostctl@v1.1.4
   - name: hherman1/gq@v0.0.3
   - name: homeport/dyff@v1.10.1
