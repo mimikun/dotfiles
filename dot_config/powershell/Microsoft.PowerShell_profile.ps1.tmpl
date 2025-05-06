@@ -353,7 +353,7 @@ if ($cond) {
     # srgn completion
     Get-Command srgn -ErrorAction Ignore | Out-Null
     $res = $?
-    if ($res) {
+    if ($res -and $IsLinux) {
         Write-Output "# srgn completion" >> $env:CACHE_PROFILE
         $srgn_completion = srgn --completions powershell |
             ForEach-Object { $_ -replace $namespace1, "" } |
