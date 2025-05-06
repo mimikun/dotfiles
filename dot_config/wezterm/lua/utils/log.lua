@@ -10,14 +10,14 @@ local g = require("config.global")
 local M = {}
 
 M.debug_log_print = function(config)
-    wezterm.log_info("Home Dir " .. g.home)
-    wezterm.log_info("Config Dir " .. g.config_dir)
-    wezterm.log_info("Config file " .. g.config_file)
-    wezterm.log_info("Version " .. g.version)
-    wezterm.log_info("Exe dir " .. g.exec_dir)
-    wezterm.log_info("Hostname " .. g.hostname)
-    wezterm.log_info("Path sep " .. g.path_sep)
-    wezterm.log_info("Running under wsl" .. tostring(g.is_wsl))
+    wezterm.log_info("Home Dir: " .. g.home)
+    wezterm.log_info("Config Dir: " .. g.config_dir)
+    wezterm.log_info("Config file: " .. g.config_file)
+    wezterm.log_info("Version: " .. g.version)
+    wezterm.log_info("Exe dir: " .. g.exec_dir)
+    wezterm.log_info("Hostname: " .. g.hostname)
+    wezterm.log_info("Path sep: " .. g.path_sep)
+    wezterm.log_info("Running under wsl: " .. tostring(g.is_wsl))
     config.debug_key_events = true
 end
 
