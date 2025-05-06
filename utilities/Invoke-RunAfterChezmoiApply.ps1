@@ -123,6 +123,18 @@ function Copy-PaleovimConfig()
 function Invoke-RunAfterChezmoiApply()
 {
     Write-Output "post-apply-hook"
+    # env check
+    if (-not $env:CHEZMOI_DIR)
+    {
+        try
+        {
+            $env:CHEZMOI_DIR = (chezmoi source-path)
+        } catch
+        {
+            Write-Output "Failed to get chezmoi source path. Make sure chezmoi is installed and in your PATH."
+            return
+        }
+    }
 
     # copy powershell profile
     Copy-PowershellProfile
