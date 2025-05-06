@@ -21,5 +21,18 @@ M.debug_log_print = function(config)
     config.debug_key_events = true
 end
 
+M.show_plugin_list = function()
+    wezterm.log_info("Plugins: ")
+    wezterm.log_info(wezterm.plugin.list())
+end
+
+M.update_all_plugins = function()
+    wezterm.plugin.update_all()
+end
+
+M.reload_config = function()
+    wezterm.reload_configuration()
+end
+
 -- Returns a table with ALL-configs
 return M
