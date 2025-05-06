@@ -75,16 +75,10 @@ return function(config, battery)
             {
                 "ram",
                 use_pwsh = true,
-                cond = function()
-                    return is_human_rights
-                end,
             },
             {
                 "cpu",
                 use_pwsh = true,
-                cond = function()
-                    return is_human_rights
-                end,
             },
         },
         tabline_y = {
