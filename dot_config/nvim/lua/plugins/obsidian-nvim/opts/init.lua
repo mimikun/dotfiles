@@ -1,5 +1,4 @@
----@type boolean
-local use_blink_cmp = require("config.settings").use_blink_cmp
+-- TODO: refactor this file
 
 ---@type number
 local day_sec = 86400
@@ -154,28 +153,33 @@ local substitutions = {
     end,
 }
 
----@type table
+local f = require("plugins.obsidian-nvim.opts.funcs")
+
+---@type boolean
+local use_blink_cmp = require("config.settings").use_blink_cmp
+
+---@type 'telescope.nvim' | 'fzf-lua' | 'mini.pick' | 'snacks.pick'
+local picker_name = "telescope.nvim"
+
+---@module 'obsidian'
+---@type obsidian.config.ClientOpts
 local opts = {
-    workspaces = {
-        {
-            name = "mimikun",
-            path = vim.fn.expand("$obsidian_vault_path"),
-        },
-    },
+    workspaces = require("plugins.obsidian-nvim.opts.workspaces"),
     notes_subdir = "000_Inbox",
     daily_notes = {
         folder = "001_DailyNotes",
         date_format = "%Y年%m月%d日",
+        --alias_format = "%B %-d, %Y",
         default_tags = { "daily-note" },
         -- NOTE: Should without `999_Templates/`
         template = "dailyNoteTemplateFromObsidianNvim.md",
+        workdays_only = false,
     },
     completion = {
         nvim_cmp = not use_blink_cmp,
         blink = use_blink_cmp,
     },
     new_notes_location = "notes_subdir",
-    preferred_link_style = "wiki",
     disable_frontmatter = true,
     templates = {
         subdir = "999_Templates",
@@ -186,30 +190,29 @@ local opts = {
     use_advanced_uri = true,
     open_app_foreground = false,
     picker = {
-        name = "telescope.nvim",
+        name = picker_name,
     },
     sort_by = "modified",
     sort_reversed = true,
     search_max_lines = 1000,
     open_notes_in = "current",
     ui = {
-        -- Disable UI, use render-markdown.nvim
         enable = false,
-        update_debounce = 200,
-        max_file_length = 5000,
-        checkboxes = {
-            [" "] = { char = "󰄱" },
-            ["x"] = { char = "" },
-            [">"] = { char = "" },
-            ["~"] = { char = "󰰱" },
-            ["!"] = { char = "" },
-        },
-        bullets = { char = "•" },
-        external_link_icon = { char = "" },
     },
     attachments = {
         img_folder = "998_Attachments",
     },
+    statusline = {
+        enabled = true,
+        format = "{{properties}} properties {{backlinks}} backlinks {{words}} words {{chars}} chars",
+    },
+    note_id_func = f.note_id_func,
+    note_path_func = f.note_path_func,
+    wiki_link_func = f.wiki_link_func,
+    markdown_link_func = f.markdown_link_func,
+    note_frontmatter_func = f.note_frontmatter_func,
+    follow_url_func = f.follow_url_func,
+    follow_img_func = f.follow_img_func,
 }
 
 return opts

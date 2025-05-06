@@ -2,9 +2,13 @@
 local dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
-    --"folke/snacks.nvim",
+    { "ibhagwan/fzf-lua", optional = true },
+    { "echasnovski/mini.pick", optional = true },
+    { "folke/snacks.nvim", optional = true },
     "nvim-treesitter/nvim-treesitter",
-    --"epwalsh/pomo.nvim",
+    { "preservim/vim-markdown", optional = true },
+    { "MeanderingProgrammer/render-markdown.nvim", optional = true },
+    { "OXY2DEV/markview.nvim", optional = true },
 }
 
 if require("config.settings").use_blink_cmp then
