@@ -1,5 +1,57 @@
 # Changelog
 
+## [v2025.05.06]
+
+### Added - 新機能について
+
+- docs(zebar): add README.md
+- feat(cargo): add ferium
+- feat(wezterm): add some util func
+- feat(wezterm): add logging some funcs
+- feat(nvim): add cronex.nvim
+- feat(nvim): add popc
+- feat(nvim): add mssql.nvim
+- feat(nvim): add markdown-tools.nvim
+- feat(nvim): add use_dashboard_image flag
+- feat(nvim): add vimatrix.nvim
+- feat(nvim): add commentless.nvim
+- feat(nvim): add docscribe.nvim
+- feat(nvim): add bloat.nvim
+- feat(nvim): add drop.nvim
+- feat(nvim): add apidocs.nvim
+- feat(nvim): add kaleidosearch.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update some completion
+- chore(nvim): update lockfiles
+- chore(wezterm): use forked-version tabline.wez
+- chore(mimikun-pkglist): update windows_cargo_packages.txt
+- chore(chezmoiignore): grouping README files
+- chore(obsidian.nvim): update config
+- chore(pathfinder.nvim): update config
+- chore(mason-nvim-lint): update workaround
+- chore(snacks.dashboard): update breaking change
+- chore(visual-whitespace.nvim): update config
+- refactor(snacks.dashboard): rename
+- refactor(snacks.dashboard): split header logos
+- refactor(utilities): update Invoke-RunAfterChezmoiApply.ps1
+
+### Removed - 今回で削除された機能について
+
+- chore(chezmoiignore): remove wezterm ignore
+- chore(vimatrix.nvim): disable
+    - noisy
+
+### Fixed - 不具合修正について
+
+- fix(bloat.nvim): config error
+- fix(wezterm): debug_log_print func
+- fix(glazewm): fix wezterm binary name
+- fix(glazewm): alt+enter action
+- fix(utilities): add error handling
+- fix(powershell): srgn completion bug
+
 ## [v2025.04.30]
 
 ### Added - 新機能について
