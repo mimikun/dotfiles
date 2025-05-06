@@ -84,6 +84,9 @@ safe_require("plugins.tabline-wez")
 local success, log = pcall(require, "utils.log")
 if success then
     log.debug_log_print(config)
+    log.show_plugin_list()
+    --log.update_all_plugins()
+    --log.reload_config()
 else
     wezterm.log_info("Failed to load utils.log")
 end
