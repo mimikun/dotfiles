@@ -4,6 +4,7 @@ local dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "ravitemer/mcphub.nvim",
     "atusy/aibou.nvim",
+    "ravitemer/codecompanion-history.nvim",
     { "nvim-telescope/telescope.nvim", optional = true },
     { "folke/snacks.nvim", optional = true },
     { "OXY2DEV/markview.nvim", optional = true },

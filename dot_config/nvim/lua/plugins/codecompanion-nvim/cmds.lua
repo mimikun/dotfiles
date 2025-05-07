@@ -4,6 +4,7 @@ local cmds = {
     "CodeCompanionChat",
     "CodeCompanionCmd",
     "CodeCompanionActions",
+    "CodeCompanionHistory",
 }
 
 return cmds
