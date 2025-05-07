@@ -1,5 +1,33 @@
 # Changelog
 
+## [v2025.05.07]
+
+### Added - 新機能について
+
+- feat(gup): add some packages
+- feat(pipx): add pipask
+- feat(cargo): add some packages
+- feat(nvim): add ascii.nvim
+    - and add some extensions
+- feat(nvim): add smart-translate.nvim
+- feat(codecompanion.nvim): add codecompanion-history.nvim in deps
+
+### Changed - 既存機能の変更について
+
+- chore(chezmoiignore): ignore github-cli settings
+- chore(snacks.dashboard): split header.lua
+- chore(snacks.dashboard): change display cond
+- chore(codecompanion.nvim): update config
+
+### Removed - 今回で削除された機能について
+
+- chore(translate.nvim): disable
+
+### Fixed - 不具合修正について
+
+- fix(markdown-tools.nvim): error
+- fix(mason.nvim): use some WORKAROUNDs
+
 ## [v2025.05.06]
 
 ### Added - 新機能について
