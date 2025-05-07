@@ -6,7 +6,9 @@ local need_all_servers = settings.need_all_servers
 
 ---@type LazySpec
 local spec = {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
+    -- WORKAROUND: v2 has BREAKING CHANGE
+    commit = "fc98833b6da5de5a9c5b1446ac541577059555be",
     --lazy = false,
     cmds = require("plugins.mason-nvim.cmds"),
     event = "VeryLazy",

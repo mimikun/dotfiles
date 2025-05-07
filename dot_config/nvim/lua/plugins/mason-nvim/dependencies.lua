@@ -2,7 +2,11 @@
 local dependencies = {
     -- NOTE: LSP plugins
     "neovim/nvim-lspconfig",
-    "williamboman/mason-lspconfig.nvim",
+    {
+        "mason-org/mason-lspconfig.nvim",
+        -- WORKAROUND: v2 has BREAKING CHANGE
+        commit = "1a31f824b9cd5bc6f342fc29e9a53b60d74af245",
+    },
     -- NOTE: DAP plugins
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
@@ -24,12 +28,11 @@ local dependencies = {
     "mimikun/mason-conform.nvim",
     -- NOTE: mason-nvim-lint
     "mfussenegger/nvim-lint",
-    -- WORKAROUND: HEAD is broken. use patch version
     {
-        "rshkarin/mason-nvim-lint",
-        --"mimikun/mason-nvim-lint",
-        dev = true,
+        -- WORKAROUND: HEAD is broken. use patch version
+        "mimikun/mason-nvim-lint",
         branch = "patch",
+        --"rshkarin/mason-nvim-lint",
         --commit = "910dadb99cb2bf0d5176026c7a4ab1861c4e561f",
     },
 }
