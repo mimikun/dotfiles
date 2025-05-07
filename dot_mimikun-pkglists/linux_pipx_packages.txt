@@ -8,6 +8,7 @@ gptme
 hike
 kaskade
 moneyterm
+pipask
 pocker-tui
 poetry
 rsyncy
