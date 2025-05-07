@@ -6,7 +6,7 @@ local spec = {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = require("plugins.snacks-nvim.dependencies"),
     config = function()
         local Snacks = require("snacks")
         Snacks.setup(opts)

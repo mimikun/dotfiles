@@ -46,6 +46,8 @@ local dependencies = {
     --{ "nosduco/remote-sshfs.nvim", optional = true },
     --{ "unwarlikepoodle/telescope-git-recent.nvim", optional = true },
     --{ "nvim-flutter/flutter-tools.nvim", optional = true },
+    "MunifTanjim/nui.nvim",
+    "MaximilianLloyd/ascii.nvim",
 }
 
 -- NOTE: Add fzf_sorter if not a Windows

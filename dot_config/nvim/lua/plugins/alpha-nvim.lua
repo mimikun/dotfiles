@@ -2,6 +2,8 @@
 local dependencies = {
     "nvim-tree/nvim-web-devicons",
     "nvim-lua/plenary.nvim",
+    { "MaximilianLloyd/ascii.nvim", optional = true },
+    { "MunifTanjim/nui.nvim", optional = true },
 }
 
 ---@type LazySpec
