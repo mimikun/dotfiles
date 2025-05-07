@@ -1,5 +1,6 @@
 ---@type boolean
 local cond = require("config.global").is_work
+cond = false
 
 ---@type table
 local opts = {
