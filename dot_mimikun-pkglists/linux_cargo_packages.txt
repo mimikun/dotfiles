@@ -112,6 +112,7 @@ koji
 krafna
 lazyjj
 lla
+lobtui
 logria
 lsd
 lychee
@@ -125,6 +126,7 @@ menyoki
 mise
 mocword
 monolith
+motus
 natls
 navi
 ncspot
@@ -139,9 +141,11 @@ nu_plugin_query
 nvrs
 onefetch
 os_info_cli
+osintui
 ouch
 oxker
 parallel-disk-usage
+passepartui
 pastel
 pay-respects
 pay-respects-module-request-ai
