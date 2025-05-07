@@ -41,7 +41,7 @@ local keys = {
     {
         "<leader>mb",
         function()
-            vim.cmd('s**<C-r>"**<Esc>')
+            --vim.cmd('s**<C-r>"**<Esc>')
         end,
         mode = "v",
         desc = "Bold text (Visual)",
@@ -58,7 +58,7 @@ local keys = {
     {
         "<leader>mh",
         function()
-            vim.cmd('s==<C-r>"==<Esc>')
+            --vim.cmd('s==<C-r>"==<Esc>')
         end,
         mode = "v",
         desc = "Highlight text (Visual)",
@@ -75,7 +75,7 @@ local keys = {
     },
     {
         "<leader>mi",
-        vim.cmd('s*<C-r>"*<Esc>'),
+        --vim.cmd('s*<C-r>"*<Esc>'),
         mode = "v",
         desc = "Italic text (Visual)",
         opts = { remap = true },
@@ -96,9 +96,11 @@ local keys = {
         -- 3. Move cursor left: `<Cmd>normal! h<CR>`
         -- 4. Enter insert mode (before cursor): `<Cmd>startinsert<CR>`
         -- 5. Call Lua helper to prompt and insert URL
+        --[[
         vim.cmd(
             's[<C-r>"]()<Esc><Cmd>normal! h<CR><Cmd>startinsert<CR><Cmd>lua require("markdown-tools.commands").prompt_and_insert_url()<CR>'
         ),
+        ]]
         mode = "v",
         desc = "Link (Visual)",
     },
