@@ -1,5 +1,4 @@
----@type boolean
-local is_human_rights = require("config.global").is_human_rights
+local g = require("config.global")
 
 ---@type boolean
 local use_dashboard_image = require("config.settings").use_dashboard_image
@@ -19,7 +18,7 @@ local sections = {}
 table.insert(sections, {
     section = "header",
 })
-if is_human_rights then
+if g.is_human_rights and g.is_home then
     if use_dashboard_image then
         table.insert(sections, show_image(image_path))
     else
