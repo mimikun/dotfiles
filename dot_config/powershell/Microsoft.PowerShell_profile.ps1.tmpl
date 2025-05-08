@@ -371,6 +371,17 @@ if ($cond) {
         Write-Output $task_completion >> $env:CACHE_PROFILE
     }
 
+    # pixi completion
+    Get-Command pixi -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# pixi completion" >> $env:CACHE_PROFILE
+        $pixi_completion = pixi completion --shell powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $pixi_completion >> $env:CACHE_PROFILE
+    }
+
     # vfox setup
     # NOTE: can't use now
     #Get-Command vfox -ErrorAction Ignore | Out-Null

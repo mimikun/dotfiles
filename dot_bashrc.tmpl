@@ -408,6 +408,11 @@ fi
 export CLAUDE_DESKTOP_PATH="$WIN_HOME/AppData/Roaming/Claude.json"
 export CLAUDE_DESKTOP_CONFIG="$CLAUDE_DESKTOP_PATH/claude_desktop_config.json"
 
+# pixi
+if command -v pixi >/dev/null 2>&1; then
+    eval "$(pixi completion --shell bash)"
+fi
+
 {{ else if eq .chezmoi.os "darwin" -}}
 # macOSのとき
 {{ else if eq .chezmoi.os "windows" -}}
