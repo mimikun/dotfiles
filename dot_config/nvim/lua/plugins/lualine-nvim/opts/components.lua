@@ -166,4 +166,9 @@ M.special_notice = function()
     return special_msg
 end
 
+---@type table
+M.obsidian = {
+    "g:obsidian",
+}
+
 return M
