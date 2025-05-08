@@ -137,7 +137,7 @@ export WIN_DOCUMENTS="$WIN_HOME/Documents"
 export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
 export DISPLAY=":0"
 {{ end -}}
-    
+
 export obsidian_vault_path=$obsidian_vault_root_path
 export obsidian_dailynote_path=$obsidian_vault_path/001_DailyNotes
 export obsidian=$obsidian_dailynote_path
@@ -246,7 +246,7 @@ fi
 #then
 #    source ~/.inshellisense/key-bindings.bash
 #fi
-    
+
 # sheldon
 export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/bash"
 export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/bash"
@@ -358,13 +358,13 @@ export AGE_PUBKEY_HOME="age1cktdwc8u4z76kawluyswaruyeg7eg6078rw3t0kkmx5wqkk40d2q
 export AGE_PUBKEY_WORK="age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6qpl9x7l"
 # TODO: config
 export AGE_PUBKEY_AZUSA=""
-    
+
 {{ if (eq .chezmoi.hostname "TanakaPC") -}}
 export AGE_PUBKEY="$AGE_PUBKEY_HOME"
 {{ else -}}
 export AGE_PUBKEY="$AGE_PUBKEY_WORK"
 {{ end -}}
-    
+
 # golang
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
