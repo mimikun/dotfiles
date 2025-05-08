@@ -19,7 +19,6 @@
     "stylua",
     "svelteserver",
     "taplo",
-    "textlint",
     "typescript-language-server",
     "typos-lsp",
     "vim-language-server",
@@ -53,6 +52,7 @@
     "LhKipp/nvim-nu",
     "MagicDuck/grug-far.nvim",
     "MahanRahmati/blink-nerdfont.nvim",
+    "MaximilianLloyd/ascii.nvim",
     "MeanderingProgrammer/render-markdown.nvim",
     "MisanthropicBit/neotest-busted",
     "MunifTanjim/nui.nvim",
@@ -152,6 +152,8 @@
     "marilari88/neotest-vitest",
     "markemmons/neotest-deno",
     "maskudo/devdocs.nvim",
+    "mason-org/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
     "maxbol/treesorter.nvim",
     "mcauley-penney/visual-whitespace.nvim",
     "mei28/luminate.nvim",
@@ -164,6 +166,7 @@
     "mikavilpas/yazi.nvim",
     "mimikun/lspctl.nvim",
     "mimikun/mason-conform.nvim",
+    "mimikun/mason-nvim-lint",
     "miroshQa/debugmaster.nvim",
     "mistweaverco/kulala.nvim",
     "mkindberg/ghostty-ls",
@@ -208,6 +211,7 @@
     "rachartier/tiny-glimmer.nvim",
     "rachartier/tiny-inline-diagnostic.nvim",
     "rafamadriz/friendly-snippets",
+    "ravitemer/codecompanion-history.nvim",
     "ravitemer/mcphub.nvim",
     "rcarriga/cmp-dap",
     "rcarriga/nvim-notify",
@@ -217,7 +221,6 @@
     "ribru17/blink-cmp-spell",
     "romgrk/barbar.nvim",
     "roycrippen4/telescope-treesitter-info.nvim",
-    "rshkarin/mason-nvim-lint",
     "s-show/extend_word_motion.nvim",
     "saecki/crates.nvim",
     "saghen/blink.compat",
@@ -248,8 +251,6 @@
     "vim-test/vim-test",
     "virakkhun/flatjson.nvim",
     "vuki656/package-info.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "williamboman/mason.nvim",
     "windwp/nvim-autopairs",
     "windwp/nvim-ts-autotag",
     "wsdjeg/logger.nvim",
@@ -263,95 +264,6 @@
     "zapling/mason-lock.nvim",
     "zbirenbaum/copilot.lua"
   ],
-  "pluginManager": "lazy.nvim",
-  "treesitterParsers": [
-    "bash",
-    "c",
-    "c_sharp",
-    "cmake",
-    "comment",
-    "commonlisp",
-    "cpp",
-    "css",
-    "csv",
-    "desktop",
-    "diff",
-    "djot",
-    "dockerfile",
-    "editorconfig",
-    "elixir",
-    "elm",
-    "elvish",
-    "erlang",
-    "fennel",
-    "fish",
-    "git_config",
-    "git_rebase",
-    "gitattributes",
-    "gitcommit",
-    "gitignore",
-    "gleam",
-    "go",
-    "gomod",
-    "gosum",
-    "gpg",
-    "graphql",
-    "haskell",
-    "haskell_persistent",
-    "html",
-    "http",
-    "ini",
-    "javascript",
-    "jq",
-    "jsdoc",
-    "json",
-    "json5",
-    "jsonc",
-    "just",
-    "kdl",
-    "latex",
-    "lua",
-    "luadoc",
-    "luap",
-    "luau",
-    "make",
-    "markdown",
-    "markdown_inline",
-    "nginx",
-    "nix",
-    "nu",
-    "powershell",
-    "pymanifest",
-    "python",
-    "query",
-    "rasi",
-    "requirements",
-    "ron",
-    "rst",
-    "ruby",
-    "rust",
-    "sql",
-    "ssh_config",
-    "superhtml",
-    "svelte",
-    "swift",
-    "templ",
-    "terraform",
-    "tmux",
-    "toml",
-    "tsv",
-    "tsx",
-    "typescript",
-    "typst",
-    "vhs",
-    "vim",
-    "vimdoc",
-    "vue",
-    "xml",
-    "xresources",
-    "yaml",
-    "zig"
-  ],
   "keymaps": [
     {
       "desc": "",
@@ -361,7 +273,35 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Plugin Files",
+      "desc": "Open yazi at the current file",
+      "noremap": true,
+      "lhs": "<Space>-",
+      "mode": "n",
+      "rhs": "<Cmd>Yazi<CR>"
+    },
+    {
+      "desc": "Open the file manager in nvim's working directory",
+      "noremap": true,
+      "lhs": "<Space>cw",
+      "mode": "n",
+      "rhs": "<Cmd>Yazi cwd<CR>"
+    },
+    {
+      "desc": "Buffer Local Keymaps (which-key)",
+      "noremap": true,
+      "lhs": "<Space>?",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Neovim Logs",
+      "noremap": true,
+      "lhs": "<Space>ecL",
+      "mode": "n",
+      "rhs": ":lua require(\"pickme\").pick(\"files\", { cwd = vim.fn.stdpath(\"state\"), title = \"Log Files\" })<CR>"
+    },
+    {
+      "desc": "Neovim Plugins",
       "noremap": true,
       "lhs": "<Space>ecP",
       "mode": "n",
@@ -697,55 +637,6 @@
       "rhs": ":PickMe search_history<CR>"
     },
     {
-      "desc": "Flash 2-Char Jump, Like HopWord",
-      "noremap": true,
-      "lhs": "<Space>hh",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Flash 2-Char Jump, Like HopWord",
-      "noremap": true,
-      "lhs": "<Space>hh",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Flash Treesitter",
-      "noremap": true,
-      "lhs": "<Space>hS",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Flash Jump",
-      "noremap": true,
-      "lhs": "<Space>hs",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Flash Treesitter",
-      "noremap": true,
-      "lhs": "<Space>hS",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Flash Jump",
-      "noremap": true,
-      "lhs": "<Space>hs",
-      "mode": "x",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Buffer Local Keymaps (which-key)",
-      "noremap": true,
-      "lhs": "<Space>?",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
       "desc": "",
       "noremap": true,
       "lhs": "<Space>rn",
@@ -753,18 +644,46 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Open the file manager in nvim's working directory",
+      "desc": "Flash 2-Char Jump, Like HopWord",
       "noremap": true,
-      "lhs": "<Space>cw",
-      "mode": "n",
-      "rhs": "<Cmd>Yazi cwd<CR>"
+      "lhs": "<Space>hh",
+      "mode": "x",
+      "rhs": "<function>"
     },
     {
-      "desc": "Open yazi at the current file",
+      "desc": "Flash 2-Char Jump, Like HopWord",
       "noremap": true,
-      "lhs": "<Space>-",
+      "lhs": "<Space>hh",
       "mode": "n",
-      "rhs": "<Cmd>Yazi<CR>"
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Flash Treesitter",
+      "noremap": true,
+      "lhs": "<Space>hS",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Flash Treesitter",
+      "noremap": true,
+      "lhs": "<Space>hS",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Flash Jump",
+      "noremap": true,
+      "lhs": "<Space>hs",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Flash Jump",
+      "noremap": true,
+      "lhs": "<Space>hs",
+      "mode": "n",
+      "rhs": "<function>"
     },
     {
       "desc": "avante: add all open buffers",
@@ -802,6 +721,20 @@
       "rhs": "<function>"
     },
     {
+      "desc": "avante: create new ask",
+      "noremap": true,
+      "lhs": "<Space>an",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "avante: create new ask",
+      "noremap": true,
+      "lhs": "<Space>an",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
       "desc": "avante: ask",
       "noremap": true,
       "lhs": "<Space>aa",
@@ -826,97 +759,6 @@
       "desc": "Show diagnostics in a floating window",
       "noremap": true,
       "lhs": "<Space>e",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Goto buffer in 9",
-      "noremap": true,
-      "lhs": "<Space>b9",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Sort automatically by Directory",
-      "noremap": true,
-      "lhs": "<Space>bd",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Sort automatically by WindowNumber",
-      "noremap": true,
-      "lhs": "<Space>bw",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Sort automatically by Language",
-      "noremap": true,
-      "lhs": "<Space>bl",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Sort automatically by Name",
-      "noremap": true,
-      "lhs": "<Space>bn",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Sort automatically by BufferNumber",
-      "noremap": true,
-      "lhs": "<Space>bb",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Restore buffer",
-      "noremap": true,
-      "lhs": "<Space>sc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Close buffer",
-      "noremap": true,
-      "lhs": "<Space>c",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Goto last buffer",
-      "noremap": true,
-      "lhs": "<Space>b$",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Goto buffer in 8",
-      "noremap": true,
-      "lhs": "<Space>b8",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Goto buffer in 7",
-      "noremap": true,
-      "lhs": "<Space>b7",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Goto buffer in 6",
-      "noremap": true,
-      "lhs": "<Space>b6",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Goto buffer in 5",
-      "noremap": true,
-      "lhs": "<Space>b5",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -977,11 +819,95 @@
       "rhs": ":PickMe buffers<CR>"
     },
     {
-      "desc": "Quickfix List (Trouble)",
+      "desc": "Sort automatically by Name",
       "noremap": true,
-      "lhs": "<Space>xQ",
+      "lhs": "<Space>bn",
       "mode": "n",
-      "rhs": "<Cmd>Trouble qflist toggle<CR>"
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Sort automatically by WindowNumber",
+      "noremap": true,
+      "lhs": "<Space>bw",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Sort automatically by Language",
+      "noremap": true,
+      "lhs": "<Space>bl",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Sort automatically by Directory",
+      "noremap": true,
+      "lhs": "<Space>bd",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Sort automatically by BufferNumber",
+      "noremap": true,
+      "lhs": "<Space>bb",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Restore buffer",
+      "noremap": true,
+      "lhs": "<Space>sc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Close buffer",
+      "noremap": true,
+      "lhs": "<Space>c",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Goto last buffer",
+      "noremap": true,
+      "lhs": "<Space>b$",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Goto buffer in 9",
+      "noremap": true,
+      "lhs": "<Space>b9",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Goto buffer in 8",
+      "noremap": true,
+      "lhs": "<Space>b8",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Goto buffer in 7",
+      "noremap": true,
+      "lhs": "<Space>b7",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Goto buffer in 6",
+      "noremap": true,
+      "lhs": "<Space>b6",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Goto buffer in 5",
+      "noremap": true,
+      "lhs": "<Space>b5",
+      "mode": "n",
+      "rhs": "<function>"
     },
     {
       "desc": "Location List (Trouble)",
@@ -1019,18 +945,32 @@
       "rhs": "<Cmd>Trouble diagnostics toggle<CR>"
     },
     {
+      "desc": "Quickfix List (Trouble)",
+      "noremap": true,
+      "lhs": "<Space>xQ",
+      "mode": "n",
+      "rhs": "<Cmd>Trouble qflist toggle<CR>"
+    },
+    {
+      "desc": "run `:nohlsearch` and export results to quickfix",
+      "noremap": true,
+      "lhs": "<Space>L",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "run `:nohlsearch` and export results to quickfix",
+      "noremap": true,
+      "lhs": "<Space>L",
+      "mode": "x",
+      "rhs": "<function>"
+    },
+    {
       "desc": "Open Yank History",
       "noremap": true,
       "lhs": "<Space>P",
       "mode": "n",
       "rhs": "<function>"
-    },
-    {
-      "desc": "Grep",
-      "noremap": true,
-      "lhs": "<Space>fg",
-      "mode": "n",
-      "rhs": ":PickMe live_grep<CR>"
     },
     {
       "desc": "Find Git Files",
@@ -1054,25 +994,242 @@
       "rhs": ":PickMe buffers<CR>"
     },
     {
-      "desc": "run `:nohlsearch` and export results to quickfix",
+      "desc": "Grep",
       "noremap": true,
-      "lhs": "<Space>L",
-      "mode": "x",
-      "rhs": "<function>"
+      "lhs": "<Space>fg",
+      "mode": "n",
+      "rhs": ":PickMe live_grep<CR>"
     },
     {
-      "desc": "run `:nohlsearch` and export results to quickfix",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>L",
+      "lhs": "<Space>hL",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Toggle loclist",
+      "desc": "Skip adding a new cursor by matching word/selection",
       "noremap": true,
-      "lhs": "<Space>l",
+      "lhs": "<Space>S",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Align cursor columns",
+      "noremap": true,
+      "lhs": "<Space>a",
       "mode": "n",
       "rhs": "<function>"
+    },
+    {
+      "desc": "bring back cursors if you accidentally clear them",
+      "noremap": true,
+      "lhs": "<Space>gv",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Clone every cursor and disable the originals",
+      "noremap": true,
+      "lhs": "<Space><C-Q>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Clone every cursor and disable the originals",
+      "noremap": true,
+      "lhs": "<Space><C-Q>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Delete the main cursor",
+      "noremap": true,
+      "lhs": "<Space>x",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Delete the main cursor",
+      "noremap": true,
+      "lhs": "<Space>x",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add all matches in the document",
+      "noremap": true,
+      "lhs": "<Space>A",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add all matches in the document",
+      "noremap": true,
+      "lhs": "<Space>A",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Skip adding a new cursor by matching word/selection",
+      "noremap": true,
+      "lhs": "<Space>S",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add adding a new cursor by matching word/selection",
+      "noremap": true,
+      "lhs": "<Space>N",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add adding a new cursor by matching word/selection",
+      "noremap": true,
+      "lhs": "<Space>N",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Skip adding a new cursor by matching word/selection",
+      "noremap": true,
+      "lhs": "<Space>s",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add adding a new cursor by matching word/selection",
+      "noremap": true,
+      "lhs": "<Space>n",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add adding a new cursor by matching word/selection",
+      "noremap": true,
+      "lhs": "<Space>n",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Skip cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Space><Down>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Skip cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Space><Down>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Skip cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Space><Up>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Skip cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Space><Up>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Opens browser with embedded web/app (auto stop webserver on idle)",
+      "noremap": true,
+      "lhs": "<Space>nW",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Full text search with prefixed note title",
+      "noremap": true,
+      "lhs": "<Space>ns",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "List all links related to active note (or all if none)",
+      "noremap": true,
+      "lhs": "<Space>nk",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "List with prefixed date created (YYYY/WeekXX), sorted by ctime",
+      "noremap": true,
+      "lhs": "<Space>nc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "List with prefixed date modified, sorted by mtime",
+      "noremap": true,
+      "lhs": "<Space>nm",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "List with prefixed label, sorted alphabetically; mtime if journal",
+      "noremap": true,
+      "lhs": "<Space>nl",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Opens new or existing weekly note",
+      "noremap": true,
+      "lhs": "<Space>nw",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Opens new or existing daily note",
+      "noremap": true,
+      "lhs": "<Space>nd",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Opens new note for editing",
+      "noremap": true,
+      "lhs": "<Space>nn",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Get Devdocs",
+      "noremap": true,
+      "lhs": "<Space>ho",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "View Devdocs",
+      "noremap": true,
+      "lhs": "<Space>hv",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Install Devdocs",
+      "noremap": true,
+      "lhs": "<Space>hi",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Notifications",
+      "noremap": true,
+      "lhs": "<Space>on",
+      "mode": "n",
+      "rhs": ":PickMe notifications<CR>"
     },
     {
       "desc": "[senpai] transfer_visual_to_chat",
@@ -1085,6 +1242,34 @@
       "desc": "",
       "noremap": true,
       "lhs": "<Space>sl",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>zi",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>zC",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Opens up the calendar in a properly-sized vertical split at the very right, showing the previous, current, and next month.",
+      "noremap": true,
+      "lhs": "<Space>zc",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Yank a link to the current note, ready to paste.",
+      "noremap": true,
+      "lhs": "<Space>zy",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1168,51 +1353,23 @@
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>zi",
-      "mode": "n",
+      "lhs": "<Space>d",
+      "mode": "v",
       "rhs": "<function>"
     },
     {
       "desc": "",
       "noremap": true,
-      "lhs": "<Space>zC",
+      "lhs": "<Space>d",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Opens up the calendar in a properly-sized vertical split at the very right, showing the previous, current, and next month.",
+      "desc": "Git Log Line",
       "noremap": true,
-      "lhs": "<Space>zc",
+      "lhs": "<Space>gl",
       "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Yank a link to the current note, ready to paste.",
-      "noremap": true,
-      "lhs": "<Space>zy",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "View Devdocs",
-      "noremap": true,
-      "lhs": "<Space>hv",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Install Devdocs",
-      "noremap": true,
-      "lhs": "<Space>hi",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Get Devdocs",
-      "noremap": true,
-      "lhs": "<Space>ho",
-      "mode": "n",
-      "rhs": "<function>"
+      "rhs": ":PickMe git_log_line<CR>"
     },
     {
       "desc": "Command History",
@@ -1229,16 +1386,9 @@
       "rhs": ":PickMe colorschemes<CR>"
     },
     {
-      "desc": "",
+      "desc": "Colorscheme Picker",
       "noremap": true,
-      "lhs": "<Space>hL",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Reopen buffer",
-      "noremap": true,
-      "lhs": "<Space>bt",
+      "lhs": "<Space>th",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1250,23 +1400,23 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Colorscheme Picker",
+      "desc": "Turn visual-whitespace.nvim off (toggles the enabled cfg flag)",
       "noremap": true,
-      "lhs": "<Space>th",
+      "lhs": "<Space>tw",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Top Starred Repos",
+      "desc": "Turn visual-whitespace.nvim off (toggles the enabled cfg flag)",
       "noremap": true,
-      "lhs": "<Space>gos",
-      "mode": "n",
+      "lhs": "<Space>tw",
+      "mode": "v",
       "rhs": "<function>"
     },
     {
-      "desc": "All Repos",
+      "desc": "Toggle loclist",
       "noremap": true,
-      "lhs": "<Space>goo",
+      "lhs": "<Space>l",
       "mode": "n",
       "rhs": "<function>"
     },
@@ -1341,46 +1491,74 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Yank git link",
+      "desc": "Top Starred Repos",
       "noremap": true,
-      "lhs": "<Space>gy",
+      "lhs": "<Space>gos",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "All Repos",
+      "noremap": true,
+      "lhs": "<Space>goo",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "",
+      "noremap": true,
+      "lhs": "<Space>cc",
       "mode": "v",
       "rhs": "<function>"
     },
     {
-      "desc": "Yank git link",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>gy",
+      "lhs": "<Space>cc",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Open git link",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>gY",
+      "lhs": "<Space>ca",
       "mode": "v",
       "rhs": "<function>"
     },
     {
-      "desc": "Open git link",
+      "desc": "Start aibou",
       "noremap": true,
-      "lhs": "<Space>gY",
+      "lhs": "<Space>ci",
       "mode": "n",
       "rhs": "<function>"
     },
     {
-      "desc": "Notifications",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>on",
+      "lhs": "<Space>cd",
       "mode": "n",
-      "rhs": ":PickMe notifications<CR>"
+      "rhs": "<function>"
     },
     {
-      "desc": "Git Log Line",
+      "desc": "",
       "noremap": true,
-      "lhs": "<Space>gl",
+      "lhs": "<Space>cA",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Reopen buffer",
+      "noremap": true,
+      "lhs": "<Space>bt",
       "mode": "n",
-      "rhs": ":PickMe git_log_line<CR>"
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Split code block",
+      "noremap": true,
+      "lhs": "<Space>s",
+      "mode": "n",
+      "rhs": "<function>"
     },
     {
       "desc": "Join code block",
@@ -1397,279 +1575,6 @@
       "rhs": "<function>"
     },
     {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>d",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>d",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "List all links related to active note (or all if none)",
-      "noremap": true,
-      "lhs": "<Space>nk",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "List with prefixed date created (YYYY/WeekXX), sorted by ctime",
-      "noremap": true,
-      "lhs": "<Space>nc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "List with prefixed date modified, sorted by mtime",
-      "noremap": true,
-      "lhs": "<Space>nm",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "List with prefixed label, sorted alphabetically; mtime if journal",
-      "noremap": true,
-      "lhs": "<Space>nl",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Opens new or existing weekly note",
-      "noremap": true,
-      "lhs": "<Space>nw",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Opens new or existing daily note",
-      "noremap": true,
-      "lhs": "<Space>nd",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Opens new note for editing",
-      "noremap": true,
-      "lhs": "<Space>nn",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Opens browser with embedded web/app (auto stop webserver on idle)",
-      "noremap": true,
-      "lhs": "<Space>nW",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Full text search with prefixed note title",
-      "noremap": true,
-      "lhs": "<Space>ns",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Turn visual-whitespace.nvim off (toggles the enabled cfg flag)",
-      "noremap": true,
-      "lhs": "<Space>tw",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Turn visual-whitespace.nvim off (toggles the enabled cfg flag)",
-      "noremap": true,
-      "lhs": "<Space>tw",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>cc",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>cc",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>ca",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>cd",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Start aibou",
-      "noremap": true,
-      "lhs": "<Space>ci",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<Space>cA",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>n",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>n",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Space><Down>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Space><Down>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Space><Up>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Space><Up>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Align cursor columns",
-      "noremap": true,
-      "lhs": "<Space>a",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "bring back cursors if you accidentally clear them",
-      "noremap": true,
-      "lhs": "<Space>gv",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Clone every cursor and disable the originals",
-      "noremap": true,
-      "lhs": "<Space><C-Q>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Clone every cursor and disable the originals",
-      "noremap": true,
-      "lhs": "<Space><C-Q>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Delete the main cursor",
-      "noremap": true,
-      "lhs": "<Space>x",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Delete the main cursor",
-      "noremap": true,
-      "lhs": "<Space>x",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add all matches in the document",
-      "noremap": true,
-      "lhs": "<Space>A",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add all matches in the document",
-      "noremap": true,
-      "lhs": "<Space>A",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>S",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>S",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>N",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>N",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>s",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Skip adding a new cursor by matching word/selection",
-      "noremap": true,
-      "lhs": "<Space>s",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
       "desc": "Selects a code action available at the current cursor position",
       "noremap": true,
       "lhs": "<Space>ca",
@@ -1681,6 +1586,34 @@
       "noremap": true,
       "lhs": "<Space>q",
       "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Open git link",
+      "noremap": true,
+      "lhs": "<Space>gY",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Yank git link",
+      "noremap": true,
+      "lhs": "<Space>gy",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Yank git link",
+      "noremap": true,
+      "lhs": "<Space>gy",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Open git link",
+      "noremap": true,
+      "lhs": "<Space>gY",
+      "mode": "v",
       "rhs": "<function>"
     },
     {
@@ -1747,18 +1680,18 @@
       "rhs": "<Plug>(YankyPutIndentBeforeShiftLeft)"
     },
     {
-      "desc": "Put before applying a filter",
-      "noremap": true,
-      "lhs": "=P",
-      "mode": "n",
-      "rhs": "<Plug>(YankyPutBeforeFilter)"
-    },
-    {
       "desc": "Put after applying a filter",
       "noremap": true,
       "lhs": "=p",
       "mode": "n",
       "rhs": "<Plug>(YankyPutAfterFilter)"
+    },
+    {
+      "desc": "Put before applying a filter",
+      "noremap": true,
+      "lhs": "=P",
+      "mode": "n",
+      "rhs": "<Plug>(YankyPutBeforeFilter)"
     },
     {
       "desc": "Put and indent right",
@@ -1861,14 +1794,14 @@
     {
       "desc": "Put indented before cursor (linewise)",
       "noremap": true,
-      "lhs": "[p",
+      "lhs": "[P",
       "mode": "n",
       "rhs": "<Plug>(YankyPutIndentBeforeLinewise)"
     },
     {
       "desc": "Put indented before cursor (linewise)",
       "noremap": true,
-      "lhs": "[P",
+      "lhs": "[p",
       "mode": "n",
       "rhs": "<Plug>(YankyPutIndentBeforeLinewise)"
     },
@@ -2251,39 +2184,39 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Put yanked text before selection",
-      "noremap": true,
-      "lhs": "gP",
-      "mode": "x",
-      "rhs": "<Plug>(YankyGPutBefore)"
-    },
-    {
-      "desc": "Put yanked text before selection",
-      "noremap": true,
-      "lhs": "gP",
-      "mode": "n",
-      "rhs": "<Plug>(YankyGPutBefore)"
-    },
-    {
-      "desc": "Put yanked text after selection",
-      "noremap": true,
-      "lhs": "gp",
-      "mode": "n",
-      "rhs": "<Plug>(YankyGPutAfter)"
-    },
-    {
-      "desc": "Put yanked text after selection",
-      "noremap": true,
-      "lhs": "gp",
-      "mode": "x",
-      "rhs": "<Plug>(YankyGPutAfter)"
-    },
-    {
       "desc": "hover.nvim (select)",
       "noremap": true,
       "lhs": "gK",
       "mode": "n",
       "rhs": "<function>"
+    },
+    {
+      "desc": "Put yanked text before selection",
+      "noremap": true,
+      "lhs": "gP",
+      "mode": "n",
+      "rhs": "<Plug>(YankyGPutBefore)"
+    },
+    {
+      "desc": "Put yanked text after selection",
+      "noremap": true,
+      "lhs": "gp",
+      "mode": "x",
+      "rhs": "<Plug>(YankyGPutAfter)"
+    },
+    {
+      "desc": "Put yanked text before selection",
+      "noremap": true,
+      "lhs": "gP",
+      "mode": "x",
+      "rhs": "<Plug>(YankyGPutBefore)"
+    },
+    {
+      "desc": "Put yanked text after selection",
+      "noremap": true,
+      "lhs": "gp",
+      "mode": "n",
+      "rhs": "<Plug>(YankyGPutAfter)"
     },
     {
       "desc": "block comment",
@@ -2424,15 +2357,22 @@
       "desc": "Yank text",
       "noremap": true,
       "lhs": "y",
-      "mode": "n",
+      "mode": "x",
       "rhs": "<Plug>(YankyYank)"
     },
     {
       "desc": "Yank text",
       "noremap": true,
       "lhs": "y",
-      "mode": "x",
+      "mode": "n",
       "rhs": "<Plug>(YankyYank)"
+    },
+    {
+      "desc": "Resume the last yazi session",
+      "noremap": true,
+      "lhs": "<C-Up>",
+      "mode": "n",
+      "rhs": "<Cmd>Yazi toggle<CR>"
     },
     {
       "desc": "",
@@ -2442,31 +2382,10 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Files",
-      "noremap": true,
-      "lhs": "<C-F>",
-      "mode": "n",
-      "rhs": ":PickMe files<CR>"
-    },
-    {
       "desc": "normal mode decrement",
       "noremap": true,
       "lhs": "<C-X>",
       "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "visual mode increment",
-      "noremap": true,
-      "lhs": "<C-A>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "visual mode decrement",
-      "noremap": true,
-      "lhs": "<C-X>",
-      "mode": "v",
       "rhs": "<function>"
     },
     {
@@ -2477,11 +2396,25 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Resume the last yazi session",
+      "desc": "visual mode decrement",
       "noremap": true,
-      "lhs": "<C-Up>",
+      "lhs": "<C-X>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "visual mode increment",
+      "noremap": true,
+      "lhs": "<C-A>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Files",
+      "noremap": true,
+      "lhs": "<C-F>",
       "mode": "n",
-      "rhs": "<Cmd>Yazi toggle<CR>"
+      "rhs": ":PickMe files<CR>"
     },
     {
       "desc": "",
@@ -2505,18 +2438,11 @@
       "rhs": "<function>"
     },
     {
-      "desc": "",
-      "noremap": true,
-      "lhs": "<C-J>",
-      "mode": "n",
-      "rhs": "<Plug>(skkeleton-toggle)"
-    },
-    {
-      "desc": "Select next entry through yank history",
+      "desc": "hover.nvim (next source)",
       "noremap": true,
       "lhs": "<C-N>",
       "mode": "n",
-      "rhs": "<Plug>(YankyNextEntry)"
+      "rhs": "<function>"
     },
     {
       "desc": "hover.nvim (mouse)",
@@ -2526,67 +2452,11 @@
       "rhs": "<function>"
     },
     {
-      "desc": "Reopen buffer",
+      "desc": "",
       "noremap": true,
-      "lhs": "<C-S-T>",
+      "lhs": "<C-J>",
       "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Start a winresizer resize mode",
-      "noremap": true,
-      "lhs": "<C-E>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Down>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Down>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Up>",
-      "mode": "v",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Add cursor above/below the main cursor",
-      "noremap": true,
-      "lhs": "<Up>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Jumplist support",
-      "noremap": true,
-      "lhs": "<C-O>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Jumplist support",
-      "noremap": true,
-      "lhs": "<C-I>",
-      "mode": "n",
-      "rhs": "<function>"
-    },
-    {
-      "desc": "Easy way to add and remove cursors using the main cursor",
-      "noremap": true,
-      "lhs": "<C-Q>",
-      "mode": "n",
-      "rhs": "<function>"
+      "rhs": "<Plug>(skkeleton-toggle)"
     },
     {
       "desc": "Add and remove cursors with control + left click",
@@ -2645,6 +2515,69 @@
       "rhs": "<function>"
     },
     {
+      "desc": "Jumplist support",
+      "noremap": true,
+      "lhs": "<C-I>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Down>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Down>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Up>",
+      "mode": "v",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Add cursor above/below the main cursor",
+      "noremap": true,
+      "lhs": "<Up>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Easy way to add and remove cursors using the main cursor",
+      "noremap": true,
+      "lhs": "<C-Q>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Jumplist support",
+      "noremap": true,
+      "lhs": "<C-O>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Start a winresizer resize mode",
+      "noremap": true,
+      "lhs": "<C-E>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
+      "desc": "Reopen buffer",
+      "noremap": true,
+      "lhs": "<C-S-T>",
+      "mode": "n",
+      "rhs": "<function>"
+    },
+    {
       "desc": "Show diagnostics under the cursor",
       "noremap": false,
       "lhs": "<C-W><C-D>",
@@ -2666,6 +2599,95 @@
       "rhs": "<Cmd>nohlsearch|diffupdate|normal! <C-L><CR>"
     }
   ],
+  "treesitterParsers": [
+    "bash",
+    "c",
+    "c_sharp",
+    "cmake",
+    "comment",
+    "commonlisp",
+    "cpp",
+    "css",
+    "csv",
+    "desktop",
+    "diff",
+    "djot",
+    "dockerfile",
+    "editorconfig",
+    "elixir",
+    "elm",
+    "elvish",
+    "erlang",
+    "fennel",
+    "fish",
+    "git_config",
+    "git_rebase",
+    "gitattributes",
+    "gitcommit",
+    "gitignore",
+    "gleam",
+    "go",
+    "gomod",
+    "gosum",
+    "gpg",
+    "graphql",
+    "haskell",
+    "haskell_persistent",
+    "html",
+    "http",
+    "ini",
+    "javascript",
+    "jq",
+    "jsdoc",
+    "json",
+    "json5",
+    "jsonc",
+    "just",
+    "kdl",
+    "latex",
+    "lua",
+    "luadoc",
+    "luap",
+    "luau",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "nginx",
+    "nix",
+    "nu",
+    "powershell",
+    "pymanifest",
+    "python",
+    "query",
+    "rasi",
+    "requirements",
+    "ron",
+    "rst",
+    "ruby",
+    "rust",
+    "sql",
+    "ssh_config",
+    "superhtml",
+    "svelte",
+    "swift",
+    "templ",
+    "terraform",
+    "tmux",
+    "toml",
+    "tsv",
+    "tsx",
+    "typescript",
+    "typst",
+    "vhs",
+    "vim",
+    "vimdoc",
+    "vue",
+    "xml",
+    "xresources",
+    "yaml",
+    "zig"
+  ],
+  "pluginManager": "lazy.nvim",
   "leaderKey": "<Space>",
   "lspServers": [
     "bashls",
