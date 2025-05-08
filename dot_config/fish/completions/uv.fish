@@ -1150,8 +1150,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l from -d 'The package to install commands from' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with -d 'Include the following extra requirements' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Run all requirements listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with -d 'Include the following additional requirements' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Include all requirements listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-editable -d 'Include the given packages in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l overrides -d 'Override versions using the given requirements files' -r
@@ -1342,6 +1342,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-paths -d 'Whether to display the path to each tool environment and installed executable'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-version-specifiers -d 'Whether to display the version specifier(s) used to install each tool'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-with -d 'Whether to display the additional requirements installed with each tool'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-python-downloads
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l managed-python -d 'Require use of uv-managed Python versions'
@@ -1512,6 +1513,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcom
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install find pin dir uninstall" -f -a "uninstall" -d 'Uninstall Python versions'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l output-format -d 'Select the output format' -r -f -a "text\t'Plain text (for humans)'
 json\t'JSON (for computers)'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l python-downloads-json-url -d 'URL pointing to JSON of custom Python installations' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -1556,6 +1558,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s i -l install-dir -d 'The directory to store the Python installation in' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l mirror -d 'Set the URL to use as the source for downloading Python installations' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l pypy-mirror -d 'Set the URL to use as the source for downloading PyPy installations' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l python-downloads-json-url -d 'URL pointing to JSON of custom Python installations' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3340,6 +3343,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l dry-run -d 'Run without performing the update'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l managed-python -d 'Require use of uv-managed Python versions'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-managed-python -d 'Disable use of uv-managed Python versions'

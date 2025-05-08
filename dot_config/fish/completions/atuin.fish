@@ -52,14 +52,15 @@ complete -c atuin -n "__fish_atuin_needs_command" -f -a "uuid" -d 'Generate a UU
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "contributors"
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "gen-completions" -d 'Generate shell completions'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -f -a "start" -d 'Begins a new command in the history'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -f -a "list" -d 'List all items in history'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -f -a "last" -d 'Get the last command ran'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -f -a "init-store"
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "start" -d 'Begins a new command in the history'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "list" -d 'List all items in history'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "last" -d 'Get the last command ran'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "init-store"
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "dedup" -d 'Delete duplicate history entries (that have the same command, cwd and hostname)'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from end" -s e -l exit -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from end" -s d -l duration -r
@@ -82,12 +83,17 @@ complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_sub
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from init-store" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from prune" -s n -l dry-run -d 'List matching history lines without performing the actual deletion'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from prune" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from dedup" -s b -l before -d 'Only delete results added before this date' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from dedup" -l dupkeep -d 'How many recent duplicates to keep' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from dedup" -s n -l dry-run -d 'List matching history lines without performing the actual deletion'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from dedup" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "start" -d 'Begins a new command in the history'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all items in history'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "last" -d 'Get the last command ran'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "init-store"
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "dedup" -d 'Delete duplicate history entries (that have the same command, cwd and hostname)'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand import; and not __fish_seen_subcommand_from auto zsh zsh-hist-db bash replxx resh fish nu nu-hist-db xonsh xonsh-sqlite help" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand import; and not __fish_seen_subcommand_from auto zsh zsh-hist-db bash replxx resh fish nu nu-hist-db xonsh xonsh-sqlite help" -f -a "auto" -d 'Import history for the current shell'
@@ -206,26 +212,29 @@ complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_sub
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "change-password" -d 'Change your password'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "verify" -d 'Verify your account'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list help" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list help" -f -a "set"
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list help" -f -a "delete"
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list help" -f -a "get"
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list help" -f -a "list"
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from set" -s k -l key -r
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from set" -s n -l namespace -r
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -f -a "set" -d 'Set a key-value pair'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -f -a "delete" -d 'Delete one or more key-value pairs'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -f -a "get" -d 'Retrieve a saved value'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -f -a "list" -d 'List all keys in a namespace, or in all namespaces'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -f -a "rebuild" -d 'Rebuild the KV store'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from set" -s k -l key -d 'Key to set' -r
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from set" -s n -l namespace -d 'Namespace for the key-value pair' -r
 complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from delete" -s n -l namespace -r
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from delete" -s n -l namespace -d 'Namespace for the key-value pair' -r
 complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from get" -s n -l namespace -r
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from get" -s n -l namespace -d 'Namespace for the key-value pair' -r
 complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from list" -s n -l namespace -r
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from list" -s a -l all-namespaces
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from list" -s n -l namespace -d 'Namespace to list keys from' -r
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from list" -s a -l all-namespaces -d 'List all keys in all namespaces'
 complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "set"
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "delete"
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "get"
-complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "list"
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from rebuild" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "set" -d 'Set a key-value pair'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete one or more key-value pairs'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "get" -d 'Retrieve a saved value'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all keys in a namespace, or in all namespaces'
+complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "rebuild" -d 'Rebuild the KV store'
 complete -c atuin -n "__fish_atuin_using_subcommand kv; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand store; and not __fish_seen_subcommand_from status rebuild rekey purge verify push pull help" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand store; and not __fish_seen_subcommand_from status rebuild rekey purge verify push pull help" -f -a "status" -d 'Print the current status of the record store'
@@ -372,6 +381,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcom
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "last" -d 'Get the last command ran'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "init-store"
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "dedup" -d 'Delete duplicate history entries (that have the same command, cwd and hostname)'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from import" -f -a "auto" -d 'Import history for the current shell'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from import" -f -a "zsh" -d 'Import history from the zsh history file'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from import" -f -a "zsh-hist-db" -d 'Import history from the zsh history file'
@@ -389,10 +399,11 @@ complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcom
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from account" -f -a "delete" -d 'Delete your account, and all synced data'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from account" -f -a "change-password" -d 'Change your password'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from account" -f -a "verify" -d 'Verify your account'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "set"
-complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "delete"
-complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "get"
-complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "list"
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "set" -d 'Set a key-value pair'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "delete" -d 'Delete one or more key-value pairs'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "get" -d 'Retrieve a saved value'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "list" -d 'List all keys in a namespace, or in all namespaces'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "rebuild" -d 'Rebuild the KV store'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from store" -f -a "status" -d 'Print the current status of the record store'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from store" -f -a "rebuild" -d 'Rebuild a store (eg atuin store rebuild history)'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from store" -f -a "rekey" -d 'Re-encrypt the store with a new key (potential for data loss!)'
