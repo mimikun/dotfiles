@@ -6,10 +6,8 @@ halostatue/fish-docker@v1.x
 jorgebucaran/fisher
 jorgebucaran/getopts.fish
 kyohsuke/fish-evalcache
-mimikun/bw.fish
 mimikun/fish-ghq
 mimikun/gcd
-mimikun/nkf.fish
 rcny/gh-copilot-cli-alias.fish
 ryoppippi/na.fish
 sijad/gitignore
