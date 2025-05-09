@@ -18,6 +18,7 @@ bob-nvim
 bottom
 bpf-linker
 broot
+brush-shell
 cargo-about
 cargo-all-features
 cargo-audit
