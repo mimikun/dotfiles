@@ -2,10 +2,10 @@
 mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # starship
-#starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # oh-my-posh
-oh-my-posh init nu --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | save -f ($nu.data-dir | path join "vendor/autoload/oh-my-posh.nu")
+#oh-my-posh init nu --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | save -f ($nu.data-dir | path join "vendor/autoload/oh-my-posh.nu")
 
 # atuin
 atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
