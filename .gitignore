@@ -19,6 +19,7 @@ dot_config/fish/completions/git-forgit.bash
 dot_config/fish/completions/git-forgit.fish
 dot_config/fish/completions/pnpm.fish
 dot_config/fish/completions/wezterm.fish
+dot_config/fish/completions/tide.fish
 
 # Windows only
 AppData/Local/nvim/Makefile
