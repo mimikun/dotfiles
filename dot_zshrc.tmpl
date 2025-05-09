@@ -258,11 +258,14 @@ fi
 
 alias vim=nvim
 
+# NOTE: Enable if has human rights
+{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # atuin
 if command -v atuin>/dev/null 2>&1; then
     eval "$(atuin init zsh)"
     atuin gen-completions --shell zsh
 fi
+{{ end -}}
 
 # rebar3
 if command -v rebar3 >/dev/null 2>&1; then

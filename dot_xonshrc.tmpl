@@ -1,4 +1,10 @@
+# starship
 execx($(starship init xonsh))
+
+# NOTE: Enable if has human rights
+{{ if (ne .chezmoi.hostname "TanakaPC") -}}
+# atuin
 execx($(atuin init xonsh))
+{{ end -}}
 
 # vim:ft=xonsh.chezmoitmpl

@@ -537,11 +537,14 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         cat $XDG_CONFIG_HOME/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
     end
 
+    # NOTE: Enable if has human rights
+    {{ if (ne .chezmoi.hostname "TanakaPC") -}}
     # atuin
     if command -v atuin >/dev/null 2>&1
         echo "# cache atuin config" >> $CACHE_CONFIG_FISH
         echo "atuin init fish | source" >> $CACHE_CONFIG_FISH
     end
+    {{ end -}}
 
     # rebar3
     if command -v rebar3 >/dev/null 2>&1
