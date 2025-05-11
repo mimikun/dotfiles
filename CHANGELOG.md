@@ -1,5 +1,48 @@
 # Changelog
 
+## [v2025.05.10]
+
+### Added - 新機能について
+
+- feat(nvim): add shell-abbr.nvim
+- feat(nvim): add tutorial.nvim
+- feat(nvim): add sql-ghosty.nvim
+- feat(shells): add pixi shell integrations
+- feat(cargo): add brush-shell
+- feat(clink): add setting file
+- feat(components): add obsidian.nvim statusline
+- docs(fish): add comment
+- docs: add documentation for tide fish-prompts
+- chore(shells): use starship instead of oh-my-posh
+    - oh-my-posh setup method was "unique"
+    - bash, zsh, fish, powershell, nushell
+- chore(xonsh): use chezmoi template
+
+### Changed - 既存機能の変更について
+
+- chore: update ignorefiles
+- chore(aqua): update goimports
+- chore(fish): update some completions
+- chore(image.nvim): update config
+- chore(img-clip.nvim): update config
+- docs(fish): update config
+    - tide, hydro, pure
+- chore(zsh): update
+    - pure, spaceship
+- chore(nvim): update lockfiles
+
+### Removed - 今回で削除された機能について
+
+- chore(zsh): disable the shell prompt temporarily
+- chore(bash): remove blank lines
+- chore(fish): remove some plugins
+- chore(atuin): disable when human rights are violated
+
+### Fixed - 不具合修正について
+
+- fix(obsidian.nvim): no-vault workspace settings
+    - `001_DailyNotes` folder was created randomly
+
 ## [v2025.05.07]
 
 ### Added - 新機能について
