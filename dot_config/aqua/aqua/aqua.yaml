@@ -28,7 +28,7 @@ packages:
   - name: chriswalz/bit@v1.1.2
   - name: cli/cli@v2.72.0
   - name: danvergara/dblab@v0.32.0
-  - name: derailed/k9s@v0.50.5
+  - name: derailed/k9s@v0.50.6
   - name: direnv/direnv@v2.36.0
   - name: dlvhdr/diffnav@v0.3.1
   - name: dominikh/go-tools/staticcheck@2025.1.1
