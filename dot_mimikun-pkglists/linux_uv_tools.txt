@@ -1,4 +1,6 @@
+aider-chat
 bagels
 euporie
 isd-tui
+llm
 parllama
