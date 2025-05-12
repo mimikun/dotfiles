@@ -11,7 +11,7 @@ local spec = {
     },
     --cond = false,
     --enabled = false,
-    optional = true,
+    --optional = true,
 }
 
 return spec
