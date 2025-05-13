@@ -1,5 +1,25 @@
 # Changelog
 
+## [v2025.05.13]
+
+### Added - 新機能について
+
+- feat(nvim): add aneo.nvim
+- feat(fish-prompts): add pure-fish
+- feat(fish-prompts): add hydro
+
+### Changed - 既存機能の変更について
+
+- chore(fish-prompt): update tide config
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.05.12]
 
 ### Added - 新機能について
