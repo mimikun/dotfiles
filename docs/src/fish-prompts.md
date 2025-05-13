@@ -54,3 +54,51 @@ fish -c "tide configure --auto --style=$TIDE_STYLE --prompt_colors='True color' 
 fisher remove ilancosman/tide@v6
 ```
 
+# hydro
+
+https://github.com/jorgebucaran/hydro
+
+Not for me for the following reasons:
+
+- Too simple
+
+
+### Install
+
+```fish
+fisher install jorgebucaran/hydro
+```
+
+### Config
+
+Can you use Universal-vars config
+
+```fish
+# Symbols
+set -Ux hydro_symbol_start ""
+set -Ux hydro_symbol_prompt "❱"
+set -Ux hydro_symbol_git_dirty "•"
+set -Ux hydro_symbol_git_ahead "↑"
+set -Ux hydro_symbol_git_behind "↓"
+# ColUors
+set -Ux hydro_color_pwd $fish_color_normal
+set -Ux hydro_color_git $fish_color_normal
+set -Ux hydro_color_start $fish_color_normal
+set -Ux hydro_color_error $fish_color_error
+set -Ux hydro_color_prompt $fish_color_normal
+set -Ux hydro_color_duration $fish_color_normal
+# FlaUgs
+set -Ux hydro_fetch false
+set -Ux hydro_multiline false
+# MisUc
+set -Ux fish_prompt_pwd_dir_length 1
+set -Ux hydro_ignored_git_paths ""
+set -Ux hydro_cmd_duration_threshold 1000
+```
+
+### Uninstall
+
+```fish
+fisher remove jorgebucaran/hydro
+```
+

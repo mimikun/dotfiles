@@ -10,7 +10,6 @@ set -x TZ "Asia/Tokyo"
 #set -x USE_SHELL_PROMPT "oh-my-posh"
 set -x USE_SHELL_PROMPT "starship"
 #set -x USE_SHELL_PROMPT "tide"
-# TODO: it
 #set -x USE_SHELL_PROMPT "hydro"
 # TODO: it
 #set -x USE_SHELL_PROMPT "pure"
@@ -544,6 +543,31 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         if test "$USE_SHELL_PROMPT" = "tide"
             echo "# cache tide config" >> $CACHE_CONFIG_FISH
         end
+    end
+
+    # hydro
+    if test "$USE_SHELL_PROMPT" = "hydro"
+        echo "# cache hydro config " >> $CACHE_CONFIG_FISH
+        echo "# Symbols" >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_symbol_start ""' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_symbol_prompt "❱"' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_symbol_git_dirty "•"' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_symbol_git_ahead "↑"' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_symbol_git_behind "↓"' >> $CACHE_CONFIG_FISH
+        echo '# Colors' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_color_pwd $fish_color_normal' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_color_git $fish_color_normal' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_color_start $fish_color_normal' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_color_error $fish_color_error' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_color_prompt $fish_color_normal' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_color_duration $fish_color_normal' >> $CACHE_CONFIG_FISH
+        echo '# Flags' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_fetch false' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_multiline false' >> $CACHE_CONFIG_FISH
+        echo '# Misc' >> $CACHE_CONFIG_FISH
+        echo 'set -x fish_prompt_pwd_dir_length 1' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_ignored_git_paths ""' >> $CACHE_CONFIG_FISH
+        echo 'set -x hydro_cmd_duration_threshold 1000' >> $CACHE_CONFIG_FISH
     end
 
     # navi
