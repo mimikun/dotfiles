@@ -11,7 +11,6 @@ set -x TZ "Asia/Tokyo"
 set -x USE_SHELL_PROMPT "starship"
 #set -x USE_SHELL_PROMPT "tide"
 #set -x USE_SHELL_PROMPT "hydro"
-# TODO: it
 #set -x USE_SHELL_PROMPT "pure"
 
 # neovim version manager
@@ -568,6 +567,95 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo 'set -x fish_prompt_pwd_dir_length 1' >> $CACHE_CONFIG_FISH
         echo 'set -x hydro_ignored_git_paths ""' >> $CACHE_CONFIG_FISH
         echo 'set -x hydro_cmd_duration_threshold 1000' >> $CACHE_CONFIG_FISH
+    end
+
+    # pure
+    if test "$USE_SHELL_PROMPT" = "pure"
+        echo "# cache pure-fish config" >> $CACHE_CONFIG_FISH
+        echo '# Check For New Release' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_check_for_new_release false' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Container Detection (Docker)' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_enable_container_detection true' >> $CACHE_CONFIG_FISH
+        echo '#set -x pure_symbol_container_prefix' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Current Working Directory' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_begin_prompt_with_current_directory true # true: pwd, git, SSH' >> $CACHE_CONFIG_FISH
+        echo '#set -x pure_begin_prompt_with_current_directory false # false: SSH, pwd, git' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_shorten_prompt_current_directory_length 0' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_truncate_prompt_current_directory_keeps 0' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Git' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_enable_git true' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_git_dirty "*"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_git_stash "≡"' >> $CACHE_CONFIG_FISH
+        echo '#set -x PURE_GIT_DOWN_ARROW "↓"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_git_unpulled_commits "⇣"' >> $CACHE_CONFIG_FISH
+        echo '#set -x PURE_GIT_UP_ARROW "↑"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_git_unpushed_commits "⇡"' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Jobs' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_show_jobs false' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Kubernetes' >> $CACHE_CONFIG_FISH
+        echo '#set -x pure_symbol_k8s_prefix "☸"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_k8s_prefix "󱃾"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_enable_k8s false' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# NixOS' >> $CACHE_CONFIG_FISH
+        echo '# Indicate if nix develop shell is activated in their prompt.' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_enable_nixdevshell false # Indicate if a nix develop shell is activated (based on IN_NIX_SHELL).' >> $CACHE_CONFIG_FISH
+        echo '#set -x pure_symbol_nixdevshell_prefix "❄️"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_nixdevshell_prefix "󱄅"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_color_nixdevshell_prefix $pure_color_info' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_color_nixdevshell_symbol $pure_color_mute' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Prompt Symbol' >> $CACHE_CONFIG_FISH
+        echo '#set -x PURE_PROMPT_SYMBOL "»"' >> $CACHE_CONFIG_FISH
+        echo 'set -x PURE_PROMPT_SYMBOL "❯"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_prompt $PURE_PROMPT_SYMBOL' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Python Virtualenv' >> $CACHE_CONFIG_FISH
+        echo 'set -x PURE_VENV_SYMBOL "󰌠"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_enable_virtualenv true' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_virtualenv_prefix $PURE_VENV_SYMBOL' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# AWS Profile' >> $CACHE_CONFIG_FISH
+        echo 'set -x PURE_AWS_SYMBOL "󰸏"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_enable_aws_profile true' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_aws_profile_prefix $PURE_AWS_SYMBOL' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Separate Error Symbol' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_separate_prompt_on_error false' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Single Line Prompt' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_enable_single_line_prompt false' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# SSH Session' >> $CACHE_CONFIG_FISH
+        echo 'set -x PURE_SSH_SYMBOL "󰣀"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_ssh_prefix $PURE_SSH_SYMBOL' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Time & Duration' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_show_system_time false' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_show_subsecond_command_duration false' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_threshold_command_duration 5' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Title' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_title_bar_separator "-"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_shorten_window_title_current_directory_length 0' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_truncate_window_title_current_directory_keeps 0' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# VI Mode' >> $CACHE_CONFIG_FISH
+        echo 'set -x PURE_REVERSE_PROMPT_SYMBOL "❮"' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_reverse_prompt_symbol_in_vimode true # true: ❮ indicate a non-insert mode.' >> $CACHE_CONFIG_FISH
+        echo '#set -x pure_reverse_prompt_symbol_in_vimode false # false: indicate vi mode with [I], [N], [V].' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_reverse_prompt $PURE_REVERSE_PROMPT_SYMBOL' >> $CACHE_CONFIG_FISH
+        echo '' >> $CACHE_CONFIG_FISH
+        echo '# Working as Root' >> $CACHE_CONFIG_FISH
+        echo 'set -x PURE_ROOT_SYMBOL "#"' >> $CACHE_CONFIG_FISH
+        echo '#set -x pure_show_prefix_root_prompt true # true: shows prompt prefix when logged in as root.' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_show_prefix_root_prompt false # false: no shows prompt prefix when logged in as root.' >> $CACHE_CONFIG_FISH
+        echo 'set -x pure_symbol_prefix_root_prompt $PURE_ROOT_SYMBOL' >> $CACHE_CONFIG_FISH
     end
 
     # navi

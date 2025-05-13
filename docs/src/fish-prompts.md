@@ -102,3 +102,115 @@ set -Ux hydro_cmd_duration_threshold 1000
 fisher remove jorgebucaran/hydro
 ```
 
+# pure
+
+https://github.com/pure-fish/pure
+
+Not for me for the following reasons:
+
+<!-- TODO: fish-pure -->
+- hogehoge
+
+### Install
+
+```fish
+fisher install pure-fish/pure
+```
+
+### Config script
+
+Can you use Universal-vars config
+
+```fish
+# Check For New Release
+set -U pure_check_for_new_release false
+
+# Container Detection (Docker)
+set -U pure_enable_container_detection true
+#set -U pure_symbol_container_prefix
+
+# Current Working Directory
+set -U pure_begin_prompt_with_current_directory true # true: pwd, git, SSH
+#set -U pure_begin_prompt_with_current_directory false # false: SSH, pwd, git
+set -U pure_shorten_prompt_current_directory_length 0
+set -U pure_truncate_prompt_current_directory_keeps 0
+
+# Git
+set -U pure_enable_git true
+set -U pure_symbol_git_dirty "*"
+set -U pure_symbol_git_stash "≡"
+#set -U PURE_GIT_DOWN_ARROW "↓"
+set -U pure_symbol_git_unpulled_commits "⇣"
+#set -U PURE_GIT_UP_ARROW "↑"
+set -U pure_symbol_git_unpushed_commits "⇡"
+
+# Jobs
+set -U pure_show_jobs false
+
+# Kubernetes
+#set -U pure_symbol_k8s_prefix "☸"
+set -U pure_symbol_k8s_prefix "󱃾"
+set -U pure_enable_k8s false
+
+# NixOS
+# Indicate if nix develop shell is activated in their prompt.
+set -U pure_enable_nixdevshell false # Indicate if a nix develop shell is activated (based on IN_NIX_SHELL).
+#set -U pure_symbol_nixdevshell_prefix "❄️"
+set -U pure_symbol_nixdevshell_prefix "󱄅"
+set -U pure_color_nixdevshell_prefix $pure_color_info
+set -U pure_color_nixdevshell_symbol $pure_color_mute
+
+# Prompt Symbol
+#set -U PURE_PROMPT_SYMBOL "»"
+set -U PURE_PROMPT_SYMBOL "❯"
+set -U pure_symbol_prompt $PURE_PROMPT_SYMBOL
+
+# Python Virtualenv
+set -U PURE_VENV_SYMBOL "󰌠"
+set -U pure_enable_virtualenv true
+set -U pure_symbol_virtualenv_prefix $PURE_VENV_SYMBOL
+
+# AWS Profile
+set -U PURE_AWS_SYMBOL "󰸏"
+set -U pure_enable_aws_profile true
+set -U pure_symbol_aws_profile_prefix $PURE_AWS_SYMBOL
+
+# Separate Error Symbol
+set -U pure_separate_prompt_on_error false
+
+# Single Line Prompt
+set -U pure_enable_single_line_prompt false
+
+# SSH Session
+set -U PURE_SSH_SYMBOL "󰣀"
+set -U pure_symbol_ssh_prefix $PURE_SSH_SYMBOL
+
+# Time & Duration
+set -U pure_show_system_time false
+set -U pure_show_subsecond_command_duration false
+set -U pure_threshold_command_duration 5
+
+# Title
+set -U pure_symbol_title_bar_separator "-"
+set -U pure_shorten_window_title_current_directory_length 0
+set -U pure_truncate_window_title_current_directory_keeps 0
+
+# VI Mode
+set -U PURE_REVERSE_PROMPT_SYMBOL "❮"
+set -U pure_reverse_prompt_symbol_in_vimode true # true: ❮ indicate a non-insert mode.
+#set -U pure_reverse_prompt_symbol_in_vimode false # false: indicate vi mode with [I], [N], [V].
+set -U pure_symbol_reverse_prompt $PURE_REVERSE_PROMPT_SYMBOL
+
+# Working as Root
+set -U PURE_ROOT_SYMBOL "#"
+#set -U pure_show_prefix_root_prompt true # true: shows prompt prefix when logged in as root.
+set -U pure_show_prefix_root_prompt false # false: no shows prompt prefix when logged in as root.
+set -U pure_symbol_prefix_root_prompt $PURE_ROOT_SYMBOL
+```
+
+### Uninstall
+
+```fish
+fisher remove pure-fish/pure
+```
+
