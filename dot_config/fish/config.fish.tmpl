@@ -9,7 +9,6 @@ set -x TZ "Asia/Tokyo"
 # shell prompts
 #set -x USE_SHELL_PROMPT "oh-my-posh"
 set -x USE_SHELL_PROMPT "starship"
-# TODO: it
 #set -x USE_SHELL_PROMPT "tide"
 # TODO: it
 #set -x USE_SHELL_PROMPT "hydro"
@@ -537,6 +536,13 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
             echo "# cache oh-my-posh config" >> $CACHE_CONFIG_FISH
             #echo "oh-my-posh init fish | source" >> $CACHE_CONFIG_FISH
             echo "oh-my-posh init fish --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | source" >> $CACHE_CONFIG_FISH
+        end
+    end
+
+    # tide
+    if command -v tide >/dev/null 2>&1
+        if test "$USE_SHELL_PROMPT" = "tide"
+            echo "# cache tide config" >> $CACHE_CONFIG_FISH
         end
     end
 

@@ -1,12 +1,11 @@
 # fish prompts
 
-# [tide
+# tide
 
 https://github.com/IlanCosman/tide
 
 Not for me for the following reasons:
 
-- Uninstallation method is complicated
 - Cannot easily switch
 
 ### Install
@@ -48,3 +47,10 @@ fish -c "tide configure --auto --style=$TIDE_STYLE --prompt_colors='True color' 
 
 {{ end -}}
 ```
+
+### Uninstall
+
+```fish
+fisher remove ilancosman/tide@v6
+```
+
