@@ -127,6 +127,11 @@ export STARSHIP_CONFIG_DIR="$XDG_CONFIG_HOME/starship"
 export STARSHIP_CONFIG="$STARSHIP_CONFIG_DIR/starship.toml"
 export STARSHIP_CACHE="$XDG_CACHE_HOME/starship"
 
+# spaceship config
+export SPACESHIP_PLUGIN_PATH="$HOME/.zsh/spaceship/spaceship.zsh"
+export SPACESHIP_CONFIG_DIR="$XDG_CONFIG_HOME/spaceship"
+export SPACESHIP_CONFIG="$SPACESHIP_CONFIG_DIR/spaceship.zsh"
+
 # pure config
 export PURE_PATH="$HOME/.zsh/pure"
 
@@ -142,6 +147,13 @@ fi
 if command -v oh-my-posh >/dev/null 2>&1; then
     if [["$USE_SHELL_PROMPT" == "oh-my-posh"]]; then
     eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
+    fi
+fi
+
+# spaceship
+if command -v spaceship >/dev/null 2>&1; then
+    if [[ "$USE_SHELL_PROMPT" == "spaceship" ]]; then
+        source "$SPACESHIP_PLUGIN_PATH"
     fi
 fi
 
