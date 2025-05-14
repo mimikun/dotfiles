@@ -170,7 +170,7 @@ if command -v rye>/dev/null 2>&1; then
 fi
 
 # Linuxbrew
-if command -v zoxide>/dev/null 2>&1; then
+if command -v brew>/dev/null 2>&1; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
@@ -347,13 +347,13 @@ export PATH="$HOME/.nimble/bin:$PATH"
 # pay-respects
 eval "$(pay-respects zsh --alias)"
 
+# TODO: fix it
 # jujutsu
-autoload -U compinit
-compinit
-source | jj util completion zsh
+#jj util completion zsh
 
+# TODO: fix it
 # sunbeam
-sunbeam completion zsh | source
+#sunbeam completion zsh
 
 # zettelkasten
 export zettelkasten_root="$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
@@ -361,7 +361,6 @@ export zettelkasten_root="$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
 # vfox
 # NOTE: can't use it now
 #eval "$(vfox activate zsh)"
-#fi
 
 # srgn
 if command -v srgn >/dev/null 2>&1; then
