@@ -153,10 +153,8 @@ if command -v oh-my-posh >/dev/null 2>&1; then
 fi
 
 # spaceship
-if command -v spaceship >/dev/null 2>&1; then
-    if [[ "$USE_SHELL_PROMPT" == "spaceship" ]]; then
-        source "$SPACESHIP_PLUGIN_PATH"
-    fi
+if [[ "$USE_SHELL_PROMPT" == "spaceship" ]]; then
+    source "$SPACESHIP_PLUGIN_PATH"
 fi
 
 # pure
