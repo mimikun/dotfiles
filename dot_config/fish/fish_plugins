@@ -3,6 +3,7 @@ americanhanko/fish-spin
 eskori/penumbra-theme.fish
 g-plane/pnpm-shell-completion
 halostatue/fish-docker@v1.x
+ilancosman/tide@v6
 jorgebucaran/fisher
 jorgebucaran/getopts.fish
 kyohsuke/fish-evalcache
