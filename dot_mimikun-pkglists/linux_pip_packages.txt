@@ -2,6 +2,7 @@ agate
 agate-dbf
 agate-excel
 agate-sql
+aider-install
 aiofiles
 aiohappyeyeballs
 aiohttp
@@ -49,6 +50,7 @@ decorator
 defusedxml
 distro
 dominate
+duckdb
 edge-tts
 et_xmlfile
 feedparser
@@ -122,6 +124,7 @@ packaging
 pandas
 papis
 para-cada
+parqv
 parsedatetime
 pathspec
 pathvalidate
@@ -211,6 +214,7 @@ uc-micro-py
 urllib3
 urwid
 userpath
+uv
 vignore
 watchdog
 watchfiles
