@@ -8,6 +8,7 @@ gptme
 hike
 kaskade
 moneyterm
+peplum
 pipask
 pocker-tui
 poetry
