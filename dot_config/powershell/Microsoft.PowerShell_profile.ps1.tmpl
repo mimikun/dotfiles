@@ -134,8 +134,13 @@ if ($IsLinux) {
 
 $GHQ_ROOT = $env:GHQ_ROOT
 
-#$useShellPrompt = "oh-my-posh"
+# shell prompts
+# "oh-my-posh", "starship"
 $useShellPrompt = "starship"
+
+# neovim version manager
+# "nvs", "bob"
+$useNeovimVersionManager = "bob"
 
 if ($cond) {
     New-Item $env:CACHE_PROFILE_DIR -ItemType Directory -Force 2>&1 > $null
