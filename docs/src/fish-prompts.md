@@ -1,20 +1,43 @@
 # fish prompts
 
-# tide
+## Now using
 
-https://github.com/IlanCosman/tide
+- [tide]
 
-Not for me for the following reasons:
+## Prompts
+
+### [starship]
+
+- `human rights` are necessary for a good UX
+
+#### Use
+
+```fish
+set -x USE_SHELL_PROMPT "starship" >> ~/.config/fish/config.fish
+```
+
+### [oh-my-posh]
+
+- Cannot easily switch
+- The setup method is "UNIQUE"
+
+#### Use
+
+```fish
+set -x USE_SHELL_PROMPT "oh-my-posh" >> ~/.config/fish/config.fish
+```
+
+### [tide]
 
 - Cannot easily switch
 
-### Install
+#### Install
 
 ```fish
 fisher install ilancosman/tide@v6
 ```
 
-### Config script
+#### Config script
 
 touch `$CHEZMOI_ROOT/.chezmoiscripts/linux/run_onchange_after-install-tide-fish.sh.tmpl`
 
@@ -48,28 +71,27 @@ fish -c "tide configure --auto --style=$TIDE_STYLE --prompt_colors='True color' 
 {{ end -}}
 ```
 
-### Uninstall
+#### Uninstall
 
 ```fish
 fisher remove ilancosman/tide@v6
 ```
 
-# hydro
+#### Note
 
-https://github.com/jorgebucaran/hydro
+`[fish] <defunct>` is a not bug. see: https://github.com/IlanCosman/tide/issues/60
 
-Not for me for the following reasons:
+### [hydro]
 
 - Too simple
 
-
-### Install
+#### Install
 
 ```fish
 fisher install jorgebucaran/hydro
 ```
 
-### Config
+#### Config
 
 Can you use Universal-vars config
 
@@ -96,28 +118,23 @@ set -Ux hydro_ignored_git_paths ""
 set -Ux hydro_cmd_duration_threshold 1000
 ```
 
-### Uninstall
+#### Uninstall
 
 ```fish
 fisher remove jorgebucaran/hydro
 ```
 
-# pure
+### [pure]
 
-https://github.com/pure-fish/pure
+- Too simple
 
-Not for me for the following reasons:
-
-<!-- TODO: fish-pure -->
-- hogehoge
-
-### Install
+#### Install
 
 ```fish
 fisher install pure-fish/pure
 ```
 
-### Config script
+#### Config script
 
 Can you use Universal-vars config
 
@@ -208,9 +225,16 @@ set -U pure_show_prefix_root_prompt false # false: no shows prompt prefix when l
 set -U pure_symbol_prefix_root_prompt $PURE_ROOT_SYMBOL
 ```
 
-### Uninstall
+#### Uninstall
 
 ```fish
 fisher remove pure-fish/pure
 ```
 
+---
+
+[tide]:https://github.com/IlanCosman/tide
+[starship]:https://github.com/starship/starship
+[oh-my-posh]:https://github.com/jandedobbeleer/oh-my-posh
+[hydro]:https://github.com/jorgebucaran/hydro
+[pure]:https://github.com/pure-fish/pure
