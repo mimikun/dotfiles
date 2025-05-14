@@ -10,15 +10,17 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-#export USE_SHELL_PROMPT="oh-my-posh"
-# TODO: it
-#export USE_SHELL_PROMPT="pure"
-# TODO: it
-#export USE_SHELL_PROMPT="spaceship"
-# NOTE: temporary
-#export USE_SHELL_PROMPT="starship"
-#export USE_NVIM_VERSION_MANAGER="nvs"
+# shell prompts
+# "oh-my-posh", "starship", "pure", "spaceship"
+export USE_SHELL_PROMPT="spaceship"
+
+# neovim version manager
+# "nvs", "bob"
 export USE_NVIM_VERSION_MANAGER="bob"
+
+# zsh package manager
+# "sheldon", "zinit", "ohmyzsh", "prezto"
+export USE_ZSH_PM="zinit"
 
 {{ if (eq .chezmoi.hostname "azusa") -}}
 export GTK_IM_MODULE="fcitx"
@@ -138,14 +140,14 @@ export PURE_PATH="$HOME/.zsh/pure"
 # NOTE: shell prompt
 # starship
 if command -v starship >/dev/null 2>&1; then
-    if [["$USE_SHELL_PROMPT" == "starship"]]; then
+    if [[ "$USE_SHELL_PROMPT" == "starship" ]]; then
         eval "$(starship init zsh)"
     fi
 fi
 
 # oh-my-posh
 if command -v oh-my-posh >/dev/null 2>&1; then
-    if [["$USE_SHELL_PROMPT" == "oh-my-posh"]]; then
+    if [[ "$USE_SHELL_PROMPT" == "oh-my-posh" ]]; then
     eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
     fi
 fi
@@ -265,7 +267,9 @@ export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/zsh"
 export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/zsh"
 
 if command -v sheldon>/dev/null 2>&1; then
-    eval "$(sheldon source)"
+    if [[ "$USE_SHELL_PROMPT" == "sheldon" ]]; then
+        eval "$(sheldon source)"
+    fi
 fi
 
 # PHP composer
