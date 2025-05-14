@@ -1,5 +1,35 @@
 # Changelog
 
+## [v2025.05.14]
+
+### Added - 新機能について
+
+- docs: add zsh-prompts.md
+- feat(pip): add some packages
+- feat(pipx): add peplum
+- feat(gup): add some tools
+- feat(nvim): add tsffi.nvim
+- feat(fish): use tide prompts
+- feat(zsh-prompt): add pure config
+- feat(zsh-prompt): add spaceship config
+
+### Changed - 既存機能の変更について
+
+- chore(zsh): improved
+- chore(fish): update aqua completion
+- chore(shells): update
+- docs(fish-prompts): update
+
+### Removed - 今回で削除された機能について
+
+- chore(zsh): remove zeno
+    - project is dead
+
+### Fixed - 不具合修正について
+
+- fix(zsh): some errors
+- fix(zsh): can't load spaceship
+
 ## [v2025.05.13]
 
 ### Added - 新機能について
