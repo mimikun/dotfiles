@@ -1,5 +1,27 @@
 # Changelog
 
+## [v2025.05.15]
+
+### Added - 新機能について
+
+- feat(uv): add ty
+- feat(pipx): add tombi
+- feat(nvim): add alternative.nvim
+- feat(nvim): add weather.nvim
+    - and add lualine component
+
+### Changed - 既存機能の変更について
+
+- chore(fish): update mise completion
+
+### Removed - 今回で削除された機能について
+
+なし
+
+### Fixed - 不具合修正について
+
+なし
+
 ## [v2025.05.14]
 
 ### Added - 新機能について
