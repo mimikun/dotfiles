@@ -9,6 +9,7 @@ local dependencies = {
     "stevearc/aerial.nvim",
     "AndreM222/copilot-lualine",
     { "obsidian-nvim/obsidian.nvim", optional = true },
+    { "athar-qadri/weather.nvim", optional = true },
 }
 
 return dependencies

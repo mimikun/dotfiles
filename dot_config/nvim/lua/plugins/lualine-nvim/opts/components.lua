@@ -146,6 +146,11 @@ M.buffers = {
     },
 }
 
+---@type table
+M.weather = {
+    require("weather.lualine").default_c(),
+}
+
 ---
 
 ---@type table
