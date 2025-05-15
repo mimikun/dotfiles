@@ -4,3 +4,4 @@ euporie
 isd-tui
 llm
 parllama
+ty
