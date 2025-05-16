@@ -176,7 +176,6 @@ rrc
 rscls
 rucola-notes
 rustfinity
-rustowl
 rustscan
 rust-script
 sccache
@@ -199,7 +198,6 @@ starship
 stu
 stylua
 systemctl-tui
-tabiew
 taplo-cli
 tauri-cli
 tealdeer
