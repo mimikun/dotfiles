@@ -94,6 +94,7 @@ packages:
   - name: nao1215/sqly@v0.11.0
   - name: natecraddock/zf@0.10.2
   - name: neilotoole/sq@v0.48.5
+  - name: nil0x42/dnsanity@v1.1.0
   - name: osteele/gojekyll@v0.2.14
   - name: pamburus/hl@v0.31.1
   - name: peco/peco@v0.5.11
