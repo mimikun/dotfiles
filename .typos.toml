@@ -36,6 +36,7 @@ Hashi = "Hashi"
 [files]
 extend-exclude = [
   # NOTE: DO NOT expect an upstream fix
+  "dot_config/fish/completions/deno.fish",
   "dot_config/nvim/lua/plugins/neo-img/opts.lua",
   "dot_config/nvim/lua/plugins/telekasten-nvim/init.lua",
   "dot_config/ghostty/*",
