@@ -146,12 +146,10 @@ M.buffers = {
     },
 }
 
----@type table
-M.weather = {
-    require("weather.lualine").default_c(),
-}
-
 ---
+
+---@type table
+M.weather_or_nothing = {}
 
 ---@type table
 M.mcphub_or_nothing = {}
