@@ -524,6 +524,7 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l frozen -d 'Error out
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand cache" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,user.githubusercontent.com:443' -r
+complete -c deno -n "__fish_deno_using_subcommand cache" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1241,6 +1242,8 @@ complete -c deno -n "__fish_deno_using_subcommand json_reference" -s L -l log-le
 debug\t''
 info\t''"
 complete -c deno -n "__fish_deno_using_subcommand json_reference" -s q -l quiet -d 'Suppress diagnostic output'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -s n -l name -d 'Set a name for the kernel (defaults to \'deno\'). Useful when maintaing multiple Deno kernels.' -r
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -s d -l display -d 'Set a display name for the kernel (defaults to \'Deno\'). Useful when maintaing multiple Deno kernels.' -r
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l conn -d 'Path to JSON file describing connection parameters, provided by Jupyter' -r -F
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -s h -l help -r -f -a "unstable\t''
 full\t''"
@@ -1271,7 +1274,8 @@ complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-unsafe-pr
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-vsock -d 'Enable unstable VSOCK APIs'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-webgpu -d 'Enable unstable WebGPU APIs'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
-complete -c deno -n "__fish_deno_using_subcommand jupyter" -l install -d 'Installs kernelspec, requires \'jupyter\' command to be available.'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -l install -d 'Install a kernelspec'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -l force -d 'Force installation of a kernel, overwriting previously existing kernelspec'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l kernel -d 'Start the kernel'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -s h -l help -r -f -a "unstable\t''
