@@ -28,11 +28,12 @@ local generate_menu = Hydra({
     mode = "n",
     body = "g",
     heads = {
-        {
-            "l",
-            nil,
-            { exit = true, desc = "Generate lazy-lock.json(can't it)" },
-        },
+        -- NOTE: No feature is provided to generate lazy-lock.json
+        --{
+        --    "l",
+        --    nil,
+        --    { exit = true, desc = "Generate lazy-lock.json(can't it)" },
+        --},
         -- NOTE: mason-lock.nvim not support mason v2
         --{
         --    "m",
