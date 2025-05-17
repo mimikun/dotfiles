@@ -1,3 +1,6 @@
+---@type boolean
+local need_all_servers = require("config.settings").need_all_servers
+
 ---@type table
 local need_servers = {}
 
@@ -57,14 +60,14 @@ need_servers = vim.list_extend(need_servers, base_servers)
 if not require("config.global").is_windows then
     ---@type table
     need_servers = vim.list_extend(need_servers, not_windows)
-    if require("config.settings").need_all_servers then
+    if need_all_servers then
         ---@type table
         need_servers = vim.list_extend(need_servers, addisional_servers.not_windows)
     end
 end
 
 -- NOTE: Include some langservers, if need_all_servers set TRUE
-if require("config.settings").need_all_servers then
+if need_all_servers then
     ---@type table
     need_servers = vim.list_extend(need_servers, addisional_servers.others)
 end

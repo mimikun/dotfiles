@@ -1,8 +1,15 @@
 local Hydra = require("hydra")
-local cmd = require("hydra.keymap-util").cmd
+-- WORKAROUND: comment out
+--local cmd = require("hydra.keymap-util").cmd
 
-local hint = [[
- ^  󰭠  ^ Generate _m_ason-lock.json ^
+local hint
+-- NOTE: mason-lock.nvim not support mason v2
+--hint = [[
+-- ^  󰭠  ^ Generate _m_ason-lock.json ^
+-- ^    ^ Generate _d_otfyle.json    ^
+--]]
+
+hint = [[
  ^    ^ Generate _d_otfyle.json    ^
 ]]
 
@@ -26,11 +33,12 @@ local generate_menu = Hydra({
             nil,
             { exit = true, desc = "Generate lazy-lock.json(can't it)" },
         },
-        {
-            "m",
-            cmd("MasonLock"),
-            { exit = true, desc = "Generate mason-lock.json" },
-        },
+        -- NOTE: mason-lock.nvim not support mason v2
+        --{
+        --    "m",
+        --    cmd("MasonLock"),
+        --    { exit = true, desc = "Generate mason-lock.json" },
+        --},
         {
             "d",
             function()
