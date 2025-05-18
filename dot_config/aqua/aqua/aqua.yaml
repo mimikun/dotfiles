@@ -69,7 +69,7 @@ packages:
   - name: kdabir/has@v1.5.0
   - name: knqyf263/sou@v0.2.0
   - name: koalaman/shellcheck@v0.10.0
-  - name: koki-develop/clive@v0.12.10
+  - name: koki-develop/clive@v0.12.11
   - name: koki-develop/gat@v0.23.2
   - name: koki-develop/sheep@v0.4.0
   - name: kubescape/kubescape@v3.0.34
