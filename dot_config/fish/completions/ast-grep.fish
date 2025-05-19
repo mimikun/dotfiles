@@ -112,6 +112,7 @@ complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s A -l after -d
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s B -l before -d 'Show NUM lines before each match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s C -l context -d 'Show NUM lines around each match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l include-metadata
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l follow -d 'Follow symbolic links'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l stdin -d 'Enable search code from StdIn'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s i -l interactive -d 'Start interactive edit session'

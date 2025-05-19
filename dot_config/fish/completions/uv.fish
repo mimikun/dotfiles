@@ -324,7 +324,7 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l config-file -d 'The path t
 complete -c uv -n "__fish_uv_using_subcommand add" -l dev -d 'Add the requirements to the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand add" -l editable -d 'Add the requirements as editable'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-editable
-complete -c uv -n "__fish_uv_using_subcommand add" -l raw-sources -d 'Add source requirements to `project.dependencies`, rather than `tool.uv.sources`'
+complete -c uv -n "__fish_uv_using_subcommand add" -l raw -d 'Add a dependency as provided'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-sync -d 'Avoid syncing the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand add" -l locked -d 'Assert that the `uv.lock` will remain unchanged'
 complete -c uv -n "__fish_uv_using_subcommand add" -l frozen -d 'Add dependencies without re-locking the project'
@@ -730,7 +730,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-annotate -d 'Exclude
 complete -c uv -n "__fish_uv_using_subcommand export" -l annotate
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-header -d 'Exclude the comment header at the top of the generated output file'
 complete -c uv -n "__fish_uv_using_subcommand export" -l header
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-editable -d 'Export any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand export" -l hashes -d 'Include hashes for all dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-hashes -d 'Omit hashes in the generated output'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-project -d 'Do not emit the current project'
