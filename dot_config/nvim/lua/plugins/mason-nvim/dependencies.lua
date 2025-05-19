@@ -25,7 +25,12 @@ local dependencies = {
     "mimikun/mason-conform.nvim",
     -- NOTE: mason-nvim-lint
     "mfussenegger/nvim-lint",
-    "rshkarin/mason-nvim-lint",
+    -- WORKAROUND: upstream/HEAD is broken. use patch version
+    {
+        "mimikun/mason-nvim-lint",
+        branch = "patch",
+        --"rshkarin/mason-nvim-lint",
+    },
 }
 
 -- NOTE: completion
