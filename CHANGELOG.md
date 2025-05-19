@@ -1,5 +1,40 @@
 # Changelog
 
+## [v2025.05.19]
+
+### Added - 新機能について
+
+- feat(aqua): add nil0x42/dnsanity
+- feat(nvim): add combo-mode.nvim
+- feat(nvim): add betterTerm.nvim
+- feat(cargo): add mcat
+
+### Changed - 既存機能の変更について
+
+- chore(zsh): update spaceship config
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(fish): update deno completion
+- chore(typos): update config
+- docs(readme): use official deepwiki badges
+- chore(mason.nvim): v2 migration!
+- chore(hydra.nvim): update generate-menu hydra
+- chore(hardtime.nvim): update config
+- chore(markview.nvim): update config
+- chore(chezmoiignore): start mason.nvim v2 migration...
+- chore(chezmoiignore): mason.nvim v2 migration finish!
+
+### Removed - 今回で削除された機能について
+
+- chore(gup): remove dnsanity
+- chore(cargo): remove some packages
+    - very unstable
+
+### Fixed - 不具合修正について
+
+- WORKAROUND(mason-nvim-lint): upstream/HEAD error
+- fix(lualine): missing component
+
 ## [v2025.05.15]
 
 ### Added - 新機能について
