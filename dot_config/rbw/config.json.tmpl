@@ -1,11 +1,13 @@
 {
   "email": "{{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}",
-  {{ if eq .chezmoi.hostname "TanakaPC" -}}
+  "sso_id":null,
+  {{ if isExecutable "/usr/local/bin/this_is_work_pc" -}}
   "base_url": "{{ (rbwFields "dotfiles-chezmoi").rbw_base_url.value }}",
   {{ else -}}
   "base_url": null,
   {{ end -}}
   "identity_url": null,
+  "ui_url":null,
   "notifications_url": null,
   "lock_timeout": 3600,
   "sync_interval": 3600,
