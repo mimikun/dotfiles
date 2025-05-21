@@ -7,6 +7,7 @@ atuin
 bacon
 ballast
 bandwhich
+basalt-tui
 basilk
 bat
 bibiman
@@ -98,6 +99,7 @@ hwatch
 hyperfine
 hysp
 i3-style
+imdl
 impala
 inspect-cert-chain
 iwe
@@ -132,6 +134,7 @@ motus
 natls
 navi
 ncspot
+needs
 nomino
 nsh
 nu
