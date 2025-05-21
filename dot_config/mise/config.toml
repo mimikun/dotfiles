@@ -23,12 +23,12 @@ zig = [
 ]
 
 # npm backends
-"npm:commitizen" = "latest"
-"npm:cz-conventional-changelog-ja" = "latest"
-"npm:npkill" = "latest"
-"npm:prettier" = "latest"
-"npm:git-truck" = "latest"
-"npm:@openai/codex" = "latest"
+#"npm:commitizen" = "latest"
+#"npm:cz-conventional-changelog-ja" = "latest"
+#"npm:npkill" = "latest"
+#"npm:prettier" = "latest"
+#"npm:git-truck" = "latest"
+#"npm:@openai/codex" = "latest"
 #"npm:up-fetch" = "2.0.0-beta.10"
 #"npm:envinfo" = "latest"
 #"npm:httpyac" = "latest"
