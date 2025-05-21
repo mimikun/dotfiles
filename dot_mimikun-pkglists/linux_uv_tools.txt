@@ -2,6 +2,7 @@ aider-chat
 bagels
 euporie
 isd-tui
+lexy
 llm
 parllama
 ty
