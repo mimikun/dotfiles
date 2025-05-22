@@ -1,12 +1,7 @@
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
 [build]
 jobs = 1
-{{ end -}}
 
 [net]
 git-fetch-with-cli = true
-
-#[target.'cfg(target_os = "linux")']
-#rustflags = ["-C", "link-arg=-fuse-ld=mold"]
 
 # vim:ft=toml.chezmoitmpl
