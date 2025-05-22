@@ -1,11 +1,7 @@
 [wsl2]
-{{ if (eq .chezmoi.hostname "TanakaPC") -}}
-memory=3GB
-processors=3
-swap=8GB
+{{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe") -}}
 localhostforwarding=true
 {{ else -}}
-memory=8GB
 {{ if (eq .chezmoi.hostname "Wakamo") -}}
 processors=8
 {{ else -}}
@@ -14,16 +10,12 @@ processors=12
 swap=0
 {{ end -}}
 
-{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # NOTE: Only available on Windows 11
 #nestedVirtualization=false
 #vmIdleTimeout=6000
-{{ end -}}
 
-{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # NOTE: Only available on Windows 11 22H2
 networkingMode = "mirrored"
-{{ end -}}
 
 [experimental]
 autoMemoryReclaim="disabled"
@@ -34,9 +26,7 @@ autoMemoryReclaim="disabled"
 
 sparseVhd=false
 
-{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # NOTE: Only available on Windows 11 22H2
 hostAddressLoopback=false
-{{ end -}}
 
 # vim:ft=conf

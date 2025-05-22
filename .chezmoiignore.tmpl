@@ -131,8 +131,14 @@ macros.txt
 utilities/**
 {{ end }}
 
-# Ignore: eq Hostname: TanakaPC
-{{ if eq .chezmoi.hostname "TanakaPC" }}
+# Ignore: is Work-PCs
+# Linux: isExecutable this_is_work_pc
+{{ if (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) }}
+utilities/**
+AppData/Roaming/GitHub CLI/**
+{{ end }}
+# Windows: isExecutable this_is_work_pc.exe
+{{ if (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) }}
 utilities/**
 AppData/Roaming/GitHub CLI/**
 {{ end }}

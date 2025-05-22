@@ -1,17 +1,15 @@
 live_config_reload = true
 
-{{ if eq .chezmoi.os "windows" -}}
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+{{ if (eq .chezmoi.os "windows") -}}
+{{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
 working_directory = "C:\\Users\\{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}"
-{{ else if eq .chezmoi.hostname "Wakamo" -}}
-working_directory = "C:\\Users\\mimikun"
 {{ else -}}
-working_directory = "C:\\Users\\{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").windows_user_name.value }}"
+working_directory = "C:\\Users\\mimikun"
 {{ end }}
 [shell]
 program = "pwsh.exe"
-{{ else if eq .chezmoi.os "linux" -}}
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+{{ else if (eq .chezmoi.os "linux") -}}
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
 working_directory = "/home/USERNAME" # TODO: it
 {{ else -}}
 working_directory = "/home/mimikun"

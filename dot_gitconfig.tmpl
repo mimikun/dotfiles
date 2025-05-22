@@ -1,8 +1,8 @@
 [user]
-	{{ if eq .chezmoi.os "linux" -}}
+	{{ if (eq .chezmoi.os "linux") -}}
 	email = {{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}
 	{{ else -}}
-		{{ if eq .chezmoi.hostname "TanakaPC" -}}
+		{{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
 	email = {{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").gitconfig_email.value }}
 		{{ else -}}
 	email = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").gitconfig_email.value }}
@@ -16,13 +16,13 @@
 	quotepath = false
 	excludesfile = ~/.gitignore_global
 	pager = delta
-	{{- if eq .chezmoi.os "windows" }}
+	{{- if (eq .chezmoi.os "windows") }}
 	filemode = false
 	{{- end }}
 [color]
 	ui = true
 [credential]
-	{{ if eq .chezmoi.os "windows" -}}
+	{{ if (eq .chezmoi.os "windows") -}}
 	helper = manager
 	{{ else -}}
 	helper = cache --timeout=475200
@@ -34,7 +34,7 @@
 	sort = -version:refname
 [commit]
 	verbose = true
-{{ if eq .chezmoi.os "windows" -}}
+{{ if (eq .chezmoi.os "windows") -}}
 [alias]
 	ls = "ls-files"
 	graph = "log --graph"

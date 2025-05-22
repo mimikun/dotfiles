@@ -1,10 +1,10 @@
 [user]
 name = "Yuto Tanaka"
-{{ if eq .chezmoi.os "linux" -}}
+{{ if (eq .chezmoi.os "linux") -}}
 email = '{{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}'
 
 {{ else -}}
-    {{ if eq .chezmoi.hostname "TanakaPC" -}}
+    {{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
 email = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").gitconfig_email.value }}'
 
     {{ else -}}
