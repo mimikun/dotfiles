@@ -133,5 +133,5 @@ packages:
   - name: ycd/dstp@v0.4.23
   - name: ymtdzzz/otel-tui@v0.4.11
   - name: yokecd/yoke@v0.12.9
-  - name: yorukot/superfile@v1.2.1
+  - name: yorukot/superfile@v1.3.0
   - name: zyedidia/eget@v1.3.4
