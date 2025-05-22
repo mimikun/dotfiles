@@ -218,7 +218,8 @@ Remove-Item *.patch
 Remove-Item *.patch.gpg
 Remove-Item *.zip
 
-if ($env:COMPUTERNAME -eq "TANAKAPC") {
+if ($env:WORK_PC)
+{
     $home_only_file |
         ForEach-Object {
             if (Test-Path $_) {
@@ -367,7 +368,8 @@ chezmoi add "$env:USERPROFILE\AppData\Roaming\GitHub CLI\hosts.yml"
 chezmoi add $env:USERPROFILE\AppData\Roaming\Hyper\config.json
 chezmoi add $env:USERPROFILE\AppData\Roaming\Hyper\.hyper.js
 
-if ($env:COMPUTERNAME -ne "TANAKAPC") {
+if (-not ($env:WORK_PC))
+{
     # SKKFEP
     chezmoi add $env:USERPROFILE\AppData\Roaming\SKKFEP\skkuser.txt
 
@@ -419,6 +421,8 @@ chezmoi add $env:USERPROFILE\utilities\install_cargo_packages.ps1
 chezmoi add $env:USERPROFILE\utilities\port_forwarding.ps1
 
 if ($env:COMPUTERNAME -ne "TANAKAPC") {
+if (-not ($env:WORK_PC)
+{
     $home_only_file |
         ForEach-Object {
             if (Test-Path $_) {
@@ -867,7 +871,7 @@ mask delete-branch
 ```bash
 host_name=$(cat /etc/hostname)
 
-if [ "$host_name" = "TanakaPC" ]; then
+if [ -n "$WORK_PC" ]; then
     echo "        THIS IS WORK-PC!!!        "
     echo "DON'T PUSH TO REMOTE REPOSITORY!!!"
 else

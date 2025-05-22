@@ -20,19 +20,8 @@ function Copy-PowershellProfile()
 
     Write-Output "Copy PowerShell profile"
 
-    if ($env:COMPUTERNAME -eq "TANAKAPC")
-    {
-        Copy-Item -Path $profiles.base -Destination $profiles.pwsh.document
-        Copy-Item -Path $profiles.base -Destination $profiles.powershell.document
-    } elseif ($env:COMPUTERNAME -eq "Wakamo")
-    {
-        Copy-Item -Path $profiles.base -Destination $profiles.pwsh.document
-        Copy-Item -Path $profiles.base -Destination $profiles.powershell.document
-    } else
-    {
-        Copy-Item -Path $profiles.base -Destination $profiles.pwsh.onedrive
-        Copy-Item -Path $profiles.base -Destination $profiles.powershell.onedrive
-    }
+    Copy-Item -Path $profiles.base -Destination $profiles.pwsh.document
+    Copy-Item -Path $profiles.base -Destination $profiles.powershell.document
 }
 
 # copy neovim config
@@ -67,7 +56,7 @@ function Copy-NeovimConfig()
     Write-Output "Copy nvim (neovim) configuration"
 
     # copy
-    if ($env:COMPUTERNAME -eq "TANAKAPC")
+    if ($env:WORK_PC)
     {
         Copy-Item -Path $nvim_configs.base.mini -Destination $nvim_configs.windows -Recurse -Force
     } else
@@ -110,7 +99,7 @@ function Copy-PaleovimConfig()
     Write-Output "Copy vim (paleovim) configuration"
 
     # copy
-    if ($env:COMPUTERNAME -eq "TANAKAPC")
+    if ($env:WORK_PC)
     {
         Copy-Item -Path $pvim_configs.base.work -Destination $pvim_configs.windows -Recurse -Force
     } else
