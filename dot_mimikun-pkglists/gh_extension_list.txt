@@ -8,6 +8,7 @@ johnmanjiro13/gh-bump
 jrnxf/gh-eco
 koozz/gh-semver
 meiji163/gh-notify
+ryoppippi/gh-nippou
 seachicken/gh-poi
 valeriobelli/gh-milestone
 yusukebe/gh-markdown-preview
