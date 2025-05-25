@@ -136,3 +136,4 @@ packages:
   - name: yokecd/yoke@v0.12.9
   - name: yorukot/superfile@v1.3.0
   - name: zyedidia/eget@v1.3.4
+  - name: git-bug/git-bug@v0.10.1
