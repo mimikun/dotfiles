@@ -1,4 +1,4 @@
-﻿{{ if eq .chezmoi.os "windows" -}}
+{{ if (eq .chezmoi.os "windows") -}}
 
 # download bat themes
 $batThemesDirectory = Join-Path -Path $env:USERPROFILE -ChildPath ".config\bat\themes"

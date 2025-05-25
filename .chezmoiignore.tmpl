@@ -75,7 +75,7 @@ misc/**
 scripts/**
 
 # Ignore: Not eq OS: Linux
-{{ if ne .chezmoi.os "linux" }}
+{{ if (ne .chezmoi.os "linux") }}
 .local/bin/**
 .config/elvish/**
 .config/fish/**
@@ -103,7 +103,7 @@ scripts/**
 {{ end }}
 
 # Ignore: Not eq hostname: azusa
-{{ if ne .chezmoi.hostname "azusa" }}
+{{ if (ne .chezmoi.hostname "azusa") }}
 .config/betterlockscreen/**
 .config/fcitx5/**
 .config/flameshot
@@ -120,7 +120,7 @@ scripts/**
 {{ end }}
 
 # Ignore: Not eq OS: Windows
-{{ if ne .chezmoi.os "windows" }}
+{{ if (ne .chezmoi.os "windows") }}
 AppData/**
 Documents/**
 OneDrive/**

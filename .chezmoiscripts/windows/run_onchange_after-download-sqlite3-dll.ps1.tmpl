@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "windows" -}}
+{{ if (eq .chezmoi.os "windows") -}}
 
 # download sqlite3.dll
 $sqlite3DllBaseDirectory = Join-Path -Path $env:USERPROFILE -ChildPath "utilities"

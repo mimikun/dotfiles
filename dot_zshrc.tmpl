@@ -46,16 +46,16 @@ export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_nam
 {{ end -}}
 
 # OBSIDIAN_VAULT_ROOT
-{{ if eq .chezmoi.hostname "azusa" -}}
+{{ if (eq .chezmoi.hostname) "azusa" -}}
 export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
-{{ else if eq .chezmoi.hostname "Wakamo" -}}
+{{ else if (eq .chezmoi.hostname) "Wakamo" -}}
 export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
 {{ else -}}
 export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
 {{ end -}}
 
 # LG_CONFIG_FILE
-{{ if eq .chezmoi.hostname "azusa" -}}
+{{ if (eq .chezmoi.hostname) "azusa" -}}
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/linux_config.yml"
 {{ else -}}
 export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/wsl_config.yml"

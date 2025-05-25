@@ -1,13 +1,13 @@
 [add]
 secrets = "ignore"
 
-{{ if eq .chezmoi.os "windows" }}
+{{ if (eq .chezmoi.os "windows") }}
 [cd]
 command = "pwsh.exe"
 {{ end }}
 
 [hooks.apply.pre]
-{{ if eq .chezmoi.os "linux" }}
+{{ if (eq .chezmoi.os "linux") }}
 command = "chezmoi_pre_apply_hook"
 {{ else }}
 command = "pwsh"
@@ -15,7 +15,7 @@ args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
 {{ end }}
 
 [hooks.apply.post]
-{{ if eq .chezmoi.os "linux" }}
+{{ (if eq .chezmoi.os "linux") }}
 command = "chezmoi_post_apply_hook"
 {{ else }}
 command = "pwsh"

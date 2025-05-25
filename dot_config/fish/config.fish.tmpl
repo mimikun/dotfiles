@@ -46,23 +46,23 @@ set -x GITHUB_USERNAME "mimikun"
 {{ end -}}
 
 # WIN_HOME
-{{ if eq .chezmoi.hostname "Wakamo" -}}
+{{ if (eq .chezmoi.hostname "Wakamo") -}}
 set -x WIN_HOME "/mnt/c/Users/mimikun"
 {{ else -}}
 set -x WIN_HOME "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
 {{ end -}}
 
 # OBSIDIAN_VAULT_ROOT
-{{ if eq .chezmoi.hostname "azusa" -}}
+{{ if (eq .chezmoi.hostname "azusa") -}}
 set -x OBSIDIAN_VAULT_ROOT "Obsidian/mimikun"
-{{ else if eq .chezmoi.hostname "Wakamo" -}}
+{{ else if (eq .chezmoi.hostname "Wakamo") -}}
 set -x OBSIDIAN_VAULT_ROOT "Obsidian/mimikun"
 {{ else -}}
 set -x OBSIDIAN_VAULT_ROOT "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
 {{ end -}}
 
 # LG_CONFIG_FILE
-{{ if eq .chezmoi.hostname "azusa" -}}
+{{ if (eq .chezmoi.hostname "azusa") -}}
 set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/linux_config.yml"
 {{ else -}}
 set -x LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
@@ -79,7 +79,7 @@ set -x CODEBERG_PAT "{{ (rbwFields "dotfiles-chezmoi").codeberg_pat.value }}"
 set -x GITEA_PAT "{{ (rbwFields "dotfiles-chezmoi").gitea_pat.value }}"
 {{ end -}}
 
-{{ if eq .chezmoi.hostname "azusa" -}}
+{{ if (eq .chezmoi.hostname "azusa") -}}
 set -x obsidian_vault_root_path "$HOME/Documents/$OBSIDIAN_VAULT_ROOT"
 {{ else -}}
 set -x windl "$WIN_HOME/Downloads"
@@ -612,4 +612,3 @@ source $CACHE_CONFIG_FISH
 zoxide init fish | source
 
 # vim:ft=fish.chezmoitmpl
-

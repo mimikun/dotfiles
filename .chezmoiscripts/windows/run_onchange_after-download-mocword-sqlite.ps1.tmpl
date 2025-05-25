@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "windows" -}}
+{{ if (eq .chezmoi.os "windows") -}}
 
 # download mocword.sqlite3
 $mocwordDataDirectory = Join-Path -Path $env:USERPROFILE -ChildPath "AppData\Local\Temp"

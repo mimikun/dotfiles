@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "windows" -}}
+{{ if (eq .chezmoi.os "windows") -}}
 
 # download clink_vfox.lua
 $clinkVfoxLuaBaseDirectory = Join-Path -Path $env:LOCALAPPDATA -ChildPath "clink"

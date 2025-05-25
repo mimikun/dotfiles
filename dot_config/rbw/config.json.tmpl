@@ -1,7 +1,7 @@
 {
   "email": "{{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}",
   "sso_id":null,
-  {{ if isExecutable "/usr/local/bin/this_is_work_pc" -}}
+  {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
   "base_url": "{{ (rbwFields "dotfiles-chezmoi").rbw_base_url.value }}",
   {{ else -}}
   "base_url": null,

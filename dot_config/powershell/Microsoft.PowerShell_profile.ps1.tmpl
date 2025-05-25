@@ -56,13 +56,13 @@ $GITHUB_USERNAME = "mimikun"
 
 $env:GITHUB_USERNAME = $GITHUB_USERNAME
 
-# WIN_HOME
-{{ if eq .chezmoi.os "windows" -}}
+## WIN_HOME
+{{ if (eq .chezmoi.os "windows") -}}
 $WIN_HOME = $env:USERPROFILE
 {{ else -}}
-{{ if eq .chezmoi.hostname "Wakamo" -}}
+{{ if (eq .chezmoi.hostname "Wakamo") -}}
 $WIN_HOME = "/mnt/c/Users/mimikun"
-{{ else if eq .chezmoi.hostname "azusa" -}}
+{{ else (if eq .chezmoi.hostname "azusa") -}}
 $WIN_HOME = "/mnt/c/Users/mimikun"
 {{ else -}}
 $WIN_HOME = "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
