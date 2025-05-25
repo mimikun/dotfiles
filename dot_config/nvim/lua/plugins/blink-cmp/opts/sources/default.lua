@@ -20,7 +20,6 @@ local default = {
     --"pandoc-references",
     --"env",
     -- NOTE: blink-compat sources
-    "cmp_yanky",
     "lorem_ipsum",
     -- WARN: can't use
     --"html-css",

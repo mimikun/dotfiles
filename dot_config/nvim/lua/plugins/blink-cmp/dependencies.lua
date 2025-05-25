@@ -27,7 +27,6 @@ local dependencies = {
     --"jmbuhr/cmp-pandoc-references",
     -- Source(use blink.compat)
     "rcarriga/cmp-dap",
-    "chrisgrieser/cmp_yanky",
     "dnnr1/lorem-ipsum.nvim",
     "samiulsami/cmp-go-deep",
     -- WARN: can't use

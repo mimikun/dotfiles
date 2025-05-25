@@ -19,7 +19,6 @@ local providers = {
     --css_vars = require("plugins.blink-cmp.opts.sources.providers.css-vars"),
     --pandoc_references = require("plugins.blink-cmp.opts.sources.providers.pandoc-references"),
     -- NOTE: compat providers
-    cmp_yanky = require("plugins.blink-cmp.opts.sources.providers.cmp_yanky"),
     dap = require("plugins.blink-cmp.opts.sources.providers.dap"),
     lorem_ipsum = require("plugins.blink-cmp.opts.sources.providers.lorem_ipsum"),
     go_deep = require("plugins.blink-cmp.opts.sources.providers.go_deep"),
