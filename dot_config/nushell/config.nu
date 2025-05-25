@@ -7,11 +7,8 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 # oh-my-posh
 #oh-my-posh init nu --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | save -f ($nu.data-dir | path join "vendor/autoload/oh-my-posh.nu")
 
-# NOTE: Enable if has human rights
-if (sys host | get hostname) != "TanakaPC" {
-    # atuin
-    atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
-}
+# atuin
+atuin init nu | save -f ($nu.data-dir | path join "vendor/autoload/atuin.nu")
 
 # jujutsu
 jj util completion nushell | save -f ($nu.data-dir | path join "vendor/autoload/jujutsu.nu")

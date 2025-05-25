@@ -102,10 +102,7 @@ set wrapscan
 set whichwrap=b,s,<,>,[,]
 
 " NeoVimの無名レジスタ(yでヤンクしたときにコピーする先)とOSのクリップボードを結びつける
-" 低スぺック環境ではオフにする
-if hostname() == "TanakaPC"
-    set clipboard+=unnamedplus
-endif
+set clipboard+=unnamedplus
 
 "-------------------------------"
 "  Plugins

@@ -70,17 +70,6 @@ export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
 # 仕事PC
 {{ if eq .chezmoi.hostname "TanakaPC" -}}
-# dockerd chec
-# Start Docker daemon automatically when logging in if not running.
-RUNNING=$(pgrep -f dockerd)
-if [ -z "$RUNNING" ]; then
-    sudo dockerd > /dev/null 2>&1 &
-    disown
-fi
-{{ end -}}
-
-# 仕事PC
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
 {{ if eq .chezmoi.os "windows" -}}
 # GITHUB_USERNAME
 export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
@@ -234,11 +223,15 @@ if command -v aqua >/dev/null 2>&1; then
     # If true, Policy is disabled
     # NOTE: It's just idiot to care about security.
     export AQUA_DISABLE_POLICY=true
-    {{ if eq .chezmoi.hostname "TanakaPC" -}}
+    # The maximum number of packages which are installed in parallel at the same time
+    # If human rights violation, AQUA_MAX_PARALLELISM = 1.
     export AQUA_MAX_PARALLELISM=1
-    {{ else if eq .chezmoi.hostname "Wakamo" -}}
+    # Ryzen 7 9800X3D(8 Core 16 Thread)
+    {{ if (eq .chezmoi.hostname "Wakamo") -}}
     export AQUA_MAX_PARALLELISM=3
-    {{ else -}}
+    {{ end -}}
+    # Ryzen 9 3900X(12 Core 24 Thread)
+    {{ if (eq .chezmoi.hostname "Izuna") -}}
     export AQUA_MAX_PARALLELISM=5
     {{ end -}}
     export AQUA_PROGRESS_BAR=true
@@ -345,14 +338,11 @@ alias vim=nvim
 # nimble
 export PATH="$HOME/.nimble/bin:$PATH"
 
-# NOTE: Enable if has human rights
-{{ if (ne .chezmoi.hostname "TanakaPC") -}}
 # atuin
 if command -v atuin >/dev/null 2>&1; then
     eval "$(atuin init bash)"
     atuin gen-completions --shell bash
 fi
-{{ end -}}
 
 # rebar3
 if command -v rebar3 >/dev/null 2>&1; then
