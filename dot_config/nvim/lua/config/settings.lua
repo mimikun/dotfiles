@@ -10,23 +10,23 @@ local settings = {}
 
 ---need all colorschemes
 ---@type boolean
-settings.need_all_colorschemes = false
+local need_all_colorschemes = false
 
 ---need all treesitter parsers
 ---@type boolean
-settings.need_all_parsers = false
+local need_all_parsers = false
 
 ---need all lspconfig servers
 ---@type boolean
-settings.need_all_servers = false
+local need_all_servers = false
 
 ---need all telescope extensions
 ---@type boolean
-settings.need_all_exts = false
+local need_all_exts = false
 
 ---use GitHub Copilot
 -- NOTE: only be enabled at Home-windows, Home-WSL and Home-azusa
-settings.use_github_copilot = is_home and true or false
+local use_github_copilot = is_home and true or false
 
 ---check if Codecompanion.nvim (ollama adapter) is available
 local check_codecompanion = function()
@@ -45,7 +45,8 @@ end
 
 ---use Codecompanion.nvim (ollama adapter)
 -- NOTE: only be enabled at Home-azusa and Work-Windows
-settings.use_codecompanion = check_codecompanion()
+---@type boolean
+local use_codecompanion = check_codecompanion()
 
 ---check if avante.nvim is available
 local check_avante = function()
@@ -64,31 +65,42 @@ end
 
 ---use avante.nvim
 -- NOTE: only be enabled at Home-azusa and Work-Windows
-settings.use_avante = check_avante()
+---@type boolean
+local use_avante = check_avante()
 
 ---use denops
--- NOTE: only be enabled at Home-azusa and Home-WSL
-local use_denops = (is_home and is_linux) and true or false
-settings.use_denops = use_denops
+---@type boolean
+local use_denops = true
 
 ---use blink.cmp
-settings.use_blink_cmp = true
+---@type boolean
+local use_blink_cmp = true
 
 ---@type boolean
 local is_throttling = false
-settings.is_throttling = is_throttling
 
 -- use llm feature, only enable home and linux(WSL)
 ---@type boolean
 local use_llm = is_home and is_linux
-settings.use_llm = use_llm
 
 ---@type boolean
 local use_minuet = false
-settings.use_minuet = use_minuet
 
 ---@type boolean
 local use_dashboard_image = false
+
+settings.need_all_colorschemes = need_all_colorschemes
+settings.need_all_parsers = need_all_parsers
+settings.need_all_servers = need_all_servers
+settings.need_all_exts = need_all_exts
+settings.use_github_copilot = use_github_copilot
+settings.use_codecompanion = use_codecompanion
+settings.use_avante = use_avante
+settings.use_denops = use_denops
+settings.use_blink_cmp = use_blink_cmp
+settings.is_throttling = is_throttling
+settings.use_llm = use_llm
+settings.use_minuet = use_minuet
 settings.use_dashboard_image = use_dashboard_image
 
 return settings

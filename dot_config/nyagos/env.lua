@@ -5,7 +5,7 @@ local home = global.home
 local is_linux = global.is_linux
 local is_windows = global.is_windows
 local is_azusa = global.is_azusa
-local is_not_human_rights = global.is_not_human_rights
+local is_work_pc = global.is_work_pc
 
 nyagos.envadd("HOME", home)
 local xdg_config_home = table.concat({ home, ".config" }, path_sep)
@@ -51,57 +51,85 @@ if is_azusa then
     nyagos.eval("setxkbmap -option ctrl:nocaps")
 end
 
+---@type table
 local lg_conf = {
-    win = table.concat({ home, "AppData", "Local", "lazygit", "config.yml" }, path_sep),
+    windows = table.concat({ home, "AppData", "Local", "lazygit", "config.yml" }, path_sep),
     wsl = table.concat({ xdg_config_home, "lazygit", "wsl_config.yml" }, path_sep),
     linux = table.concat({ xdg_config_home, "lazygit", "linux_config.yml" }, path_sep),
 }
 
-local github_username
-local win_home
-local obsidian_vault_root
+---@type string
 local lg_config_file
 
-if is_not_human_rights then
-    -- Work envs
-    github_username = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}'
-    win_home =
-        '/mnt/c/Users/{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").windows_user_name.value }}'
-    obsidian_vault_root =
-        '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}'
-    if is_linux then
-        lg_config_file = lg_conf.wsl
-    else
-        lg_config_file = lg_conf.win
-    end
+if is_azusa then
+    lg_config_file = lg_conf.linux
 else
-    -- Home envs
-    if is_linux then
-        -- home-wsl envs
-        github_username = '{{ (rbwFields "dotfiles-chezmoi").github_username.value }}'
-        if is_azusa then
-            -- Home azusa envs
-            obsidian_vault_root = table.concat({ home, "Documents", "Obsidian", "mimikun" }, path_sep)
-            lg_config_file = lg_conf.linux
-        else
-            -- home-wsl envs
-            win_home = '/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}'
-            obsidian_vault_root = '{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}'
-            lg_config_file = lg_conf.wsl
-        end
-    elseif is_windows then
-        -- home-windows envs
-        github_username = '{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").github_username.value }}'
-        win_home = home
-        obsidian_vault_root =
-            '{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}'
+    if is_windows then
         lg_config_file = lg_conf.windows
+    else
+        lg_config_file = lg_conf.wsl
     end
 end
 
-nyagos.envadd("GITHUB_USERNAME", github_username)
-nyagos.envadd("OBSIDIAN_VAULT_ROOT", obsidian_vault_root)
 nyagos.envadd("LG_CONFIG_FILE", lg_config_file)
+
+---@type string
+local github_username
+
+if is_work_pc then
+    -- Work envs
+    if is_windows then
+        -- on Windows
+        github_username = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}'
+    else
+        -- on Linux
+        github_username = '{{ (rbwFields "dotfiles-chezmoi").github_username.value }}'
+    end
+else
+    -- Home envs
+    github_username = "mimikun"
+end
+
+nyagos.envadd("GITHUB_USERNAME", github_username)
+
+---@type string
+local win_home
+
+if is_windows then
+    -- Windows envs
+    win_home = home
+else
+    -- Linux envs
+    if is_work_pc then
+        -- Work envs
+        win_home = '/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}'
+    else
+        -- Home envs
+        win_home = "/mnt/c/Users/mimikun"
+    end
+end
+
+---@type string
+local obsidian_vault_root
+
+if is_work_pc then
+    -- Work envs
+    if is_windows then
+        -- Windows envs
+        obsidian_vault_root =
+            '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}'
+    else
+        -- Linux envs
+        obsidian_vault_root = '{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}'
+    end
+elseif is_azusa then
+    obsidian_vault_root = table.concat({ home, "Documents", "Obsidian", "mimikun" }, path_sep)
+else
+    -- Home envs
+    obsidian_vault_root = table.concat({ "Obsidian", "mimikun" }, path_sep)
+end
+
+nyagos.envadd("OBSIDIAN_VAULT_ROOT", obsidian_vault_root)
 
 local obsidian_vault_root_path = nil
 
@@ -284,7 +312,7 @@ if is_linux then
     nyagos.envadd("PNPM_HOME", nyagos.getenv("PNPM_HOME") or pnpm_home)
     nyagos.envadd("PATH", nyagos.getenv("PNPM_HOME"))
 
-    if is_not_human_rights then
+    if is_work_pc then
         local java_home = table.concat({
             xdg_cache_home,
             "coursier",
@@ -361,7 +389,7 @@ if is_linux then
     nyagos.envadd("AGE_PUBKEY_HOME", nyagos.getenv("AGE_PUBKEY_HOME") or age_pubkeys.home)
     nyagos.envadd("AGE_PUBKEY_WORK", nyagos.getenv("AGE_PUBKEY_WORK") or age_pubkeys.work)
 
-    if is_not_human_rights then
+    if is_work_pc then
         nyagos.envadd("AGE_PUBKEY", nyagos.getenv("AGE_PUBKEY") or age_pubkeys.home)
     else
         nyagos.envadd("AGE_PUBKEY", nyagos.getenv("AGE_PUBKEY") or age_pubkeys.work)

@@ -4,21 +4,24 @@ local global = {}
 local os_name = wezterm.target_triple
 local hostname = wezterm.hostname()
 
+---@type table
+local human_rights_infos = {
+    ["YutoWindows"] = true,
+    ["azusa"] = true,
+    ["Wakamo"] = true,
+    ["Izuna"] = true,
+}
+
 -- NOTE: wezterm cannot get sysinfo
-global.check_human_rights = function()
-    if hostname == "YutoWindows" then
-        return true
-    elseif hostname == "TanakaPC" then
-        return false
-    elseif hostname == "azusa" then
-        return true
-    elseif hostname == "Wakamo" then
-        return true
-    else
-        return false
-    end
+---@return boolean
+local check_human_rights = function()
+    return human_rights_infos[hostname] or false
 end
 
+---@type boolean
+local is_human_rights = check_human_rights()
+
+global.check_human_rights = check_human_rights
 global.hostname = hostname
 global.is_intel_mac = os_name == "x86_64-apple-darwin"
 -- Apple Silicon
@@ -27,7 +30,7 @@ global.is_linux = os_name == "x86_64-unknown-linux-gnu"
 global.is_windows = os_name == "x86_64-pc-windows-msvc"
 global.is_wsl = wezterm.running_under_wsl()
 global.is_azusa = hostname == "azusa"
-global.is_human_rights = global:check_human_rights()
+global.is_human_rights = is_human_rights
 global.home = wezterm.home_dir
 global.config_dir = wezterm.config_dir
 global.config_file = wezterm.config_file
