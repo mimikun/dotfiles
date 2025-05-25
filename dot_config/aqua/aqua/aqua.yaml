@@ -134,6 +134,6 @@ packages:
   - name: ycd/dstp@v0.4.23
   - name: ymtdzzz/otel-tui@v0.4.11
   - name: yokecd/yoke@v0.12.9
-  - name: yorukot/superfile@v1.3.0
+  - name: yorukot/superfile@v1.3.1
   - name: zyedidia/eget@v1.3.4
   - name: git-bug/git-bug@v0.10.1
