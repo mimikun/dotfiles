@@ -13,6 +13,7 @@ local providers = {
     tmux = require("plugins.blink-cmp.opts.sources.providers.tmux"),
     spell = require("plugins.blink-cmp.opts.sources.providers.spell"),
     conventional_commits = require("plugins.blink-cmp.opts.sources.providers.conventional-commits"),
+    yank = require("plugins.blink-cmp.opts.sources.providers.yank"),
     -- WARN: can't use
     --env = require("plugins.blink-cmp.opts.sources.providers.env"),
     --orgmode = require("plugins.blink-cmp.opts.sources.providers.orgmode"),

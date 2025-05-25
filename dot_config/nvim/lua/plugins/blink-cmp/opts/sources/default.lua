@@ -15,6 +15,7 @@ local default = {
     "ecolog",
     "nerdfont",
     "spell",
+    "yank",
     -- WARN: can't use
     --"css-vars",
     --"pandoc-references",

@@ -20,6 +20,7 @@ local dependencies = {
     "Kaiser-Yang/blink-cmp-git",
     "mgalliou/blink-cmp-tmux",
     "ribru17/blink-cmp-spell",
+    "marcoSven/blink-yanky.nvim",
     "disrupted/blink-cmp-conventional-commits",
     -- WARN: can't use
     --"bydlw98/blink-cmp-env",
