@@ -617,18 +617,6 @@ Set-Alias -Name pueue_update_cargo_packages -Value Invoke-PueueUpdateCargoPackag
 Set-Alias -Name upcapa -Value Invoke-PueueUpdateCargoPackages
 
 if ($isMSWindows) {
-    # alias wsl_shutdown Invoke-WslTerminateUbuntu
-    function Invoke-WslTerminateUbuntu() {
-        if ($env:COMPUTERNAME -eq "TANAKAPC") {
-            # NOTE: Workaround
-            #wsl --terminate Ubuntu-20.04
-            wsl --shutdown
-        } else {
-            wsl --terminate Ubuntu
-        }
-    }
-    Set-Alias -Name wsl_shutdown Invoke-WslTerminateUbuntu
-
     # alias wsl_status Invoke-WslStatus
     function Invoke-WslStatus {
         wsl -l -v
