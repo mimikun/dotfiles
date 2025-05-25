@@ -55,7 +55,8 @@ highest human rights
 highest human rights
 
 - RAM
-    - 8GB(swap 0GB)
+    - 8GB
+    - SWAP: 0
 
 <details>
 <summary>old machines</summary>
@@ -78,13 +79,14 @@ highest human rights, but almost disk full.
 highest human rights, but almost disk full.
 
 - RAM
-    - 8GB(swap 0GB)
+    - 8GB
+    - SWAP: 0
 
 </details>
 
 ### `Home-azusa`
 
-better human rights
+minimum level of human rights
 
 ThinkPad E14
 
@@ -93,11 +95,35 @@ ThinkPad E14
 - RAM
     - 16GB
 - DISK
-    - unknown
+    - 512GB SSD
 - GPU
-    - unknown
+    - Onboard(Intel UHD Graphics)
 
 ### `Work-Windows`
+
+minimum level of human rights
+
+- CPU:
+    - Intel(R) Core(TM) i5-14400
+- RAM:
+    - 16GB
+- DISK
+    - 512GB SSD
+- GPU
+    - Onboard(Intel UHD Graphics?)
+
+### `Work-WSL`
+
+minimum level of human rights
+
+- RAM
+    - 8GB(default)
+    - SWAP: unknown
+
+<details>
+<summary>old machines</summary>
+
+### `Work-Windows(old)`
 
 human rights violations
 
@@ -110,9 +136,12 @@ human rights violations
 - GPU
     - unknown
 
-### `Work-WSL`
+### `Work-WSL(old)`
 
 human rights violations
 
 - RAM
-    - 3GB(swap 8GB)
+    - 3GB
+    - SWAP: 8GB
+
+</details>
