@@ -56,8 +56,11 @@ work() {
     echo '```'
 }
 
-if [[ "$HOSTNAME" = "TanakaPC" ]]; then
-    work >>$RESULT_FILE
-else
-    home >>$RESULT_FILE
-fi
+case "$HOSTNAME" in
+    "Wakamo" | "Izuna" | "azusa")
+        home >>$RESULT_FILE
+        ;;
+    *)
+        work >>$RESULT_FILE
+        ;;
+esac

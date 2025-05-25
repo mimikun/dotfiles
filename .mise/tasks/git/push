@@ -1,21 +1,23 @@
 #!/bin/bash
 # mise description="Add commit message up to `origin/master` to CHANGELOG.md"
 
-# TODO: support arch linux
-HOSTNAME=$(hostname)
+host_name=$(cat /etc/hostname)
 
-if [[ "$HOSTNAME" = "TanakaPC" ]]; then
-    echo "        THIS IS WORK-PC!!!        "
-    echo "DON'T PUSH TO REMOTE REPOSITORY!!!"
-else
-    echo "Pushing to origin..."
-    git fetch origin
-    git push origin master
-    git push origin --tags
-    echo "Pushing to codeberg..."
-    git fetch codeberg
-    git push codeberg master
-    git push codeberg --tags
-fi
+case "$host_name" in
+    "Wakamo" | "Izuna" | "azusa")
+        echo "Pushing to origin..."
+        git fetch origin
+        git push origin master
+        git push origin --tags
+        echo "Pushing to codeberg..."
+        git fetch codeberg
+        git push codeberg master
+        git push codeberg --tags
+        ;;
+    *)
+        echo "        THIS IS WORK-PC!!!        "
+        echo "DON'T PUSH TO REMOTE REPOSITORY!!!"
+        ;;
+esac
 
 # vim:ft=bash
