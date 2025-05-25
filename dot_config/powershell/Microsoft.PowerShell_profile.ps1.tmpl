@@ -39,19 +39,17 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
 }
 
 # env-var
-# GITHUB_USERNAME
-{{ if eq .chezmoi.os "windows" -}}
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+## GITHUB_USERNAME
+{{ if (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
 $GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
 {{ else -}}
 $GITHUB_USERNAME = "mimikun"
 {{ end -}}
-{{ else -}}
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+
+{{ if (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) -}}
 $GITHUB_USERNAME = "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
 {{ else -}}
 $GITHUB_USERNAME = "mimikun"
-{{ end -}}
 {{ end -}}
 
 $env:GITHUB_USERNAME = $GITHUB_USERNAME
@@ -71,23 +69,17 @@ $WIN_HOME = "/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.va
 
 $env:WIN_HOME = $WIN_HOME
 
-# OBSIDIAN_VAULT_ROOT
-{{ if eq .chezmoi.os "windows" -}}
-{{ if eq .chezmoi.hostname "Wakamo" -}}
-$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
-{{ else if eq .chezmoi.hostname "TanakaPC" -}}
+## OBSIDIAN_VAULT_ROOT
+{{ if (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
 $OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
 {{ else -}}
-$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
+$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
 {{ end -}}
-{{ else -}}
-{{ if eq .chezmoi.hostname "azusa" -}}
-$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
-{{ else if eq .chezmoi.hostname "Wakamo" -}}
-$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
-{{ else -}}
+
+{{ if (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) -}}
 $OBSIDIAN_VAULT_ROOT = "{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
-{{ end -}}
+{{ else -}}
+$OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
 {{ end -}}
 
 $env:OBSIDIAN_VAULT_ROOT = $OBSIDIAN_VAULT_ROOT
@@ -753,7 +745,13 @@ $env:AGE_PUBKEY_WORK = "age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6q
 # TODO: config
 $env:AGE_PUBKEY_AZUSA = ""
 
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+{{ if (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) -}}
+$env:AGE_PUBKEY = $env:AGE_PUBKEY_HOME
+{{ else -}}
+$env:AGE_PUBKEY = $env:AGE_PUBKEY_WORK
+{{ end -}}
+
+{{ if (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
 $env:AGE_PUBKEY = $env:AGE_PUBKEY_HOME
 {{ else -}}
 $env:AGE_PUBKEY = $env:AGE_PUBKEY_WORK

@@ -68,44 +68,28 @@ fi
 # chezmoi
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
-# 仕事PC
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
-{{ if eq .chezmoi.os "windows" -}}
-# GITHUB_USERNAME
+# env-vars
+{{ if (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
 export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
-# WIN_HOME
 export WIN_HOME = $env:USERPROFILE
-# OBSIDIAN_VAULT_ROOT
 export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
-{{ else if eq .chezmoi.os "linux" -}}
-# GITHUB_USERNAME
-export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
-# WIN_HOME
-export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
-# OBSIDIAN_VAULT_ROOT
-export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
-{{ end -}}
-# 非仕事PC
 {{ else -}}
-# GITHUB_USERNAME
 export GITHUB_USERNAME="mimikun"
-{{ if eq .chezmoi.os "windows" -}}
-# WIN_HOME
 export WIN_HOME = $env:USERPROFILE
-# OBSIDIAN_VAULT_ROOT
-export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").obsidian_vault_root_path.value }}"
-{{ else if eq .chezmoi.os "linux" -}}
-# WIN_HOME
-{{ if eq .chezmoi.hostname "Wakamo" -}}
-export WIN_HOME="/mnt/c/Users/mimikun"
-{{ else if eq .chezmoi.hostname "azusa" -}}
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ end -}}
+
+{{ if (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) -}}
+export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
+export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
+{{ else -}}
+export GITHUB_USERNAME="mimikun"
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ if (eq .chezmoi.hostname "azusa") -}}
 export WIN_HOME=""
 {{ else -}}
-export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
-{{ end -}}
-# OBSIDIAN_VAULT_ROOT
-export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
-{{ else -}}
+export WIN_HOME="/mnt/c/Users/mimikun"
 {{ end -}}
 {{ end -}}
 
@@ -355,11 +339,14 @@ export AGE_PUBKEY_WORK="age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6q
 # TODO: config
 export AGE_PUBKEY_AZUSA=""
 
-{{ if (eq .chezmoi.hostname "TanakaPC") -}}
-export AGE_PUBKEY="$AGE_PUBKEY_HOME"
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
+set -x AGE_PUBKEY "$AGE_PUBKEY_HOME"
 {{ else -}}
-export AGE_PUBKEY="$AGE_PUBKEY_WORK"
+set -x AGE_PUBKEY "$AGE_PUBKEY_WORK"
 {{ end -}}
+#if set -q WORK_PC
+#else
+#end
 
 # golang
 export GOPATH="$HOME/go"

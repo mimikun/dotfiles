@@ -1,8 +1,10 @@
 # All platform 共通
 
+# Linux
 {{ if eq .chezmoi.os "linux" -}}
-    {{ if eq .chezmoi.hostname "TanakaPC" -}}
-# Linuxのとき
+
+# Is Work-PC
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
 
 # >>> JVM installed by coursier >>>
 export JAVA_HOME="$HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10"

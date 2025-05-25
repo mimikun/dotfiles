@@ -39,11 +39,14 @@ setxkbmap -option ctrl:nocaps
 
 # env-vars
 # GITHUB_USERNAME
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") }}
 set -x GITHUB_USERNAME "{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
 {{ else -}}
 set -x GITHUB_USERNAME "mimikun"
 {{ end -}}
+#if set -q WORK_PC
+#else
+#end
 
 # WIN_HOME
 {{ if (eq .chezmoi.hostname "Wakamo") -}}
@@ -73,11 +76,13 @@ set -x WORKSPACE_MIMIKUN "$GHQ_ROOT/github.com/mimikun"
 set -x NVIM_DEV_PLUGINS "$WORKSPACE_MIMIKUN/dev-plugins"
 
 # some services PATs
-{{ if eq .chezmoi.hostname "TanakaPC" -}}
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") }}
 set -x GITHUB_PAT "{{ (rbwFields "dotfiles-chezmoi").github_pat.value }}"
 set -x CODEBERG_PAT "{{ (rbwFields "dotfiles-chezmoi").codeberg_pat.value }}"
 set -x GITEA_PAT "{{ (rbwFields "dotfiles-chezmoi").gitea_pat.value }}"
 {{ end -}}
+#if set -q WORK_PC
+#end
 
 {{ if (eq .chezmoi.hostname "azusa") -}}
 set -x obsidian_vault_root_path "$HOME/Documents/$OBSIDIAN_VAULT_ROOT"
@@ -169,7 +174,7 @@ set -x PNPM_HOME $XDG_DATA_HOME/pnpm
 set -x PATH "$PNPM_HOME" $PATH
 
 # work pc only tools?
-{{ if (eq .chezmoi.hostname "TanakaPC") -}}
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") }}
 # JVM path
 set -x JAVA_HOME $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10
 set -x PATH $XDG_CACHE_HOME/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin $PATH
@@ -319,11 +324,14 @@ set -x AGE_PUBKEY_WORK "age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6q
 # TODO: config
 set -x AGE_PUBKEY_AZUSA ""
 
-{{ if (eq .chezmoi.hostname "TanakaPC") -}}
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
 set -x AGE_PUBKEY "$AGE_PUBKEY_HOME"
 {{ else -}}
 set -x AGE_PUBKEY "$AGE_PUBKEY_WORK"
 {{ end -}}
+#if set -q WORK_PC
+#else
+#end
 
 # golang
 set -x GOPATH $HOME/go
@@ -596,10 +604,13 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     #end
 
     # work pc only tools
-    {{ if (eq .chezmoi.hostname "TanakaPC") -}}
+    {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
     cat $XDG_CONFIG_HOME/{{ (rbwFields "dotfiles-chezmoi").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
     {{ end -}}
+    #if set -q WORK_PC
+    #else
+    #end
 end
 source $CACHE_CONFIG_FISH
 
