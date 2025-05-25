@@ -340,13 +340,10 @@ export AGE_PUBKEY_WORK="age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6q
 export AGE_PUBKEY_AZUSA=""
 
 {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
-set -x AGE_PUBKEY "$AGE_PUBKEY_HOME"
+export AGE_PUBKEY="$AGE_PUBKEY_HOME"
 {{ else -}}
-set -x AGE_PUBKEY "$AGE_PUBKEY_WORK"
+export AGE_PUBKEY="$AGE_PUBKEY_WORK"
 {{ end -}}
-#if set -q WORK_PC
-#else
-#end
 
 # golang
 export GOPATH="$HOME/go"

@@ -37,9 +37,6 @@ export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value 
 {{ else -}}
 export GITHUB_USERNAME="mimikun"
 {{ end -}}
-#if set -q WORK_PC
-#else
-#end
 
 # WIN_HOME
 {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
@@ -47,9 +44,6 @@ export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_nam
 {{ else -}}
 export WIN_HOME="/mnt/c/Users/mimikun"
 {{ end -}}
-#if set -q WORK_PC
-#else
-#end
 
 # OBSIDIAN_VAULT_ROOT
 {{ if (eq .chezmoi.hostname) "azusa" -}}
@@ -254,11 +248,11 @@ if command -v aqua >/dev/null 2>&1; then
     export AQUA_MAX_PARALLELISM=1
     # Ryzen 7 9800X3D(8 Core 16 Thread)
     {{ if (eq .chezmoi.hostname "Wakamo") -}}
-    set -x AQUA_MAX_PARALLELISM 3
+    export AQUA_MAX_PARALLELISM=3
     {{ end -}}
     # Ryzen 9 3900X(12 Core 24 Thread)
     {{ if (eq .chezmoi.hostname "Izuna") -}}
-    set -x AQUA_MAX_PARALLELISM 5
+    export AQUA_MAX_PARALLELISM=5
     {{ end -}}
     export AQUA_PROGRESS_BAR=true
 end
@@ -333,13 +327,10 @@ export AGE_PUBKEY_WORK="age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6q
 export AGE_PUBKEY_AZUSA=""
 
 {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
-set -x AGE_PUBKEY "$AGE_PUBKEY_HOME"
+export AGE_PUBKEY="$AGE_PUBKEY_HOME"
 {{ else -}}
-set -x AGE_PUBKEY "$AGE_PUBKEY_WORK"
+export AGE_PUBKEY="$AGE_PUBKEY_WORK"
 {{ end -}}
-#if set -q WORK_PC
-#else
-#end
 
 # golang
 export GOPATH="$HOME/go"
