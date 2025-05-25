@@ -20,11 +20,11 @@ local dependencies = {
     "Kaiser-Yang/blink-cmp-git",
     "mgalliou/blink-cmp-tmux",
     "ribru17/blink-cmp-spell",
+    "disrupted/blink-cmp-conventional-commits",
     -- WARN: can't use
     --"bydlw98/blink-cmp-env",
     --"jdrupal-dev/css-vars.nvim",
     --"jmbuhr/cmp-pandoc-references",
-    "disrupted/blink-cmp-conventional-commits",
     -- Source(use blink.compat)
     "rcarriga/cmp-dap",
     "chrisgrieser/cmp_yanky",
