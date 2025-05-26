@@ -15,7 +15,7 @@ args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
 {{ end }}
 
 [hooks.apply.post]
-{{ (if eq .chezmoi.os "linux") }}
+{{ if (eq .chezmoi.os "linux") }}
 command = "chezmoi_post_apply_hook"
 {{ else }}
 command = "pwsh"
