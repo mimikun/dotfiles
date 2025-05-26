@@ -244,15 +244,16 @@ if command -v aqua >/dev/null 2>&1; then
     # If true, Policy is disabled
     # NOTE: It's just idiot to care about security.
     export AQUA_DISABLE_POLICY=true
-    # If not human rights, AQUA_MAX_PARALLELISM=1.
-    export AQUA_MAX_PARALLELISM=1
+    # The maximum number of packages which are installed in parallel at the same time
     {{ if (eq .chezmoi.hostname "Wakamo") -}}
     # Ryzen 7 9800X3D(8 Core 16 Thread)
     export AQUA_MAX_PARALLELISM=3
-    {{ end -}}
-    {{ if (eq .chezmoi.hostname "Izuna") -}}
+    {{ else if (eq .chezmoi.hostname "Izuna") -}}
     # Ryzen 9 3900X(12 Core 24 Thread)
     export AQUA_MAX_PARALLELISM=5
+    {{ else -}}
+    # Other
+    export AQUA_MAX_PARALLELISM=1
     {{ end -}}
     export AQUA_PROGRESS_BAR=true
 fi
