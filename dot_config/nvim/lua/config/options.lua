@@ -1,4 +1,5 @@
 local global = require("config.global")
+local cb = require("config.clipboard")
 
 -- Enables mouse support. all previous modes
 ---@type string
@@ -114,5 +115,5 @@ vim.g.loaded_node_provider = 0
 -- clipboard integration
 vim.opt.clipboard = "unnamedplus"
 if not global.is_windows then
-    vim.g.clipboard = require("config.clipboard").xsel
+    vim.g.clipboard = vim.env.WORK_PC and cb.wl_clipboard or cb.xsel
 end

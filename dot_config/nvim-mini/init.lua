@@ -3,6 +3,9 @@ if vim.loader then
     vim.loader.enable()
 end
 
+local bannars = require("bannars").get("covid_19").Japan
+local cb = require("clipboard")
+
 local os_name = vim.uv.os_uname().sysname
 
 ---@type boolean
@@ -63,20 +66,7 @@ vim.keymap.set("", "<Esc><Esc>", ":nohlsearch<CR><Esc>")
 -- clipboard integration
 vim.opt.clipboard = "unnamedplus"
 if is_wsl then
-    vim.g.clipboard = {
-        name = "xsel-clipboard",
-        copy = {
-            ["+"] = "xsel -bi",
-            ["*"] = "xsel -bi",
-        },
-        paste = {
-            ["+"] = "xsel -bo",
-            ["*"] = function()
-                return vim.fn.systemlist('xsel -bo | tr -d "\r"')
-            end,
-        },
-        cache_enabled = true,
-    }
+    vim.g.clipboard = vim.env.WORK_PC and cb.wl_clipboard or cb.xsel
 end
 
 -- mini.nvim setup
@@ -317,7 +307,7 @@ now(function()
     local quick_links = "Quick Links"
     local starter = require("mini.starter")
     starter.setup({
-        header = table.concat(require("bannars").get("covid_19").Japan, "\n"),
+        header = table.concat(bannars, "\n"),
         items = {
             { name = "e  󰝒  New file", action = "enew", section = quick_links },
             { name = "u  󰚰  Update plugins", action = "DepsUpdate", section = quick_links },
