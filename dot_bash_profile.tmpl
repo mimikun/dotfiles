@@ -21,7 +21,7 @@ source $HOME/.config/broot/launcher/bash/br
 #else
 #end
 # macOS
-{{ else (if eq .chezmoi.os "darwin") -}}
+{{ else if (eq .chezmoi.os "darwin") -}}
 # Windows
 {{ else if (eq .chezmoi.os "windows") -}}
 # System-wide bashrc file
