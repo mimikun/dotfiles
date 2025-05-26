@@ -1,5 +1,41 @@
 # Changelog
 
+## [v2025.05.25]
+
+### Added - 新機能について
+
+- docs: update some docs
+- docs(glossary): update
+- feat(uv): add lexy
+- feat(cargo): add some packages
+- feat(aqua): add git-bug
+- feat(aqua): add masutaka/github-nippou
+- feat(gh-ext): add gh-nippou
+- feat(blink.cmp): add blink-yanky.nvim
+
+### Changed - 既存機能の変更について
+
+- chore(any): get human-rights
+- chore: improve env-check process
+- chore(rbw): improve env-check process
+- chore(cargo): update config
+- chore(shells): use isExecutable instead of hostname
+- style(blink.cmp): sort deps
+- chore(chezmoiexternal): update
+- refactor(any): human-rights check process and more
+
+### Removed - 今回で削除された機能について
+
+- chore(mise): disable some tools
+- chore(blink.cmp): remove cmp_yanky
+- chore(powershell): remove wsl_shutdown
+
+### Fixed - 不具合修正について
+
+- style(chezmoi): fix many if-statements
+- fix(make-tasks): work-pc check process and more
+- fix(posix-shells): use export
+
 ## [v2025.05.19]
 
 ### Added - 新機能について
