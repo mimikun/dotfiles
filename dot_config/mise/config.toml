@@ -18,7 +18,8 @@ vim = [
     "latest",
 ]
 zig = [
-    "ref:master",
+# WORKAROUND: bug
+#    "ref:master",
     "latest",
 ]
 
