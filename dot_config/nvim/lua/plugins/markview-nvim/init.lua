@@ -7,7 +7,10 @@ local spec = {
     cmd = "Markview",
     event = "BufEnter",
     dependencies = require("plugins.markview-nvim.dependencies"),
-    opts = require("plugins.markview-nvim.opts"),
+    config = function()
+        -- NOTE: NEED call setup function
+        require("markview").setup(require("plugins.markview-nvim.opts"))
+    end,
     --cond = false,
     --enabled = false,
 }
