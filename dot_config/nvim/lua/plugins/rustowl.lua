@@ -20,8 +20,9 @@ local spec = {
     lazy = false,
     cmd = "Rustowl",
     opts = opts,
-    --cond = false,
-    --enabled = false,
+    -- NOTE: very unstable
+    cond = false,
+    enabled = false,
 }
 
 return spec
