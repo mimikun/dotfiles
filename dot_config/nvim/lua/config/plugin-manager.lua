@@ -4,21 +4,9 @@ local iconsets = require("utils.icons")
 ---@type string
 local path_sep = global.path_sep
 
----@type boolean
-local is_windows = global.is_windows
-
----@type boolean
-local is_human_rights = global.is_human_rights
-
 -- Limit the number of concurrent task depending on human rights or OS
----@type number|nil
-local concurrency
-
-if is_human_rights then
-    concurrency = is_windows and (vim.uv.available_parallelism() * 2) or nil
-else
-    concurrency = is_windows and 4 or 6
-end
+---@type number
+local concurrency = require("utils.concurrency").check_lazy()
 
 ---@type string
 local lazy_root = table.concat({ global.data_dir, "lazy" }, path_sep)

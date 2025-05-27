@@ -1,6 +1,6 @@
 ---@type table
 local opts = {
-    max_concurrent_installers = require("config.global").is_human_rights and 4 or 1,
+    max_concurrent_installers = require("utils.concurrency").check_mason(),
     registries = {
         "github:crashdummyy/mason-registry",
         "github:mimikun/mason-registry",
