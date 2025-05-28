@@ -1,8 +1,20 @@
+local g = require("config.global")
+
+---@type boolean
+local is_work = not g.is_home
+
+---@type table
 local wsl = {
     ubuntu = {
         label = "WSL Ubuntu",
         domain = {
             DomainName = "WSL:Ubuntu",
+        },
+    },
+    arch = {
+        label = "WSL ArchLinux",
+        domain = {
+            DomainName = "WSL:ArchLinux",
         },
     },
     nixos = {
@@ -13,6 +25,7 @@ local wsl = {
     },
 }
 
+---@type table
 local windows = {
     pwsh = {
         base = {
@@ -62,25 +75,23 @@ local windows = {
     },
 }
 
+---@type table
+local launch_menu = {}
+if is_work then
+    table.insert(launch_menu, wsl.arch)
+else
+    table.insert(launch_menu, wsl.ubuntu)
+end
+table.insert(launch_menu, windows.pwsh.norc)
+table.insert(launch_menu, wsl.nixos)
+table.insert(launch_menu, windows.pwsh.base)
+table.insert(launch_menu, windows.powershell.base)
+table.insert(launch_menu, windows.powershell.norc)
+table.insert(launch_menu, windows.cmd_exe)
+table.insert(launch_menu, windows.nyagos)
+
 local function menu(config)
-    config.launch_menu = {
-        -- 1
-        wsl.ubuntu,
-        -- 2
-        windows.pwsh.base,
-        -- 3
-        windows.pwsh.norc,
-        -- 4
-        windows.powershell.base,
-        -- 5
-        windows.powershell.norc,
-        -- 6
-        windows.cmd_exe,
-        -- 7
-        windows.nyagos,
-        -- 8
-        wsl.nixos,
-    }
+    config.launch_menu = launch_menu
 end
 
 return menu

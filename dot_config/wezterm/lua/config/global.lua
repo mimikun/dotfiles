@@ -31,6 +31,7 @@ global.is_windows = os_name == "x86_64-pc-windows-msvc"
 global.is_wsl = wezterm.running_under_wsl()
 global.is_azusa = hostname == "azusa"
 global.is_human_rights = is_human_rights
+global.is_home = hostname == "Wakamo"
 global.home = wezterm.home_dir
 global.config_dir = wezterm.config_dir
 global.config_file = wezterm.config_file
