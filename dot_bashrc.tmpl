@@ -72,8 +72,8 @@ export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 {{ if (eq .chezmoi.os "windows") -}}
 export WIN_HOME = $env:USERPROFILE
 {{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe") -}}
-export GITHUB_USERNAME="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
-export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+export GITHUB_USERNAME="{{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").github_username.value }}"
+export OBSIDIAN_VAULT_ROOT="{{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").obsidian_vault_root_path.value }}"
 {{ else -}}
 export GITHUB_USERNAME="mimikun"
 export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"

@@ -80,7 +80,7 @@ if is_work_pc then
     -- Work envs
     if is_windows then
         -- on Windows
-        github_username = '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}'
+        github_username = '{{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").github_username.value }}'
     else
         -- on Linux
         github_username = '{{ (rbwFields "dotfiles-chezmoi").github_username.value }}'
@@ -117,7 +117,7 @@ if is_work_pc then
     if is_windows then
         -- Windows envs
         obsidian_vault_root =
-            '{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}'
+            '{{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").obsidian_vault_root_path.value }}'
     else
         -- Linux envs
         obsidian_vault_root = '{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}'

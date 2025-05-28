@@ -42,8 +42,8 @@ if ((Test-Path $PROFILE) -and (Test-Path $CACHE_PROFILE)) {
 {{ if (eq .chezmoi.os "windows") -}}
 $WIN_HOME = $env:USERPROFILE
 {{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe") -}}
-$GITHUB_USERNAME = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").github_username.value }}"
-$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "0f17c992-d0fe-4f36-bde8-95d9e2de3a6d").obsidian_vault_root_path.value }}"
+$GITHUB_USERNAME = "{{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").github_username.value }}"
+$OBSIDIAN_VAULT_ROOT = "{{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").obsidian_vault_root_path.value }}"
 {{ else -}}
 $GITHUB_USERNAME = "mimikun"
 $OBSIDIAN_VAULT_ROOT = "Obsidian/mimikun"
