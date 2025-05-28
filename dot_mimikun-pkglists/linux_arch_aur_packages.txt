@@ -1,0 +1,6 @@
+nkf
+nvrs
+paru
+paru-debug
+yay
+yay-debug
