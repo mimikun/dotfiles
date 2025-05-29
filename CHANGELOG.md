@@ -1,5 +1,45 @@
 # Changelog
 
+## [v2025.05.29]
+
+### Added - 新機能について
+
+- docs: add CLAUDE.md
+- feat(fish): add pueue abbrs
+- feat(nvim): add databox.nvim
+- feat(nvim): add keytrail.nvim
+- feat(nvim): add paint.nvim
+- feat(nvim): add cs_picker
+- feat(nvim): add complexity.nvim
+- feat(pkg-lists): add Arch Linux package list
+- feat(update-task): add arch_pkg_list in update tasks
+
+### Changed - 既存機能の変更について
+
+- docs: update CLAUDE.md
+- chore(docs): cleanup
+- chore(nvim): update lockfiles
+- chore(fish): update some completions
+- chore(chezmoiignore): ignore CLAUDE.md
+- chore(wezterm): improve launch_menu in windows
+- refactor(nvim): extract concurrency-calculation feature
+
+### Removed - 今回で削除された機能について
+
+- chore(nvim): disable rustowl
+
+### Fixed - 不具合修正について
+
+- fix(nvim-confs): clipboard configs
+    - WORKAROUND: mise-zig has bug now
+- fix(chezmoi): fix config file
+- fix(chezmoi): remove duplicate AQUA_MAX_PARALLELISM
+- fix(chezmoi-templates): some error fixed
+- fix(chezmoitemplate): incorrect data in work-pc
+- fix(markview.nvim): can't working
+- fix(fish): can't use abbr ls eza
+    - WORKAROUND: Overwrite ls with user function. Previously it used system function.
+
 ## [v2025.05.25]
 
 ### Added - 新機能について
