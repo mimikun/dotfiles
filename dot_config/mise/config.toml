@@ -4,49 +4,46 @@ erlang = "latest"
 ruby = "latest"
 lua = "5.1"
 node = [
-    "lts",
-    "22",
-    "latest",
-    "23",
+  "lts",
+  "22",
+  "latest",
+  "23",
 ]
 python = [
-    "latest",
-    "3",
+  "latest",
+  "3",
 ]
 vim = [
-    "ref:master",
-    "latest",
+  "ref:master",
+  "latest",
 ]
 zig = [
-# WORKAROUND: bug
-#    "ref:master",
-    "latest",
+  "master",
+  "latest",
 ]
 
-# npm backends
-#"npm:commitizen" = "latest"
-#"npm:cz-conventional-changelog-ja" = "latest"
-#"npm:npkill" = "latest"
-#"npm:prettier" = "latest"
-#"npm:git-truck" = "latest"
-#"npm:@openai/codex" = "latest"
-#"npm:up-fetch" = "2.0.0-beta.10"
-#"npm:envinfo" = "latest"
-#"npm:httpyac" = "latest"
-
 [settings]
-asdf_compat = true
+activate_aggressive = true
+# TODO: check
+auto_install = true
+# TODO: check
+exec_auto_install = true
 experimental = true
+idiomatic_version_file_enable_tools = [
+  "crystal",
+  "elixir",
+  "go",
+  "java",
+  "node",
+  "python",
+  "ruby",
+  "terraform",
+  "yarn",
+]
 jobs = 1
-
-[settings.cargo]
-binstall = false
-
-[settings.npm]
-bun = true
-
-[settings.pipx]
-uvx = true
-
-[settings.status]
-missing_tools = "if_other_versions_installed"
+lockfile = true
+not_found_auto_install = true
+cargo.binstall = false
+npm.bun = true
+pipx.uvx = true
+status.missing_tools = "if_other_versions_installed"
