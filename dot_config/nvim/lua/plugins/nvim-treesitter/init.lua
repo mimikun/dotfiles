@@ -1,6 +1,8 @@
 ---@type LazySpec
 local spec = {
     "nvim-treesitter/nvim-treesitter",
+    -- TODO: migrate to main branch
+    branch = "master",
     build = ":TSUpdate",
     --lazy = false,
     cmd = require("plugins.nvim-treesitter.cmds"),
