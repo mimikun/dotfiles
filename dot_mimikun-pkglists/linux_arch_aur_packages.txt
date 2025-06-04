@@ -1,6 +1,12 @@
+gforth
 nkf
 nvrs
 paru
 paru-debug
+resvg
+scooter
+t-rec
+tracker
 yay
 yay-debug
+yazi-git

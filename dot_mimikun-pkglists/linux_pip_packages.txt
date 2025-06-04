@@ -37,6 +37,7 @@ click
 click-help-colors
 click-log
 click-plugins
+cli_helpers
 cobble
 colorama
 colored
@@ -130,6 +131,8 @@ pathspec
 pathvalidate
 pbr
 pdfminer.six
+pgcli
+pgspecial
 pgtree
 pillow
 pipupgrade
@@ -141,6 +144,7 @@ prompt-toolkit
 propcache
 protobuf
 psutil
+psycopg
 pur
 puremagic
 pyaes
@@ -174,6 +178,7 @@ requests-file
 rexi
 rich
 ruamel.yaml
+setproctitle
 setuptools
 sgmllib3k
 shellingham
@@ -186,6 +191,7 @@ soupsieve
 SpeechRecognition
 spiel
 SQLAlchemy
+sqlparse
 srt
 sshclick
 ssh-para
