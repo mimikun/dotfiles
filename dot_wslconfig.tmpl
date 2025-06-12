@@ -1,32 +1,45 @@
 [wsl2]
+memory = 8GB
+safeMode = false
+pageReporting = true
+guiApplications = true
+debugConsole = false
+nestedVirtualization = true
+vmIdleTimeout = 60000
+dnsProxy = true
+firewall = true
+dnsTunneling = true
+autoProxy = true
+defaultVhdSize = 1TB
+
 {{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe") -}}
+localhostforwarding=false
+swap=2GB
+networkingMode = "NAT"
+{{ else -}}
 localhostforwarding=true
-{{ else -}}
-{{ if (eq .chezmoi.hostname "Wakamo") -}}
-processors=8
-{{ else -}}
-processors=12
-{{ end -}}
 swap=0
-{{ end -}}
-
-# NOTE: Only available on Windows 11
-#nestedVirtualization=false
-#vmIdleTimeout=6000
-
-# NOTE: Only available on Windows 11 22H2
 networkingMode = "mirrored"
+{{ else -}}
 
+#--------------------------------------------------------------------------------
+
+# XXX: Experimental
 [experimental]
-autoMemoryReclaim="disabled"
-# NOTE: slow release
-#autoMemoryReclaim="gradual"
-# NOTE: instant release
-#autoMemoryReclaim="dropcache"
-
-sparseVhd=false
-
-# NOTE: Only available on Windows 11 22H2
-hostAddressLoopback=false
+# NOTE: "gradual" or "dropCache". default "dropCache"
+autoMemoryReclaim = "dropCache"
+# NOTE: ???
+sparseVhd = false
+# NOTE: available when `wsl2.dnsTunneling = true`
+bestEffortDnsParsing = false
+# NOTE: available when `wsl2.dnsTunneling = true`
+dnsTunnelingIpAddress = "10.255.255.254"
+# NOTE: available when `wsl2.autoProxy = true`
+initialAutoProxyTimeout = "1000"
+# NOTE: available when `wsl2.networkingMode = "mirrored"
+# XXX: Im not use it
+#ignoredPorts = "3000,9000,9090"
+# NOTE: available when `wsl2.networkingMode = "mirrored"`
+hostAddressLoopback = false
 
 # vim:ft=conf
