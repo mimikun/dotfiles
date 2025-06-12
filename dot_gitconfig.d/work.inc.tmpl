@@ -1,0 +1,16 @@
+# This is Work-PC only
+
+{{- $isWorkLinux := (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) -}}
+{{- $isWorkWindows := (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) }}
+
+[user]
+    name = Yuto Tanaka
+    {{- if $isWorkLinux }}
+    email = {{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}
+    {{ else if $isWorkWindows -}}
+    email = {{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").gitconfig_email.value }}
+    {{ else -}}
+    email = "noreply@example.com"
+    {{- end }}
+
+# vim:ft=gitconfig

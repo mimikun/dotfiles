@@ -1,14 +1,28 @@
+{{- $isWindows := (eq .chezmoi.os "windows") -}}
+{{- $isWorkLinux := (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) -}}
+{{- $isWorkWindows := (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
+{{- $isWorkPC := (or $isWorkLinux $isWorkWindows) -}}
+
+# =============================================================================
+# User Configuration
+# =============================================================================
 [user]
-	{{ if (eq .chezmoi.os "linux") -}}
-	email = {{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}
-	{{ else -}}
-		{{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe") -}}
-	email = {{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").gitconfig_email.value }}
-		{{ else -}}
-	email = {{ (bitwardenFields "item" "ec557677-82d9-4a61-a4f6-aed300cfb34f").gitconfig_email.value }}
-		{{ end -}}
-	{{ end -}}
 	name = Yuto Tanaka
+{{- if $isWorkPC }}
+	# Work PC: Default to work credentials
+{{- if $isWorkLinux }}
+	email = {{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}
+{{- else -}}
+	email = {{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").gitconfig_email.value }}
+{{- end }}
+{{- else }}
+	# Personal PC: Default to personal credentials
+	email = "git@mimikun.dev"
+{{- end }}
+
+# =============================================================================
+# Core Configuration
+# =============================================================================
 [core]
 	autocrlf = false
 	ignorecase = false
@@ -16,51 +30,80 @@
 	quotepath = false
 	excludesfile = ~/.gitignore_global
 	pager = delta
-	{{- if (eq .chezmoi.os "windows") }}
+	{{- if $isWindows }}
 	filemode = false
 	{{- end }}
+
 [color]
 	ui = true
+
 [credential]
-	{{ if (eq .chezmoi.os "windows") -}}
+	{{- if $isWindows }}
 	helper = manager
-	{{ else -}}
+	{{- else }}
 	helper = cache --timeout=475200
 	{{- end }}
+
 [init]
 	defaultBranch = master
 	templatedir = ~/.git-templates/git-secrets
+
 [tag]
 	sort = -version:refname
+
 [commit]
 	verbose = true
-{{ if (eq .chezmoi.os "windows") -}}
+
+{{- if $isWindows }}
+# =============================================================================
+# Windows-specific Configuration
+# =============================================================================
 [alias]
 	ls = "ls-files"
 	graph = "log --graph"
-	file-diff = "diff --name-only"
+	# logg = "log --graph --decorate --oneline"
+	# loggg = "log --graph --date=iso --pretty=full"
+	# today = "log --since=midnight --author=\"$(git config user.name)\" --oneline"
+	# edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+	# add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+	# file-diff = "diff --name-only"
 	amecomi = "commit --amend"
 	namecomi = "commit --amend --no-edit"
 	cleanfetch = "fetch --all --prune --tags --prune-tags"
+
 [winUpdater]
 	recentlySeenVersion = 2.25.0.windows.1
+
 [credential "helperselector"]
 	selected = manager
+
 [credential "https://codeberg.org"]
 	provider = generic
-{{ end -}}
+{{- end }}
+
+# =============================================================================
+# Delta Configuration
+# =============================================================================
 [pager]
 	diff = delta
 	log = delta
 	reflog = delta
 	show = delta
+
 [delta]
 	plus-style = "syntax #012800"
 	minus-style = "syntax #340001"
 	syntax-theme = Monokai Extended
 	navigate = true
-	light = false
+
 [interactive]
 	diffFilter = delta --color-only
 
-# vim:ft=gitconfig
+# =============================================================================
+# Conditional Includes
+# =============================================================================
+{{- if $isWorkPC }}
+# Work PC: Only anonymize codeberg.org/mimikun
+[includeIf "gitdir:~/ghq/codeberg.org/mimikun/"]
+	path = ~/.gitconfig.d/secret.inc
+{{- end }}
