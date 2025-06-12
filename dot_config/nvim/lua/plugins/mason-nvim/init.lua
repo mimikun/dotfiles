@@ -43,8 +43,8 @@ local spec = {
         vim.lsp.config["yamlls"] =
             vim.tbl_deep_extend("force", vim.lsp.config.defaults or {}, require("plugins.lsp-confs.yamlls"))
 
-        vim.lsp.config["markdown_oxide"] =
-            vim.tbl_deep_extend("force", vim.lsp.config.defaults or {}, require("plugins.lsp-confs.markdown-oxide"))
+        -- WORKAROUND: root_dir check process error
+        --vim.lsp.config["markdown_oxide"] = vim.tbl_deep_extend("force", vim.lsp.config.defaults or {}, require("plugins.lsp-confs.markdown-oxide"))
 
         vim.lsp.config["rust_analyzer"] = { enabled = false }
 
