@@ -1,6 +1,6 @@
 ---@type table
 local opts = {
-    open_on_startup = true,
+    open_on_startup = false,
     hijack_netrw = true,
     show_hidden = true,
     cursorline = true,
