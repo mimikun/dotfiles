@@ -109,7 +109,7 @@ packages:
   - name: pvolok/mprocs@v0.7.3
   - name: rhysd/actionlint@v1.7.7
   - name: rhysd/vim-startuptime@v1.3.2
-  - name: robinovitch61/kl@v0.6.0
+  - name: robinovitch61/kl@v0.6.1
   - name: rs/curlie@v1.8.2
   - name: schollz/croc@v10.2.2
   - name: sclevine/yj@v5.1.0
