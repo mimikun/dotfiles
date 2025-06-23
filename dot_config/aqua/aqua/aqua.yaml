@@ -66,7 +66,7 @@ packages:
   - name: itchyny/json2yaml@v0.1.4
   - name: jesseduffield/horcrux@v0.2
   - name: jesseduffield/lazydocker@v0.24.1
-  - name: jesseduffield/lazygit@v0.51.1
+  - name: jesseduffield/lazygit@v0.52.0
   - name: joerdav/xc@v0.8.5
   - name: jorgerojas26/lazysql@v0.3.7
   - name: jqlang/jq@jq-1.8.0
