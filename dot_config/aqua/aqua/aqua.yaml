@@ -46,7 +46,7 @@ packages:
   - name: git-bug/git-bug@v0.10.1
   - name: gitleaks/gitleaks@v8.27.2
   - name: gleam-lang/gleam@v1.11.1
-  - name: go-delve/delve@v1.24.2
+  - name: go-delve/delve@v1.25.0
   - name: go-task/task@v3.44.0
   - name: gokcehan/lf@r35
   - name: golang.org/x/tools/gopls@v0.19.1
