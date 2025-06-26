@@ -4,6 +4,7 @@ arch-wiki-docs
 base
 base-devel
 bat
+bfs
 chezmoi
 cmake
 docker
@@ -16,6 +17,7 @@ ghq
 git
 git-delta
 gitui
+gnumeric
 imagemagick
 jq
 kbt
@@ -34,7 +36,9 @@ protobuf
 reflector
 rucola
 silicon
+skktools
 television
+tmux
 unzip
 vi
 vim
