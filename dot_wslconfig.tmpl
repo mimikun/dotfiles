@@ -1,5 +1,4 @@
 [wsl2]
-memory = 8GB
 safeMode = false
 pageReporting = true
 guiApplications = true
@@ -13,6 +12,7 @@ autoProxy = true
 defaultVhdSize = 1TB
 
 {{ if (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe") -}}
+memory = 8GB
 localhostforwarding=false
 swap=2GB
 networkingMode = "NAT"
