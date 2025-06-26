@@ -1,4 +1,5 @@
 gforth
+morisawa-biz-ud-gothic-fonts
 nkf
 nvrs
 paru
