@@ -4,6 +4,7 @@
 *.patch.gpg
 node_modules
 .textlintcache
+.claude/settings.local.json
 
 # Linux only
 dot_config/fish/completions/bd.fish
