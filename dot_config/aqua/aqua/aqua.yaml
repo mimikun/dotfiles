@@ -73,6 +73,7 @@ packages:
   - name: junegunn/fzf@v0.62.0
   - name: k1LoW/octocov@v0.68.1
   - name: kdabir/has@v1.5.0
+  - name: keidarcy/e1s@v1.0.49
   - name: knqyf263/sou@v0.2.0
   - name: koalaman/shellcheck@v0.10.0
   - name: koki-develop/clive@v0.12.11
