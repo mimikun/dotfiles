@@ -1,1 +1,0 @@
-powershell -NoProfile -ExecutionPolicy Unrestricted -Command "& { gsudo nvidia-smi -pl 250 }"

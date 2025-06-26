@@ -1,4 +1,4 @@
-# windows
+# for windows
 
 ## `C:\Program Files\Git\etc\bash.bashrc`
 
@@ -11,7 +11,7 @@ if [ -f ~/.bashrc ]; then
 fi
 ```
 
-## copy
+### another way
 
 ```powershell
 Add-Content -Path "C:\Program Files\Git\etc\bash.bashrc" -Value '# System-wide bashrc file'
