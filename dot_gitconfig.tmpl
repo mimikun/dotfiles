@@ -61,15 +61,17 @@
 [alias]
 	ls = "ls-files"
 	graph = "log --graph"
-	# logg = "log --graph --decorate --oneline"
-	# loggg = "log --graph --date=iso --pretty=full"
-	# today = "log --since=midnight --author=\"$(git config user.name)\" --oneline"
-	# edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-	# add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-	# file-diff = "diff --name-only"
+	empty = "commit --allow-empty -nm"
+	commitn = "commit -nm"
+	commitan = "commit -anm"
 	amecomi = "commit --amend"
+	amecomin = "commit --amend --no-verify"
 	namecomi = "commit --amend --no-edit"
+	namecomin = "commit --amend --no-edit --no-verify"
 	cleanfetch = "fetch --all --prune --tags --prune-tags"
+	hash = "log --format=%H | sed -n 1p"
+	shallow-clone = "clone --depth 1"
+	file-diff = "diff --name-only"
 
 [winUpdater]
 	recentlySeenVersion = 2.25.0.windows.1
