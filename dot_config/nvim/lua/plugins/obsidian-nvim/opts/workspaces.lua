@@ -31,7 +31,7 @@ local no_vault = {
 ---@type table
 local workspaces = {
     mimikun,
-    no_vault,
+    --no_vault,
 }
 
 return workspaces
