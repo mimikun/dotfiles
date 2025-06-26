@@ -41,6 +41,7 @@ cargo-update
 cargo-wipe
 carl
 ccsum
+cctx
 choose
 codeberg-cli
 colorgen-nvim
@@ -55,11 +56,12 @@ desed
 diskonaut
 dns-doge
 drft
+du-dust
 dua-cli
 ducker
-du-dust
 dusage
 dutree
+dysk
 envfetch
 epiq
 erdtree
@@ -69,6 +71,7 @@ eza
 fblog
 fd-find
 felix
+feluda
 fend
 ferium
 flamegraph
@@ -99,6 +102,7 @@ hwatch
 hyperfine
 hysp
 i3-style
+igrep
 imdl
 impala
 inspect-cert-chain
@@ -118,6 +122,7 @@ lla
 lobtui
 logria
 lsd
+lstr
 lychee
 macchina
 mairu
@@ -126,7 +131,9 @@ mask
 mcat
 mcfly
 mdbook
+mdns-scanner
 menyoki
+mdns-scanner
 mise
 mocword
 monolith
@@ -179,9 +186,9 @@ ripgrep_all
 rrc
 rscls
 rucola-notes
+rust-script
 rustfinity
 rustscan
-rust-script
 sccache
 scooter
 scraps
@@ -196,12 +203,14 @@ silicon
 skim
 slumber
 smartcat
+somo
 srgn
 sshx
 starship
 stu
 stylua
 systemctl-tui
+t-rec
 taplo-cli
 tauri-cli
 tealdeer
@@ -216,10 +225,9 @@ tokei
 toml2json
 topgrade
 trashy
-t-rec
 tre-command
-treefmt
 tree-sitter-cli
+treefmt
 tui-journal
 tuisky
 tukai
