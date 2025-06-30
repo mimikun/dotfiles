@@ -19,6 +19,8 @@ local sections = {
         --{ require("mcphub.extensions.lualine") },
         -- LazyDo
         c.lazydo,
+        -- ccusage
+        c.ccusage,
         -- obsidian.nvim
         c.obsidian,
         -- improved_encoding

@@ -8,6 +8,7 @@ local dependencies = {
     "Dan7h3x/LazyDo",
     "stevearc/aerial.nvim",
     "AndreM222/copilot-lualine",
+    "Namacha411/ccusage.nvim",
     { "obsidian-nvim/obsidian.nvim", optional = true },
     { "athar-qadri/weather.nvim", optional = true },
 }

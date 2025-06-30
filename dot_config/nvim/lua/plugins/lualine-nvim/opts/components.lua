@@ -174,4 +174,10 @@ M.obsidian = {
     "g:obsidian",
 }
 
+---@return string
+M.ccusage = function()
+    local ccusage_component = require("ccusage").get_lualine_component()
+    return ccusage_component
+end
+
 return M
