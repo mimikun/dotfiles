@@ -163,12 +163,6 @@ M.eskk_mode = function()
     end
 end
 
----@return string
-M.special_notice = function()
-    local special_msg = "コロナを忘れるな！"
-    return special_msg
-end
-
 ---@type table
 M.obsidian = {
     "g:obsidian",
