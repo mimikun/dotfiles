@@ -40,7 +40,9 @@ cargo-udeps
 cargo-update
 cargo-wipe
 carl
+ccat
 ccsum
+ccswarm
 cctx
 choose
 codeberg-cli
@@ -56,9 +58,9 @@ desed
 diskonaut
 dns-doge
 drft
-du-dust
 dua-cli
 ducker
+du-dust
 dusage
 dutree
 dysk
@@ -133,7 +135,6 @@ mcfly
 mdbook
 mdns-scanner
 menyoki
-mdns-scanner
 mise
 mocword
 monolith
@@ -186,9 +187,9 @@ ripgrep_all
 rrc
 rscls
 rucola-notes
-rust-script
 rustfinity
 rustscan
+rust-script
 sccache
 scooter
 scraps
@@ -200,6 +201,7 @@ sheldon
 shellharden
 sigrs
 silicon
+similarity-ts
 skim
 slumber
 smartcat
@@ -210,7 +212,6 @@ starship
 stu
 stylua
 systemctl-tui
-t-rec
 taplo-cli
 tauri-cli
 tealdeer
@@ -225,9 +226,10 @@ tokei
 toml2json
 topgrade
 trashy
+t-rec
 tre-command
-tree-sitter-cli
 treefmt
+tree-sitter-cli
 tui-journal
 tuisky
 tukai
