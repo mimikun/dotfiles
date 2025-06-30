@@ -1,10 +1,5 @@
 ---
 packages:
-  - name: FiloSottile/age@v1.2.1
-  - name: JFryy/qq@v0.3.0
-  - name: Lifailon/lazyjournal@0.7.9
-  - name: Macmod/godap@v2.10.5
-  - name: Songmu/make2help@v0.2.1
   - name: aandrew-me/tgpt@v2.10.0
   - name: ahmetb/kubectx@v0.9.5
   - name: alajmo/mani@v0.31.0
@@ -33,6 +28,7 @@ packages:
   - name: charmbracelet/vhs@v0.10.0
   - name: chriswalz/bit@v1.1.2
   - name: cli/cli@v2.74.2
+  - name: dagu-org/dagu@v1.17.4
   - name: danvergara/dblab@v0.33.0
   - name: derailed/k9s@v0.50.6
   - name: direnv/direnv@v2.36.0
@@ -43,20 +39,21 @@ packages:
   - name: editorconfig-checker/editorconfig-checker@v3.3.0
   - name: evilmartians/lefthook@v1.11.14
   - name: fastfetch-cli/fastfetch@2.46.0
+  - name: FiloSottile/age@v1.2.1
   - name: git-bug/git-bug@v0.10.1
   - name: gitleaks/gitleaks@v8.27.2
   - name: gleam-lang/gleam@v1.11.1
   - name: go-delve/delve@v1.25.0
-  - name: go-task/task@v3.44.0
   - name: gokcehan/lf@r35
-  - name: golang.org/x/tools/gopls@v0.19.1
+  - name: golangci/golangci-lint@v2.2.1
   - name: golang/go@go1.24.4
+  - name: golang.org/x/tools/gopls@v0.19.1
   - name: golang/tools/goimports@v0.34.0
   - name: golang/tools/gorename@v0.25.0
-  - name: golangci/golangci-lint@v2.2.1
   - name: google/osv-scanner@v2.0.3
   - name: google/yamlfmt@v0.17.2
   - name: gopasspw/gopass@v1.15.16
+  - name: go-task/task@v3.44.0
   - name: grafana/k6@v1.1.0
   - name: guumaster/hostctl@v1.1.4
   - name: hadolint/hadolint@v2.12.0
@@ -67,6 +64,7 @@ packages:
   - name: jesseduffield/horcrux@v0.2
   - name: jesseduffield/lazydocker@v0.24.1
   - name: jesseduffield/lazygit@v0.52.0
+  - name: JFryy/qq@v0.3.0
   - name: joerdav/xc@v0.8.5
   - name: jorgerojas26/lazysql@v0.3.7
   - name: jqlang/jq@jq-1.8.0
@@ -80,8 +78,10 @@ packages:
   - name: koki-develop/gat@v0.24.1
   - name: koki-develop/sheep@v0.4.0
   - name: kubescape/kubescape@v3.0.34
+  - name: Lifailon/lazyjournal@0.7.9
   - name: loeffel-io/ls-lint@v2.3.1
   - name: maaslalani/slides@v0.9.0
+  - name: Macmod/godap@v2.10.5
   - name: magefile/mage@v1.15.0
   - name: magodo/pipeform@v0.2.1
   - name: masutaka/github-nippou@v4.2.36
@@ -116,6 +116,7 @@ packages:
   - name: sclevine/yj@v5.1.0
   - name: sheepla/pingu@v0.0.5
   - name: sinclairtarget/git-who@v1.1
+  - name: Songmu/make2help@v0.2.1
   - name: sqshq/sampler@v1.1.0
   - name: stateful/runme@v3.14.2
   - name: suzuki-shunsuke/cmdx@v2.0.1
