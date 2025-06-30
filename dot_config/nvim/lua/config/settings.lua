@@ -89,6 +89,9 @@ local use_minuet = false
 ---@type boolean
 local use_dashboard_image = false
 
+---@type boolean
+local use_claude_code = is_home and is_linux
+
 settings.need_all_colorschemes = need_all_colorschemes
 settings.need_all_parsers = need_all_parsers
 settings.need_all_servers = need_all_servers
@@ -102,5 +105,6 @@ settings.is_throttling = is_throttling
 settings.use_llm = use_llm
 settings.use_minuet = use_minuet
 settings.use_dashboard_image = use_dashboard_image
+settings.use_claude_code = use_claude_code
 
 return settings
