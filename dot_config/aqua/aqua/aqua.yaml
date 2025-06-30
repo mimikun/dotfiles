@@ -53,7 +53,7 @@ packages:
   - name: golang/go@go1.24.4
   - name: golang/tools/goimports@v0.34.0
   - name: golang/tools/gorename@v0.25.0
-  - name: golangci/golangci-lint@v2.1.6
+  - name: golangci/golangci-lint@v2.2.1
   - name: google/osv-scanner@v2.0.3
   - name: google/yamlfmt@v0.17.2
   - name: gopasspw/gopass@v1.15.16
