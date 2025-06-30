@@ -1,6 +1,5 @@
 [wsl2]
 safeMode = false
-pageReporting = true
 guiApplications = true
 debugConsole = false
 nestedVirtualization = true
@@ -17,6 +16,7 @@ localhostforwarding=true
 swap=2GB
 networkingMode = "NAT"
 {{ else -}}
+pageReporting = true
 localhostforwarding=true
 swap=0
 networkingMode = "mirrored"
