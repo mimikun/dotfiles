@@ -10,7 +10,7 @@ packages:
   - name: aristocratos/btop@v1.4.3
   - name: asciimoo/wuzz@v0.5.0
   - name: astral-sh/ruff@0.12.1
-  - name: astral-sh/uv@0.7.17
+  - name: astral-sh/uv@0.7.18
   - name: aurc/loggo@v0.3.21
   - name: ayoisaiah/f2@v2.1.2
   - name: babarot/gomi@v1.6.1
