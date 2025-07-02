@@ -1,11 +1,17 @@
 ---@type boolean
 local detail = false
 
+---@type table
+local cmds = {
+    "Oil",
+    "OilGitRefresh",
+}
+
 ---@type LazySpec
 local spec = {
     "stevearc/oil.nvim",
     lazy = false,
-    cmd = "Oil",
+    cmd = cmds,
     dependencies = require("plugins.oil-nvim.dependencies"),
     init = function()
         vim.g.loaded_netrw = 1
@@ -69,8 +75,13 @@ local spec = {
                 end,
             },
         })
-        require("oil-git-status").setup({})
         require("oil-lsp-diagnostics").setup({})
+        --require("oil-git-status").setup({})
+        require("oil-git").setup({})
+
+        vim.api.nvim_create_user_command("OilGitRefresh", function()
+            require("oil-git").refresh()
+        end, {})
     end,
     --cond = false,
     --enabled = false,
