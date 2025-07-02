@@ -31,7 +31,7 @@ packages:
   - name: dagu-org/dagu@v1.17.4
   - name: danvergara/dblab@v0.33.0
   - name: derailed/k9s@v0.50.6
-  - name: direnv/direnv@v2.36.0
+  - name: direnv/direnv@v2.37.0
   - name: dlvhdr/diffnav@v0.3.1
   - name: dominikh/go-tools/staticcheck@2025.1.1
   - name: dotenvx/dotenvx@v1.45.2
