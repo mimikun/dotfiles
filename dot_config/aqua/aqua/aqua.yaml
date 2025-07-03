@@ -23,7 +23,7 @@ packages:
   - name: charmbracelet/freeze@v0.2.2
   - name: charmbracelet/glow@v2.1.1
   - name: charmbracelet/gum@v0.16.2
-  - name: charmbracelet/mods@v1.7.0
+  - name: charmbracelet/mods@v1.8.0
   - name: charmbracelet/skate@v1.0.1
   - name: charmbracelet/vhs@v0.10.0
   - name: chriswalz/bit@v1.1.2
