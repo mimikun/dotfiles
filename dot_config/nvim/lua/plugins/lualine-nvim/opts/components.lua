@@ -1,3 +1,5 @@
+local s = require("config.settings")
+
 local M = {}
 
 ---@return string
@@ -169,6 +171,6 @@ M.obsidian = {
 }
 
 ---@return string
-M.ccusage = require("ccusage").get_lualine_component()
+M.ccusage = s.use_claude_code and require("ccusage").get_lualine_component() or ""
 
 return M
