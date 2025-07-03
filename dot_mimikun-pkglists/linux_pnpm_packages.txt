@@ -2,6 +2,7 @@
 @anthropic-ai/claude-code
 @antinomyhq/forge
 ccusage
+@sasazame/ccresume
 commitizen
 cz-conventional-changelog-ja
 envinfo
