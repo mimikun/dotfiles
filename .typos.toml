@@ -57,6 +57,7 @@ extend-exclude = [
   "game_settings/Apex_Legends",
   "game_settings/CookieClicker",
   # NOTE: has many typos
+  "dot_config/private_fcitx5/private_conf/private_cached_layouts",
   "dot_config/nvim/dotfyle.json",
   "CHANGELOG.md",
   "dot_config/nvim/lua/plugins/nvim-orgmode/org-list-opts.lua",
