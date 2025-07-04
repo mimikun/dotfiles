@@ -106,7 +106,7 @@ packages:
   - name: peco/peco@v0.5.11
   - name: pkgxdev/pkgx@v2.7.0
   - name: pomdtr/sunbeam@v1.0.1
-  - name: project-copacetic/copacetic@v0.10.0
+  - name: project-copacetic/copacetic@v0.11.0
   - name: pvolok/mprocs@v0.7.3
   - name: rhysd/actionlint@v1.7.7
   - name: rhysd/vim-startuptime@v1.3.2
