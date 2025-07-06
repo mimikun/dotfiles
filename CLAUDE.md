@@ -200,10 +200,16 @@ make test
 ### Directory Organization
 ```
 dot_config/
-├── nvim/           # Neovim configuration
+├── nvim/           # Neovim configuration (see dot_config/nvim/CLAUDE.md)
 ├── fish/           # Fish shell configuration
 ├── alacritty/      # Terminal emulator configs
 └── ...
+
+docs/               # Project documentation (excluded from chezmoi)
+├── design/         # Design philosophy documents
+│   └── nvim.md     # Neovim configuration design principles
+├── claude/         # AI-specific documentation
+└── misc/           # Miscellaneous documentation
 
 AppData/            # Windows-specific app data
 Documents/          # Windows-specific PowerShell configs
@@ -211,12 +217,19 @@ OneDrive/           # Windows-specific OneDrive PowerShell configs
 scripts/            # Utility scripts (excluded from chezmoi)
 utilities/          # PowerShell utilities
 assets/             # Project assets (excluded from chezmoi)
-docs/               # Project documentation (excluded from chezmoi)
 game_settings/      # Game configuration files (excluded from chezmoi)
 misc/               # Miscellaneous files (excluded from chezmoi)
 node_modules/       # Node.js dependencies (excluded from chezmoi)
 .github/            # GitHub workflows (excluded from chezmoi)
 ```
+
+### Tool-Specific Documentation
+Each major configuration has its own documentation:
+
+- **Neovim**: `@dot_config/nvim/CLAUDE.md` (AI guidance) + `@docs/design/nvim.md` (design philosophy)
+- **Fish Shell**: Configuration patterns in global standards above
+- **PowerShell**: Follow PSScriptAnalyzer standards
+- **chezmoi Templates**: Use template patterns documented above
 
 ## 🚀 Development Workflow
 
