@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(docs/claude/**)",
+      "Read(docs/misc/**)",
+      "Read(docs/**/*ja.md)",
+      "Read(dot_config/nvim-lit/**)",
+      "Read(dot_config/nvim-rocks/**)",
+      "Read(game_settings/**)"
+    ]
+  }
+}
