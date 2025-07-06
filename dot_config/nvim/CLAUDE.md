@@ -2,6 +2,12 @@
 
 This file provides specific guidance to Claude Code when working with this Neovim configuration.
 
+## 📖 Design Philosophy
+
+For comprehensive design philosophy and architectural principles, see [@docs/design/nvim.md](../../docs/design/nvim.md).
+
+This document focuses on practical implementation details and AI-specific guidance.
+
 ## 📋 Configuration Overview
 
 This is a comprehensive Neovim configuration built with modern Lua practices, featuring:
@@ -97,33 +103,20 @@ return {
 3. **Modular structure**: Split complex configs into directories
 4. **Performance**: Use lazy loading strategies
 
-## 💡 Plugin Management Philosophy
+## 💡 Plugin Management
 
-### Plugin Selection Criteria
-- **Stability**: Prefer mature, well-maintained plugins
-- **Performance**: Minimize startup time impact
-- **Functionality**: Avoid feature overlap
-- **Community**: Active development and user base
-
-### Loading Strategy
+### Standard Loading Pattern
 ```lua
--- Immediate loading (essential plugins)
-lazy = false
+-- Most plugins use this pattern
+event = "VeryLazy"  -- mimikun's standard
 
--- Event-based loading (most plugins)
-event = "VeryLazy"
-
--- File type specific
-ft = { "lua", "python", "rust" }
-
--- Command-based loading
-cmd = { "PluginCommand" }
-
--- Key-based loading
-keys = {
-  { "<leader>p", "<cmd>PluginCommand<cr>", desc = "Plugin action" }
-}
+-- Exceptions
+lazy = false        -- For essential plugins
+ft = { "lua" }      -- Language-specific
+cmd = { "Cmd" }     -- Command-triggered
 ```
+
+**Note**: See [@docs/design/nvim.md](../../docs/design/nvim.md) for complete plugin management philosophy.
 
 ## 🎨 Colorscheme Management
 
@@ -251,14 +244,43 @@ The AI system recognizes these patterns in your setup:
 
 ### Agentic Configuration Template
 ```lua
--- Auto-generated based on mimikun's patterns
-return {
+-- Auto-generated based on mimikun's patterns and lazy_plugspec.tpl
+---@type LazySpec
+local spec = {
   "author/plugin-name",
-  event = "VeryLazy", -- mimikun's standard
-  dependencies = {
-    "nvim-lua/plenary.nvim", -- Common pattern
-    "nvim-tree/nvim-web-devicons", -- Icon support
+  -- Repository settings (uncomment as needed)
+  --dir = "",
+  --url = "",
+  --name = "",
+  --dev = false,
+  --build = "",
+  --branch = "",
+  --tag = "",
+  --commit = "",
+  --version = "",
+  
+  -- Loading strategy (mimikun's standard)
+  --lazy = false,
+  enabled = false,
+  event = "VeryLazy", -- mimikun's preferred loading
+  
+  -- File type and command loading
+  --ft = { "lua", "rust", "python" },
+  --cmd = { "PluginCommand" },
+  
+  -- Key mappings (following mimikun's patterns)
+  keys = {
+    { "<leader>xy", "<cmd>PluginAction<cr>", desc = "Plugin: Action" },
+    { "<leader>X", "<cmd>PluginQuick<cr>", desc = "Plugin: Quick Access" },
   },
+  
+  -- Dependencies (common mimikun patterns)
+  dependencies = { 
+    "nvim-tree/nvim-web-devicons", -- Icon support
+    "nvim-lua/plenary.nvim", -- Common utility
+  },
+  
+  -- Plugin options
   opts = {
     -- UI preferences
     ui = {
@@ -279,6 +301,8 @@ return {
       lualine = true,
     },
   },
+  
+  -- Configuration function
   config = function(_, opts)
     require("plugin-name").setup(opts)
     
@@ -287,13 +311,18 @@ return {
       -- GUI optimizations
     end
   end,
-  keys = {
-    -- Following mimikun's key mapping patterns
-    { "<leader>xy", "<cmd>PluginAction<cr>", desc = "Plugin: Action" },
-    { "<leader>X", "<cmd>PluginQuick<cr>", desc = "Plugin: Quick Access" },
-  },
-  cmd = { "PluginCommand" }, -- Lazy loading
+  
+  -- Advanced settings (uncomment as needed)
+  --cond = function() return vim.fn.executable("tool") == 1 end,
+  --main = "",
+  --pin = false,
+  --submodules = false,
+  --module = false,
+  --priority = 1000,
+  --optional = false,
 }
+
+return spec
 ```
 
 ### Benefits of Agentic Coding
@@ -330,30 +359,21 @@ The system learns from:
 - **Workflow integration**: Automatic plugin updates based on development needs
 - **Team synchronization**: Share optimized configurations across team members
 
-## 📊 Performance Optimization
+## 📊 Performance Monitoring
 
-### Startup Time Goals
-- **Target**: < 50ms cold start
-- **Monitoring**: Use `lazy.nvim` profiler
-- **Optimization**: Lazy loading, minimal init.lua
-
-### Memory Usage
-- **Monitoring**: `:lua print(collectgarbage('count'))`
-- **Optimization**: Unload unused plugins, clean configurations
-
-### Common Performance Patterns
+### Quick Performance Checks
 ```lua
--- Lazy loading with events
-event = { "BufReadPre", "BufNewFile" }
+-- Startup time analysis
+:Lazy profile
 
--- Conditional loading
-cond = function()
-  return vim.fn.executable("tool") == 1
-end
+-- Plugin load times
+:Lazy show
 
--- Deferred loading
-priority = 1000  -- High priority for essential plugins
+-- Memory usage
+:lua print(collectgarbage('count'))
 ```
+
+**Note**: See [@docs/design/nvim.md](../../docs/design/nvim.md) for complete performance optimization strategy.
 
 ## 🔧 Troubleshooting Guide
 
@@ -387,20 +407,20 @@ priority = 1000  -- High priority for essential plugins
 - UI enhancements
 - Workflow automation
 
-## 📝 Notes
+## 📝 Implementation Notes
 
-### Configuration Philosophy
-- **Minimalism**: Keep configuration clean and focused
-- **Modularity**: Easy to modify and extend
-- **Performance**: Fast startup and responsive editing
-- **Reliability**: Stable and predictable behavior
+### Quick Reference
+- **Templates**: Use `templates/lazy_plugspec.tpl` for new plugins
+- **Testing**: Always test in isolated environment first
+- **Health Checks**: Run `:checkhealth` after major changes
+- **Profiling**: Use `:Lazy profile` to monitor startup time
 
 ### Best Practices
-- Test changes in isolated environment
-- Document complex configurations
-- Follow Neovim best practices
-- Keep plugins updated but stable
+- Copy template → customize → test → integrate
+- Use `enabled = false` to temporarily disable plugins
+- Follow existing key mapping conventions
+- Maintain consistent file organization
 
 ---
 
-This configuration is designed to be a powerful, efficient, and maintainable Neovim setup that grows with development needs while maintaining excellent performance.
+This configuration provides practical guidance for AI-assisted development. For architectural decisions and design rationale, see [@docs/design/nvim.md](../../docs/design/nvim.md).
