@@ -4,9 +4,7 @@ local dependencies = {
 }
 
 if not require("config.settings").use_blink_cmp then
-    table.insert(dependencies, {
-        { "iguanacucumber/magazine.nvim", name = "nvim-cmp" },
-    })
+    table.insert(dependencies, { "hrsh7th/nvim-cmp" })
 end
 
 return dependencies

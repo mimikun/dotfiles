@@ -3,8 +3,7 @@ local cond = not require("config.settings").use_blink_cmp
 
 ---@type LazySpec
 local spec = {
-    "iguanacucumber/magazine.nvim",
-    name = "nvim-cmp",
+    "hrsh7th/nvim-cmp",
     lazy = false,
     dependencies = require("plugins.nvim-cmp.dependencies"),
     config = function()
