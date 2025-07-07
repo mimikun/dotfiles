@@ -1,6 +1,7 @@
 ---@type LazySpec
 local spec = {
     "obsidian-nvim/obsidian.nvim",
+    --version = "*",
     --lazy = false,
     ft = "markdown",
     cmd = "Obsidian",

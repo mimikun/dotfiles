@@ -7,7 +7,8 @@ local M = {}
 M.note_id_func = function(title)
     -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
     -- In this case a note with the title 'My new note' will be given an ID that looks
-    -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+    -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'.
+    -- You may have as many periods in the note ID as you'd like—the ".md" will be added automatically
     local suffix = ""
     if title ~= nil then
         -- If title is given, transform it into valid file name.
@@ -31,10 +32,10 @@ M.note_path_func = function(spec)
 end
 
 -- Optional, customize how wiki links are formatted. You can set this to one of:
--- _ "use_alias_only", e.g. '[[Foo Bar] ]'
--- _ "prepend*note_id", e.g. '[[foo-bar|Foo Bar] ]'
--- * "prepend*note_path", e.g. '[[foo-bar.md|Foo Bar] ]'
--- * "use_path_only", e.g. '[[foo-bar.md] ]'
+-- _ "use_alias_only", e.g. '[[Foo Bar]]'
+-- _ "prepend*note_id", e.g. '[[foo-bar|Foo Bar]]'
+-- * "prepend*note_path", e.g. '[[foo-bar.md|Foo Bar]]'
+-- * "use_path_only", e.g. '[[foo-bar.md]]'
 -- Or you can set it to a function that takes a table of options and returns a string, like this:
 M.wiki_link_func = function(opts)
     return require("obsidian.util").wiki_link_id_prefix(opts)
