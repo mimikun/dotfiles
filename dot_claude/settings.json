@@ -2,6 +2,7 @@
   "model": "sonnet",
   "cleanupPeriodDays": 30,
   "permissions": {
+    "defaultMode": "plan",
     "allow": [
       "Bash(npm:*)",
       "Bash(yarn:*)",
