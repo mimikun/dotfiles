@@ -10,6 +10,7 @@ git-truck
 @google/gemini-cli
 httpyac
 @ls-lint/ls-lint
+jfq
 mcp-hub
 @mermaid-js/mermaid-cli
 npkill
