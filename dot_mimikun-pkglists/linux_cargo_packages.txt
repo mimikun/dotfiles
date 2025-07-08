@@ -48,6 +48,7 @@ choose
 codeberg-cli
 colorgen-nvim
 commitlint-rs
+confirm-pam
 countryfetch
 create-tauri-app
 csview
@@ -55,6 +56,8 @@ csvlens
 cyme
 ddv
 desed
+diffai
+diffx
 diskonaut
 dns-doge
 drft
@@ -71,6 +74,7 @@ erg
 eva
 eza
 fblog
+fclones
 fd-find
 felix
 feluda
@@ -119,6 +123,7 @@ kdash
 kibi
 koji
 krafna
+lawkit
 lazyjj
 lla
 lobtui
@@ -205,6 +210,7 @@ similarity-ts
 skim
 slumber
 smartcat
+so
 somo
 srgn
 sshx
@@ -213,6 +219,7 @@ stu
 stylua
 systemctl-tui
 taplo-cli
+tatuin
 tauri-cli
 tealdeer
 tegratop
