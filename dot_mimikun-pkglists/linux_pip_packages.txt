@@ -359,6 +359,7 @@ shodan
 sigtools
 simple-websocket
 six
+smassh
 smmap
 sniffio
 snowmachine
