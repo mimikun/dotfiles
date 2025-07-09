@@ -6,9 +6,9 @@ local dependencies = {
     "pnx/lualine-lsp-status",
     "ravitemer/mcphub.nvim",
     "Dan7h3x/LazyDo",
-    "stevearc/aerial.nvim",
     "AndreM222/copilot-lualine",
     "Namacha411/ccusage.nvim",
+    { "stevearc/aerial.nvim", optional = true },
     { "obsidian-nvim/obsidian.nvim", optional = true },
     { "athar-qadri/weather.nvim", optional = true },
 }

@@ -13,7 +13,7 @@ local sections = {
         -- copilot-lualine
         c.copilot,
         -- aerial.nvim
-        c.aerial,
+        --c.aerial,
         -- mcphub.nvim
         -- BUG: has bug. can't work
         --{ require("mcphub.extensions.lualine") },
