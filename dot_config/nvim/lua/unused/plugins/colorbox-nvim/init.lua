@@ -1,13 +1,14 @@
 ---@type LazySpec
 local spec = {
-    "mimikun/spec-template",
+    "linrongbin16/colorbox.nvim",
+    -- NOTE: don't lazy load
+    lazy = false,
     build = function()
         require("colorbox").update()
     end,
-    -- NOTE: Don't lazy load it
-    lazy = false,
-    priority = 1000,
     cmd = "Colorbox",
+    --keys = "",
+    --event = "VeryLazy",
     dependencies = require("plugins.colorbox-nvim.dependencies"),
     init = function()
         vim.opt.termguicolors = true
@@ -15,6 +16,8 @@ local spec = {
     opts = require("plugins.colorbox-nvim.opts"),
     cond = false,
     enabled = false,
+    -- NOTE: load with highest priority
+    priority = 1000,
 }
 
 return spec
