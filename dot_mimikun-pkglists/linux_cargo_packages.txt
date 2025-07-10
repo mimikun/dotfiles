@@ -60,6 +60,7 @@ diffai
 diffx
 diskonaut
 dns-doge
+domain-check
 drft
 dua-cli
 ducker
@@ -85,6 +86,7 @@ flamelens
 flawz
 forgejo-cli
 fselect
+ftdv
 genact
 gengo-bin
 gfold
@@ -137,6 +139,7 @@ mamediff
 mask
 mcat
 mcfly
+mcp-cli
 mdbook
 mdns-scanner
 menyoki
@@ -161,6 +164,7 @@ onefetch
 os_info_cli
 osintui
 ouch
+outside
 oxker
 parallel-disk-usage
 passepartui
