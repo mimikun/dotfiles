@@ -3,6 +3,7 @@
 @antinomyhq/forge
 ccusage
 @sasazame/ccresume
+backlog.md
 commitizen
 cz-conventional-changelog-ja
 envinfo
