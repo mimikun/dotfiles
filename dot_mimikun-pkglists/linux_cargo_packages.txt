@@ -233,6 +233,7 @@ tere
 testing-language-server
 testing-ls-adapter
 tgt
+tmux-rs
 tokei
 toml2json
 topgrade
