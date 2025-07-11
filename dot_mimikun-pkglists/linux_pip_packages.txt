@@ -36,6 +36,7 @@ aiosignal
 annotated-types
 anthropic
 anyio
+appdirs
 argcomplete
 argon2-cffi
 argon2-cffi-bindings
@@ -97,9 +98,11 @@ ddgr
 debugpy
 decorator
 defusedxml
+deptective
 dirhash
 distlib
 distro
+dnspython
 docker
 docstring_parser
 dominate
@@ -109,17 +112,21 @@ durationpy
 e2b
 edge-tts
 eg
+email_validator
 environs
 et_xmlfile
 exceptiongroup
 executing
 fastapi
+fastapi-cli
+fastapi-cloud-cli
 fastjsonschema
 fastmcp
 feedparser
 filelock
 filetype
 findpython
+fire
 flake8
 flatbuffers
 fonttools
@@ -166,6 +173,7 @@ html2text
 httpcore
 httplib2
 httpstat
+httptools
 httpx
 httpx-sse
 huggingface-hub
@@ -175,7 +183,6 @@ hyperframe
 icalendar
 idna
 importlib-metadata
-importlib_metadata
 installer
 ipykernel
 ipython
@@ -210,6 +217,7 @@ kubernetes
 leather
 libcst
 libtmux
+limits
 linkify-it-py
 litellm
 littletable
@@ -284,7 +292,6 @@ poetry
 poetry-core
 portalocker
 pqviewer
-prompt-toolkit
 prompt_toolkit
 propcache
 proto-plus
@@ -334,6 +341,7 @@ pyxdg
 pyyaml_env_tag
 pyzmq
 qtconsole
+randomname
 recoverpy
 redis
 referencing
@@ -344,12 +352,16 @@ requests-oauthlib
 requests-toolbelt
 rexi
 rich
+rich-toolkit
+rignore
 rpds-py
 rsa
 ruamel.yaml
+ruamel.yaml.clib
 runloop_api_client
 s3transfer
 scantree
+sentry-sdk
 setproctitle
 setuptools
 sgmllib3k
@@ -359,6 +371,7 @@ shodan
 sigtools
 simple-websocket
 six
+slowapi
 smassh
 smmap
 sniffio
@@ -415,6 +428,7 @@ urwid
 userpath
 uv
 uvicorn
+uvloop
 vignore
 virtualenv
 watchdog
