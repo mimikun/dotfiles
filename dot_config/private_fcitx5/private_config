@@ -1,6 +1,4 @@
 [Hotkey]
-# Trigger Input Method
-TriggerKeys=
 # Enumerate when press trigger key repeatedly
 EnumerateWithTriggerKeys=True
 # Enumerate Input Method Forward
@@ -12,6 +10,10 @@ EnumerateSkipFirst=False
 # Time limit in milliseconds for triggering modifier key shortcuts
 ModifierOnlyKeyTimeout=250
 
+[Hotkey/TriggerKeys]
+0=Control+space
+1=Zenkaku_Hankaku
+
 [Hotkey/AltTriggerKeys]
 0=Shift_L
 
@@ -22,10 +24,10 @@ ModifierOnlyKeyTimeout=250
 0=Shift+Super+space
 
 [Hotkey/ActivateKeys]
-0=Henkan
+0=Hangul_Hanja
 
 [Hotkey/DeactivateKeys]
-0=Muhenkan
+0=Hangul_Romaja
 
 [Hotkey/PrevPage]
 0=Up

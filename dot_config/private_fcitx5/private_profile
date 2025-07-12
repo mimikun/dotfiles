@@ -1,17 +1,32 @@
 [Groups/0]
 # Group Name
+Name="Group 2"
+# Layout
+Default Layout=us
+# Default Input Method
+DefaultIM=keyboard-us
+
+[Groups/0/Items/0]
+# Name
+Name=keyboard-us
+# Layout
+Layout=
+
+[Groups/1]
+# Group Name
 Name="Group 1"
 # Layout
 Default Layout=jp
 # Default Input Method
 DefaultIM=skk
 
-[Groups/0/Items/0]
+[Groups/1/Items/0]
 # Name
 Name=skk
 # Layout
-Layout=jp
+Layout=
 
 [GroupOrder]
 0="Group 1"
+1="Group 2"
 
