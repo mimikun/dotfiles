@@ -16,14 +16,7 @@ local default = {
     "nerdfont",
     "spell",
     "yank",
-    -- WARN: can't use
-    --"css-vars",
-    --"pandoc-references",
-    --"env",
     -- NOTE: blink-compat sources
-    "lorem_ipsum",
-    -- WARN: can't use
-    --"html-css",
 }
 
 if settings.use_minuet then

@@ -7,31 +7,24 @@ local dependencies = {
     -- Appearance
     "xzbdmw/colorful-menu.nvim",
     -- Sources
-    "nvim-lua/plenary.nvim",
     "saghen/blink.compat",
+    "nvim-lua/plenary.nvim",
     "folke/lazydev.nvim",
     "moyiz/blink-emoji.nvim",
     "philosofonusus/ecolog.nvim",
     "nvim-orgmode/orgmode",
+    "folke/snacks.nvim",
     "mikavilpas/blink-ripgrep.nvim",
     "MahanRahmati/blink-nerdfont.nvim",
-    "folke/snacks.nvim",
     "Kaiser-Yang/blink-cmp-dictionary",
     "Kaiser-Yang/blink-cmp-git",
     "mgalliou/blink-cmp-tmux",
     "ribru17/blink-cmp-spell",
     "marcoSven/blink-yanky.nvim",
     "disrupted/blink-cmp-conventional-commits",
-    -- WARN: can't use
-    --"bydlw98/blink-cmp-env",
-    --"jdrupal-dev/css-vars.nvim",
-    --"jmbuhr/cmp-pandoc-references",
+    "junkblocker/blink-cmp-wezterm",
     -- Source(use blink.compat)
     "rcarriga/cmp-dap",
-    "dnnr1/lorem-ipsum.nvim",
-    "samiulsami/cmp-go-deep",
-    -- WARN: can't use
-    --"Jezda1337/nvim-html-css",
 }
 
 if settings.use_minuet then

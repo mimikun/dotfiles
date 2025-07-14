@@ -1,5 +1,5 @@
 ---@module 'blink.cmp'
----@type blink.cmp.SourceConfigPartial
+---@type blink.cmp.SourceConfig
 local sources = {
     default = require("plugins.blink-cmp.opts.sources.default"),
     per_filetype = require("plugins.blink-cmp.opts.sources.per_filetype"),
