@@ -1,0 +1,35 @@
+[[plugins]]
+repo = "0rax/fish-bd"
+
+[[plugins]]
+repo = "americanhanko/fish-spin"
+
+[[plugins]]
+repo = "mimikun/nkf.fish"
+
+[[plugins]]
+repo = "sijad/gitignore"
+
+[[plugins]]
+repo = "mimikun/fish-ghq"
+
+[[plugins]]
+repo = "mimikun/gcd"
+
+[[plugins]]
+repo = "jorgebucaran/getopts.fish"
+
+[[plugins]]
+repo = "kyohsuke/fish-evalcache"
+
+[[plugins]]
+repo = "rcny/gh-copilot-cli-alias.fish"
+
+[[plugins]]
+repo = "ryoppippi/na.fish"
+
+[[plugins]]
+repo = "wfxr/forgit"
+
+[[plugins]]
+repo = "jorgebucaran/fisher"
