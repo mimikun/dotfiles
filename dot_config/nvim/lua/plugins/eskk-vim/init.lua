@@ -1,5 +1,7 @@
 ---@type boolean
 local cond = require("config.global").is_work
+-- NOTE: I'm using SKK now(2025/07)
+cond = false
 
 ---@type LazyKeysSpec[]
 local keys = {
