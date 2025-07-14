@@ -1,5 +1,7 @@
 ---@type boolean
 local cond = require("config.settings").use_denops
+-- NOTE: I'm using SKK now(2025/07)
+cond = false
 
 ---@type LazySpec
 local spec = {
