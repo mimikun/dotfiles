@@ -19,10 +19,6 @@ local default = {
     -- NOTE: blink-compat sources
 }
 
-if settings.use_minuet then
-    table.insert(default, "minuet")
-end
-
 if settings.use_github_copilot then
     table.insert(default, "copilot")
 end

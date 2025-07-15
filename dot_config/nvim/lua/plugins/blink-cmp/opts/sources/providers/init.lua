@@ -24,13 +24,8 @@ local providers = {
 }
 
 -- NOTE: llm features providers
-local providers_minuet = { minuet = require("plugins.blink-cmp.opts.sources.providers.minuet") }
 local providers_avante = { avante = require("plugins.blink-cmp.opts.sources.providers.avante") }
 local providers_copilot = { copilot = require("plugins.blink-cmp.opts.sources.providers.copilot") }
-
-if settings.use_minuet then
-    providers = vim.tbl_extend("force", providers, providers_minuet)
-end
 
 if settings.use_github_copilot then
     providers = vim.tbl_extend("force", providers, providers_copilot)

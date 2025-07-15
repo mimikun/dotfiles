@@ -27,10 +27,6 @@ local dependencies = {
     "rcarriga/cmp-dap",
 }
 
-if settings.use_minuet then
-    table.insert(dependencies, { "milanglacier/minuet-ai.nvim" })
-end
-
 if settings.use_github_copilot then
     table.insert(dependencies, { "fang2hou/blink-copilot" })
 end
