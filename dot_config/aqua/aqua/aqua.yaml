@@ -118,7 +118,7 @@ packages:
   - name: sinclairtarget/git-who@v1.1
   - name: Songmu/make2help@v0.2.1
   - name: sqshq/sampler@v1.1.0
-  - name: stateful/runme@v3.14.3
+  - name: stateful/runme@v3.15.0
   - name: suzuki-shunsuke/cmdx@v2.0.1
   - name: suzuki-shunsuke/ghalint@v1.5.1
   - name: suzuki-shunsuke/pinact@v3.3.0
