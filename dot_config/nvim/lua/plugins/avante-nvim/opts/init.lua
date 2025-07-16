@@ -28,7 +28,7 @@ local opts = {
     web_search_engine = {
         provider = "tavily",
     },
-    providers = require("plugins.avante-nvim.opts.providers"),
+    providers = require("plugins.avante-nvim.opts.avante_providers"),
     behaviour = require("plugins.avante-nvim.opts.behaviour"),
     hints = { enabled = true },
     highlights = {
