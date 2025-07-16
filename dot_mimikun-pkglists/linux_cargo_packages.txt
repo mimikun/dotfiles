@@ -34,6 +34,7 @@ cargo-msrv
 cargo-nextest
 cargo-outdated
 cargo-release
+cargo-seek
 cargo-selector
 cargo-tarpaulin
 cargo-udeps
@@ -68,6 +69,7 @@ du-dust
 dusage
 dutree
 dysk
+ecscope
 envfetch
 epiq
 erdtree
@@ -172,6 +174,7 @@ pastel
 pay-respects
 pay-respects-module-request-ai
 pay-respects-module-runtime-rules
+pez
 pik
 pipr
 presenterm
@@ -233,6 +236,7 @@ tere
 testing-language-server
 testing-ls-adapter
 tgt
+theattyr
 tmux-rs
 tokei
 toml2json
