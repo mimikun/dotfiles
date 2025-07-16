@@ -3,10 +3,20 @@ elvish\t''
 fish\t''
 powershell\t''
 zsh\t''"
+complete -c ccsum -s f -l format -d 'use the specified checksum format for output' -r -f -a "hex\t''
+base64\t''
+base64-no-pad\t''
+base64-url\t''"
 complete -c ccsum -s a -l algorithm -d 'use the specified algorithm to generate the checksum' -r -f -a "md5\t''
 sha1\t''
+sha224\t''
 sha256\t''
-sha512\t''"
+sha384\t''
+sha512\t''
+xxh32\t''
+xxh64\t''
+xxh3\t''"
+complete -c ccsum -s B -l buffer-size -d 'buffer size for reading files, in bytes' -r
 complete -c ccsum -s g -l group -d 'group output by last N segments of the path' -r
 complete -c ccsum -s G -l group-with-check -d 'group output by last N segments of the path, and fail if any checksums in the group are different' -r
 complete -c ccsum -s b -l binary -d 'read in binary mode. (noop)'

@@ -4,8 +4,12 @@ fish\t''
 powershell\t''
 zsh\t''"
 complete -c srgn -s G -l glob -d 'Glob of files to work on (instead of reading stdin).' -r
-complete -c srgn -l stdin-override-to -d 'Override detection heuristics for stdin readability, and force to value.' -r -f -a "true\t''
-false\t''"
+complete -c srgn -l stdin-detection -d 'Control heuristics for stdin readability detection, and force to value.' -r -f -a "auto\t'Automatically detect if stdin is readable'
+force-readable\t'Act as if stdin is readable'
+force-unreadable\t'Act as if stdin is not readable'"
+complete -c srgn -l stdout-detection -d 'Control heuristics for stdout detection, and potentially force to value.' -r -f -a "auto\t'Automatically detect if stdout is a TTY and act accordingly'
+force-tty\t'Act as if stdout is a TTY'
+force-pipe\t'Act as if stdout is not a TTY, e.g. a pipe, redirect'"
 complete -c srgn -l threads -d 'Number of threads to run processing on, when working with files.' -r
 complete -c srgn -l c -d 'Scope C code using a prepared query.' -r -f -a "comments\t'Comments (single- and multi-line)'
 strings\t'Strings'
