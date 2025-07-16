@@ -1,16 +1,16 @@
 ---@type LazySpec[]
 local dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "nvim-telescope/telescope.nvim",
-    "HakonHarnes/img-clip.nvim",
-    "MeanderingProgrammer/render-markdown.nvim",
-    "ravitemer/mcphub.nvim",
-    { "ibhagwan/fzf-lua", optional = true },
+    --- The below dependencies are optional,
+    { "nvim-tree/nvim-web-devicons", optional = true },
+    { "nvim-telescope/telescope.nvim", optional = true },
+    { "ravitemer/mcphub.nvim", optional = true },
+    { "stevearc/dressing.nvim", optional = true },
+    { "folke/snacks.nvim", optional = true },
     { "zbirenbaum/copilot.lua", optional = true },
+    { "HakonHarnes/img-clip.nvim", optional = true },
+    { "MeanderingProgrammer/render-markdown.nvim", optional = true },
 }
 
 -- NOTE: When Using `blink.cmp` ( `use_blink_cmp = true` ), add `blink.cmp` to dependencies.
