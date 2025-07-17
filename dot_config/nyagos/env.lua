@@ -49,6 +49,10 @@ if is_azusa then
     nyagos.envadd("XMODIFIERS", nyagos.getenv("XMODIFIERS") or "@im=fcitx")
     -- CapsLock to Ctrl
     nyagos.eval("setxkbmap -option ctrl:nocaps")
+    -- TODO: set browser name
+    nyagos.envadd("BROWSER", nyagos.getenv("BROWSER") or "vivaldi")
+else
+    nyagos.envadd("BROWSER", nyagos.getenv("BROWSER") or "wsl-open")
 end
 
 ---@type table
@@ -230,6 +234,7 @@ if is_linux then
     nyagos.envadd("XDG_STATE_HOME", nyagos.getenv("XDG_STATE_HOME") or xdg_state_home)
     -- envs
     nyagos.envadd("LANG", nyagos.getenv("LANG") or "en_US.UTF-8")
+    nyagos.envadd("LC_ALL", nyagos.getenv("LC_ALL") or "en_US.UTF-8")
     nyagos.envadd("PIPENV_VENV_IN_PROJECT", nyagos.getenv("PIPENV_VENV_IN_PROJECT") or 1)
     nyagos.envadd("TZ", nyagos.getenv("TZ") or "Asia/Tokyo")
     nyagos.envadd("TODAY", nyagos.getenv("TODAY") or today)

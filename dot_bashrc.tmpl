@@ -14,8 +14,8 @@ export LESS="-R"
 export LESSCHARSET="utf-8"
 export PAGER=less
 export GIT_PAGER=less
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
 # shell prompts
 # "oh-my-posh", "starship"
@@ -35,8 +35,12 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
+# TODO: set browser name
+export BROWSER="vivaldi"
 # CapsLock to Ctrl
 setxkbmap -option ctrl:nocaps
+{{ else -}}
+export BROWSER="wsl-open"
 {{ end -}}
 
 {{ if (eq .chezmoi.os "linux") -}}

@@ -1,5 +1,6 @@
 # Global
-set -x LANG en_US.UTF-8
+set -x LANG "en_US.UTF-8"
+set -x LC_ALL "en_US.UTF-8"
 set -x GHQ_ROOT $HOME/ghq
 set -x GHQ_SELECTOR fzf
 set -x PIPENV_VENV_IN_PROJECT 1
@@ -35,6 +36,10 @@ set -x QT_IM_MODULE "fcitx"
 set -x XMODIFIERS "@im=fcitx"
 # CapsLock to Ctrl
 setxkbmap -option ctrl:nocaps
+# TODO: set browser name
+set -x BROWSER "vivaldi"
+{{ else -}}
+set -x BROWSER "wsl-open"
 {{ end -}}
 
 # env-vars

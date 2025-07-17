@@ -1,5 +1,6 @@
 # Global
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export GHQ_ROOT="$HOME/ghq"
 export PIPENV_VENV_IN_PROJECT=1
 export TODAY=(date +'%Y/%m/%d')
@@ -28,6 +29,10 @@ export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
 # CapsLock to Ctrl
 setxkbmap -option ctrl:nocaps
+# TODO: set browser name
+export BROWSER="vivaldi"
+{{ else -}}
+export BROWSER="wsl-open"
 {{ end -}}
 
 # env-vars
