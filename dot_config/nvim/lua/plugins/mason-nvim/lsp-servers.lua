@@ -19,7 +19,7 @@ local base_servers = {
     "powershell_es",
     "pyright",
     --"rust_analyzer",
-    "taplo",
+    "tombi",
     "ts_ls",
     "typos_lsp",
     "vimls",
