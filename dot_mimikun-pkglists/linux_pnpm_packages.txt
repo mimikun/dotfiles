@@ -7,9 +7,11 @@
 @openai/codex
 @sasazame/ccresume
 backlog.md
+ccsearch
 ccusage
 commitizen
 cz-conventional-changelog-ja
+editprompt
 envinfo
 git-truck
 httpyac
@@ -21,4 +23,5 @@ opencode-ai
 prettier
 repomix
 reviewit
+tombi
 up-fetch
