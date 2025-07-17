@@ -167,7 +167,7 @@ end
 
 ---@type table
 M.obsidian = {
-    "g:obsidian",
+    "b:obsidian_footer",
 }
 
 ---@return string

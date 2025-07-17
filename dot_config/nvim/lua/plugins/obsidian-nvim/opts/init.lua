@@ -33,6 +33,11 @@ local opts = {
     markdown_link_func = f.markdown_link_func,
 
     legacy_commands = false,
+
+    -- WORKAROUND: https://github.com/obsidian-nvim/obsidian.nvim/issues/289
+    statusline = {
+        enabled = false,
+    },
 }
 
 return opts
