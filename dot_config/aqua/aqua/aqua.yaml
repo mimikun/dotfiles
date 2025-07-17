@@ -120,7 +120,7 @@ packages:
   - name: sqshq/sampler@v1.1.0
   - name: stateful/runme@v3.15.0
   - name: suzuki-shunsuke/cmdx@v2.0.2
-  - name: suzuki-shunsuke/ghalint@v1.5.2
+  - name: suzuki-shunsuke/ghalint@v1.5.3
   - name: suzuki-shunsuke/pinact@v3.3.2
   - name: tdewolff/minify@v2.23.8
   - name: termkit/gama@v1.2.1
