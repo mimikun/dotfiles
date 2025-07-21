@@ -1,14 +1,9 @@
 ---@type LazyKeysSpec[]
 local keys = {
     {
-        "<leader>lt",
+        "<leader>olt",
         mode = "n",
-        { silent = true, desc = "Cycle through list types for the current list" },
-    },
-    {
-        "<C-Space>",
-        mode = "n",
-        { silent = true, desc = "Toggle checkbox state" },
+        desc = "Toggle: Cycle through list types",
     },
 }
 
