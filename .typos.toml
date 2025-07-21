@@ -58,4 +58,6 @@ extend-exclude = [
   "CHANGELOG.md",
   "dot_config/nvim/lua/plugins/nvim-orgmode/org-list-opts.lua",
   "dot_config/nvim/lua/unused/*",
+  "dot_config/nvim/lua/plugins/org-list-nvim/opts.lua",
+  "dot_config/nvim/lua/plugins/org-list-nvim/keys.lua",
 ]
