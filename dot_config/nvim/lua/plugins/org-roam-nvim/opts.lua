@@ -1,6 +1,7 @@
----@type table
+---@module 'org-roam'
+---@type org-roam.config.Data
 local opts = {
-    directory = "~/orgroamfiles",
+    directory = "~/org_roam_files",
     org_files = { "~/orgfiles" },
 }
 
