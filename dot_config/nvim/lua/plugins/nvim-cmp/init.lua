@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = not require("config.settings").use_blink_cmp
+local use_nvim_cmp = not require("config.settings").use_blink_cmp
 
 ---@type LazySpec
 local spec = {
@@ -108,8 +108,8 @@ local spec = {
             },
         })
     end,
-    cond = cond,
-    enabled = cond,
+    cond = use_nvim_cmp,
+    enabled = use_nvim_cmp,
 }
 
 return spec

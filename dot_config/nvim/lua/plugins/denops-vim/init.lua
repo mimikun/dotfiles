@@ -1,12 +1,12 @@
 ---@type boolean
-local cond = require("config.settings").use_denops
+local use_denops = require("config.settings").use_denops
 
 ---@type LazySpec
 local spec = {
     "vim-denops/denops.vim",
     lazy = false,
-    cond = cond,
-    enabled = cond,
+    cond = use_denops,
+    enabled = use_denops,
 }
 
 return spec

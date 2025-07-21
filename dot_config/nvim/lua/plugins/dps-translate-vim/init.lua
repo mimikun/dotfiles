@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_denops
+local use_denops = require("config.settings").use_denops
 
 ---@type LazySpec
 local spec = {
@@ -11,8 +11,8 @@ local spec = {
         vim.g.dps_translate_source = "en"
         vim.g.dps_translate_target = "ja"
     end,
-    cond = cond,
-    enabled = cond,
+    cond = use_denops,
+    enabled = use_denops,
 }
 
 return spec

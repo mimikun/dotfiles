@@ -1,6 +1,3 @@
----@type boolean
-local cond = require("config.global").is_human_rights
-
 ---@type LazySpec
 local spec = {
     "subnut/nvim-ghost.nvim",
@@ -16,8 +13,8 @@ local spec = {
         -- Disable the plugin
         --vim.g.nvim_ghost_disabled = 1
     end,
-    cond = cond,
-    enabled = cond,
+    --cond = false,
+    --enabled = false,
 }
 
 return spec

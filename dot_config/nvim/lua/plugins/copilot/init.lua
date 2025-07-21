@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_github_copilot
+local use_github_copilot = require("config.settings").use_github_copilot
 
 ---@type LazySpec
 local spec = {
@@ -9,8 +9,8 @@ local spec = {
     event = "InsertEnter",
     dependencies = { "fuegoio/copiloutre.nvim" },
     opts = require("plugins.copilot.opts"),
-    cond = cond,
-    enabled = cond,
+    cond = use_github_copilot,
+    enabled = use_github_copilot,
 }
 
 return spec

@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_claude_code
+local use_claude_code = require("config.settings").use_claude_code
 
 ---@type LazySpec
 local spec = {
@@ -8,8 +8,8 @@ local spec = {
     cmd = require("plugins.claude-code-nvim.cmds"),
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = require("plugins.claude-code-nvim.opts"),
-    cond = cond,
-    enabled = cond,
+    cond = use_claude_code,
+    enabled = use_claude_code,
 }
 
 return spec

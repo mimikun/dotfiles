@@ -1,8 +1,5 @@
 ---@type boolean
---local is_fd_available = vim.fn.executable("fd") == 1
-
----@type boolean
-local cond = require("config.global").is_linux
+local is_linux = require("config.global").is_linux
 
 ---@type LazySpec
 local spec = {
@@ -11,8 +8,8 @@ local spec = {
     cmd = require("plugins.otree-nvim.cmds"),
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = require("plugins.otree-nvim.opts"),
-    cond = cond,
-    enabled = cond,
+    cond = is_linux,
+    enabled = is_linux,
 }
 
 return spec

@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_llm
+local use_llm = require("config.settings").use_llm
 
 ---@type LazySpec
 local spec = {
@@ -9,8 +9,8 @@ local spec = {
     cmd = "MCPHub",
     dependencies = require("plugins.mcphub-nvim.dependencies"),
     opts = require("plugins.mcphub-nvim.opts"),
-    cond = cond,
-    enabled = cond,
+    cond = use_llm,
+    enabled = use_llm,
 }
 
 return spec

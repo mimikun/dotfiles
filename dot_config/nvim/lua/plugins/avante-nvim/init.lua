@@ -1,18 +1,21 @@
 local g = require("config.global")
 
+---@type boolean
+local is_home = g.is_home
+
+---@type boolean
+local is_windows = g.is_windows
+
 ---@type string|nil
 local build = "make"
 
-if g.is_windows then
+if is_windows then
     build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-elseif g.is_home then
+elseif is_home then
     build = "make BUILD_FROM_SOURCE=true"
 else
     build = "make"
 end
-
----@type boolean
-local cond = g.is_home
 
 ---@type LazySpec
 local spec = {
@@ -30,8 +33,8 @@ local spec = {
         vim.opt.laststatus = 3
     end,
     opts = require("plugins.avante-nvim.opts"),
-    cond = cond,
-    enabled = cond,
+    cond = is_home,
+    enabled = is_home,
 }
 
 return spec

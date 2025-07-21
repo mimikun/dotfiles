@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_github_copilot
+local use_github_copilot = require("config.settings").use_github_copilot
 
 -- Only on MacOS or Linux
 ---@type string
@@ -14,8 +14,8 @@ local spec = {
     --keys = require("plugins.copilotchat-nvim.keys"),
     dependencies = require("plugins.copilotchat-nvim.dependencies"),
     opts = require("plugins.copilotchat-nvim.opts"),
-    cond = cond,
-    enabled = cond,
+    cond = use_github_copilot,
+    enabled = use_github_copilot,
 }
 
 return spec

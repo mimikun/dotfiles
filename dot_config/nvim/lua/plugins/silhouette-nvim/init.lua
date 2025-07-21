@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_denops
+local use_denops = require("config.settings").use_denops
 
 ---@type LazySpec
 local spec = {
@@ -13,8 +13,8 @@ local spec = {
             require("silhouette").setup(require("plugins.silhouette-nvim.opts"))
         end, 10000)
     end,
-    cond = cond,
-    enabled = cond,
+    cond = use_denops,
+    enabled = use_denops,
 }
 
 return spec

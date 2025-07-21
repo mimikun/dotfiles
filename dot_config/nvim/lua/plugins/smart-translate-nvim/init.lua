@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.global").is_work
+local is_work = require("config.global").is_work
 
 ---@type LazySpec
 local spec = {
@@ -8,8 +8,8 @@ local spec = {
     cmd = "Translate",
     dependencies = { "askfiy/http.nvim" },
     opts = require("plugins.smart-translate-nvim.opts"),
-    cond = cond,
-    enabled = cond,
+    cond = is_work,
+    enabled = is_work,
 }
 
 return spec

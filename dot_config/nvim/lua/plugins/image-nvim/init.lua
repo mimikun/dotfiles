@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.global").is_linux
+local is_linux = require("config.global").is_linux
 
 ---@type LazySpec
 local spec = {
@@ -19,8 +19,8 @@ local spec = {
             image.disable()
         end, {})
     end,
-    cond = cond,
-    enabled = cond,
+    cond = is_linux,
+    enabled = is_linux,
 }
 
 return spec

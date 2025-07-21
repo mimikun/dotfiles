@@ -1,5 +1,5 @@
 ---@type boolean
-local cond = require("config.settings").use_gemini_cli
+local use_gemini_cli = require("config.settings").use_gemini_cli
 
 ---@type LazySpec
 local spec = {
@@ -7,8 +7,8 @@ local spec = {
     --lazy = false,
     keys = require("plugins.gemini-nvim.keys"),
     opts = {},
-    cond = cond,
-    enabled = cond,
+    cond = use_gemini_cli,
+    enabled = use_gemini_cli,
 }
 
 return spec
