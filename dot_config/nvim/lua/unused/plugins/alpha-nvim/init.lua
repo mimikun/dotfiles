@@ -1,18 +1,10 @@
----@type LazySpec[]
-local dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "nvim-lua/plenary.nvim",
-    { "MaximilianLloyd/ascii.nvim", optional = true },
-    { "MunifTanjim/nui.nvim", optional = true },
-}
-
 ---@type LazySpec
 local spec = {
     "goolord/alpha-nvim",
     --lazy = false,
     cmd = "Alpha",
     event = "VimEnter",
-    dependencies = dependencies,
+    dependencies = require("plugins.alpha-nvim.dependencies"),
     config = function()
         local alpha = require("alpha")
         local theta = require("alpha.themes.theta")
