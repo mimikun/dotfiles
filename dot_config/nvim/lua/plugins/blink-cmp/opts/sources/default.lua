@@ -11,7 +11,6 @@ local default = {
     "buffer",
     "ripgrep",
     "path",
-    "emoji",
     "ecolog",
     "nerdfont",
     "spell",
