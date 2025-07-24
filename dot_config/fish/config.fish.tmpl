@@ -598,6 +598,12 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
         echo "jj util completion fish | source" >> $CACHE_CONFIG_FISH
     end
 
+    # go-task
+    if command -v task >/dev/null 2>&1
+        echo "# cache task completion" >> $CACHE_CONFIG_FISH
+        echo "task --completion fish | source" >> $CACHE_CONFIG_FISH
+    end
+
     # vfox
     # NOTE: can't use now
     #if command -v vfox >/dev/null 2>&1
