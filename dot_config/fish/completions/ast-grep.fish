@@ -38,7 +38,7 @@ complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "help" -d 'Print t
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s p -l pattern -d 'AST pattern to match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l selector -d 'AST kind to extract sub-part of pattern to match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s r -l rewrite -d 'String to replace the matched AST node' -r
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s l -l lang -d 'The language of the pattern. Supported languages are: [Bash, C, Cpp, CSharp, Css, Elixir, Go, Haskell, Html, Java, JavaScript, Json, Kotlin, Lua, Php, Python, Ruby, Rust, Scala, Swift, Tsx, TypeScript, Yaml]' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s l -l lang -d 'The language of the pattern. Supported languages are: [Bash, C, Cpp, CSharp, Css, Elixir, Go, Haskell, Html, Java, JavaScript, Json, Kotlin, Lua, Nix, Php, Python, Ruby, Rust, Scala, Solidity, Swift, Tsx, TypeScript, Yaml]' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l debug-query -d 'Print query pattern\'s tree-sitter AST. Requires lang be set explicitly' -r -f -a "pattern\t'Print the query parsed in Pattern format'
 ast\t'Print the query in tree-sitter AST format, only named nodes are shown'
 cst\t'Print the query in tree-sitter CST format, both named and unnamed nodes are shown'
@@ -47,7 +47,8 @@ complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l strictness -d 
 smart\t'Match all node except source trivial nodes'
 ast\t'Match only ast nodes'
 relaxed\t'Match ast node except comments'
-signature\t'Match ast node except comments, without text'"
+signature\t'Match ast node except comments, without text'
+template\t'Similar to smart but match text only, node kinds are ignored'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l no-ignore -d 'Do not respect hidden file system or ignore files (.gitignore, .ignore, etc.)' -r -f -a "hidden\t'Search hidden files and directories. By default, hidden files and directories are skipped'
 dot\t'Don\'t respect .ignore files. This does *not* affect whether ast-grep will ignore files and directories whose names begin with a dot. For that, use --no-ignore hidden'
 exclude\t'Don\'t respect ignore files that are manually configured for the repository such as git\'s \'.git/info/exclude\''
@@ -56,7 +57,7 @@ parent\t'Don\'t respect ignore files (.gitignore, .ignore, etc.) in parent direc
 vcs\t'Don\'t respect version control ignore files (.gitignore, etc.). This implies --no-ignore parent for VCS files. Note that .ignore files will continue to be respected'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l globs -d 'Include or exclude file paths' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s j -l threads -d 'Set the approximate number of threads to use' -r
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l json -d 'Output matches in structured JSON ' -r -f -a "pretty\t'Prints the matches as a pretty-printed JSON array, with indentation and line breaks. This is useful for human readability, but not for parsing by other programs. This is the default value for the `--json` option'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l json -d 'Output matches in structured JSON' -r -f -a "pretty\t'Prints the matches as a pretty-printed JSON array, with indentation and line breaks. This is useful for human readability, but not for parsing by other programs. This is the default value for the `--json` option'
 stream\t'Prints each match as a separate JSON object, followed by a newline character. This is useful for streaming the output to other programs that can read one object per line'
 compact\t'Prints the matches as a single-line JSON array, without any whitespace. This is useful for saving space and minimizing the output size'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l color -d 'Controls output color' -r -f -a "auto\t'Try to use colors, but don\'t force the issue. If the output is piped to another program, or the console isn\'t available on Windows, or if TERM=dumb, or if `NO_COLOR` is defined, for example, then don\'t use colors'
@@ -98,7 +99,7 @@ parent\t'Don\'t respect ignore files (.gitignore, .ignore, etc.) in parent direc
 vcs\t'Don\'t respect version control ignore files (.gitignore, etc.). This implies --no-ignore parent for VCS files. Note that .ignore files will continue to be respected'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l globs -d 'Include or exclude file paths' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s j -l threads -d 'Set the approximate number of threads to use' -r
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l json -d 'Output matches in structured JSON ' -r -f -a "pretty\t'Prints the matches as a pretty-printed JSON array, with indentation and line breaks. This is useful for human readability, but not for parsing by other programs. This is the default value for the `--json` option'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l json -d 'Output matches in structured JSON' -r -f -a "pretty\t'Prints the matches as a pretty-printed JSON array, with indentation and line breaks. This is useful for human readability, but not for parsing by other programs. This is the default value for the `--json` option'
 stream\t'Prints each match as a separate JSON object, followed by a newline character. This is useful for streaming the output to other programs that can read one object per line'
 compact\t'Prints the matches as a single-line JSON array, without any whitespace. This is useful for saving space and minimizing the output size'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l color -d 'Controls output color' -r -f -a "auto\t'Try to use colors, but don\'t force the issue. If the output is piped to another program, or the console isn\'t available on Windows, or if TERM=dumb, or if `NO_COLOR` is defined, for example, then don\'t use colors'
