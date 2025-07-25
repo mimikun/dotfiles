@@ -1,6 +1,9 @@
 ---@type table
 local per_filetype = {
-    markdown = { "emoji" },
+    markdown = {
+        "emoji",
+        "nerdfont",
+    },
     org = { "orgmode" },
     -- NOTE: blink-compat sources
     ["dap-repl"] = { "dap" },

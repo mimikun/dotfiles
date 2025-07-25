@@ -12,7 +12,6 @@ local default = {
     "ripgrep",
     "path",
     "ecolog",
-    "nerdfont",
     "spell",
     "yank",
     -- NOTE: blink-compat sources
