@@ -13,6 +13,7 @@ bat
 bibiman
 bingrep
 binsider
+bitchat-tui
 bluetui
 bmm
 bob-nvim
@@ -109,6 +110,7 @@ hk
 hoard-rs
 ht
 hwatch
+hygg
 hyperfine
 hysp
 i3-style
