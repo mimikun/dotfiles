@@ -7,6 +7,7 @@ bat
 bfs
 chezmoi
 cmake
+db
 docker
 docker-compose
 ffmpeg
