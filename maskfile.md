@@ -240,6 +240,7 @@ host_name=$(cat /etc/hostname)
 # fish
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/
 cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
+cp ~/.config/fish/pez-lock.toml ./dot_config/fish/pez-lock.toml
 
 # yazi-fm
 chezmoi add ~/.config/yazi/keymap.toml
