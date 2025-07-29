@@ -1,6 +1,5 @@
 ---@type LazySpec[]
 local dependencies = {
-    "nvim-lua/plenary.nvim",
     -- NOTE: Pickers
     "nvim-telescope/telescope.nvim",
     -- NOTE: Image viewing
