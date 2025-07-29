@@ -3,6 +3,14 @@ local use_blink_cmp = require("config.settings").use_blink_cmp
 
 local f = require("plugins.obsidian-nvim.opts.funcs")
 
+-- WORKAROUND: ref: https://github.com/obsidian-nvim/obsidian.nvim/issues/268#issuecomment-3079176695
+local old_open = vim.ui.open
+
+vim.ui.open = function(uri, opts)
+    opts = opts or { cmd = { "wsl-open" } }
+    old_open(uri, opts)
+end
+
 ---@module 'obsidian'
 ---@type obsidian.config
 local opts = {
@@ -15,8 +23,10 @@ local opts = {
 
     disable_frontmatter = true,
 
+    ---@type obsidian.config.OpenOpts
     open = {
         use_advanced_uri = true,
+        func = vim.ui.open,
     },
 
     ui = {
