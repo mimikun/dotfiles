@@ -9,7 +9,7 @@ packages:
   - name: aquasecurity/trivy@v0.64.1
   - name: aristocratos/btop@v1.4.4
   - name: asciimoo/wuzz@v0.5.0
-  - name: astral-sh/ruff@0.12.5
+  - name: astral-sh/ruff@0.12.7
   - name: astral-sh/uv@0.8.3
   - name: aurc/loggo@v0.3.21
   - name: ayoisaiah/f2@v2.1.2
@@ -28,13 +28,13 @@ packages:
   - name: charmbracelet/vhs@v0.10.0
   - name: chriswalz/bit@v1.1.2
   - name: cli/cli@v2.76.1
-  - name: dagu-org/dagu@v1.17.4
+  - name: dagu-org/dagu@v1.18.0
   - name: danvergara/dblab@v0.33.0
   - name: derailed/k9s@v0.50.9
   - name: direnv/direnv@v2.37.1
   - name: dlvhdr/diffnav@v0.3.1
   - name: dominikh/go-tools/staticcheck@2025.1.1
-  - name: dotenvx/dotenvx@v1.48.3
+  - name: dotenvx/dotenvx@v1.48.4
   - name: dundee/gdu@v5.31.0
   - name: editorconfig-checker/editorconfig-checker@v3.3.0
   - name: evilmartians/lefthook@v1.12.2
@@ -64,13 +64,13 @@ packages:
   - name: jesseduffield/horcrux@v0.2
   - name: jesseduffield/lazydocker@v0.24.1
   - name: jesseduffield/lazygit@v0.53.0
-  - name: JFryy/qq@v0.3.0
+  - name: JFryy/qq@v0.3.1
   - name: joerdav/xc@v0.8.6
   - name: jorgerojas26/lazysql@v0.3.9
   - name: jqlang/jq@jq-1.8.1
   - name: junegunn/fzf@v0.65.0
   - name: k1LoW/octocov@v0.68.1
-  - name: kdabir/has@v1.5.0
+  - name: kdabir/has@v1.5.1
   - name: keidarcy/e1s@v1.0.49
   - name: knqyf263/sou@v0.2.0
   - name: koalaman/shellcheck@v0.10.0
