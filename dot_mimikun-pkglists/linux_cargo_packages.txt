@@ -1,6 +1,7 @@
 ag
 aichat
 aim
+apisnip
 ast-grep
 atac
 atuin
@@ -130,6 +131,7 @@ kibi
 koji
 krafna
 lawkit
+lazycelery
 lazyjj
 lla
 lobtui
