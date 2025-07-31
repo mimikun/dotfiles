@@ -35,6 +35,7 @@ pixi
 poppler
 protobuf
 reflector
+resvg
 rucola
 silicon
 skktools

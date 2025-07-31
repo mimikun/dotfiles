@@ -4,7 +4,6 @@ nkf
 nvrs
 paru
 paru-debug
-resvg
 scooter
 t-rec
 tracker
