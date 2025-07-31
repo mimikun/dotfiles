@@ -173,4 +173,7 @@ M.obsidian = {
 ---@return string
 M.ccusage = s.use_claude_code and require("ccusage").get_lualine_component() or ""
 
+---@return string
+M.mcphub = s.use_llm and "mcphub" or ""
+
 return M

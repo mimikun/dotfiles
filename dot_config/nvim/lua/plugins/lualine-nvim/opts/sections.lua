@@ -17,6 +17,7 @@ local sections = {
         -- mcphub.nvim
         -- BUG: has bug. can't work
         --{ require("mcphub.extensions.lualine") },
+        c.mcphub,
         -- LazyDo
         c.lazydo,
         -- ccusage
