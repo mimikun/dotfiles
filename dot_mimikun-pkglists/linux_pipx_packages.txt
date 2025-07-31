@@ -12,6 +12,7 @@ peplum
 pipask
 pocker-tui
 poetry
+renux
 rsyncy
 sherlock-project
 terminaltexteffects
