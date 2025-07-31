@@ -106,6 +106,7 @@ dnspython
 docker
 docstring_parser
 dominate
+dtop
 duckdb
 dulwich
 durationpy
