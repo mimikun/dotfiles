@@ -139,7 +139,7 @@ name = "_na.fish"
 name = "forgit"
 repo = "wfxr/forgit"
 source = "https://github.com/wfxr/forgit"
-commit_sha = "9a4ff16829e7805210f63ff7b7a6d52b29d0d796"
+commit_sha = "f7796d5ce2af7bf5e3e14fb88afbbf0cdaaaa035"
 
 [[plugins.files]]
 dir = "completions"
