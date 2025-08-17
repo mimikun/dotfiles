@@ -4,7 +4,7 @@ local spec = {
     --lazy = false,
     cmd = "Store",
     keys = require("plugins.store-nvim.keys"),
-    dependencies = { "OXY2DEV/markview.nvim", optional = true },
+    dependencies = { "OXY2DEV/markview.nvim" },
     opts = require("plugins.store-nvim.opts"),
     cond = false,
     enabled = false,

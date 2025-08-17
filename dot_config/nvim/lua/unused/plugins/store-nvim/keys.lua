@@ -2,7 +2,6 @@
 local keys = {
     {
         "<leader>s",
-        "<cmd>Store<cr>",
         function()
             require("store").open()
         end,
