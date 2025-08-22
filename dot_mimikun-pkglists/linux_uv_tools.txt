@@ -1,5 +1,6 @@
 aider-chat
 bagels
+cloctui
 euporie
 isd-tui
 lexy
