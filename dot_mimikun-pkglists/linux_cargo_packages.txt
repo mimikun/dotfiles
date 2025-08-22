@@ -50,6 +50,7 @@ cctx
 choose
 codeberg-cli
 colorgen-nvim
+comchan
 commitlint-rs
 confirm-pam
 countryfetch
@@ -60,6 +61,7 @@ cyme
 ddv
 desed
 diffai
+difftastic
 diffx
 diskonaut
 dns-doge
@@ -103,6 +105,7 @@ gitui
 glitchcat
 gping
 grex
+harper-ls
 heh
 hex-patch
 hexyl
@@ -123,10 +126,12 @@ iwe
 iwes
 jj-cli
 jnv
+jocalsend
 jql
 just
 kbt
 kdash
+kanha
 kibi
 koji
 krafna
@@ -149,6 +154,7 @@ mcp-cli
 mdbook
 mdns-scanner
 menyoki
+mergiraf
 mise
 mocword
 monolith
@@ -187,6 +193,7 @@ pueue
 pumas
 punktf
 pylyzer
+qmassa
 qrtool
 rage
 railwayapp
@@ -228,6 +235,7 @@ sshx
 starship
 stu
 stylua
+swaptop
 systemctl-tui
 taplo-cli
 tatuin
