@@ -73,7 +73,7 @@ packages:
   - name: kdabir/has@v1.5.2
   - name: keidarcy/e1s@v1.0.49
   - name: knqyf263/sou@v0.2.0
-  - name: koalaman/shellcheck@v0.10.0
+  - name: koalaman/shellcheck@v0.11.0
   - name: koki-develop/clive@v0.12.11
   - name: koki-develop/gat@v0.24.1
   - name: koki-develop/sheep@v0.4.0
