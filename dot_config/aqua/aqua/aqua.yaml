@@ -1,6 +1,6 @@
 ---
 packages:
-  - name: aandrew-me/tgpt@v2.10.1
+  - name: aandrew-me/tgpt@v2.11.0
   - name: ahmetb/kubectx@v0.9.5
   - name: alajmo/mani@v0.31.0
   - name: antonmedv/fx@38.0.0
