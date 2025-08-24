@@ -88,6 +88,7 @@ configobj
 contourpy
 crashtest
 cryptography
+colorlog
 csvkit
 cycler
 daytona
@@ -115,6 +116,7 @@ edge-tts
 eg
 email_validator
 environs
+django-environ
 et_xmlfile
 exceptiongroup
 executing
@@ -179,6 +181,7 @@ httpx
 httpx-sse
 huggingface-hub
 humanfriendly
+hapless
 humanize
 hyperframe
 icalendar
@@ -254,6 +257,7 @@ nest-asyncio
 networkx
 numpy
 oauthlib
+nox
 olefile
 onnxruntime
 openai
@@ -396,6 +400,7 @@ tabulate
 tenacity
 termcolor
 terminaltexteffects
+structlog
 text-unidecode
 textual
 textual-fspicker
