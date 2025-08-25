@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise description="git fetch github"
+#MISE description="git fetch github"
 
 git fetch github
 

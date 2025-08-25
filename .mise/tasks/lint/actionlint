@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Lint by actionlint"
-# mise hide=true
+#MISE description="Lint by actionlint"
+#MISE hide=true
 
 actionlint
 

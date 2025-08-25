@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Lint by zizmor"
-# mise hide=true
+#MISE description="Lint by zizmor"
+#MISE hide=true
 
 zizmor .
 

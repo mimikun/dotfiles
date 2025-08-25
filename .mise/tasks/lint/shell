@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Lint by shellcheck"
-# mise hide=true
+#MISE description="Lint by shellcheck"
+#MISE hide=true
 
 # TODO: it
 

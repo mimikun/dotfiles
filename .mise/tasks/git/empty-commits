@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Run empty-commits"
-# mise alias=["empty-commits", "emptycommits"]
+#MISE description="Run empty-commits"
+#MISE alias=["empty-commits", "emptycommits"]
 
 LATEST_GIT_TAG=$(git tag | head -n 1)
 GIT_LOG=$(git log "$LATEST_GIT_TAG..HEAD" --pretty=format:"%B")

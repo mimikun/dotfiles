@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise description="Add commit message up to `origin/master` to CHANGELOG.md"
+#MISE description="Add commit message up to `origin/master` to CHANGELOG.md"
 
 TODAY=$(date "+%Y.%m.%d")
 RESULT_FILE="CHANGELOG.md"

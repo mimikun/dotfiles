@@ -1,7 +1,7 @@
 #!/bin/bash
-# mise description="git pull"
-# mise alias="pull"
-# mise hide=true
+#MISE description="git pull"
+#MISE alias="pull"
+#MISE hide=true
 
 git pull
 

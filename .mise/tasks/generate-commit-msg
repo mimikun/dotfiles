@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Add commit message up to `origin/master` for mask to CHANGELOG.md"
-# mise alias=["gcm"]
+#MISE description="Add commit message up to `origin/master` for mask to CHANGELOG.md"
+#MISE alias=["gcm"]
 
 RESULT_FILE="CHANGELOG.md"
 LATEST_GIT_TAG=$(git tag | head -n 1)

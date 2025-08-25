@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Delete patch branch"
-# mise alias=["delete-branch","deleb"]
+#MISE description="Delete patch branch"
+#MISE alias=["delete-branch","deleb"]
 
 mise tasks run clean
 mise tasks run git:switch-master

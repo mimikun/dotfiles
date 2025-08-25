@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise description="git fetch gitea"
+#MISE description="git fetch gitea"
 
 git fetch gitea
 

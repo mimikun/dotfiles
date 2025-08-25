@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Lint by selene"
-# mise hide=true
+#MISE description="Lint by selene"
+#MISE hide=true
 
 selene .
 

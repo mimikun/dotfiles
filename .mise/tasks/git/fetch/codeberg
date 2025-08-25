@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise description="git fetch codeberg"
+#MISE description="git fetch codeberg"
 
 git fetch codeberg
 

@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="git cleanfetch"
-# mise alias=["clean-fetch", "cleanfetch"]
+#MISE description="git cleanfetch"
+#MISE alias=["clean-fetch", "cleanfetch"]
 
 git fetch --all --prune --tags --prune-tags
 

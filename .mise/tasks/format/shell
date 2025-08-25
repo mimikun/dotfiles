@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Format by shfmt"
-# mise hide=true
+#MISE description="Format by shfmt"
+#MISE hide=true
 
 # TODO: it
 

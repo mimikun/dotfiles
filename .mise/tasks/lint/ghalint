@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Lint by ghalint"
-# mise hide=true
+#MISE description="Lint by ghalint"
+#MISE hide=true
 
 ghalint run
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise description="Run clean"
+#MISE description="Run clean"
 
 # patch
 rm -f ./*.patch

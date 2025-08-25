@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Copy patch to Windows"
-# mise hide=true
+#MISE description="Copy patch to Windows"
+#MISE hide=true
 
 cp "*.patch" "$WIN_HOME/Downloads/"
 

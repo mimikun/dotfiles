@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Format by stylua"
-# mise hide=true
+#MISE description="Format by stylua"
+#MISE hide=true
 
 stylua ./
 

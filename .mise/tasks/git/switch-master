@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Switch to master branch"
-# mise alias="switch-master"
+#MISE description="Switch to master branch"
+#MISE alias="switch-master"
 
 git switch master
 

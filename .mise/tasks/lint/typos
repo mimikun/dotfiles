@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Lint by typos"
-# mise hide=true
+#MISE description="Lint by typos"
+#MISE hide=true
 
 typos .
 

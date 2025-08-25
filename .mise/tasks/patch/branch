@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Create a patch branch"
-# mise alias=["patch-branch", "pab"]
+#MISE description="Create a patch branch"
+#MISE alias=["patch-branch", "pab"]
 
 TODAY=$(date +'%Y%m%d')
 

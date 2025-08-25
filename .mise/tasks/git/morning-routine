@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="workday morning routine"
-# mise alias="morning-routine"
+#MISE description="workday morning routine"
+#MISE alias="morning-routine"
 
 mise tasks run git:fetch:clean-fetch
 mise tasks run git:delete-branch

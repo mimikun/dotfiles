@@ -1,7 +1,7 @@
 #!/bin/bash
-# mise description="Create diff patch"
-# mise alias="create-patch"
-# mise hide=true
+#MISE description="Create diff patch"
+#MISE alias="create-patch"
+#MISE hide=true
 
 PRODUCT_NAME="dotfiles"
 DEFAULT_REMOTE="origin"

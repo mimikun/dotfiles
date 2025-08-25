@@ -1,6 +1,6 @@
 #!/bin/bash
-# mise description="Run update"
-# mise depends=["clean"]
+#MISE description="Run update"
+#MISE depends=["clean"]
 
 host_name=$(cat /etc/hostname)
 
@@ -17,7 +17,7 @@ chezmoi add ~/.config/yazi/package.toml
 chezmoi add ~/.config/yazi/init.lua
 tombi format dot_config/yazi/*.toml
 
-# mise
+#MISE
 chezmoi add ~/.config/mise/config.toml
 
 # bob

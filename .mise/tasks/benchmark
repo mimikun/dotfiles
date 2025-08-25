@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise description="Run benchmark and append the results to the file"
+#MISE description="Run benchmark and append the results to the file"
 
 RESULT_FILE="STARTUPTIME.md"
 TODAY=$(date "+%Y.%m.%d")
