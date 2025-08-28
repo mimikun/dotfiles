@@ -69,7 +69,11 @@ complete -c deno -n "__fish_deno_needs_command" -l watch-exclude -d 'Exclude pro
 complete -c deno -n "__fish_deno_needs_command" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
-jsx\t''"
+jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''"
 complete -c deno -n "__fish_deno_needs_command" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l coverage -d 'Collect coverage profile data into DIR. If DIR is not specified, it uses \'coverage/\'.   This option can also be set via the DENO_COVERAGE_DIR environment variable.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l connected -r
@@ -199,7 +203,11 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l watch-exclude -d 'Excl
 complete -c deno -n "__fish_deno_using_subcommand run" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
-jsx\t''"
+jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l coverage -d 'Collect coverage profile data into DIR. If DIR is not specified, it uses \'coverage/\'.   This option can also be set via the DENO_COVERAGE_DIR environment variable.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l connected -r
@@ -295,7 +303,11 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-exclude -d 'Ex
 complete -c deno -n "__fish_deno_using_subcommand serve" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
-jsx\t''"
+jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l connected -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -s h -l help -r -f -a "unstable\t''
@@ -469,7 +481,11 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l env-file -d 'Load en
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
-jsx\t''"
+jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -780,7 +796,11 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l icon -d 'Set the i
 complete -c deno -n "__fish_deno_using_subcommand compile" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
-jsx\t''"
+jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -983,7 +1003,11 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l check -d 'Enable type
 complete -c deno -n "__fish_deno_using_subcommand eval" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
-jsx\t''"
+jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -1030,6 +1054,10 @@ complete -c deno -n "__fish_deno_using_subcommand fmt" -l ext -d 'Set content ty
 tsx\t''
 js\t''
 jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''
 md\t''
 json\t''
 jsonc\t''
@@ -1668,6 +1696,7 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand repl" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l eszip-internal-do-not-use
+complete -c deno -n "__fish_deno_using_subcommand repl" -l json
 complete -c deno -n "__fish_deno_using_subcommand task" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
@@ -1771,7 +1800,11 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l env-file -d 'Load env
 complete -c deno -n "__fish_deno_using_subcommand test" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
-jsx\t''"
+jsx\t''
+mts\t''
+mjs\t''
+cts\t''
+cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'

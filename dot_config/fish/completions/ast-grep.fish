@@ -38,7 +38,7 @@ complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "help" -d 'Print t
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s p -l pattern -d 'AST pattern to match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l selector -d 'AST kind to extract sub-part of pattern to match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s r -l rewrite -d 'String to replace the matched AST node' -r
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s l -l lang -d 'The language of the pattern. Supported languages are: [Bash, C, Cpp, CSharp, Css, Elixir, Go, Haskell, Html, Java, JavaScript, Json, Kotlin, Lua, Nix, Php, Python, Ruby, Rust, Scala, Solidity, Swift, Tsx, TypeScript, Yaml]' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s l -l lang -d 'The language of the pattern. Supported languages are: [Bash, C, Cpp, CSharp, Css, Elixir, Go, Haskell, Hcl, Html, Java, JavaScript, Json, Kotlin, Lua, Nix, Php, Python, Ruby, Rust, Scala, Solidity, Swift, Tsx, TypeScript, Yaml]' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l debug-query -d 'Print query pattern\'s tree-sitter AST. Requires lang be set explicitly' -r -f -a "pattern\t'Print the query parsed in Pattern format'
 ast\t'Print the query in tree-sitter AST format, only named nodes are shown'
 cst\t'Print the query in tree-sitter CST format, both named and unnamed nodes are shown'

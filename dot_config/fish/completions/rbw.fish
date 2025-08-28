@@ -68,25 +68,29 @@ complete -c rbw -n "__fish_rbw_using_subcommand unlock" -s h -l help -d 'Print h
 complete -c rbw -n "__fish_rbw_using_subcommand unlocked" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_rbw_using_subcommand sync" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_rbw_using_subcommand list" -l fields -d 'Fields to display. Available options are id, name, user, folder. Multiple fields will be separated by tabs.' -r
+complete -c rbw -n "__fish_rbw_using_subcommand list" -l raw -d 'Display output as JSON'
 complete -c rbw -n "__fish_rbw_using_subcommand list" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_rbw_using_subcommand ls" -l fields -d 'Fields to display. Available options are id, name, user, folder. Multiple fields will be separated by tabs.' -r
+complete -c rbw -n "__fish_rbw_using_subcommand ls" -l raw -d 'Display output as JSON'
 complete -c rbw -n "__fish_rbw_using_subcommand ls" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_rbw_using_subcommand get" -l folder -d 'Folder name to search in' -r
 complete -c rbw -n "__fish_rbw_using_subcommand get" -s f -l field -d 'Field to get' -r
+complete -c rbw -n "__fish_rbw_using_subcommand get" -s i -l ignorecase -d 'Ignore case'
 complete -c rbw -n "__fish_rbw_using_subcommand get" -l full -d 'Display the notes in addition to the password'
 complete -c rbw -n "__fish_rbw_using_subcommand get" -l raw -d 'Display output as JSON'
-complete -c rbw -n "__fish_rbw_using_subcommand get" -l clipboard -d 'Copy result to clipboard'
-complete -c rbw -n "__fish_rbw_using_subcommand get" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_rbw_using_subcommand get" -s c -l clipboard -d 'Copy result to clipboard'
 complete -c rbw -n "__fish_rbw_using_subcommand get" -s h -l help -d 'Print help'
+complete -c rbw -n "__fish_rbw_using_subcommand search" -l fields -d 'Fields to display. Available options are id, name, user, folder. Multiple fields will be separated by tabs.' -r
 complete -c rbw -n "__fish_rbw_using_subcommand search" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_rbw_using_subcommand search" -l raw -d 'Display output as JSON'
 complete -c rbw -n "__fish_rbw_using_subcommand search" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_rbw_using_subcommand code" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand code" -l clipboard -d 'Copy result to clipboard'
 complete -c rbw -n "__fish_rbw_using_subcommand code" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_rbw_using_subcommand code" -l clipboard -d 'Copy result to clipboard'
 complete -c rbw -n "__fish_rbw_using_subcommand code" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_rbw_using_subcommand totp" -l folder -d 'Folder name to search in' -r
-complete -c rbw -n "__fish_rbw_using_subcommand totp" -l clipboard -d 'Copy result to clipboard'
 complete -c rbw -n "__fish_rbw_using_subcommand totp" -s i -l ignorecase -d 'Ignore case'
+complete -c rbw -n "__fish_rbw_using_subcommand totp" -l clipboard -d 'Copy result to clipboard'
 complete -c rbw -n "__fish_rbw_using_subcommand totp" -s h -l help -d 'Print help'
 complete -c rbw -n "__fish_rbw_using_subcommand add" -l uri -d 'URI for the password entry' -r
 complete -c rbw -n "__fish_rbw_using_subcommand add" -l folder -d 'Folder for the password entry' -r
@@ -144,3 +148,29 @@ complete -c rbw -n "__fish_rbw_using_subcommand help; and not __fish_seen_subcom
 complete -c rbw -n "__fish_rbw_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "show" -d 'Show the values of all configuration settings'
 complete -c rbw -n "__fish_rbw_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "set" -d 'Set a configuration option'
 complete -c rbw -n "__fish_rbw_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "unset" -d 'Reset a configuration option to its default'
+function __fish_rbw_get
+    set -l cmd (commandline -xpc)
+    set -e cmd[1] # rbw
+
+    argparse -i folder= f/field= full raw clipboard i/ignorecase h/help -- $cmd
+    set -e argv[1] # get
+
+    for entry in (rbw list --fields folder,name,user)
+        set -l fields (string split \t "$entry")
+        if not set -q _flag_folder || [ "$fields[1]" = "$_flag_folder" ]
+            switch (count $argv)
+                case 0
+                    echo $fields[2]
+                case 1
+                    if [ "$fields[2]" = "$argv[1]" ]
+                        echo $fields[3]
+                    end
+            end
+        end
+    end
+end
+
+complete -e -c rbw -n "__fish_rbw_using_subcommand get" -l folder -d 'Folder name to search in' -r
+complete -c rbw -n "__fish_rbw_using_subcommand get" -l folder -d 'Folder name to search in' -r -f -a "(rbw list --fields folder)"
+complete -c rbw -n "__fish_rbw_using_subcommand get" -f -a "(__fish_rbw_get)"
+

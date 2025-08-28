@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_uv_global_optspecs
-	string join \n n/no-cache cache-dir= python-preference= managed-python no-managed-python allow-python-downloads no-python-downloads python-fetch= q/quiet v/verbose no-color color= native-tls no-native-tls offline no-offline allow-insecure-host= preview no-preview isolated show-settings no-progress no-installer-metadata directory= project= config-file= no-config h/help V/version
+	string join \n n/no-cache cache-dir= python-preference= managed-python no-managed-python allow-python-downloads no-python-downloads python-fetch= q/quiet v/verbose no-color color= native-tls no-native-tls offline no-offline allow-insecure-host= preview no-preview preview-features= isolated show-settings no-progress no-installer-metadata directory= project= config-file= no-config h/help V/version
 end
 
 function __fish_uv_needs_command
@@ -36,6 +36,7 @@ complete -c uv -n "__fish_uv_needs_command" -l color -d 'Control the use of colo
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_needs_command" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_needs_command" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_needs_command" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_needs_command" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_needs_command" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -51,7 +52,7 @@ complete -c uv -n "__fish_uv_needs_command" -l native-tls -d 'Whether to load TL
 complete -c uv -n "__fish_uv_needs_command" -l no-native-tls
 complete -c uv -n "__fish_uv_needs_command" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_needs_command" -l no-offline
-complete -c uv -n "__fish_uv_needs_command" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_needs_command" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_needs_command" -l no-preview
 complete -c uv -n "__fish_uv_needs_command" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_needs_command" -l show-settings -d 'Show the resolved settings for the current command'
@@ -69,6 +70,7 @@ complete -c uv -n "__fish_uv_needs_command" -f -a "sync" -d 'Update the project\
 complete -c uv -n "__fish_uv_needs_command" -f -a "lock" -d 'Update the project\'s lockfile'
 complete -c uv -n "__fish_uv_needs_command" -f -a "export" -d 'Export the project\'s lockfile to an alternate format'
 complete -c uv -n "__fish_uv_needs_command" -f -a "tree" -d 'Display the project\'s dependency tree'
+complete -c uv -n "__fish_uv_needs_command" -f -a "format" -d 'Format Python code in the project'
 complete -c uv -n "__fish_uv_needs_command" -f -a "tool" -d 'Run and install commands provided by Python packages'
 complete -c uv -n "__fish_uv_needs_command" -f -a "python" -d 'Manage Python versions and installations'
 complete -c uv -n "__fish_uv_needs_command" -f -a "pip" -d 'Manage Python packages with a pip-compatible interface'
@@ -87,7 +89,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l group -d 'Include dependen
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Disable the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-group -d 'Only include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l env-file -d 'Load environment variables from a `.env` file' -r -F
-complete -c uv -n "__fish_uv_using_subcommand run" -l with -d 'Run with the given packages installed' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -s w -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -113,8 +115,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand run" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -137,6 +141,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l color -d 'Control the use 
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand run" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -192,7 +197,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l native-tls -d 'Whether to 
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand run" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand run" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand run" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand run" -l show-settings -d 'Show the resolved settings for the current command'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-progress -d 'Hide all progress outputs'
@@ -203,7 +208,8 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l name -d 'The name of the 
 complete -c uv -n "__fish_uv_using_subcommand init" -l description -d 'Set the project description' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l vcs -d 'Initialize a version control system for the project' -r -f -a "git\t'Use Git for version control'
 none\t'Do not use any version control system'"
-complete -c uv -n "__fish_uv_using_subcommand init" -l build-backend -d 'Initialize a build-backend of choice for the project' -r -f -a "hatch\t'Use [hatchling](https://pypi.org/project/hatchling) as the project build backend'
+complete -c uv -n "__fish_uv_using_subcommand init" -l build-backend -d 'Initialize a build-backend of choice for the project' -r -f -a "uv\t'Use uv as the project build backend'
+hatch\t'Use [hatchling](https://pypi.org/project/hatchling) as the project build backend'
 flit\t'Use [flit-core](https://pypi.org/project/flit-core) as the project build backend'
 pdm\t'Use [pdm-backend](https://pypi.org/project/pdm-backend) as the project build backend'
 poetry\t'Use [poetry-core](https://pypi.org/project/poetry-core) as the project build backend'
@@ -226,6 +232,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l color -d 'Control the use
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand init" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand init" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand init" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand init" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand init" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -254,7 +261,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l native-tls -d 'Whether to
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand init" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand init" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand init" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand init" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand init" -l show-settings -d 'Show the resolved settings for the current command'
@@ -298,8 +305,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand add" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand add" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -322,6 +331,7 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l color -d 'Control the use 
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand add" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand add" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand add" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -352,6 +362,9 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l binary
 complete -c uv -n "__fish_uv_using_subcommand add" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand add" -l workspace -d 'Add the dependency as a workspace member'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-workspace -d 'Don\'t add the dependency as a workspace member'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-project -d 'Do not install the current project'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-workspace -d 'Do not install any workspace members, including the current project'
 complete -c uv -n "__fish_uv_using_subcommand add" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand add" -l managed-python -d 'Require use of uv-managed Python versions'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-managed-python -d 'Disable use of uv-managed Python versions'
@@ -364,7 +377,7 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l native-tls -d 'Whether to 
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand add" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand add" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand add" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand add" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand add" -l show-settings -d 'Show the resolved settings for the current command'
@@ -397,8 +410,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand remove" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -421,6 +436,7 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l color -d 'Control the u
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand remove" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand remove" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand remove" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -459,7 +475,7 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l native-tls -d 'Whether 
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand remove" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand remove" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand remove" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand remove" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l show-settings -d 'Show the resolved settings for the current command'
@@ -467,9 +483,15 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l no-progress -d 'Hide al
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand remove" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand version" -l bump -d 'Update the project version using the given semantics' -r -f -a "major\t'Increase the major version (1.2.3 => 2.0.0)'
-minor\t'Increase the minor version (1.2.3 => 1.3.0)'
-patch\t'Increase the patch version (1.2.3 => 1.2.4)'"
+complete -c uv -n "__fish_uv_using_subcommand version" -l bump -d 'Update the project version using the given semantics' -r -f -a "major\t'Increase the major version (e.g., 1.2.3 => 2.0.0)'
+minor\t'Increase the minor version (e.g., 1.2.3 => 1.3.0)'
+patch\t'Increase the patch version (e.g., 1.2.3 => 1.2.4)'
+stable\t'Move from a pre-release to stable version (e.g., 1.2.3b4.post5.dev6 => 1.2.3)'
+alpha\t'Increase the alpha version (e.g., 1.2.3a4 => 1.2.3a5)'
+beta\t'Increase the beta version (e.g., 1.2.3b4 => 1.2.3b5)'
+rc\t'Increase the rc version (e.g., 1.2.3rc4 => 1.2.3rc5)'
+post\t'Increase the post version (e.g., 1.2.3.post5 => 1.2.3.post6)'
+dev\t'Increase the dev version (e.g., 1.2.3a4.dev6 => 1.2.3.dev7)'"
 complete -c uv -n "__fish_uv_using_subcommand version" -l output-format -d 'The format of the output' -r -f -a "text\t'Display the version as plain text'
 json\t'Display the version as JSON'"
 complete -c uv -n "__fish_uv_using_subcommand version" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -495,8 +517,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand version" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand version" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand version" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand version" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand version" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand version" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -518,6 +542,7 @@ complete -c uv -n "__fish_uv_using_subcommand version" -l color -d 'Control the 
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand version" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand version" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand version" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand version" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand version" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -557,7 +582,7 @@ complete -c uv -n "__fish_uv_using_subcommand version" -l native-tls -d 'Whether
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand version" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand version" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand version" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand version" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand version" -l show-settings -d 'Show the resolved settings for the current command'
@@ -566,6 +591,8 @@ complete -c uv -n "__fish_uv_using_subcommand version" -l no-installer-metadata 
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand version" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l extra -d 'Include optional dependencies from the specified extra name' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l output-format -d 'Select the output format' -r -f -a "text\t'Display the result in a human-readable format'
+json\t'Display the result in JSON format'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l group -d 'Include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-group -d 'Disable the specified dependency group' -r
@@ -594,8 +621,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand sync" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -606,6 +635,45 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l refresh-package -d 'Refre
 complete -c uv -n "__fish_uv_using_subcommand sync" -l package -d 'Sync for a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l script -d 'Sync the environment for a Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -s p -l python -d 'The Python interpreter to use for the project environment.' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -618,6 +686,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l color -d 'Control the use
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand sync" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -670,7 +739,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l native-tls -d 'Whether to
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand sync" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand sync" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand sync" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l show-settings -d 'Show the resolved settings for the current command'
@@ -701,8 +770,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand lock" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l exclude-newer-package -d 'Limit candidate packages for a specific package to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -723,6 +794,7 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l color -d 'Control the use
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -754,7 +826,7 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l native-tls -d 'Whether to
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand lock" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand lock" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand lock" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand lock" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l show-settings -d 'Show the resolved settings for the current command'
@@ -795,8 +867,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand export" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand export" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l exclude-newer-package -d 'Limit candidate packages for a specific package to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -818,6 +892,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l color -d 'Control the u
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand export" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -865,7 +940,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l native-tls -d 'Whether 
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand export" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand export" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand export" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand export" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand export" -l show-settings -d 'Show the resolved settings for the current command'
@@ -903,8 +978,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand tree" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l exclude-newer-package -d 'Limit candidate packages for a specific package to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -915,11 +992,12 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l python-platform -d 'The p
 linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
 macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
 x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
 i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
-x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
 aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
 x86_64-apple-darwin\t'An x86 macOS target'
-aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
@@ -948,7 +1026,7 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the the Pyodide 2024 platform. Meant for use with Python 3.12'"
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -s p -l python -d 'The Python interpreter to use for locking and filtering.' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tree" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
@@ -962,6 +1040,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l color -d 'Control the use
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tree" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tree" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -999,7 +1078,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l native-tls -d 'Whether to
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tree" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tree" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tree" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1007,6 +1086,45 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l no-progress -d 'Hide all 
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand format" -l version -d 'The version of Ruff to use for formatting' -r
+complete -c uv -n "__fish_uv_using_subcommand format" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand format" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand format" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand format" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand format" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand format" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand format" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand format" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand format" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand format" -l check -d 'Check if files are formatted without applying changes'
+complete -c uv -n "__fish_uv_using_subcommand format" -l diff -d 'Show a diff of formatting changes without applying them'
+complete -c uv -n "__fish_uv_using_subcommand format" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand format" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand format" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand format" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand format" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand format" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand format" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand format" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand format" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand format" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand format" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -1019,6 +1137,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcomma
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1034,7 +1153,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1051,7 +1170,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "update-shell" -d 'Ensure that the tool executable directory is on the `PATH`'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "dir" -d 'Show the path to the uv tools directory'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l from -d 'Use the given package to provide the command' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with -d 'Run with the given packages installed' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s w -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
@@ -1081,8 +1200,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -1109,6 +1230,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1144,7 +1266,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l show-settings -d 'Show the resolved settings for the current command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-progress -d 'Hide all progress outputs'
@@ -1152,7 +1274,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l from -d 'Use the given package to provide the command' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with -d 'Run with the given packages installed' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s w -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-editable -d 'Run with the given packages installed in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
@@ -1182,8 +1304,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -1210,6 +1334,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1246,7 +1371,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l show-settings -d 'Show the resolved settings for the current command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-progress -d 'Hide all progress outputs'
@@ -1254,9 +1379,10 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l from -d 'The package to install commands from' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with -d 'Include the following additional requirements' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s w -l with -d 'Include the following additional requirements' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Include all requirements listed in the given `requirements.txt` files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-editable -d 'Include the given packages in editable mode' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-executables-from -d 'Install executables from the following packages' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l overrides -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s b -l build-constraints -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
@@ -1283,8 +1409,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -1305,6 +1433,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1339,7 +1468,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1371,8 +1500,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l config-setting-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -1391,6 +1522,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1421,7 +1553,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1441,6 +1573,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1460,7 +1593,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1480,6 +1613,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1496,7 +1630,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1516,6 +1650,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1531,7 +1666,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1551,6 +1686,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1567,7 +1703,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1575,48 +1711,50 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l cache-dir -d 'Path to the cache directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
 system\t'Prefer system Python installations over managed Python installations'
 only-system\t'Only use system Python installations; never use managed Python installations'"
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
 manual\t'Do not automatically download managed Python installations; require explicit installation'
 never\t'Do not ever allow Python downloads'"
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l project -d 'Run the command within the given project directory' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l managed-python -d 'Require use of uv-managed Python versions'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-managed-python -d 'Disable use of uv-managed Python versions'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -s q -l quiet -d 'Use quiet output'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -s v -l verbose -d 'Use verbose output'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-native-tls
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l offline -d 'Disable network access'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l preview -d 'Whether to enable experimental, preview features'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-preview
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l show-settings -d 'Show the resolved settings for the current command'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-progress -d 'Hide all progress outputs'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -f -a "list" -d 'List the available Python installations'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -f -a "install" -d 'Download and install Python versions'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -f -a "upgrade" -d 'Upgrade installed Python versions to the latest supported patch release (requires the `--preview` flag)'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -f -a "find" -d 'Search for a Python installation'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -f -a "pin" -d 'Pin to a specific Python version'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -f -a "dir" -d 'Show the uv Python installation directory'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall" -f -a "uninstall" -d 'Uninstall Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "list" -d 'List the available Python installations'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "install" -d 'Download and install Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "upgrade" -d 'Upgrade installed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "find" -d 'Search for a Python installation'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "pin" -d 'Pin to a specific Python version'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "dir" -d 'Show the uv Python installation directory'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "uninstall" -d 'Uninstall Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -f -a "update-shell" -d 'Ensure that the Python executable directory is on the `PATH`'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l output-format -d 'Select the output format' -r -f -a "text\t'Plain text (for humans)'
 json\t'JSON (for computers)'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l python-downloads-json-url -d 'URL pointing to JSON of custom Python installations' -r
@@ -1632,6 +1770,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1653,7 +1792,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1677,9 +1816,14 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l bin -d 'Install a Python executable into the `bin` directory'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-bin -d 'Do not install a Python executable into the `bin` directory'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l registry -d 'Register the Python installation in the Windows registry'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-registry -d 'Do not register the Python installation in the Windows registry'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s r -l reinstall -d 'Reinstall the requested Python version, if it\'s already installed'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s f -l force -d 'Replace existing Python executables during installation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l default -d 'Use as the default Python version'
@@ -1695,7 +1839,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1719,9 +1863,11 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -s r -l reinstall -d 'Reinstall the latest Python patch, if it\'s already installed'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l managed-python -d 'Require use of uv-managed Python versions'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l no-managed-python -d 'Disable use of uv-managed Python versions'
@@ -1734,7 +1880,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1755,6 +1901,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1774,7 +1921,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1794,6 +1941,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1814,7 +1962,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1834,6 +1982,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1850,7 +1999,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1871,6 +2020,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1887,7 +2037,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1895,6 +2045,42 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -1907,6 +2093,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcomman
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -1922,7 +2109,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcomman
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check" -l show-settings -d 'Show the resolved settings for the current command'
@@ -1943,6 +2130,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l overrides -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s b -l build-constraints -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l extra -d 'Include optional dependencies from the specified extra name; may be provided more than once' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l group -d 'Install the specified dependency group from a `pyproject.toml`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -1965,14 +2153,15 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l exclude-newer-package -d 'Limit candidate packages for a specific package to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
 symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l refresh-package -d 'Refresh cached data for a specific package' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l group -d 'Install the specified dependency group from a `pyproject.toml`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s o -l output-file -d 'Write the compiled requirements to the given `requirements.txt` or `pylock.toml` file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l format -d 'The format in which the resolution should be output' -r -f -a "requirements.txt\t'Export in `requirements.txt` format'
 pylock.toml\t'Export in `pylock.toml` format'"
@@ -1987,11 +2176,12 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
 macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
 x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
 i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
-x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
 aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
 x86_64-apple-darwin\t'An x86 macOS target'
-aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
@@ -2020,10 +2210,11 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the the Pyodide 2024 platform. Meant for use with Python 3.12'"
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-emit-package -d 'Specify a package to omit from the output resolution. Its dependencies will still be included in the resolution. Equivalent to pip-compile\'s `--unsafe-package` option' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
 cu125\t'Use the PyTorch index for CUDA 12.5'
@@ -2084,6 +2275,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2147,7 +2339,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2156,6 +2348,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s b -l build-constraints -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l extra -d 'Include optional dependencies from the specified extra name; may be provided more than once' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l group -d 'Install the specified dependency group from a `pylock.toml` or `pyproject.toml`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -2168,7 +2362,9 @@ unsafe-best-match\t'Search for every package name across all indexes, preferring
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
 subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -2184,11 +2380,12 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
 macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
 x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
 i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
-x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
 aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
 x86_64-apple-darwin\t'An x86 macOS target'
-aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
@@ -2217,9 +2414,10 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the the Pyodide 2024 platform. Meant for use with Python 3.12'"
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
 cu125\t'Use the PyTorch index for CUDA 12.5'
@@ -2278,9 +2476,12 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l all-extras -d 'Include all optional dependencies'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l reinstall -d 'Reinstall all packages, regardless of whether they\'re already installed. Implies `--refresh`'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-reinstall
@@ -2321,7 +2522,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2334,6 +2535,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l overrides -d 'Override versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s b -l build-constraints -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l extra -d 'Include optional dependencies from the specified extra name; may be provided more than once' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l group -d 'Install the specified dependency group from a `pylock.toml` or `pyproject.toml`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -2357,14 +2559,15 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
 symlink\t'Symbolically link packages from the wheel into the `site-packages` directory'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l refresh-package -d 'Refresh cached data for a specific package' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l group -d 'Install the specified dependency group from a `pyproject.toml`' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l target -d 'Install packages into the specified directory, rather than into the virtual or system Python environment. The packages will be installed at the top-level of the directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l prefix -d 'Install packages into `lib`, `bin`, and other top-level folders under the specified directory, as if a virtual environment were present at that location' -r -F
@@ -2375,11 +2578,12 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
 macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
 x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
 i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
-x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
 aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
 x86_64-apple-darwin\t'An x86 macOS target'
-aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
@@ -2408,9 +2612,10 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the the Pyodide 2024 platform. Meant for use with Python 3.12'"
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
 cu125\t'Use the PyTorch index for CUDA 12.5'
@@ -2464,6 +2669,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2513,7 +2719,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2539,6 +2745,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2560,7 +2767,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2582,6 +2789,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2603,7 +2811,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2639,6 +2847,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2664,7 +2873,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2685,6 +2894,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2706,7 +2916,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2741,6 +2951,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2766,7 +2977,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2787,6 +2998,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2804,7 +3016,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2825,6 +3037,7 @@ unsafe-best-match\t'Search for every package name across all indexes, preferring
 complete -c uv -n "__fish_uv_using_subcommand venv" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
 subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer-package -d 'Limit candidate packages for a specific package to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -2842,6 +3055,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l color -d 'Control the use
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand venv" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand venv" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand venv" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand venv" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2849,13 +3063,13 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l system -d 'Ignore virtual
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-system -d 'This flag is included for compatibility only, it has no effect'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l seed -d 'Install seed packages (one or more of: `pip`, `setuptools`, and `wheel`) into the virtual environment'
+complete -c uv -n "__fish_uv_using_subcommand venv" -s c -l clear -d 'Remove any existing files or directories at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-existing -d 'Preserve any existing files or directories at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l relocatable -d 'Make the virtual environment relocatable'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-refresh
-complete -c uv -n "__fish_uv_using_subcommand venv" -l clear
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-seed
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-pip
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-setuptools
@@ -2872,7 +3086,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l native-tls -d 'Whether to
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand venv" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand venv" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand venv" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2906,8 +3120,10 @@ if-necessary-or-explicit\t'Allow pre-release versions if all versions of a packa
 complete -c uv -n "__fish_uv_using_subcommand build" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand build" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l exclude-newer-package -d 'Limit candidate packages for a specific package to those that were uploaded prior to the given date' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the wheel into the `site-packages` directory'
 copy\t'Copy packages from the wheel into the `site-packages` directory'
 hardlink\t'Hard link packages from the wheel into the `site-packages` directory'
@@ -2927,6 +3143,7 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l color -d 'Control the us
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -2966,7 +3183,7 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l native-tls -d 'Whether t
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build" -l show-settings -d 'Show the resolved settings for the current command'
@@ -2997,6 +3214,7 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l color -d 'Control the 
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand publish" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3013,7 +3231,7 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l native-tls -d 'Whether
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand publish" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand publish" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand publish" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand publish" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3033,6 +3251,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3048,7 +3267,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3076,6 +3295,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3091,7 +3311,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3112,6 +3332,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3127,7 +3348,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3148,6 +3369,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3163,7 +3385,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3183,6 +3405,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3198,7 +3421,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3218,6 +3441,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3233,7 +3457,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3253,6 +3477,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3268,7 +3493,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3288,6 +3513,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3303,7 +3529,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3323,6 +3549,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3338,7 +3565,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3358,6 +3585,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcomm
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3373,7 +3601,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3396,6 +3624,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3411,7 +3640,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3431,6 +3660,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3447,7 +3677,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3467,6 +3697,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3482,7 +3713,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3502,6 +3733,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcomma
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3517,7 +3749,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3540,6 +3772,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3556,7 +3789,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3578,6 +3811,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3594,7 +3828,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3614,6 +3848,7 @@ complete -c uv -n "__fish_uv_using_subcommand clean" -l color -d 'Control the us
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand clean" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand clean" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand clean" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand clean" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand clean" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3629,7 +3864,7 @@ complete -c uv -n "__fish_uv_using_subcommand clean" -l native-tls -d 'Whether t
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand clean" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand clean" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand clean" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand clean" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3650,6 +3885,7 @@ complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l pyth
 manual\t'Do not automatically download managed Python installations; require explicit installation'
 never\t'Do not ever allow Python downloads'"
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -s n -l no-cache
@@ -3668,7 +3904,7 @@ complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l allo
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-color -d 'Disable colors'
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand generate-shell-completion" -l show-settings -d 'Show the resolved settings for the current command'
@@ -3685,6 +3921,7 @@ complete -c uv -n "__fish_uv_using_subcommand help" -l color -d 'Control the use
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
 complete -c uv -n "__fish_uv_using_subcommand help" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand help" -l preview-features -d 'Enable experimental preview features' -r
 complete -c uv -n "__fish_uv_using_subcommand help" -l directory -d 'Change to the given directory prior to running the command' -r -F
 complete -c uv -n "__fish_uv_using_subcommand help" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand help" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
@@ -3701,7 +3938,7 @@ complete -c uv -n "__fish_uv_using_subcommand help" -l native-tls -d 'Whether to
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand help" -l offline -d 'Disable network access'
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand help" -l preview -d 'Whether to enable experimental, preview features'
+complete -c uv -n "__fish_uv_using_subcommand help" -l preview -d 'Whether to enable all experimental preview features'
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-preview
 complete -c uv -n "__fish_uv_using_subcommand help" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
 complete -c uv -n "__fish_uv_using_subcommand help" -l show-settings -d 'Show the resolved settings for the current command'

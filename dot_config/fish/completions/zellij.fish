@@ -11,6 +11,7 @@ complete -c zellij -n "__fish_use_subcommand" -s V -l version -d 'Print version 
 complete -c zellij -n "__fish_use_subcommand" -s d -l debug -d 'Specify emitting additional debug information'
 complete -c zellij -n "__fish_use_subcommand" -f -a "options" -d 'Change the behaviour of zellij'
 complete -c zellij -n "__fish_use_subcommand" -f -a "setup" -d 'Setup zellij and check its configuration'
+complete -c zellij -n "__fish_use_subcommand" -f -a "web" -d 'Run a web server to serve terminal sessions'
 complete -c zellij -n "__fish_use_subcommand" -f -a "list-sessions" -d 'List active sessions'
 complete -c zellij -n "__fish_use_subcommand" -f -a "list-aliases" -d 'List existing plugin aliases'
 complete -c zellij -n "__fish_use_subcommand" -f -a "attach" -d 'Attach to a session'
@@ -54,9 +55,13 @@ complete -c zellij -n "__fish_seen_subcommand_from options" -l styled-underlines
 complete -c zellij -n "__fish_seen_subcommand_from options" -l serialization-interval -d 'The interval at which to serialize sessions for resurrection (in seconds)' -r
 complete -c zellij -n "__fish_seen_subcommand_from options" -l disable-session-metadata -d 'If true, will disable writing session metadata to disk' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from options" -l support-kitty-keyboard-protocol -d 'Whether to enable support for the Kitty keyboard protocol (must also be supported by the host terminal), defaults to true if the terminal supports it' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from options" -l web-server -d 'Whether to make sure a local web server is running when a new Zellij session starts. This web server will allow creating new sessions and attaching to existing ones that have opted in to being shared in the browser' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from options" -l web-sharing -d 'Whether to allow new sessions to be shared through a local web server, assuming one is running (see the `web_server` option for more details)' -r -f -a "{on	,off	,disabled	}"
 complete -c zellij -n "__fish_seen_subcommand_from options" -l stacked-resize -d 'Whether to stack panes when resizing beyond a certain size default is true' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from options" -l show-startup-tips -d 'Whether to show startup tips when starting a new session default is true' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from options" -l show-release-notes -d 'Whether to show release notes on first run of a new version default is true' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from options" -l advanced-mouse-actions -d 'Whether to enable mouse hover effects and pane grouping functionality default is true' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from options" -l post-command-discovery-hook -d 'A command to run after the discovery of running commands when serializing, for the purpose of manipulating the command (eg. with a regex) before it gets serialized' -r
 complete -c zellij -n "__fish_seen_subcommand_from options" -l disable-mouse-mode -d 'Disable handling of mouse events'
 complete -c zellij -n "__fish_seen_subcommand_from options" -l no-pane-frames -d 'Disable display of pane frames'
 complete -c zellij -n "__fish_seen_subcommand_from options" -s h -l help -d 'Print help information'
@@ -69,6 +74,19 @@ complete -c zellij -n "__fish_seen_subcommand_from setup" -l dump-config -d 'Dum
 complete -c zellij -n "__fish_seen_subcommand_from setup" -l clean -d 'Disables loading of configuration file at default location, loads the defaults that zellij ships with'
 complete -c zellij -n "__fish_seen_subcommand_from setup" -l check -d 'Checks the configuration of zellij and displays currently used directories'
 complete -c zellij -n "__fish_seen_subcommand_from setup" -s h -l help -d 'Print help information'
+complete -c zellij -n "__fish_seen_subcommand_from web" -l revoke-token -d 'Revoke a login token by its name' -r
+complete -c zellij -n "__fish_seen_subcommand_from web" -l ip -d 'The ip address to listen on locally for connections (defaults to 127.0.0.1)' -r
+complete -c zellij -n "__fish_seen_subcommand_from web" -l port -d 'The port to listen on locally for connections (defaults to 8082)' -r
+complete -c zellij -n "__fish_seen_subcommand_from web" -l cert -d 'The path to the SSL certificate (required if not listening on 127.0.0.1)' -r -F
+complete -c zellij -n "__fish_seen_subcommand_from web" -l key -d 'The path to the SSL key (required if not listening on 127.0.0.1)' -r -F
+complete -c zellij -n "__fish_seen_subcommand_from web" -l start -d 'Start the server (default unless other arguments are specified)'
+complete -c zellij -n "__fish_seen_subcommand_from web" -l stop -d 'Stop the server'
+complete -c zellij -n "__fish_seen_subcommand_from web" -l status -d 'Get the server status'
+complete -c zellij -n "__fish_seen_subcommand_from web" -s d -l daemonize -d 'Run the server in the background'
+complete -c zellij -n "__fish_seen_subcommand_from web" -l create-token -d 'Create a login token for the web interface, will only be displayed once and cannot later be retrieved. Returns the token name and the token'
+complete -c zellij -n "__fish_seen_subcommand_from web" -l revoke-all-tokens -d 'Revoke all login tokens'
+complete -c zellij -n "__fish_seen_subcommand_from web" -l list-tokens -d 'List token names and their creation dates (cannot show actual tokens)'
+complete -c zellij -n "__fish_seen_subcommand_from web" -s h -l help -d 'Print help information'
 complete -c zellij -n "__fish_seen_subcommand_from list-sessions" -s n -l no-formatting -d 'Do not add colors and formatting to the list (useful for parsing)'
 complete -c zellij -n "__fish_seen_subcommand_from list-sessions" -s s -l short -d 'Print just the session name'
 complete -c zellij -n "__fish_seen_subcommand_from list-sessions" -s r -l reverse -d 'List the sessions in reverse order (default is ascending order)'
@@ -108,9 +126,13 @@ complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subco
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l serialization-interval -d 'The interval at which to serialize sessions for resurrection (in seconds)' -r
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l disable-session-metadata -d 'If true, will disable writing session metadata to disk' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l support-kitty-keyboard-protocol -d 'Whether to enable support for the Kitty keyboard protocol (must also be supported by the host terminal), defaults to true if the terminal supports it' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l web-server -d 'Whether to make sure a local web server is running when a new Zellij session starts. This web server will allow creating new sessions and attaching to existing ones that have opted in to being shared in the browser' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l web-sharing -d 'Whether to allow new sessions to be shared through a local web server, assuming one is running (see the `web_server` option for more details)' -r -f -a "{on	,off	,disabled	}"
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l stacked-resize -d 'Whether to stack panes when resizing beyond a certain size default is true' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l show-startup-tips -d 'Whether to show startup tips when starting a new session default is true' -r -f -a "{true	,false	}"
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l show-release-notes -d 'Whether to show release notes on first run of a new version default is true' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l advanced-mouse-actions -d 'Whether to enable mouse hover effects and pane grouping functionality default is true' -r -f -a "{true	,false	}"
+complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l post-command-discovery-hook -d 'A command to run after the discovery of running commands when serializing, for the purpose of manipulating the command (eg. with a regex) before it gets serialized' -r
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l disable-mouse-mode -d 'Disable handling of mouse events'
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -l no-pane-frames -d 'Disable display of pane frames'
 complete -c zellij -n "__fish_seen_subcommand_from attach; and __fish_seen_subcommand_from options" -s h -l help -d 'Print help information'
@@ -217,6 +239,7 @@ complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subco
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s c -l close-on-exit -d 'Close the pane immediately when its command exits'
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s s -l start-suspended -d 'Start the command suspended, only running it after the you first press ENTER'
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -l skip-plugin-cache
+complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -l stacked
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from new-pane" -s h -l help -d 'Print help information'
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from edit" -s d -l direction -d 'Direction to open the new pane in' -r
 complete -c zellij -n "__fish_seen_subcommand_from action; and __fish_seen_subcommand_from edit" -s l -l line-number -d 'Open the file in the specified line number' -r
@@ -299,6 +322,7 @@ complete -c zellij -n "__fish_seen_subcommand_from run" -s f -l floating -d 'Ope
 complete -c zellij -n "__fish_seen_subcommand_from run" -s i -l in-place -d 'Open the new pane in place of the current pane, temporarily suspending it'
 complete -c zellij -n "__fish_seen_subcommand_from run" -s c -l close-on-exit -d 'Close the pane immediately when its command exits'
 complete -c zellij -n "__fish_seen_subcommand_from run" -s s -l start-suspended -d 'Start the command suspended, only running after you first presses ENTER'
+complete -c zellij -n "__fish_seen_subcommand_from run" -l stacked
 complete -c zellij -n "__fish_seen_subcommand_from run" -s h -l help -d 'Print help information'
 complete -c zellij -n "__fish_seen_subcommand_from plugin" -s c -l configuration -d 'Plugin configuration' -r
 complete -c zellij -n "__fish_seen_subcommand_from plugin" -s x -l x -d 'The x coordinates if the pane is floating as a bare integer (eg. 1) or percent (eg. 10%)' -r
