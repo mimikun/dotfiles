@@ -66,6 +66,7 @@ diffx
 diskonaut
 dns-doge
 domain-check
+doxx
 drft
 dua-cli
 ducker
@@ -231,6 +232,7 @@ smartcat
 so
 somo
 srgn
+ssh-list
 sshx
 starship
 stu
