@@ -2,8 +2,10 @@ aider-chat
 bagels
 cloctui
 euporie
+exosphere-cli
 isd-tui
 lexy
 llm
 parllama
+squall-sql
 ty
