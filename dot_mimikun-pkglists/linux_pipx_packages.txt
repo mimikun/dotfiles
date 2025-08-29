@@ -20,5 +20,4 @@ tofuref
 tombi
 toolong
 trash-cli
-vectorcode
 wut-cli
