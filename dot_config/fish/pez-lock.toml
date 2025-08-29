@@ -2,20 +2,6 @@
 version = 1
 
 [[plugins]]
-name = "fisher"
-repo = "jorgebucaran/fisher"
-source = "https://github.com/jorgebucaran/fisher"
-commit_sha = "1f0dc2b4970da160605638cb0f157079660d6e04"
-
-[[plugins.files]]
-dir = "functions"
-name = "fisher.fish"
-
-[[plugins.files]]
-dir = "completions"
-name = "fisher.fish"
-
-[[plugins]]
 name = "fish-bd"
 repo = "0rax/fish-bd"
 source = "https://github.com/0rax/fish-bd"
@@ -156,3 +142,17 @@ name = "git-forgit.bash"
 [[plugins.files]]
 dir = "conf.d"
 name = "forgit.plugin.fish"
+
+[[plugins]]
+name = "fisher"
+repo = "jorgebucaran/fisher"
+source = "https://github.com/jorgebucaran/fisher"
+commit_sha = "1f0dc2b4970da160605638cb0f157079660d6e04"
+
+[[plugins.files]]
+dir = "functions"
+name = "fisher.fish"
+
+[[plugins.files]]
+dir = "completions"
+name = "fisher.fish"
