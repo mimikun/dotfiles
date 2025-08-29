@@ -107,6 +107,7 @@ glitchcat
 gping
 grex
 harper-ls
+hawk-data
 heh
 hex-patch
 hexyl
@@ -214,6 +215,7 @@ rucola-notes
 rustfinity
 rustscan
 rust-script
+s3grep
 sccache
 scooter
 scraps
