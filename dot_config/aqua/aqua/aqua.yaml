@@ -44,11 +44,11 @@ packages:
   - name: gitleaks/gitleaks@v8.28.0
   - name: gleam-lang/gleam@v1.12.0
   - name: go-delve/delve@v1.25.2
-  - name: gokcehan/lf@r36
+  - name: gokcehan/lf@r37
   - name: golangci/golangci-lint@v2.4.0
   - name: golang/go@go1.25.0
   - name: golang.org/x/tools/gopls@v0.20.0
-  - name: golang/tools/goimports@v0.35.0
+  - name: golang/tools/goimports@v0.36.0
   - name: golang/tools/gorename@v0.25.0
   - name: google/osv-scanner@v2.2.2
   - name: google/yamlfmt@v0.17.2
@@ -77,7 +77,7 @@ packages:
   - name: koki-develop/clive@v0.12.11
   - name: koki-develop/gat@v0.25.2
   - name: koki-develop/sheep@v0.4.0
-  - name: kubescape/kubescape@v3.0.38
+  - name: kubescape/kubescape@v3.0.39
   - name: Lifailon/lazyjournal@0.7.9
   - name: loeffel-io/ls-lint@v2.3.1
   - name: maaslalani/slides@v0.9.0
@@ -122,7 +122,7 @@ packages:
   - name: suzuki-shunsuke/cmdx@v2.0.2
   - name: suzuki-shunsuke/ghalint@v1.5.3
   - name: suzuki-shunsuke/pinact@v3.4.2
-  - name: tdewolff/minify@v2.24.1
+  - name: tdewolff/minify@v2.24.2
   - name: termkit/gama@v1.2.1
   - name: tsenart/vegeta@v12.12.0
   - name: tsl0922/ttyd@1.7.7
