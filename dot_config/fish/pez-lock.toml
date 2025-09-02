@@ -88,20 +88,6 @@ dir = "functions"
 name = "getopts.fish"
 
 [[plugins]]
-name = "fish-evalcache"
-repo = "kyohsuke/fish-evalcache"
-source = "https://github.com/kyohsuke/fish-evalcache"
-commit_sha = "2b236c917e94879b98bbd62b93948cb0ecc03174"
-
-[[plugins.files]]
-dir = "functions"
-name = "_evalcache_clear.fish"
-
-[[plugins.files]]
-dir = "functions"
-name = "_evalcache.fish"
-
-[[plugins]]
 name = "gh-copilot-cli-alias.fish"
 repo = "rcny/gh-copilot-cli-alias.fish"
 source = "https://github.com/rcny/gh-copilot-cli-alias.fish"
@@ -156,3 +142,17 @@ name = "fisher.fish"
 [[plugins.files]]
 dir = "completions"
 name = "fisher.fish"
+
+[[plugins]]
+name = "fish-evalcache"
+repo = "kyohsuke/fish-evalcache"
+source = "https://github.com/kyohsuke/fish-evalcache"
+commit_sha = "d71c0f365eddfa79f2080695fd58a2e3cb298b3a"
+
+[[plugins.files]]
+dir = "functions"
+name = "_evalcache.fish"
+
+[[plugins.files]]
+dir = "functions"
+name = "_evalcache_clear.fish"
