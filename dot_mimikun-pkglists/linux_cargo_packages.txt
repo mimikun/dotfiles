@@ -131,9 +131,9 @@ jnv
 jocalsend
 jql
 just
+kanha
 kbt
 kdash
-kanha
 kibi
 koji
 krafna
@@ -241,6 +241,7 @@ stu
 stylua
 swaptop
 systemctl-tui
+tabiew
 taplo-cli
 tatuin
 tauri-cli
