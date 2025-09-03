@@ -165,6 +165,7 @@ natls
 navi
 ncspot
 needs
+netscanner
 nomino
 nsh
 nu
@@ -242,6 +243,9 @@ stylua
 swaptop
 systemctl-tui
 tabiew
+systemd-manager-tui
+systeroid
+t-rec
 taplo-cli
 tatuin
 tauri-cli
