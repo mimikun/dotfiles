@@ -43,6 +43,9 @@ extend-exclude = [
   "dot_config/moe/moerc.toml",
   "dot_config/fish/completions/sake.fish",
   "dot_mimikun-pkglists/linux_pip_packages.txt",
+  # error: `informations` should be `information`
+  "dot_config/fish/completions/helix.fish",
+  "dot_config/fish/completions/hx.fish",
   # NOTE: DO NOT expect an upstream fix
   # NOTE: Experimental software and no fixes are expect
   "dot_config/fish/completions/fish-lsp.fish",
