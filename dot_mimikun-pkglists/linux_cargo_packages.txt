@@ -259,6 +259,7 @@ testing-ls-adapter
 tgt
 theattyr
 tmux-rs
+tod
 tokei
 toml2json
 topgrade
