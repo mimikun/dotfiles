@@ -12,7 +12,7 @@ packages:
   - name: astral-sh/ruff@0.12.12
   - name: astral-sh/uv@0.8.15
   - name: aurc/loggo@v0.3.21
-  - name: ayoisaiah/f2@v2.1.2
+  - name: ayoisaiah/f2@v2.2.0
   - name: babarot/gomi@v1.6.1
   - name: bcicen/ctop@v0.7.7
   - name: becheran/roumon@v1.2.0
