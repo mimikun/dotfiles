@@ -108,28 +108,6 @@ dir = "functions"
 name = "_na.fish"
 
 [[plugins]]
-name = "forgit"
-repo = "wfxr/forgit"
-source = "https://github.com/wfxr/forgit"
-commit_sha = "5d4d6121b1c92b4890abdb90fc232db67e08b10d"
-
-[[plugins.files]]
-dir = "completions"
-name = "_git-forgit"
-
-[[plugins.files]]
-dir = "completions"
-name = "git-forgit.fish"
-
-[[plugins.files]]
-dir = "completions"
-name = "git-forgit.bash"
-
-[[plugins.files]]
-dir = "conf.d"
-name = "forgit.plugin.fish"
-
-[[plugins]]
 name = "fisher"
 repo = "jorgebucaran/fisher"
 source = "https://github.com/jorgebucaran/fisher"
@@ -156,3 +134,25 @@ name = "_evalcache.fish"
 [[plugins.files]]
 dir = "functions"
 name = "_evalcache_clear.fish"
+
+[[plugins]]
+name = "forgit"
+repo = "wfxr/forgit"
+source = "https://github.com/wfxr/forgit"
+commit_sha = "2a4e2e53b70f7f517475bb6c088650a374d45cd0"
+
+[[plugins.files]]
+dir = "completions"
+name = "_git-forgit"
+
+[[plugins.files]]
+dir = "completions"
+name = "git-forgit.fish"
+
+[[plugins.files]]
+dir = "completions"
+name = "git-forgit.bash"
+
+[[plugins.files]]
+dir = "conf.d"
+name = "forgit.plugin.fish"
