@@ -93,7 +93,7 @@ packages:
   - name: mistakenelf/fm@v1.1.0
   - name: mr-karan/doggo@v1.0.5
   - name: mrtazz/checkmake@0.2.2
-  - name: muesli/duf@v0.9.0
+  - name: muesli/duf@v0.9.1
   - name: mvdan/sh@v3.12.0
   - name: naggie/dstask@0.27
   - name: nakabonne/ali@v0.7.5
