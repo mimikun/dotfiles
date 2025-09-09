@@ -33,7 +33,6 @@ complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "test" -d 'Test as
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "new" -d 'Create new ast-grep project or items like rules/tests'
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "lsp" -d 'Start language server'
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "completions" -d 'Generate shell completion script'
-complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "docs" -d 'Generate rule docs for current configuration. (Not Implemented Yet)'
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s p -l pattern -d 'AST pattern to match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l selector -d 'AST kind to extract sub-part of pattern to match' -r
@@ -162,16 +161,13 @@ complete -c ast-grep -n "__fish_ast_grep_using_subcommand lsp" -s c -l config -d
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand lsp" -s h -l help -d 'Print help'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand completions" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand completions" -s h -l help -d 'Print help'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand docs" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand docs" -s h -l help -d 'Print help'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "run" -d 'Run one time search or rewrite in command line. (default command)'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "scan" -d 'Scan and rewrite code by configuration'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "test" -d 'Test ast-grep rules'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "new" -d 'Create new ast-grep project or items like rules/tests'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "lsp" -d 'Start language server'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "completions" -d 'Generate shell completion script'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "docs" -d 'Generate rule docs for current configuration. (Not Implemented Yet)'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions docs help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "run" -d 'Run one time search or rewrite in command line. (default command)'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "scan" -d 'Scan and rewrite code by configuration'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "test" -d 'Test ast-grep rules'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "new" -d 'Create new ast-grep project or items like rules/tests'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "lsp" -d 'Start language server'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "completions" -d 'Generate shell completion script'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and __fish_seen_subcommand_from new" -f -a "project" -d 'Create an new project by scaffolding'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and __fish_seen_subcommand_from new" -f -a "rule" -d 'Create a new rule'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and __fish_seen_subcommand_from new" -f -a "test" -d 'Create a new test case'
