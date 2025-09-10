@@ -214,6 +214,7 @@ rrc
 rscls
 rucola-notes
 rustfinity
+rustormy
 rustscan
 rust-script
 s3grep
