@@ -11,6 +11,7 @@ PyGithub
 PyJWT
 PyNaCl
 PyPDF2
+PySocks
 PyYAML
 PyYAML-ft
 Pygments
@@ -35,6 +36,7 @@ aiohttp
 aiohttp-retry
 aioitertools
 aiosignal
+amqp
 annotated-types
 anthropic
 anyio
@@ -61,6 +63,7 @@ beartype
 beautifulsoup4
 bibtexparser
 bidict
+billiard
 binaryornot
 bkp
 bleach
@@ -71,16 +74,21 @@ browsergym-core
 build
 cachetools
 castero
+celerator
+celery
 certifi
 cffi
+cfgv
 chardet
 charset-normalizer
 cleo
 cli_helpers
 click
+click-didyoumean
 click-help-colors
 click-log
 click-plugins
+click-repl
 cloudpickle
 clr_loader
 cobble
@@ -106,6 +114,7 @@ decorator
 defusedxml
 deptective
 dirhash
+dirsearch
 distlib
 distro
 django-environ
@@ -194,6 +203,7 @@ humanize
 hwinfo-tui
 hyperframe
 icalendar
+identify
 idna
 importlib-metadata
 installer
@@ -212,6 +222,7 @@ jedi
 jeepney
 jellex
 jello
+jiratui
 jiter
 jmespath
 joblib
@@ -234,6 +245,7 @@ keyring
 khal
 kimg4
 kiwisolver
+kombu
 kubernetes
 lark
 lazy-object-proxy
@@ -280,7 +292,9 @@ nbformat
 neovim
 nest-asyncio
 networkx
+nodeenv
 nox
+ntlm-auth
 numpy
 oauthlib
 obstore
@@ -330,6 +344,7 @@ poetry
 poetry-core
 portalocker
 pqviewer
+pre_commit
 prometheus_client
 prompt_toolkit
 propcache
@@ -341,6 +356,7 @@ ptyprocess
 pur
 pure_eval
 puremagic
+pyOpenSSL
 pyaes
 pyarrow
 pyasn1
@@ -360,6 +376,7 @@ pyparsing
 pypdf
 pyperclip
 pyproject_hooks
+pyspnego
 pyte
 python-dateutil
 python-docx
@@ -390,6 +407,7 @@ requests
 requests-file
 requests-oauthlib
 requests-toolbelt
+requests_ntlm
 rexi
 rfc3339-validator
 rfc3986-validator
@@ -452,13 +470,28 @@ tokenizers
 toml
 tomli
 tomlkit
+tonalite
 tornado
 tqdm
 traitlets
 tree-sitter
+tree-sitter-bash
 tree-sitter-c-sharp
+tree-sitter-css
 tree-sitter-embedded-template
+tree-sitter-go
+tree-sitter-html
+tree-sitter-java
+tree-sitter-javascript
+tree-sitter-json
 tree-sitter-language-pack
+tree-sitter-markdown
+tree-sitter-python
+tree-sitter-regex
+tree-sitter-rust
+tree-sitter-sql
+tree-sitter-toml
+tree-sitter-xml
 tree-sitter-yaml
 trove-classifiers
 typer
@@ -479,6 +512,7 @@ uv
 uvicorn
 uvloop
 vignore
+vine
 virtualenv
 watchdog
 watchfiles
