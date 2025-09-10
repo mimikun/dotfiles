@@ -5,6 +5,7 @@ euporie
 exosphere-cli
 isd-tui
 lexy
+jiratui
 llm
 parllama
 squall-sql
