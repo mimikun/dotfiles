@@ -4,6 +4,7 @@ aichat
 alacritty
 arch-wiki-docs
 awesome-terminal-fonts
+asciinema
 base
 base-devel
 bat
@@ -19,6 +20,7 @@ db
 discord
 dmenu
 docker
+docker-buildx
 docker-compose
 efibootmgr
 emacs
