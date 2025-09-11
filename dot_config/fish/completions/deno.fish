@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_deno_global_optspecs
-	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= preload= A/allow-all R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use strace-ops= eszip-internal-do-not-use check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= connected= unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
+	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= preload= A/allow-all P/permission-set= R/allow-read= deny-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use trace-ops= eszip-internal-do-not-use check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= connected= unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-bundle unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
 end
 
 function __fish_deno_needs_command
@@ -38,6 +38,7 @@ false\t''"
 complete -c deno -n "__fish_deno_needs_command" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_needs_command" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_needs_command" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_needs_command" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_needs_command" -l deny-read -r -F
 complete -c deno -n "__fish_deno_needs_command" -s W -l allow-write -r -F
@@ -61,7 +62,7 @@ complete -c deno -n "__fish_deno_needs_command" -l allow-scripts -d 'Allow runni
 complete -c deno -n "__fish_deno_needs_command" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_needs_command" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_needs_command" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_needs_command" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_needs_command" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_needs_command" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_needs_command" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
@@ -98,6 +99,7 @@ complete -c deno -n "__fish_deno_needs_command" -l no-code-cache -d 'Disable V8 
 complete -c deno -n "__fish_deno_needs_command" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_needs_command" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_needs_command" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -109,7 +111,7 @@ complete -c deno -n "__fish_deno_needs_command" -l unstable-lazy-dynamic-imports
 complete -c deno -n "__fish_deno_needs_command" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_needs_command" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_needs_command" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-process -d 'Enable unstable process APIs'
@@ -172,6 +174,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand run" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -s W -l allow-write -r -F
@@ -195,7 +198,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l allow-scripts -d 'Allo
 complete -c deno -n "__fish_deno_using_subcommand run" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand run" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
@@ -219,6 +222,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -230,7 +234,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-lazy-dynamic-
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand run" -l unstable-process -d 'Enable unstable process APIs'
@@ -270,6 +274,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -s W -l allow-write -r -F
@@ -293,7 +298,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-scripts -d 'Al
 complete -c deno -n "__fish_deno_using_subcommand serve" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand serve" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l port -d 'The TCP port to serve on. Pass 0 to pick a random free port [default: 8000]' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l host -d 'The TCP address to serve on, defaulting to 0.0.0.0 (all interfaces)' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
@@ -318,6 +323,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -329,7 +335,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-lazy-dynami
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unstable-process -d 'Enable unstable process APIs'
@@ -369,6 +375,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -380,7 +387,7 @@ complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-lazy-dynamic-
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-process -d 'Enable unstable process APIs'
@@ -408,6 +415,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -419,7 +427,7 @@ complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-lazy-dynam
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-process -d 'Enable unstable process APIs'
@@ -452,6 +460,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -s W -l allow-write -r -F
@@ -472,7 +481,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l allow-scripts -d 'Al
 complete -c deno -n "__fish_deno_using_subcommand bench" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand bench" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ignore -d 'Ignore files' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l filter -d 'Run benchmarks with this string or regexp pattern in the bench name' -r
@@ -489,6 +498,7 @@ cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -500,7 +510,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-lazy-dynami
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unstable-process -d 'Enable unstable process APIs'
@@ -564,6 +574,7 @@ complete -c deno -n "__fish_deno_using_subcommand bundle" -l deny-import -d 'Den
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -575,7 +586,7 @@ complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-lazy-dynam
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unstable-process -d 'Enable unstable process APIs'
@@ -622,6 +633,7 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l env-file -d 'Load en
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -633,7 +645,7 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-lazy-dynami
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unstable-process -d 'Enable unstable process APIs'
@@ -673,6 +685,7 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l deny-import -d 'Deny
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -684,7 +697,7 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-lazy-dynami
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-process -d 'Enable unstable process APIs'
@@ -717,6 +730,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -728,7 +742,7 @@ complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-lazy-dynami
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand clean" -l unstable-process -d 'Enable unstable process APIs'
@@ -762,6 +776,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -s W -l allow-write -r -F
@@ -782,7 +797,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l allow-scripts -d '
 complete -c deno -n "__fish_deno_using_subcommand compile" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand compile" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l include -d 'Includes an additional module or file/directory in the compiled executable.   Use this flag if a dynamically imported module or a web worker main module   fails to load in the executable or to embed a file or directory in the executable.   This flag can be passed multiple times, to include multiple additional modules.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l exclude -d 'Excludes a file/directory in the compiled executable.   Use this flag to exclude a specific file or directory within the included files.   For example, to exclude a certain folder in the bundled node_modules directory.' -r -F
@@ -805,6 +820,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l env-file -d 'Load 
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -816,7 +832,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-lazy-dyna
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unstable-process -d 'Enable unstable process APIs'
@@ -850,6 +866,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -861,7 +878,7 @@ complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-lazy-
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand completions" -l unstable-process -d 'Enable unstable process APIs'
@@ -886,6 +903,7 @@ complete -c deno -n "__fish_deno_using_subcommand coverage" -l output -d 'Export
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -897,7 +915,7 @@ complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-lazy-dyn
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand coverage" -l unstable-process -d 'Enable unstable process APIs'
@@ -934,6 +952,7 @@ complete -c deno -n "__fish_deno_using_subcommand doc" -l filter -d 'Dot separat
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -945,7 +964,7 @@ complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-lazy-dynamic-
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand doc" -l unstable-process -d 'Enable unstable process APIs'
@@ -998,7 +1017,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l allow-scripts -d 'All
 complete -c deno -n "__fish_deno_using_subcommand eval" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand eval" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand eval" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand eval" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
@@ -1012,6 +1031,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l env-file -d 'Load env
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1023,7 +1043,7 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-lazy-dynamic
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-process -d 'Enable unstable process APIs'
@@ -1091,6 +1111,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1102,7 +1123,7 @@ complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-lazy-dynamic-
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-process -d 'Enable unstable process APIs'
@@ -1133,6 +1154,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1144,7 +1166,7 @@ complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-lazy-dynamic
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand init" -l unstable-process -d 'Enable unstable process APIs'
@@ -1183,6 +1205,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1194,7 +1217,7 @@ complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-lazy-dynamic
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-process -d 'Enable unstable process APIs'
@@ -1237,7 +1260,8 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l inspect-wait -d 'A
 complete -c deno -n "__fish_deno_using_subcommand install" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand install" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand install" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand install" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -s W -l allow-write -r -F
@@ -1262,6 +1286,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l env-file -d 'Load 
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1273,7 +1298,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-lazy-dyna
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand install" -l unstable-process -d 'Enable unstable process APIs'
@@ -1328,7 +1353,8 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l inspect-wait -d 'Activat
 complete -c deno -n "__fish_deno_using_subcommand i" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand i" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand i" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand i" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -s W -l allow-write -r -F
@@ -1353,6 +1379,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l env-file -d 'Load enviro
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1364,7 +1391,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-lazy-dynamic-im
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand i" -l unstable-process -d 'Enable unstable process APIs'
@@ -1411,6 +1438,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1422,7 +1450,7 @@ complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-lazy-dyna
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand jupyter" -l unstable-process -d 'Enable unstable process APIs'
@@ -1450,6 +1478,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1461,7 +1490,7 @@ complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-lazy-dy
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-process -d 'Enable unstable process APIs'
@@ -1487,6 +1516,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1498,7 +1528,7 @@ complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-lazy-dyn
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-process -d 'Enable unstable process APIs'
@@ -1540,6 +1570,7 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l deny-import -d 'Deny 
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1551,7 +1582,7 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-lazy-dynamic
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l unstable-process -d 'Enable unstable process APIs'
@@ -1585,6 +1616,7 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -l no-check -d 'Skip 
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1596,7 +1628,7 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-lazy-dyna
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-process -d 'Enable unstable process APIs'
@@ -1636,6 +1668,7 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l preload -d 'A list of
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -s W -l allow-write -r -F
@@ -1655,12 +1688,13 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l deny-import -d 'Deny 
 complete -c deno -n "__fish_deno_using_subcommand repl" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand repl" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l eval-file -d 'Evaluates the provided file(s) as scripts when the REPL starts. Accepts file paths and URLs' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l eval -d 'Evaluates the provided code when the REPL starts' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1672,7 +1706,7 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-lazy-dynamic
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable-process -d 'Enable unstable process APIs'
@@ -1713,6 +1747,7 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l connected -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1724,7 +1759,7 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-lazy-dynamic
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-process -d 'Enable unstable process APIs'
@@ -1759,6 +1794,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand test" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l deny-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -s W -l allow-write -r -F
@@ -1782,7 +1818,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l allow-scripts -d 'All
 complete -c deno -n "__fish_deno_using_subcommand test" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
 complete -c deno -n "__fish_deno_using_subcommand test" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l seed -d 'Set the random number generator seed' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l strace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l ignore -d 'Ignore files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l fail-fast -d 'Stop after N errors. Defaults to stopping after first failure' -r
@@ -1808,6 +1844,7 @@ cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1819,7 +1856,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-lazy-dynamic
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand test" -l unstable-process -d 'Enable unstable process APIs'
@@ -1860,6 +1897,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1871,7 +1909,7 @@ complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-lazy-dynami
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand types" -l unstable-process -d 'Enable unstable process APIs'
@@ -1895,6 +1933,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1906,7 +1945,7 @@ complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-lazy-dynam
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-process -d 'Enable unstable process APIs'
@@ -1936,6 +1975,7 @@ complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unsafely-ignore-ce
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1947,7 +1987,7 @@ complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-lazy-dyna
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l unstable-process -d 'Enable unstable process APIs'
@@ -1972,6 +2012,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -1983,7 +2024,7 @@ complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-lazy-dynam
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -l unstable-process -d 'Enable unstable process APIs'
@@ -2004,6 +2045,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-bundle -d 'Enable unstable bundle runtime API'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-byonm -d ''
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-cron -d 'Enable unstable `Deno.cron` API'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-detect-cjs -d 'Treats ambiguous .js, .jsx, .ts, .tsx files as CommonJS modules in more cases'
@@ -2015,7 +2057,7 @@ complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subc
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-lockfile-v5 -d 'Enable unstable lockfile v5'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-net -d 'enable unstable net APIs'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-no-legacy-abort -d 'Enable abort signal in Deno.serve without legacy behavior. This will not abort the server when the request is handled successfully.'
-complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-node-globals -d 'Expose Node globals everywhere'
+complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-node-globals -d 'Prefer Node.js globals over Deno globals - currently this refers to `setTimeout` and `setInterval` APIs.'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-npm-lazy-caching -d 'Enable unstable lazy caching of npm dependencies, downloading them only as needed (disabled: all npm packages in package.json are installed on startup; enabled: only npm packages that are actually referenced in an import are installed'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-otel -d 'Enable unstable OpenTelemetry features'
 complete -c deno -n "__fish_deno_using_subcommand help; and not __fish_seen_subcommand_from run serve add remove bench bundle cache check clean compile completions coverage doc deploy eval fmt init info install json_reference jupyter uninstall outdated lsp lint publish repl task test types update upgrade vendor" -l unstable-process -d 'Enable unstable process APIs'
