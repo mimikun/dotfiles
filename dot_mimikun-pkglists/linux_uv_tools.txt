@@ -4,8 +4,8 @@ cloctui
 euporie
 exosphere-cli
 isd-tui
-lexy
 jiratui
+lexy
 llm
 parllama
 squall-sql
