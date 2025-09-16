@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_berg_global_optspecs
-	string join \n non-interactive w/max-width= h/help V/version
+	string join \n output-mode= non-interactive w/max-width= h/help V/version
 end
 
 function __fish_berg_needs_command
@@ -24,9 +24,11 @@ function __fish_berg_using_subcommand
 	contains -- $cmd[1] $argv
 end
 
-complete -c berg -n "__fish_berg_needs_command" -s w -l max-width -d 'Maximum with of the stdout output,  - negative numbers indicate using \'infinite\' width per line - zero indicates using the terminals width - positive numbers are interpreted as max width. You may specify   widths that can lead to weird linebreaks. This is a feature for tools   which process stdout output line by line. You may also just negative   widths in this case. We discourage use of widths <= 25  Falls back to `max_width` value in config or defaults to 80 otherwise.' -r
-complete -c berg -n "__fish_berg_needs_command" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!  Still WIP'
-complete -c berg -n "__fish_berg_needs_command" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_needs_command" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
+json\t'Raw json output for further use with pipes etc'"
+complete -c berg -n "__fish_berg_needs_command" -s w -l max-width -d 'Maximum with of the stdout output,' -r
+complete -c berg -n "__fish_berg_needs_command" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!'
+complete -c berg -n "__fish_berg_needs_command" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c berg -n "__fish_berg_needs_command" -s V -l version -d 'Print version'
 complete -c berg -n "__fish_berg_needs_command" -f -a "api" -d 'API subcommands'
 complete -c berg -n "__fish_berg_needs_command" -f -a "auth" -d 'Authentication subcommands'
@@ -35,6 +37,7 @@ complete -c berg -n "__fish_berg_needs_command" -f -a "user" -d 'User subcommand
 complete -c berg -n "__fish_berg_needs_command" -f -a "issue" -d 'Issue subcommands'
 complete -c berg -n "__fish_berg_needs_command" -f -a "pull" -d 'Pull request subcommands'
 complete -c berg -n "__fish_berg_needs_command" -f -a "label" -d 'Label subcommands'
+complete -c berg -n "__fish_berg_needs_command" -f -a "release" -d 'Release subcommands'
 complete -c berg -n "__fish_berg_needs_command" -f -a "repo" -d 'Repository subcommands'
 complete -c berg -n "__fish_berg_needs_command" -f -a "milestone" -d 'Milestone subcommands'
 complete -c berg -n "__fish_berg_needs_command" -f -a "notification" -d 'Notification subcommands'
@@ -90,6 +93,8 @@ complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcomm
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from create" -s a -l assignees -d 'Comma-delimited list of assignee names' -r
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from create" -s m -l milestone -d 'Name of the milestone the issue is related to' -r
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from comment" -s i -l id -d 'id of the issue to comment' -r
+complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from comment" -s b -l body -d 'text body of the issue' -r
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from comment" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand issue; and __fish_seen_subcommand_from view" -s s -l state -d 'Select from issues with the chosen state' -r -f -a "closed\t''
 open\t''
@@ -162,14 +167,29 @@ complete -c berg -n "__fish_berg_using_subcommand label; and __fish_seen_subcomm
 complete -c berg -n "__fish_berg_using_subcommand label; and __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete a label'
 complete -c berg -n "__fish_berg_using_subcommand label; and __fish_seen_subcommand_from help" -f -a "edit" -d 'Edit selected label'
 complete -c berg -n "__fish_berg_using_subcommand label; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -s h -l help -d 'Print help'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -f -a "create" -d 'Create a new repository'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -f -a "clone" -d 'Clone a repository'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -f -a "delete" -d 'Delete a repository'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -f -a "fork" -d 'Fork a repository'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -f -a "info" -d 'Display short summary of the current repository'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -f -a "assignees" -d 'List available assignee candidates'
-complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c berg -n "__fish_berg_using_subcommand release; and not __fish_seen_subcommand_from create list help" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_using_subcommand release; and not __fish_seen_subcommand_from create list help" -f -a "create" -d 'Create a release'
+complete -c berg -n "__fish_berg_using_subcommand release; and not __fish_seen_subcommand_from create list help" -f -a "list" -d 'List all releases in the current repository'
+complete -c berg -n "__fish_berg_using_subcommand release; and not __fish_seen_subcommand_from create list help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from create" -s d -l description -d 'Main description of release' -r
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from create" -s n -l name -d 'Release name' -r
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from create" -s t -l tag -d 'Name of the tag to be released' -r
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from list" -s c -l count -d 'Number of releases to be displayed' -r
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from help" -f -a "create" -d 'Create a release'
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all releases in the current repository'
+complete -c berg -n "__fish_berg_using_subcommand release; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "create" -d 'Create a new repository'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "clone" -d 'Clone a repository'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "delete" -d 'Delete a repository'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "fork" -d 'Fork a repository'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "info" -d 'Display short summary of the current repository'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "assignees" -d 'List available assignee candidates'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "migrate" -d 'Create a new repository'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "list" -d 'List user current active repositories'
+complete -c berg -n "__fish_berg_using_subcommand repo; and not __fish_seen_subcommand_from create clone delete fork info assignees migrate list help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l default-branch -d 'Main branch to init repository with (usually "main")' -r
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s d -l description -d 'Repository description' -r
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l org -d 'Organization name' -r
@@ -183,12 +203,48 @@ complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcomma
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from fork" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from info" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from assignees" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from migrate" -s c -l clone-addr -d 'The repository that\'s going to be migrated to forgejo' -r
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from migrate" -l description -d 'The description of the repository *after* migration' -r
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from migrate" -s p -l private -d 'The visibility of the repository *after* migration' -r -f -a "private\t''
+public\t''"
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from migrate" -s r -l repo-name -d 'The repository name *after* the migration' -r
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from migrate" -s s -l service -d 'The kind of service, we\'re going to migrate *from* (source location of repository)' -r -f -a "git\t''
+github\t''
+gitea\t''
+gitlab\t''
+gogs\t''
+onedev\t''
+gitbucket\t''
+codebase\t''"
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from migrate" -s h -l help -d 'Print help'
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from list" -s l -l limit -d 'The amount of repositories that should be displayed' -r
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from list" -s o -l order-by -d 'Order the displayed repositories by different criteria' -r -f -a "name\t''
+id\t''
+newest\t''
+oldest\t''
+recentupdate\t''
+leastupdate\t''
+reversealphabetically\t''
+alphabetically\t''
+reversesize\t''
+size\t''
+reversegitsize\t''
+gitsize\t''
+reverselfssize\t''
+lfssize\t''
+moststars\t''
+feweststars\t''
+mostforks\t''
+fewestforks\t''"
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "create" -d 'Create a new repository'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "clone" -d 'Clone a repository'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete a repository'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "fork" -d 'Fork a repository'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "info" -d 'Display short summary of the current repository'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "assignees" -d 'List available assignee candidates'
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "migrate" -d 'Create a new repository'
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "list" -d 'List user current active repositories'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand milestone; and not __fish_seen_subcommand_from list view create edit help" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand milestone; and not __fish_seen_subcommand_from list view create edit help" -f -a "list" -d 'List all milestones in the current repository'
@@ -228,18 +284,19 @@ complete -c berg -n "__fish_berg_using_subcommand notification; and __fish_seen_
 complete -c berg -n "__fish_berg_using_subcommand notification; and __fish_seen_subcommand_from help" -f -a "view"
 complete -c berg -n "__fish_berg_using_subcommand notification; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand completion" -s h -l help -d 'Print help'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "api" -d 'API subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "auth" -d 'Authentication subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "config" -d 'Config subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "user" -d 'User subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "issue" -d 'Issue subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "pull" -d 'Pull request subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "label" -d 'Label subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "repo" -d 'Repository subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "milestone" -d 'Milestone subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "notification" -d 'Notification subcommands'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "completion" -d 'Print completion script'
-complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label repo milestone notification completion help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "api" -d 'API subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "auth" -d 'Authentication subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "config" -d 'Config subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "user" -d 'User subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "issue" -d 'Issue subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "pull" -d 'Pull request subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "label" -d 'Label subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "release" -d 'Release subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "repo" -d 'Repository subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "milestone" -d 'Milestone subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "notification" -d 'Notification subcommands'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "completion" -d 'Print completion script'
+complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subcommand_from api auth config user issue pull label release repo milestone notification completion help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from api" -f -a "version" -d 'Display short summary of the authenticated user account'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "login" -d 'Login via generating authentication token'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "logout" -d 'Logout. Delete currently stored authentication token'
@@ -260,12 +317,16 @@ complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcomma
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from label" -f -a "create" -d 'Create a label'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from label" -f -a "delete" -d 'Delete a label'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from label" -f -a "edit" -d 'Edit selected label'
+complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from release" -f -a "create" -d 'Create a release'
+complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from release" -f -a "list" -d 'List all releases in the current repository'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "create" -d 'Create a new repository'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "clone" -d 'Clone a repository'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "delete" -d 'Delete a repository'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "fork" -d 'Fork a repository'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "info" -d 'Display short summary of the current repository'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "assignees" -d 'List available assignee candidates'
+complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "migrate" -d 'Create a new repository'
+complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from repo" -f -a "list" -d 'List user current active repositories'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from milestone" -f -a "list" -d 'List all milestones in the current repository'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from milestone" -f -a "view" -d 'View details of selected milestone'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from milestone" -f -a "create" -d 'Create an issue'
