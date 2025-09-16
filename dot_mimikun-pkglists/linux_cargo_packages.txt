@@ -75,6 +75,9 @@ dusage
 dutree
 dysk
 ecscope
+emmylua_check
+emmylua_doc_cli
+emmylua_ls
 envfetch
 epiq
 erdtree
