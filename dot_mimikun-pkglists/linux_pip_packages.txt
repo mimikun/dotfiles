@@ -5,11 +5,13 @@ Deprecated
 Farama-Notifications
 GitPython
 Jinja2
+ManimPango
 Markdown
 MarkupSafe
 PyGithub
 PyJWT
 PyNaCl
+PyOpenGL
 PyPDF2
 PySocks
 PyYAML
@@ -23,6 +25,7 @@ Send2Trash
 SpeechRecognition
 Typeinc
 Werkzeug
+addict
 agate
 agate-dbf
 agate-excel
@@ -96,6 +99,7 @@ colorama
 colored
 coloredlogs
 colorlog
+colour
 comm
 configobj
 contourpy
@@ -115,6 +119,7 @@ defusedxml
 deptective
 dirhash
 dirsearch
+diskcache
 distlib
 distro
 django-environ
@@ -156,6 +161,7 @@ ghp-import
 gita
 gitdb
 gitingest
+glcontext
 glob2
 google-ai-generativelanguage
 google-api-core
@@ -214,6 +220,7 @@ ipywidgets
 isbnlib
 isodate
 isoduration
+isosurfaces
 jaraco.classes
 jaraco.context
 jaraco.functools
@@ -261,6 +268,8 @@ loguru
 lxml
 magika
 mammoth
+manimgl
+mapbox_earcut
 markdown-it-py
 markdownify
 markitdown
@@ -279,6 +288,8 @@ mkdocs
 mkdocs-exclude
 mkdocs-get-deps
 modal
+moderngl
+moderngl-window
 more-itertools
 mpmath
 msal
@@ -370,6 +381,8 @@ pydantic_core
 pydub
 pyee
 pyflakes
+pyglet
+pyglm
 pylatexenc
 pynvim
 pyparsing
@@ -423,6 +436,8 @@ ruamel.yaml.clib
 runloop_api_client
 s3transfer
 scantree
+scipy
+screeninfo
 sentry-sdk
 setproctitle
 setuptools
@@ -433,6 +448,7 @@ shodan
 sigtools
 simple-websocket
 six
+skia-pathops
 slowapi
 smassh
 smmap
@@ -452,6 +468,7 @@ starlette
 stevedore
 stripe
 structlog
+svgelements
 sympy
 synchronicity
 tabulate
@@ -511,6 +528,7 @@ userpath
 uv
 uvicorn
 uvloop
+validators
 vignore
 vine
 virtualenv
