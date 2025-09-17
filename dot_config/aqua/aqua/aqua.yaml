@@ -79,7 +79,7 @@ packages:
   - name: koki-develop/clive@v0.12.12
   - name: koki-develop/gat@v0.25.2
   - name: koki-develop/sheep@v0.4.0
-  - name: kubescape/kubescape@v3.0.40
+  - name: kubescape/kubescape@v3.0.41
   - name: Lifailon/lazyjournal@0.8.0
   - name: loeffel-io/ls-lint@v2.3.1
   - name: maaslalani/slides@v0.9.0
