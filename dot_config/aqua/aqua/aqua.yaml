@@ -20,6 +20,7 @@ packages:
   - name: bloznelis/typioca@3.1.0
   - name: boyter/scc@v3.5.0
   - name: bronze1man/yaml2json@v1.3.5
+  - name: charmbracelet/crush@v0.8.3
   - name: charmbracelet/freeze@v0.2.2
   - name: charmbracelet/glow@v2.1.1
   - name: charmbracelet/gum@v0.17.0
@@ -31,6 +32,7 @@ packages:
   - name: dagu-org/dagu@v1.22.4
   - name: danvergara/dblab@v0.33.0
   - name: derailed/k9s@v0.50.9
+  - name: dimonomid/nerdlog@v1.10.0
   - name: direnv/direnv@v2.37.1
   - name: dlvhdr/diffnav@v0.3.1
   - name: dominikh/go-tools/staticcheck@2025.1.1
@@ -97,6 +99,7 @@ packages:
   - name: mvdan/sh@v3.12.0
   - name: naggie/dstask@0.27
   - name: nakabonne/ali@v0.7.5
+  - name: nao1215/gup@v0.27.9
   - name: nao1215/sqly@v0.12.1
   - name: natecraddock/zf@0.10.2
   - name: neilotoole/sq@v0.48.5
@@ -113,6 +116,7 @@ packages:
   - name: robinovitch61/kl@v0.6.1
   - name: rs/curlie@v1.8.2
   - name: sachaos/todoist@v0.22.0
+  - name: satococoa/wtp@v1.1.1
   - name: schollz/croc@v10.2.4
   - name: sclevine/yj@v5.1.0
   - name: sheepla/pingu@v0.0.5
@@ -126,6 +130,7 @@ packages:
   - name: suzuki-shunsuke/pinact@v3.4.2
   - name: tdewolff/minify@v2.24.3
   - name: termkit/gama@v1.2.1
+  - name: terrastruct/d2@v0.7.1
   - name: tsenart/vegeta@v12.12.0
   - name: tsl0922/ttyd@1.7.7
   - name: tstack/lnav@v0.13.1
