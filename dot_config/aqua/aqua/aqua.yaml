@@ -100,7 +100,7 @@ packages:
   - name: naggie/dstask@0.27
   - name: nakabonne/ali@v0.7.5
   - name: nao1215/gup@v0.27.9
-  - name: nao1215/sqly@v0.12.1
+  - name: nao1215/sqly@v0.12.2
   - name: natecraddock/zf@0.10.2
   - name: neilotoole/sq@v0.48.5
   - name: nil0x42/dnsanity@v1.3.1
