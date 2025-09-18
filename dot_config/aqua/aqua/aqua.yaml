@@ -16,7 +16,7 @@ packages:
   - name: babarot/gomi@v1.6.1
   - name: bcicen/ctop@v0.7.7
   - name: becheran/roumon@v1.2.0
-  - name: bitwarden/clients@cli-v2025.8.0
+  - name: bitwarden/clients@cli-v2025.9.0
   - name: bloznelis/typioca@3.1.0
   - name: boyter/scc@v3.5.0
   - name: bronze1man/yaml2json@v1.3.5
