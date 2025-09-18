@@ -126,7 +126,7 @@ packages:
   - name: stateful/runme@v3.15.1
   - name: suzuki-shunsuke/cmdx@v2.0.2
   - name: suzuki-shunsuke/ghalint@v1.5.3
-  - name: suzuki-shunsuke/ghtkn@v0.2.1
+  - name: suzuki-shunsuke/ghtkn@v0.2.2
   - name: suzuki-shunsuke/pinact@v3.4.2
   - name: tdewolff/minify@v2.24.3
   - name: termkit/gama@v1.2.1
