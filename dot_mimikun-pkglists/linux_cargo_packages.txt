@@ -66,6 +66,7 @@ diffx
 diskonaut
 dns-doge
 domain-check
+dotter
 doxx
 drft
 dua-cli
