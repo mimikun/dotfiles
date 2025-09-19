@@ -133,7 +133,7 @@ packages:
   - name: terrastruct/d2@v0.7.1
   - name: tsenart/vegeta@v12.12.0
   - name: tsl0922/ttyd@1.7.7
-  - name: tstack/lnav@v0.13.1
+  - name: tstack/lnav@v0.13.2
   - name: twpayne/chezmoi@v2.65.1
   - name: umlx5h/gtrash@v0.0.6
   - name: vladimirvivien/ktop@v0.4.1
