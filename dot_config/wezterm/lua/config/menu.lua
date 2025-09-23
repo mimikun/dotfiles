@@ -1,8 +1,5 @@
 local g = require("config.global")
 
----@type boolean
-local is_work = not g.is_home
-
 ---@type table
 local wsl = {
     ubuntu = {
@@ -77,11 +74,7 @@ local windows = {
 
 ---@type table
 local launch_menu = {}
-if is_work then
-    table.insert(launch_menu, wsl.arch)
-else
-    table.insert(launch_menu, wsl.ubuntu)
-end
+table.insert(launch_menu, wsl.arch)
 table.insert(launch_menu, windows.pwsh.norc)
 table.insert(launch_menu, wsl.nixos)
 table.insert(launch_menu, windows.pwsh.base)
@@ -89,6 +82,7 @@ table.insert(launch_menu, windows.powershell.base)
 table.insert(launch_menu, windows.powershell.norc)
 table.insert(launch_menu, windows.cmd_exe)
 table.insert(launch_menu, windows.nyagos)
+table.insert(launch_menu, wsl.ubuntu)
 
 local function menu(config)
     config.launch_menu = launch_menu
