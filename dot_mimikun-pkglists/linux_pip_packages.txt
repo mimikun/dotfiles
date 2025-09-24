@@ -22,6 +22,7 @@ RapidFuzz
 SQLAlchemy
 SecretStorage
 Send2Trash
+Simperium3
 SpeechRecognition
 Typeinc
 Werkzeug
@@ -452,6 +453,7 @@ skia-pathops
 slowapi
 smassh
 smmap
+sncli
 sniffio
 snowmachine
 soupsieve
