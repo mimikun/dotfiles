@@ -5,6 +5,8 @@ gforth
 google-chrome
 morisawa-biz-ud-gothic-fonts
 neofetch
+murex
+murex-debug
 nkf
 nvrs
 paru
