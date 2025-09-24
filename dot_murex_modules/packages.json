@@ -1,0 +1,92 @@
+[
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/orefalo/murex-module-starship.git",
+        "Package": "murex-module-starship"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/JeffMelton/murex-module-pareach.git",
+        "Package": "murex-module-pareach"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/orefalo/murex-module-javahome.git",
+        "Package": "murex-module-javahome"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-tmux-profile.git",
+        "Package": "tmux-profile"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/orefalo/murex-module-grc.git",
+        "Package": "murex-module-grc"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-terminal-user-agent.git",
+        "Package": "terminal-user-agent"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/orefalo/murex-module-g2.git",
+        "Package": "murex-module-g2"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-tmux-readline-events.git",
+        "Package": "tmux-enhancements"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-jump.git",
+        "Package": "jump"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/orefalo/murex-module-dockercompose.git",
+        "Package": "murex-module-dockercompose"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-devops.git",
+        "Package": "devops"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-murex-dev.git",
+        "Package": "murex-dev"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-tmux-profile.git",
+        "Package": "tmux-profile"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-terminal-user-agent.git",
+        "Package": "terminal-user-agent"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-tmux-readline-events.git",
+        "Package": "tmux-enhancements"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-jump.git",
+        "Package": "jump"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-devops.git",
+        "Package": "devops"
+    },
+    {
+        "Protocol": "git",
+        "URI": "https://github.com/lmorg/murex-module-murex-dev.git",
+        "Package": "murex-dev"
+    }
+]
