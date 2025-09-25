@@ -1,0 +1,134 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: '3'
+
+# TODO: its
+vars:
+  TODAY:
+    sh: date +'%Y%m%d'
+
+env:
+  MAIN_BRANCH: master
+  CODEBERG_URL: https://codeberg.org/mimikun/dotfiles
+
+tasks:
+  default:
+    cmds:
+      - task --list
+    silent: true
+
+  view:
+    desc: View remote codeberg repository
+    cmds:
+      - cmd: wsl-open $CODEBERG_URL
+    silent: true
+
+  patch:
+    desc: Create a patch file, and copy it to Host-Windows
+    cmds:
+      - task: clean
+      - task: diff-patch
+      - task: patch-copy-to-windows
+    silent: true
+
+  diff-patch:
+    desc: Create a patch file
+    cmds:
+      - mise tasks run patch:create
+    silent: true
+
+  switch-master:
+    desc: Branch switching to master
+    aliases:
+      - switchmaster
+      - smas
+    cmds:
+      - git switch $MAIN_BRANCH
+    silent: true
+
+  clean:
+    desc: File cleanup
+    cmds:
+      - mise tasks run clean
+    silent: true
+
+  update:
+    desc: Update some files managed by chezmoi
+    cmds:
+      - mise tasks run update
+    silent: true
+
+  patch-copy-to-windows:
+    desc: Copy patch to Host-Windows
+    cmds:
+      - mise tasks run patch:copy2win
+    silent: true
+
+  lint:
+    desc: Linting
+      - test
+    cmds:
+      - mise tasks run lint
+    silent: true
+
+  format:
+    desc: Formatting
+    aliases:
+      - fmt
+    cmds:
+      - mise tasks run format
+    silent: true
+
+  clean-fetch:
+    desc: Powerful git fetch
+    aliases:
+      - cleanfetch
+    cmds:
+      - git fetch --all --prune --tags --prune-tags
+    silent: true
+
+  delete-branch:
+    desc: Delete unused patch branch
+    aliases:
+      - deleb
+    cmds:
+      - task: clean
+      - task: switch-master
+      - git branch --list "patch*" | xargs -n 1 git branch -D
+    silent: true
+
+  pull:
+    desc: Run git pull origin
+    aliases:
+      - pull-origin
+    cmds:
+      - git pull origin $MAIN_BRANCH
+    silent: true
+
+  push:
+    desc: git push to remote repository
+    cmds:
+      - git push
+    silent: true
+
+  create-patch-branch:
+    desc: Create a patch branch with timestamp
+    aliases:
+      - patch-branch
+      - pab
+    cmds:
+      - git switch -c "patch-{{.TODAY}}"
+    silent: true
+
+  morning-routine:
+    desc: every day routine
+    aliases:
+      - morning
+      - mo
+      - mr
+    cmds:
+      - task: clean-fetch
+      - task: delete-branch
+      - task: pull-origin
+      - task: create-patch-branch
+    silent: true
