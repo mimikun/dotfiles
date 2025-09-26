@@ -31,6 +31,8 @@ tasks:
       - task: patch-copy-to-windows
     silent: true
 
+  #tasks/patch/create
+  # TODO: it
   diff-patch:
     desc: Create a patch file
     cmds:
@@ -46,24 +48,40 @@ tasks:
       - git switch $MAIN_BRANCH
     silent: true
 
+  # TODO: it
+  #tasks/clean
   clean:
     desc: File cleanup
     cmds:
       - mise tasks run clean
     silent: true
 
+  # TODO: it
+  #tasks/update
   update:
     desc: Update some files managed by chezmoi
     cmds:
       - mise tasks run update
     silent: true
 
+  # TODO: it
+  #tasks/patch/copy2win
   patch-copy-to-windows:
     desc: Copy patch to Host-Windows
     cmds:
       - mise tasks run patch:copy2win
     silent: true
 
+  # TODO: it
+  #tasks/lint/
+  #tasks/lint/actionlint
+  #tasks/lint/ghalint
+  #tasks/lint/pwsh
+  #tasks/lint/selene
+  #tasks/lint/shell
+  #tasks/lint/stylua
+  #tasks/lint/typos
+  #tasks/lint/zizmor
   lint:
     desc: Linting
       - test
@@ -71,6 +89,10 @@ tasks:
       - mise tasks run lint
     silent: true
 
+  # TODO: it
+  #tasks/format/
+  #tasks/format/shell
+  #tasks/format/stylua
   format:
     desc: Formatting
     aliases:
@@ -105,12 +127,15 @@ tasks:
       - git pull origin $MAIN_BRANCH
     silent: true
 
+  # TODO: it
+  #tasks/git/push
   push:
     desc: git push to remote repository
     cmds:
       - git push
     silent: true
 
+  #tasks/patch/branch
   create-patch-branch:
     desc: Create a patch branch with timestamp
     aliases:
@@ -131,4 +156,14 @@ tasks:
       - task: delete-branch
       - task: pull-origin
       - task: create-patch-branch
+    silent: true
+
+  #tasks/git/empty-commits
+  git-empty-commit:
+    desc: Create empty commits
+    aliases:
+      - empty
+      - ec
+    cmds:
+      - echo "hoge"
     silent: true
