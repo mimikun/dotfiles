@@ -66,7 +66,8 @@ complete -c berg -n "__fish_berg_using_subcommand config; and not __fish_seen_su
 complete -c berg -n "__fish_berg_using_subcommand config; and not __fish_seen_subcommand_from info generate help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from info" -s h -l help -d 'Print help'
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from generate" -s l -l location -d 'Specify location at which default config should be dumped' -r -f -a "global\t''
-local\t''"
+local\t''
+stdout\t''"
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from generate" -s r -l replace -d 'Specifies whether overwriting already existing configs is allowed'
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from generate" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c berg -n "__fish_berg_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "info" -d 'Display short overview of which config values are used'
