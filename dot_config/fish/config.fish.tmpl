@@ -576,10 +576,10 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     end
 
     # atuin
-    if command -v atuin >/dev/null 2>&1
-        echo "# cache atuin config" >> $CACHE_CONFIG_FISH
-        echo "atuin init fish | source" >> $CACHE_CONFIG_FISH
-    end
+    #if command -v atuin >/dev/null 2>&1
+    #    echo "# cache atuin config" >> $CACHE_CONFIG_FISH
+    #    echo "atuin init fish | source" >> $CACHE_CONFIG_FISH
+    #end
 
     # rebar3
     if command -v rebar3 >/dev/null 2>&1
