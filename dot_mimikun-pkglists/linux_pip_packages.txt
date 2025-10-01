@@ -117,6 +117,7 @@ ddgr
 debugpy
 decorator
 defusedxml
+dependency-groups
 deptective
 dirhash
 dirsearch
@@ -126,6 +127,7 @@ distro
 django-environ
 dnspython
 docker
+dockerfile-parse
 docstring_parser
 docutils
 dominate
@@ -146,6 +148,7 @@ fastapi-cli
 fastapi-cloud-cli
 fastjsonschema
 fastmcp
+fastuuid
 feedparser
 filelock
 filetype
@@ -267,6 +270,7 @@ littletable
 logmerger
 loguru
 lxml
+madoka
 magika
 mammoth
 manimgl
@@ -354,6 +358,7 @@ playwright
 plotext
 poetry
 poetry-core
+pondpond
 portalocker
 pqviewer
 pre_commit
@@ -546,6 +551,7 @@ widgetsnbextension
 wrapt
 wsproto
 wtfis
+xdg-base-dirs
 xlrd
 xlsxwriter
 xmltodict
