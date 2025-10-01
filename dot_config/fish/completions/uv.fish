@@ -61,6 +61,7 @@ complete -c uv -n "__fish_uv_needs_command" -l no-installer-metadata -d 'Skip wr
 complete -c uv -n "__fish_uv_needs_command" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_needs_command" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_needs_command" -s V -l version -d 'Display the uv version'
+complete -c uv -n "__fish_uv_needs_command" -f -a "auth" -d 'Manage authentication'
 complete -c uv -n "__fish_uv_needs_command" -f -a "run" -d 'Run a command or script'
 complete -c uv -n "__fish_uv_needs_command" -f -a "init" -d 'Create a new project'
 complete -c uv -n "__fish_uv_needs_command" -f -a "add" -d 'Add dependencies to the project'
@@ -83,15 +84,210 @@ complete -c uv -n "__fish_uv_needs_command" -f -a "self" -d 'Manage the uv execu
 complete -c uv -n "__fish_uv_needs_command" -f -a "clean" -d 'Clear the cache, removing all entries or those linked to specific packages'
 complete -c uv -n "__fish_uv_needs_command" -f -a "generate-shell-completion" -d 'Generate shell completion'
 complete -c uv -n "__fish_uv_needs_command" -f -a "help" -d 'Display documentation for a command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -f -a "login" -d 'Login to a service'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -f -a "logout" -d 'Logout of a service'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -f -a "token" -d 'Show the authentication token for a service'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir" -f -a "dir" -d 'Show the path to the uv credentials directory'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s u -l username -d 'The username to use for the service' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l password -d 'The password to use for the service' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s t -l token -d 'The token to use for the service' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l keyring-provider -d 'The keyring provider to use for storage of credentials' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -s u -l username -d 'The username to logout' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l keyring-provider -d 'The keyring provider to use for storage of credentials' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -s u -l username -d 'The username to lookup' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l keyring-provider -d 'The keyring provider to use for reading credentials' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l cache-dir -d 'Path to the cache directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l directory -d 'Change to the given directory prior to running the command' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l project -d 'Run the command within the given project directory' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l managed-python -d 'Require use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-managed-python -d 'Disable use of uv-managed Python versions'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l offline -d 'Disable network access'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l preview -d 'Whether to enable all experimental preview features'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-progress -d 'Hide all progress outputs'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand run" -l extra -d 'Include optional dependencies from the specified extra name' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l group -d 'Include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Disable the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-group -d 'Only include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l env-file -d 'Load environment variables from a `.env` file' -r -F
+complete -c uv -n "__fish_uv_using_subcommand run" -l env-file -d 'Load environment variables from a `.env` file' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s w -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed in editable mode' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l with-requirements -d 'Run with the packages listed in the given files' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -129,6 +325,51 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l refresh-package -d 'Refres
 complete -c uv -n "__fish_uv_using_subcommand run" -l package -d 'Run the command in a specific package in the workspace' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -s p -l python -d 'The Python interpreter to use for the run environment.' -r
 complete -c uv -n "__fish_uv_using_subcommand run" -l max-recursion-depth -d 'Number of times that `uv run` will allow recursive invocations' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand run" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -153,6 +394,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-default-groups -d 'Igno
 complete -c uv -n "__fish_uv_using_subcommand run" -l all-groups -d 'Include dependencies from all dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand run" -s m -l module -d 'Run a Python module'
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-dev -d 'Only include the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand run" -l editable -d 'Install any non-editable dependencies, including the project and any workspace members, as editable'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand run" -l inexact -d 'Do not remove extraneous packages present in the environment'
 complete -c uv -n "__fish_uv_using_subcommand run" -l exact -d 'Perform an exact sync, removing extraneous packages'
@@ -269,7 +511,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l no-progress -d 'Hide all 
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand init" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand add" -s r -l requirements -d 'Add all packages listed in the given `requirements.txt` files' -r -F
+complete -c uv -n "__fish_uv_using_subcommand add" -s r -l requirements -d 'Add the packages listed in the given files' -r -F
 complete -c uv -n "__fish_uv_using_subcommand add" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -s m -l marker -d 'Apply this marker to all added packages' -r
 complete -c uv -n "__fish_uv_using_subcommand add" -l optional -d 'Add the requirements to the package\'s optional dependencies for the specified extra' -r
@@ -648,6 +890,7 @@ x86_64-apple-darwin\t'An x86 macOS target'
 aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
 x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
 x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
@@ -674,7 +917,12 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand sync" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -698,6 +946,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-dev -d 'Disable the de
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-dev -d 'Only include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-default-groups -d 'Ignore the default dependency groups'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l all-groups -d 'Include dependencies from all dependency groups'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l editable -d 'Install any non-editable dependencies, including the project and any workspace members, as editable'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-editable -d 'Install any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l inexact -d 'Do not remove extraneous packages present in the environment'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l exact -d 'Perform an exact sync, removing extraneous packages'
@@ -910,6 +1159,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-annotate -d 'Exclude
 complete -c uv -n "__fish_uv_using_subcommand export" -l annotate
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-header -d 'Exclude the comment header at the top of the generated output file'
 complete -c uv -n "__fish_uv_using_subcommand export" -l header
+complete -c uv -n "__fish_uv_using_subcommand export" -l editable -d 'Export any non-editable dependencies, including the project and any workspace members, as editable'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-editable -d 'Export any editable dependencies, including the project and any workspace members, as non-editable'
 complete -c uv -n "__fish_uv_using_subcommand export" -l hashes -d 'Include hashes for all dependencies'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-hashes -d 'Omit hashes in the generated output'
@@ -1003,6 +1253,7 @@ x86_64-apple-darwin\t'An x86 macOS target'
 aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
 x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
 x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
@@ -1029,7 +1280,12 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -s p -l python -d 'The Python interpreter to use for locking and filtering.' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tree" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
@@ -1051,6 +1307,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l universal -d 'Show a plat
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-dedupe -d 'Do not de-duplicate repeated dependencies. Usually, when a package has already displayed its dependencies, further occurrences will not re-display its dependencies, and will include a (*) to indicate it has already been shown. This flag will cause those duplicates to be repeated'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l invert -d 'Show the reverse dependencies for the given package. This flag will invert the tree and display the packages that depend on the given package'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l outdated -d 'Show the latest available version of each package in the tree'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l show-sizes -d 'Show compressed wheel sizes for packages in the tree'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l dev -d 'Include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l only-dev -d 'Only include the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-dev -d 'Disable the development dependency group'
@@ -1108,6 +1365,7 @@ complete -c uv -n "__fish_uv_using_subcommand format" -l project -d 'Run the com
 complete -c uv -n "__fish_uv_using_subcommand format" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand format" -l check -d 'Check if files are formatted without applying changes'
 complete -c uv -n "__fish_uv_using_subcommand format" -l diff -d 'Show a diff of formatting changes without applying them'
+complete -c uv -n "__fish_uv_using_subcommand format" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand format" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand format" -l managed-python -d 'Require use of uv-managed Python versions'
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-managed-python -d 'Disable use of uv-managed Python versions'
@@ -1175,7 +1433,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l from -d 'Use the given package to provide the command' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s w -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-editable -d 'Run with the given packages installed in editable mode' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-requirements -d 'Run with the packages listed in the given files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s b -l build-constraints -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l overrides -d 'Override versions using the given requirements files' -r
@@ -1215,6 +1473,51 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l generate-shell-completion -r -f -a "bash\t''
 elvish\t''
 fish\t''
@@ -1279,7 +1582,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l from -d 'Use the given package to provide the command' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s w -l with -d 'Run with the given packages installed' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-editable -d 'Run with the given packages installed in editable mode' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-requirements -d 'Run with all packages listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l with-requirements -d 'Run with the packages listed in the given files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s b -l build-constraints -d 'Constrain build dependencies using the given requirements files when building source distributions' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l overrides -d 'Override versions using the given requirements files' -r
@@ -1319,6 +1622,51 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l generate-shell-completion -r -f -a "bash\t''
 elvish\t''
 fish\t''
@@ -1383,7 +1731,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l from -d 'The package to install commands from' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s w -l with -d 'Include the following additional requirements' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Include all requirements listed in the given `requirements.txt` files' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-requirements -d 'Run with the packages listed in the given files' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-editable -d 'Include the given packages in editable mode' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l with-executables-from -d 'Install executables from the following packages' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
@@ -1424,6 +1772,51 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l refresh-package -d 'Refresh cached data for a specific package' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter to use to build the tool environment.' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -1480,6 +1873,51 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s p -l python -d 'Upgrade a tool, and specify it to use the given Python interpreter to build its environment. Use with `--all` to apply to all tools.' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
+linux\t'An alias for `x86_64-unknown-linux-gnu`, the default target for Linux'
+macos\t'An alias for `aarch64-apple-darwin`, the default target for macOS'
+x86_64-pc-windows-msvc\t'A 64-bit x86 Windows target'
+aarch64-pc-windows-msvc\t'An ARM64 Windows target'
+i686-pc-windows-msvc\t'A 32-bit x86 Windows target'
+x86_64-unknown-linux-gnu\t'An x86 Linux target. Equivalent to `x86_64-manylinux_2_28`'
+aarch64-apple-darwin\t'An ARM-based macOS target, as seen on Apple Silicon devices'
+x86_64-apple-darwin\t'An x86 macOS target'
+aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
+aarch64-unknown-linux-musl\t'An ARM64 Linux target'
+x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
+x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
+x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
+x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
+x86_64-manylinux_2_31\t'An `x86_64` target for the `manylinux_2_31` platform'
+x86_64-manylinux_2_32\t'An `x86_64` target for the `manylinux_2_32` platform'
+x86_64-manylinux_2_33\t'An `x86_64` target for the `manylinux_2_33` platform'
+x86_64-manylinux_2_34\t'An `x86_64` target for the `manylinux_2_34` platform'
+x86_64-manylinux_2_35\t'An `x86_64` target for the `manylinux_2_35` platform'
+x86_64-manylinux_2_36\t'An `x86_64` target for the `manylinux_2_36` platform'
+x86_64-manylinux_2_37\t'An `x86_64` target for the `manylinux_2_37` platform'
+x86_64-manylinux_2_38\t'An `x86_64` target for the `manylinux_2_38` platform'
+x86_64-manylinux_2_39\t'An `x86_64` target for the `manylinux_2_39` platform'
+x86_64-manylinux_2_40\t'An `x86_64` target for the `manylinux_2_40` platform'
+aarch64-manylinux2014\t'An ARM64 target for the `manylinux2014` platform. Equivalent to `aarch64-manylinux_2_17`'
+aarch64-manylinux_2_17\t'An ARM64 target for the `manylinux_2_17` platform'
+aarch64-manylinux_2_28\t'An ARM64 target for the `manylinux_2_28` platform'
+aarch64-manylinux_2_31\t'An ARM64 target for the `manylinux_2_31` platform'
+aarch64-manylinux_2_32\t'An ARM64 target for the `manylinux_2_32` platform'
+aarch64-manylinux_2_33\t'An ARM64 target for the `manylinux_2_33` platform'
+aarch64-manylinux_2_34\t'An ARM64 target for the `manylinux_2_34` platform'
+aarch64-manylinux_2_35\t'An ARM64 target for the `manylinux_2_35` platform'
+aarch64-manylinux_2_36\t'An ARM64 target for the `manylinux_2_36` platform'
+aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
+aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
+aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
+aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
@@ -2187,6 +2625,7 @@ x86_64-apple-darwin\t'An x86 macOS target'
 aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
 x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
 x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
@@ -2213,7 +2652,12 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-emit-package -d 'Specify a package to omit from the output resolution. Its dependencies will still be included in the resolution. Equivalent to pip-compile\'s `--unsafe-package` option' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
@@ -2391,6 +2835,7 @@ x86_64-apple-darwin\t'An x86 macOS target'
 aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
 x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
 x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
@@ -2417,7 +2862,12 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
 cu129\t'Use the PyTorch index for CUDA 12.9'
@@ -2532,7 +2982,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-progress -d 'Hide all progress outputs'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s r -l requirements -d 'Install all packages listed in the given `requirements.txt` or `pylock.toml` files' -r -F
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s r -l requirements -d 'Install the packages listed in the given files' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s e -l editable -d 'Install the editable package based on the provided local file path' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s c -l constraints -d 'Constrain versions using the given requirements files' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l overrides -d 'Override versions using the given requirements files' -r
@@ -2589,6 +3039,7 @@ x86_64-apple-darwin\t'An x86 macOS target'
 aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
 x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
 x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
@@ -2615,7 +3066,12 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
 cu129\t'Use the PyTorch index for CUDA 12.9'
@@ -2730,7 +3186,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s r -l requirements -d 'Uninstall all packages listed in the given requirements files' -r -F
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s r -l requirements -d 'Uninstall the packages listed in the given files' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s p -l python -d 'The Python interpreter from which packages should be uninstalled.' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "disabled\t'Do not use keyring for credential lookup'
 subprocess\t'Use the `keyring` command for credential lookup'"
@@ -2962,6 +3418,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-dedupe -d 'Do not de-duplicate repeated dependencies. Usually, when a package has already displayed its dependencies, further occurrences will not re-display its dependencies, and will include a (*) to indicate it has already been shown. This flag will cause those duplicates to be repeated'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l invert -d 'Show the reverse dependencies for the given package. This flag will invert the tree and display the packages that depend on the given package'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l outdated -d 'Show the latest available version of each package in the tree'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l show-sizes -d 'Show compressed wheel sizes for packages in the tree'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l strict -d 'Validate the Python environment, to detect packages with missing dependencies and other issues'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-strict
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
@@ -3002,6 +3459,7 @@ x86_64-apple-darwin\t'An x86 macOS target'
 aarch64-unknown-linux-gnu\t'An ARM64 Linux target. Equivalent to `aarch64-manylinux_2_28`'
 aarch64-unknown-linux-musl\t'An ARM64 Linux target'
 x86_64-unknown-linux-musl\t'An `x86_64` Linux target'
+riscv64-unknown-linux\t'A RISCV64 Linux target'
 x86_64-manylinux2014\t'An `x86_64` target for the `manylinux2014` platform. Equivalent to `x86_64-manylinux_2_17`'
 x86_64-manylinux_2_17\t'An `x86_64` target for the `manylinux_2_17` platform'
 x86_64-manylinux_2_28\t'An `x86_64` target for the `manylinux_2_28` platform'
@@ -3028,7 +3486,12 @@ aarch64-manylinux_2_37\t'An ARM64 target for the `manylinux_2_37` platform'
 aarch64-manylinux_2_38\t'An ARM64 target for the `manylinux_2_38` platform'
 aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'"
+aarch64-linux-android\t'An ARM64 Android target'
+x86_64-linux-android\t'An `x86_64` Android target'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+arm64-apple-ios\t'An ARM64 target for iOS device'
+arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
+x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l cache-dir -d 'Path to the cache directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3107,6 +3570,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l no-system -d 'This flag i
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l seed -d 'Install seed packages (one or more of: `pip`, `setuptools`, and `wheel`) into the virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand venv" -s c -l clear -d 'Remove any existing files or directories at the target path'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l no-clear -d 'Fail without prompting if any existing files or directories are present at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-existing -d 'Preserve any existing files or directories at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l relocatable -d 'Make the virtual environment relocatable'
@@ -3238,7 +3702,7 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l index -d 'The name of 
 complete -c uv -n "__fish_uv_using_subcommand publish" -s u -l username -d 'The username for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s p -l password -d 'The password for the upload' -r
 complete -c uv -n "__fish_uv_using_subcommand publish" -s t -l token -d 'The token for the upload' -r
-complete -c uv -n "__fish_uv_using_subcommand publish" -l trusted-publishing -d 'Configure using trusted publishing through GitHub Actions' -r -f -a "automatic\t'Try trusted publishing when we\'re already in GitHub Actions, continue if that fails'
+complete -c uv -n "__fish_uv_using_subcommand publish" -l trusted-publishing -d 'Configure trusted publishing' -r -f -a "automatic\t'Attempt trusted publishing when we\'re in a supported environment, continue if that fails'
 always\t''
 never\t''"
 complete -c uv -n "__fish_uv_using_subcommand publish" -l keyring-provider -d 'Attempt to use `keyring` for authentication for remote requirements files' -r -f -a "disabled\t'Do not use keyring for credential lookup'
@@ -3262,6 +3726,7 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l directory -d 'Change t
 complete -c uv -n "__fish_uv_using_subcommand publish" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand publish" -l skip-existing
+complete -c uv -n "__fish_uv_using_subcommand publish" -l dry-run -d 'Perform a dry run without uploading files'
 complete -c uv -n "__fish_uv_using_subcommand publish" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l managed-python -d 'Require use of uv-managed Python versions'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-managed-python -d 'Disable use of uv-managed Python versions'
