@@ -1,4 +1,4 @@
-# i3-wm-cheetsheet
+# i3-wm-cheatsheet
 
 ## 画面ロック
 
