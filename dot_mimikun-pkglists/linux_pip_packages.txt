@@ -48,6 +48,7 @@ appdirs
 argcomplete
 argon2-cffi
 argon2-cffi-bindings
+aria2tui
 arrow
 arxiv
 arxiv2bib
@@ -119,6 +120,7 @@ decorator
 defusedxml
 dependency-groups
 deptective
+dill
 dirhash
 dirsearch
 diskcache
@@ -265,6 +267,7 @@ libcst
 libtmux
 limits
 linkify-it-py
+listpick
 litellm
 littletable
 logmerger
@@ -356,6 +359,7 @@ pkginfo
 platformdirs
 playwright
 plotext
+plotille
 poetry
 poetry-core
 pondpond
