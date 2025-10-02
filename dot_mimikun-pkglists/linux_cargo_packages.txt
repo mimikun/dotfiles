@@ -97,6 +97,7 @@ ferium
 flamegraph
 flamelens
 flawz
+flowrs-tui
 forgejo-cli
 fselect
 ftdv
@@ -107,6 +108,7 @@ git-delta
 git-graph
 git-interactive-rebase-tool
 gitnr
+gittype
 gitu
 gitui
 glitchcat
@@ -137,6 +139,7 @@ jj-cli
 jnv
 jocalsend
 jql
+judo
 just
 kanha
 kbt
@@ -242,6 +245,7 @@ slumber
 smartcat
 so
 somo
+soundscope
 srgn
 ssh-list
 sshx
