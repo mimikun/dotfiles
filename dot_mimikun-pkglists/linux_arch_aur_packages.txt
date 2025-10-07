@@ -3,6 +3,7 @@ betterlockscreen
 cmigemo-git
 gforth
 google-chrome
+glide-browser-bin
 morisawa-biz-ud-gothic-fonts
 neofetch
 murex
