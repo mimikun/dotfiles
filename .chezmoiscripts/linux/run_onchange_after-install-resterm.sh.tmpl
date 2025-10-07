@@ -1,0 +1,20 @@
+{{ if (eq .chezmoi.os "linux") -}}
+
+#!/bin/bash
+
+echo "THIS IS WIP"
+exit 1
+
+# Detect latest version
+LATEST_TAG=$(curl -fsSL https://api.github.com/repos/unkn0wn-root/resterm/releases/latest | jq -r .tag_name)
+
+# Download the appropriate binary (Darwin/Linux + amd64/arm64)
+curl -fL -o resterm "https://github.com/unkn0wn-root/resterm/releases/download/${LATEST_TAG}/resterm_$(uname -s)_$(uname -m)"
+
+# Make it executable and install into your PATH
+chmod +x resterm
+sudo mv resterm /usr/local/bin/resterm.
+
+# vim:ft=bash.chezmoitmpl
+
+{{ end -}}
