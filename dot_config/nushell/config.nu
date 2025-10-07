@@ -35,3 +35,6 @@ rip completions nushell | save -f ($nu.data-dir | path join "vendor/autoload/rip
 
 # pixi
 pixi completion --shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/pixi-completions.nu")
+
+# intelli-shell
+intelli-shell init nushell | save -f ($nu.data-dir | path join "vendor/autoload/intelli-shell.nu")

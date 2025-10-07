@@ -400,6 +400,11 @@ if command -v pixi >/dev/null 2>&1; then
     eval "$(pixi completion --shell bash)"
 fi
 
+# intelli-shell
+if command -v intelli-shell >/dev/null 2>&1; then
+    eval "$(intelli-shell init bash)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

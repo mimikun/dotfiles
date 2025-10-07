@@ -380,6 +380,15 @@ if ($cond) {
     #    $equationzhao_g_setup = g --init powershell
     #    Write-Output $equationzhao_g_setup >> $env:CACHE_PROFILE
     #}
+
+    # intelli-shell setup
+    Get-Command intelli-shell -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "intelli-shell setup" >> $env:CACHE_PROFILE
+        $intelli_shell_setup = intelli-shell init powershell
+        Write-Output $intelli_shell_setup >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile

@@ -619,6 +619,12 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     #    echo "g --init fish | source" >> $CACHE_CONFIG_FISH
     #end
 
+    # intelli-shell
+    if command -v intelli-shell >/dev/null 2>&1
+        echo "# cache intelli-shell initialize" >> $CACHE_CONFIG_FISH
+        echo "intelli-shell init fish | source" >> $CACHE_CONFIG_FISH
+    end
+
     # work pc only tools
     {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
     echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
