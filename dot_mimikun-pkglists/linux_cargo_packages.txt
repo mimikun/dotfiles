@@ -133,6 +133,7 @@ igrep
 imdl
 impala
 inspect-cert-chain
+intelli-shell
 iwe
 iwes
 jj-cli
@@ -254,10 +255,9 @@ stu
 stylua
 swaptop
 systemctl-tui
-tabiew
 systemd-manager-tui
 systeroid
-t-rec
+tabiew
 taplo-cli
 tatuin
 tauri-cli
