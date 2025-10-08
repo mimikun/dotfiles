@@ -11,6 +11,7 @@
 @vibe-kit/grok-cli
 actions-up
 backlog.md
+bats
 branchlet
 ccexp
 ccsearch
