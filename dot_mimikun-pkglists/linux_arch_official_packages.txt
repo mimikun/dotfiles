@@ -8,6 +8,7 @@ asciinema
 base
 base-devel
 bat
+bats
 bfs
 bitwarden
 bitwarden-cli
@@ -60,6 +61,7 @@ j4-dmenu-desktop
 jdk21-openjdk
 jq
 kbt
+lemurs
 less
 libpulse
 libva-intel-driver
@@ -150,5 +152,6 @@ xorg-xinit
 xorg-xinput
 xsel
 xterm
+xorg-setxkbmap
 zip
 zram-generator
