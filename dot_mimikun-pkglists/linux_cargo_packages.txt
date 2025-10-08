@@ -1,3 +1,4 @@
+ad-editor
 ag
 aichat
 aim
@@ -247,6 +248,7 @@ smartcat
 so
 somo
 soundscope
+sprofile
 srgn
 ssh-list
 sshx
