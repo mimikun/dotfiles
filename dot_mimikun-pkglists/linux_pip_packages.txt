@@ -536,6 +536,7 @@ uritemplate
 urllib3
 urwid
 userpath
+uuid_utils
 uv
 uvicorn
 uvloop
