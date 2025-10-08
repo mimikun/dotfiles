@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+# A simple ad helper script to lint Rust files on change and support checking
+# details of errors that are reported.
+
+. "$HOME/.ad/lib/ad.sh"
+
+CARGO_FORMAT="short"
+WATCH_TESTS="WatchTests"
+STOP_TESTS="StopTests"
+TEST_BUTTON="$WATCH_TESTS"
+ARGS=""
+
+header() {
+  [[ -z "$ARGS" ]] || s=" args='$ARGS'"
+  echo -e "(Clear) (SetCargoFormat) ($TEST_BUTTON$s)\n"
+}
+
+clearOutput() { adEdit "x/\n>>>@*/ c/\n>>>/"; }
+
+updateTestOutput() {
+  clearOutput
+  cargo test "$ARGS" | bufWrite "$1" body
+}
+
+updateCargoOutput() {
+  clearBuffer "$1"
+  header | bufWrite "$1" body
+  # ensure that the output from cargo streams rather than buffering
+  cargo clippy --all-targets --workspace --message-format="$CARGO_FORMAT" 2>&1 | bufWrite "$1" body
+  echo -en "\n\n>>>" | bufWrite "$1" body
+  content="$(bufRead "$1" body)"
+  if [[ "$content" =~ error|warning ]]; then
+    focusBuffer "$1"
+    adEdit 'x/(.+):(\d+):(\d+):/ c/$1:$2:$3/'
+  elif [[ "$TEST_BUTTON" = "$STOP_TESTS" ]]; then
+    updateTestOutput "$1"
+  fi
+  curToBof "$1"
+  markClean "$1"
+}
+
+handleEvents() {
+  bufRead "$1" event | while read -r line; do
+    kind="$(echo "$line" | jq -r '.kind')"
+    target="$(echo "$line" | jq -r '.txt')"
+
+    case "$kind" in
+      "L")
+        if [[ "$target" =~ E.... ]]; then
+          output="$(cargo --explain "$target")"
+          curToBof "$1"
+          adEdit "x/\n>>>@*/ d"
+          echo -en "\n>>> Explanation for error[$target] (Clear)\n$output" | bufWrite "$1" body
+          markClean "$1"
+        else
+          echo -n "$line" | bufWrite "$1" event
+        fi
+      ;;
+      "X")
+        if [[ "$target" = "SetCargoFormat" ]]; then
+          raw="$(echo -en "human\nshort" | minibufferSelect "output format> ")"
+          if [[ "$raw" =~ human|short ]]; then
+            CARGO_FORMAT="$raw"
+            updateCargoOutput "$1"
+          fi
+        elif [[ "$target" = "$WATCH_TESTS" ]]; then
+          ARGS="$(echo -n "$ARGS" | minibufferSelect "args> ")"
+          TEST_BUTTON="$STOP_TESTS"
+          updateCargoOutput "$1"
+        elif [[ "$target" = "$STOP_TESTS" ]]; then
+          TEST_BUTTON="$WATCH_TESTS"
+          ARGS=""
+          updateCargoOutput "$1"
+        elif [[ "$target" = "Clear" ]]; then
+          clearOutput
+          markClean "$1"
+        else
+          echo -n "$line" | bufWrite "$1" event
+        fi
+      ;;
+    esac
+  done
+}
+
+currentId="$(currentBufferId)"
+root="$(git rev-parse --show-toplevel)"
+adCtl "open-in-new-window $root/+cargo"
+id="$(adIndex | grep "+cargo" | cut -f1)"
+focusBuffer "$currentId"
+updateCargoOutput "$id"
+handleEvents "$id" &
+
+adLog | while read -r line; do
+  action="$(echo "$line" | cut -d' ' -f2)"
+  if [ "$action" = "save" ]; then
+    updateCargoOutput "$id"
+  fi
+done

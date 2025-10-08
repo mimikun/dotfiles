@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+# A simple control program for running text based presentations within ad
+# via an index file.
+#
+# To run the presentation within ad, execute 'Slide' in a directory with the
+# structure shown below. From there the NextSlide and PrevSlide commands can
+# be used to move between the slides.
+#
+# > Example directory structure:
+# .
+#   body
+#   conclusion
+#   index
+#   intro
+#
+# > Example index content:
+#   intro
+#   body
+#   conclusion
+
+. "$HOME/.ad/lib/ad.sh"
+
+requireAd
+
+fname="$(bufRead "$AD_BUFID" filename)"
+f="$(basename "$fname")"
+d="$(dirname "$fname")"
+
+[ ! -f "$d/index" ] && adError "not in a slideshow directory"
+toLoad="$(head -n1 "$d/index")"
+
+case "$1" in
+  next)
+    i="$(grep -n "^$f\$" "$d/index" | cut -d: -f1)"
+    j="$(( "$i" + 1 ))"
+    toLoad="$(nl "$d/index" | grep "\s$j\s" | cut -f2)"
+    [ -z "$toLoad" ] && adError "This is the last slide"
+    ;;
+
+  prev)
+    i="$(grep -n "^$f\$" "$d/index" | cut -d: -f1)"
+    j="$(( "$i" - 1 ))"
+    toLoad="$(nl "$d/index" | grep "\s$j\s" | cut -f2)"
+    [ -z "$toLoad" ] && adError "This is first slide"
+    ;;
+esac
+
+echo "$d/$toLoad" | bufWrite "$AD_BUFID" filename
+adCtl "Get"
+adEdit "0 i/[PrevSlide] [NextSlide]\n\n/"
+curToBof "$AD_BUFID"
+markClean "$AD_BUFID"

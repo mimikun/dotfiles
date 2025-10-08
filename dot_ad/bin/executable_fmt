@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Attempt to format the current buffer based on the filetype
+source "$HOME/.ad/lib/ad.sh"
+
+requireAd
+fname=$(bufRead "$AD_BUFID" filename)
+addr=$(bufRead "$AD_BUFID" addr)
+maybext="${fname##*.}"
+
+case $maybext in
+  dart) formatted=$(bufRead "$AD_BUFID" body | dart format) ;;
+  json) formatted=$(bufRead "$AD_BUFID" body | jq) ;;
+  rs) formatted=$(bufRead "$AD_BUFID" body | rustfmt --edition 2021) ;;
+  *) adError "no format rules found for '$maybext'" ;;
+esac
+
+if [[ -n "$formatted" ]]; then
+  echo -n "," | bufWrite "$AD_BUFID" xaddr
+  echo -n "$formatted" | bufWrite "$AD_BUFID" xdot
+  echo -n "$addr" | bufWrite "$AD_BUFID" addr
+  adCtl "viewport-center"
+fi
