@@ -1,6 +1,7 @@
 bastet
 betterlockscreen
 cmigemo-git
+ereandel
 gforth
 google-chrome
 glide-browser-bin
