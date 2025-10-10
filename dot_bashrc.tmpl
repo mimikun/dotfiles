@@ -405,6 +405,13 @@ if command -v intelli-shell >/dev/null 2>&1; then
     eval "$(intelli-shell init bash)"
 fi
 
+# pymobiledevice3
+if command -v pymobiledevice3 >/dev/null 2>&1; then
+    if [ -f "$HOME/.pymobiledevice3.bash" ]; then
+        source "$HOME/.pymobiledevice3.bash"
+    fi
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

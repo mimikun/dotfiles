@@ -436,6 +436,13 @@ if command -v intelli-shell >/dev/null 2>&1; then
     eval "$(intelli-shell init zsh)"
 fi
 
+# pymobiledevice3
+if command -v pymobiledevice3 >/dev/null 2>&1; then
+    if [ -f "$HOME/.pymobiledevice3.zsh" ]; then
+        source "$HOME/.pymobiledevice3.zsh"
+    fi
+fi
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
