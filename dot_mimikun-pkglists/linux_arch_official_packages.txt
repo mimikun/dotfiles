@@ -15,6 +15,7 @@ bitwarden-cli
 blueman
 capnet-assist
 chezmoi
+clang
 cmake
 code
 db
@@ -46,6 +47,7 @@ git-delta
 gitui
 gnumeric
 go
+graphicsmagick
 gst-plugin-pipewire
 helix
 htop
@@ -65,12 +67,16 @@ kbt
 lemurs
 less
 libpulse
+libsixel
 libva-intel-driver
+libxrandr
 libyaml
 lightdm
 lightdm-gtk-greeter
 linux
 linux-firmware
+llvm
+mailcap
 mandoc
 menyoki
 meson
@@ -117,6 +123,7 @@ skktools
 smartmontools
 sof-firmware
 starship
+sudo
 tailscale
 television
 tmux
