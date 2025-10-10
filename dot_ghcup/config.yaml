@@ -61,11 +61,11 @@ url-source:
   # - StackSetupURL
 
   ## Add pre-release channel
-  # - https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-prereleases-0.0.7.yaml
+  # - prereleases
   ## Add nightly channel
   # - https://ghc.gitlab.haskell.org/ghcup-metadata/ghcup-nightlies-0.0.7.yaml
   ## Add cross compiler channel
-  # - https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-cross-0.0.8.yaml
+  # - cross
 
   ## Use dwarf bindist for 9.4.7 for ghcup metadata
   # - ghcup-info:
@@ -116,17 +116,17 @@ platform-override: null
 #    pathPrefix: "ghcup/yaml"
 #
 # Then the resulting url will be 'https://mirror.sjtu.edu.cn/ghcup/yaml/haskell/ghcup-metadata/master/ghcup-0.0.7.yaml'
-mirrors:
-  "github.com":
-    authority:
-      host: "mirror.sjtu.edu.cn"
-  "raw.githubusercontent.com":
-    authority:
-      host: "mirror.sjtu.edu.cn"
-    pathPrefix: "ghcup/yaml"
-  "downloads.haskell.org":
-    authority:
-      host: "mirror.sjtu.edu.cn"
+#mirrors:
+#  "github.com":
+#    authority:
+#      host: "mirror.sjtu.edu.cn"
+#  "raw.githubusercontent.com":
+#    authority:
+#      host: "mirror.sjtu.edu.cn"
+#    pathPrefix: "ghcup/yaml"
+#  "downloads.haskell.org":
+#    authority:
+#      host: "mirror.sjtu.edu.cn"
 
 # Arguments to pass to the configure script of the prebuilt bindist.
 #
@@ -136,4 +136,16 @@ mirrors:
 # the vanilla way, which aggressively favors 'ld.gold' linker, add the following:
 def-ghc-conf-options:
   - "--enable-ld-override"
+
+# Use a pager for e.g. 'ghcup list' output. 'cmd' is optional (if omitted
+# will try to discover pager via GHCUP_PAGER/PAGER env vars or a predefined set of executables).
+#
+# You can also set only a boolean value:
+#   pager: true
+#
+# Or only a cmd (implies 'true' for all boolean values):
+#   pager: "less -R"
+pager:
+  list: true     # enabled for list action
+  cmd: "less -R" # the command
 
