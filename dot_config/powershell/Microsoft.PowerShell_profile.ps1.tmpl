@@ -177,7 +177,7 @@ if ($cond) {
         Write-Output "# cache starship setup" >> $env:CACHE_PROFILE
         starship init powershell --print-full-init >> $env:CACHE_PROFILE
         Write-Output "# cache starship completion" >> $env:CACHE_PROFILE
-        $starship_completion = starship completions powershell |
+        $starship_completion = starship completions power-shell |
             ForEach-Object { $_ -replace $namespace1, "" } |
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $starship_completion >> $env:CACHE_PROFILE
