@@ -20,7 +20,9 @@ tetrio-desktop
 tracker
 t-rec
 ttf-udev-gothic
+warp-terminal-bin
 web-greeter
+wezterm-nightly-bin
 xf86-video-vmware
 yay
 yay-debug
