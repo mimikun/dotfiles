@@ -39,6 +39,7 @@ fish
 flameshot
 fontconfig
 fzf
+ghostty
 ghq
 git
 git-delta
