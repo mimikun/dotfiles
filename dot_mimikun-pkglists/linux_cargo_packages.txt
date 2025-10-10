@@ -16,6 +16,7 @@ bibiman
 bingrep
 binsider
 bitchat-tui
+blogr-cli
 bluetui
 bmm
 bob-nvim
@@ -105,6 +106,7 @@ ftdv
 genact
 gengo-bin
 gfold
+ghciwatch
 git-delta
 git-graph
 git-interactive-rebase-tool
