@@ -85,5 +85,6 @@ typeprof
 un
 uri
 weakref
+xcodeproj
 yaml
 zlib
