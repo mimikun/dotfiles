@@ -77,7 +77,7 @@ cts\t''
 cjs\t''"
 complete -c deno -n "__fish_deno_needs_command" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l coverage -d 'Collect coverage profile data into DIR. If DIR is not specified, it uses \'coverage/\'.   This option can also be set via the DENO_COVERAGE_DIR environment variable.' -r -F
-complete -c deno -n "__fish_deno_needs_command" -s t -l tunnel -r -f -a "true\t''
+complete -c deno -n "__fish_deno_needs_command" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_needs_command" -s h -l help -r -f -a "unstable\t''
 full\t''"
@@ -214,7 +214,7 @@ cts\t''
 cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l coverage -d 'Collect coverage profile data into DIR. If DIR is not specified, it uses \'coverage/\'.   This option can also be set via the DENO_COVERAGE_DIR environment variable.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -s t -l tunnel -r -f -a "true\t''
+complete -c deno -n "__fish_deno_using_subcommand run" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -s h -l help -r -f -a "unstable\t''
 full\t''"
@@ -316,7 +316,7 @@ mjs\t''
 cts\t''
 cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -s t -l tunnel -r -f -a "true\t''
+complete -c deno -n "__fish_deno_using_subcommand serve" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -s h -l help -r -f -a "unstable\t''
 full\t''"
@@ -1747,7 +1747,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -l cwd -d 'Specify the directory to run the task in' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_deno_using_subcommand task" -s f -l filter -d 'Filter members of the workspace by name, implies --recursive flag' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
-complete -c deno -n "__fish_deno_using_subcommand task" -s t -l tunnel -r -f -a "true\t''
+complete -c deno -n "__fish_deno_using_subcommand task" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
