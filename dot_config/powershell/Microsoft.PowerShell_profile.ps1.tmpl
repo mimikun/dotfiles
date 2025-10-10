@@ -385,7 +385,7 @@ if ($cond) {
     Get-Command intelli-shell -ErrorAction Ignore | Out-Null
     $res = $?
     if ($res) {
-        Write-Output "intelli-shell setup" >> $env:CACHE_PROFILE
+        Write-Output "# intelli-shell setup" >> $env:CACHE_PROFILE
         $intelli_shell_setup = intelli-shell init powershell
         Write-Output $intelli_shell_setup >> $env:CACHE_PROFILE
     }
