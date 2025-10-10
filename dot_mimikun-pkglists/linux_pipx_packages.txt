@@ -16,6 +16,7 @@ poetry
 renux
 rsyncy
 sherlock-project
+shotgun-sh
 terminaltexteffects
 tofuref
 tombi
