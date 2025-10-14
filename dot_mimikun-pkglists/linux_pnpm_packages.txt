@@ -1,6 +1,7 @@
 @aku11i/phantom
 @anthropic-ai/claude-code
 @antinomyhq/forge
+@continuedev/cli
 @github/copilot
 @google/gemini-cli
 @ls-lint/ls-lint
