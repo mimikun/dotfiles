@@ -10,8 +10,11 @@ node = [
   "23",
 ]
 python = [
+  "3.12",
   "latest",
   "3",
+  "3.11",
+  "3.13",
 ]
 vim = [
   "ref:master",
