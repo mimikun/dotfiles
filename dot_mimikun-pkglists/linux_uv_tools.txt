@@ -1,6 +1,7 @@
 aider-chat
 bagels
 cloctui
+dhv
 euporie
 exosphere-cli
 isd-tui
