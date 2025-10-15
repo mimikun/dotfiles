@@ -637,6 +637,10 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
 end
 source $CACHE_CONFIG_FISH
 
+# BUG: WORKAROUND atuin and fish 4.1.0 bug
+# thx: https://github.com/atuinsh/atuin/issues/2803#issuecomment-3402340878
+atuin init fish | sed "s/bind -M insert -k up _atuin_bind_up/bind -M insert up _atuin_bind_up/" | source
+
 #test ! -e "$HOME/.x-cmd.root/local/data/fish/rc.fish" || source "$HOME/.x-cmd.root/local/data/fish/rc.fish" # boot up x-cmd.
 
 # NOTE: NEED end of config file!
