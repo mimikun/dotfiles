@@ -122,6 +122,7 @@ harper-ls
 hawk-data
 heh
 hex-patch
+hexhog
 hexyl
 hf
 hk
