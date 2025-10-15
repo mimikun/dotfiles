@@ -138,6 +138,7 @@ imdl
 impala
 inspect-cert-chain
 intelli-shell
+intentrace
 iwe
 iwes
 jj-cli
