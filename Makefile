@@ -22,7 +22,7 @@ clean :
 ## Run update
 .PHONY : update
 update :
-	mise tasks run update
+	mise tasks run update:chezmoi
 
 ## Copy game settings(Windows only)
 .PHONY : copy-windows-game-settings

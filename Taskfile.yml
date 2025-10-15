@@ -61,7 +61,7 @@ tasks:
   update:
     desc: Update some files managed by chezmoi
     cmds:
-      - mise tasks run update
+      - mise tasks run update:chezmoi
     silent: true
 
   # TODO: it
