@@ -97,6 +97,7 @@ openssh
 otf-ipaexfont
 otf-ipafont
 ouch
+pacman-contrib
 parallel-disk-usage
 pavucontrol
 pcaudiolib
