@@ -55,6 +55,60 @@ function __gup_perform_completion
     printf "%s\n" "$directiveLine"
 end
 
+# this function limits calls to __gup_perform_completion, by caching the result behind $__gup_perform_completion_once_result
+function __gup_perform_completion_once
+    __gup_debug "Starting __gup_perform_completion_once"
+
+    if test -n "$__gup_perform_completion_once_result"
+        __gup_debug "Seems like a valid result already exists, skipping __gup_perform_completion"
+        return 0
+    end
+
+    set --global __gup_perform_completion_once_result (__gup_perform_completion)
+    if test -z "$__gup_perform_completion_once_result"
+        __gup_debug "No completions, probably due to a failure"
+        return 1
+    end
+
+    __gup_debug "Performed completions and set __gup_perform_completion_once_result"
+    return 0
+end
+
+# this function is used to clear the $__gup_perform_completion_once_result variable after completions are run
+function __gup_clear_perform_completion_once_result
+    __gup_debug ""
+    __gup_debug "========= clearing previously set __gup_perform_completion_once_result variable =========="
+    set --erase __gup_perform_completion_once_result
+    __gup_debug "Successfully erased the variable __gup_perform_completion_once_result"
+end
+
+function __gup_requires_order_preservation
+    __gup_debug ""
+    __gup_debug "========= checking if order preservation is required =========="
+
+    __gup_perform_completion_once
+    if test -z "$__gup_perform_completion_once_result"
+        __gup_debug "Error determining if order preservation is required"
+        return 1
+    end
+
+    set -l directive (string sub --start 2 $__gup_perform_completion_once_result[-1])
+    __gup_debug "Directive is: $directive"
+
+    set -l shellCompDirectiveKeepOrder 32
+    set -l keeporder (math (math --scale 0 $directive / $shellCompDirectiveKeepOrder) % 2)
+    __gup_debug "Keeporder is: $keeporder"
+
+    if test $keeporder -ne 0
+        __gup_debug "This does require order preservation"
+        return 0
+    end
+
+    __gup_debug "This doesn't require order preservation"
+    return 1
+end
+
+
 # This function does two things:
 # - Obtain the completions and store them in the global __gup_comp_results
 # - Return false if file completion should be performed
@@ -65,17 +119,17 @@ function __gup_prepare_completions
     # Start fresh
     set --erase __gup_comp_results
 
-    set -l results (__gup_perform_completion)
-    __gup_debug "Completion results: $results"
+    __gup_perform_completion_once
+    __gup_debug "Completion results: $__gup_perform_completion_once_result"
 
-    if test -z "$results"
+    if test -z "$__gup_perform_completion_once_result"
         __gup_debug "No completion, probably due to a failure"
         # Might as well do file completion, in case it helps
         return 1
     end
 
-    set -l directive (string sub --start 2 $results[-1])
-    set --global __gup_comp_results $results[1..-2]
+    set -l directive (string sub --start 2 $__gup_perform_completion_once_result[-1])
+    set --global __gup_comp_results $__gup_perform_completion_once_result[1..-2]
 
     __gup_debug "Completions are: $__gup_comp_results"
     __gup_debug "Directive is: $directive"
@@ -171,7 +225,11 @@ end
 # Remove any pre-existing completions for the program since we will be handling all of them.
 complete -c gup -e
 
+# this will get called after the two calls below and clear the $__gup_perform_completion_once_result global
+complete -c gup -n '__gup_clear_perform_completion_once_result'
 # The call to __gup_prepare_completions will setup __gup_comp_results
 # which provides the program's completion choices.
-complete -c gup -n '__gup_prepare_completions' -f -a '$__gup_comp_results'
-
+# If this doesn't require order preservation, we don't use the -k flag
+complete -c gup -n 'not __gup_requires_order_preservation && __gup_prepare_completions' -f -a '$__gup_comp_results'
+# otherwise we use the -k flag
+complete -k -c gup -n '__gup_requires_order_preservation && __gup_prepare_completions' -f -a '$__gup_comp_results'
