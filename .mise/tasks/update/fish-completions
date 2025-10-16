@@ -4,7 +4,9 @@
 
 set -euo pipefail
 
-COMPLETIONS_DIR="$HOME/.config/fish/completions"
+FISH_DIR="$HOME/.config/fish"
+COMPLETIONS_DIR="$FISH_DIR/completions"
+CONFD_DIR="$FISH_DIR/conf.d"
 
 # Usage: command_exist CMD_NAME
 command_exist() {
