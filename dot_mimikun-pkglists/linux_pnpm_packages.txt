@@ -1,5 +1,4 @@
 @aku11i/phantom
-@anthropic-ai/claude-code
 @antinomyhq/forge
 @continuedev/cli
 @github/copilot
