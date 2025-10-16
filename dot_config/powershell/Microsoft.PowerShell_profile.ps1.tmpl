@@ -409,6 +409,15 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $tombi_completion >> $env:CACHE_PROFILE
     }
+
+    # crush setup
+    Get-Command crush -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# crush setup" >> $env:CACHE_PROFILE
+        $crush_setup = crush completion powershell
+        Write-Output $crush_setup >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile

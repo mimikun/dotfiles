@@ -442,6 +442,11 @@ if command -v tombi >/dev/null 2>&1; then
     eval "$(tombi completion bash)"
 fi
 
+# crush
+if command -v crush >/dev/null 2>&1; then
+    source <(crush completion bash)
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}
