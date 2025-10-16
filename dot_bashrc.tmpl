@@ -467,6 +467,11 @@ if command -v crush >/dev/null 2>&1; then
     source <(crush completion bash)
 fi
 
+# jump
+if command -v jump >/dev/null 2>&1; then
+    eval "$(jump shell)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

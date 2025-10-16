@@ -451,6 +451,15 @@ if ($cond) {
         $crush_setup = crush completion powershell
         Write-Output $crush_setup >> $env:CACHE_PROFILE
     }
+
+    # jump setup
+    Get-Command jump -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# jump setup" >> $env:CACHE_PROFILE
+        $jump_setup = jump shell pwsh
+        Write-Output $jump_setup >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile

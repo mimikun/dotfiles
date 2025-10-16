@@ -499,6 +499,11 @@ if command -v crush >/dev/null 2>&1; then
     source <(crush completion zsh)
 fi
 
+# jump
+if command -v jump >/dev/null 2>&1; then
+    eval "$(jump shell)"
+fi
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.

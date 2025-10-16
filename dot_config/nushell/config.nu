@@ -38,3 +38,6 @@ pixi completion --shell nushell | save -f ($nu.data-dir | path join "vendor/auto
 
 # intelli-shell
 intelli-shell init nushell | save -f ($nu.data-dir | path join "vendor/autoload/intelli-shell.nu")
+
+# jump
+jump shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/jump.nu")
