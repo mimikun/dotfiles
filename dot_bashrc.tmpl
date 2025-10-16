@@ -437,6 +437,11 @@ if command -v gup >/dev/null 2>&1; then
     eval "$(gup completion bash)"
 fi
 
+# tombi
+if command -v tombi >/dev/null 2>&1; then
+    eval "$(tombi completion bash)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

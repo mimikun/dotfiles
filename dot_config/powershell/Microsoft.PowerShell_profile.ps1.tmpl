@@ -398,6 +398,17 @@ if ($cond) {
         $ghtkn_setup = ghtkn completion pwsh
         Write-Output $ghtkn_setup >> $env:CACHE_PROFILE
     }
+
+    # tombi completion
+    Get-Command tombi -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache tombi completion" >> $env:CACHE_PROFILE
+        $tombi_completion = tombi completion powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $tombi_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile
