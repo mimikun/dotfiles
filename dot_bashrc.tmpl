@@ -427,6 +427,11 @@ if command -v ghtkn >/dev/null 2>&1; then
     eval "$(ghtkn completion bash)"
 fi
 
+# jiratui
+if command -v jiratui >/dev/null 2>&1; then
+    eval "$(jiratui completions bash)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

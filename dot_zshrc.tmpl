@@ -459,6 +459,11 @@ if command -v ghtkn >/dev/null 2>&1; then
     eval "$(ghtkn completion zsh)"
 fi
 
+# jiratui
+if command -v jiratui >/dev/null 2>&1; then
+    eval "$(jiratui completions zsh)"
+fi
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
