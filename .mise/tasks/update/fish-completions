@@ -195,6 +195,10 @@ if command_exist g; then
   pueue add -- "curl -L https://raw.githubusercontent.com/Equationzhao/g/master/completions/fish/g.fish -o '${COMPLETIONS_DIR}'/g.fish"
 fi
 
+if command_exist ghostty; then
+  pueue add -- "curl -L https://raw.githubusercontent.com/ghostty-org/ghostty/refs/heads/main/src/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish -o '${CONFD_DIR}'/ghostty-shell-integration.fish"
+fi
+
 for cmd in "bat" "hyperfine" "pastel"; do
   if command_exist "${cmd}"; then
     update_sharkdp_tool_completions "${cmd}"
