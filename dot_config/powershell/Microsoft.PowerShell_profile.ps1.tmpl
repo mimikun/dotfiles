@@ -399,6 +399,17 @@ if ($cond) {
         Write-Output $ghtkn_setup >> $env:CACHE_PROFILE
     }
 
+    # tod completion
+    Get-Command tod -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache tod completion" >> $env:CACHE_PROFILE
+        $tod_completion = tod shell completions power-shell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $tod_completion >> $env:CACHE_PROFILE
+    }
+
     # dotter completion
     Get-Command dotter -ErrorAction Ignore | Out-Null
     $res = $?

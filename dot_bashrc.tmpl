@@ -447,6 +447,11 @@ if command -v vectorcode >/dev/null 2>&1; then
     eval "$(vectorcode --print-completion bash)"
 fi
 
+# tod
+if command -v tod >/dev/null 2>&1; then
+    eval "$(tod shell completions bash)"
+fi
+
 # dotter
 if command -v dotter >/dev/null 2>&1; then
     eval "$(dotter gen-completions --shell bash)"
