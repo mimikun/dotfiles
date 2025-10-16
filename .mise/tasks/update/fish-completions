@@ -64,6 +64,12 @@ for cmd in "ccsum" "task"; do
   fi
 done
 
+for cmd in "atuin" "dotter"; do
+  if command_exist "${cmd}"; then
+    pueue add -- "'${cmd}' gen-completions --shell fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
+  fi
+done
+
 if command_exist bun; then
   pueue add -- "bun completions"
 fi
@@ -122,10 +128,6 @@ fi
 
 if command_exist fish-lsp; then
   pueue add -- "fish-lsp complete --fish > '${COMPLETIONS_DIR}'/fish-lsp.fish"
-fi
-
-if command_exist atuin; then
-  pueue add -- "atuin gen-completions --shell fish> '${COMPLETIONS_DIR}'/atuin.fish"
 fi
 
 if command_exist codex && envvar_exist OPENAI_API_KEY; then

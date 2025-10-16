@@ -399,6 +399,17 @@ if ($cond) {
         Write-Output $ghtkn_setup >> $env:CACHE_PROFILE
     }
 
+    # dotter completion
+    Get-Command dotter -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache dotter completion" >> $env:CACHE_PROFILE
+        $dotter_completion = dotter gen-completions --shell powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $dotter_completion >> $env:CACHE_PROFILE
+    }
+
     # tombi completion
     Get-Command tombi -ErrorAction Ignore | Out-Null
     $res = $?

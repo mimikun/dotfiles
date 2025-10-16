@@ -479,6 +479,11 @@ if command -v vectorcode >/dev/null 2>&1; then
     eval "$(vectorcode --print-completion zsh)"
 fi
 
+# dotter
+if command -v dotter >/dev/null 2>&1; then
+    eval "$(dotter gen-completions --shell zsh)"
+fi
+
 # crush
 if command -v crush >/dev/null 2>&1; then
     source <(crush completion zsh)
