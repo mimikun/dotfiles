@@ -432,6 +432,11 @@ if command -v jiratui >/dev/null 2>&1; then
     eval "$(jiratui completions bash)"
 fi
 
+# gup
+if command -v gup >/dev/null 2>&1; then
+    eval "$(gup completion bash)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}
