@@ -442,6 +442,11 @@ if command -v tombi >/dev/null 2>&1; then
     eval "$(tombi completion bash)"
 fi
 
+# vectorcode
+if command -v vectorcode >/dev/null 2>&1; then
+    eval "$(vectorcode --print-completion bash)"
+fi
+
 # crush
 if command -v crush >/dev/null 2>&1; then
     source <(crush completion bash)

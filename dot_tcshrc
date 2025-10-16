@@ -1,1 +1,2 @@
 eval `starship init tcsh`
+eval `vectorcode --print-completion tcsh`
