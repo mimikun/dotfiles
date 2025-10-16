@@ -410,6 +410,17 @@ if ($cond) {
         Write-Output $dotter_completion >> $env:CACHE_PROFILE
     }
 
+    # ghciwatch completion
+    Get-Command ghciwatch -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache ghciwatch completion" >> $env:CACHE_PROFILE
+        $ghciwatch_completion = ghciwatch --completions powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $ghciwatch_completion >> $env:CACHE_PROFILE
+    }
+
     # tombi completion
     Get-Command tombi -ErrorAction Ignore | Out-Null
     $res = $?

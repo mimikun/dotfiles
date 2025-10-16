@@ -484,6 +484,11 @@ if command -v dotter >/dev/null 2>&1; then
     eval "$(dotter gen-completions --shell zsh)"
 fi
 
+# ghciwatch
+if command -v ghciwatch >/dev/null 2>&1; then
+    eval "$(ghciwatch --completions zsh)"
+fi
+
 # crush
 if command -v crush >/dev/null 2>&1; then
     source <(crush completion zsh)

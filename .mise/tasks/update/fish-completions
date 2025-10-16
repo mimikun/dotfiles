@@ -70,6 +70,12 @@ for cmd in "atuin" "dotter"; do
   fi
 done
 
+for cmd in "ghciwatch" "srgn"; do
+  if command_exist "${cmd}"; then
+    pueue add -- "'${cmd}' --completions fish > '${COMPLETIONS_DIR}'/'${cmd}'.fish"
+  fi
+done
+
 if command_exist bun; then
   pueue add -- "bun completions"
 fi
@@ -132,10 +138,6 @@ fi
 
 if command_exist codex && envvar_exist OPENAI_API_KEY; then
   pueue add -- "codex completion fish> '${COMPLETIONS_DIR}'/codex.fish"
-fi
-
-if command_exist srgn; then
-  pueue add -- "srgn --completions fish> '${COMPLETIONS_DIR}'/srgn.fish"
 fi
 
 # install via curl
