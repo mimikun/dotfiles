@@ -389,6 +389,15 @@ if ($cond) {
         $intelli_shell_setup = intelli-shell init powershell
         Write-Output $intelli_shell_setup >> $env:CACHE_PROFILE
     }
+
+    # ghtkn setup
+    Get-Command ghtkn -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# ghtkn setup" >> $env:CACHE_PROFILE
+        $ghtkn_setup = ghtkn completion pwsh
+        Write-Output $ghtkn_setup >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile

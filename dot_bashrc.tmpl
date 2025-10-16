@@ -422,6 +422,11 @@ if command -v pymobiledevice3 >/dev/null 2>&1; then
     fi
 fi
 
+# ghtkn
+if command -v ghtkn >/dev/null 2>&1; then
+    eval "$(ghtkn completion bash)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}
