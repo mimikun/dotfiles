@@ -136,7 +136,7 @@ if command_exist fish-lsp; then
   pueue add -- "fish-lsp complete --fish > '${COMPLETIONS_DIR}'/fish-lsp.fish"
 fi
 
-if command_exist codex && envvar_exist OPENAI_API_KEY; then
+if command_exist codex; then
   pueue add -- "codex completion fish> '${COMPLETIONS_DIR}'/codex.fish"
 fi
 
