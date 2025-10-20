@@ -32,7 +32,7 @@ packages:
   - name: cli/cli@v2.82.0
   - name: cpisciotta/xcbeautify@2.30.1
   - name: dagu-org/dagu@v1.22.10
-  - name: danvergara/dblab@v0.34.0
+  - name: danvergara/dblab@v0.34.1
   - name: derailed/k9s@v0.50.16
   - name: dimonomid/nerdlog@v1.10.0
   - name: direnv/direnv@v2.37.1
