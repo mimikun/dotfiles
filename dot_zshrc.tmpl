@@ -142,16 +142,18 @@ export SPACESHIP_CONFIG="$SPACESHIP_CONFIG_DIR/spaceship.zsh"
 # pure config
 export PURE_PATH="$HOME/.zsh/pure"
 
-export GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR="$GHQ_ROOT/github.com/ghostty-org/ghostty/src"
+# Ghostty shell integration for Zsh
+#if test -n "${GHOSTTY_RESOURCES_DIR}"; then
+#    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+#fi
 
 # Ghostty shell integration for Zsh
-#if [[ -n $GHOSTTY_RESOURCES_DIR ]]; then
-#  source "$GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
-#fi
-if [[ -n $GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR]]; then
-  source "$GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR"/shell-integration/zsh/ghostty-integration
+GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR="$GHQ_ROOT/github.com/ghostty-org/ghostty/src"
+if test -n "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
+    if test -d "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
+        builtin source "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration"
+    fi
 fi
-
 
 # NOTE: shell prompt
 # starship

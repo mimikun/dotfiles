@@ -8,15 +8,18 @@ else
     echo "https://github.com/akinomyoga/ble.sh"
 fi
 
-GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR="$GHQ_ROOT/github.com/ghostty-org/ghostty/src"
-
 # Ghostty shell integration for Bash
-#if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+#if test -n "${GHOSTTY_RESOURCES_DIR}"; then
 #    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
 #fi
-#if [ -n "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}" ]; then
-#    builtin source "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
-#fi
+
+# Ghostty shell integration for Bash
+GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR="$GHQ_ROOT/github.com/ghostty-org/ghostty/src"
+if test -n "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
+    if test -d "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
+        builtin source "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+    fi
+fi
 
 # All platform 共通
 export EDITOR=nvim
