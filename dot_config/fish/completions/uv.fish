@@ -2022,6 +2022,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-version-specifiers -d 'Whether to display the version specifier(s) used to install each tool'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-with -d 'Whether to display the additional requirements installed with each tool'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-extras -d 'Whether to display the extra requirements installed with each tool'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l show-python -d 'Whether to display the Python version associated with run each tool'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-python-downloads
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l managed-python -d 'Require use of uv-managed Python versions'
@@ -2661,6 +2662,7 @@ x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-emit-package -d 'Specify a package to omit from the output resolution. Its dependencies will still be included in the resolution. Equivalent to pip-compile\'s `--unsafe-package` option' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu130\t'Use the PyTorch index for CUDA 13.0'
 cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
@@ -2870,6 +2872,7 @@ arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu130\t'Use the PyTorch index for CUDA 13.0'
 cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
@@ -3074,6 +3077,7 @@ arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
+cu130\t'Use the PyTorch index for CUDA 13.0'
 cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
