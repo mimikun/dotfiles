@@ -474,9 +474,9 @@ fi
 
 # wtp
 if command -v wtp >/dev/null 2>&1; then
-    eval "$(wtp completion bash)"
+    eval "$(wtp shell-init bash)"
+    #eval "$(wtp completion bash)"
     #eval "$(wtp hook bash)"
-    #eval "$(wtp shell-init bash)"
 fi
 
 {{ else if (eq .chezmoi.os "darwin") -}}

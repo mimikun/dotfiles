@@ -635,9 +635,9 @@ if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
     # wtp
     if command -v wtp >/dev/null 2>&1
         echo "# cache wtp initialize" >> $CACHE_CONFIG_FISH
-        echo "wtp completion fish | source" >> $CACHE_CONFIG_FISH
+        echo "wtp shell-init fish | source" >> $CACHE_CONFIG_FISH
+        #echo "wtp completion fish | source" >> $CACHE_CONFIG_FISH
         #echo "wtp hook fish | source" >> $CACHE_CONFIG_FISH
-        #echo "wtp shell-init fish | source" >> $CACHE_CONFIG_FISH
     end
 
     # work pc only tools

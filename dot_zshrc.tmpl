@@ -506,9 +506,9 @@ fi
 
 # wtp
 if command -v wtp >/dev/null 2>&1; then
-    eval "$(wtp completion zsh)"
+    eval "$(wtp shell-init zsh)"
+    #eval "$(wtp completion zsh)"
     #eval "$(wtp hook zsh)"
-    #eval "$(wtp shell-init zsh)"
 fi
 
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
