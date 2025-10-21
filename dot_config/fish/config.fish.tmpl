@@ -660,7 +660,7 @@ atuin init fish | sed "s/bind -M insert -k up _atuin_bind_up/bind -M insert up _
 # TODO: WORK IN PROGRESS
 # If you can enable zeno feature, run `set -Ux USE_ZENO true`
 # disable zeno feature, run `set -e USE_ZENO`
-if test -q "$USE_ZENO"
+if set -q USE_ZENO
     if test "$ZENO_LOADED" = "1"
         bind -M insert space zeno-auto-snippet
         bind -M insert \r zeno-auto-snippet-and-accept-line
