@@ -1,7 +1,7 @@
 ---
 packages:
   # Multi version
-  - name: PowerShell/PowerShell@v7.5.3
+  - name: PowerShell/PowerShell@v7.5.4
   - name: PowerShell/PowerShell
     version: v7.6.0-preview.4
     command_aliases:
