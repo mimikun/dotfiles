@@ -658,14 +658,14 @@ atuin init fish | sed "s/bind -M insert -k up _atuin_bind_up/bind -M insert up _
 #test ! -e "$HOME/.x-cmd.root/local/data/fish/rc.fish" || source "$HOME/.x-cmd.root/local/data/fish/rc.fish" # boot up x-cmd.
 
 # TODO: WORK IN PROGRESS
-set -x USE_ZENO 0 # false
-
-if test "$USE_ZENO" = "1"
+# If you can enable zeno feature, run `set -Ux USE_ZENO true`
+# disable zeno feature, run `set -e USE_ZENO`
+if test -q "$USE_ZENO"
     if test "$ZENO_LOADED" = "1"
-        bind ' ' zeno-auto-snippet
-        bind \r zeno-auto-snippet-and-accept-line
-        bind \t zeno-completion
-        bind \cx\x20 zeno-insert-space
+        bind -M insert space zeno-auto-snippet
+        bind -M insert \r zeno-auto-snippet-and-accept-line
+        bind -M insert \t zeno-completion
+        bind -M insert \cx\x20 zeno-insert-space
     end
 end
 
