@@ -1,0 +1,9 @@
+---
+comment_regex: (?i)TODO
+datetime_format: '%Y/%m/%d'
+search_directory: .
+remind_if_no_date: true
+validates:
+  datetime:
+    format: '%Y/%m/%d'
+
