@@ -4,7 +4,7 @@ export default defineConfig(({ projectRoot, currentDirectory }) => ({
   snippets: [
     {
       name: "git status",
-      keyword: "gs",
+      keyword: "gst",
       snippet: "git status --short --branch",
     },
     // TODO: add it
