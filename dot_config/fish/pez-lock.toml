@@ -108,20 +108,6 @@ dir = "functions"
 name = "_na.fish"
 
 [[plugins]]
-name = "fisher"
-repo = "jorgebucaran/fisher"
-source = "https://github.com/jorgebucaran/fisher"
-commit_sha = "1f0dc2b4970da160605638cb0f157079660d6e04"
-
-[[plugins.files]]
-dir = "functions"
-name = "fisher.fish"
-
-[[plugins.files]]
-dir = "completions"
-name = "fisher.fish"
-
-[[plugins]]
 name = "fish-evalcache"
 repo = "kyohsuke/fish-evalcache"
 source = "https://github.com/kyohsuke/fish-evalcache"
@@ -161,7 +147,7 @@ name = "forgit.plugin.fish"
 name = "zeno.zsh"
 repo = "yuki-yano/zeno.zsh"
 source = "https://github.com/yuki-yano/zeno.zsh"
-commit_sha = "391dd71bda5842cbec76ca992170712e9ffa96fb"
+commit_sha = "06087e64eddee79f88994c74fbe01d7d2ae4f2ae"
 
 [[plugins.files]]
 dir = "conf.d"

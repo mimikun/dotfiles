@@ -120,7 +120,7 @@ $TempMyOutputEncode=[System.Console]::OutputEncoding
 if ($gpg) {
     $gpg_patch_name = "$patch_name.gpg"
     Write-Output "gpg patch file name: $gpg_patch_name"
-    #git diff "$default_remote/$default_branch" | 
+    #git diff "$default_remote/$default_branch" |
     #gpg --encrypt --recipient "$gpg_pub_key" >"$gpg_patch_name"
     Write-Output "Windows is not gpg support!"
 } else {
@@ -239,7 +239,7 @@ host_name=$(cat /etc/hostname)
 
 # fish
 cp ~/.config/fish/completions/* ./dot_config/fish/completions/
-cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
+#cp ~/.config/fish/fish_plugins ./dot_config/fish/fish_plugins
 cp ~/.config/fish/pez-lock.toml ./dot_config/fish/pez-lock.toml
 
 # yazi-fm

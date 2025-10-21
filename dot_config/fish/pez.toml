@@ -32,7 +32,4 @@ repo = "ryoppippi/na.fish"
 repo = "wfxr/forgit"
 
 [[plugins]]
-repo = "jorgebucaran/fisher"
-
-[[plugins]]
 repo = "yuki-yano/zeno.zsh"
