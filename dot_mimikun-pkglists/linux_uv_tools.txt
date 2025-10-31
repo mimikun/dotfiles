@@ -2,6 +2,7 @@ aider-chat
 bagels
 cloctui
 dhv
+dotbins
 euporie
 exosphere-cli
 isd-tui
