@@ -32,6 +32,7 @@ cargo-cache
 cargo-deny
 cargo-edit
 cargo-fuzz
+cargo-geiger
 cargo-license
 cargo-llvm-cov
 cargo-make
@@ -192,6 +193,7 @@ nu_plugin_inc
 nu_plugin_polars
 nu_plugin_query
 nvrs
+octotype
 onefetch
 os_info_cli
 osintui
