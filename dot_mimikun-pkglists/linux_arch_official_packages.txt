@@ -78,6 +78,7 @@ linux-firmware
 llvm
 mailcap
 mandoc
+lsof
 menyoki
 meson
 mingw-w64-gcc
