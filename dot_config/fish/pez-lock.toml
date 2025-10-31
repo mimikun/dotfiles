@@ -142,13 +142,3 @@ name = "git-forgit.bash"
 [[plugins.files]]
 dir = "conf.d"
 name = "forgit.plugin.fish"
-
-[[plugins]]
-name = "zeno.zsh"
-repo = "yuki-yano/zeno.zsh"
-source = "https://github.com/yuki-yano/zeno.zsh"
-commit_sha = "06087e64eddee79f88994c74fbe01d7d2ae4f2ae"
-
-[[plugins.files]]
-dir = "conf.d"
-name = "zeno.fish"

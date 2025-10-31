@@ -30,6 +30,3 @@ repo = "ryoppippi/na.fish"
 
 [[plugins]]
 repo = "wfxr/forgit"
-
-[[plugins]]
-repo = "yuki-yano/zeno.zsh"
