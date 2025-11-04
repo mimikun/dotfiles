@@ -1,6 +1,7 @@
 aider-chat
 bagels
 cloctui
+cronboard
 dhv
 dotbins
 euporie
