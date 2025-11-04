@@ -85,6 +85,7 @@ mingw-w64-gcc
 nano
 neovim
 networkmanager
+nethogs
 network-manager-applet
 nitrogen
 nm-connection-editor
@@ -111,6 +112,7 @@ polybar
 poppler
 prismlauncher
 protobuf
+python-hatch
 ranger
 reflector
 resvg
