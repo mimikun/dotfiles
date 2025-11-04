@@ -140,6 +140,8 @@ contourpy
 cookiecutter
 crashtest
 crcmod
+cron_descriptor
+croniter
 cryptography
 csvkit
 cycler
@@ -514,6 +516,7 @@ pyperclip
 pyproject_hooks
 pyspnego
 pyte
+python-crontab
 python-dateutil
 python-docx
 python-doi
