@@ -125,19 +125,11 @@ name = "_evalcache_clear.fish"
 name = "forgit"
 repo = "wfxr/forgit"
 source = "https://github.com/wfxr/forgit"
-commit_sha = "2a4e2e53b70f7f517475bb6c088650a374d45cd0"
-
-[[plugins.files]]
-dir = "completions"
-name = "_git-forgit"
+commit_sha = "eae60c13733721ebaf704b381d1dfcea5282c79e"
 
 [[plugins.files]]
 dir = "completions"
 name = "git-forgit.fish"
-
-[[plugins.files]]
-dir = "completions"
-name = "git-forgit.bash"
 
 [[plugins.files]]
 dir = "conf.d"
