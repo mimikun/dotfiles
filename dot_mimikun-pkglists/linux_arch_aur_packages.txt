@@ -10,6 +10,7 @@ neofetch
 murex
 murex-debug
 nkf
+nitrogen
 nvrs
 paru
 paru-debug
@@ -17,6 +18,7 @@ scooter
 shikai-theme
 slack-desktop
 tetrio-desktop
+tinifier
 tracker
 t-rec
 ttf-udev-gothic
