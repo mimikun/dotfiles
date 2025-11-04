@@ -199,6 +199,7 @@ os_info_cli
 osintui
 ouch
 outside
+oxdraw
 oxker
 parallel-disk-usage
 passepartui
@@ -229,6 +230,7 @@ rioterm
 rip2
 ripgrep
 ripgrep_all
+ron-lsp
 rrc
 rscls
 rucola-notes
@@ -302,6 +304,7 @@ viu
 vscli
 watchexec-cli
 wireman
+wisu
 wthrr
 xan
 xbps-tui
