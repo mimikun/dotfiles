@@ -9,6 +9,7 @@
 @openai/codex
 @qwen-code/qwen-code
 @sasazame/ccresume
+@thekarel/rum
 @vibe-kit/grok-cli
 actions-up
 backlog.md
