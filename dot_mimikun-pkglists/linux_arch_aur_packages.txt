@@ -5,6 +5,7 @@ ereandel
 gforth
 google-chrome
 glide-browser-bin
+mcat-bin
 morisawa-biz-ud-gothic-fonts
 neofetch
 murex
