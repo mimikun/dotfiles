@@ -109,7 +109,7 @@ packages:
   - name: neilotoole/sq@v0.48.5
   - name: nil0x42/dnsanity@v1.4.0
   - name: osteele/gojekyll@v0.2.16
-  - name: pamburus/hl@v0.32.1
+  - name: pamburus/hl@v0.32.2
   - name: peco/peco@v0.5.11
   - name: pkgxdev/pkgx@v2.7.0
   - name: pomdtr/sunbeam@v1.0.1
