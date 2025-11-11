@@ -234,6 +234,7 @@ ron-lsp
 rrc
 rscls
 rucola-notes
+rumdl
 rustfinity
 rustormy
 rustscan
