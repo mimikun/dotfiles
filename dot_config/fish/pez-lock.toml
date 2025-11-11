@@ -88,16 +88,6 @@ dir = "functions"
 name = "getopts.fish"
 
 [[plugins]]
-name = "gh-copilot-cli-alias.fish"
-repo = "rcny/gh-copilot-cli-alias.fish"
-source = "https://github.com/rcny/gh-copilot-cli-alias.fish"
-commit_sha = "b4155ef3127e001a93117af71665cf99c4edb3ce"
-
-[[plugins.files]]
-dir = "conf.d"
-name = "gh-copilot-cli-alias.fish"
-
-[[plugins]]
 name = "na.fish"
 repo = "ryoppippi/na.fish"
 source = "https://github.com/ryoppippi/na.fish"
@@ -134,3 +124,13 @@ name = "git-forgit.fish"
 [[plugins.files]]
 dir = "conf.d"
 name = "forgit.plugin.fish"
+
+[[plugins]]
+name = "gh-copilot-cli-alias.fish"
+repo = "rcny/gh-copilot-cli-alias.fish"
+source = "https://github.com/rcny/gh-copilot-cli-alias.fish"
+commit_sha = "f1f14572ec80cc39526c3ab1e8a4afd802a4312a"
+
+[[plugins.files]]
+dir = "conf.d"
+name = "gh-copilot-cli-alias.fish"
