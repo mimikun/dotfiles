@@ -310,6 +310,7 @@ wthrr
 xan
 xbps-tui
 xh
+xleak
 xsv
 yazi-cli
 yazi-fm
