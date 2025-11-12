@@ -15,6 +15,7 @@ nitrogen
 nvrs
 paru
 paru-debug
+podliner-bin
 scooter
 shikai-theme
 slack-desktop
