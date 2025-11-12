@@ -125,6 +125,7 @@ click-repl
 cloudpickle
 clr_loader
 cobble
+cobib
 colorama
 colored
 coloredlogs
