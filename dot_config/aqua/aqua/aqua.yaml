@@ -44,6 +44,7 @@ packages:
   - name: editorconfig-checker/editorconfig-checker@v3.4.1
   - name: evilmartians/lefthook@v2.0.3
   - name: fastfetch-cli/fastfetch@2.55.0
+  - name: ffuf/ffuf@v2.1.0
   - name: FiloSottile/age@v1.2.1
   - name: git-bug/git-bug@v0.10.1
   - name: gitleaks/gitleaks@v8.29.0
