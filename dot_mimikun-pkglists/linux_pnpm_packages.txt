@@ -22,6 +22,7 @@ commitizen
 cz-conventional-changelog-ja
 editprompt
 envinfo
+git-rewrite-commits
 git-truck
 httpyac
 jfq
