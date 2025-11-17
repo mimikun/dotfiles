@@ -80,7 +80,8 @@ complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s U -l update-al
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s r -l rule -d 'Scan the codebase with the single rule located at the path RULE_FILE' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l inline-rules -d 'Scan the codebase with a rule defined by the provided RULE_TEXT' -r
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l format -d 'Output warning/error messages in GitHub Action format' -r -f -a "github\t''"
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l format -d 'Output warning/error messages in different formats' -r -f -a "github\t''
+sarif\t''"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l report-style -r -f -a "rich\t'Output a richly formatted diagnostic, with source code previews'
 medium\t'Output a condensed diagnostic, with a line number, severity, message and notes (if any)'
 short\t'Output a short diagnostic, with a line number, severity, and message'"
