@@ -49,7 +49,6 @@ if is_azusa then
     nyagos.envadd("XMODIFIERS", nyagos.getenv("XMODIFIERS") or "@im=fcitx")
     -- CapsLock to Ctrl
     nyagos.eval("setxkbmap -option ctrl:nocaps")
-    -- TODO: set browser name
     nyagos.envadd("BROWSER", nyagos.getenv("BROWSER") or "vivaldi")
 else
     nyagos.envadd("BROWSER", nyagos.getenv("BROWSER") or "wsl-open")
