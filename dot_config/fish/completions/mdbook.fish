@@ -41,27 +41,26 @@ complete -c mdbook -n "__fish_mdbook_using_subcommand init" -l theme -d 'Copies 
 complete -c mdbook -n "__fish_mdbook_using_subcommand init" -l force -d 'Skips confirmation prompts'
 complete -c mdbook -n "__fish_mdbook_using_subcommand init" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand init" -s V -l version -d 'Print version'
-complete -c mdbook -n "__fish_mdbook_using_subcommand build" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
+complete -c mdbook -n "__fish_mdbook_using_subcommand build" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the current directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
 complete -c mdbook -n "__fish_mdbook_using_subcommand build" -s o -l open -d 'Opens the compiled book in a web browser'
 complete -c mdbook -n "__fish_mdbook_using_subcommand build" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand build" -s V -l version -d 'Print version'
-complete -c mdbook -n "__fish_mdbook_using_subcommand test" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
 complete -c mdbook -n "__fish_mdbook_using_subcommand test" -s c -l chapter -r
 complete -c mdbook -n "__fish_mdbook_using_subcommand test" -s L -l library-path -d 'A comma-separated list of directories to add to the crate search path when building tests' -r
 complete -c mdbook -n "__fish_mdbook_using_subcommand test" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand test" -s V -l version -d 'Print version'
-complete -c mdbook -n "__fish_mdbook_using_subcommand clean" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
+complete -c mdbook -n "__fish_mdbook_using_subcommand clean" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the current directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
 complete -c mdbook -n "__fish_mdbook_using_subcommand clean" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand clean" -s V -l version -d 'Print version'
 complete -c mdbook -n "__fish_mdbook_using_subcommand completions" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand completions" -s V -l version -d 'Print version'
-complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
+complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the current directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -l watcher -d 'The filesystem watching technique' -r -f -a "poll\t''
 native\t''"
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s o -l open -d 'Opens the compiled book in a web browser'
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s h -l help -d 'Print help'
 complete -c mdbook -n "__fish_mdbook_using_subcommand watch" -s V -l version -d 'Print version'
-complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the book\'s root directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
+complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s d -l dest-dir -d 'Output directory for the book Relative paths are interpreted relative to the current directory. If omitted, mdBook uses build.build-dir from book.toml or defaults to `./book`.' -r -F
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s n -l hostname -d 'Hostname to listen on for HTTP connections' -r
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -s p -l port -d 'Port to use for HTTP connections' -r
 complete -c mdbook -n "__fish_mdbook_using_subcommand serve" -l watcher -d 'The filesystem watching technique' -r -f -a "poll\t''
