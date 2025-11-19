@@ -1,5 +1,6 @@
 @aku11i/phantom
 @antinomyhq/forge
+@augmentcode/auggie
 @continuedev/cli
 @github/copilot
 @google/gemini-cli
