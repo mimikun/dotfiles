@@ -11,5 +11,6 @@ jiratui
 lexy
 llm
 parllama
+sot
 squall-sql
 ty
