@@ -19,6 +19,7 @@ renux
 rsyncy
 sherlock-project
 shotgun-sh
+starlit-cli
 terminaltexteffects
 tofuref
 tombi
