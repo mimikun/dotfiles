@@ -97,6 +97,7 @@ felix
 feluda
 fend
 ferium
+filessh
 flamegraph
 flamelens
 flawz
@@ -111,6 +112,7 @@ ghciwatch
 git-delta
 git-graph
 git-interactive-rebase-tool
+gitlogue
 gitnr
 gittype
 gitu
@@ -255,6 +257,7 @@ similarity-ts
 skim
 slumber
 smartcat
+snipt
 so
 somo
 soundscope
