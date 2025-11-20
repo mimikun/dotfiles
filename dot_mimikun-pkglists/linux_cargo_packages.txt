@@ -19,6 +19,7 @@ bitchat-tui
 blogr-cli
 bluetui
 bmm
+boa_cli
 bob-nvim
 bottom
 bpf-linker
