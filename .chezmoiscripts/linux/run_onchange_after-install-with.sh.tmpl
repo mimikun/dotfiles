@@ -1,0 +1,9 @@
+{{ if (eq .chezmoi.os "linux") -}}
+
+#!/bin/bash
+
+curl -s https://raw.githubusercontent.com/mchav/with/master/install | bash
+
+# vim:ft=bash.chezmoitmpl
+
+{{ end -}}
