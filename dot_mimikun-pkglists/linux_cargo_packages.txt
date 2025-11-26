@@ -182,6 +182,7 @@ mise
 mocword
 monolith
 motus
+mq-run
 natls
 navi
 ncspot
@@ -289,6 +290,7 @@ theattyr
 tmux-rs
 tod
 tokei
+toktop
 toml2json
 topgrade
 trashy
@@ -296,6 +298,7 @@ t-rec
 tre-command
 treefmt
 tree-sitter-cli
+treemd
 tui-journal
 tuisky
 tukai
