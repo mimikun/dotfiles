@@ -1,5 +1,6 @@
 @aku11i/phantom
 @antinomyhq/forge
+@ast-grep/cli
 @augmentcode/auggie
 @continuedev/cli
 @github/copilot
