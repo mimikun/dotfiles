@@ -13,4 +13,5 @@ llm
 parllama
 sot
 squall-sql
+turm
 ty
