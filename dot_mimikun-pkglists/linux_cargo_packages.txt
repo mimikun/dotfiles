@@ -137,6 +137,7 @@ hygg
 hyperfine
 hysp
 i3-style
+ibtop
 igrep
 imdl
 impala
@@ -198,6 +199,7 @@ nu_plugin_polars
 nu_plugin_query
 nvrs
 octotype
+oeis-tui
 onefetch
 os_info_cli
 osintui
@@ -302,6 +304,7 @@ treemd
 tui-journal
 tuisky
 tukai
+turm
 typos-cli
 typst-cli
 tzupdate
