@@ -52,7 +52,7 @@ packages:
   - name: gleam-lang/gleam@v1.13.0
   - name: go-delve/delve@v1.25.2
   - name: gokcehan/lf@r38
-  - name: golangci/golangci-lint@v2.6.2
+  - name: golangci/golangci-lint@v2.7.0
   - name: golang/go@go1.25.5
   - name: golang.org/x/tools/gopls@v0.20.0
   - name: golang/tools/goimports@v0.39.0
