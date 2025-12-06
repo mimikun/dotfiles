@@ -167,3 +167,4 @@ xterm
 xorg-setxkbmap
 zip
 zram-generator
+zsh
