@@ -677,4 +677,14 @@ end
 # see: https://github.com/ajeetdsouza/zoxide#installation
 zoxide init fish | source
 
+# nix activate script
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") }}
+# WORK-PC is Disabled nix now.
+{{ else -}}
+{{ if (ne .chezmoi.hostname "azusa") -}}
+source /nix/var/nix/profiles/default/etc/profile.d/nix.fish
+set -x PATH $HOME/.nix-profile/bin $PATH
+{{ end -}}
+{{ end -}}
+
 # vim:ft=fish.chezmoitmpl
