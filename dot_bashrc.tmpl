@@ -482,6 +482,11 @@ if command -v wtp >/dev/null 2>&1; then
     #eval "$(wtp hook bash)"
 fi
 
+# turm
+if command -v turm >/dev/null 2>&1; then
+    eval "$(turm completion bash)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

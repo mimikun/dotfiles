@@ -513,6 +513,11 @@ if command -v wtp >/dev/null 2>&1; then
     #eval "$(wtp hook zsh)"
 fi
 
+# turm
+if command -v turm >/dev/null 2>&1; then
+    eval "$(turm completion bash)"
+fi
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
