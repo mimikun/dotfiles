@@ -460,6 +460,15 @@ if ($cond) {
         $jump_setup = jump shell pwsh
         Write-Output $jump_setup >> $env:CACHE_PROFILE
     }
+
+    # ov completion
+    Get-Command ov -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# ov completion" >> $env:CACHE_PROFILE
+        $ov_completion = ov --completion powershell
+        Write-Output $ov_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile
