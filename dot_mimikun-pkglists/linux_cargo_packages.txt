@@ -104,6 +104,7 @@ flamelens
 flawz
 flowrs-tui
 forgejo-cli
+fresh-editor
 fselect
 ftdv
 genact
