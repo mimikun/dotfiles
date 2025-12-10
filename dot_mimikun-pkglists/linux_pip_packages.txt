@@ -501,6 +501,7 @@ pydub
 pyee
 pyflakes
 pygit2
+pygitzen
 pyglet
 pyglm
 pygnuutils
