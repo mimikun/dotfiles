@@ -518,6 +518,11 @@ if command -v turm >/dev/null 2>&1; then
     eval "$(turm completion zsh)"
 fi
 
+# dnspyre
+if command -v dnspyre >/dev/null 2>&1; then
+    eval "$(dnspyre --completion-script-zsh)"
+fi
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
