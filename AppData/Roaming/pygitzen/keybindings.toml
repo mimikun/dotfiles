@@ -1,0 +1,23 @@
+[app]
+# App-level keybindings
+# (add bindings here)
+
+[panes.branches]
+# Branches pane keybindings
+# (add bindings here)
+
+[panes.commits]
+# Commits pane keybindings
+# (add bindings here)
+
+[panes.stash]
+# Stash pane keybindings
+# (add bindings here)
+
+[panes.tags]
+# Tags pane keybindings
+# (add bindings here)
+
+[panes.remotes]
+# Remotes pane keybindings
+# (add bindings here)
