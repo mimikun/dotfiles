@@ -125,7 +125,7 @@ name = "gh-copilot-cli-alias.fish"
 name = "forgit"
 repo = "wfxr/forgit"
 source = "https://github.com/wfxr/forgit"
-commit_sha = "b9ed7bc40e697b67da34cd9d68743dfc3b29fc1e"
+commit_sha = "76506fc3da3cc5a720dce0084816f3be83d548cb"
 
 [[plugins.files]]
 dir = "completions"
