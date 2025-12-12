@@ -1050,7 +1050,6 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l directory -d 'Change to t
 complete -c uv -n "__fish_uv_using_subcommand lock" -l project -d 'Run the command within the given project directory' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand lock" -l check -d 'Check if the lockfile is up-to-date'
-complete -c uv -n "__fish_uv_using_subcommand lock" -l locked -d 'Check if the lockfile is up-to-date'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l check-exists -d 'Assert that a `uv.lock` exists without checking if it is up-to-date'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l dry-run -d 'Perform a dry run, without writing the lockfile'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
@@ -2663,7 +2662,6 @@ x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-emit-package -d 'Specify a package to omit from the output resolution. Its dependencies will still be included in the resolution. Equivalent to pip-compile\'s `--unsafe-package` option' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
-cu130\t'Use the PyTorch index for CUDA 13.0'
 cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
@@ -2873,7 +2871,6 @@ arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
-cu130\t'Use the PyTorch index for CUDA 13.0'
 cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
@@ -3078,7 +3075,6 @@ arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l torch-backend -d 'The backend to use when fetching packages in the PyTorch ecosystem (e.g., `cpu`, `cu126`, or `auto`)' -r -f -a "auto\t'Select the appropriate PyTorch index based on the operating system and CUDA driver version'
 cpu\t'Use the CPU-only PyTorch index'
-cu130\t'Use the PyTorch index for CUDA 13.0'
 cu129\t'Use the PyTorch index for CUDA 12.9'
 cu128\t'Use the PyTorch index for CUDA 12.8'
 cu126\t'Use the PyTorch index for CUDA 12.6'
@@ -3666,9 +3662,6 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l list -d 'When using the 
 complete -c uv -n "__fish_uv_using_subcommand build" -l build-logs
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-logs -d 'Hide logs from the build backend'
 complete -c uv -n "__fish_uv_using_subcommand build" -l force-pep517 -d 'Always build through PEP 517, don\'t use the fast path for the uv build backend'
-complete -c uv -n "__fish_uv_using_subcommand build" -l clear -d 'Clear the output directory before the build, removing stale artifacts'
-complete -c uv -n "__fish_uv_using_subcommand build" -l create-gitignore
-complete -c uv -n "__fish_uv_using_subcommand build" -l no-create-gitignore -d 'Do not create a `.gitignore` file in the output directory'
 complete -c uv -n "__fish_uv_using_subcommand build" -l require-hashes -d 'Require a matching hash for each requirement'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-require-hashes
 complete -c uv -n "__fish_uv_using_subcommand build" -l verify-hashes

@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_pez_global_optspecs
-	string join \n h/help V/version
+	string join \n v/verbose jobs= h/help V/version
 end
 
 function __fish_pez_needs_command
@@ -24,6 +24,8 @@ function __fish_pez_using_subcommand
 	contains -- $cmd[1] $argv
 end
 
+complete -c pez -n "__fish_pez_needs_command" -l jobs -d 'Override job concurrency for clone/upgrade/prune operations (default: 4 when unset)' -r
+complete -c pez -n "__fish_pez_needs_command" -s v -l verbose -d 'Increase output verbosity (-v for info, -vv for debug)'
 complete -c pez -n "__fish_pez_needs_command" -s h -l help -d 'Print help'
 complete -c pez -n "__fish_pez_needs_command" -s V -l version -d 'Print version'
 complete -c pez -n "__fish_pez_needs_command" -f -a "init" -d 'Initialize pez'
@@ -33,15 +35,23 @@ complete -c pez -n "__fish_pez_needs_command" -f -a "upgrade" -d 'Upgrade instal
 complete -c pez -n "__fish_pez_needs_command" -f -a "list" -d 'List installed fish plugins'
 complete -c pez -n "__fish_pez_needs_command" -f -a "prune" -d 'Prune uninstalled plugins'
 complete -c pez -n "__fish_pez_needs_command" -f -a "completions" -d 'Generate shell completion scripts'
+complete -c pez -n "__fish_pez_needs_command" -f -a "doctor" -d 'Diagnose common setup issues'
+complete -c pez -n "__fish_pez_needs_command" -f -a "migrate" -d 'Migrate from fisher (reads fish_plugins)'
 complete -c pez -n "__fish_pez_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pez -n "__fish_pez_using_subcommand init" -s h -l help -d 'Print help'
 complete -c pez -n "__fish_pez_using_subcommand install" -s f -l force -d 'Force install even if the plugin is already installed'
 complete -c pez -n "__fish_pez_using_subcommand install" -s p -l prune -d 'Prune uninstalled plugins'
 complete -c pez -n "__fish_pez_using_subcommand install" -s h -l help -d 'Print help'
 complete -c pez -n "__fish_pez_using_subcommand uninstall" -s f -l force -d 'Force uninstall even if the plugin data directory does not exist'
+complete -c pez -n "__fish_pez_using_subcommand uninstall" -l stdin -d 'Read plugin repos from stdin (one per line)'
 complete -c pez -n "__fish_pez_using_subcommand uninstall" -s h -l help -d 'Print help'
 complete -c pez -n "__fish_pez_using_subcommand upgrade" -s h -l help -d 'Print help'
-complete -c pez -n "__fish_pez_using_subcommand list" -l format -d 'List format' -r -f -a "table\t''"
+complete -c pez -n "__fish_pez_using_subcommand list" -l format -d 'List format' -r -f -a "plain\t''
+table\t''
+json\t''"
+complete -c pez -n "__fish_pez_using_subcommand list" -l filter -d 'Filter plugins by source kind' -r -f -a "all\t''
+local\t''
+remote\t''"
 complete -c pez -n "__fish_pez_using_subcommand list" -l outdated -d 'Show only outdated plugins'
 complete -c pez -n "__fish_pez_using_subcommand list" -s h -l help -d 'Print help'
 complete -c pez -n "__fish_pez_using_subcommand prune" -s f -l force -d 'Force prune even if the plugin data directory does not exist'
@@ -49,11 +59,19 @@ complete -c pez -n "__fish_pez_using_subcommand prune" -l dry-run -d 'Dry run wi
 complete -c pez -n "__fish_pez_using_subcommand prune" -s y -l yes -d 'Confirm all prompts'
 complete -c pez -n "__fish_pez_using_subcommand prune" -s h -l help -d 'Print help'
 complete -c pez -n "__fish_pez_using_subcommand completions" -s h -l help -d 'Print help'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "init" -d 'Initialize pez'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "install" -d 'Install fish plugin(s)'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "uninstall" -d 'Uninstall fish plugin(s)'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "upgrade" -d 'Upgrade installed fish plugin(s)'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "list" -d 'List installed fish plugins'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "prune" -d 'Prune uninstalled plugins'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "completions" -d 'Generate shell completion scripts'
-complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pez -n "__fish_pez_using_subcommand doctor" -l format -d 'Output format' -r -f -a "json\t''"
+complete -c pez -n "__fish_pez_using_subcommand doctor" -s h -l help -d 'Print help'
+complete -c pez -n "__fish_pez_using_subcommand migrate" -l dry-run -d 'Do not write files; print planned changes'
+complete -c pez -n "__fish_pez_using_subcommand migrate" -l force -d 'Overwrite existing pez.toml plugin list instead of merging'
+complete -c pez -n "__fish_pez_using_subcommand migrate" -l install -d 'Immediately install migrated plugins'
+complete -c pez -n "__fish_pez_using_subcommand migrate" -s h -l help -d 'Print help'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "init" -d 'Initialize pez'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "install" -d 'Install fish plugin(s)'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "uninstall" -d 'Uninstall fish plugin(s)'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "upgrade" -d 'Upgrade installed fish plugin(s)'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "list" -d 'List installed fish plugins'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "prune" -d 'Prune uninstalled plugins'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "completions" -d 'Generate shell completion scripts'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "doctor" -d 'Diagnose common setup issues'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "migrate" -d 'Migrate from fisher (reads fish_plugins)'
+complete -c pez -n "__fish_pez_using_subcommand help; and not __fish_seen_subcommand_from init install uninstall upgrade list prune completions doctor migrate help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
