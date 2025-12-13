@@ -51,11 +51,11 @@ packages:
   - name: gitleaks/gitleaks@v8.30.0
   - name: gleam-lang/gleam@v1.13.0
   - name: go-delve/delve@v1.25.2
-  - name: gokcehan/lf@r39
+  - name: gokcehan/lf@r40
   - name: golangci/golangci-lint@v2.7.2
   - name: golang/go@go1.25.5
   - name: golang.org/x/tools/gopls@v0.21.0
-  - name: golang/tools/goimports@v0.39.0
+  - name: golang/tools/goimports@v0.40.0
   - name: golang/tools/gorename@v0.25.0
   - name: google/osv-scanner@v2.3.1
   - name: google/yamlfmt@v0.20.0
