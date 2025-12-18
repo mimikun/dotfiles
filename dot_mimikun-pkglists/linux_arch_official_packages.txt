@@ -50,6 +50,7 @@ go
 graphicsmagick
 gst-plugin-pipewire
 helix
+himalaya
 htop
 httpie
 i3blocks
