@@ -19,11 +19,13 @@ renux
 rsyncy
 sherlock-project
 shotgun-sh
+sqlit-tui
 starlit-cli
 terminaltexteffects
 tofuref
 tombi
 toolong
 trash-cli
+ty
 vectorcode
 wut-cli
