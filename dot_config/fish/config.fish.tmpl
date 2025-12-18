@@ -352,8 +352,10 @@ set -x PATH $FISH_CONFIG_DIR/conf.d/bin $PATH
 set -x FORGIT_NO_ALIASES true
 
 # Claude Desktop
+{{ if (ne .chezmoi.hostname "azusa") -}}
 set -x CLAUDE_DESKTOP_PATH $WIN_HOME/AppData/Roaming/Claude.json
 set -x CLAUDE_DESKTOP_CONFIG $CLAUDE_DESKTOP_PATH/claude_desktop_config.json
+{{ end -}}
 
 # depot
 set -x DEPOT_INSTALL_DIR "$HOME/.depot/bin"
