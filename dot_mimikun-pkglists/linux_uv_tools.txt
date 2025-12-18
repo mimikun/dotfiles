@@ -12,6 +12,7 @@ lexy
 llm
 parllama
 sot
+sqlit-tui
 squall-sql
 turm
 ty
