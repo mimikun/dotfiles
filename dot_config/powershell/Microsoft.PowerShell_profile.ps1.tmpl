@@ -469,6 +469,17 @@ if ($cond) {
         $ov_completion = ov --completion powershell
         Write-Output $ov_completion >> $env:CACHE_PROFILE
     }
+
+    # ty completion
+    Get-Command ty -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache ty completion" >> $env:CACHE_PROFILE
+        $ty_completion = ty generate-shell-completion powershell |
+            ForEach-Object { $_ -replace $namespace1, "" } |
+            ForEach-Object { $_ -replace $namespace2, "" }
+        Write-Output $ty_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile
