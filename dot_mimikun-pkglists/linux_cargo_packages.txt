@@ -130,6 +130,7 @@ hex-patch
 hexhog
 hexyl
 hf
+himalaya
 hk
 hoard-rs
 ht
@@ -243,6 +244,7 @@ rscls
 rucola-notes
 rumdl
 rustfinity
+rusticon
 rustormy
 rustscan
 rust-script
@@ -273,6 +275,7 @@ sshx
 starship
 stu
 stylua
+superseedr
 swaptop
 systemctl-tui
 systemd-manager-tui
