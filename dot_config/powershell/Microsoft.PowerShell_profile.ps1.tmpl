@@ -307,17 +307,6 @@ if ($cond) {
         Write-Output $gitleaks_completion >> $env:CACHE_PROFILE
     }
 
-    # lefthook completion
-    Get-Command lefthook -ErrorAction Ignore | Out-Null
-    $res = $?
-    if ($res) {
-        Write-Output "# lefthook completion" >> $env:CACHE_PROFILE
-        $lefthook_completion = lefthook completion powershell |
-            ForEach-Object { $_ -replace $namespace1, "" } |
-            ForEach-Object { $_ -replace $namespace2, "" }
-        Write-Output $lefthook_completion >> $env:CACHE_PROFILE
-    }
-
     # rip completion
     Get-Command rip -ErrorAction Ignore | Out-Null
     $res = $?
