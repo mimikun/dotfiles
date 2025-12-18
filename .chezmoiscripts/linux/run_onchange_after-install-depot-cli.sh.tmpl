@@ -1,0 +1,17 @@
+{{ if (eq .chezmoi.os "linux") -}}
+
+#!/bin/bash
+
+bin_path="$HOME/.depot/bin/depot"
+
+# $HOME/.depot/bin/depot check
+if [[ ! -e "$bin_path" ]]; then
+    echo "Run depot-cli install script"
+    curl -L https://depot.dev/install-cli.sh | sh
+else
+    echo "depot-cli is already installed."
+fi
+
+# vim:ft=bash.chezmoitmpl
+
+{{ end -}}
