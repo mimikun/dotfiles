@@ -60,7 +60,7 @@ packages:
   - name: google/osv-scanner@v2.3.1
   - name: google/yamlfmt@v0.20.0
   - name: gopasspw/gopass@v1.16.1
-  - name: go-task/task@v3.45.5
+  - name: go-task/task@v3.46.2
   - name: grafana/k6@v1.4.2
   - name: gsamokovarov/jump@v0.67.0
   - name: guumaster/hostctl@v1.1.4
