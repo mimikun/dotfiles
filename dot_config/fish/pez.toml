@@ -30,3 +30,6 @@ repo = "ryoppippi/na.fish"
 
 [[plugins]]
 repo = "wfxr/forgit"
+
+[[plugins]]
+repo = "ras0q/cute"
