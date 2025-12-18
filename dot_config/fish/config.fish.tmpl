@@ -355,6 +355,10 @@ set -x FORGIT_NO_ALIASES true
 set -x CLAUDE_DESKTOP_PATH $WIN_HOME/AppData/Roaming/Claude.json
 set -x CLAUDE_DESKTOP_CONFIG $CLAUDE_DESKTOP_PATH/claude_desktop_config.json
 
+# depot
+set -x DEPOT_INSTALL_DIR "$HOME/.depot/bin"
+set -x PATH "$DEPOT_INSTALL_DIR" $PATH
+
 ## aliases
 alias rm "rm -i"
 alias mkdir "mkdir -p"

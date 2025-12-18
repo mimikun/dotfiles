@@ -497,6 +497,10 @@ if command -v ty >/dev/null 2>&1; then
     eval "$(ty generate-shell-completion bash)"
 fi
 
+# depot
+export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
+export PATH="$DEPOT_INSTALL_DIR:$PATH"
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

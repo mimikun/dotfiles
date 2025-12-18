@@ -528,6 +528,10 @@ if command -v ty >/dev/null 2>&1; then
     eval "$(ty generate-shell-completion zsh)"
 fi
 
+# depot
+export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
+export PATH="$DEPOT_INSTALL_DIR:$PATH"
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
