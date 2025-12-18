@@ -381,6 +381,7 @@ mdit-py-plugins
 mdurl
 memory-profiler
 mergedeep
+metacode
 minio
 mistune
 mkdocs
@@ -443,6 +444,7 @@ papis
 para-cada
 parqv
 parameter-decorators
+paramiko
 parse
 parsedatetime
 parso
@@ -599,6 +601,7 @@ sniffio
 snowmachine
 soupsieve
 spiel
+sqlit-tui
 sqlparse
 sqltrie
 srptools
@@ -607,6 +610,7 @@ sse-starlette
 ssh-para
 sshclick
 sshfs
+sshtunnel
 sslpsk-pmd3
 stack-data
 standard-aifc
@@ -666,6 +670,7 @@ tree-sitter-xml
 tree-sitter-yaml
 trove-classifiers
 turm
+ty
 typer
 types-certifi
 types-python-dateutil
