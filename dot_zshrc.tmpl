@@ -523,6 +523,11 @@ if command -v dnspyre >/dev/null 2>&1; then
     eval "$(dnspyre --completion-script-zsh)"
 fi
 
+# ty
+if command -v ty >/dev/null 2>&1; then
+    eval "$(ty generate-shell-completion zsh)"
+fi
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.

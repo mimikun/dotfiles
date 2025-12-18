@@ -492,6 +492,11 @@ if command -v dnspyre >/dev/null 2>&1; then
     eval "$(dnspyre --completion-script-bash)"
 fi
 
+# ty
+if command -v ty >/dev/null 2>&1; then
+    eval "$(ty generate-shell-completion bash)"
+fi
+
 {{ else if (eq .chezmoi.os "darwin") -}}
 # macOSのとき
 {{ else if (eq .chezmoi.os "windows") -}}

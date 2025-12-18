@@ -9,3 +9,4 @@ eval (tombi completion elvish)
 if (eq $E:TERM "xterm-ghostty") {
   use ghostty-integration
 }
+eval (ty generate-shell-completion elvish | slurp)
