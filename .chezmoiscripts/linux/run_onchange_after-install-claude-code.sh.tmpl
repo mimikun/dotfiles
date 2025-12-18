@@ -1,0 +1,21 @@
+{{ if (eq .chezmoi.os "linux") -}}
+
+#!/bin/bash
+
+base_url="https://claude.ai/install.sh"
+bin_name="claude"
+file_path="$HOME/.local/bin/$bin_name"
+
+download_url="$base_url"
+
+# $HOME/.local/bin/claude check
+if [[ ! -e "$file_path" ]]; then
+    echo "Run claude-code install script from $download_url"
+    curl -fsSL "$download_url" | bash
+else
+    echo "$file_path is already installed."
+fi
+
+# vim:ft=bash.chezmoitmpl
+
+{{ end -}}
