@@ -532,6 +532,17 @@ fi
 export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
 export PATH="$DEPOT_INSTALL_DIR:$PATH"
 
+# TODO: Use plugin manager
+# cute
+# e.g. https://github.com/mattmc3/antidote
+#antidote install ras0q/cute
+
+CUTE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/cute"
+if [ ! -d "$CUTE_DIR" ]; then
+  git clone https://github.com/ras0q/cute "$CUTE_DIR"
+fi
+source "$CUTE_DIR/cute"
+
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 #[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.

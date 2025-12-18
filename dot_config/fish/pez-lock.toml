@@ -134,3 +134,13 @@ name = "git-forgit.fish"
 [[plugins.files]]
 dir = "conf.d"
 name = "forgit.plugin.fish"
+
+[[plugins]]
+name = "cute"
+repo = "ras0q/cute"
+source = "https://github.com/ras0q/cute"
+commit_sha = "f8275e1f876147c9688b4b5524f4c955f6dbfa9b"
+
+[[plugins.files]]
+dir = "functions"
+name = "cute.fish"
