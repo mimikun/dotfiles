@@ -117,7 +117,7 @@ packages:
   - name: pkgxdev/pkgx@v2.7.0
   - name: pomdtr/sunbeam@v1.0.1
   - name: project-copacetic/copacetic@v0.12.0
-  - name: pvolok/mprocs@v0.7.3
+  - name: pvolok/mprocs@v0.8.0
   - name: rhysd/actionlint@v1.7.9
   - name: rhysd/vim-startuptime@v1.3.2
   - name: robinovitch61/kl@v0.6.1
