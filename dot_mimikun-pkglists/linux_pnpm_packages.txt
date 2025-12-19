@@ -8,6 +8,7 @@
 @jsonquerylang/jsonquery
 @ls-lint/ls-lint
 @mermaid-js/mermaid-cli
+@microsoft/inshellisense
 @openai/codex
 @qwen-code/qwen-code
 @sasazame/ccresume
