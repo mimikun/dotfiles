@@ -36,7 +36,7 @@ complete -c pixi -n "__fish_pixi_needs_command" -s V -l version -d 'Print versio
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "add" -d 'Adds dependencies to the workspace'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "a" -d 'Adds dependencies to the workspace'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "auth" -d 'Login to prefix.dev or anaconda.org servers to access private channels'
-complete -c pixi -n "__fish_pixi_needs_command" -f -a "build" -d 'Lock file and installation configuration with --as-is support Used by shell, shell-hook, and run commands'
+complete -c pixi -n "__fish_pixi_needs_command" -f -a "build" -d 'Build a conda package from a Pixi package.'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "clean" -d 'Cleanup the environments'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "completion" -d 'Generates a completion script for a shell'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "config" -d 'Configuration management'
@@ -70,7 +70,7 @@ complete -c pixi -n "__fish_pixi_needs_command" -f -a "upgrade" -d 'Checks if th
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "upload" -d 'Upload conda packages to various channels'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "workspace" -d 'Modify the workspace configuration file through the command line'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand add" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand add" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s p -l platform -d 'The platform for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s g -l git -d 'The git url to use when adding a git dependency' -r
@@ -108,7 +108,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand add" -s h -l help -d 'Display 
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand a" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand a" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s p -l platform -d 'The platform for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s g -l git -d 'The git url to use when adding a git dependency' -r
@@ -213,7 +213,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand build" -s h -l help -d 'Displa
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -s e -l environment -d 'The environment directory to remove' -r
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -226,7 +226,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -f -a "cache" -d 'Clean the cache of your system which are touched by pixi'
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand clean; and __fish_seen_subcommand_from cache" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand clean; and __fish_seen_subcommand_from cache" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and __fish_seen_subcommand_from cache" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -272,7 +272,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and not __fish_seen_su
 complete -c pixi -n "__fish_pixi_using_subcommand config; and not __fish_seen_subcommand_from edit list ls prepend append set unset help" -f -a "set" -d 'Set a configuration value'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and not __fish_seen_subcommand_from edit list ls prepend append set unset help" -f -a "unset" -d 'Unset a configuration value'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and not __fish_seen_subcommand_from edit list ls prepend append set unset help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from edit" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from edit" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from edit" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -283,7 +283,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from edit" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from edit" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from edit" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from list" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from list" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from list" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -295,7 +295,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from list" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from ls" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from ls" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from ls" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -307,7 +307,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from ls" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from ls" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from ls" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from prepend" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from prepend" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from prepend" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -318,7 +318,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from prepend" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from prepend" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from prepend" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from append" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from append" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from append" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -329,7 +329,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from append" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from append" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from append" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from set" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from set" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from set" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -340,7 +340,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from set" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from set" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from set" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from unset" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from unset" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcommand_from unset" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1304,7 +1304,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from help" -f -a "upgrade-all" -d 'Upgrade all globally installed packages This command has been removed, please use `pixi global update` instead'
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from help" -f -a "tree" -d 'Show a tree of dependencies for a specific global environment'
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand info" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand info" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand info" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1323,6 +1323,7 @@ mojoproject\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand init" -s s -l scm -d 'Source Control Management used for this workspace' -r -f -a "github\t''
 gitlab\t''
 codeberg\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand init" -l conda-pypi-map -d 'Set a mapping between conda channels and pypi channels' -r
 complete -c pixi -n "__fish_pixi_using_subcommand init" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1331,7 +1332,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand init" -s h -l help -d 'Display
 complete -c pixi -n "__fish_pixi_using_subcommand init" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand init" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand init" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand import" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand import" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l format -d 'Which format to interpret the file as' -r -f -a "conda-env\t''
 pypi-txt\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s p -l platform -d 'The platforms for the imported environment' -r
@@ -1359,7 +1360,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand import" -s h -l help -d 'Displ
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand install" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand install" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s e -l environment -d 'The environment to install' -r
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -1389,7 +1390,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand install" -s h -l help -d 'Disp
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand i" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand i" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s e -l environment -d 'The environment to install' -r
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -1423,13 +1424,35 @@ complete -c pixi -n "__fish_pixi_using_subcommand list" -l platform -d 'The plat
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l sort-by -d 'Sorting strategy' -r -f -a "size\t''
 name\t''
 kind\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand list" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l fields -d 'Select which fields to display and in what order (comma-separated)' -r -f -a "arch\t''
+build\t''
+build-number\t''
+constrains\t''
+depends\t''
+file-name\t''
+is-editable\t''
+kind\t''
+license\t''
+license-family\t''
+md5\t''
+name\t''
+noarch\t''
+platform\t''
+requested-spec\t''
+sha256\t''
+size\t''
+source\t''
+subdir\t''
+timestamp\t''
+track-features\t''
+url\t''
+version\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand list" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l json -d 'Whether to output in json format'
-complete -c pixi -n "__fish_pixi_using_subcommand list" -l json-pretty -d 'Whether to output in pretty json format'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
@@ -1443,13 +1466,35 @@ complete -c pixi -n "__fish_pixi_using_subcommand ls" -l platform -d 'The platfo
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l sort-by -d 'Sorting strategy' -r -f -a "size\t''
 name\t''
 kind\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l fields -d 'Select which fields to display and in what order (comma-separated)' -r -f -a "arch\t''
+build\t''
+build-number\t''
+constrains\t''
+depends\t''
+file-name\t''
+is-editable\t''
+kind\t''
+license\t''
+license-family\t''
+md5\t''
+name\t''
+noarch\t''
+platform\t''
+requested-spec\t''
+sha256\t''
+size\t''
+source\t''
+subdir\t''
+timestamp\t''
+track-features\t''
+url\t''
+version\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l json -d 'Whether to output in json format'
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -l json-pretty -d 'Whether to output in pretty json format'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
@@ -1459,7 +1504,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand ls" -s h -l help -d 'Display h
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand lock" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1470,7 +1515,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand lock" -s h -l help -d 'Display
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s e -l environment -d 'The environment to install' -r
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -1497,7 +1542,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s h -l help -d 'Di
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s p -l platform -d 'The platform for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s g -l git -d 'The git url to use when adding a git dependency' -r
@@ -1534,7 +1579,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand remove" -s h -l help -d 'Displ
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s p -l platform -d 'The platform for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s g -l git -d 'The git url to use when adding a git dependency' -r
@@ -1571,7 +1616,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand rm" -s h -l help -d 'Display h
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand run" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand run" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1606,7 +1651,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand run" -s h
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand r" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand r" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1642,7 +1687,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand r" -s v -l verbose -d 'Increas
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
-complete -c pixi -n "__fish_pixi_using_subcommand search" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand search" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s p -l platform -d 'The platform to search for, defaults to current platform' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s l -l limit -d 'Limit the number of search results' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -1663,7 +1708,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand self-update" -s h -l help -d '
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand shell" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1696,7 +1741,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand shell" -s h -l help -d 'Displa
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand s" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand s" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1730,7 +1775,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand s" -s v -l verbose -d 'Increas
 complete -c pixi -n "__fish_pixi_using_subcommand s" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s s -l shell -d 'Sets the shell, options: [`bash`,  `zsh`,  `xonsh`,  `cmd`, `powershell`,  `fish`,  `nushell`]' -r
-complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1764,7 +1809,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s h -l help -d 'D
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1787,7 +1832,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l env -d 'The environment variable to set, use --env key=value multiple times for more than one variable' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l description -d 'A description of the task to be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l arg -d 'The arguments to pass to the task' -r
-complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1803,7 +1848,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l env -d 'The environment variable to set, use --env key=value multiple times for more than one variable' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l description -d 'A description of the task to be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l arg -d 'The arguments to pass to the task' -r
-complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1814,7 +1859,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s p -l platform -d 'The platform for which the task should be removed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s f -l feature -d 'The feature for which the task should be removed' -r
-complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1824,7 +1869,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s p -l platform -d 'The platform for which the task should be removed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s f -l feature -d 'The feature for which the task should be removed' -r
-complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1834,7 +1879,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -s p -l platform -d 'The platform for which the alias should be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -l description -d 'The description of the alias task' -r
-complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1843,7 +1888,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from list" -s e -l environment -d 'The environment the list should be generated for. If not specified, the default environment is used' -r
-complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from list" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from list" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from list" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1855,7 +1900,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from list" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from ls" -s e -l environment -d 'The environment the list should be generated for. If not specified, the default environment is used' -r
-complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from ls" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from ls" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from ls" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1872,7 +1917,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all tasks in the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s p -l platform -d 'The platform to list packages for. Defaults to the current platform' -r
-complete -c pixi -n "__fish_pixi_using_subcommand tree" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1887,7 +1932,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand tree" -s v -l verbose -d 'Incr
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s p -l platform -d 'The platform to list packages for. Defaults to the current platform' -r
-complete -c pixi -n "__fish_pixi_using_subcommand t" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand t" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand t" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1913,7 +1958,7 @@ no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
-complete -c pixi -n "__fish_pixi_using_subcommand update" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand update" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s e -l environment -d 'The environments to update. If none is specified, all environments are updated' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s p -l platform -d 'The platforms to update. If none is specified, all platforms are updated' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -1929,7 +1974,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand update" -s h -l help -d 'Displ
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -2064,25 +2109,26 @@ complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "s3" -d 'Options for uploading to S3'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "conda-forge" -d 'Options for uploading to conda-forge'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -s h -l help -d 'Display help information'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "channel" -d 'Commands to manage workspace channels'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "description" -d 'Commands to manage workspace description'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "platform" -d 'Commands to manage workspace platforms'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "version" -d 'Commands to manage workspace version'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "environment" -d 'Commands to manage workspace environments'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "export" -d 'Commands to export workspaces to other formats'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "name" -d 'Commands to manage workspace name'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "system-requirements" -d 'Commands to manage workspace system requirements'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment export name system-requirements requires-pixi help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "channel" -d 'Commands to manage workspace channels'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "description" -d 'Commands to manage workspace description'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "platform" -d 'Commands to manage workspace platforms'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "version" -d 'Commands to manage workspace version'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "environment" -d 'Commands to manage workspace environments'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "feature" -d 'Commands to manage workspace features'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "export" -d 'Commands to export workspaces to other formats'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "name" -d 'Commands to manage workspace name'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "system-requirements" -d 'Commands to manage workspace system requirements'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements requires-pixi help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2097,7 +2143,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "remove" -d 'Remove channel(s) from the manifest and updates the lockfile'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "rm" -d 'Remove channel(s) from the manifest and updates the lockfile'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2108,7 +2154,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -f -a "get" -d 'Get the workspace description'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -f -a "set" -d 'Set the workspace description'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2123,7 +2169,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "remove" -d 'Remove platform(s) from the workspace file and updates the lockfile'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "rm" -d 'Remove platform(s) from the workspace file and updates the lockfile'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2137,7 +2183,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -f -a "minor" -d 'Bump the workspace version to MINOR'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -f -a "patch" -d 'Bump the workspace version to PATCH'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2152,7 +2198,20 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -f -a "remove" -d 'Remove an environment from the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -f -a "rm" -d 'Remove an environment from the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+never\t''
+auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -f -a "list" -d 'List the features in the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -f -a "ls" -d 'List the features in the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -f -a "remove" -d 'Remove a feature from the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -f -a "rm" -d 'Remove a feature from the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2164,7 +2223,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -f -a "ces" -d 'Export workspace environment to a conda explicit specification file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -f -a "conda-environment" -d 'Export workspace environment to a conda environment.yaml file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2175,7 +2234,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -f -a "get" -d 'Get the workspace name'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -f -a "set" -d 'Set the workspace name'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2188,7 +2247,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "list" -d 'List the environments in the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "ls" -d 'List the environments in the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2206,6 +2265,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "platform" -d 'Commands to manage workspace platforms'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "version" -d 'Commands to manage workspace version'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "environment" -d 'Commands to manage workspace environments'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "feature" -d 'Commands to manage workspace features'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "export" -d 'Commands to export workspaces to other formats'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "name" -d 'Commands to manage workspace name'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "system-requirements" -d 'Commands to manage workspace system requirements'
@@ -2213,7 +2273,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "add" -d 'Adds dependencies to the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "auth" -d 'Login to prefix.dev or anaconda.org servers to access private channels'
-complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "build" -d 'Lock file and installation configuration with --as-is support Used by shell, shell-hook, and run commands'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "build" -d 'Build a conda package from a Pixi package.'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "clean" -d 'Cleanup the environments'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "completion" -d 'Generates a completion script for a shell'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "config" -d 'Configuration management'
@@ -2276,6 +2336,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "platform" -d 'Commands to manage workspace platforms'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "version" -d 'Commands to manage workspace version'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "environment" -d 'Commands to manage workspace environments'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "feature" -d 'Commands to manage workspace features'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "export" -d 'Commands to export workspaces to other formats'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "name" -d 'Commands to manage workspace name'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "system-requirements" -d 'Commands to manage workspace system requirements'

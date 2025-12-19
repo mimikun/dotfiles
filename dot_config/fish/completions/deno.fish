@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_deno_global_optspecs
-	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= preload= require= minimum-dependency-age= A/allow-all P/permission-set= R/allow-read= deny-read= ignore-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= ignore-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use trace-ops= eszip-internal-do-not-use check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= t/tunnel= unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-bundle unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-tsgo unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
+	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= minimum-dependency-age= A/allow-all P/permission-set= R/allow-read= deny-read= ignore-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= ignore-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use trace-ops= eszip-internal-do-not-use preload= require= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= t/tunnel= unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-bundle unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-tsgo unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
 end
 
 function __fish_deno_needs_command
@@ -37,8 +37,6 @@ complete -c deno -n "__fish_deno_needs_command" -l frozen -d 'Error out if lockf
 false\t''"
 complete -c deno -n "__fish_deno_needs_command" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_needs_command" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_needs_command" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_needs_command" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_needs_command" -s R -l allow-read -r -F
@@ -67,6 +65,8 @@ complete -c deno -n "__fish_deno_needs_command" -l location -d 'Value of globalT
 complete -c deno -n "__fish_deno_needs_command" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_needs_command" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_needs_command" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_needs_command" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_needs_command" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_needs_command" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
@@ -182,8 +182,6 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l frozen -d 'Error out i
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand run" -s R -l allow-read -r -F
@@ -212,6 +210,8 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l location -d 'Value of 
 complete -c deno -n "__fish_deno_using_subcommand run" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
@@ -288,8 +288,6 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l frozen -d 'Error out
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -s R -l allow-read -r -F
@@ -318,6 +316,8 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l location -d 'Value o
 complete -c deno -n "__fish_deno_using_subcommand serve" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l port -d 'The TCP port to serve on. Pass 0 to pick a random free port [default: 8000]' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l host -d 'The TCP address to serve on, defaulting to 0.0.0.0 (all interfaces)' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
@@ -529,8 +529,6 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l frozen -d 'Error out
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand bench" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand bench" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bench" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -s R -l allow-read -r -F
@@ -556,6 +554,8 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l location -d 'Value o
 complete -c deno -n "__fish_deno_using_subcommand bench" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand bench" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ignore -d 'Ignore files' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l filter -d 'Run benchmarks with this string or regexp pattern in the bench name' -r
@@ -632,8 +632,6 @@ complete -c deno -n "__fish_deno_using_subcommand bundle" -l frozen -d 'Error ou
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand bundle" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand bundle" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand bundle" -s o -l output -d 'Output path`' -r -F
@@ -702,8 +700,6 @@ complete -c deno -n "__fish_deno_using_subcommand cache" -l frozen -d 'Error out
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand cache" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand cache" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand cache" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand cache" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand cache" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -760,8 +756,6 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l frozen -d 'Error out
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand check" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand check" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand check" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand check" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand check" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
@@ -861,8 +855,6 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l frozen -d 'Error o
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand compile" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand compile" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -s R -l allow-read -r -F
@@ -888,6 +880,8 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l location -d 'Value
 complete -c deno -n "__fish_deno_using_subcommand compile" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand compile" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l include -d 'Includes an additional module or file/directory in the compiled executable.   Use this flag if a dynamically imported module or a web worker main module   fails to load in the executable or to embed a file or directory in the executable.   This flag can be passed multiple times, to include multiple additional modules.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l exclude -d 'Excludes a file/directory in the compiled executable.   Use this flag to exclude a specific file or directory within the included files.   For example, to exclude a certain folder in the bundled node_modules directory.' -r -F
@@ -1104,8 +1098,6 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l frozen -d 'Error out 
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand eval" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand eval" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
@@ -1115,6 +1107,8 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l location -d 'Value of
 complete -c deno -n "__fish_deno_using_subcommand eval" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand eval" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand eval" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
@@ -1356,8 +1350,6 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l frozen -d 'Error o
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand install" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand install" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
@@ -1366,6 +1358,8 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l location -d 'Value
 complete -c deno -n "__fish_deno_using_subcommand install" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand install" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand install" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l deny-read -r -F
@@ -1455,8 +1449,6 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l frozen -d 'Error out if 
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand i" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand i" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
@@ -1465,6 +1457,8 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l location -d 'Value of gl
 complete -c deno -n "__fish_deno_using_subcommand i" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand i" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand i" -s R -l allow-read -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l deny-read -r -F
@@ -1822,8 +1816,6 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l frozen -d 'Error out 
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand repl" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
@@ -1851,6 +1843,8 @@ complete -c deno -n "__fish_deno_using_subcommand repl" -l location -d 'Value of
 complete -c deno -n "__fish_deno_using_subcommand repl" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand repl" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l eval-file -d 'Evaluates the provided file(s) as scripts when the REPL starts. Accepts file paths and URLs' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l eval -d 'Evaluates the provided code when the REPL starts' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
@@ -1958,8 +1952,6 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l frozen -d 'Error out 
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand test" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand test" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand test" -s R -l allow-read -r -F
@@ -1988,6 +1980,8 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l location -d 'Value of
 complete -c deno -n "__fish_deno_using_subcommand test" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand test" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l ignore -d 'Ignore files' -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l fail-fast -d 'Stop after N errors. Defaults to stopping after first failure' -r
@@ -2231,8 +2225,6 @@ complete -c deno -n "__fish_deno_using_subcommand x" -l frozen -d 'Error out if 
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand x" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
-complete -c deno -n "__fish_deno_using_subcommand x" -l preload -d 'A list of files that will be executed before the main module' -r -F
-complete -c deno -n "__fish_deno_using_subcommand x" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -s P -l permission-set -r
 complete -c deno -n "__fish_deno_using_subcommand x" -s R -l allow-read -r -F
@@ -2261,6 +2253,8 @@ complete -c deno -n "__fish_deno_using_subcommand x" -l location -d 'Value of gl
 complete -c deno -n "__fish_deno_using_subcommand x" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l seed -d 'Set the random number generator seed' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l trace-ops -d 'Trace low-level op calls' -r
+complete -c deno -n "__fish_deno_using_subcommand x" -l preload -d 'A list of files that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand x" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -l install-alias -r
