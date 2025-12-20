@@ -1,27 +1,38 @@
-# TODO: reconf all
+{{ if (eq .chezmoi.os "linux") -}}
+# Linuxのとき
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
-if [ -f ~/.local/share/blesh/ble.sh ]; then
-    source ~/.local/share/blesh/ble.sh --attach=none
-else
-    # エラーメッセージを表示したい場合（オプション）
-    echo "Note: ble.sh not found. Please install ble.sh"
-    echo "https://github.com/akinomyoga/ble.sh"
+HISTCONTROL=ignoreboth
+shopt -s histappend
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s checkwinsize
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
 fi
 
-# Ghostty shell integration for Bash
-#if test -n "${GHOSTTY_RESOURCES_DIR}"; then
-#    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
-#fi
-
-# Ghostty shell integration for Bash
-GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR="$GHQ_ROOT/github.com/ghostty-org/ghostty/src"
-if test -n "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
-    if test -d "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
-        builtin source "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
-    fi
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi
+{{ end -}}
 
-# All platform 共通
+###############################
+# Shell environment variables #
+###############################
+
+export GHQ_ROOT=~/ghq
+export GHQ_SELECTOR=fzf
+export TZ="Asia/Tokyo"
+
 export EDITOR=nvim
 export LESS="-R"
 export LESSCHARSET="utf-8"
@@ -48,7 +59,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export GTK_IM_MODULE="fcitx"
 export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
-# TODO: set browser name
 export BROWSER="vivaldi"
 # CapsLock to Ctrl
 setxkbmap -option ctrl:nocaps
@@ -57,31 +67,6 @@ export BROWSER="wsl-open"
 {{ end -}}
 
 {{ if (eq .chezmoi.os "linux") -}}
-# Linuxのとき
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-HISTCONTROL=ignoreboth
-shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=2000
-shopt -s checkwinsize
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
 # chezmoi
 export CHEZMOI_DIR="$XDG_DATA_HOME/chezmoi"
 
@@ -138,30 +123,10 @@ export obsidian_vault_path=$obsidian_vault_root_path
 export obsidian_dailynote_path=$obsidian_vault_path/001_DailyNotes
 export obsidian=$obsidian_dailynote_path
 
-# zoxide
-if command -v zoxide >/dev/null 2>&1; then
-    eval "$(zoxide init bash)"
-fi
-
 # starship
 export STARSHIP_CONFIG_DIR="$XDG_CONFIG_HOME/starship"
 export STARSHIP_CONFIG="$STARSHIP_CONFIG_DIR/starship.toml"
 export STARSHIP_CACHE="$XDG_CACHE_HOME/starship"
-
-# NOTE: shell prompt
-# starship
-if command -v starship >/dev/null 2>&1; then
-    if [[ "$USE_SHELL_PROMPT" == "starship" ]]; then
-        eval "$(starship init bash)"
-    fi
-fi
-
-# oh-my-posh
-if command -v oh-my-posh >/dev/null 2>&1; then
-    if [[ "$USE_SHELL_PROMPT" == "oh-my-posh" ]]; then
-        eval "$(oh-my-posh init bash --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
-    fi
-fi
 
 # fly.io
 export FLYCTL_INSTALL="$HOME/.fly"
@@ -170,43 +135,6 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # pnpm
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-if command -v pnpm >/dev/null 2>&1; then
-    eval "$(pnpm completion bash)"
-fi
-
-# broot
-if command -v broot >/dev/null 2>&1; then
-    export BROOT_FILE="$XDG_CONFIG_HOME/broot/launcher/bash/br"
-    if [ -f "$BROOT_FILE" ]; then
-        source "$BROOT_FILE"
-    fi
-fi
-
-# Rye
-if command -v rye >/dev/null 2>&1; then
-    export RYE_FILE="$HOME/.rye/env"
-    if [ -f "$RYE_FILE" ]; then
-        source "$RYE_FILE"
-    fi
-fi
-
-# Linuxbrew
-if command -v brew >/dev/null 2>&1; then
-    export BREW_FILE="/home/linuxbrew/.linuxbrew/bin/brew"
-    if [ -f "$BREW_FILE" ]; then
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    fi
-fi
-
-# walk
-function lk {
-    cd "$(walk "$@")"
-}
-
-# mise
-eval "$(mise activate bash)"
-alias paleovim="$XDG_DATA_HOME/mise/installs/vim/ref-master/bin/vim"
-alias pvim=paleovim
 
 # luarocks
 export PATH="$HOME/.luarocks/bin:$PATH"
@@ -225,7 +153,6 @@ if command -v aqua >/dev/null 2>&1; then
     export AQUA_GLOBAL_CONFIG="$AQUA_CONFIG"
     export AQUA_POLICY_CONFIG="$XDG_CONFIG_HOME/aqua/policy.yaml"
     # If true, Policy is disabled
-    # NOTE: It's just idiot to care about security.
     export AQUA_DISABLE_POLICY=true
     # The maximum number of packages which are installed in parallel at the same time
     {{ if (eq .chezmoi.hostname "Wakamo") -}}
@@ -241,20 +168,6 @@ if command -v aqua >/dev/null 2>&1; then
     export AQUA_PROGRESS_BAR=true
 fi
 
-# inshellisense
-#if test -f ~/.inshellisense/key-bindings.bash
-#then
-#    source ~/.inshellisense/key-bindings.bash
-#fi
-
-# sheldon
-export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/bash"
-export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/bash"
-
-if command -v sheldon >/dev/null 2>&1; then
-    eval "$(sheldon source)"
-fi
-
 # PHP composer
 export COMPOSER_CONFIG_HOME="$XDG_CONFIG_HOME/composer"
 export COMPOSER_BIN_DIR="$COMPOSER_CONFIG_HOME/vendor/bin"
@@ -267,10 +180,14 @@ export PATH="$HOME/.juliaup/bin:$PATH"
 # mocword dict
 export MOCWORD_DATA="$XDG_CACHE_HOME/mocword.sqlite"
 
-# mdbook completion
-if command -v mdbook >/dev/null 2>&1; then
-    eval "$(mdbook completions bash)"
-fi
+# sheldon
+export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon/bash"
+export SHELDON_DATA_DIR="$XDG_DATA_HOME/sheldon/bash"
+
+# golang
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
 
 # neovim version manager
 
@@ -288,8 +205,6 @@ fi
 if [[ "$USE_NVIM_VERSION_MANAGER" == "nvs" ]]; then
     export PATH="$NVS_BIN_DIR:$PATH"
 fi
-
-alias vim=nvim
 
 # Neovide env-vars
 ## Functionality
@@ -342,11 +257,12 @@ alias vim=nvim
 # nimble
 export PATH="$HOME/.nimble/bin:$PATH"
 
-# atuin
-if command -v atuin >/dev/null 2>&1; then
-    eval "$(atuin init bash)"
-    atuin gen-completions --shell bash
-fi
+# cute
+CUTE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/cute"
+
+# depot
+export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
+export PATH="$DEPOT_INSTALL_DIR:$PATH"
 
 # rebar3
 if command -v rebar3 >/dev/null 2>&1; then
@@ -356,61 +272,99 @@ fi
 # age public keys
 export AGE_PUBKEY_HOME="age1cktdwc8u4z76kawluyswaruyeg7eg6078rw3t0kkmx5wqkk40d2qzajn8y"
 export AGE_PUBKEY_WORK="age1n03v0casqk2djs2jw3xq5ldpdjtp2s6r0u3uhtmd7zv9j2xuyf6qpl9x7l"
-# TODO: config
 export AGE_PUBKEY_AZUSA=""
 
+# age public key
 {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
 export AGE_PUBKEY="$AGE_PUBKEY_HOME"
 {{ else -}}
 export AGE_PUBKEY="$AGE_PUBKEY_WORK"
 {{ end -}}
 
-# golang
-export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
-export PATH="$GOBIN:$PATH"
-
-# pay-respects
-if command -v pay-respects >/dev/null 2>&1; then
-    eval "$(pay-respects bash --alias)"
-fi
-
-# jujutsu
-if command -v jj >/dev/null 2>&1; then
-    source | jj util completion bash
-fi
-
-# sunbeam
-if command -v sunbeam >/dev/null 2>&1; then
-    sunbeam completion bash | source
-fi
-
 # zettelkasten
 export zettelkasten_root="$GHQ_ROOT/codeberg.org/mimikun/zettelkasten"
 
-# vfox
-# NOTE: can't use it now
-#if command -v vfox >/dev/null 2>&1; then
-#    eval "$(vfox activate bash)"
-#fi
-
-# srgn
-if command -v srgn >/dev/null 2>&1; then
-    eval "$(srgn --completions bash)"
-fi
-
-# go-task
-if command -v task >/dev/null 2>&1; then
-    eval "$(task --completion bash)"
-fi
-
-# Claude Desktop
+{{ if (eq .chezmoi.os "windows") -}}
+# Claude Desktop config
 export CLAUDE_DESKTOP_PATH="$WIN_HOME/AppData/Roaming/Claude.json"
 export CLAUDE_DESKTOP_CONFIG="$CLAUDE_DESKTOP_PATH/claude_desktop_config.json"
+{{ end -}}
 
-# pixi
-if command -v pixi >/dev/null 2>&1; then
-    eval "$(pixi completion --shell bash)"
+######################
+# Shell integrations #
+######################
+
+# Ghostty
+GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR="$GHQ_ROOT/github.com/ghostty-org/ghostty/src"
+if test -n "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
+    if test -d "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}"; then
+        builtin source "${GHOSTTY_REPO_S_GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+    fi
+fi
+
+# zoxide
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash)"
+fi
+
+# NOTE: shell prompt
+# starship
+if command -v starship >/dev/null 2>&1; then
+    if [[ "$USE_SHELL_PROMPT" == "starship" ]]; then
+        eval "$(starship init bash)"
+    fi
+fi
+
+# oh-my-posh
+if command -v oh-my-posh >/dev/null 2>&1; then
+    if [[ "$USE_SHELL_PROMPT" == "oh-my-posh" ]]; then
+        eval "$(oh-my-posh init bash --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json')"
+    fi
+fi
+
+# broot
+if command -v broot >/dev/null 2>&1; then
+    export BROOT_FILE="$XDG_CONFIG_HOME/broot/launcher/bash/br"
+    if [ -f "$BROOT_FILE" ]; then
+        source "$BROOT_FILE"
+    fi
+fi
+
+# Rye
+if command -v rye >/dev/null 2>&1; then
+    export RYE_FILE="$HOME/.rye/env"
+    if [ -f "$RYE_FILE" ]; then
+        source "$RYE_FILE"
+    fi
+fi
+
+# Linuxbrew
+if command -v brew >/dev/null 2>&1; then
+    export BREW_FILE="/home/linuxbrew/.linuxbrew/bin/brew"
+    if [ -f "$BREW_FILE" ]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    fi
+fi
+
+# mise
+if command -v mise >/dev/null 2>&1; then
+    eval "$(mise activate bash)"
+fi
+
+# sheldon
+if command -v sheldon >/dev/null 2>&1; then
+    eval "$(sheldon source)"
+fi
+
+# cute
+if [ ! -d "$CUTE_DIR" ]; then
+  git clone https://github.com/ras0q/cute "$CUTE_DIR"
+fi
+source "$CUTE_DIR/cute"
+
+# atuin
+if command -v atuin >/dev/null 2>&1; then
+    eval "$(atuin init bash)"
 fi
 
 # intelli-shell
@@ -425,61 +379,48 @@ if command -v pymobiledevice3 >/dev/null 2>&1; then
     fi
 fi
 
-# ghtkn
-if command -v ghtkn >/dev/null 2>&1; then
-    eval "$(ghtkn completion bash)"
-fi
-
-# jiratui
-if command -v jiratui >/dev/null 2>&1; then
-    eval "$(jiratui completions bash)"
-fi
-
-# gup
-if command -v gup >/dev/null 2>&1; then
-    eval "$(gup completion bash)"
-fi
-
-# tombi
-if command -v tombi >/dev/null 2>&1; then
-    eval "$(tombi completion bash)"
-fi
-
-# vectorcode
-if command -v vectorcode >/dev/null 2>&1; then
-    eval "$(vectorcode --print-completion bash)"
-fi
-
-# tod
-if command -v tod >/dev/null 2>&1; then
-    eval "$(tod shell completions bash)"
-fi
-
-# dotter
-if command -v dotter >/dev/null 2>&1; then
-    eval "$(dotter gen-completions --shell bash)"
-fi
-
-# ghciwatch
-if command -v ghciwatch >/dev/null 2>&1; then
-    eval "$(ghciwatch --completions bash)"
-fi
-
-# crush
-if command -v crush >/dev/null 2>&1; then
-    source <(crush completion bash)
+# wtp
+if command -v wtp >/dev/null 2>&1; then
+    eval "$(wtp shell-init bash)"
 fi
 
 # jump
 if command -v jump >/dev/null 2>&1; then
-    eval "$(jump shell)"
+    eval "$(jump shell bash)"
 fi
 
-# wtp
-if command -v wtp >/dev/null 2>&1; then
-    eval "$(wtp shell-init bash)"
-    #eval "$(wtp completion bash)"
-    #eval "$(wtp hook bash)"
+# BUG: inshellisense is not working Node.js v24
+# inshellisense
+#if command -v is >/dev/null 2>&1; then
+#    if [ -f "$HOME/.inshellisense/bash/init.sh" ]; then
+#        source "$HOME/.inshellisense/bash/init.sh"
+#    fi
+#fi
+
+# NOTE: can't use now
+# x-cmd
+#if [ -f "$HOME/.x-cmd.root/X" ]; then
+#    # boot up x-cmd.
+#    . "$HOME/.x-cmd.root/X"
+#fi
+
+#####################
+# Shell completions #
+#####################
+
+# pnpm
+if command -v pnpm >/dev/null 2>&1; then
+    eval "$(pnpm completion bash)"
+fi
+
+# mdbook completion
+if command -v mdbook >/dev/null 2>&1; then
+    eval "$(mdbook completions bash)"
+fi
+
+# atuin
+if command -v atuin >/dev/null 2>&1; then
+    eval "$(atuin gen-completions --shell bash)"
 fi
 
 # turm
@@ -497,35 +438,120 @@ if command -v ty >/dev/null 2>&1; then
     eval "$(ty generate-shell-completion bash)"
 fi
 
-# depot
-export DEPOT_INSTALL_DIR="$HOME/.depot/bin"
-export PATH="$DEPOT_INSTALL_DIR:$PATH"
-
-# cute
-CUTE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/cute"
-if [ ! -d "$CUTE_DIR" ]; then
-  git clone https://github.com/ras0q/cute "$CUTE_DIR"
+# tombi
+if command -v tombi >/dev/null 2>&1; then
+    eval "$(tombi completion bash)"
 fi
-source "$CUTE_DIR/cute"
+
+# vectorcode
+if command -v vectorcode >/dev/null 2>&1; then
+    eval "$(vectorcode --print-completion bash)"
+fi
+
+# dotter
+if command -v dotter >/dev/null 2>&1; then
+    eval "$(dotter gen-completions --shell bash)"
+fi
+
+# ghciwatch
+if command -v ghciwatch >/dev/null 2>&1; then
+    eval "$(ghciwatch --completions bash)"
+fi
+
+# pay-respects
+if command -v pay-respects >/dev/null 2>&1; then
+    eval "$(pay-respects bash --alias)"
+fi
+
+# srgn
+if command -v srgn >/dev/null 2>&1; then
+    eval "$(srgn --completions bash)"
+fi
+
+# go-task
+if command -v task >/dev/null 2>&1; then
+    eval "$(task --completion bash)"
+fi
+
+# pixi
+if command -v pixi >/dev/null 2>&1; then
+    eval "$(pixi completion --shell bash)"
+fi
+
+# ghtkn
+if command -v ghtkn >/dev/null 2>&1; then
+    eval "$(ghtkn completion bash)"
+fi
+
+# jiratui
+if command -v jiratui >/dev/null 2>&1; then
+    eval "$(jiratui completions bash)"
+fi
+
+# gup
+if command -v gup >/dev/null 2>&1; then
+    eval "$(gup completion bash)"
+fi
+
+# jujutsu
+if command -v jj >/dev/null 2>&1; then
+    eval "$(jj util completion bash)"
+fi
+
+# sunbeam
+if command -v sunbeam >/dev/null 2>&1; then
+    eval "$(sunbeam completion bash)"
+fi
+
+# crush
+if command -v crush >/dev/null 2>&1; then
+    eval "$(crush completion bash)"
+fi
+
+# BUG: tod completion has bug
+# tod
+#if command -v tod >/dev/null 2>&1; then
+#    eval "$(tod shell completions bash)"
+#fi
+
+# vfox
+# NOTE: can't use it now
+#if command -v vfox >/dev/null 2>&1; then
+#    eval "$(vfox activate bash)"
+#fi
+
+###################
+# Shell functions #
+###################
+
+# walk
+function lk {
+    cd "$(walk "$@")"
+}
+
+#################
+# Shell aliases #
+#################
+
+# mise
+alias paleovim="$XDG_DATA_HOME/mise/installs/vim/ref-master/bin/vim"
+alias pvim=paleovim
+alias vim=nvim
 
 {{ else if (eq .chezmoi.os "darwin") -}}
-# macOSのとき
+# macOS
+# I have not macOS... 😢
 {{ else if (eq .chezmoi.os "windows") -}}
-# Windowsのとき
-export GHQ_ROOT=~/ghq
-export GHQ_SELECTOR=fzf
-export TZ="Asia/Tokyo"
+
+#################
+# Shell aliases #
+#################
 
 alias vim=nvim
 alias patch="patch -p1 <"
+
 {{ else -}}
-# その他OSのとき
+# Other OS
 {{ end -}}
-
-if [ -f ~/.local/share/blesh/ble.sh ]; then
-    [[ ! ${BLE_VERSION-} ]] || ble-attach
-fi
-
-#[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
 
 # vim:ft=bash.chezmoitmpl

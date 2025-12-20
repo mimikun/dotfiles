@@ -1,11 +1,8 @@
-# All platform 共通
-
 # Linux
 {{ if eq .chezmoi.os "linux" -}}
-
-# Is Work-PC
+# Linux
 {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
-
+# Is Work-PC
 # >>> JVM installed by coursier >>>
 export JAVA_HOME="$HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10"
 export PATH="$PATH:$HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_linux_hotspot_8u292b10.tar.gz/jdk8u292-b10/bin"
@@ -14,12 +11,7 @@ export PATH="$PATH:$HOME/.cache/coursier/arc/https/github.com/AdoptOpenJDK/openj
 # >>> coursier install directory >>>
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 # <<< coursier install directory <<<
-
-source $HOME/.config/broot/launcher/bash/br
 {{ end -}}
-#if set -q WORK_PC
-#else
-#end
 # macOS
 {{ else if (eq .chezmoi.os "darwin") -}}
 # Windows
@@ -33,6 +25,4 @@ fi
 # None
 {{ end }}
 
-#[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
-
-# vim:ft=bash
+# vim:ft=bash.chezmoitmpl
