@@ -70,7 +70,7 @@ packages:
   - name: idursun/jjui@v0.9.8
   - name: itchyny/json2yaml@v0.1.4
   - name: jesseduffield/horcrux@v0.2
-  - name: jesseduffield/lazydocker@v0.24.2
+  - name: jesseduffield/lazydocker@v0.24.3
   - name: jesseduffield/lazygit@v0.57.0
   - name: JFryy/qq@v0.3.1
   - name: joerdav/xc@v0.8.6
