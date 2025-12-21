@@ -10,16 +10,18 @@ command = "pwsh.exe"
 {{ if (eq .chezmoi.os "linux") }}
 command = "chezmoi_pre_apply_hook"
 {{ else }}
-command = "pwsh"
-args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
+# NOTE: Neovim setting is broken
+#command = "pwsh"
+#args = ["-c", "& {Invoke-RunBeforeChezmoiApply}"]
 {{ end }}
 
 [hooks.apply.post]
 {{ if (eq .chezmoi.os "linux") }}
 command = "chezmoi_post_apply_hook"
 {{ else }}
-command = "pwsh"
-args = ["-c", "& {Invoke-RunAfterChezmoiApply}"]
+# NOTE: Neovim setting is broken
+#command = "pwsh"
+#args = ["-c", "& {Invoke-RunAfterChezmoiApply}"]
 {{ end }}
 
 [diff]
