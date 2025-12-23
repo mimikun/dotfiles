@@ -2,7 +2,7 @@
 dotnet-core = "latest"
 erlang = "latest"
 ruby = "latest"
-lua = "5.5.0"
+lua = "5.1"
 node = [
   "lts",
   "22",
