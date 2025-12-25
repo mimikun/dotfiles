@@ -49,7 +49,7 @@ packages:
   - name: FiloSottile/age@v1.2.1
   - name: git-bug/git-bug@v0.10.1
   - name: gitleaks/gitleaks@v8.30.0
-  - name: gleam-lang/gleam@v1.13.0
+  - name: gleam-lang/gleam@v1.14.0
   - name: go-delve/delve@v1.26.0
   - name: gokcehan/lf@r40
   - name: golangci/golangci-lint@v2.7.2
