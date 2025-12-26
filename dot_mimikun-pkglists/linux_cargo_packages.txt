@@ -21,6 +21,7 @@ bluetui
 bmm
 boa_cli
 bob-nvim
+bookokrat
 bottom
 bpf-linker
 broot
