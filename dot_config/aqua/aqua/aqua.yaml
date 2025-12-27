@@ -134,7 +134,7 @@ packages:
   - name: suzuki-shunsuke/cmdx@v2.0.2
   - name: suzuki-shunsuke/ghalint@v1.5.4
   - name: suzuki-shunsuke/ghtkn@v0.2.4
-  - name: suzuki-shunsuke/pinact@v3.7.1
+  - name: suzuki-shunsuke/pinact@v3.7.2
   - name: tdewolff/minify@v2.24.8
   - name: termkit/gama@v1.2.1
   - name: terrastruct/d2@v0.7.1
