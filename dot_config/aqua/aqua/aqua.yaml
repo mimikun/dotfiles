@@ -46,7 +46,7 @@ packages:
   - name: evilmartians/lefthook@v2.0.13
   - name: fastfetch-cli/fastfetch@2.56.1
   - name: ffuf/ffuf@v2.1.0
-  - name: FiloSottile/age@v1.3.0
+  - name: FiloSottile/age@v1.3.1
   - name: git-bug/git-bug@v0.10.1
   - name: gitleaks/gitleaks@v8.30.0
   - name: gleam-lang/gleam@v1.14.0
