@@ -14,6 +14,7 @@ bitwarden
 bitwarden-cli
 blueman
 capnet-assist
+certbot
 chezmoi
 clang
 cmake
