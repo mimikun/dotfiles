@@ -54,6 +54,7 @@ ccsum
 ccswarm
 cctx
 choose
+cmd-wrapped
 codeberg-cli
 colorgen-nvim
 comchan
