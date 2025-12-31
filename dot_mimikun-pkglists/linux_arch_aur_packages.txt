@@ -7,6 +7,8 @@ gforth
 google-chrome
 glide-browser-bin
 mcat-bin
+icat
+imgcat
 morisawa-biz-ud-gothic-fonts
 neofetch
 murex
@@ -32,3 +34,4 @@ xf86-video-vmware
 yay
 yay-debug
 yazi-git
+yt-x-git
