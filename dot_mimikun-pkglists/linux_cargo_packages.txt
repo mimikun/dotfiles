@@ -322,6 +322,7 @@ vscli
 watchexec-cli
 wireman
 wisu
+work-tuimer
 wthrr
 xan
 xbps-tui
