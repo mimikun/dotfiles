@@ -15,6 +15,7 @@ bitwarden-cli
 blueman
 capnet-assist
 certbot
+chafa
 chezmoi
 clang
 cmake
@@ -50,6 +51,7 @@ gnumeric
 go
 graphicsmagick
 gst-plugin-pipewire
+gum
 helix
 himalaya
 htop
