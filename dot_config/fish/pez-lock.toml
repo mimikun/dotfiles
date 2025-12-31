@@ -88,16 +88,6 @@ dir = "functions"
 name = "getopts.fish"
 
 [[plugins]]
-name = "na.fish"
-repo = "ryoppippi/na.fish"
-source = "https://github.com/ryoppippi/na.fish"
-commit_sha = "a84f4ed7b8171b1441c3f4fdbdd9447180adc0fc"
-
-[[plugins.files]]
-dir = "functions"
-name = "_na.fish"
-
-[[plugins]]
 name = "fish-evalcache"
 repo = "kyohsuke/fish-evalcache"
 source = "https://github.com/kyohsuke/fish-evalcache"
@@ -144,3 +134,13 @@ commit_sha = "4b659694b7ed3e29388251ed6ff300679fd3202b"
 [[plugins.files]]
 dir = "functions"
 name = "cute.fish"
+
+[[plugins]]
+name = "na.fish"
+repo = "ryoppippi/na.fish"
+source = "https://github.com/ryoppippi/na.fish"
+commit_sha = "0a58aa568dc0a6e4d2e58a640259f2da07b5691a"
+
+[[plugins.files]]
+dir = "functions"
+name = "_na.fish"
