@@ -73,6 +73,7 @@ diffx
 diskonaut
 dns-doge
 domain-check
+dotstate
 dotter
 doxx
 drft
@@ -193,6 +194,7 @@ navi
 ncspot
 needs
 netscanner
+nexus-tui
 nomino
 nsh
 nu
@@ -212,6 +214,7 @@ outside
 oxdraw
 oxker
 parallel-disk-usage
+parqeye
 passepartui
 pastel
 pay-respects
