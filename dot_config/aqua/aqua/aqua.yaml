@@ -152,6 +152,6 @@ packages:
   - name: yassinebenaid/bunster@v0.14.0
   - name: ycd/dstp@v0.4.23
   - name: ymtdzzz/otel-tui@v0.6.2
-  - name: yokecd/yoke@v0.19.4
+  - name: yokecd/yoke@v0.19.5
   - name: yorukot/superfile@v1.4.0
   - name: zyedidia/eget@v1.3.4
