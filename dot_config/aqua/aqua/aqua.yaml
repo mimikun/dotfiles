@@ -74,7 +74,7 @@ packages:
   - name: jesseduffield/lazygit@v0.57.0
   - name: JFryy/qq@v0.3.1
   - name: joerdav/xc@v0.8.6
-  - name: jorgerojas26/lazysql@v0.4.5
+  - name: jorgerojas26/lazysql@v0.4.6
   - name: jqlang/jq@jq-1.8.1
   - name: junegunn/fzf@v0.67.0
   - name: k1LoW/octocov@v0.74.1
