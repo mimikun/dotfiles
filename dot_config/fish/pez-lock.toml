@@ -112,20 +112,6 @@ dir = "conf.d"
 name = "gh-copilot-cli-alias.fish"
 
 [[plugins]]
-name = "forgit"
-repo = "wfxr/forgit"
-source = "https://github.com/wfxr/forgit"
-commit_sha = "151d61daffe75d0c378af4ca80f0cc9a77e3f96e"
-
-[[plugins.files]]
-dir = "completions"
-name = "git-forgit.fish"
-
-[[plugins.files]]
-dir = "conf.d"
-name = "forgit.plugin.fish"
-
-[[plugins]]
 name = "cute"
 repo = "ras0q/cute"
 source = "https://github.com/ras0q/cute"
@@ -144,3 +130,17 @@ commit_sha = "0a58aa568dc0a6e4d2e58a640259f2da07b5691a"
 [[plugins.files]]
 dir = "functions"
 name = "_na.fish"
+
+[[plugins]]
+name = "forgit"
+repo = "wfxr/forgit"
+source = "https://github.com/wfxr/forgit"
+commit_sha = "53da496336305b8896e9cc2c8c5fbb016f31847c"
+
+[[plugins.files]]
+dir = "completions"
+name = "git-forgit.fish"
+
+[[plugins.files]]
+dir = "conf.d"
+name = "forgit.plugin.fish"
