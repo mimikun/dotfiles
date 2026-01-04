@@ -248,6 +248,7 @@ rrc
 rscls
 rucola-notes
 rumdl
+rusk-task
 rustfinity
 rusticon
 rustormy
