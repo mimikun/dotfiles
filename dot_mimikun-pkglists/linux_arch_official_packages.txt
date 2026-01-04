@@ -118,6 +118,7 @@ prismlauncher
 protobuf
 python-hatch
 ranger
+rclone
 reflector
 resvg
 ripgrep-all
