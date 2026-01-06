@@ -1,0 +1,104 @@
+[tasks.view]
+description = 'View remote codeberg repository'
+script = '''
+export CODEBERG_URL=https://codeberg.org/mimikun/dotfiles
+wsl-open $CODEBERG_URL
+'''
+
+[tasks.patch]
+description = 'Create a patch file, and copy it to Host-Windows'
+depends = ['clean', 'diff-patch', 'patch-copy-to-windows']
+
+# TODO: .mise/tasks/patch/create
+[tasks.diff-patch]
+description = 'Create a patch file'
+script = '''
+mise tasks run patch:create
+'''
+
+[tasks.switch-master]
+description = 'Branch switching to master'
+script = '''
+export MAIN_BRANCH=master
+git switch $MAIN_BRANCH
+'''
+
+# TODO: .mise/tasks/clean
+[tasks.clean]
+description = 'File cleanup'
+script = '''
+mise tasks run clean
+'''
+
+# TODO: .mise/tasks/update
+[tasks.update]
+description = 'Update some files managed by chezmoi'
+script = '''
+mise tasks run update:chezmoi
+'''
+
+# TODO: .mise/tasks/patch/copy2win
+[tasks.patch-copy-to-windows]
+description = 'Copy patch to Host-Windows'
+script = '''
+mise tasks run patch:copy2win
+'''
+
+# TODO: .mise/tasks/lint
+[tasks.lint]
+description = 'Run lint'
+script = '''
+mise tasks run lint
+'''
+
+# TODO: .mise/tasks/format
+[tasks.format]
+description = 'Run format'
+script = '''
+mise tasks run format
+'''
+
+[tasks.clean-fetch]
+description = 'Powerful git fetch'
+script = '''
+git fetch --all --prune --tags --prune-tags
+'''
+
+[tasks.delete-branch]
+description = 'Delete unused patch branch'
+depends = ['clean', 'switch-master']
+script = '''
+git branch --list "patch*" | xargs -n 1 git branch -D
+'''
+
+[tasks.pull]
+description = 'Run git pull origin'
+script = '''
+export MAIN_BRANCH=master
+git pull origin $MAIN_BRANCH
+'''
+
+[tasks.push]
+description = 'Push to remote repository'
+script = "git push"
+
+# TODO: .mise/tasks/patch/branch
+[tasks.create-patch-branch]
+description = 'Create a patch branch with timestamp'
+script = '''
+echo "THIS IS WIP"
+'''
+#script = '''
+#git switch -c "patch-{{.TODAY}}"
+#'''
+
+[tasks.morning-routine]
+description = 'Every day morning routine'
+depends = ['clean-fetch', 'delete-branch', 'pull-origin', 'create-patch-branch']
+
+# TODO: .mise/tasks/git/empty-commits
+[tasks.git-empty-commit]
+description = 'Create empty commits'
+script = '''
+echo "THIS IS WIP"
+'''
