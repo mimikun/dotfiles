@@ -36,6 +36,7 @@ cargo-edit
 cargo-fuzz
 cargo-geiger
 cargo-license
+cargo-limit
 cargo-llvm-cov
 cargo-make
 cargo-msrv
