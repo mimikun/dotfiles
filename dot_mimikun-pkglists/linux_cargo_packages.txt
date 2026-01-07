@@ -78,9 +78,9 @@ dotstate
 dotter
 doxx
 drft
+du-dust
 dua-cli
 ducker
-du-dust
 dusage
 dutree
 dysk
@@ -252,11 +252,11 @@ rscls
 rucola-notes
 rumdl
 rusk-task
+rust-script
 rustfinity
 rusticon
 rustormy
 rustscan
-rust-script
 s3grep
 sccache
 scooter
@@ -289,6 +289,7 @@ swaptop
 systemctl-tui
 systemd-manager-tui
 systeroid
+t-rec
 tabiew
 taplo-cli
 tatuin
@@ -309,10 +310,9 @@ toktop
 toml2json
 topgrade
 trashy
-t-rec
 tre-command
-treefmt
 tree-sitter-cli
+treefmt
 treemd
 tui-journal
 tuisky

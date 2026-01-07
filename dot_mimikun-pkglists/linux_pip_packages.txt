@@ -415,8 +415,8 @@ oauth2client
 oauthlib
 obstore
 olefile
-onnxruntime
 omegaconf
+onnxruntime
 opack2
 openai
 openapi-core
@@ -442,9 +442,9 @@ pandas
 pandocfilters
 papis
 para-cada
-parqv
 parameter-decorators
 paramiko
+parqv
 parse
 parsedatetime
 parso
