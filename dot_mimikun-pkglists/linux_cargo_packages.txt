@@ -85,6 +85,7 @@ dusage
 dutree
 dysk
 ecscope
+ekphos
 emmylua_check
 emmylua_doc_cli
 emmylua_ls
@@ -214,6 +215,7 @@ ouch
 outside
 oxdraw
 oxker
+pacsea
 parallel-disk-usage
 parqeye
 passepartui
