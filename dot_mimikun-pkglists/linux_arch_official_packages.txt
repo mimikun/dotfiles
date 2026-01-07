@@ -140,6 +140,7 @@ tree-sitter-cli
 ttf-firacode-nerd
 unzip
 usbutils
+vhs
 vi
 vim
 vivaldi
