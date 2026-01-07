@@ -16,6 +16,7 @@ murex-debug
 nkf
 nitrogen
 nvrs
+pacsea-bin
 paru
 paru-debug
 podliner-bin
