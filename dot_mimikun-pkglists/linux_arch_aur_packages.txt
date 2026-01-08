@@ -23,6 +23,7 @@ podliner-bin
 scooter
 shikai-theme
 slack-desktop
+snitch-bin
 t-rec
 tetrio-desktop
 tinifier
