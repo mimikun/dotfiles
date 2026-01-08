@@ -508,6 +508,12 @@ if command -v crush >/dev/null 2>&1; then
     eval "$(crush completion bash)"
 fi
 
+# worktrunk config
+# repo: https://github.com/max-sixty/worktrunk
+if command -v wt >/dev/null 2>&1; then
+    eval "$(command wt config shell init bash)"
+fi
+
 # BUG: tod completion has bug
 # tod
 #if command -v tod >/dev/null 2>&1; then
