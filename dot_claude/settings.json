@@ -2,7 +2,6 @@
   "permissions": {
     "defaultMode": "plan"
   },
-  "model": "default",
   "language": "Japanese",
   "statusLine": {
     "type": "command",
