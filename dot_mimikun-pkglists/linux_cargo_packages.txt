@@ -31,6 +31,7 @@ cargo-about
 cargo-all-features
 cargo-audit
 cargo-cache
+cargo-coupling
 cargo-deny
 cargo-edit
 cargo-fuzz
@@ -74,6 +75,7 @@ diffx
 diskonaut
 dns-doge
 domain-check
+dotslash
 dotstate
 dotter
 doxx
@@ -294,6 +296,7 @@ tabiew
 taplo-cli
 tatuin
 tauri-cli
+taws
 tealdeer
 tegratop
 television
@@ -330,6 +333,7 @@ watchexec-cli
 wireman
 wisu
 work-tuimer
+worktrunk
 wthrr
 xan
 xbps-tui
