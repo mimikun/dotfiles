@@ -2,10 +2,11 @@
   "permissions": {
     "defaultMode": "plan"
   },
+  "model": "default",
   "language": "Japanese",
-	"statusLine": {
-		"type": "command",
-		"command": "bun x ccusage statusline",
-		"padding": 0
-	}
+  "statusLine": {
+    "type": "command",
+    "command": "bun x ccusage statusline",
+    "padding": 0
+  }
 }
