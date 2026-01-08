@@ -1,0 +1,196 @@
+# Worktrunk Global Configuration
+# Copy to: ~/.config/worktrunk/config.toml (or use `wt config create`)
+#
+# Alternative locations (XDG Base Directory spec):
+#   macOS/Linux:   $XDG_CONFIG_HOME/worktrunk/config.toml
+#   Windows:       %APPDATA%\worktrunk\config.toml
+
+# Commit Message Generation (Optional)
+# For generating commit messages during merge operations (wt merge)
+# [commit-generation]
+# Example: Simon Willison's llm CLI (https://github.com/simonw/llm)
+# Install: pip install llm llm-anthropic
+# command = "llm"
+# args = ["-m", "claude-haiku-4.5"]
+
+# Alternative: AIChat - Rust-based, supports 20+ providers
+# Install from: https://github.com/sigoden/aichat
+# command = "aichat"
+# args = ["-m", "claude:claude-haiku-4.5"]
+
+# Optional: Load template from file (mutually exclusive with 'template')
+# Supports ~ expansion: ~/.config/worktrunk/commit-template.txt
+# template-file = "~/.config/worktrunk/commit-template.txt"
+
+# Optional: Load squash template from file (mutually exclusive with 'squash-template')
+# Supports ~ expansion: ~/.config/worktrunk/squash-template.txt
+# squash-template-file = "~/.config/worktrunk/squash-template.txt"
+
+# See "Custom Prompt Templates" section at end of file for inline template options.
+
+# Worktree Path Template
+# Variables:
+#   {{ repo }}              - Repository directory name (e.g., "myproject")
+#   {{ branch }}            - Raw branch name (e.g., "feature/auth")
+#   {{ branch | sanitize }} - Branch name with / and \ replaced by - (e.g., "feature-auth")
+#
+# Paths are relative to the main worktree root (original repository directory).
+#
+# Example paths created (repo at /Users/dev/myproject, branch feature/auth):
+#   "../{{ repo }}.{{ branch | sanitize }}" → /Users/dev/myproject.feature-auth
+#   ".worktrees/{{ branch | sanitize }}"    → /Users/dev/myproject/.worktrees/feature-auth
+# worktree-path = "../{{ repo }}.{{ branch | sanitize }}"
+
+# Alternative: Inside repo (useful for bare repos)
+# worktree-path = ".worktrees/{{ branch | sanitize }}"
+
+# List Command Defaults
+# Configure default behavior for `wt list`
+# [list]
+# full = false       # Show CI and default-branch merge-base diffstat (`main…±` column) by default
+# branches = false   # Include branches without worktrees by default
+# remotes = false    # Include remote branches by default
+
+# Commit Defaults (shared by `wt step commit`, `wt step squash`, and `wt merge`)
+# [commit]
+# stage = "all"          # What to stage: "all", "tracked", or "none"
+
+# Merge Command Defaults
+# Note: `stage` defaults from [commit] section above
+# [merge]
+# squash = true          # Squash commits when merging
+# commit = true          # Commit uncommitted changes during merge (disables squash when false)
+# rebase = true          # Rebase onto target before merging
+# remove = true          # Remove worktree after merge
+# verify = true          # Run project hooks
+
+# Select Command Defaults
+# Configure pager behavior for `wt select` diff previews
+# [select]
+# Pager command with flags for diff preview (overrides git's core.pager)
+# Use this to specify pager flags needed for non-TTY contexts
+# Example: pager = "delta --paging=never"
+
+# Approved Commands
+# Commands approved for project hooks in this repo
+# Auto-populated when approving hooks (prompt on first run) or via `wt hook approvals add`
+# [projects."github.com/user/repo"]
+# approved-commands = ["npm ci", "npm test"]
+
+# NOTE: For project-specific hooks (post-create, post-start, pre-merge, etc.),
+# use a separate PROJECT config file at <repo>/.config/wt.toml
+# Run `wt config create --project` to create one, or see https://worktrunk.dev/hook/
+
+# ============================================================================
+# Custom Prompt Templates (Advanced)
+# ============================================================================
+# These options belong under [commit-generation] section above.
+# NOTE: Templates are synced from src/llm.rs by `cargo test readme_sync`
+
+# Optional: Custom prompt template (inline) - Uses minijinja syntax
+# Available variables: {{ git_diff }}, {{ git_diff_stat }}, {{ branch }}, {{ recent_commits }}, {{ repo }}
+# If not specified, uses the default template shown below:
+# <!-- DEFAULT_TEMPLATE_START -->
+# template = """
+# Write a commit message for the staged changes below.
+#
+# <format>
+# - Subject under 50 chars, blank line, then optional body
+# - Output only the commit message, no quotes or code blocks
+# </format>
+#
+# <style>
+# - Imperative mood: "Add feature" not "Added feature"
+# - Match recent commit style (conventional commits if used)
+# - Describe the change, not the intent or benefit
+# </style>
+#
+# <diffstat>
+# {{ git_diff_stat }}
+# </diffstat>
+#
+# <diff>
+# {{ git_diff }}
+# </diff>
+#
+# <context>
+# Branch: {{ branch }}
+# {% if recent_commits %}<recent_commits>
+# {% for commit in recent_commits %}- {{ commit }}
+# {% endfor %}</recent_commits>{% endif %}
+# </context>
+# """
+# <!-- DEFAULT_TEMPLATE_END -->
+#
+# Example alternative template with different style:
+# template = """
+# Generate a commit message for {{ repo | upper }}.
+#
+# Branch: {{ branch }}
+# {%- if recent_commits %}
+#
+# Recent commit style ({{ recent_commits | length }} commits):
+# {%- for commit in recent_commits %}
+#   {{ loop.index }}. {{ commit }}
+# {%- endfor %}
+# {%- endif %}
+#
+# Changes to commit:
+# ```
+# {{ git_diff }}
+# ```
+#
+# Requirements:
+# - Follow the style of recent commits above
+# - First line under 50 chars
+# - Focus on WHY, not HOW
+# """
+
+# Optional: Custom squash commit message template (inline) - Uses minijinja syntax
+# Available variables: {{ git_diff }}, {{ branch }}, {{ recent_commits }}, {{ repo }}, {{ commits }}, {{ target_branch }}
+# If not specified, uses the default template:
+# <!-- DEFAULT_SQUASH_TEMPLATE_START -->
+# squash-template = """
+# Combine these commits into a single commit message.
+#
+# <format>
+# - Subject under 50 chars, blank line, then optional body
+# - Output only the commit message, no quotes or code blocks
+# </format>
+#
+# <style>
+# - Imperative mood: "Add feature" not "Added feature"
+# - Match the style of commits being squashed (conventional commits if used)
+# - Describe the change, not the intent or benefit
+# </style>
+#
+# <commits branch="{{ branch }}" target="{{ target_branch }}">
+# {% for commit in commits %}- {{ commit }}
+# {% endfor %}</commits>
+#
+# <diffstat>
+# {{ git_diff_stat }}
+# </diffstat>
+#
+# <diff>
+# {{ git_diff }}
+# </diff>
+# """
+# <!-- DEFAULT_SQUASH_TEMPLATE_END -->
+#
+# Example alternative template:
+# squash-template = """
+# Squashing {{ commits | length }} commit(s) from {{ branch }} to {{ target_branch }}.
+#
+# {% if commits | length > 1 -%}
+# Commits being combined:
+# {%- for c in commits %}
+#   {{ loop.index }}/{{ loop.length }}: {{ c }}
+# {%- endfor %}
+# {%- else -%}
+# Single commit: {{ commits[0] }}
+# {%- endif %}
+#
+# Generate one cohesive commit message that captures the overall change.
+# Use conventional commit format (feat/fix/docs/refactor).
+# """
