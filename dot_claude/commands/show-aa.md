@@ -1,6 +1,6 @@
 ---
-argument-hint: [AA名] [クリップボードコピーするか判別するキーワード]
-description: アスキーアート表示 and クリップボードコピー
+argument-hint: [aa_name] [copy_trigger_word]
+description: Show AA (and Copy to clipboard)
 ---
 
 # アスキーアート表示 and クリップボードコピー
