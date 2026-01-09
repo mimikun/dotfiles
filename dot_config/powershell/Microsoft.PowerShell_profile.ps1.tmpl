@@ -469,6 +469,9 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $ty_completion >> $env:CACHE_PROFILE
     }
+    # worktrunk config
+    # repo: https://github.com/max-sixty/worktrunk
+    if (Get-Command wt -ErrorAction SilentlyContinue) { Invoke-Expression (& wt config shell init powershell) }
 }
 
 # Loading from cache profile
