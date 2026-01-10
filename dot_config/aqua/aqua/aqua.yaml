@@ -100,7 +100,7 @@ packages:
   - name: mikefarah/yq@v4.50.1
   - name: mistakenelf/fm@v1.1.0
   - name: mr-karan/doggo@v1.1.4
-  - name: mrtazz/checkmake@v0.3.1
+  - name: mrtazz/checkmake@v0.3.2
   - name: muesli/duf@v0.9.1
   - name: mvdan/sh@v3.12.0
   - name: naggie/dstask@v1.0.1
