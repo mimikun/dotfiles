@@ -1,5 +1,6 @@
 bastet
 betterlockscreen
+brow6el-git
 cmigemo-git
 ereandel
 framework-tool-tui
