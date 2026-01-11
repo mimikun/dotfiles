@@ -20,6 +20,7 @@ chezmoi
 clang
 cmake
 code
+cups
 db
 discord
 dmenu
