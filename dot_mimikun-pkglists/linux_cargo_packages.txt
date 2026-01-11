@@ -284,6 +284,7 @@ srgn
 ssh-list
 sshx
 starship
+starship-jj
 stu
 stylua
 superseedr
@@ -326,6 +327,7 @@ typst-cli
 tzupdate
 usage-cli
 uuinfo
+vibe-ticket
 viddy
 viu
 vscli
