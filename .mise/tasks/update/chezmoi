@@ -53,6 +53,13 @@ deno fmt dot_config/nvim/dotfyle.json
 # sunbeam
 chezmoi add ~/.config/sunbeam/sunbeam.json
 
+# brow6el configs
+chezmoi add ~/.brow6el/bookmarks
+chezmoi add ~/.brow6el/userscripts
+chezmoi add ~/.brow6el/browser.conf
+chezmoi add ~/.brow6el/cef_flags.conf
+chezmoi add ~/.brow6el/userscripts.conf
+
 # ~/.local/bin/*
 chezmoi add ~/.local/bin/chezmoi_post_apply_hook
 chezmoi add ~/.local/bin/chezmoi_pre_apply_hook
