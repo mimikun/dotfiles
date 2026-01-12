@@ -44,7 +44,7 @@ packages:
   - name: dundee/gdu@v5.32.0
   - name: editorconfig-checker/editorconfig-checker@v3.6.0
   - name: evilmartians/lefthook@v2.0.13
-  - name: fastfetch-cli/fastfetch@2.56.1
+  - name: fastfetch-cli/fastfetch@2.57.0
   - name: ffuf/ffuf@v2.1.0
   - name: FiloSottile/age@v1.3.1
   - name: git-bug/git-bug@v0.10.1
