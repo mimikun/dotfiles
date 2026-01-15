@@ -123,7 +123,7 @@ packages:
   - name: robinovitch61/kl@v0.6.1
   - name: rs/curlie@v1.8.2
   - name: sachaos/todoist@v0.22.0
-  - name: satococoa/wtp@v2.5.1
+  - name: satococoa/wtp@v2.6.0
   - name: schollz/croc@v10.3.1
   - name: sclevine/yj@v5.1.0
   - name: sheepla/pingu@v0.0.5
