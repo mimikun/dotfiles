@@ -1,3 +1,4 @@
+a2a-handler
 aider-chat
 bagels
 cloctui
@@ -11,6 +12,7 @@ jiratui
 lexy
 llm
 parllama
+rovr
 sot
 sqlit-tui
 squall-sql
