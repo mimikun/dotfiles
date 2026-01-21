@@ -1,4 +1,6 @@
+a2a-handler
 austin-dist
+blueutil-tui
 braindrop
 calcure
 dotenvhub
@@ -16,6 +18,7 @@ pipask
 pocker-tui
 poetry
 renux
+rovr
 rsyncy
 sherlock-project
 shotgun-sh
