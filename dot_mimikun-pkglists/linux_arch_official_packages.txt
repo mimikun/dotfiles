@@ -18,6 +18,7 @@ certbot
 chafa
 chezmoi
 clang
+cloudflare-speed-cli
 cmake
 code
 cups
@@ -172,6 +173,8 @@ xorg-xinit
 xorg-xinput
 xsel
 xterm
+zathura
+zathura-pdf-mupdf
 zip
 zram-generator
 zsh
