@@ -3,12 +3,14 @@ betterlockscreen
 brow6el-git
 cmigemo-git
 ereandel
+fabric-ai
 framework-tool-tui
 gforth
 glide-browser-bin
 google-chrome
 icat
 imgcat
+lazyworktree-bin
 mcat-bin
 morisawa-biz-ud-gothic-fonts
 murex
@@ -17,6 +19,7 @@ neofetch
 nitrogen
 nkf
 nvrs
+oyo
 pacsea-bin
 paru
 paru-debug
