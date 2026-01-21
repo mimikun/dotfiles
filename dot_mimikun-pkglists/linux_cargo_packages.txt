@@ -217,6 +217,7 @@ ouch
 outside
 oxdraw
 oxker
+oyo
 pacsea
 parallel-disk-usage
 parqeye
@@ -319,6 +320,7 @@ tree-sitter-cli
 treefmt
 treemd
 tui-journal
+tuicr
 tuisky
 tukai
 turm
