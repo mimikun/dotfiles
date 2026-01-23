@@ -469,6 +469,15 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $ty_completion >> $env:CACHE_PROFILE
     }
+
+    # pass-cli completion
+    Get-Command pass-cli -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache pass-cli completion" >> $env:CACHE_PROFILE
+        $pass_cli_completion = pass-cli completion powershell
+        Write-Output $pass_cli_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile
