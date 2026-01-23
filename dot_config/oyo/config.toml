@@ -1,0 +1,116 @@
+[ui]
+# Auto-center on active change (default: true)
+auto_center = true
+# Show top bar in diff view (default: true)
+topbar = true
+# Default: "unified", "split", "evolution", or "blame"
+view_mode = "unified"
+# Wrap long lines (default: false, uses horizontal scroll)
+line_wrap = false
+# "off", "on", or "counts"
+fold_context = "off"
+# Show scrollbar (default: false)
+scrollbar = false
+# Show strikethrough on deleted text
+strikethrough_deletions = false
+# Show +/- sign column (unified/evolution)
+gutter_signs = true
+# Enable stepping (false = no-step mode)
+stepping = true
+
+[navigation.wrap]
+# "none" | "step" | "file"
+step = "none"
+# "none" | "hunk" | "file"
+hunk = "none"
+
+[ui.diff]
+# Full-line diff background (true/false)
+bg = true
+# "theme" or "syntax"
+fg = "theme"
+# "text" | "word" | "none"
+highlight = "text"
+# "neutral" or "diff"
+extent_marker = "diff"
+# "progress" or "hunk"
+extent_marker_scope = "hunk"
+
+[ui.blame]
+# Show git blame hints (opt-in)
+enabled = true
+# "one_shot" or "toggle"
+#mode = "one_shot"
+# Show blame hint when jumping to a hunk
+#hunk_hint = true
+
+#[ui.time]
+# "relative" | "absolute" | "custom"
+#mode = "relative"
+# Used when mode = "custom"
+#format = "[year]-[month]-[day] [hour]:[minute]"
+
+[ui.split]
+# Insert blanks to keep split panes aligned
+align_lines = false
+# Fill character for aligned blanks (empty = no marker)
+#align_fill = "╱"
+
+[ui.evo]
+# "context" (non-diff only) or "full" (diff + context)
+syntax = "full"
+
+# Syntax highlighting:
+# - legacy: syntax = "on"    # "on" or "off"
+# - table:
+[ui.syntax]
+# "on" or "off"
+mode = "on"
+# default: ui.theme.name, fallback to "ansi"
+# builtin name or "custom.tmTheme" (from ~/.config/oyo/themes)
+theme = "tokyonight"
+
+syntax = "on"
+
+#[ui.unified]
+# "mixed" or "modified" (unified pane only)
+#modified_step_mode = "mixed" 
+# Built-ins listed below
+#theme = { name = "tokyonight" } 
+# Marker for primary active line (single-width char recommended)
+primary_marker = "▶"
+# Right pane marker (optional, defaults to ◀)
+primary_marker_right = "◀"
+# Left pane extent marker (Left Half Block)
+extent_marker = "▌"
+# Right pane extent marker (optional, defaults to ▐)
+extent_marker_right = "▐"
+# Start in zen mode (minimal UI)
+zen = false
+
+[playback]
+# Autoplay interval in milliseconds
+speed = 200
+# Start with autoplay enabled
+autoplay = false
+# Enable fade animations
+animation = true
+# Animation duration per phase (ms)
+animation_duration = 150
+# Auto-step to first change when entering a file
+auto_step_on_enter = true
+# Auto-step when file would be blank at step 0 (new files)
+auto_step_blank_files = true
+
+[files]
+# Show file panel in multi-file mode
+panel_visible = true
+# File panel width (columns)
+panel_width = 30
+# Per-file +/- counts: active, focused, all, off
+counts = "active"
+
+[no_step]
+# Jump to first hunk when entering a file in no-step mode
+auto_jump_on_enter = true
+
