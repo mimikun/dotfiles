@@ -1,0 +1,106 @@
+# Pass-CLI Configuration File
+#
+# This file allows you to customize terminal size warnings, keyboard shortcuts, and theme.
+# All settings are optional - missing values will use defaults.
+
+# TUI Theme (valid: dracula, nord, gruvbox, monokai)
+# Default: dracula
+theme: "dracula"
+
+# Vault Path Configuration (optional)
+# Uncomment to use a custom vault location instead of the default (~/.pass-cli/vault.enc)
+# Supports: absolute paths, tilde expansion (~), environment variables ($HOME, %USERPROFILE%)
+#
+# Examples:
+#   vault_path: "~/my-vault/vault.enc"           # Tilde expansion
+#   vault_path: "/home/user/secure/vault.enc"   # Absolute path (Linux/macOS)
+#   vault_path: "C:/Users/me/vault.enc"         # Absolute path (Windows)
+#
+# vault_path: ""
+
+# Cloud Sync Configuration (optional)
+# Sync your vault across devices using rclone (https://rclone.org)
+# Requires: rclone installed and configured with a remote
+#
+# Setup:
+#   1. Install rclone: brew install rclone (macOS) or scoop install rclone (Windows)
+#   2. Configure remote: rclone config
+#   3. Uncomment and set remote below
+#
+# sync:
+#   enabled: true
+#   remote: "gdrive:.pass-cli"    # Format: <remote-name>:<path>
+#
+# Examples:
+#   remote: "gdrive:.pass-cli"     # Google Drive
+#   remote: "dropbox:Apps/pass-cli" # Dropbox
+#   remote: "onedrive:Documents/pass-cli" # OneDrive
+#
+# See: https://arimxyer.github.io/pass-cli/docs/02-guides/sync-guide/
+
+# Terminal size warning configuration
+terminal:
+  # Enable or disable terminal size warnings (default: true)
+  warning_enabled: true
+  
+  # Minimum terminal width in columns before warning appears (default: 60)
+  # Valid range: 1-10000
+  min_width: 60
+  
+  # Minimum terminal height in rows before warning appears (default: 30)
+  # Valid range: 1-1000
+  min_height: 30
+
+  # Detail panel positioning (default: auto)
+  detail_position: "auto"  # Valid values: auto, right, bottom
+
+  # Width threshold for auto positioning (default: 120)
+  detail_auto_threshold: 120  # Range: 80-500
+
+# Cloud sync configuration
+sync:
+  enabled: false              # Enable rclone-based sync
+  remote: "gdrive:.pass-cli"  # rclone remote:path
+
+# Keyboard shortcuts
+# Format: action: "key" or "modifier+key"
+# Valid modifiers: ctrl, alt, shift
+# Valid keys: letters, numbers, enter, esc, tab, space, f1-f12
+#
+# All shortcuts are lowercase (e.g., "ctrl+q" not "CTRL+Q")
+keybindings:
+  # Application control
+  quit: "q"                    # Quit application (with confirmation)
+  help: "?"                    # Show help modal with all shortcuts
+  
+  # Credential management
+  add_credential: "a"          # Open form to add new credential
+  edit_credential: "e"         # Edit selected credential
+  delete_credential: "d"       # Delete selected credential (with confirmation)
+  
+  # View controls
+  toggle_detail: "i"           # Toggle detail panel visibility
+  toggle_sidebar: "s"          # Toggle sidebar visibility
+  search: "/"                  # Activate search/filter mode
+  
+  # Form controls (used in modals/dialogs)
+  confirm: "enter"             # Confirm action in forms
+  cancel: "esc"                # Cancel action in forms
+
+# Example custom keybindings:
+#
+# Vim-style bindings:
+#   add_credential: "i"        # Insert mode
+#   search: "/"                # Vim search
+#   toggle_sidebar: "ctrl+w"   # Vim window command
+#
+# Emacs-style bindings:
+#   quit: "ctrl+x"
+#   search: "ctrl+s"
+#   add_credential: "ctrl+n"
+#
+# Custom modifier keys:
+#   quit: "ctrl+q"
+#   add_credential: "n"
+#   help: "f1"
+
