@@ -1,0 +1,37 @@
+# lazyworktree fish shell completion
+
+function __fish_lazyworktree_no_subcommand --description 'Test if there has been any subcommand yet'
+    for i in (commandline -opc)
+        if contains -- $i wt-create wt-delete help h completion
+            return 1
+        end
+    end
+    return 0
+end
+
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l worktree-dir -s w -r -d 'Override the default worktree root directory'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l debug-log -r -d 'Path to debug log file'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l output-selection -r -d 'Write selected worktree path to a file'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l theme -s t -r -d 'Override the UI theme (dracula, dracula-light, narna, clean-light, catppuccin-latte, rose-pine-dawn, one-light, everforest-light, everforest-dark, solarized-dark, solarized-light, gruvbox-dark, gruvbox-light, nord, monokai, catppuccin-mocha, modern, tokyo-night, one-dark, rose-pine, ayu-mirage)'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l search-auto-select -d 'Start with filter focused'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l show-syntax-themes -d 'List available delta syntax themes'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l config-file -r -d 'Path to configuration file'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l config -s C -r -d 'Override config values (repeatable): --config=lw.key=value'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l help -s h -d 'show help'
+complete -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -f -l version -s v -d 'print the version'
+complete -x -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -a 'wt-create' -d 'Create a new worktree'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-create' -f -l from-branch -r -d 'Create worktree from branch (defaults to current branch)'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-create' -f -l from-pr -r -d 'Create worktree from PR number'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-create' -f -l name -r -d 'Name for the new worktree/branch (defaults to sanitised source branch name)'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-create' -f -l with-change -d 'Carry over uncommitted changes to the new worktree'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-create' -f -l silent -d 'Suppress progress messages'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-create' -f -l help -s h -d 'show help'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from wt-create; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
+complete -x -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -a 'wt-delete' -d 'Delete a worktree'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-delete' -f -l no-branch -d 'Skip branch deletion'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-delete' -f -l silent -d 'Suppress progress messages'
+complete -c lazyworktree -n '__fish_seen_subcommand_from wt-delete' -f -l help -s h -d 'show help'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from wt-delete; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
+complete -x -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -a 'help' -d 'Shows a list of commands or help for one command'
+complete -c lazyworktree -n '__fish_seen_subcommand_from completion' -f -l help -s h -d 'show help'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
