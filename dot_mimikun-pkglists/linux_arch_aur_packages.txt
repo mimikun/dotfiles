@@ -41,3 +41,4 @@ yay
 yay-debug
 yazi-git
 yt-x-git
+zedis-bin
