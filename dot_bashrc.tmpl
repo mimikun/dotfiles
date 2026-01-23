@@ -508,6 +508,21 @@ if command -v crush >/dev/null 2>&1; then
     eval "$(crush completion bash)"
 fi
 
+# handler
+if command -v handler >/dev/null 2>&1; then
+    eval "$(_HANDLER_COMPLETE=bash_source handler)"
+fi
+
+# pass-cli
+if command -v pass-cli >/dev/null 2>&1; then
+    eval "$(pass-cli completion bash)"
+fi
+
+# lazyworktree 
+if command -v lazyworktree >/dev/null 2>&1; then
+    eval "$(lazyworktree completion bash --code)"
+fi
+
 # BUG: tod completion has bug
 # tod
 #if command -v tod >/dev/null 2>&1; then
