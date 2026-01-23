@@ -523,6 +523,11 @@ if command -v lazyworktree >/dev/null 2>&1; then
     eval "$(lazyworktree completion bash --code)"
 fi
 
+# worktrunk
+if command -v wt >/dev/null 2>&1; then
+    eval "$(wt config shell init bash)"
+fi
+
 # BUG: tod completion has bug
 # tod
 #if command -v tod >/dev/null 2>&1; then
