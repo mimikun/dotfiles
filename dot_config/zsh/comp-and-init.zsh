@@ -202,6 +202,16 @@ if command -v lazyworktree >/dev/null 2>&1; then
     eval "$(lazyworktree completion zsh --code)"
 fi
 
+# worktrunk
+if command -v worktrunk >/dev/null 2>&1; then
+    eval "$(wt config shell init zsh)"
+fi
+
+# git-wt
+if command -v git-wt >/dev/null 2>&1; then
+    eval "$(git wt --init zsh)"
+fi
+
 # TODO: Use plugin manager
 # cute
 # e.g. https://github.com/mattmc3/antidote
