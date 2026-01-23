@@ -55,7 +55,7 @@ packages:
   - name: golangci/golangci-lint@v2.8.0
   - name: golang/go@go1.25.6
   - name: golang.org/x/tools/gopls@v0.21.0
-  - name: golang/tools/goimports@v0.40.0
+  - name: golang/tools/goimports@v0.41.0
   - name: golang/tools/gorename@v0.25.0
   - name: google/osv-scanner@v2.3.2
   - name: google/yamlfmt@v0.21.0
