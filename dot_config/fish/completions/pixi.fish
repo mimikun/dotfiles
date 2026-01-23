@@ -1830,6 +1830,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -s f -l feature -d 'The feature for which the task should be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l cwd -d 'The working directory relative to the root of the workspace' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l env -d 'The environment variable to set, use --env key=value multiple times for more than one variable' -r
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l default-environment -d 'Add a default environment for the task' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l description -d 'A description of the task to be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l arg -d 'The arguments to pass to the task' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
@@ -1846,6 +1847,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -s f -l feature -d 'The feature for which the task should be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l cwd -d 'The working directory relative to the root of the workspace' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l env -d 'The environment variable to set, use --env key=value multiple times for more than one variable' -r
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l default-environment -d 'Add a default environment for the task' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l description -d 'A description of the task to be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l arg -d 'The arguments to pass to the task' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
