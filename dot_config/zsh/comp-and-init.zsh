@@ -187,6 +187,21 @@ if command -v ty >/dev/null 2>&1; then
     eval "$(ty generate-shell-completion zsh)"
 fi
 
+# handler
+if command -v handler >/dev/null 2>&1; then
+    eval "$(_HANDLER_COMPLETE=zsh_source handler)"
+fi
+
+# pass-cli 
+if command -v pass-cli >/dev/null 2>&1; then
+    eval "$(pass-cli completion zsh)"
+fi
+
+# lazyworktree
+if command -v lazyworktree >/dev/null 2>&1; then
+    eval "$(lazyworktree completion zsh --code)"
+fi
+
 # TODO: Use plugin manager
 # cute
 # e.g. https://github.com/mattmc3/antidote
