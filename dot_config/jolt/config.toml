@@ -1,0 +1,83 @@
+# Theme appearance mode: "auto", "dark" or "light"
+appearance = "auto"
+
+# Active theme name
+# "default", "dracula", "nord", "gruvbox", "tokyo-night" or "catppuccin" 
+theme = "default"
+
+# Update interval in milliseconds (min: 100, max: 10000)
+refresh_ms = 2000
+
+show_graph = true
+graph_metric = "merged"
+process_count = 50
+energy_threshold = 0.5
+merge_mode = true
+forecast_window_secs = 300
+excluded_processes = []
+log_level = "info"
+
+[processes]
+# Show child processes expanded by default
+expand_all = false
+
+# Maximum processes to display
+max_visible = 20
+
+# Sort by: "energy", "cpu", "name", "pid"
+sort_by = "energy"
+
+# Sort direction: "desc" or "asc"
+sort_direction = "desc"
+
+[graph]
+# Default metric: "battery" or "power"
+default_metric = "battery"
+
+# Show graph panel
+visible = true
+
+# Graph height in rows
+height = 8
+
+[panels]
+battery = true
+power = true
+processes = true
+graph = true
+
+[history]
+# Enable historical data collection
+enabled = true
+
+# Retention period in days
+retention_days = 30
+
+# Sample interval for storage (seconds)
+sample_interval = 60
+
+background_recording = false
+sample_interval_secs = 60
+retention_raw_days = 30
+retention_hourly_days = 180
+retention_daily_days = 0
+retention_sessions_days = 90
+max_database_mb = 500
+
+[units]
+energy = "wh"
+temperature = "celsius"
+data_size = "si"
+
+[daemon]
+# Enable daemon functionality
+enabled = false
+
+# Sample interval in seconds
+sample_interval = 60
+
+# Socket path for IPC 
+# macOS: ~/Library/Caches/jolt/daemon.sock
+# Linux: ~/.local/share/jolt/daemon.sock
+socket_path = "auto"
+

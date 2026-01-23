@@ -1,0 +1,37 @@
+# A calming ocean-inspired theme
+
+[dark]
+background = "#0d1117"
+foreground = "#c9d1d9"
+border = "#21262d"
+accent = "#58a6ff"
+muted = "#8b949e"
+
+battery_high = "#3fb950"
+battery_medium = "#d29922"
+battery_low = "#f85149"
+
+impact_low = "#3fb950"
+impact_moderate = "#d29922"
+impact_elevated = "#db6d28"
+impact_high = "#f85149"
+
+graph_line = "#58a6ff"
+graph_fill = "#1f3a5f"
+
+[light]
+background = "#ffffff"
+foreground = "#24292f"
+border = "#d0d7de"
+accent = "#0969da"
+muted = "#57606a"
+
+battery_high = "#1a7f37"
+battery_medium = "#9a6700"
+battery_low = "#cf222e"
+
+impact_low = "#1a7f37"
+impact_moderate = "#9a6700"
+impact_elevated = "#bc4c00"
+impact_high = "#cf222e"
+
