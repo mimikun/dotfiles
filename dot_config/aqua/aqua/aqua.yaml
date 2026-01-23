@@ -132,7 +132,7 @@ packages:
   - name: sqshq/sampler@v1.1.0
   - name: stateful/runme@v3.16.4
   - name: suzuki-shunsuke/cmdx@v2.0.2
-  - name: suzuki-shunsuke/ghalint@v1.5.4
+  - name: suzuki-shunsuke/ghalint@v1.5.5
   - name: suzuki-shunsuke/ghtkn@v0.2.4
   - name: suzuki-shunsuke/pinact@v3.8.0
   - name: tdewolff/minify@v2.24.8
