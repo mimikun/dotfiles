@@ -528,6 +528,11 @@ if command -v wt >/dev/null 2>&1; then
     eval "$(wt config shell init bash)"
 fi
 
+# git-wt
+if command -v git-wt >/dev/null 2>&1; then
+    eval "$(git wt --init bash)"
+fi
+
 # BUG: tod completion has bug
 # tod
 #if command -v tod >/dev/null 2>&1; then
