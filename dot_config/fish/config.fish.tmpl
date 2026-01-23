@@ -632,6 +632,16 @@ if command -v handler >/dev/null 2>&1
     _HANDLER_COMPLETE=fish_source handler | source
 end
 
+# worktrunk
+if command -v wt >/dev/null 2>&1
+    wt config shell init fish | source
+end
+
+# git-wt
+if command -v git-wt >/dev/null 2>&1
+    git wt --init fish | source
+end
+
 # work pc only tools
 {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
 # work pc only tools config
