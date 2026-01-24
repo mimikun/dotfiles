@@ -128,7 +128,7 @@ packages:
   - name: schollz/croc@v10.3.1
   - name: sclevine/yj@v5.1.0
   - name: sheepla/pingu@v0.0.5
-  - name: sinclairtarget/git-who@v1.2
+  - name: sinclairtarget/git-who@v1.3
   - name: Songmu/make2help@v0.2.1
   - name: sqshq/sampler@v1.1.0
   - name: stateful/runme@v3.16.4
