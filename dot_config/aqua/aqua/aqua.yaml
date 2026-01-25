@@ -31,7 +31,7 @@ packages:
   - name: chriswalz/bit@v1.1.2
   - name: cli/cli@v2.86.0
   - name: cloudflare/gokey@v0.2.0
-  - name: cpisciotta/xcbeautify@3.1.2
+  - name: cpisciotta/xcbeautify@3.1.3
   - name: CyberAgent/reminder-lint@0.2.1
   - name: dagu-org/dagu@v1.30.3
   - name: danvergara/dblab@v0.34.2
