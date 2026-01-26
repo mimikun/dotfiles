@@ -1,25 +1,5 @@
 {
   "cleanupPeriodDays": 30,
-  "companyAnnouncements": [
-    "Welcome to Acme Corp! Review our code guidelines at docs.acme.com",
-    "Reminder: Code reviews required for all PRs",
-    "New security policy in effect"
-  ],
-  "env": {
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-    "OTEL_METRICS_EXPORTER": "otlp"
-  },
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "excludedCommands": ["docker"],
-    "network": {
-      "allowUnixSockets": [
-        "/var/run/docker.sock"
-      ],
-      "allowLocalBinding": true
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(npm:*)",
@@ -312,11 +292,6 @@
       "Edit(/etc/passwd)",
       "Edit(/etc/shadow)",
       "Edit(/etc/sudoers)",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)",
-      "Read(./config/credentials.json)",
-      "Read(./build)",
       "Write(/etc/**)",
       "Write(/usr/**)",
       "Write(/var/**)",
@@ -336,15 +311,6 @@
       "Write(/etc/passwd)",
       "Write(/etc/shadow)",
       "Write(/etc/sudoers)"
-    ],
-    "defaultMode": "plan"
-  },
-  "hooks": {
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bun x ccusage statusline",
-    "padding": 0
-  },
-  "language": "japanese"
+    ]
+  }
 }
