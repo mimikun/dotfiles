@@ -31,6 +31,7 @@ docker-compose
 efibootmgr
 emacs
 espeak-ng
+ex-vi-compat
 eza
 fcitx5
 fcitx5-configtool
