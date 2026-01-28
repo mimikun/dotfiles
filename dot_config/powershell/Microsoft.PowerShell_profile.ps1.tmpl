@@ -469,6 +469,33 @@ if ($cond) {
             ForEach-Object { $_ -replace $namespace2, "" }
         Write-Output $ty_completion >> $env:CACHE_PROFILE
     }
+
+    # pass-cli completion
+    Get-Command pass-cli -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache pass-cli completion" >> $env:CACHE_PROFILE
+        $pass_cli_completion = pass-cli completion powershell
+        Write-Output $pass_cli_completion >> $env:CACHE_PROFILE
+    }
+
+    # worktrunk
+    Get-Command wt -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache worktrunk completion" >> $env:CACHE_PROFILE
+        $worktrunk_completion = wt config shell init powershell
+        Write-Output $worktrunk_completion >> $env:CACHE_PROFILE
+    }
+
+    # git-wt
+    Get-Command git-wt -ErrorAction Ignore | Out-Null
+    $res = $?
+    if ($res) {
+        Write-Output "# cache git-wt completion" >> $env:CACHE_PROFILE
+        $git_wt_completion = git wt --init powershell
+        Write-Output $git_wt_completion >> $env:CACHE_PROFILE
+    }
 }
 
 # Loading from cache profile
@@ -883,5 +910,11 @@ if ($IsLinux) {
 Set-PSReadLineKeyHandler -Key Ctrl+g -ScriptBlock { Set-GhqLocation }
 # C-d exit
 Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
+
+# try-rs integration
+$TryRsIntegrationScriptPath = Join-Path $env:USERPROFILE -ChildPath ".config/try-rs/try-rs.ps1"
+if (Test-Path $TryRsIntegrationScriptPath -PathType Leaf) {
+    . $TryRsIntegrationScriptPath
+}
 
 # vim:ft=ps1.chezmoitmpl
