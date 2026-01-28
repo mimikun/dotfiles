@@ -316,9 +316,11 @@ toml2json
 topgrade
 trashy
 tre-command
+tredis
 tree-sitter-cli
 treefmt
 treemd
+try-rs
 tui-journal
 tuicr
 tuisky
@@ -332,6 +334,7 @@ uuinfo
 vibe-ticket
 viddy
 viu
+vortix
 vscli
 watchexec-cli
 wireman
