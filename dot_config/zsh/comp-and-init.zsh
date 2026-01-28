@@ -212,6 +212,11 @@ if command -v git-wt >/dev/null 2>&1; then
     eval "$(git wt --init zsh)"
 fi
 
+# try-rs
+if command -v try-rs >/dev/null 2>&1; then
+    source "$HOME/.config/try-rs/try-rs.zsh"
+fi
+
 # TODO: Use plugin manager
 # cute
 # e.g. https://github.com/mattmc3/antidote
