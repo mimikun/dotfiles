@@ -1,0 +1,96 @@
+# age public keys
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
+export AGE_PUBKEY="$AGE_PUBKEY_HOME"
+{{ else -}}
+export AGE_PUBKEY="$AGE_PUBKEY_WORK"
+{{ end -}}
+
+# aqua
+if command -v aqua >/dev/null 2>&1; then
+    # The maximum number of packages which are installed in parallel at the same time
+    {{ if (eq .chezmoi.hostname "Wakamo") -}}
+    # Ryzen 7 9800X3D(8 Core 16 Thread)
+    export AQUA_MAX_PARALLELISM=3
+    {{ else if (eq .chezmoi.hostname "Izuna") -}}
+    # Ryzen 9 3900X(12 Core 24 Thread)
+    export AQUA_MAX_PARALLELISM=5
+    {{ else -}}
+    # Other
+    export AQUA_MAX_PARALLELISM=1
+    {{ end -}}
+fi
+
+{{ if (eq .chezmoi.hostname "azusa") -}}
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+export XMODIFIERS="@im=fcitx"
+# CapsLock to Ctrl
+setxkbmap -option ctrl:nocaps
+# TODO: set browser name
+export BROWSER="vivaldi"
+{{ else -}}
+export BROWSER="wsl-open"
+{{ end -}}
+
+# env-vars
+# GITHUB_USERNAME
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
+export GITHUB_USERNAME="{{ (rbwFields "dotfiles-chezmoi").github_username.value }}"
+{{ else -}}
+export GITHUB_USERNAME="mimikun"
+{{ end -}}
+
+# WIN_HOME
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
+export WIN_HOME="/mnt/c/Users/{{ (rbwFields "dotfiles-chezmoi").windows_user_name.value }}"
+{{ else -}}
+export WIN_HOME="/mnt/c/Users/mimikun"
+{{ end -}}
+
+# OBSIDIAN_VAULT_ROOT
+{{ if (eq .chezmoi.hostname "azusa") -}}
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ else if (eq .chezmoi.hostname "Wakamo") -}}
+export OBSIDIAN_VAULT_ROOT="Obsidian/mimikun"
+{{ else -}}
+export OBSIDIAN_VAULT_ROOT="{{ (rbwFields "dotfiles-chezmoi").obsidian_vault_root_path.value }}"
+{{ end -}}
+
+# LG_CONFIG_FILE
+{{ if (eq .chezmoi.hostname "azusa") -}}
+export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/linux_config.yml"
+{{ else -}}
+export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/wsl_config.yml"
+{{ end -}}
+
+export WORKSPACE="$GHQ_ROOT/github.com/$GITHUB_USERNAME"
+export WORKSPACE_MIMIKUN="$GHQ_ROOT/github.com/mimikun"
+export NVIM_DEV_PLUGINS="$WORKSPACE_MIMIKUN/dev-plugins"
+
+{{ if (ne .chezmoi.hostname "azusa") -}}
+export windl="$WIN_HOME/Downloads"
+export WIN_DESKTOP="$WIN_HOME/Desktop"
+export WIN_DOCUMENTS="$WIN_HOME/Documents"
+export obsidian_vault_root_path="$WIN_DOCUMENTS/$OBSIDIAN_VAULT_ROOT"
+export DISPLAY=":0"
+{{ else -}}
+export obsidian_vault_root_path="$HOME/Documents/$OBSIDIAN_VAULT_ROOT"
+{{ end -}}
+
+export obsidian_vault_path="$obsidian_vault_root_path"
+export obsidian_dailynote_path="$obsidian_vault_path/001_DailyNotes"
+export obsidian="$obsidian_dailynote_path"
+
+# Claude Desktop
+export CLAUDE_DESKTOP_PATH="$WIN_HOME/AppData/Roaming/Claude.json"
+export CLAUDE_DESKTOP_CONFIG="$CLAUDE_DESKTOP_PATH/claude_desktop_config.json"
+
+# aqua
+if command -v aqua >/dev/null 2>&1; then
+    export AQUA_CONFIG="$AQUA_CONFIG_DIR/aqua.yaml"
+    export AQUA_GLOBAL_CONFIG="$AQUA_CONFIG"
+    export AQUA_POLICY_CONFIG="$XDG_CONFIG_HOME/aqua/policy.yaml"
+    export AQUA_DISABLE_POLICY=true
+    export AQUA_PROGRESS_BAR=true
+fi
+
