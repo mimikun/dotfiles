@@ -32,6 +32,7 @@ t-rec
 tetrio-desktop
 tinifier
 tracker
+try-rs-bin
 ttf-udev-gothic
 warp-terminal-bin
 web-greeter
