@@ -533,6 +533,11 @@ if command -v git-wt >/dev/null 2>&1; then
     eval "$(git wt --init bash)"
 fi
 
+# try-rs
+if command -v try-rs >/dev/null 2>&1; then
+    source "$HOME/.config/try-rs/try-rs.bash"
+fi
+
 # BUG: tod completion has bug
 # tod
 #if command -v tod >/dev/null 2>&1; then
