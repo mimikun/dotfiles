@@ -911,4 +911,10 @@ Set-PSReadLineKeyHandler -Key Ctrl+g -ScriptBlock { Set-GhqLocation }
 # C-d exit
 Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
 
+# try-rs integration
+$TryRsIntegrationScriptPath = Join-Path $env:USERPROFILE -ChildPath ".config/try-rs/try-rs.ps1"
+if (Test-Path $TryRsIntegrationScriptPath -PathType Leaf) {
+    . $TryRsIntegrationScriptPath
+}
+
 # vim:ft=ps1.chezmoitmpl
