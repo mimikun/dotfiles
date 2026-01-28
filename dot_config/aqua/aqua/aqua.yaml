@@ -42,7 +42,7 @@ packages:
   - name: dominikh/go-tools/staticcheck@2025.1.1
   - name: dotenvx/dotenvx@v1.52.0
   - name: dundee/gdu@v5.32.0
-  - name: editorconfig-checker/editorconfig-checker@v3.6.0
+  - name: editorconfig-checker/editorconfig-checker@v3.6.1
   - name: evilmartians/lefthook@v2.0.16
   - name: fastfetch-cli/fastfetch@2.58.0
   - name: ffuf/ffuf@v2.1.0
