@@ -41,3 +41,7 @@ intelli-shell init nushell | save -f ($nu.data-dir | path join "vendor/autoload/
 
 # jump
 jump shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/jump.nu")
+
+# try-rs
+source '/home/mimikun/.config/try-rs/try-rs.nu'
+

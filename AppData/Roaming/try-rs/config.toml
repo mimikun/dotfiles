@@ -1,0 +1,26 @@
+#tries_path = "~/Development/playground"
+
+# Optional: code, nvim, hx, etc.
+editor = "nvim"
+
+# optional, default is false
+apply_date_prefix = true
+
+# Theme configuration (choose one of the available themes)
+#theme = "Catppuccin Mocha"
+#theme = "Default"
+#theme = "Catppuccin Macchiato"
+#theme = "Dracula"
+#theme = "JetBrains Darcula"
+#theme = "Gruvbox Dark"
+#theme = "Nord"
+theme = "Tokyo Night"
+#theme = "One Dark Pro"
+#theme = "Everforest"
+#theme = "SynthWave '84"
+#theme = "OLED True Black"
+#theme = "Silver Gray"
+#theme = "Black & White"
+#theme = "Matrix"
+#theme = "Tron"
+
