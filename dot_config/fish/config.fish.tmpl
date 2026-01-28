@@ -518,144 +518,140 @@ abbr --add zel zellij
 abbr --add open wsl-open
 {{ end -}}
 
-# cache
-if test $CONFIG_FISH -nt $CACHE_CONFIG_FISH
-    mkdir -p $FISH_CACHE_DIR
-    echo "" > $CACHE_CONFIG_FISH
-
-    # Linuxbrew
-    if command -v brew >/dev/null 2>&1
-        echo "# cache linuxbrew config" >> $CACHE_CONFIG_FISH
-        /home/linuxbrew/.linuxbrew/bin/brew shellenv fish >> $CACHE_CONFIG_FISH
-    end
-
-    # mise config
-    if command -v mise >/dev/null 2>&1
-        echo "# cache mise shell-integration script" >> $CACHE_CONFIG_FISH
-        mise activate fish >> $CACHE_CONFIG_FISH
-        echo "# alias" >> $CACHE_CONFIG_FISH
-        echo 'alias paleovim "$XDG_DATA_HOME/mise/installed/vim/ref-master/vim"' >> $CACHE_CONFIG_FISH
-        echo "# abbr" >> $CACHE_CONFIG_FISH
-        echo 'abbr --add pvim paleovim' >> $CACHE_CONFIG_FISH
-    end
-
-    # NOTE: neovim version manager
-    # bob-nvim
-    if command -v bob >/dev/null 2>&1
-        if test "$USE_NVIM_VERSION_MANAGER" = "bob"
-            echo 'set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH' >> $CACHE_CONFIG_FISH
-        end
-    end
-
-    # nvs
-    if command -v nvs >/dev/null 2>&1
-        if test "$USE_NVIM_VERSION_MANAGER" = "nvs"
-            echo 'set -x PATH "$NVS_BIN_DIR" $PATH' >> $CACHE_CONFIG_FISH
-        end
-    end
-
-    echo 'abbr --add vim nvim' >> $CACHE_CONFIG_FISH
-
-    # NOTE: shell prompt
-    # starship
-    if command -v starship >/dev/null 2>&1
-        if test "$USE_SHELL_PROMPT" = "starship"
-            echo "# cache starship config" >> $CACHE_CONFIG_FISH
-            starship init fish --print-full-init >> $CACHE_CONFIG_FISH
-        end
-    end
-
-    # oh-my-posh
-    if command -v oh-my-posh >/dev/null 2>&1
-        if test "$USE_SHELL_PROMPT" = "oh-my-posh"
-            echo "# cache oh-my-posh config" >> $CACHE_CONFIG_FISH
-            #echo "oh-my-posh init fish | source" >> $CACHE_CONFIG_FISH
-            echo "oh-my-posh init fish --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | source" >> $CACHE_CONFIG_FISH
-        end
-    end
-
-    # BUG: need fix
-    # navi
-    #if command -v navi >/dev/null 2>&1
-    #    echo "# cache navi config" >> $CACHE_CONFIG_FISH
-    #    cat $XDG_CONFIG_HOME/navi/navi_widget.fish >> $CACHE_CONFIG_FISH
-    #end
-
-    # atuin
-    #if command -v atuin >/dev/null 2>&1
-    #    echo "# cache atuin config" >> $CACHE_CONFIG_FISH
-    #    echo "atuin init fish | source" >> $CACHE_CONFIG_FISH
-    #end
-
-    # rebar3
-    if command -v rebar3 >/dev/null 2>&1
-        echo "# cache rebar3 config" >> $CACHE_CONFIG_FISH
-        echo 'set -x PATH "$XDG_CACHE_HOME/rebar3/bin" $PATH' >> $CACHE_CONFIG_FISH
-    end
-
-    # pay-respects
-    if command -v pay-respects >/dev/null 2>&1
-        echo "# cache pay-respects config" >> $CACHE_CONFIG_FISH
-        echo "pay-respects fish --alias | source" >> $CACHE_CONFIG_FISH
-    end
-
-    # jujutsu
-    if command -v jj >/dev/null 2>&1
-        echo "# cache jujutsu config" >> $CACHE_CONFIG_FISH
-        echo "jj util completion fish | source" >> $CACHE_CONFIG_FISH
-    end
-
-    # go-task
-    if command -v task >/dev/null 2>&1
-        echo "# cache task completion" >> $CACHE_CONFIG_FISH
-        echo "task --completion fish | source" >> $CACHE_CONFIG_FISH
-    end
-
-    # vfox
-    # NOTE: can't use now
-    #if command -v vfox >/dev/null 2>&1
-    #    echo "# cache vfox config" >> $CACHE_CONFIG_FISH
-    #    echo "vfox activate fish | source" >> $CACHE_CONFIG_FISH
-    #end
-
-    # Equationzhao/g
-    # NOTE: can't use now
-    #if command -v g >/dev/null 2>&1
-    #    echo "# cache Equationzhao/g config" >> $CACHE_CONFIG_FISH
-    #    echo "g --init fish | source" >> $CACHE_CONFIG_FISH
-    #end
-
-    # intelli-shell
-    # NOTE: can't use now
-    #if command -v intelli-shell >/dev/null 2>&1
-    #    echo "# cache intelli-shell initialize" >> $CACHE_CONFIG_FISH
-    #    echo "intelli-shell init fish | source" >> $CACHE_CONFIG_FISH
-    #end
-
-    # jump
-    if command -v jump >/dev/null 2>&1
-        echo "# cache jump initialize" >> $CACHE_CONFIG_FISH
-        echo "jump shell fish | source" >> $CACHE_CONFIG_FISH
-    end
-
-    # wtp
-    if command -v wtp >/dev/null 2>&1
-        echo "# cache wtp initialize" >> $CACHE_CONFIG_FISH
-        echo "wtp shell-init fish | source" >> $CACHE_CONFIG_FISH
-        #echo "wtp completion fish | source" >> $CACHE_CONFIG_FISH
-        #echo "wtp hook fish | source" >> $CACHE_CONFIG_FISH
-    end
-
-    # work pc only tools
-    {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
-    echo "# work pc only tools config" >> $CACHE_CONFIG_FISH
-    cat $XDG_CONFIG_HOME/{{ (rbwFields "dotfiles-chezmoi").source_work_pc_only_tool_fish_1.value }} >> $CACHE_CONFIG_FISH
-    {{ end -}}
-    #if set -q WORK_PC
-    #else
-    #end
+# TODO: its
+# Linuxbrew
+if command -v brew >/dev/null 2>&1
+    /home/linuxbrew/.linuxbrew/bin/brew shellenv fish | source
 end
-source $CACHE_CONFIG_FISH
+
+# mise config
+if command -v mise >/dev/null 2>&1
+    # mise shell-integration script
+    mise activate fish | source
+    # mise alias
+    alias paleovim "$XDG_DATA_HOME/mise/installed/vim/ref-master/vim"
+    # mise abbr
+    abbr --add pvim paleovim
+end
+
+# NOTE: neovim version manager
+# bob-nvim
+if command -v bob >/dev/null 2>&1
+    if test "$USE_NVIM_VERSION_MANAGER" = "bob"
+        set -x PATH "$XDG_DATA_HOME/bob/nvim-bin" $PATH
+    end
+end
+
+# nvs
+if command -v nvs >/dev/null 2>&1
+    if test "$USE_NVIM_VERSION_MANAGER" = "nvs"
+        set -x PATH "$NVS_BIN_DIR" $PATH
+    end
+end
+
+echo 'abbr --add vim nvim'
+
+# NOTE: shell prompt
+# starship
+if command -v starship >/dev/null 2>&1
+    if test "$USE_SHELL_PROMPT" = "starship"
+        starship init fish --print-full-init | source
+    end
+end
+
+# oh-my-posh
+if command -v oh-my-posh >/dev/null 2>&1
+    if test "$USE_SHELL_PROMPT" = "oh-my-posh"
+        #oh-my-posh init fish | source
+        oh-my-posh init fish --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/tokyonight_storm.omp.json' | source
+    end
+end
+
+# BUG: need fix
+# navi
+#if command -v navi >/dev/null 2>&1
+#    cat $XDG_CONFIG_HOME/navi/navi_widget.fish | source
+#end
+
+# atuin
+#if command -v atuin >/dev/null 2>&1
+#    atuin init fish | source
+#end
+
+# rebar3
+if command -v rebar3 >/dev/null 2>&1
+    set -x PATH "$XDG_CACHE_HOME/rebar3/bin" $PATH
+end
+
+# pay-respects
+if command -v pay-respects >/dev/null 2>&1
+    pay-respects fish --alias | source
+end
+
+# jujutsu
+if command -v jj >/dev/null 2>&1
+    jj util completion fish | source
+end
+
+# go-task
+if command -v task >/dev/null 2>&1
+    task --completion fish | source
+end
+
+# vfox
+# NOTE: can't use now
+#if command -v vfox >/dev/null 2>&1
+#    vfox activate fish | source
+#end
+
+# Equationzhao/g
+# NOTE: can't use now
+#if command -v g >/dev/null 2>&1
+#    echo "# cache Equationzhao/g config"
+#    echo "g --init fish | source"
+#end
+
+# intelli-shell
+# NOTE: can't use now
+#if command -v intelli-shell >/dev/null 2>&1
+#    intelli-shell init fish | source
+#end
+
+# jump
+if command -v jump >/dev/null 2>&1
+    jump shell fish | source
+end
+
+# wtp
+if command -v wtp >/dev/null 2>&1
+    wtp shell-init fish | source
+end
+
+# handler
+if command -v handler >/dev/null 2>&1
+    _HANDLER_COMPLETE=fish_source handler | source
+end
+
+# worktrunk
+if command -v wt >/dev/null 2>&1
+    wt config shell init fish | source
+end
+
+# git-wt
+if command -v git-wt >/dev/null 2>&1
+    git wt --init fish | source
+end
+
+# try-rs
+if command -v try-rs >/dev/null 2>&1
+    abbr --add try try-rs
+end
+
+# work pc only tools
+{{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
+# work pc only tools config
+cat $XDG_CONFIG_HOME/{{ (rbwFields "dotfiles-chezmoi").source_work_pc_only_tool_fish_1.value }} | source
+{{ end -}}
 
 # BUG: WORKAROUND atuin and fish 4.1.0 bug
 # thx: https://github.com/atuinsh/atuin/issues/2803#issuecomment-3402340878
