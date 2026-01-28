@@ -642,6 +642,11 @@ if command -v git-wt >/dev/null 2>&1
     git wt --init fish | source
 end
 
+# try-rs
+if command -v try-rs >/dev/null 2>&1
+    abbr --add try try-rs
+end
+
 # work pc only tools
 {{ if (isExecutable "/usr/local/bin/this_is_work_pc") -}}
 # work pc only tools config
