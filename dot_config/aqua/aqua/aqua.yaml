@@ -6,7 +6,7 @@ packages:
   - name: antonmedv/fx@39.2.0
   - name: antonmedv/walk@v1.13.0
   - name: aquaproj/registry-tool@v0.3.6
-  - name: aquasecurity/trivy@v0.68.2
+  - name: aquasecurity/trivy@v0.69.0
   - name: aristocratos/btop@v1.4.6
   - name: asciimoo/wuzz@v0.5.0
   - name: astral-sh/ruff@0.14.14
