@@ -96,7 +96,7 @@ packages:
   - name: masutaka/github-nippou@v4.2.44
   - name: mattn/algia@v0.0.99
   - name: mattn/bsky@v0.0.73
-  - name: mattn/efm-langserver@v0.0.54
+  - name: mattn/efm-langserver@v0.0.55
   - name: mgechev/revive@v1.13.0
   - name: mikefarah/yq@v4.52.2
   - name: mistakenelf/fm@v1.1.0
