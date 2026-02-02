@@ -78,7 +78,7 @@ packages:
   - name: jqlang/jq@jq-1.8.1
   - name: junegunn/fzf@v0.67.0
   - name: k1LoW/git-wt@v0.17.0
-  - name: k1LoW/octocov@v0.74.2
+  - name: k1LoW/octocov@v0.74.3
   - name: kdabir/has@v1.5.2
   - name: keidarcy/e1s@v1.0.53
   - name: knqyf263/sou@v0.2.0
