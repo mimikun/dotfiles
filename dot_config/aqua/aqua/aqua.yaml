@@ -115,7 +115,7 @@ packages:
   - name: osteele/gojekyll@v0.2.16
   - name: pamburus/hl@v0.35.3
   - name: peco/peco@v0.5.11
-  - name: pkgxdev/pkgx@v2.7.0
+  - name: pkgxdev/pkgx@v2.9.0
   - name: pomdtr/sunbeam@v1.0.1
   - name: project-copacetic/copacetic@v0.13.0
   - name: pvolok/mprocs@v0.8.3
