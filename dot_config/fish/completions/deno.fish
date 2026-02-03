@@ -57,7 +57,7 @@ complete -c deno -n "__fish_deno_needs_command" -l allow-ffi -r -F
 complete -c deno -n "__fish_deno_needs_command" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_needs_command" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_needs_command" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
-complete -c deno -n "__fish_deno_needs_command" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_needs_command" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_needs_command" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_needs_command" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_needs_command" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -203,7 +203,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l allow-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
-complete -c deno -n "__fish_deno_using_subcommand run" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -309,7 +309,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
-complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -1106,7 +1106,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
-complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -1358,7 +1358,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand install" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand install" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
-complete -c deno -n "__fish_deno_using_subcommand install" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand install" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand install" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
@@ -1457,7 +1457,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand i" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand i" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
-complete -c deno -n "__fish_deno_using_subcommand i" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand i" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand i" -l location -d 'Value of globalThis.location used by some web APIs' -r -f
@@ -1824,7 +1824,7 @@ false\t''"
 complete -c deno -n "__fish_deno_using_subcommand repl" -l cert -d 'Load certificate authority from PEM encoded file' -r -F
 complete -c deno -n "__fish_deno_using_subcommand repl" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
-complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand repl" -s P -l permission-set -r
@@ -1979,7 +1979,7 @@ complete -c deno -n "__fish_deno_using_subcommand test" -l allow-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand test" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
-complete -c deno -n "__fish_deno_using_subcommand test" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand test" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand test" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -2252,7 +2252,7 @@ complete -c deno -n "__fish_deno_using_subcommand x" -l allow-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -l deny-ffi -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
-complete -c deno -n "__fish_deno_using_subcommand x" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]. Host and port are optional. Using port 0 will assign a random free port.' -r
+complete -c deno -n "__fish_deno_using_subcommand x" -l inspect -d 'Activate inspector on host:port [default: 127.0.0.1:9229]' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l inspect-brk -d 'Activate inspector on host:port, wait for debugger to connect and break at the start of user script' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l inspect-wait -d 'Activate inspector on host:port and wait for debugger to connect before running user code' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
@@ -2264,7 +2264,7 @@ complete -c deno -n "__fish_deno_using_subcommand x" -l preload -d 'A list of fi
 complete -c deno -n "__fish_deno_using_subcommand x" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand x" -l install-alias -d 'Creates a dx alias so you can run dx <command> instead of deno x <command>' -r
+complete -c deno -n "__fish_deno_using_subcommand x" -l install-alias -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand x" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand x" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
