@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/main/json-schema/aqua-yaml.json
 registries:
   - type: standard
-    ref: v4.466.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.466.1 # renovate: depName=aquaproj/aqua-registry
   - name: github-release
     type: local
     path: ./registries/github-release.yaml
