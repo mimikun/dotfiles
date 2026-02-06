@@ -16,7 +16,7 @@ packages:
   - name: babarot/gomi@v1.6.1
   - name: bcicen/ctop@v0.7.7
   - name: becheran/roumon@v1.2.0
-  - name: bitwarden/clients@cli-v2025.12.1
+  - name: bitwarden/clients@cli-v2026.1.0
   - name: bloznelis/typioca@3.1.0
   - name: Boeing/config-file-validator@v1.9.0
   - name: boyter/scc@v3.6.0
