@@ -93,7 +93,7 @@ packages:
   - name: Macmod/godap@v2.10.7
   - name: magefile/mage@v1.15.0
   - name: magodo/pipeform@v0.2.1
-  - name: masutaka/github-nippou@v4.2.44
+  - name: masutaka/github-nippou@v4.2.45
   - name: mattn/algia@v0.0.102
   - name: mattn/bsky@v0.0.73
   - name: mattn/efm-langserver@v0.0.55
