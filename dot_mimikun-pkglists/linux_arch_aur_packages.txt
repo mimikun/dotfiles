@@ -2,6 +2,7 @@ bastet
 betterlockscreen
 brow6el-git
 cmigemo-git
+endcord
 ereandel
 fabric-ai
 framework-tool-tui
@@ -37,6 +38,7 @@ ttf-udev-gothic
 warp-terminal-bin
 web-greeter
 wezterm-nightly-bin
+whosthere-bin
 xf86-video-vmware
 yay
 yay-debug
