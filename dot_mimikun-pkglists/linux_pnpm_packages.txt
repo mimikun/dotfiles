@@ -5,6 +5,7 @@
 @continuedev/cli
 @github/copilot
 @google/gemini-cli
+@j178/prek
 @jsonquerylang/jsonquery
 @ls-lint/ls-lint
 @mermaid-js/mermaid-cli
@@ -30,6 +31,7 @@ git-truck
 httpyac
 jfq
 mcp-hub
+memlab
 npkill
 oh-my-logo
 opencode-ai
