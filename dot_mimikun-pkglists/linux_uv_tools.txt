@@ -13,6 +13,7 @@ lexy
 llm
 parllama
 rovr
+prek
 sot
 sqlit-tui
 squall-sql
