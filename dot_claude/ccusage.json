@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ccusage.com/config-schema.json",
+  "defaults": {
+    "json": false,
+    "mode": "auto",
+    "offline": false,
+    "timezone": "Asia/Tokyo",
+    "locale": "ja-JP",
+    "breakdown": true,
+    "debug": false,
+    "debugSamples": 5,
+    "order": "asc"
+  },
+  "commands": {
+    "daily": {
+      "instances": false
+    },
+    "weekly": {
+      "startOfWeek": "sunday"
+    },
+    "blocks": {
+      "active": true,
+      "recent": true,
+      "tokenLimit": "500000",
+      "sessionLength": 5
+    },
+    "statusline": {
+      "offline": true,
+      "cache": true,
+      "refreshInterval": 2
+    }
+  }
+}
