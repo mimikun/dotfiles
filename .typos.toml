@@ -44,6 +44,7 @@ extend-exclude = [
   "dot_config/fish/completions/sake.fish",
   "dot_mimikun-pkglists/linux_pip_packages.txt",
   "dot_config/glide/glide.d.ts",
+  "dot_config/yazi/theme.toml",
   # error: `informations` should be `information`
   "dot_config/fish/completions/helix.fish",
   "dot_config/fish/completions/hx.fish",
