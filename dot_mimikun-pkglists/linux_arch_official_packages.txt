@@ -4,6 +4,7 @@ aichat
 alacritty
 arch-wiki-docs
 asciinema
+aspell
 awesome-terminal-fonts
 base
 base-devel
