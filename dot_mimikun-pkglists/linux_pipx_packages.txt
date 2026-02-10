@@ -17,6 +17,7 @@ peplum
 pipask
 pocker-tui
 poetry
+prek
 renux
 rovr
 rsyncy
