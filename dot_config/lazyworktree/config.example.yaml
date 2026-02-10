@@ -1,0 +1,395 @@
+# ============================================================================
+# CORE SETTINGS
+# ============================================================================
+
+# Directory where your worktrees will be created
+worktree_dir: ~/.local/share/worktrees
+
+# How worktrees are sorted in the list
+# Options: "path" (alphabetical), "active" (last commit date), "switched" (last accessed by you)
+sort_mode: switched
+
+# Refresh git metadata and working tree status in the background
+# Set to false to rely on manual refresh (r)
+auto_refresh: true
+
+# Background refresh interval in seconds (lower this for more frequent updates)
+refresh_interval: 10
+
+# Start with fuzzy finder input focused in selection screens
+fuzzy_finder_input: false
+
+# ============================================================================
+# UI & DISPLAY
+# ============================================================================
+
+# TUI theme (default: "dracula" for dark terminals, "dracula-light" for light terminals)
+# Options: "dracula", "dracula-light", "narna", "clean-light", "solarized-dark",
+#          "solarized-light", "gruvbox-dark", "gruvbox-light", "nord", "monokai",
+#          "catppuccin-mocha", "modern", "tokyo-night", "one-dark", "rose-pine",
+#          "ayu-mirage", "everforest-dark", or any custom theme defined below
+theme: dracula
+
+# Toggle Nerd Font v3 icons in file trees, PR views, and CI checks
+show_icons: true
+
+# Start with the filter focused and automatically select the first match when you press Enter
+search_auto_select: false
+
+# Maximum length for worktree names in the table display (0 disables truncation)
+# Default: 95
+max_name_length: 95
+
+# ============================================================================
+# DIFF & PAGER
+# ============================================================================
+
+# Maximum number of untracked files to show diffs for (0 disables diff display for untracked files)
+max_untracked_diffs: 10
+
+# Maximum characters to read from diff output (0 disables truncation)
+max_diff_chars: 200000
+
+# Diff formatter/pager used for rendering diffs (default: delta)
+# Set to empty string ("") to disable diff formatting and use plain git diff output.
+# Examples:
+#   git_pager: delta
+#   git_pager: diff-so-fancy
+#   git_pager: ""         # disables formatting
+#
+# If git_pager is delta and git_pager_args is omitted, lazyworktree automatically
+# selects a --syntax-theme matching your UI theme.
+git_pager: delta
+
+# Extra arguments passed to git_pager.
+# If you omit this setting and git_pager is delta, lazyworktree selects a syntax
+# theme matching your UI theme (e.g., Dracula for dark themes).
+git_pager_args:
+  - --syntax-theme
+  - Dracula
+
+# Set to true for interactive diff viewers that need terminal control (default: false)
+# Interactive tools like diffnav (https://github.com/dlvhdr/diffnav), ftdv
+# (https://terminaltrove.com/ftdv/), or tig require direct terminal access
+# and
+# cannot be piped through less. When true, only unstaged changes (git diff) are shown.
+#
+# Examples:
+#   For interactive TUI diff navigators:
+#     git_pager: diffnav
+#     git_pager_interactive: true
+#
+#   For VS Code (uses git difftool for proper side-by-side comparison):
+#     git_pager: code
+#     # Opens one VS Code window per changed file via git difftool
+#
+git_pager_interactive: false
+
+# Pager used for show_output custom commands
+# Default: $PAGER environment variable or less if unset
+pager: "less --use-color --wordwrap -qcR -P 'Press q to exit..'"
+
+# ============================================================================
+# EDITOR
+# ============================================================================
+
+# Editor for opening files from the Status pane
+# Default: $EDITOR environment variable, then nvim, then vi
+editor: nvim
+
+# ============================================================================
+# BRANCH NAMING
+# ============================================================================
+
+# Template for issue branch names when creating worktrees from issues
+# Available placeholders:
+#   {number} - The issue number
+#   {title}  - The sanitised issue title (original)
+#   {generated} - The AI-generated title (falls back to {title} if not available)
+# Examples:
+#   issue_branch_name_template: "issue-{number}-{title}"      # issue-123-fix-login-bug
+#   issue_branch_name_template: "issue-{number}-{generated}"  # issue-123-fix-auth-bug (AI title)
+#   issue_branch_name_template: "{number}-{title}"            # 123-fix-login-bug
+issue_branch_name_template: "issue-{number}-{title}"
+
+# Template for PR branch names when creating worktrees from pull requests
+# Available placeholders:
+#   {number} - The PR number
+#   {title}  - The sanitised PR title (original)
+#   {generated} - The AI-generated title (falls back to {title} if not available)
+#   {pr_author} - The PR author's username (sanitised)
+# Examples:
+#   pr_branch_name_template: "pr-{number}-{title}"              # pr-123-fix-login-bug (original title)
+#   pr_branch_name_template: "pr-{number}-{generated}"          # pr-123-feat-session-manager (AI title)
+#   pr_branch_name_template: "pr-{number}-{pr_author}-{title}"  # pr-123-alice-fix-login-bug (with author)
+#   pr_branch_name_template: "pr-{number}-{generated}-{title}"  # pr-123-feat-session-manager-fix-login-bug (both)
+pr_branch_name_template: "pr-{number}-{title}"
+
+# Script to generate branch name suggestions when creating worktrees from changes, issues, or PRs
+#
+# For PRs/issues: The script outputs a title that is used in the {generated} placeholder
+#                 Use {generated} in your template to use the AI-generated title
+#                 Example: pr_branch_name_template: "pr-{number}-{generated}"
+#
+# For diffs: The script outputs a complete branch name
+#
+# The script receives content on stdin (git diff for changes, issue/PR title+body for issues/PRs)
+#
+# Environment variables available to the script:
+#   LAZYWORKTREE_TYPE: The type of creation (pr/issue/diff)
+#   LAZYWORKTREE_NUMBER: The PR/issue number (empty for diff-based creation)
+#   LAZYWORKTREE_TEMPLATE: The configured template (e.g., "pr-{number}-{title}")
+#   LAZYWORKTREE_SUGGESTED_NAME: The template-generated branch name using original PR/issue title
+#
+# Examples:
+#   # Simple title generation for PRs/issues
+#   # Use with pr_branch_name_template: "pr-{number}-{generated}"
+#   branch_name_script: "aichat -m gemini:gemini-2.5-flash-lite 'Generate a short title for this PR or issue. Output only the title.'"
+#
+#   # Different behaviour for diffs vs PRs/issues
+#   branch_name_script: |
+#     if [ "$LAZYWORKTREE_TYPE" = "diff" ]; then
+#       aichat -m gemini:gemini-2.5-flash-lite 'Generate a complete branch name for this diff'
+#     else
+#       aichat -m gemini:gemini-2.5-flash-lite 'Generate a short title (no pr- prefix). Output only the title.'
+#     fi
+#
+# branch_name_script: ""
+
+# ============================================================================
+# GIT OPERATIONS
+# ============================================================================
+
+# Automatically fetch pull requests/merge requests when opening a repository
+auto_fetch_prs: false
+
+# Merge method for the "Absorb worktree" action
+# Options: "rebase" (rebases onto main, then fast-forwards main to the branch)
+#          "merge" (creates a merge commit on main)
+merge_method: "rebase"
+
+# ============================================================================
+# SECURITY
+# ============================================================================
+
+# Security setting for executing commands from .wt files
+# Options: "tofu" (Trust On First Use - prompts you the first time or when commands change)
+#          "never" (skips all commands from .wt files)
+#          "always" (executes without prompting - use with caution)
+trust_mode: "tofu"
+
+# Debug log file path (for troubleshooting)
+# When set, lazyworktree writes debug information to this file
+# Leave commented out unless you're diagnosing issues
+# debug_log: "/tmp/lazyworktree-debug.log"
+
+# ============================================================================
+# LIFECYCLE HOOKS
+# ============================================================================
+#
+# Environment variables available to init_commands, terminate_commands, and custom_commands:
+#   WORKTREE_PATH       - Path to the worktree
+#   WORKTREE_BRANCH     - Name of the git branch
+#   WORKTREE_NAME       - Name of the worktree (directory basename)
+#   MAIN_WORKTREE_PATH  - Path to the main repository
+#   REPO_NAME           - Repository key (from GitHub/GitLab or local hash)
+
+# Commands to run after creating a new worktree
+# Executes when creating worktrees from branches, PRs, issues, or changes
+# Execution order: global config commands first, then repository-specific commands from .wt files
+#
+# Special built-in command:
+#   link_topsymlinks    - Symlinks untracked/ignored files from main worktree root,
+#                         editor configs (.vscode, .idea, .cursor, .claude),
+#                         creates tmp/ directory, runs direnv allow if .envrc exists
+#
+# Security: Commands from .wt files require trust confirmation (see trust_mode setting)
+#
+# Examples:
+#   - link_topsymlinks                                    # Symlink config files
+#   - cp $MAIN_WORKTREE_PATH/.env $WORKTREE_PATH/.env   # Copy environment
+#   - npm install                                         # Install dependencies
+init_commands:
+  - link_topsymlinks
+
+# Commands to run before deleting a worktree
+# Executes when deleting individual worktrees or pruning merged worktrees
+# Execution order: global config commands first, then repository-specific commands from .wt files
+#
+# Environment variables: Same as init_commands (see above)
+# Security: Commands from .wt files require trust confirmation (see trust_mode setting)
+#
+# Examples:
+#   - echo "Cleaning up $WORKTREE_NAME"        # Log cleanup
+#   - rm -rf $WORKTREE_PATH/tmp/*              # Remove temporary files
+terminate_commands:
+  - echo "Cleaning up $WORKTREE_NAME"
+
+# ============================================================================
+# CUSTOM COMMANDS
+# ============================================================================
+
+# Custom keybindings to run commands in the selected worktree
+# Commands are executed interactively (TUI suspends, similar to lazygit)
+# Note: Custom commands take precedence over built-in keys (e.g., 's' will override the sort toggle)
+#
+# Environment variables: Same as lifecycle hooks (see above)
+#
+# Supported key formats:
+#   - Single keys: e, s, t, l
+#   - Modifier combinations: "ctrl+e", "alt+t", "ctrl+shift+s"
+#   - Special keys: enter, esc, tab, space
+#
+# Fields:
+#   command: The command to execute (required)
+#   description: Description shown in help screen (optional)
+#   show_help: Show in help screen and footer hints (default: false)
+#   wait: Wait for keypress after command completes (default: false, useful for quick commands)
+#   show_output: Display command output in the pager instead of running interactively (default: false)
+custom_commands:
+  s:
+    command: zsh
+    description: Open shell
+    show_help: true
+  t:
+    command: make test
+    description: Run tests
+    show_help: false
+    wait: true
+  l:
+    command: ls -la
+    description: List files
+    show_help: true
+    wait: true
+  "ctrl+t":
+    command: "git status -sb"
+    description: Status
+    show_help: true
+    show_output: true
+  "T":
+    description: Tmux session
+    show_help: true
+    tmux:
+      session_name: "wt:$WORKTREE_NAME"
+      attach: true
+      on_exists: "switch"
+      windows:
+        - name: claude
+          command: claude
+        - name: shell
+          command: zsh
+        - name: lazygit
+          command: lazygit
+  "Z":
+    description: Zellij session
+    show_help: true
+    zellij:
+      session_name: "wt:$WORKTREE_NAME"
+      attach: true
+      on_exists: "switch"
+      windows:
+        - name: claude
+          command: claude
+        - name: shell
+          command: zsh
+        - name: lazygit
+          command: lazygit
+
+# ============================================================================
+# CUSTOM MENUS
+# ============================================================================
+
+# Custom items for the worktree creation menu (triggered by 'c' key)
+# Each item runs an external command that outputs a branch name
+# Workflow: select base branch first, then command runs, then you enter/confirm the branch name
+#
+# Non-interactive commands run with a 30-second timeout
+# Output (first line, whitespace trimmed, case preserved) is used as the suggested name
+#
+# Fields:
+#   label: Display label shown in the menu (required)
+#   description: Help text shown next to the label (optional)
+#   command: Shell command that outputs a branch name on stdout (required)
+#   interactive: Run interactively (default: false). Set to true for TUI-based
+#                commands like fzf or jayrah. Suspends lazyworktree, runs the
+#                command in the terminal, and captures stdout via temp file
+#   post_command: Command to run in new worktree after creation (optional)
+#                 Runs after global/repo init_commands. Has access to environment
+#                 variables like WORKTREE_BRANCH, WORKTREE_PATH, etc.
+#   post_interactive: Run post-command interactively (default: false). When true,
+#                     TUI suspends to show command I/O
+custom_create_menus:
+  - label: "From JIRA ticket"
+    description: "Create from JIRA issue"
+    command: "jayrah browse 'SRVKP' --choose"
+    interactive: true
+    post_command: "git commit --allow-empty -m 'Initial commit for ${WORKTREE_BRANCH}'"
+    post_interactive: false
+  - label: "From clipboard"
+    description: "Use clipboard as branch name"
+    command: "pbpaste"
+
+# ============================================================================
+# CUSTOM THEMES
+# ============================================================================
+
+# Define custom themes that can inherit from built-in themes or other custom themes.
+# Custom themes allow you to personalise the colour scheme without modifying code.
+#
+# Two ways to define a custom theme:
+#
+# 1. Inherit from a built-in theme and override specific colours:
+#    custom_themes:
+#      my-dark:
+#        base: dracula
+#        accent: "#FF6B9D"
+#        text_fg: "#E8E8E8"
+#
+# 2. Define a complete theme without a base (all 11 colour fields required):
+#    custom_themes:
+#      completely-custom:
+#        accent: "#00FF00"
+#        accent_fg: "#000000"
+#        accent_dim: "#2A2A2A"
+#        border: "#3A3A3A"
+#        border_dim: "#2A2A2A"
+#        muted_fg: "#888888"
+#        text_fg: "#FFFFFF"
+#        success_fg: "#00FF00"
+#        warn_fg: "#FFFF00"
+#        error_fg: "#FF0000"
+#        cyan: "#00FFFF"
+#
+# Custom themes can also inherit from other custom themes:
+#    custom_themes:
+#      base-custom:
+#        base: dracula
+#        accent: "#FF0000"
+#      derived:
+#        base: base-custom
+#        accent: "#00FF00"
+#
+# Available colour fields (snake_case in YAML):
+#   - accent: Primary accent colour (used for highlights, selected items)
+#   - accent_fg: Foreground colour for text on accent background
+#   - accent_dim: Dimmed accent colour (used for selected rows/panels)
+#   - border: Border colour
+#   - border_dim: Dimmed border colour
+#   - muted_fg: Muted text colour (for less important text)
+#   - text_fg: Primary text colour
+#   - success_fg: Success/positive indicator colour
+#   - warn_fg: Warning indicator colour
+#   - error_fg: Error indicator colour
+#   - cyan: Cyan accent colour
+#
+# Colour values must be in hex format: #RRGGBB or #RGB
+# When using a base theme, only specify colours you want to override.
+# When not using a base, all 11 colour fields are required.
+#
+# custom_themes:
+#   my-dark:
+#     base: dracula
+#     accent: "#FF6B9D"
+#   my-light:
+#     base: dracula-light
+#     accent: "#0066CC"
