@@ -190,6 +190,7 @@ menyoki
 mergiraf
 mise
 mocword
+moltbook-tui
 monolith
 motus
 mq-run
@@ -229,6 +230,7 @@ pay-respects-module-runtime-rules
 pez
 pik
 pipr
+prek
 presenterm
 procs
 pueue
