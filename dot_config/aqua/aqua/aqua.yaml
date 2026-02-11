@@ -142,7 +142,7 @@ packages:
   - name: tsenart/vegeta@v12.13.0
   - name: tsl0922/ttyd@1.7.7
   - name: tstack/lnav@v0.13.2
-  - name: twpayne/chezmoi@v2.69.3
+  - name: twpayne/chezmoi@v2.69.4
   - name: umlx5h/gtrash@v0.0.6
   - name: vladimirvivien/ktop@v0.5.3
   - name: wader/fq@v0.16.0
