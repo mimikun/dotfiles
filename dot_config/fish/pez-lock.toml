@@ -95,11 +95,11 @@ commit_sha = "d71c0f365eddfa79f2080695fd58a2e3cb298b3a"
 
 [[plugins.files]]
 dir = "functions"
-name = "_evalcache_clear.fish"
+name = "_evalcache.fish"
 
 [[plugins.files]]
 dir = "functions"
-name = "_evalcache.fish"
+name = "_evalcache_clear.fish"
 
 [[plugins]]
 name = "gh-copilot-cli-alias.fish"
