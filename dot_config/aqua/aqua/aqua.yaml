@@ -18,7 +18,7 @@ packages:
   - name: becheran/roumon@v1.2.0
   - name: bitwarden/clients@cli-v2026.1.0
   - name: bloznelis/typioca@3.1.0
-  - name: Boeing/config-file-validator@v1.9.0
+  - name: Boeing/config-file-validator@v1.10.0
   - name: boyter/scc@v3.6.0
   - name: bronze1man/yaml2json@v1.3.5
   - name: charmbracelet/crush@v0.41.0
