@@ -132,6 +132,7 @@ gping
 grex
 harper-ls
 hawk-data
+hazelnut
 heh
 hex-patch
 hexhog
@@ -155,6 +156,7 @@ intelli-shell
 intentrace
 iwe
 iwes
+jiq
 jj-cli
 jjj
 jnv
@@ -190,6 +192,7 @@ menyoki
 mergiraf
 mise
 mocword
+modelsdev
 moltbook-tui
 monolith
 motus
@@ -346,6 +349,7 @@ worktrunk
 wthrr
 xan
 xbps-tui
+xfr
 xh
 xleak
 xsv
