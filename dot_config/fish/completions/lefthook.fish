@@ -30,8 +30,8 @@ complete -c lefthook -n '__fish_seen_subcommand_from run' -f -l files-from-stdin
 complete -c lefthook -n '__fish_seen_subcommand_from run' -f -l help -s h -d 'show help'
 complete -x -c lefthook -n '__fish_seen_subcommand_from run; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
 complete -x -c lefthook -n '__fish_lefthook_no_subcommand' -a 'install' -d 'install Git hook from the config or create a blank lefthook.yml'
-complete -c lefthook -n '__fish_seen_subcommand_from install' -f -l force -s f -d 'proceed with installation even if core.hooksPath is configured (overwrite .old files)'
-complete -c lefthook -n '__fish_seen_subcommand_from install' -f -l reset-hooks-path -d 'automatically unset core.hooksPath configuration'
+complete -c lefthook -n '__fish_seen_subcommand_from install' -f -l force -s f -d 'overwrite .old files and proceed even if core.hooksPath is set'
+complete -c lefthook -n '__fish_seen_subcommand_from install' -f -l reset-hooks-path -s r -d 'automatically unset core.hooksPath configuration'
 complete -c lefthook -n '__fish_seen_subcommand_from install' -f -l verbose -s v
 complete -c lefthook -n '__fish_seen_subcommand_from install' -f -l help -s h -d 'show help'
 complete -x -c lefthook -n '__fish_seen_subcommand_from install; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
