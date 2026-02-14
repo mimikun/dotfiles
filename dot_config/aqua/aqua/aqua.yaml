@@ -119,7 +119,7 @@ packages:
   - name: pomdtr/sunbeam@v1.0.1
   - name: project-copacetic/copacetic@v0.13.0
   - name: pvolok/mprocs@v0.8.3
-  - name: rhysd/actionlint@v1.7.10
+  - name: rhysd/actionlint@v1.7.11
   - name: rhysd/vim-startuptime@v1.3.2
   - name: robinovitch61/kl@v0.6.1
   - name: rs/curlie@v1.8.2
