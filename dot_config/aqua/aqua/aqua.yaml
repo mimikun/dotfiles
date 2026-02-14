@@ -148,7 +148,7 @@ packages:
   - name: wader/fq@v0.16.0
   - name: wagoodman/dive@v0.13.1
   - name: wtetsu/gaze@v1.2.1
-  - name: x-motemen/ghq@v1.9.2
+  - name: x-motemen/ghq@v1.9.3
   - name: xxxserxxx/gotop@v4.2.0
   - name: yassinebenaid/bunster@v0.14.0
   - name: ycd/dstp@v0.4.23
