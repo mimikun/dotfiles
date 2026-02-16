@@ -61,15 +61,16 @@ complete -c berg -n "__fish_berg_using_subcommand api; and __fish_seen_subcomman
 complete -c berg -n "__fish_berg_using_subcommand api; and __fish_seen_subcommand_from version" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c berg -n "__fish_berg_using_subcommand api; and __fish_seen_subcommand_from help" -f -a "version" -d 'Display short summary of the authenticated user account'
 complete -c berg -n "__fish_berg_using_subcommand api; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
 json\t'Raw json output for further use with pipes etc'"
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -s w -l max-width -d 'Maximum with of the stdout output,' -r
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -l owner-repo -d 'The OWNER/REPO tuple if you want to target a repository other than the one in $PWD' -r
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!'
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -f -a "login" -d 'Login via generating authentication token'
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -f -a "logout" -d 'Logout. Delete currently stored authentication token'
-complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -s w -l max-width -d 'Maximum with of the stdout output,' -r
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -l owner-repo -d 'The OWNER/REPO tuple if you want to target a repository other than the one in $PWD' -r
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!'
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -f -a "login" -d 'Login via generating authentication token'
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -f -a "logout" -d 'Logout. Delete currently stored authentication token'
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -f -a "list" -d 'List all forgejo instances you\'re authenticated for'
+complete -c berg -n "__fish_berg_using_subcommand auth; and not __fish_seen_subcommand_from login logout list help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from login" -s t -l token -d 'Access Token' -r
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from login" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
 json\t'Raw json output for further use with pipes etc'"
@@ -84,8 +85,15 @@ complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcomma
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from logout" -s s -l skip-confirmation -d 'flag that skips the confirmation dialog if set'
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from logout" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!'
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from logout" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from list" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
+json\t'Raw json output for further use with pipes etc'"
+complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from list" -s w -l max-width -d 'Maximum with of the stdout output,' -r
+complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from list" -l owner-repo -d 'The OWNER/REPO tuple if you want to target a repository other than the one in $PWD' -r
+complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from list" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!'
+complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "login" -d 'Login via generating authentication token'
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "logout" -d 'Logout. Delete currently stored authentication token'
+complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all forgejo instances you\'re authenticated for'
 complete -c berg -n "__fish_berg_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c berg -n "__fish_berg_using_subcommand config; and not __fish_seen_subcommand_from info generate help" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
 json\t'Raw json output for further use with pipes etc'"
@@ -363,11 +371,12 @@ complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcomma
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s n -l name -d 'Repository name' -r
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s p -l private -d 'Repository visibility' -r -f -a "private\t''
 public\t''"
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l and-push-from -d 'Whether or not to clone the repo after creating it remotely' -r -F
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
 json\t'Raw json output for further use with pipes etc'"
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s w -l max-width -d 'Maximum with of the stdout output,' -r
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l owner-repo -d 'The OWNER/REPO tuple if you want to target a repository other than the one in $PWD' -r
-complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s a -l and-clone -d 'Whether or not to clone the repo after creating it remotely'
+complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l and-clone -d 'Whether or not to clone the repo after creating it remotely'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -l non-interactive -d 'Whether or not to disable all interactive features. In this case arguments have to be provided in the console!'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c berg -n "__fish_berg_using_subcommand repo; and __fish_seen_subcommand_from clone" -l output-mode -d 'How to display the responses of the forgejo instance if there are any' -r -f -a "pretty\t'Pretty output with tables rendered in the terminal'
@@ -603,6 +612,7 @@ complete -c berg -n "__fish_berg_using_subcommand help; and not __fish_seen_subc
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from api" -f -a "version" -d 'Display short summary of the authenticated user account'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "login" -d 'Login via generating authentication token'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "logout" -d 'Logout. Delete currently stored authentication token'
+complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "list" -d 'List all forgejo instances you\'re authenticated for'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "info" -d 'Display short overview of which config values are used'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "generate" -d 'Generate standard configuration at certain locations'
 complete -c berg -n "__fish_berg_using_subcommand help; and __fish_seen_subcommand_from user" -f -a "info" -d 'Display short summary of the authenticated user account'
