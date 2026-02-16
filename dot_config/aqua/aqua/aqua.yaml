@@ -77,7 +77,7 @@ packages:
   - name: jorgerojas26/lazysql@v0.4.6
   - name: jqlang/jq@jq-1.8.1
   - name: junegunn/fzf@v0.67.0
-  - name: k1LoW/git-wt@v0.22.0
+  - name: k1LoW/git-wt@v0.23.0
   - name: k1LoW/octocov@v0.74.5
   - name: kdabir/has@v1.5.2
   - name: keidarcy/e1s@v1.0.53
