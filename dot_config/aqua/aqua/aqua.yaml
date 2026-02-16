@@ -106,7 +106,7 @@ packages:
   - name: mvdan/sh@v3.12.0
   - name: naggie/dstask@v1.0.1
   - name: nakabonne/ali@v0.8.0
-  - name: nao1215/gup@v1.0.0
+  - name: nao1215/gup@v1.1.0
   - name: nao1215/sqly@v0.14.3
   - name: natecraddock/zf@0.10.2
   - name: neilotoole/sq@v0.49.0
