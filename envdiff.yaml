@@ -1,0 +1,49 @@
+# envdiff.yaml - Environment requirements
+# Run 'envdiff check' to validate your environment against these requirements
+
+# Runtime version constraints (semver)
+# Supported operators: =, !=, >, <, >=, <=, ~> (pessimistic), ^ (caret), *
+runtime:
+  go: ">= 1.21.0"
+  node: ">= 18.0.0"
+  python: ">= 3.10.0"
+  docker: "*"  # any version, just needs to exist
+  # kubectl: "~> 1.28.0"  # >= 1.28.0 and < 1.29.0
+
+# Environment variable requirements
+env:
+  # Variables that must be set (value doesn't matter)
+  required:
+    # - DATABASE_URL
+    # - AWS_PROFILE
+
+  # Variables that must have specific values
+  expected:
+    # NODE_ENV: development
+    # LOG_LEVEL: debug
+
+  # Variables to ignore when comparing (glob patterns supported)
+  ignore:
+    - TERM
+    - SHELL
+    - HOME
+    - USER
+    - PATH
+    - PWD
+    - LANG
+    - "LC_*"
+    - "*_SESSION*"
+    - "*_TOKEN*"
+
+# Packages to verify (opt-in, not checked by default)
+# packages:
+#   - nginx
+#   - redis-server
+
+# Remediation hints (shown when check fails)
+# fix:
+#   node:
+#     missing: "brew install node@20"
+#     wrong_version: "nvm use 20"
+#   DATABASE_URL:
+#     missing: "Copy from 1Password vault 'Dev Secrets'"
