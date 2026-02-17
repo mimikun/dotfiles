@@ -2053,6 +2053,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcom
 never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from prefix" -l generate-attestation -d 'Automatically generate attestation using cosign in CI. Mutually exclusive with --attestation'
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from prefix" -l store-github-attestation -d 'Also store the generated attestation to GitHub\'s attestation API. Requires `GITHUB_TOKEN` environment variable and only works in GitHub Actions. The attestation will be associated with the current repository'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from prefix" -s s -l skip-existing -d 'Skip upload if package already exists'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from prefix" -l force -d 'Force overwrite existing packages'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from prefix" -s h -l help -d 'Display help information'
