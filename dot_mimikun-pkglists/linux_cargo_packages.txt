@@ -68,6 +68,7 @@ csview
 csvlens
 cyme
 ddv
+dealve-tui
 desed
 diffai
 difftastic
@@ -194,6 +195,7 @@ mise
 mocword
 modelsdev
 moltbook-tui
+monitui
 monolith
 motus
 mq-run
@@ -230,6 +232,7 @@ pastel
 pay-respects
 pay-respects-module-request-ai
 pay-respects-module-runtime-rules
+perch
 pez
 pik
 pipr
