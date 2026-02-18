@@ -1,0 +1,51 @@
+#sources_dir = "<OCTOTYPE_CONFIG_DIR>/sources"
+#modes_dir = "<OCTOTYPE_CONFIG_DIR>/modes"
+words_per_line = 5
+show_ghost_lines = 3
+ghost_opacity = [
+    0.2,
+    0.5,
+    0.8,
+]
+disable_ghost_fade = false
+
+[theme]
+#term_fg = "<YOUR_TERMINAL_FOREGROUND_COLOR>"
+#term_bg = "<YOUR_TERMINAL_BACKGROUND_COLOR>"
+
+[theme.spinner]
+color = "Yellow"
+animation = [
+    "⣷",
+    "⣯",
+    "⣟",
+    "⡿",
+    "⢿",
+    "⣻",
+    "⣽",
+    "⣾",
+]
+timing_millis = 250
+
+[theme.text]
+success = "#A6E3A1"
+warning = "#F9E2AF"
+error = "#F38BA8"
+highlight = "#89B4FA"
+
+[theme.plot]
+raw_wpm = "#CDD6F4"
+actual_wpm = "#F9E2AF"
+accuracy = "#CDD6F4"
+errors = "#F38BA8"
+scatter_symbol = "Dot"
+line_symbol = "HalfBlock"
+
+[theme.cursor]
+color = "White"
+text = "Black"
+
+[statistic]
+save_enabled = true
+history_limit = 10
+
