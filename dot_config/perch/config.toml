@@ -1,0 +1,27 @@
+# dracula, one-dark-pro, nord, catppuccin-mocha, catppuccin-latte, gruvbox-dark, gruvbox-light, tokyo-night, solarized-dark, solarized-light, monokai-pro, rose-pine, kanagawa, everforest, cyberpunk, 
+theme = "kanagawa"
+
+# home, local, federated, unified
+default_timeline = "home"
+
+# vim-like keybindings
+vim_mode = true
+
+# auto-refresh interval in seconds
+# 300s = 5m
+refresh_interval_secs = 300
+
+# number of posts to fetch per request
+post_limit = 50
+
+# whether to show media previews in the timeline
+show_media = true
+
+# enable cross-posting
+#default_post_networks = []
+
+# NOTE: removed?
+# Default visibility for posts
+# Options: public, unlisted, private, direct
+#default_visibility = "public"
+
