@@ -1,5 +1,6 @@
 a2a-handler
 austin-dist
+austin-tui
 blueutil-tui
 braindrop
 calcure
