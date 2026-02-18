@@ -1,0 +1,219 @@
+# datui configuration file
+# This file uses TOML format. See https://toml.io/ for syntax reference.
+
+# Configuration format version (for future compatibility)
+# version = "0.2"
+
+# ============================================================================
+# Cloud / Object Storage (S3, MinIO)
+# ============================================================================
+# Optional overrides for s3:// URLs. Leave unset to use AWS defaults (env, ~/.aws/).
+# Set endpoint_url to use MinIO or other S3-compatible backends.
+# [cloud]
+# Custom endpoint for S3-compatible storage (MinIO, etc.). Example: "http://localhost:9000". Unset = AWS.
+# s3_endpoint_url = null
+
+# Access key when using custom endpoint (or set AWS_ACCESS_KEY_ID).
+# s3_access_key_id = null
+
+# Secret key when using custom endpoint (or set AWS_SECRET_ACCESS_KEY).
+# s3_secret_access_key = null
+
+# Region (e.g. us-east-1). Required for custom endpoints; MinIO often uses us-east-1.
+# s3_region = null
+
+
+# ============================================================================
+# File Loading Defaults
+# ============================================================================
+# [file_loading]
+# Default delimiter for CSV files (as ASCII value, e.g., 44 for comma)
+# If not specified, auto-detection is used
+# delimiter = null
+
+# Whether files have headers by default
+# null = auto-detect, true = has header, false = no header
+# has_header = null
+
+# Number of lines to skip at the start of files
+# skip_lines = null
+
+# Number of rows to skip when reading files
+# skip_rows = null
+
+# When true (default), infer Hive/partitioned Parquet schema from one file for faster load. When false, use full schema scan (Polars collect_schema).
+# single_spine_schema = null
+
+
+# ============================================================================
+# Display Settings
+# ============================================================================
+# [display]
+# Number of pages to buffer ahead of visible area
+# Larger values = smoother scrolling but more memory
+# pages_lookahead = 3
+# Number of pages to buffer behind visible area
+# Larger values = smoother scrolling but more memory
+# pages_lookback = 3
+# Maximum rows in scroll buffer (0 = no limit)
+# Prevents unbounded memory use when scrolling
+# max_buffered_rows = 100000
+# Maximum buffer size in MB (0 = no limit)
+# Uses estimated memory; helps with very wide tables
+# max_buffered_mb = 512
+# Display row numbers on the left side of the table
+# row_numbers = false
+# Starting index for row numbers (0 or 1)
+# row_start_index = 1
+# Number of spaces between columns in the main data table (>= 0)
+# Default 2
+# table_cell_padding = 2
+# Colorize main table cells by column type (string, int, float, bool, date/datetime)
+# Set to false to use default text color for all cells
+# column_colors = true
+
+# ============================================================================
+# Performance Settings
+# ============================================================================
+# [performance]
+# Event polling interval in milliseconds
+# Lower values = more responsive but higher CPU usage
+# event_poll_interval_ms = 25
+# Use Polars streaming engine for LazyFrame collect when available (default: true). Reduces memory and can improve performance on large or partitioned data.
+# polars_streaming = true
+
+# ============================================================================
+# Chart View
+# ============================================================================
+# [chart]
+# Maximum rows used when building charts (display and export).
+# Set to null for unlimited (uses full dataset). Set to a number (e.g. 10000) to cap. Can also be changed in chart view (Limit Rows). Example: row_limit = 10000
+# row_limit = 10000
+
+# Color definitions
+# Supported formats:
+#   - Named colors: "red", "blue", "bright_red", "dark_gray", etc. (case-insensitive)
+#   - Hex colors: "#ff0000" or "#FF0000" (case-insensitive)
+#   - Indexed colors: "indexed(0-255)" for specific xterm 256-color palette entries
+# Colors automatically adapt to your terminal's capabilities
+# [theme.colors]
+# Keybind hints (modals, breadcrumb, correlation matrix)
+# keybind_hints = "cyan"
+# Action labels in controls bar
+# keybind_labels = "indexed(252)"
+# Busy indicator (spinner) in control bar
+# throbber = "cyan"
+# Chart data (histogram bars, Q-Q plot data points)
+# primary_chart_series_color = "cyan"
+# Chart theory (histogram overlays, Q-Q plot reference line)
+# secondary_chart_series_color = "indexed(245)"
+# Success indicators, normal distributions
+# success = "green"
+# Error messages, outliers
+# error = "red"
+# Warnings, skewed distributions
+# warning = "yellow"
+# Dimmed elements, axis lines
+# dimmed = "dark_gray"
+# Main background
+# background = "default"
+# Modal/surface backgrounds
+# surface = "default"
+# Controls bar background
+# controls_bg = "indexed(235)"
+# Primary text
+# text_primary = "default"
+# Secondary text
+# text_secondary = "indexed(240)"
+# Text on light backgrounds
+# text_inverse = "black"
+# Table column header text
+# table_header = "white"
+# Table column header background
+# table_header_bg = "indexed(235)"
+# Row numbers column text; use "default" for terminal default
+# row_numbers = "dark_gray"
+# Vertical line between columns
+# column_separator = "cyan"
+# Selected row style
+# table_selected = "reversed"
+# Sidebar borders
+# sidebar_border = "indexed(235)"
+# Active modal elements
+# modal_border_active = "yellow"
+# Error modal borders
+# modal_border_error = "red"
+# Normal distribution indicator
+# distribution_normal = "green"
+# Skewed distribution indicator
+# distribution_skewed = "yellow"
+# Other distribution types
+# distribution_other = "white"
+# Outlier indicators
+# outlier_marker = "red"
+# Cursor color when text input is focused
+# Text under cursor uses reverse of this color
+# cursor_focused = "default"
+# Cursor color when text input is unfocused (currently unused - unfocused inputs hide cursor)
+# cursor_dimmed = "default"
+# Background color for every other row in the main data table
+# Set to "default" to disable alternate row coloring
+# alternate_row_color = "indexed(235)"
+# Main table: string column text color
+# str_col = "green"
+# Main table: integer column text color
+# int_col = "cyan"
+# Main table: float column text color
+# float_col = "blue"
+# Main table: boolean column text color
+# bool_col = "yellow"
+# Main table: date/datetime/time column text color
+# temporal_col = "magenta"
+# Chart view: first series color
+# chart_series_color_1 = "cyan"
+# Chart view: second series color
+# chart_series_color_2 = "magenta"
+# Chart view: third series color
+# chart_series_color_3 = "green"
+# Chart view: fourth series color
+# chart_series_color_4 = "yellow"
+# Chart view: fifth series color
+# chart_series_color_5 = "blue"
+# Chart view: sixth series color
+# chart_series_color_6 = "red"
+# Chart view: seventh series color
+# chart_series_color_7 = "bright_cyan"
+
+# Control bar settings
+# [ui.controls]
+# Row count display width in characters
+# row_count_width = 20
+
+# ============================================================================
+# Query System
+# ============================================================================
+# [query]
+# Maximum number of queries to keep in history
+# history_limit = 1000
+# Enable query history caching
+# enable_history = true
+
+# ============================================================================
+# Template Settings
+# ============================================================================
+# [templates]
+# Auto-apply most relevant template on file open
+# auto_apply = false
+
+# ============================================================================
+# Debug Settings
+# ============================================================================
+# [debug]
+# Enable debug overlay by default
+# enabled = false
+# Show performance metrics in debug overlay
+# show_performance = true
+# Show LazyFrame query in debug overlay
+# show_query = true
+# Show transformation state in debug overlay
+# show_transformations = true
