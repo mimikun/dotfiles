@@ -21,7 +21,7 @@ packages:
   - name: Boeing/config-file-validator@v1.10.0
   - name: boyter/scc@v3.6.0
   - name: bronze1man/yaml2json@v1.3.5
-  - name: charmbracelet/crush@v0.43.0
+  - name: charmbracelet/crush@v0.43.1
   - name: charmbracelet/freeze@v0.2.2
   - name: charmbracelet/glow@v2.1.1
   - name: charmbracelet/gum@v0.17.0
