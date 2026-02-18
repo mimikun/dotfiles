@@ -41,6 +41,7 @@ warp-terminal-bin
 web-greeter
 wezterm-nightly-bin
 whosthere-bin
+wifitui-bin
 xf86-video-vmware
 yay
 yay-debug
