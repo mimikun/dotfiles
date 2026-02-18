@@ -132,7 +132,7 @@ complete -c deno -n "__fish_deno_needs_command" -l unstable-webgpu -d 'Enable un
 complete -c deno -n "__fish_deno_needs_command" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_needs_command" -s V -l version -d 'Print version'
 complete -c deno -n "__fish_deno_needs_command" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_needs_command" -a "run" -d 'Run a JavaScript or TypeScript program, or a task or script.  By default all programs are run in sandbox without access to disk, network or ability to spawn subprocesses.   deno run https://examples.deno.land/hello-world.ts  Grant permission to read from disk and listen to network:   deno run --allow-read --allow-net jsr:@std/http/file-server  Grant permission to read allow-listed files from disk:   deno run --allow-read=/etc jsr:@std/http/file-server  Grant all permissions:   deno run -A jsr:@std/http/file-server  Specifying the filename \'-\' to read the file from stdin.   curl https://examples.deno.land/hello-world.ts | deno run -  Read more: https://docs.deno.com/go/run'
+complete -c deno -n "__fish_deno_needs_command" -a "run" -d 'Run a JavaScript or TypeScript program, or a task or script.  By default all programs are run in sandbox without access to disk, network or ability to spawn subprocesses.   deno run https://docs.deno.com/hello_world.ts  Grant permission to read from disk and listen to network:   deno run --allow-read --allow-net jsr:@std/http/file-server  Grant permission to read allow-listed files from disk:   deno run --allow-read=/etc jsr:@std/http/file-server  Grant all permissions:   deno run -A jsr:@std/http/file-server  Specifying the filename \'-\' to read the file from stdin.   curl https://docs.deno.com/hello_world.ts | deno run -  Read more: https://docs.deno.com/go/run'
 complete -c deno -n "__fish_deno_needs_command" -a "serve" -d 'Run a server defined in a main module  The serve command uses the default exports of the main module to determine which servers to start.  Start a server defined in server.ts:   deno serve server.ts  Start a server defined in server.ts, watching for changes and running on port 5050:   deno serve --watch --port 5050 server.ts  Read more: https://docs.deno.com/go/serve'
 complete -c deno -n "__fish_deno_needs_command" -a "add" -d 'Add dependencies to your configuration file.   deno add jsr:@std/path  You can also add npm packages:   deno add npm:react  Or multiple dependencies at once:   deno add jsr:@std/path jsr:@std/assert npm:chalk'
 complete -c deno -n "__fish_deno_needs_command" -a "audit" -d 'Audit currently installed dependencies.   deno audit  Show only high and critical severity vulnerabilities   deno audit --level=high  Check against socket.dev vulnerability database   deno audit --socket  Don\'t error if the audit data can\'t be retrieved from the registry   deno audit --ignore-registry-errors'
@@ -1437,6 +1437,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l allow-hrtime
 complete -c deno -n "__fish_deno_using_subcommand install" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand install" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand install" -s f -l force -d 'Forcefully overwrite existing installation'
+complete -c deno -n "__fish_deno_using_subcommand install" -l compile -d 'Install the script as a compiled executable'
 complete -c deno -n "__fish_deno_using_subcommand install" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand install" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
 complete -c deno -n "__fish_deno_using_subcommand install" -s D -l dev -d 'Add the package as a dev dependency. Note: This only applies when adding to a `package.json` file.'
@@ -1537,6 +1538,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l allow-hrtime
 complete -c deno -n "__fish_deno_using_subcommand i" -l deny-hrtime
 complete -c deno -n "__fish_deno_using_subcommand i" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand i" -s f -l force -d 'Forcefully overwrite existing installation'
+complete -c deno -n "__fish_deno_using_subcommand i" -l compile -d 'Install the script as a compiled executable'
 complete -c deno -n "__fish_deno_using_subcommand i" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand i" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
 complete -c deno -n "__fish_deno_using_subcommand i" -s D -l dev -d 'Add the package as a dev dependency. Note: This only applies when adding to a `package.json` file.'
