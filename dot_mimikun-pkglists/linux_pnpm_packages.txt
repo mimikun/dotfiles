@@ -28,6 +28,7 @@ editprompt
 envinfo
 git-rewrite-commits
 git-truck
+gut-cli
 httpyac
 jfq
 mcp-hub
