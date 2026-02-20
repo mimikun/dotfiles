@@ -111,7 +111,7 @@ packages:
   - name: natecraddock/zf@0.10.2
   - name: neilotoole/sq@v0.50.0
   - name: nil0x42/dnsanity@v1.4.1
-  - name: noborus/ov@v0.50.2
+  - name: noborus/ov@v0.51.1
   - name: osteele/gojekyll@v0.2.16
   - name: pamburus/hl@v0.35.3
   - name: peco/peco@v0.5.11
