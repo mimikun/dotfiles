@@ -19,6 +19,7 @@ actions-up
 backlog.md
 bats
 branchlet
+bruno-language-server
 ccexp
 ccsearch
 ccusage
