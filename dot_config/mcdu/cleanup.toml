@@ -1,0 +1,10 @@
+# see: https://github.com/mikalv/mcdu#custom-configuration
+# scan_paths = ["~/myprojects", "~/work"]
+# 
+# [[rules]]
+# name = "custom-cache"
+# category = "Custom"
+# pattern = "**/.cache"
+# path = "${HOME}/myprojects"
+# match_type = "directory"
+
