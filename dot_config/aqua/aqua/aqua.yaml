@@ -112,7 +112,7 @@ packages:
   - name: neilotoole/sq@v0.50.0
   - name: nil0x42/dnsanity@v1.4.1
   - name: noborus/ov@v0.51.1
-  - name: osteele/gojekyll@v0.3.0
+  - name: osteele/gojekyll@v0.3.1
   - name: pamburus/hl@v0.35.4
   - name: peco/peco@v0.5.11
   - name: pkgxdev/pkgx@v2.9.0
