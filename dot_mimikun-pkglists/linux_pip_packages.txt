@@ -761,3 +761,4 @@ zipp
 zope.event
 zope.interface
 zstandard
+zvec
