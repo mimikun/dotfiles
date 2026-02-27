@@ -88,6 +88,7 @@ dusage
 dutree
 dysk
 ecscope
+eilmeldung
 ekphos
 emmylua_check
 emmylua_doc_cli
@@ -185,6 +186,7 @@ mairu
 mamediff
 mask
 mcat
+mcdu
 mcfly
 mcp-cli
 mdbook
