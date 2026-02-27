@@ -1,8 +1,10 @@
 bastet
 betterlockscreen
 brow6el-git
+chatuino-bin
 cmigemo-git
 datui-bin
+eilmeldung
 endcord
 ereandel
 fabric-ai
@@ -10,10 +12,13 @@ framework-tool-tui
 gforth
 glide-browser-bin
 google-chrome
+hardcover-tui-bin
 icat
 imgcat
+lazykiq-bin
 lazyworktree-bin
 mcat-bin
+mcdu-bin
 monitui
 morisawa-biz-ud-gothic-fonts
 murex
