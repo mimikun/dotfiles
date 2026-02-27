@@ -38,6 +38,7 @@ npkill
 oh-my-logo
 opencode-ai
 prettier
+ralph-tui
 repomix
 reviewit
 tombi
