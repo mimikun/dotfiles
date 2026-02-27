@@ -1511,6 +1511,7 @@ auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l json -d 'Output the changes in JSON format'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l check -d 'Check if any changes have been made to the lock file. If yes, exit with a non-zero code'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l dry-run -d 'Compute the lock file without writing to disk. Implies --no-install'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -1633,6 +1634,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand run" -s e -l environment -d 'T
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand run" -s x -l executable -d 'Execute the command as an executable without resolving Pixi tasks'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
@@ -1645,6 +1647,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand run" -l force-activate -d 'Do 
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-completions -d 'Do not source the autocompletion scripts from the environment'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l clean-env -d 'Use a clean environment to run the task'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l skip-deps -d 'Don\'t run the dependencies of the task (\'depends-on\' field in the task definition)'
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l templated -d 'Enable template rendering for the command arguments'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s n -l dry-run -d 'Run the task in dry-run mode (only print the command that would run)'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l help
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s h
@@ -1668,6 +1671,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand r" -s e -l environment -d 'The
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand r" -s x -l executable -d 'Execute the command as an executable without resolving Pixi tasks'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
@@ -1680,6 +1684,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand r" -l force-activate -d 'Do no
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-completions -d 'Do not source the autocompletion scripts from the environment'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l clean-env -d 'Use a clean environment to run the task'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l skip-deps -d 'Don\'t run the dependencies of the task (\'depends-on\' field in the task definition)'
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l templated -d 'Enable template rendering for the command arguments'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s n -l dry-run -d 'Run the task in dry-run mode (only print the command that would run)'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l help
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s h

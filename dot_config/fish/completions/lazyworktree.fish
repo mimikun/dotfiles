@@ -31,6 +31,7 @@ complete -c lazyworktree -n '__fish_seen_subcommand_from create' -f -l no-worksp
 complete -c lazyworktree -n '__fish_seen_subcommand_from create' -f -l silent -d 'Suppress progress messages'
 complete -c lazyworktree -n '__fish_seen_subcommand_from create' -f -l output-selection -r -d 'Write created worktree path to a file'
 complete -c lazyworktree -n '__fish_seen_subcommand_from create' -f -l exec -s x -r -d 'Run a shell command after creation (in the created worktree, or current directory with --no-workspace)'
+complete -c lazyworktree -n '__fish_seen_subcommand_from create' -f -l query -s q -r -d 'Pre-filter interactive selection (pre-fills fzf search or filters numbered list); requires --from-pr-interactive or --from-issue-interactive'
 complete -c lazyworktree -n '__fish_seen_subcommand_from create' -f -l help -s h -d 'show help'
 complete -x -c lazyworktree -n '__fish_seen_subcommand_from create; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
 complete -x -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -a 'rename' -d 'Rename a worktree'
