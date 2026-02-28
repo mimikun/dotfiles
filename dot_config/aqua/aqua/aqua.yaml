@@ -33,7 +33,7 @@ packages:
   - name: cloudflare/gokey@v0.2.0
   - name: cpisciotta/xcbeautify@3.1.4
   - name: CyberAgent/reminder-lint@0.2.1
-  - name: dagu-org/dagu@v1.30.3
+  - name: dagu-org/dagu@v2.0.2
   - name: danvergara/dblab@v0.34.3
   - name: derailed/k9s@v0.50.18
   - name: dimonomid/nerdlog@v1.10.0
