@@ -32,6 +32,7 @@ git-truck
 gut-cli
 httpyac
 jfq
+just-bash
 mcp-hub
 memlab
 npkill
