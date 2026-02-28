@@ -66,7 +66,7 @@ packages:
   - name: guumaster/hostctl@v1.1.4
   - name: hadolint/hadolint@v2.14.0
   - name: hherman1/gq@v0.0.3
-  - name: homeport/dyff@v1.10.5
+  - name: homeport/dyff@v1.11.0
   - name: idursun/jjui@v0.9.12
   - name: itchyny/json2yaml@v0.1.4
   - name: jesseduffield/horcrux@v0.2
