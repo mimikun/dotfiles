@@ -649,7 +649,7 @@ cmd = [
 version = "2.0"
 event = "BufRead package.json"
 
-[plugins."render-markdon.nvim"]
+[plugins."render-markdown.nvim"]
 #git = "MeanderingProgrammer/render-markdown.nvim"
 version = "7.4.0"
 #ft = ["markdown", "vimwiki"]
