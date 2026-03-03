@@ -44,3 +44,4 @@ repomix
 reviewit
 tombi
 up-fetch
+vde-monitor
