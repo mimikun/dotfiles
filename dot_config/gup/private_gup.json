@@ -1,0 +1,719 @@
+{
+  "schema_version": 1,
+  "packages": [
+    {
+      "name": "act3",
+      "import_path": "github.com/dhth/act3",
+      "version": "v1.1.4",
+      "channel": "latest"
+    },
+    {
+      "name": "admin",
+      "import_path": "github.com/takeshy/mcp-gatekeeper/cmd/admin",
+      "version": "v1.0.1",
+      "channel": "latest"
+    },
+    {
+      "name": "afa",
+      "import_path": "github.com/monochromegane/afa",
+      "version": "v0.1.5",
+      "channel": "latest"
+    },
+    {
+      "name": "afa-tui",
+      "import_path": "github.com/monochromegane/afa-tui",
+      "version": "v0.1.4",
+      "channel": "latest"
+    },
+    {
+      "name": "andcli",
+      "import_path": "github.com/tjblackheart/andcli/v2/cmd/andcli",
+      "version": "v2.5.0",
+      "channel": "latest"
+    },
+    {
+      "name": "az-tui",
+      "import_path": "github.com/IAL32/az-tui/cmd/az-tui",
+      "version": "v0.4.0",
+      "channel": "latest"
+    },
+    {
+      "name": "bluetuith",
+      "import_path": "github.com/darkhz/bluetuith",
+      "version": "v0.2.6",
+      "channel": "latest"
+    },
+    {
+      "name": "bt",
+      "import_path": "github.com/LeperGnome/bt/cmd/bt",
+      "version": "v1.2.2",
+      "channel": "latest"
+    },
+    {
+      "name": "bump",
+      "import_path": "github.com/mattn/bump",
+      "version": "v0.0.5",
+      "channel": "latest"
+    },
+    {
+      "name": "cariddi",
+      "import_path": "github.com/edoardottt/cariddi/cmd/cariddi",
+      "version": "v1.4.5",
+      "channel": "latest"
+    },
+    {
+      "name": "chatuino",
+      "import_path": "github.com/julez-dev/chatuino",
+      "version": "v1.1.0",
+      "channel": "latest"
+    },
+    {
+      "name": "cidr",
+      "import_path": "github.com/bschaatsbergen/cidr",
+      "version": "v1.4.0",
+      "channel": "latest"
+    },
+    {
+      "name": "claws",
+      "import_path": "github.com/clawscli/claws/cmd/claws",
+      "version": "v0.15.1",
+      "channel": "latest"
+    },
+    {
+      "name": "climp",
+      "import_path": "github.com/olivier-w/climp",
+      "version": "v0.3.1",
+      "channel": "latest"
+    },
+    {
+      "name": "cmdperf",
+      "import_path": "github.com/miklosn/cmdperf/cmd/cmdperf",
+      "version": "v0.1.4",
+      "channel": "latest"
+    },
+    {
+      "name": "comment-graph",
+      "import_path": "github.com/kuri-sun/comment-graph/cmd/comment-graph",
+      "version": "v0.1.5",
+      "channel": "latest"
+    },
+    {
+      "name": "conreq",
+      "import_path": "github.com/shiroemons/conreq/cmd/conreq",
+      "version": "v0.2.2",
+      "channel": "latest"
+    },
+    {
+      "name": "csvi",
+      "import_path": "github.com/hymkor/csvi/cmd/csvi",
+      "version": "v1.22.0",
+      "channel": "latest"
+    },
+    {
+      "name": "ctags-lsp",
+      "import_path": "github.com/netmute/ctags-lsp",
+      "version": "v0.11.0",
+      "channel": "latest"
+    },
+    {
+      "name": "cueitup",
+      "import_path": "github.com/dhth/cueitup",
+      "version": "v1.0.0",
+      "channel": "latest"
+    },
+    {
+      "name": "cull",
+      "import_path": "github.com/legostin/cull",
+      "version": "v0.6.1",
+      "channel": "latest"
+    },
+    {
+      "name": "dbee",
+      "import_path": "github.com/kndndrj/nvim-dbee/dbee",
+      "version": "v0.0.0-20250725102716-dda517694889",
+      "channel": "latest"
+    },
+    {
+      "name": "deletor",
+      "import_path": "github.com/pashkov256/deletor",
+      "version": "v1.5.0",
+      "channel": "latest"
+    },
+    {
+      "name": "dnspyre",
+      "import_path": "github.com/tantalor93/dnspyre/v3",
+      "version": "v3.10.1",
+      "channel": "latest"
+    },
+    {
+      "name": "docgen",
+      "import_path": "github.com/lmorg/murex/utils/docgen",
+      "version": "v0.0.0-20260202231244-8678ad89405c",
+      "channel": "latest"
+    },
+    {
+      "name": "e2c",
+      "import_path": "github.com/nlamirault/e2c/cmd/e2c",
+      "version": "v0.4.0",
+      "channel": "latest"
+    },
+    {
+      "name": "easycron",
+      "import_path": "github.com/elliot40404/easycron/cmd/easycron",
+      "version": "v0.0.3",
+      "channel": "latest"
+    },
+    {
+      "name": "ec",
+      "import_path": "github.com/chojs23/ec/cmd/ec",
+      "version": "v0.2.3",
+      "channel": "latest"
+    },
+    {
+      "name": "enola",
+      "import_path": "github.com/theyahya/enola/cmd/enola",
+      "version": "v0.4.0",
+      "channel": "latest"
+    },
+    {
+      "name": "envdiff",
+      "import_path": "github.com/GBerghoff/envdiff/cmd/envdiff",
+      "version": "v0.1.3",
+      "channel": "latest"
+    },
+    {
+      "name": "fabric",
+      "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
+      "version": "v1.4.428",
+      "channel": "latest"
+    },
+    {
+      "name": "fence",
+      "import_path": "github.com/Use-Tusk/fence/cmd/fence",
+      "version": "v0.1.32",
+      "channel": "latest"
+    },
+    {
+      "name": "fztea",
+      "import_path": "github.com/jon4hz/fztea",
+      "version": "v0.6.4",
+      "channel": "latest"
+    },
+    {
+      "name": "g",
+      "import_path": "github.com/Equationzhao/g",
+      "version": "v0.31.0",
+      "channel": "latest"
+    },
+    {
+      "name": "ggh",
+      "import_path": "github.com/byawitz/ggh",
+      "version": "v0.1.5",
+      "channel": "latest"
+    },
+    {
+      "name": "ghaver",
+      "import_path": "github.com/tenkoh/go-ghaver/cmd/ghaver",
+      "version": "v0.1.2",
+      "channel": "latest"
+    },
+    {
+      "name": "ghfetch",
+      "import_path": "github.com/orangekame3/ghfetch",
+      "version": "v0.0.19",
+      "channel": "latest"
+    },
+    {
+      "name": "git-remarks",
+      "import_path": "github.com/Enigama/git-remarks/cmd/git-remarks",
+      "version": "v0.1.0",
+      "channel": "latest"
+    },
+    {
+      "name": "gitmal",
+      "import_path": "github.com/antonmedv/gitmal",
+      "version": "v1.0.2",
+      "channel": "latest"
+    },
+    {
+      "name": "gitsnip",
+      "import_path": "github.com/dagimg-dot/gitsnip/cmd/gitsnip",
+      "version": "v0.1.1",
+      "channel": "latest"
+    },
+    {
+      "name": "gmailctl",
+      "import_path": "github.com/mbrt/gmailctl/cmd/gmailctl",
+      "version": "v0.11.0",
+      "channel": "latest"
+    },
+    {
+      "name": "goji",
+      "import_path": "github.com/muandane/goji",
+      "version": "v0.2.0",
+      "channel": "latest"
+    },
+    {
+      "name": "gollama",
+      "import_path": "github.com/sammcj/gollama",
+      "version": "v1.37.5",
+      "channel": "latest"
+    },
+    {
+      "name": "gonew",
+      "import_path": "golang.org/x/tools/cmd/gonew",
+      "version": "v0.42.0",
+      "channel": "latest"
+    },
+    {
+      "name": "gonzo",
+      "import_path": "github.com/control-theory/gonzo/cmd/gonzo",
+      "version": "v0.3.1",
+      "channel": "latest"
+    },
+    {
+      "name": "gore",
+      "import_path": "github.com/x-motemen/gore/cmd/gore",
+      "version": "v0.6.1",
+      "channel": "latest"
+    },
+    {
+      "name": "goscript",
+      "import_path": "github.com/aperturerobotics/goscript/cmd/goscript",
+      "version": "v0.0.75",
+      "channel": "latest"
+    },
+    {
+      "name": "gotip",
+      "import_path": "github.com/lusingander/gotip/cmd/gotip",
+      "version": "v0.6.2",
+      "channel": "latest"
+    },
+    {
+      "name": "gotz",
+      "import_path": "github.com/merschformann/gotz",
+      "version": "v0.1.15",
+      "channel": "latest"
+    },
+    {
+      "name": "gowall",
+      "import_path": "github.com/Achno/gowall",
+      "version": "v0.2.3",
+      "channel": "latest"
+    },
+    {
+      "name": "gwq",
+      "import_path": "github.com/d-kuro/gwq/cmd/gwq",
+      "version": "v0.0.14",
+      "channel": "latest"
+    },
+    {
+      "name": "hardcover-tui",
+      "import_path": "github.com/NotMugil/hardcover-tui/cmd/hardcover-tui",
+      "version": "v1.0.4",
+      "channel": "latest"
+    },
+    {
+      "name": "hexowl",
+      "import_path": "github.com/dece2183/hexowl",
+      "version": "v1.5.1",
+      "channel": "latest"
+    },
+    {
+      "name": "hours",
+      "import_path": "github.com/dhth/hours",
+      "version": "v0.6.0",
+      "channel": "latest"
+    },
+    {
+      "name": "httplab",
+      "import_path": "github.com/gchaincl/httplab/cmd/httplab",
+      "version": "v0.4.2",
+      "channel": "latest"
+    },
+    {
+      "name": "httpmonitor",
+      "import_path": "github.com/ricoberger/httpmonitor",
+      "version": "v0.4.1",
+      "channel": "latest"
+    },
+    {
+      "name": "httpstat",
+      "import_path": "github.com/davecheney/httpstat",
+      "version": "v1.2.1",
+      "channel": "latest"
+    },
+    {
+      "name": "httptap",
+      "import_path": "github.com/monasticacademy/httptap",
+      "version": "v0.1.1",
+      "channel": "latest"
+    },
+    {
+      "name": "hut",
+      "import_path": "git.sr.ht/~xenrox/hut",
+      "version": "v0.7.0",
+      "channel": "latest"
+    },
+    {
+      "name": "iferr",
+      "import_path": "github.com/koron/iferr",
+      "version": "v0.0.0-20240122035601-9c3e2fbe4bd1",
+      "channel": "latest"
+    },
+    {
+      "name": "imgcat",
+      "import_path": "github.com/danielgatis/imgcat",
+      "version": "v1.0.22",
+      "channel": "latest"
+    },
+    {
+      "name": "kat",
+      "import_path": "github.com/macropower/kat/cmd/kat",
+      "version": "v0.28.1",
+      "channel": "latest"
+    },
+    {
+      "name": "keep-sorted",
+      "import_path": "github.com/google/keep-sorted",
+      "version": "v0.7.1",
+      "channel": "latest"
+    },
+    {
+      "name": "kplay",
+      "import_path": "github.com/dhth/kplay",
+      "version": "v1.1.0",
+      "channel": "latest"
+    },
+    {
+      "name": "kyma",
+      "import_path": "github.com/museslabs/kyma",
+      "version": "v0.2.0",
+      "channel": "latest"
+    },
+    {
+      "name": "lazykiq",
+      "import_path": "github.com/kpumuk/lazykiq/cmd/lazykiq",
+      "version": "v0.0.13",
+      "channel": "latest"
+    },
+    {
+      "name": "lazypkg",
+      "import_path": "github.com/ymtdzzz/lazypkg",
+      "version": "v0.0.8",
+      "channel": "latest"
+    },
+    {
+      "name": "mdtt",
+      "import_path": "github.com/szktkfm/mdtt/cmd/mdtt",
+      "version": "v0.3.1",
+      "channel": "latest"
+    },
+    {
+      "name": "meteor",
+      "import_path": "github.com/stefanlogue/meteor",
+      "version": "v0.30.0",
+      "channel": "latest"
+    },
+    {
+      "name": "mufetch",
+      "import_path": "github.com/ashish0kumar/mufetch",
+      "version": "v0.1.1",
+      "channel": "latest"
+    },
+    {
+      "name": "mult",
+      "import_path": "github.com/dhth/mult",
+      "version": "v0.3.0",
+      "channel": "latest"
+    },
+    {
+      "name": "murex",
+      "import_path": "github.com/lmorg/murex",
+      "version": "v0.0.0-20260202231244-8678ad89405c",
+      "channel": "latest"
+    },
+    {
+      "name": "nap",
+      "import_path": "github.com/maaslalani/nap",
+      "version": "v0.1.1",
+      "channel": "latest"
+    },
+    {
+      "name": "omm",
+      "import_path": "github.com/dhth/omm",
+      "version": "v0.6.0",
+      "channel": "latest"
+    },
+    {
+      "name": "oq",
+      "import_path": "github.com/plutov/oq",
+      "version": "v0.0.21",
+      "channel": "latest"
+    },
+    {
+      "name": "packemon",
+      "import_path": "github.com/ddddddO/packemon/cmd/packemon",
+      "version": "v1.8.21",
+      "channel": "latest"
+    },
+    {
+      "name": "pg-schema-diff",
+      "import_path": "github.com/stripe/pg-schema-diff/cmd/pg-schema-diff",
+      "version": "v1.0.5",
+      "channel": "latest"
+    },
+    {
+      "name": "pomo",
+      "import_path": "github.com/Bahaaio/pomo",
+      "version": "v1.1.1",
+      "channel": "latest"
+    },
+    {
+      "name": "pproftui",
+      "import_path": "github.com/Oloruntobi1/pproftui",
+      "version": "v0.0.0-20250728215548-d94a02c55dcd",
+      "channel": "latest"
+    },
+    {
+      "name": "prs",
+      "import_path": "github.com/dhth/prs",
+      "version": "v1.0.0",
+      "channel": "latest"
+    },
+    {
+      "name": "pvetui",
+      "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
+      "version": "v1.0.20",
+      "channel": "latest"
+    },
+    {
+      "name": "pwdsafety",
+      "import_path": "github.com/edoardottt/pwdsafety/cmd/pwdsafety",
+      "version": "v0.4.1",
+      "channel": "latest"
+    },
+    {
+      "name": "qo",
+      "import_path": "github.com/kiki-ki/go-qo/cmd/qo",
+      "version": "v0.3.1",
+      "channel": "latest"
+    },
+    {
+      "name": "rad",
+      "import_path": "github.com/amterp/rad",
+      "version": "v0.8.0",
+      "channel": "latest"
+    },
+    {
+      "name": "reader",
+      "import_path": "github.com/mrusme/reader",
+      "version": "v0.5.0",
+      "channel": "latest"
+    },
+    {
+      "name": "regresql",
+      "import_path": "github.com/boringsql/regresql",
+      "version": "v1.5.0",
+      "channel": "latest"
+    },
+    {
+      "name": "resterm",
+      "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
+      "version": "v0.23.6",
+      "channel": "latest"
+    },
+    {
+      "name": "resto",
+      "import_path": "github.com/abdfnx/resto",
+      "version": "v0.1.6",
+      "channel": "latest"
+    },
+    {
+      "name": "rum",
+      "import_path": "github.com/thekarel/rum",
+      "version": "v1.2.1",
+      "channel": "latest"
+    },
+    {
+      "name": "s3scanner",
+      "import_path": "github.com/sa7mon/s3scanner",
+      "version": "v0.0.0-20251106040855-9e26bc46e8ee",
+      "channel": "latest"
+    },
+    {
+      "name": "sake",
+      "import_path": "github.com/alajmo/sake",
+      "version": "v0.15.1",
+      "channel": "latest"
+    },
+    {
+      "name": "server",
+      "import_path": "github.com/takeshy/mcp-gatekeeper/cmd/server",
+      "version": "v1.0.1",
+      "channel": "latest"
+    },
+    {
+      "name": "sidecar",
+      "import_path": "github.com/marcus/sidecar/cmd/sidecar",
+      "version": "v0.77.0",
+      "channel": "latest"
+    },
+    {
+      "name": "simtool",
+      "import_path": "github.com/azizuysal/simtool/cmd/simtool",
+      "version": "v1.0.2",
+      "channel": "latest"
+    },
+    {
+      "name": "snitch",
+      "import_path": "github.com/karol-broda/snitch",
+      "version": "v0.2.2",
+      "channel": "latest"
+    },
+    {
+      "name": "sol",
+      "import_path": "github.com/noperator/sol/cmd/sol",
+      "version": "v0.0.0-20240903161619-7762c5115dd8",
+      "channel": "latest"
+    },
+    {
+      "name": "squix",
+      "import_path": "github.com/eduardofuncao/squix/cmd/squix",
+      "version": "v0.3.0-beta",
+      "channel": "latest"
+    },
+    {
+      "name": "ssl-checker",
+      "import_path": "github.com/fabio42/ssl-checker",
+      "version": "v0.1.7",
+      "channel": "latest"
+    },
+    {
+      "name": "stew",
+      "import_path": "github.com/marwanhawari/stew",
+      "version": "v0.6.0",
+      "channel": "latest"
+    },
+    {
+      "name": "stormy",
+      "import_path": "github.com/ashish0kumar/stormy",
+      "version": "v0.3.3",
+      "channel": "latest"
+    },
+    {
+      "name": "stringer",
+      "import_path": "golang.org/x/tools/cmd/stringer",
+      "version": "v0.42.0",
+      "channel": "latest"
+    },
+    {
+      "name": "surge",
+      "import_path": "github.com/surge-downloader/surge",
+      "version": "v0.6.10",
+      "channel": "latest"
+    },
+    {
+      "name": "tcount",
+      "import_path": "github.com/lancekrogers/tcount/cmd/tcount",
+      "version": "v0.3.0",
+      "channel": "latest"
+    },
+    {
+      "name": "tcping",
+      "import_path": "github.com/pouriyajamshidi/tcping",
+      "version": "v1.22.1",
+      "channel": "latest"
+    },
+    {
+      "name": "td",
+      "import_path": "github.com/marcus/td",
+      "version": "v0.41.0",
+      "channel": "latest"
+    },
+    {
+      "name": "termpicker",
+      "import_path": "github.com/ChausseBenjamin/termpicker",
+      "version": "v1.5.1",
+      "channel": "latest"
+    },
+    {
+      "name": "tldx",
+      "import_path": "github.com/brandonyoungdev/tldx",
+      "version": "v1.3.4",
+      "channel": "latest"
+    },
+    {
+      "name": "tock",
+      "import_path": "github.com/kriuchkov/tock/cmd/tock",
+      "version": "v1.7.10",
+      "channel": "latest"
+    },
+    {
+      "name": "todotui",
+      "import_path": "github.com/yuucu/todotui/cmd/todotui",
+      "version": "v0.7.2",
+      "channel": "latest"
+    },
+    {
+      "name": "trex",
+      "import_path": "github.com/samyakbardiya/trex",
+      "version": "v0.0.1",
+      "channel": "latest"
+    },
+    {
+      "name": "ttyimg",
+      "import_path": "github.com/Skardyy/ttyimg",
+      "version": "v1.0.5",
+      "channel": "latest"
+    },
+    {
+      "name": "tuios",
+      "import_path": "github.com/Gaurav-Gosain/tuios/cmd/tuios",
+      "version": "v0.6.0",
+      "channel": "latest"
+    },
+    {
+      "name": "typtea",
+      "import_path": "github.com/ashish0kumar/typtea",
+      "version": "v0.1.6",
+      "channel": "latest"
+    },
+    {
+      "name": "uzi",
+      "import_path": "github.com/devflowinc/uzi",
+      "version": "v0.0.2",
+      "channel": "latest"
+    },
+    {
+      "name": "whosthere",
+      "import_path": "github.com/ramonvermeulen/whosthere",
+      "version": "v0.6.1",
+      "channel": "latest"
+    },
+    {
+      "name": "xpdig",
+      "import_path": "github.com/brunoluiz/xpdig/cmd/xpdig",
+      "version": "v1.22.0",
+      "channel": "latest"
+    },
+    {
+      "name": "yatto",
+      "import_path": "github.com/handlebargh/yatto",
+      "version": "v1.1.2",
+      "channel": "latest"
+    },
+    {
+      "name": "zshist",
+      "import_path": "github.com/kyoh86/zshist",
+      "version": "v0.0.8",
+      "channel": "latest"
+    },
+    {
+      "name": "zuse",
+      "import_path": "github.com/babycommando/zuse",
+      "version": "v0.0.0-20250728071938-241040b15ddf",
+      "channel": "latest"
+    }
+  ]
+}

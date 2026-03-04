@@ -33,7 +33,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # go packages (managed by gup)
-chezmoi add ~/.config/gup/gup.conf
+chezmoi add ~/.config/gup/gup.json
 
 # managed by aqua
 chezmoi add ~/.config/aqua/aqua/aqua.yaml
