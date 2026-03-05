@@ -129,7 +129,7 @@ ripgrep-all
 rofi
 rofimoji
 rucola
-rust
+rustnet
 shutter
 silicon
 skk-jisyo
