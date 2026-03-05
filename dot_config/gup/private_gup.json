@@ -692,6 +692,12 @@
       "channel": "latest"
     },
     {
+      "name": "witr",
+      "import_path": "github.com/pranshuparmar/witr/cmd/witr",
+      "version": "v0.3.0",
+      "channel": "latest"
+    },
+    {
       "name": "xpdig",
       "import_path": "github.com/brunoluiz/xpdig/cmd/xpdig",
       "version": "v1.22.0",
