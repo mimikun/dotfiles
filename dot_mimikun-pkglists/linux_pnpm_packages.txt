@@ -21,6 +21,7 @@ bats
 branchlet
 bruno-language-server
 ccexp
+ccplan
 ccsearch
 ccusage
 commitizen
