@@ -69,6 +69,7 @@ csvlens
 cyme
 ddv
 dealve-tui
+deff
 desed
 diffai
 difftastic
@@ -128,6 +129,7 @@ gitnr
 gittype
 gitu
 gitui
+gitv-tui
 glitchcat
 glues
 gping
@@ -216,6 +218,7 @@ nu_plugin_inc
 nu_plugin_polars
 nu_plugin_query
 nvrs
+octorus
 octotype
 oeis-tui
 onefetch
@@ -268,6 +271,7 @@ rusk-task
 rust-script
 rustfinity
 rusticon
+rustnet-monitor
 rustormy
 rustscan
 s3grep
