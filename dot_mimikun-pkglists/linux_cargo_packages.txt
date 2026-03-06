@@ -231,6 +231,7 @@ oxker
 oyo
 pacsea
 parallel-disk-usage
+parallels
 parqeye
 passepartui
 pastel
