@@ -44,6 +44,7 @@ complete -c lazyworktree -n '__fish_seen_subcommand_from delete' -f -l silent -d
 complete -c lazyworktree -n '__fish_seen_subcommand_from delete' -f -l help -s h -d 'show help'
 complete -x -c lazyworktree -n '__fish_seen_subcommand_from delete; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
 complete -x -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -a 'list' -d 'List all worktrees'
+complete -c lazyworktree -n '__fish_seen_subcommand_from list ls' -f -l main -s m -d 'Show only the main branch worktree'
 complete -c lazyworktree -n '__fish_seen_subcommand_from list ls' -f -l pristine -s p -d 'Output paths only (one per line, suitable for scripting)'
 complete -c lazyworktree -n '__fish_seen_subcommand_from list ls' -f -l json -d 'Output as JSON'
 complete -c lazyworktree -n '__fish_seen_subcommand_from list ls' -f -l help -s h -d 'show help'
