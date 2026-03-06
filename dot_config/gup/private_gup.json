@@ -184,7 +184,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.428",
+      "version": "v1.4.429",
       "channel": "latest"
     },
     {
@@ -376,7 +376,7 @@
     {
       "name": "keep-sorted",
       "import_path": "github.com/google/keep-sorted",
-      "version": "v0.7.1",
+      "version": "v0.8.0",
       "channel": "latest"
     },
     {
@@ -518,6 +518,12 @@
       "channel": "latest"
     },
     {
+      "name": "remonade",
+      "import_path": "github.com/skanehira/remonade",
+      "version": "v0.0.4",
+      "channel": "latest"
+    },
+    {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
       "version": "v0.23.6",
@@ -527,6 +533,12 @@
       "name": "resto",
       "import_path": "github.com/abdfnx/resto",
       "version": "v0.1.6",
+      "channel": "latest"
+    },
+    {
+      "name": "rtty",
+      "import_path": "github.com/skanehira/rtty",
+      "version": "v0.4.0",
       "channel": "latest"
     },
     {
