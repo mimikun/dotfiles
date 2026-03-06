@@ -11,11 +11,13 @@ fabric-ai
 framework-tool-tui
 gforth
 glide-browser-bin
+gogcli
 google-chrome
 hardcover-tui-bin
 icat
 imgcat
 lazykiq-bin
+lazytail
 lazyworktree-bin
 mcat-bin
 mcdu-bin
