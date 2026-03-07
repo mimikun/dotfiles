@@ -28,7 +28,7 @@
     {
       "name": "andcli",
       "import_path": "github.com/tjblackheart/andcli/v2/cmd/andcli",
-      "version": "v2.5.0",
+      "version": "v2.6.0",
       "channel": "latest"
     },
     {
@@ -76,7 +76,7 @@
     {
       "name": "claws",
       "import_path": "github.com/clawscli/claws/cmd/claws",
-      "version": "v0.15.1",
+      "version": "v0.15.2",
       "channel": "latest"
     },
     {
@@ -184,7 +184,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.429",
+      "version": "v1.4.432",
       "channel": "latest"
     },
     {
@@ -442,7 +442,7 @@
     {
       "name": "omm",
       "import_path": "github.com/dhth/omm",
-      "version": "v0.6.0",
+      "version": "v0.7.0",
       "channel": "latest"
     },
     {
