@@ -184,7 +184,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.432",
+      "version": "v1.4.433",
       "channel": "latest"
     },
     {
@@ -484,7 +484,7 @@
     {
       "name": "pvetui",
       "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.0.20",
+      "version": "v1.1.0",
       "channel": "latest"
     },
     {
@@ -502,7 +502,7 @@
     {
       "name": "rad",
       "import_path": "github.com/amterp/rad",
-      "version": "v0.8.0",
+      "version": "v0.8.1",
       "channel": "latest"
     },
     {
@@ -658,7 +658,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.7.10",
+      "version": "v1.7.11",
       "channel": "latest"
     },
     {
