@@ -64,6 +64,7 @@ commitlint-rs
 confirm-pam
 countryfetch
 create-tauri-app
+crmux
 csview
 csvlens
 cyme
@@ -178,6 +179,7 @@ lawkit
 lazycelery
 lazyjj
 lla
+llmfit
 lobtui
 logria
 lsd
