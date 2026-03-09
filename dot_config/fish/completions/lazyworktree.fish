@@ -2,7 +2,7 @@
 
 function __fish_lazyworktree_no_subcommand --description 'Test if there has been any subcommand yet'
     for i in (commandline -opc)
-        if contains -- $i create rename delete list ls exec help h completion
+        if contains -- $i create rename delete list ls exec note help h completion
             return 1
         end
     end
@@ -54,6 +54,16 @@ complete -c lazyworktree -n '__fish_seen_subcommand_from exec' -f -l workspace -
 complete -c lazyworktree -n '__fish_seen_subcommand_from exec' -f -l key -s k -r -d 'Custom command key to trigger (e.g. \'t\' for tmux)'
 complete -c lazyworktree -n '__fish_seen_subcommand_from exec' -f -l help -s h -d 'show help'
 complete -x -c lazyworktree -n '__fish_seen_subcommand_from exec; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
+complete -x -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -a 'note' -d 'Show or edit worktree notes'
+complete -c lazyworktree -n '__fish_seen_subcommand_from note' -f -l help -s h -d 'show help'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from note; and not __fish_seen_subcommand_from show edit help h' -a 'show' -d 'Show the note for a worktree'
+complete -c lazyworktree -n '__fish_seen_subcommand_from note; and __fish_seen_subcommand_from show' -f -l help -s h -d 'show help'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from note; and __fish_seen_subcommand_from show; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from note; and not __fish_seen_subcommand_from show edit help h' -a 'edit' -d 'Edit the note for a worktree'
+complete -c lazyworktree -n '__fish_seen_subcommand_from note; and __fish_seen_subcommand_from edit' -f -l input -s i -r -d 'Read note from file (use \'-\' for stdin)'
+complete -c lazyworktree -n '__fish_seen_subcommand_from note; and __fish_seen_subcommand_from edit' -f -l help -s h -d 'show help'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from note; and __fish_seen_subcommand_from edit; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'
+complete -x -c lazyworktree -n '__fish_seen_subcommand_from note; and not __fish_seen_subcommand_from show edit help h' -a 'help' -d 'Shows a list of commands or help for one command'
 complete -x -c lazyworktree -n '__fish_lazyworktree_no_subcommand' -a 'help' -d 'Shows a list of commands or help for one command'
 complete -c lazyworktree -n '__fish_seen_subcommand_from completion' -f -l help -s h -d 'show help'
 complete -x -c lazyworktree -n '__fish_seen_subcommand_from completion; and not __fish_seen_subcommand_from help h' -a 'help' -d 'Shows a list of commands or help for one command'

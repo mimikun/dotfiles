@@ -28,10 +28,11 @@ never\t'do not use colorized output'"
 complete -c fd -l hyperlink -d 'Add hyperlinks to output paths' -r -f -a "auto\t'Use hyperlinks only if color is enabled'
 always\t'Always use hyperlinks when printing file paths'
 never\t'Never use hyperlinks'"
+complete -c fd -l ignore-contain -d 'Ignore directories containing the named entry' -r
 complete -c fd -s j -l threads -d 'Set number of threads to use for searching & executing (default: number of available CPU cores)' -r
 complete -c fd -l max-buffer-time -d 'Milliseconds to buffer before streaming search results to console' -r
 complete -c fd -l max-results -d 'Limit the number of search results' -r
-complete -c fd -l base-directory -d 'Change current working directory' -r -F
+complete -c fd -s C -l base-directory -d 'Change current working directory' -r -F
 complete -c fd -l path-separator -d 'Set path separator when printing file paths' -r
 complete -c fd -l search-path -d 'Provides paths to search as an alternative to the positional <path> argument' -r -F
 complete -c fd -l strip-cwd-prefix -d 'By default, relative paths are prefixed with \'./\' when -x/--exec, -X/--exec-batch, or -0/--print0 are given, to reduce the risk of a path starting with \'-\' being treated as a command line option. Use this flag to change this behavior. If this flag is used without a value, it is equivalent to passing "always"' -r -f -a "auto\t'Use the default behavior'

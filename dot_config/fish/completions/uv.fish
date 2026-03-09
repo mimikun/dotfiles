@@ -4006,7 +4006,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -s c -l clear -d 'Remove any
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-clear -d 'Fail without prompting if any existing files or directories are present at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-existing -d 'Preserve any existing files or directories at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
-complete -c uv -n "__fish_uv_using_subcommand venv" -l relocatable -d 'Make the virtual environment relocatable'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l relocatable -d 'Make the virtual environment relocatable [env: UV_VENV_RELOCATABLE=]'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-relocatable -d 'Don\'t make the virtual environment relocatable'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l refresh -d 'Refresh all cached data'
