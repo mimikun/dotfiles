@@ -134,6 +134,7 @@ gitv-tui
 glitchcat
 glues
 gping
+gptop
 grex
 harper-ls
 hawk-data
@@ -223,6 +224,7 @@ nvrs
 octorus
 octotype
 oeis-tui
+omp-manager
 onefetch
 os_info_cli
 osintui
@@ -243,6 +245,7 @@ pay-respects-module-runtime-rules
 perch
 pez
 pik
+pikpaktui
 pipr
 prek
 presenterm
@@ -331,6 +334,7 @@ tokei
 toktop
 toml2json
 topgrade
+tortuise
 trashy
 tre-command
 tredis
