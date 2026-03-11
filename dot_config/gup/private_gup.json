@@ -470,6 +470,12 @@
       "channel": "latest"
     },
     {
+      "name": "pop",
+      "import_path": "github.com/charmbracelet/pop",
+      "version": "v0.2.0",
+      "channel": "latest"
+    },
+    {
       "name": "pproftui",
       "import_path": "github.com/Oloruntobi1/pproftui",
       "version": "v0.0.0-20250728215548-d94a02c55dcd",
