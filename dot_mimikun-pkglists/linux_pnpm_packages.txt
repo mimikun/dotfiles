@@ -5,6 +5,7 @@
 @continuedev/cli
 @github/copilot
 @google/gemini-cli
+@googleworkspace/cli
 @j178/prek
 @jsonquerylang/jsonquery
 @ls-lint/ls-lint
