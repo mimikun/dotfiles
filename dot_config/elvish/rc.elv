@@ -10,3 +10,5 @@ if (eq $E:TERM "xterm-ghostty") {
   use ghostty-integration
 }
 eval (ty generate-shell-completion elvish | slurp)
+eval (codex completion elvish)
+eval (goose completion elvish)
