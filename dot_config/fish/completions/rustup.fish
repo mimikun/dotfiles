@@ -53,9 +53,11 @@ complete\t''"
 complete -c rustup -n "__fish_rustup_using_subcommand install" -s c -l component -d 'Comma-separated list of components to be added on installation' -r
 complete -c rustup -n "__fish_rustup_using_subcommand install" -s t -l target -d 'Comma-separated list of targets to be added on installation' -r
 complete -c rustup -n "__fish_rustup_using_subcommand install" -l no-self-update -d 'Don\'t perform self update when running the `rustup toolchain install` command'
+complete -c rustup -n "__fish_rustup_using_subcommand install" -l no-update -d 'Don\'t try to update the installed toolchain'
 complete -c rustup -n "__fish_rustup_using_subcommand install" -l force -d 'Force an update, even if some components are missing'
 complete -c rustup -n "__fish_rustup_using_subcommand install" -l allow-downgrade -d 'Allow rustup to downgrade the toolchain to satisfy your component choice'
 complete -c rustup -n "__fish_rustup_using_subcommand install" -l force-non-host -d 'Install toolchains that require an emulator. See https://github.com/rust-lang/rustup/wiki/Non-host-toolchains'
+complete -c rustup -n "__fish_rustup_using_subcommand install" -l override -d 'Set the installed toolchain as the override for the current directory'
 complete -c rustup -n "__fish_rustup_using_subcommand install" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand uninstall" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand dump-testament" -s h -l help -d 'Print help'
@@ -74,9 +76,11 @@ complete\t''"
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -s c -l component -d 'Comma-separated list of components to be added on installation' -r
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -s t -l target -d 'Comma-separated list of targets to be added on installation' -r
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -l no-self-update -d 'Don\'t perform self update when running the `rustup toolchain install` command'
+complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -l no-update -d 'Don\'t try to update the installed toolchain'
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -l force -d 'Force an update, even if some components are missing'
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -l allow-downgrade -d 'Allow rustup to downgrade the toolchain to satisfy your component choice'
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -l force-non-host -d 'Install toolchains that require an emulator. See https://github.com/rust-lang/rustup/wiki/Non-host-toolchains'
+complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -l override -d 'Set the installed toolchain as the override for the current directory'
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from install" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand toolchain; and __fish_seen_subcommand_from link" -s h -l help -d 'Print help'
@@ -105,6 +109,7 @@ complete -c rustup -n "__fish_rustup_using_subcommand update" -l no-self-update 
 complete -c rustup -n "__fish_rustup_using_subcommand update" -l force -d 'Force an update, even if some components are missing'
 complete -c rustup -n "__fish_rustup_using_subcommand update" -l force-non-host -d 'Install toolchains that require an emulator. See https://github.com/rust-lang/rustup/wiki/Non-host-toolchains'
 complete -c rustup -n "__fish_rustup_using_subcommand update" -s h -l help -d 'Print help'
+complete -c rustup -n "__fish_rustup_using_subcommand check" -l no-self-update -d 'Don\'t check for self update when running the `rustup check` command'
 complete -c rustup -n "__fish_rustup_using_subcommand check" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand target; and not __fish_seen_subcommand_from list add remove help" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand target; and not __fish_seen_subcommand_from list add remove help" -f -a "list" -d 'List installed and available targets'
@@ -174,8 +179,10 @@ complete -c rustup -n "__fish_rustup_using_subcommand doc" -l error-codes -d 'Th
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l nomicon -d 'The Dark Arts of Advanced and Unsafe Rust Programming'
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l proc_macro -d 'A support library for macro authors when defining new macros'
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l reference -d 'The Rust Reference'
+complete -c rustup -n "__fish_rustup_using_subcommand doc" -l releases -d 'Rust Release Notes'
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l rust-by-example -d 'A collection of runnable examples that illustrate various Rust concepts and standard libraries'
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l rustc -d 'The compiler for the Rust programming language'
+complete -c rustup -n "__fish_rustup_using_subcommand doc" -l rustc-docs -d 'The API documentation for the Rust compiler and other toolchain components'
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l rustdoc -d 'Documentation generator for Rust projects'
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l std -d 'Standard library API documentation'
 complete -c rustup -n "__fish_rustup_using_subcommand doc" -l style-guide -d 'The Rust Style Guide'
@@ -190,7 +197,8 @@ complete -c rustup -n "__fish_rustup_using_subcommand self; and not __fish_seen_
 complete -c rustup -n "__fish_rustup_using_subcommand self; and not __fish_seen_subcommand_from update uninstall upgrade-data help" -f -a "upgrade-data" -d 'Upgrade the internal data format'
 complete -c rustup -n "__fish_rustup_using_subcommand self; and not __fish_seen_subcommand_from update uninstall upgrade-data help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c rustup -n "__fish_rustup_using_subcommand self; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help'
-complete -c rustup -n "__fish_rustup_using_subcommand self; and __fish_seen_subcommand_from uninstall" -s y
+complete -c rustup -n "__fish_rustup_using_subcommand self; and __fish_seen_subcommand_from uninstall" -s y -d 'Disable confirmation prompt'
+complete -c rustup -n "__fish_rustup_using_subcommand self; and __fish_seen_subcommand_from uninstall" -l no-modify-path -d 'Do not clean up the `PATH` environment variable'
 complete -c rustup -n "__fish_rustup_using_subcommand self; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand self; and __fish_seen_subcommand_from upgrade-data" -s h -l help -d 'Print help'
 complete -c rustup -n "__fish_rustup_using_subcommand self; and __fish_seen_subcommand_from help" -f -a "update" -d 'Download and install updates to rustup'

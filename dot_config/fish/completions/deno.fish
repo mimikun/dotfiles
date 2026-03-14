@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_deno_global_optspecs
-	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= minimum-dependency-age= A/allow-all P/permission-set= R/allow-read= deny-read= ignore-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= ignore-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= inspect-publish-uid= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use trace-ops= eszip-internal-do-not-use preload= require= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= t/tunnel= unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-bundle unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-tsgo unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
+	string join \n no-check= import-map= no-remote no-npm node-modules-dir= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= minimum-dependency-age= A/allow-all P/permission-set= R/allow-read= deny-read= ignore-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= ignore-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= inspect-publish-uid= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use trace-ops= eszip-internal-do-not-use preload= require= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= cpu-prof cpu-prof-dir= cpu-prof-name= cpu-prof-interval= cpu-prof-md t/tunnel= unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-bundle unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-tsgo unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
 end
 
 function __fish_deno_needs_command
@@ -82,6 +82,9 @@ cts\t''
 cjs\t''"
 complete -c deno -n "__fish_deno_needs_command" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l coverage -d 'Collect coverage profile data into DIR. If DIR is not specified, it uses \'coverage/\'.   This option can also be set via the DENO_COVERAGE_DIR environment variable.' -r -F
+complete -c deno -n "__fish_deno_needs_command" -l cpu-prof-dir -d 'Directory where the V8 CPU profiles will be written. Implicitly enables --cpu-prof' -r -f -a "(__fish_complete_directories)"
+complete -c deno -n "__fish_deno_needs_command" -l cpu-prof-name -d 'Filename for the CPU profile (defaults to CPU.<timestamp>.<pid>.cpuprofile)' -r
+complete -c deno -n "__fish_deno_needs_command" -l cpu-prof-interval -d 'Sampling interval in microseconds for CPU profiling (default: 1000)' -r
 complete -c deno -n "__fish_deno_needs_command" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_needs_command" -s h -l help -r -f -a "unstable\t''
@@ -102,6 +105,8 @@ complete -c deno -n "__fish_deno_needs_command" -l enable-testing-features-do-no
 complete -c deno -n "__fish_deno_needs_command" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_needs_command" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_needs_command" -l no-code-cache -d 'Disable V8 code cache feature'
+complete -c deno -n "__fish_deno_needs_command" -l cpu-prof -d 'Start the V8 CPU profiler on startup and write the profile to disk on exit. Profiles are written to the current directory by default'
+complete -c deno -n "__fish_deno_needs_command" -l cpu-prof-md -d 'Generate a human-readable markdown report alongside the CPU profile'
 complete -c deno -n "__fish_deno_needs_command" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -230,6 +235,9 @@ cts\t''
 cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l coverage -d 'Collect coverage profile data into DIR. If DIR is not specified, it uses \'coverage/\'.   This option can also be set via the DENO_COVERAGE_DIR environment variable.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof-dir -d 'Directory where the V8 CPU profiles will be written. Implicitly enables --cpu-prof' -r -f -a "(__fish_complete_directories)"
+complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof-name -d 'Filename for the CPU profile (defaults to CPU.<timestamp>.<pid>.cpuprofile)' -r
+complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof-interval -d 'Sampling interval in microseconds for CPU profiling (default: 1000)' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand run" -s h -l help -r -f -a "unstable\t''
@@ -278,6 +286,8 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l enable-testing-feature
 complete -c deno -n "__fish_deno_using_subcommand run" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand run" -l no-code-cache -d 'Disable V8 code cache feature'
+complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof -d 'Start the V8 CPU profiler on startup and write the profile to disk on exit. Profiles are written to the current directory by default'
+complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof-md -d 'Generate a human-readable markdown report alongside the CPU profile'
 complete -c deno -n "__fish_deno_using_subcommand run" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
@@ -338,6 +348,9 @@ mjs\t''
 cts\t''
 cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -l cpu-prof-dir -d 'Directory where the V8 CPU profiles will be written. Implicitly enables --cpu-prof' -r -f -a "(__fish_complete_directories)"
+complete -c deno -n "__fish_deno_using_subcommand serve" -l cpu-prof-name -d 'Filename for the CPU profile (defaults to CPU.<timestamp>.<pid>.cpuprofile)' -r
+complete -c deno -n "__fish_deno_using_subcommand serve" -l cpu-prof-interval -d 'Sampling interval in microseconds for CPU profiling (default: 1000)' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand serve" -s h -l help -r -f -a "unstable\t''
@@ -388,6 +401,8 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l open -d 'Open the br
 complete -c deno -n "__fish_deno_using_subcommand serve" -l parallel -d 'Run multiple server workers in parallel. Parallelism defaults to the number of available CPUs or the value of the DENO_JOBS environment variable'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-code-cache -d 'Disable V8 code cache feature'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l cpu-prof -d 'Start the V8 CPU profiler on startup and write the profile to disk on exit. Profiles are written to the current directory by default'
+complete -c deno -n "__fish_deno_using_subcommand serve" -l cpu-prof-md -d 'Generate a human-readable markdown report alongside the CPU profile'
 complete -c deno -n "__fish_deno_using_subcommand serve" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand add" -s h -l help -r -f -a "unstable\t''
 full\t''"
@@ -1173,6 +1188,9 @@ mjs\t''
 cts\t''
 cjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand eval" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand eval" -l cpu-prof-dir -d 'Directory where the V8 CPU profiles will be written. Implicitly enables --cpu-prof' -r -f -a "(__fish_complete_directories)"
+complete -c deno -n "__fish_deno_using_subcommand eval" -l cpu-prof-name -d 'Filename for the CPU profile (defaults to CPU.<timestamp>.<pid>.cpuprofile)' -r
+complete -c deno -n "__fish_deno_using_subcommand eval" -l cpu-prof-interval -d 'Sampling interval in microseconds for CPU profiling (default: 1000)' -r
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1210,6 +1228,8 @@ complete -c deno -n "__fish_deno_using_subcommand eval" -l cached-only -d 'Requi
 complete -c deno -n "__fish_deno_using_subcommand eval" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand eval" -l eszip-internal-do-not-use
 complete -c deno -n "__fish_deno_using_subcommand eval" -s p -l print -d 'print result to stdout'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l cpu-prof -d 'Start the V8 CPU profiler on startup and write the profile to disk on exit. Profiles are written to the current directory by default'
+complete -c deno -n "__fish_deno_using_subcommand eval" -l cpu-prof-md -d 'Generate a human-readable markdown report alongside the CPU profile'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
