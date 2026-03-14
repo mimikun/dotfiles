@@ -76,7 +76,7 @@
     {
       "name": "claws",
       "import_path": "github.com/clawscli/claws/cmd/claws",
-      "version": "v0.15.2",
+      "version": "v0.15.3",
       "channel": "latest"
     },
     {
@@ -106,7 +106,7 @@
     {
       "name": "csvi",
       "import_path": "github.com/hymkor/csvi/cmd/csvi",
-      "version": "v1.22.0",
+      "version": "v1.23.0",
       "channel": "latest"
     },
     {
@@ -190,7 +190,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.32",
+      "version": "v0.1.33",
       "channel": "latest"
     },
     {
@@ -262,7 +262,7 @@
     {
       "name": "gonew",
       "import_path": "golang.org/x/tools/cmd/gonew",
-      "version": "v0.42.0",
+      "version": "v0.43.0",
       "channel": "latest"
     },
     {
@@ -466,7 +466,7 @@
     {
       "name": "pomo",
       "import_path": "github.com/Bahaaio/pomo",
-      "version": "v1.2.0",
+      "version": "v1.2.1",
       "channel": "latest"
     },
     {
@@ -622,13 +622,13 @@
     {
       "name": "stringer",
       "import_path": "golang.org/x/tools/cmd/stringer",
-      "version": "v0.42.0",
+      "version": "v0.43.0",
       "channel": "latest"
     },
     {
       "name": "surge",
       "import_path": "github.com/surge-downloader/surge",
-      "version": "v0.6.10",
+      "version": "v0.7.0",
       "channel": "latest"
     },
     {
