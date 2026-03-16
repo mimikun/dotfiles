@@ -8,7 +8,9 @@
 @googleworkspace/cli
 @j178/prek
 @jsonquerylang/jsonquery
+@kilocode/cli
 @ls-lint/ls-lint
+@mariozechner/pi-coding-agent
 @mermaid-js/mermaid-cli
 @microsoft/inshellisense
 @openai/codex
@@ -25,6 +27,8 @@ ccexp
 ccplan
 ccsearch
 ccusage
+cline
+codebuff
 commitizen
 cz-conventional-changelog-ja
 editprompt
