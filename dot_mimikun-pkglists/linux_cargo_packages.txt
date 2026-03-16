@@ -55,6 +55,7 @@ ccat
 ccsum
 ccswarm
 cctx
+checkpwn
 choose
 cmd-wrapped
 codeberg-cli
