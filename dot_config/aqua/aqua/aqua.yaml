@@ -68,7 +68,7 @@ packages:
   - name: hherman1/gq@v0.0.3
   - name: homeport/dyff@v1.11.2
   - name: idursun/jjui@v0.10.1
-  - name: itchyny/json2yaml@v0.1.4
+  - name: itchyny/json2yaml@v0.1.5
   - name: jesseduffield/horcrux@v0.2
   - name: jesseduffield/lazydocker@v0.25.0
   - name: jesseduffield/lazygit@v0.60.0
