@@ -77,6 +77,7 @@ complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l follow -d 'Fol
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l stdin -d 'Enable search code from StdIn'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s i -l interactive -d 'Start interactive edit session'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s U -l update-all -d 'Apply all rewrite without confirmation if true'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l files-with-matches -d 'Print only the paths with at least one match and suppress match contents'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s r -l rule -d 'Scan the codebase with the single rule located at the path RULE_FILE' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l inline-rules -d 'Scan the codebase with a rule defined by the provided RULE_TEXT' -r
@@ -112,12 +113,14 @@ entity\t'Show per-file/per-rule tracing information'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s A -l after -d 'Show NUM lines after each match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s B -l before -d 'Show NUM lines before each match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s C -l context -d 'Show NUM lines around each match' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l max-results -d 'Show at most NUM results and stop running once the limit is reached' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l include-metadata -d 'Include rule metadata in the json output'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l follow -d 'Follow symbolic links'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l stdin -d 'Enable search code from StdIn'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s i -l interactive -d 'Start interactive edit session'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s U -l update-all -d 'Apply all rewrite without confirmation if true'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -l files-with-matches -d 'Print only the paths with at least one match and suppress match contents'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -s t -l test-dir -d 'the directories to search test YAML files' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -l snapshot-dir -d 'Specify the directory name storing snapshots. Default to __snapshots__' -r -F

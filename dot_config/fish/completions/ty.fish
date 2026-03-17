@@ -30,6 +30,7 @@ complete -c ty -n "__fish_ty_needs_command" -f -a "check" -d 'Check a project fo
 complete -c ty -n "__fish_ty_needs_command" -f -a "server" -d 'Start the language server'
 complete -c ty -n "__fish_ty_needs_command" -f -a "version" -d 'Display ty\'s version'
 complete -c ty -n "__fish_ty_needs_command" -f -a "generate-shell-completion" -d 'Generate shell completion'
+complete -c ty -n "__fish_ty_needs_command" -f -a "explain" -d 'Explain rules and other parts of ty'
 complete -c ty -n "__fish_ty_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c ty -n "__fish_ty_using_subcommand check" -l project -d 'Run the command within the given project directory' -r
 complete -c ty -n "__fish_ty_using_subcommand check" -l python -d 'Path to your project\'s Python environment or interpreter' -r
@@ -42,35 +43,52 @@ complete -c ty -n "__fish_ty_using_subcommand check" -l python-version -d 'Pytho
 3.11\t''
 3.12\t''
 3.13\t''
-3.14\t''"
+3.14\t''
+3.15\t''"
 complete -c ty -n "__fish_ty_using_subcommand check" -l python-platform -d 'Target platform to assume when resolving types' -r
-complete -c ty -n "__fish_ty_using_subcommand check" -l error -d 'Treat the given rule as having severity \'error\'. Can be specified multiple times.' -r
-complete -c ty -n "__fish_ty_using_subcommand check" -l warn -d 'Treat the given rule as having severity \'warn\'. Can be specified multiple times.' -r
-complete -c ty -n "__fish_ty_using_subcommand check" -l ignore -d 'Disables the rule. Can be specified multiple times.' -r
+complete -c ty -n "__fish_ty_using_subcommand check" -l error -d 'Treat the given rule as having severity \'error\'. Can be specified multiple times. Use \'all\' to apply to all rules.' -r
+complete -c ty -n "__fish_ty_using_subcommand check" -l warn -d 'Treat the given rule as having severity \'warn\'. Can be specified multiple times. Use \'all\' to apply to all rules.' -r
+complete -c ty -n "__fish_ty_using_subcommand check" -l ignore -d 'Disables the rule. Can be specified multiple times. Use \'all\' to apply to all rules.' -r
 complete -c ty -n "__fish_ty_using_subcommand check" -s c -l config -d 'A TOML `<KEY> = <VALUE>` pair overriding a specific configuration option.' -r
 complete -c ty -n "__fish_ty_using_subcommand check" -l config-file -d 'The path to a `ty.toml` file to use for configuration' -r
 complete -c ty -n "__fish_ty_using_subcommand check" -l output-format -d 'The format to use for printing diagnostic messages' -r -f -a "full\t'Print diagnostics verbosely, with context and helpful hints (default)'
 concise\t'Print diagnostics concisely, one per line'
 gitlab\t'Print diagnostics in the JSON format expected by GitLab Code Quality reports'
-github\t'Print diagnostics in the format used by GitHub Actions workflow error annotations'"
+github\t'Print diagnostics in the format used by GitHub Actions workflow error annotations'
+junit\t'Print diagnostics as a JUnit-style XML report'"
 complete -c ty -n "__fish_ty_using_subcommand check" -l exclude -d 'Glob patterns for files to exclude from type checking' -r
 complete -c ty -n "__fish_ty_using_subcommand check" -l color -d 'Control when colored output is used' -r -f -a "auto\t'Display colors if the output goes to an interactive terminal'
 always\t'Always display colors'
 never\t'Never display colors'"
+complete -c ty -n "__fish_ty_using_subcommand check" -l add-ignore -d 'Adds `ty: ignore` comments to suppress all rule diagnostics'
 complete -c ty -n "__fish_ty_using_subcommand check" -s v -l verbose -d 'Use verbose output (or `-vv` and `-vvv` for more verbose output)'
 complete -c ty -n "__fish_ty_using_subcommand check" -s q -l quiet -d 'Use quiet output (or `-qq` for silent output)'
 complete -c ty -n "__fish_ty_using_subcommand check" -l error-on-warning -d 'Use exit code 1 if there are any warning-level diagnostics'
 complete -c ty -n "__fish_ty_using_subcommand check" -l exit-zero -d 'Always use exit code 0, even when there are error-level diagnostics'
 complete -c ty -n "__fish_ty_using_subcommand check" -s W -l watch -d 'Watch files for changes and recheck files related to the changed files'
-complete -c ty -n "__fish_ty_using_subcommand check" -l respect-ignore-files -d 'Respect file exclusions via `.gitignore` and other standard ignore files. Use `--no-respect-gitignore` to disable'
+complete -c ty -n "__fish_ty_using_subcommand check" -l respect-ignore-files -d 'Respect file exclusions via `.gitignore` and other standard ignore files. Use `--no-respect-ignore-files` to disable'
 complete -c ty -n "__fish_ty_using_subcommand check" -l no-respect-ignore-files
+complete -c ty -n "__fish_ty_using_subcommand check" -l force-exclude -d 'Enforce exclusions, even for paths passed to ty directly on the command-line. Use `--no-force-exclude` to disable'
+complete -c ty -n "__fish_ty_using_subcommand check" -l no-force-exclude
 complete -c ty -n "__fish_ty_using_subcommand check" -l no-progress -d 'Hide all progress outputs'
 complete -c ty -n "__fish_ty_using_subcommand check" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c ty -n "__fish_ty_using_subcommand server" -s h -l help -d 'Print help'
+complete -c ty -n "__fish_ty_using_subcommand version" -l output-format -d 'The format in which to display the version information' -r -f -a "text\t''
+json\t''"
 complete -c ty -n "__fish_ty_using_subcommand version" -s h -l help -d 'Print help'
 complete -c ty -n "__fish_ty_using_subcommand generate-shell-completion" -s h -l help -d 'Print help'
-complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion help" -f -a "check" -d 'Check a project for type errors'
-complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion help" -f -a "server" -d 'Start the language server'
-complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion help" -f -a "version" -d 'Display ty\'s version'
-complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion help" -f -a "generate-shell-completion" -d 'Generate shell completion'
-complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c ty -n "__fish_ty_using_subcommand explain; and not __fish_seen_subcommand_from rule help" -s h -l help -d 'Print help'
+complete -c ty -n "__fish_ty_using_subcommand explain; and not __fish_seen_subcommand_from rule help" -f -a "rule" -d 'Explain a rule (or all rules)'
+complete -c ty -n "__fish_ty_using_subcommand explain; and not __fish_seen_subcommand_from rule help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c ty -n "__fish_ty_using_subcommand explain; and __fish_seen_subcommand_from rule" -l output-format -d 'Output format' -r -f -a "text\t''
+json\t''"
+complete -c ty -n "__fish_ty_using_subcommand explain; and __fish_seen_subcommand_from rule" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c ty -n "__fish_ty_using_subcommand explain; and __fish_seen_subcommand_from help" -f -a "rule" -d 'Explain a rule (or all rules)'
+complete -c ty -n "__fish_ty_using_subcommand explain; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion explain help" -f -a "check" -d 'Check a project for type errors'
+complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion explain help" -f -a "server" -d 'Start the language server'
+complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion explain help" -f -a "version" -d 'Display ty\'s version'
+complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion explain help" -f -a "generate-shell-completion" -d 'Generate shell completion'
+complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion explain help" -f -a "explain" -d 'Explain rules and other parts of ty'
+complete -c ty -n "__fish_ty_using_subcommand help; and not __fish_seen_subcommand_from check server version generate-shell-completion explain help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c ty -n "__fish_ty_using_subcommand help; and __fish_seen_subcommand_from explain" -f -a "rule" -d 'Explain a rule (or all rules)'
