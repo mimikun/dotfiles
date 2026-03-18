@@ -264,6 +264,7 @@ rana
 rascii_art
 rbw
 redu
+rgx-cli
 riffdiff
 rioterm
 rip2
@@ -307,6 +308,7 @@ ssh-list
 sshx
 starship
 starship-jj
+strace-tui
 stu
 stylua
 superseedr
