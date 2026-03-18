@@ -26,6 +26,12 @@
       "channel": "latest"
     },
     {
+      "name": "amux",
+      "import_path": "github.com/andyrewlee/amux/cmd/amux",
+      "version": "v0.0.16",
+      "channel": "latest"
+    },
+    {
       "name": "andcli",
       "import_path": "github.com/tjblackheart/andcli/v2/cmd/andcli",
       "version": "v2.6.0",
@@ -242,6 +248,12 @@
       "channel": "latest"
     },
     {
+      "name": "gittop",
+      "import_path": "github.com/hjr265/gittop",
+      "version": "v0.1.1",
+      "channel": "latest"
+    },
+    {
       "name": "gmailctl",
       "import_path": "github.com/mbrt/gmailctl/cmd/gmailctl",
       "version": "v0.11.0",
@@ -392,6 +404,12 @@
       "channel": "latest"
     },
     {
+      "name": "launch-rocket-cli",
+      "import_path": "github.com/PenguinCabinet/launch-rocket-cli",
+      "version": "v0.0.0-20260317114700-f2408006c976",
+      "channel": "latest"
+    },
+    {
       "name": "lazykiq",
       "import_path": "github.com/kpumuk/lazykiq/cmd/lazykiq",
       "version": "v0.0.13",
@@ -413,6 +431,12 @@
       "name": "meteor",
       "import_path": "github.com/stefanlogue/meteor",
       "version": "v0.30.0",
+      "channel": "latest"
+    },
+    {
+      "name": "micasa",
+      "import_path": "github.com/cpcloud/micasa/cmd/micasa",
+      "version": "v1.80.0",
       "channel": "latest"
     },
     {
