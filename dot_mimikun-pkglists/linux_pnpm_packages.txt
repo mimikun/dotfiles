@@ -13,6 +13,7 @@
 @mariozechner/pi-coding-agent
 @mermaid-js/mermaid-cli
 @microsoft/inshellisense
+@mizchi/actrun
 @openai/codex
 @qwen-code/qwen-code
 @sasazame/ccresume
