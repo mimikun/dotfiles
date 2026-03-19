@@ -1,0 +1,50 @@
+{{- $isWindows := (eq .chezmoi.os "windows") -}}
+{{- $isWorkLinux := (and (eq .chezmoi.os "linux") (isExecutable "/usr/local/bin/this_is_work_pc")) -}}
+{{- $isWorkWindows := (and (eq .chezmoi.os "windows") (isExecutable "C:\\Program Files\\Yt Env Checks\\this_is_work_pc.exe")) -}}
+{{- $isWorkPC := (or $isWorkLinux $isWorkWindows) -}}
+
+[user]
+  name = "Yuto Tanaka"
+{{- if $isWorkPC }}
+  # Work PC: Default to work credentials
+{{- if $isWorkLinux }}
+  email = {{ (rbwFields "dotfiles-chezmoi").gitconfig_email.value }}
+{{- else -}}
+  email = {{ (bitwardenFields "item" "083a244a-2d41-44a9-8e29-8f6434e74133").gitconfig_email.value }}
+{{- end }}
+{{- else }}
+  # Personal PC: Default to personal credentials
+  email = "git@mimikun.dev"
+{{- end }}
+
+[container]
+  shm_size = "256m"
+  port = 5433
+  image = ""
+  max_connections = 100
+  shared_buffers = "256MB"
+  work_mem = "16MB"
+  effective_cache_size = "1GB"
+  max_parallel_workers = 4
+  max_worker_processes = 4
+  max_parallel_per_gather = 2
+  max_wal_size = "4GB"
+  checkpoint_timeout = "30min"
+  wal_buffers = "64MB"
+  xpatch_cache_size_mb = 256
+  xpatch_cache_max_entries = 65536
+  xpatch_cache_max_entry_kb = 256
+  xpatch_cache_slot_size_kb = 4
+  xpatch_cache_partitions = 32
+  xpatch_encode_threads = 0
+  xpatch_insert_cache_slots = 16
+  xpatch_group_cache_size_mb = 16
+  xpatch_tid_cache_size_mb = 16
+  xpatch_seq_tid_cache_size_mb = 16
+  xpatch_max_delta_columns = 32
+  xpatch_warm_cache_workers = 4
+
+[import]
+  workers = 3
+
+# vim:ft=toml.chezmoitmpl
