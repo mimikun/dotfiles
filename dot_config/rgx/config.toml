@@ -1,0 +1,5 @@
+# "rust", "fancy", or "pcre2"
+default_engine = "rust"
+# enable vim-style modal editing
+vim_mode = false
+
