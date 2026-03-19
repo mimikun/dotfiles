@@ -95,7 +95,7 @@ packages:
   - name: magodo/pipeform@v0.2.1
   - name: masutaka/github-nippou@v4.2.45
   - name: mattn/algia@v0.0.107
-  - name: mattn/bsky@v0.0.76
+  - name: mattn/bsky@v0.0.77
   - name: mattn/efm-langserver@v0.0.56
   - name: mgechev/revive@v1.15.0
   - name: mikefarah/yq@v4.52.4
