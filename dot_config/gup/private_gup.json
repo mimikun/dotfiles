@@ -488,6 +488,12 @@
       "channel": "latest"
     },
     {
+      "name": "pgit",
+      "import_path": "github.com/imgajeed76/pgit/v4/cmd/pgit",
+      "version": "v4.1.3",
+      "channel": "latest"
+    },
+    {
       "name": "pomo",
       "import_path": "github.com/Bahaaio/pomo",
       "version": "v1.2.1",
