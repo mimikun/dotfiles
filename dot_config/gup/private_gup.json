@@ -28,7 +28,7 @@
     {
       "name": "amux",
       "import_path": "github.com/andyrewlee/amux/cmd/amux",
-      "version": "v0.0.16",
+      "version": "v0.0.17",
       "channel": "latest"
     },
     {
@@ -70,7 +70,7 @@
     {
       "name": "chatuino",
       "import_path": "github.com/julez-dev/chatuino",
-      "version": "v1.1.0",
+      "version": "v1.2.0",
       "channel": "latest"
     },
     {
@@ -190,13 +190,13 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.437",
+      "version": "v1.4.440",
       "channel": "latest"
     },
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.35",
+      "version": "v0.1.36",
       "channel": "latest"
     },
     {
@@ -250,7 +250,7 @@
     {
       "name": "gittop",
       "import_path": "github.com/hjr265/gittop",
-      "version": "v0.1.1",
+      "version": "v0.4.0",
       "channel": "latest"
     },
     {
@@ -292,7 +292,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/aperturerobotics/goscript/cmd/goscript",
-      "version": "v0.0.75",
+      "version": "v0.0.76",
       "channel": "latest"
     },
     {
@@ -316,7 +316,7 @@
     {
       "name": "gwq",
       "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.0.14",
+      "version": "v0.0.15",
       "channel": "latest"
     },
     {
@@ -406,13 +406,13 @@
     {
       "name": "launch-rocket-cli",
       "import_path": "github.com/PenguinCabinet/launch-rocket-cli",
-      "version": "v0.0.0-20260317114700-f2408006c976",
+      "version": "v0.0.0-20260320032516-6d79a38beb9c",
       "channel": "latest"
     },
     {
       "name": "lazykiq",
       "import_path": "github.com/kpumuk/lazykiq/cmd/lazykiq",
-      "version": "v0.0.13",
+      "version": "v0.0.15",
       "channel": "latest"
     },
     {
@@ -652,7 +652,7 @@
     {
       "name": "surge",
       "import_path": "github.com/surge-downloader/surge",
-      "version": "v0.7.1",
+      "version": "v0.7.3",
       "channel": "latest"
     },
     {
@@ -736,7 +736,7 @@
     {
       "name": "witr",
       "import_path": "github.com/pranshuparmar/witr/cmd/witr",
-      "version": "v0.3.0",
+      "version": "v0.3.1",
       "channel": "latest"
     },
     {
@@ -748,7 +748,7 @@
     {
       "name": "yatto",
       "import_path": "github.com/handlebargh/yatto",
-      "version": "v1.1.3",
+      "version": "v1.2.0",
       "channel": "latest"
     },
     {
