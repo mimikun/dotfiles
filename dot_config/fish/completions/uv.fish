@@ -72,7 +72,7 @@ complete -c uv -n "__fish_uv_needs_command" -f -a "lock" -d 'Update the project\
 complete -c uv -n "__fish_uv_needs_command" -f -a "export" -d 'Export the project\'s lockfile to an alternate format'
 complete -c uv -n "__fish_uv_needs_command" -f -a "tree" -d 'Display the project\'s dependency tree'
 complete -c uv -n "__fish_uv_needs_command" -f -a "format" -d 'Format Python code in the project'
-complete -c uv -n "__fish_uv_needs_command" -f -a "audit" -d 'Audit the project\'s lockfile for known vulnerabilities and unmaintained dependencies'
+complete -c uv -n "__fish_uv_needs_command" -f -a "audit" -d 'Audit the project\'s dependencies'
 complete -c uv -n "__fish_uv_needs_command" -f -a "tool" -d 'Run and install commands provided by Python packages'
 complete -c uv -n "__fish_uv_needs_command" -f -a "python" -d 'Manage Python versions and installations'
 complete -c uv -n "__fish_uv_needs_command" -f -a "pip" -d 'Manage Python packages with a pip-compatible interface'

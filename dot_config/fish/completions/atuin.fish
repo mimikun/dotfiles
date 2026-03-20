@@ -26,6 +26,7 @@ end
 
 complete -c atuin -n "__fish_atuin_needs_command" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_needs_command" -s V -l version -d 'Print version'
+complete -c atuin -n "__fish_atuin_needs_command" -f -a "setup" -d 'Setup Atuin features'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "history" -d 'Manipulate shell history'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "import" -d 'Import shell history from file'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "stats" -d 'Calculate statistics for your history'
@@ -45,12 +46,15 @@ complete -c atuin -n "__fish_atuin_needs_command" -f -a "init" -d 'Print Atuin\'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "info" -d 'Information about dotfiles locations and ENV vars'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "doctor" -d 'Run the doctor to check for common issues'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "wrapped"
-complete -c atuin -n "__fish_atuin_needs_command" -f -a "daemon" -d '*Experimental* Start the background daemon'
+complete -c atuin -n "__fish_atuin_needs_command" -f -a "daemon" -d '*Experimental* Manage the background daemon'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "default-config" -d 'Print the default atuin configuration (config.toml)'
+complete -c atuin -n "__fish_atuin_needs_command" -f -a "ai" -d 'Run the AI assistant'
+complete -c atuin -n "__fish_atuin_needs_command" -f -a "hex" -d 'Terminal emulator for atuin'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "uuid" -d 'Generate a UUID'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "contributors"
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "gen-completions" -d 'Generate shell completions'
 complete -c atuin -n "__fish_atuin_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand setup" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "start" -d 'Begins a new command in the history'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
@@ -60,6 +64,8 @@ complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "dedup" -d 'Delete duplicate history entries (that have the same command, cwd and hostname)'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end list last init-store prune dedup help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -l author -d 'Author of this command, eg `ellie`, `claude`, or `copilot`' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -l intent -d 'Optional intent/rationale for running this command' -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -l command-from-env -d 'Collects the command from the `ATUIN_COMMAND_LINE` environment variable, which does not need escaping and is more compatible between OS and shells'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from end" -s e -l exit -r
@@ -68,7 +74,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_sub
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s r -l reverse -r -f -a "true\t''
 false\t''"
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default' -r
-complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {exit}, {time}, {session}, and {uuid} Example: --format "{time} - [{duration}] - {directory}$\\t{command}"' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {author}, {intent}, {exit}, {time}, {session}, and {uuid} Example: --format "{time} - [{duration}] - {directory}$\\t{command}"' -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s c -l cwd
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s s -l session
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l human
@@ -76,7 +82,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_sub
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l print0 -d 'Terminate the output with a null, for better multiline support'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default' -r
-complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {time}, {session}, {uuid} and {relativetime}. Example: --format "{time} - [{duration}] - {directory}$\\t{command}"' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {author}, {intent}, {time}, {session}, {uuid} and {relativetime}. Example: --format "{time} - [{duration}] - {directory}$\\t{command}"' -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -l human
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -l cmd-only -d 'Show only the text of the command'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -s h -l help -d 'Print help (see more with \'--help\')'
@@ -154,7 +160,8 @@ session-preload\t''"
 complete -c atuin -n "__fish_atuin_using_subcommand search" -l search-mode -d 'Allow overriding search mode over config' -r -f -a "prefix\t''
 full-text\t''
 fuzzy\t''
-skim\t''"
+skim\t''
+daemon-fuzzy\t''"
 complete -c atuin -n "__fish_atuin_using_subcommand search" -l keymap-mode -d 'Notify the keymap at the shell\'s side' -r -f -a "emacs\t''
 vim-normal\t''
 vim-insert\t''
@@ -178,6 +185,8 @@ complete -c atuin -n "__fish_atuin_using_subcommand sync" -s h -l help -d 'Print
 complete -c atuin -n "__fish_atuin_using_subcommand login" -s u -l username -r
 complete -c atuin -n "__fish_atuin_using_subcommand login" -s p -l password -r
 complete -c atuin -n "__fish_atuin_using_subcommand login" -s k -l key -d 'The encryption key for your account' -r
+complete -c atuin -n "__fish_atuin_using_subcommand login" -s t -l totp-code -d 'The two-factor authentication code for your account, if any' -r
+complete -c atuin -n "__fish_atuin_using_subcommand login" -l from-registration
 complete -c atuin -n "__fish_atuin_using_subcommand login" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand logout" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand register" -s u -l username -r
@@ -187,31 +196,39 @@ complete -c atuin -n "__fish_atuin_using_subcommand register" -s h -l help -d 'P
 complete -c atuin -n "__fish_atuin_using_subcommand key" -l base64 -d 'Switch to base64 output of the key'
 complete -c atuin -n "__fish_atuin_using_subcommand key" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand status" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password help" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password help" -f -a "login" -d 'Login to the configured server'
-complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password help" -f -a "register" -d 'Register a new account'
-complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password help" -f -a "logout" -d 'Log out'
-complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password help" -f -a "delete" -d 'Delete your account, and all synced data'
-complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password help" -f -a "change-password" -d 'Change your password'
-complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -f -a "login" -d 'Login to the configured server'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -f -a "register" -d 'Register a new account'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -f -a "logout" -d 'Log out'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -f -a "delete" -d 'Delete your account, and all synced data'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -f -a "change-password" -d 'Change your password'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -f -a "link" -d 'Link your CLI sync account to your Hub account'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and not __fish_seen_subcommand_from login register logout delete change-password link help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from login" -s u -l username -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from login" -s p -l password -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from login" -s k -l key -d 'The encryption key for your account' -r
+complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from login" -s t -l totp-code -d 'The two-factor authentication code for your account, if any' -r
+complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from login" -l from-registration
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from login" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from register" -s u -l username -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from register" -s p -l password -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from register" -s e -l email -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from register" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from logout" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from delete" -s p -l password -r
+complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from delete" -s t -l totp-code -d 'The two-factor authentication code for your account, if any' -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from change-password" -s c -l current-password -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from change-password" -s n -l new-password -r
+complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from change-password" -s t -l totp-code -d 'The two-factor authentication code for your account, if any' -r
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from change-password" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from link" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "login" -d 'Login to the configured server'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "register" -d 'Register a new account'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "logout" -d 'Log out'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "delete" -d 'Delete your account, and all synced data'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "change-password" -d 'Change your password'
+complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "link" -d 'Link your CLI sync account to your Hub account'
 complete -c atuin -n "__fish_atuin_using_subcommand account; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand kv; and not __fish_seen_subcommand_from set delete get list rebuild help" -f -a "set" -d 'Set a key-value pair'
@@ -325,12 +342,53 @@ complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_sub
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand init" -l disable-ctrl-r -d 'Disable the binding of CTRL-R to atuin'
 complete -c atuin -n "__fish_atuin_using_subcommand init" -l disable-up-arrow -d 'Disable the binding of the Up Arrow key to atuin'
+complete -c atuin -n "__fish_atuin_using_subcommand init" -l disable-ai -d 'Disable the binding of ? to Atuin AI'
 complete -c atuin -n "__fish_atuin_using_subcommand init" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c atuin -n "__fish_atuin_using_subcommand info" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand doctor" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand wrapped" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand daemon" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -l daemonize -d 'Internal flag for daemonization'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -l show-logs -d 'Also write daemon logs to the console (useful for debugging)'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -f -a "start" -d 'Start the daemon server'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -f -a "status" -d 'Show the daemon\'s current status'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -f -a "stop" -d 'Stop the daemon gracefully'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -f -a "restart" -d 'Restart the daemon (stop, then start in background)'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and not __fish_seen_subcommand_from start status stop restart help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from start" -l daemonize
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from start" -l show-logs -d 'Also write daemon logs to the console (useful for debugging)'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from start" -l force -d 'Force start: kill existing daemon process and reset the socket'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from start" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from status" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from stop" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from restart" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "start" -d 'Start the daemon server'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "status" -d 'Show the daemon\'s current status'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "stop" -d 'Stop the daemon gracefully'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "restart" -d 'Restart the daemon (stop, then start in background)'
+complete -c atuin -n "__fish_atuin_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand default-config" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from init inline help" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from init inline help" -f -a "init" -d 'Initialize shell integration'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from init inline help" -f -a "inline" -d 'Inline completion mode with small TUI overlay'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from init inline help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l api-endpoint -d 'Custom API endpoint; defaults to reading from the `ai.endpoint` setting' -r
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l api-token -d 'Custom API token; defaults to reading from the `ai.api_token` setting' -r
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l debug-state -d 'Log state changes to file for debugging (dev tool)' -r
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -s v -l verbose -d 'Enable verbose logging'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l keep -d 'Keep TUI output visible after exit (default: erase)'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l hook -d 'Use the hook mode'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from help" -f -a "init" -d 'Initialize shell integration'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from help" -f -a "inline" -d 'Inline completion mode with small TUI overlay'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand hex; and not __fish_seen_subcommand_from init help" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand hex; and not __fish_seen_subcommand_from init help" -f -a "init" -d 'Print shell code to initialize atuin-hex on shell startup'
+complete -c atuin -n "__fish_atuin_using_subcommand hex; and not __fish_seen_subcommand_from init help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand hex; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c atuin -n "__fish_atuin_using_subcommand hex; and __fish_seen_subcommand_from help" -f -a "init" -d 'Print shell code to initialize atuin-hex on shell startup'
+complete -c atuin -n "__fish_atuin_using_subcommand hex; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand uuid" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand contributors" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand gen-completions" -s s -l shell -d 'Set the shell for generating completions' -r -f -a "bash\t''
@@ -341,31 +399,34 @@ powershell\t''
 zsh\t''"
 complete -c atuin -n "__fish_atuin_using_subcommand gen-completions" -s o -l out-dir -d 'Set the output directory' -r
 complete -c atuin -n "__fish_atuin_using_subcommand gen-completions" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "history" -d 'Manipulate shell history'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "import" -d 'Import shell history from file'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "stats" -d 'Calculate statistics for your history'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "search" -d 'Interactive history search'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "sync" -d 'Sync with the configured server'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "login" -d 'Login to the configured server'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "logout" -d 'Log out'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "register" -d 'Register with the configured server'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "key" -d 'Print the encryption key for transfer to another machine'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "status" -d 'Display the sync status'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "account" -d 'Manage your sync account'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "kv" -d 'Get or set small key-value pairs'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "store" -d 'Manage the atuin data store'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "dotfiles" -d 'Manage your dotfiles with Atuin'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "scripts" -d 'Manage your scripts with Atuin'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "init" -d 'Print Atuin\'s shell init script'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "info" -d 'Information about dotfiles locations and ENV vars'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "doctor" -d 'Run the doctor to check for common issues'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "wrapped"
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "daemon" -d '*Experimental* Start the background daemon'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "default-config" -d 'Print the default atuin configuration (config.toml)'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "uuid" -d 'Generate a UUID'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "contributors"
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "gen-completions" -d 'Generate shell completions'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config uuid contributors gen-completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "setup" -d 'Setup Atuin features'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "history" -d 'Manipulate shell history'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "import" -d 'Import shell history from file'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "stats" -d 'Calculate statistics for your history'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "search" -d 'Interactive history search'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "sync" -d 'Sync with the configured server'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "login" -d 'Login to the configured server'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "logout" -d 'Log out'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "register" -d 'Register with the configured server'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "key" -d 'Print the encryption key for transfer to another machine'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "status" -d 'Display the sync status'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "account" -d 'Manage your sync account'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "kv" -d 'Get or set small key-value pairs'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "store" -d 'Manage the atuin data store'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "dotfiles" -d 'Manage your dotfiles with Atuin'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "scripts" -d 'Manage your scripts with Atuin'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "init" -d 'Print Atuin\'s shell init script'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "info" -d 'Information about dotfiles locations and ENV vars'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "doctor" -d 'Run the doctor to check for common issues'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "wrapped"
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "daemon" -d '*Experimental* Manage the background daemon'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "default-config" -d 'Print the default atuin configuration (config.toml)'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "ai" -d 'Run the AI assistant'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "hex" -d 'Terminal emulator for atuin'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "uuid" -d 'Generate a UUID'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "contributors"
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "gen-completions" -d 'Generate shell completions'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and not __fish_seen_subcommand_from setup history import stats search sync login logout register key status account kv store dotfiles scripts init info doctor wrapped daemon default-config ai hex uuid contributors gen-completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "start" -d 'Begins a new command in the history'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "list" -d 'List all items in history'
@@ -390,6 +451,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcom
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from account" -f -a "logout" -d 'Log out'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from account" -f -a "delete" -d 'Delete your account, and all synced data'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from account" -f -a "change-password" -d 'Change your password'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from account" -f -a "link" -d 'Link your CLI sync account to your Hub account'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "set" -d 'Set a key-value pair'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "delete" -d 'Delete one or more key-value pairs'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from kv" -f -a "get" -d 'Retrieve a saved value'
@@ -410,3 +472,10 @@ complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcom
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from scripts" -f -a "get"
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from scripts" -f -a "edit"
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from scripts" -f -a "delete"
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "start" -d 'Start the daemon server'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "status" -d 'Show the daemon\'s current status'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "stop" -d 'Stop the daemon gracefully'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "restart" -d 'Restart the daemon (stop, then start in background)'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from ai" -f -a "init" -d 'Initialize shell integration'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from ai" -f -a "inline" -d 'Inline completion mode with small TUI overlay'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from hex" -f -a "init" -d 'Print shell code to initialize atuin-hex on shell startup'
