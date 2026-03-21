@@ -41,7 +41,7 @@ packages:
   - name: dlvhdr/diffnav@v0.10.0
   - name: dominikh/go-tools/staticcheck@2026.1
   - name: dotenvx/dotenvx@v1.57.0
-  - name: dundee/gdu@v5.34.0
+  - name: dundee/gdu@v5.34.2
   - name: editorconfig-checker/editorconfig-checker@v3.6.1
   - name: evilmartians/lefthook@v2.1.4
   - name: fastfetch-cli/fastfetch@2.60.0
