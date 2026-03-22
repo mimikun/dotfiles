@@ -1,0 +1,8 @@
+{
+  "agents": [
+    { "name": "claude", "command": "claude" }
+  ],
+  "left_panel_width": 38,
+  "theme": "github-dark",
+  "idle_timeout_secs": 0
+}
