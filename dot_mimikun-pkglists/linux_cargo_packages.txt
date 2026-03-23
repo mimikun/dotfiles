@@ -213,6 +213,7 @@ ncspot
 needs
 netscanner
 nexus-tui
+nippo
 nomino
 nsh
 nu
