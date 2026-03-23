@@ -10,7 +10,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "typescript": "^5.9.2"
+    "typescript": "^6.0.0"
   },
   "devDependencies": {}
 }
