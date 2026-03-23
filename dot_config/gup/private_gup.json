@@ -112,7 +112,7 @@
     {
       "name": "csvi",
       "import_path": "github.com/hymkor/csvi/cmd/csvi",
-      "version": "v1.23.0",
+      "version": "v1.23.1",
       "channel": "latest"
     },
     {
@@ -172,7 +172,7 @@
     {
       "name": "ec",
       "import_path": "github.com/chojs23/ec/cmd/ec",
-      "version": "v0.3.0",
+      "version": "v0.3.1",
       "channel": "latest"
     },
     {
@@ -190,13 +190,13 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.440",
+      "version": "v1.4.441",
       "channel": "latest"
     },
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.36",
+      "version": "v0.1.37",
       "channel": "latest"
     },
     {
@@ -208,7 +208,7 @@
     {
       "name": "g",
       "import_path": "github.com/Equationzhao/g",
-      "version": "v0.31.0",
+      "version": "v0.31.2",
       "channel": "latest"
     },
     {
@@ -316,7 +316,7 @@
     {
       "name": "gwq",
       "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.0.15",
+      "version": "v0.0.17",
       "channel": "latest"
     },
     {
@@ -412,7 +412,7 @@
     {
       "name": "lazykiq",
       "import_path": "github.com/kpumuk/lazykiq/cmd/lazykiq",
-      "version": "v0.0.15",
+      "version": "v0.0.16",
       "channel": "latest"
     },
     {
@@ -520,13 +520,13 @@
     {
       "name": "pvetui",
       "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.2.1",
+      "version": "v1.3.0",
       "channel": "latest"
     },
     {
       "name": "pwdsafety",
       "import_path": "github.com/edoardottt/pwdsafety/cmd/pwdsafety",
-      "version": "v0.4.1",
+      "version": "v0.4.2",
       "channel": "latest"
     },
     {
@@ -604,7 +604,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.78.0",
+      "version": "v0.80.0",
       "channel": "latest"
     },
     {
@@ -658,7 +658,7 @@
     {
       "name": "surge",
       "import_path": "github.com/surge-downloader/surge",
-      "version": "v0.7.3",
+      "version": "v0.7.5",
       "channel": "latest"
     },
     {
@@ -676,7 +676,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.42.0",
+      "version": "v0.42.2",
       "channel": "latest"
     },
     {
@@ -694,7 +694,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.7.14",
+      "version": "v1.8.0",
       "channel": "latest"
     },
     {
