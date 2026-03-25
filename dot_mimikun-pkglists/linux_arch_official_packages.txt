@@ -14,7 +14,9 @@ bfs
 bitwarden
 bitwarden-cli
 blueman
+bpftop
 capnet-assist
+catimg
 certbot
 chafa
 chezmoi
@@ -148,6 +150,7 @@ usbutils
 vhs
 vi
 vim
+viu
 vivaldi
 vulkan-intel
 vulkan-radeon
