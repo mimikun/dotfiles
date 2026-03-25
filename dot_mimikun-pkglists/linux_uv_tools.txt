@@ -18,4 +18,5 @@ sot
 sqlit-tui
 squall-sql
 turm
+twg
 ty
