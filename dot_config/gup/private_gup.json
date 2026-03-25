@@ -38,6 +38,12 @@
       "channel": "latest"
     },
     {
+      "name": "aptui",
+      "import_path": "github.com/mexirica/aptui",
+      "version": "v0.5.1",
+      "channel": "latest"
+    },
+    {
       "name": "az-tui",
       "import_path": "github.com/IAL32/az-tui/cmd/az-tui",
       "version": "v0.4.0",
