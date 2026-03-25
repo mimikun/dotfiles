@@ -341,6 +341,7 @@ icalendar
 identify
 idna
 ifaddr
+ijson
 importlib_metadata
 inquirer3
 inquirerpy
@@ -759,6 +760,7 @@ tree-sitter-yaml
 trove-classifiers
 truststore
 turm
+twg
 ty
 typer
 typer-injector
