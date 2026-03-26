@@ -202,7 +202,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.441",
+      "version": "v1.4.442",
       "channel": "latest"
     },
     {
