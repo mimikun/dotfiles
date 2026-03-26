@@ -98,7 +98,7 @@ packages:
   - name: mattn/bsky@v0.0.77
   - name: mattn/efm-langserver@v0.0.56
   - name: mgechev/revive@v1.15.0
-  - name: mikefarah/yq@v4.52.4
+  - name: mikefarah/yq@v4.52.5
   - name: mistakenelf/fm@v1.1.0
   - name: mr-karan/doggo@v1.1.5
   - name: mrtazz/checkmake@v0.3.2
