@@ -47,11 +47,11 @@ open3
 openssl
 optparse
 ostruct
-pathname
 power_assert
 pp
 prettyprint
 prime
+prism
 pstore
 psych
 racc
@@ -61,6 +61,7 @@ rdoc
 readline
 readline-ext
 reline
+repl_type_completor
 resolv
 resolv-replace
 rexml
