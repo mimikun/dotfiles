@@ -40,7 +40,7 @@ packages:
   - name: direnv/direnv@v2.37.1
   - name: dlvhdr/diffnav@v0.11.0
   - name: dominikh/go-tools/staticcheck@2026.1
-  - name: dotenvx/dotenvx@v1.57.2
+  - name: dotenvx/dotenvx@v1.57.5
   - name: dundee/gdu@v5.34.2
   - name: editorconfig-checker/editorconfig-checker@v3.6.1
   - name: evilmartians/lefthook@v2.1.4
