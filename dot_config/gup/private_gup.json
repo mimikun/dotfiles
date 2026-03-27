@@ -50,6 +50,12 @@
       "channel": "latest"
     },
     {
+      "name": "batcha",
+      "import_path": "github.com/kyosu-1/batcha/cmd/batcha",
+      "version": "v0.3.0",
+      "channel": "latest"
+    },
+    {
       "name": "bluetuith",
       "import_path": "github.com/darkhz/bluetuith",
       "version": "v0.2.6",
