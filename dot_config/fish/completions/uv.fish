@@ -1487,11 +1487,9 @@ complete -c uv -n "__fish_uv_using_subcommand format" -l no-progress -d 'Hide al
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand format" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand audit" -l extra -d 'Include optional dependencies from the specified extra name' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l group -d 'Include dependencies from the specified dependency group' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-group -d 'Disable the specified dependency group' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l only-group -d 'Only include dependencies from the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-extra -d 'Don\'t audit the specified optional dependencies' -r -f
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-group -d 'Don\'t audit the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand audit" -l only-group -d 'Only audit dependencies from the specified dependency group' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -1590,13 +1588,9 @@ complete -c uv -n "__fish_uv_using_subcommand audit" -l preview-features -d 'Ena
 complete -c uv -n "__fish_uv_using_subcommand audit" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand audit" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand audit" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand audit" -l all-extras -d 'Include all optional dependencies'
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-all-extras
-complete -c uv -n "__fish_uv_using_subcommand audit" -l dev -d 'Include the development dependency group [env: UV_DEV=]'
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-dev -d 'Disable the development dependency group [env: UV_NO_DEV=]'
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-default-groups -d 'Ignore the default dependency groups'
-complete -c uv -n "__fish_uv_using_subcommand audit" -l all-groups -d 'Include dependencies from all dependency groups'
-complete -c uv -n "__fish_uv_using_subcommand audit" -l only-dev -d 'Only include the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-dev -d 'Don\'t audit the development dependency group [env: UV_NO_DEV=]'
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-default-groups -d 'Don\'t audit the default dependency groups'
+complete -c uv -n "__fish_uv_using_subcommand audit" -l only-dev -d 'Only audit the development dependency group'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l locked -d 'Assert that the `uv.lock` will remain unchanged [env: UV_LOCKED=]'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l frozen -d 'Audit the requirements without locking the project [env: UV_FROZEN=]'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-build -d 'Don\'t build source distributions'
