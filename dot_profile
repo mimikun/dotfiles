@@ -82,3 +82,9 @@ _zb_path_append() {
 
 _zb_path_append "$ZEROBREW_BIN"
 _zb_path_append "$ZEROBREW_PREFIX/bin"
+
+# envman
+if [ -s "$HOME/.config/envman/load.sh" ]; then
+    source "$HOME/.config/envman/load.sh"
+fi
+
