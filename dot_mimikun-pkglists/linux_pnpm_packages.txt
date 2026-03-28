@@ -2,8 +2,12 @@
 @antinomyhq/forge
 @ast-grep/cli
 @augmentcode/auggie
+@bitwarden/cli
+@charmland/crush
 @continuedev/cli
+@dotenvx/dotenvx
 @github/copilot
+@go-task/cli
 @google/gemini-cli
 @googleworkspace/cli
 @j178/prek
@@ -15,6 +19,7 @@
 @microsoft/inshellisense
 @mizchi/actrun
 @openai/codex
+@pranshuparmar/witr
 @qwen-code/qwen-code
 @sasazame/ccresume
 @thekarel/rum
