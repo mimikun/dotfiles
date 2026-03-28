@@ -375,9 +375,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subc
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l api-endpoint -d 'Custom API endpoint; defaults to reading from the `ai.endpoint` setting' -r
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l api-token -d 'Custom API token; defaults to reading from the `ai.api_token` setting' -r
-complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l debug-state -d 'Log state changes to file for debugging (dev tool)' -r
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -s v -l verbose -d 'Enable verbose logging'
-complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l keep -d 'Keep TUI output visible after exit (default: erase)'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l hook -d 'Use the hook mode'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from help" -f -a "init" -d 'Initialize shell integration'
