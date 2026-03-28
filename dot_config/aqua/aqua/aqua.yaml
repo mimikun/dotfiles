@@ -5,7 +5,7 @@ packages:
   - name: alajmo/mani@v0.32.0
   - name: antonmedv/fx@39.2.0
   - name: antonmedv/walk@v1.13.0
-  - name: aquaproj/registry-tool@v0.5.0
+  - name: aquaproj/registry-tool@v0.5.1
   - name: aquasecurity/trivy@v0.69.3
   - name: aristocratos/btop@v1.4.6
   - name: asciimoo/wuzz@v0.5.0
