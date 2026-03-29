@@ -142,7 +142,7 @@
     {
       "name": "cariddi",
       "import_path": "github.com/edoardottt/cariddi/cmd/cariddi",
-      "version": "v1.4.5",
+      "version": "v1.4.6",
       "channel": "latest"
     },
     {
@@ -406,7 +406,7 @@
     {
       "name": "fx",
       "import_path": "github.com/antonmedv/fx",
-      "version": "v0.0.0-20260309123351-56d0b9be19ee",
+      "version": "v0.0.0-20260328132252-d9f75a1acd7e",
       "channel": "latest"
     },
     {
@@ -826,7 +826,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260327010332-c5c3de643e43",
+      "version": "v0.0.0-20260329000247-a966b1387cc4",
       "channel": "latest"
     },
     {
@@ -1318,7 +1318,7 @@
     {
       "name": "tuios",
       "import_path": "github.com/Gaurav-Gosain/tuios/cmd/tuios",
-      "version": "v0.6.0",
+      "version": "v0.7.0",
       "channel": "latest"
     },
     {
@@ -1420,7 +1420,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.8",
+      "version": "v0.20.9",
       "channel": "latest"
     },
     {
