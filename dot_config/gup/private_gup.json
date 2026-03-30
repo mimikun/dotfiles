@@ -376,7 +376,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.38",
+      "version": "v0.1.39",
       "channel": "latest"
     },
     {
@@ -478,7 +478,7 @@
     {
       "name": "git-wt",
       "import_path": "github.com/k1LoW/git-wt",
-      "version": "v0.25.0",
+      "version": "v0.26.0",
       "channel": "latest"
     },
     {
