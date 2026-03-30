@@ -120,7 +120,7 @@ packages:
   - name: pranshuparmar/witr@v0.3.1
   - name: project-copacetic/copacetic@v0.13.0
   - name: pvolok/mprocs@v0.9.2
-  - name: rhysd/actionlint@v1.7.11
+  - name: rhysd/actionlint@v1.7.12
   - name: rhysd/vim-startuptime@v1.3.2
   - name: robinovitch61/kl@v0.8.0
   - name: rs/curlie@v1.8.2
