@@ -10,7 +10,7 @@
     {
       "name": "actionlint",
       "import_path": "github.com/rhysd/actionlint/cmd/actionlint",
-      "version": "v1.7.12-0.20260323122107-0f908faf57a3",
+      "version": "v1.7.12",
       "channel": "latest"
     },
     {
@@ -478,7 +478,7 @@
     {
       "name": "git-wt",
       "import_path": "github.com/k1LoW/git-wt",
-      "version": "v0.26.0",
+      "version": "v0.26.1",
       "channel": "latest"
     },
     {
