@@ -27,11 +27,13 @@ gotop-bin
 gtrash-bin
 hardcover-tui-bin
 hostctl
+hyprmoncfg
 icat
 imgcat
 jump
 kl-bin
 kubescape
+lazyjira-bin
 lazyjournal
 lazykiq-bin
 lazysql
