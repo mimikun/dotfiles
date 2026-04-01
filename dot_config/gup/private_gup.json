@@ -208,7 +208,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.53.0",
+      "version": "v0.54.0",
       "channel": "latest"
     },
     {
@@ -376,7 +376,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.39",
+      "version": "v0.1.40",
       "channel": "latest"
     },
     {
@@ -538,7 +538,7 @@
     {
       "name": "gokey",
       "import_path": "github.com/cloudflare/gokey/cmd/gokey",
-      "version": "v0.2.0",
+      "version": "v0.2.1",
       "channel": "latest"
     },
     {
@@ -826,7 +826,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260329000247-a966b1387cc4",
+      "version": "v0.0.0-20260331235006-21ac6c1441a8",
       "channel": "latest"
     },
     {
@@ -838,7 +838,7 @@
     {
       "name": "mage",
       "import_path": "github.com/magefile/mage",
-      "version": "v1.17.0",
+      "version": "v1.17.1",
       "channel": "latest"
     },
     {
@@ -1204,7 +1204,7 @@
     {
       "name": "squix",
       "import_path": "github.com/eduardofuncao/squix/cmd/squix",
-      "version": "v0.3.0-beta",
+      "version": "v0.3.1-beta",
       "channel": "latest"
     },
     {
@@ -1420,7 +1420,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.9",
+      "version": "v0.20.10",
       "channel": "latest"
     },
     {
