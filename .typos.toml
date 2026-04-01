@@ -67,4 +67,5 @@ extend-exclude = [
   "dot_config/nvim/lua/plugins/org-list-nvim/opts.lua",
   "dot_config/nvim/lua/plugins/org-list-nvim/keys.lua",
   "dot_mimikun-pkglists/linux_rubygem_list.txt",
+  "dot_config/gup/private_gup.json",
 ]
