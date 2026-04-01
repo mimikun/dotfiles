@@ -794,6 +794,12 @@
       "channel": "latest"
     },
     {
+      "name": "lazyjira",
+      "import_path": "github.com/textfuel/lazyjira/cmd/lazyjira",
+      "version": "v1.3.0",
+      "channel": "latest"
+    },
+    {
       "name": "lazyjournal",
       "import_path": "github.com/Lifailon/lazyjournal",
       "version": "v0.0.0-20260316123144-12dee2192137",
@@ -1361,6 +1367,12 @@
       "name": "walk",
       "import_path": "github.com/antonmedv/walk",
       "version": "v1.13.0",
+      "channel": "latest"
+    },
+    {
+      "name": "wez-cc-viewer",
+      "import_path": "github.com/sorafujitani/wez-cc-viewer",
+      "version": "v0.0.0-20260329084518-a05ba4b0dad7",
       "channel": "latest"
     },
     {
