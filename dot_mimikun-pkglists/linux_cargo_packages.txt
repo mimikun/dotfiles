@@ -69,6 +69,7 @@ crmux
 csview
 csvlens
 cyme
+darya
 ddv
 dealve-tui
 deff
@@ -169,6 +170,7 @@ jjj
 jnv
 jocalsend
 jql
+jsongrep
 judo
 just
 kanha
