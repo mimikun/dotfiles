@@ -818,6 +818,12 @@
       "channel": "latest"
     },
     {
+      "name": "lazysfn",
+      "import_path": "github.com/myuron/lazysfn",
+      "version": "v1.2.0",
+      "channel": "latest"
+    },
+    {
       "name": "lazysql",
       "import_path": "github.com/jorgerojas26/lazysql",
       "version": "v0.4.8",
