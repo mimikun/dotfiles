@@ -26,6 +26,7 @@ chezmoi
 clang
 cloudflare-speed-cli
 cmake
+cmatrix
 code
 croc
 ctop
@@ -73,6 +74,7 @@ gnumeric
 go
 go-task
 go-yq
+gping
 graphicsmagick
 gst-plugin-pipewire
 gum
@@ -124,6 +126,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+nyancat
 obsidian
 oniguruma
 openssh
