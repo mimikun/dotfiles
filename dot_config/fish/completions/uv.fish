@@ -1570,6 +1570,8 @@ wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for 
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
+complete -c uv -n "__fish_uv_using_subcommand audit" -l ignore -d 'Ignore a vulnerability by ID' -r
+complete -c uv -n "__fish_uv_using_subcommand audit" -l ignore-until-fixed -d 'Ignore a vulnerability by ID, but only while no fix is available' -r
 complete -c uv -n "__fish_uv_using_subcommand audit" -l service-format -d 'The service format to use for vulnerability lookups' -r -f -a "osv\t''"
 complete -c uv -n "__fish_uv_using_subcommand audit" -l service-url -d 'The URL to vulnerability service API endpoint' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
@@ -1789,6 +1791,7 @@ cu92\t'Use the PyTorch index for CUDA 9.2'
 cu91\t'Use the PyTorch index for CUDA 9.1'
 cu90\t'Use the PyTorch index for CUDA 9.0'
 cu80\t'Use the PyTorch index for CUDA 8.0'
+rocm7.2\t'Use the PyTorch index for ROCm 7.2'
 rocm7.1\t'Use the PyTorch index for ROCm 7.1'
 rocm7.0\t'Use the PyTorch index for ROCm 7.0'
 rocm6.4\t'Use the PyTorch index for ROCm 6.4'
@@ -1990,6 +1993,7 @@ cu92\t'Use the PyTorch index for CUDA 9.2'
 cu91\t'Use the PyTorch index for CUDA 9.1'
 cu90\t'Use the PyTorch index for CUDA 9.0'
 cu80\t'Use the PyTorch index for CUDA 8.0'
+rocm7.2\t'Use the PyTorch index for ROCm 7.2'
 rocm7.1\t'Use the PyTorch index for ROCm 7.1'
 rocm7.0\t'Use the PyTorch index for ROCm 7.0'
 rocm6.4\t'Use the PyTorch index for ROCm 6.4'
@@ -2193,6 +2197,7 @@ cu92\t'Use the PyTorch index for CUDA 9.2'
 cu91\t'Use the PyTorch index for CUDA 9.1'
 cu90\t'Use the PyTorch index for CUDA 9.0'
 cu80\t'Use the PyTorch index for CUDA 8.0'
+rocm7.2\t'Use the PyTorch index for ROCm 7.2'
 rocm7.1\t'Use the PyTorch index for ROCm 7.1'
 rocm7.0\t'Use the PyTorch index for ROCm 7.0'
 rocm6.4\t'Use the PyTorch index for ROCm 6.4'
@@ -3130,6 +3135,7 @@ cu92\t'Use the PyTorch index for CUDA 9.2'
 cu91\t'Use the PyTorch index for CUDA 9.1'
 cu90\t'Use the PyTorch index for CUDA 9.0'
 cu80\t'Use the PyTorch index for CUDA 8.0'
+rocm7.2\t'Use the PyTorch index for ROCm 7.2'
 rocm7.1\t'Use the PyTorch index for ROCm 7.1'
 rocm7.0\t'Use the PyTorch index for ROCm 7.0'
 rocm6.4\t'Use the PyTorch index for ROCm 6.4'
@@ -3346,6 +3352,7 @@ cu92\t'Use the PyTorch index for CUDA 9.2'
 cu91\t'Use the PyTorch index for CUDA 9.1'
 cu90\t'Use the PyTorch index for CUDA 9.0'
 cu80\t'Use the PyTorch index for CUDA 8.0'
+rocm7.2\t'Use the PyTorch index for ROCm 7.2'
 rocm7.1\t'Use the PyTorch index for ROCm 7.1'
 rocm7.0\t'Use the PyTorch index for ROCm 7.0'
 rocm6.4\t'Use the PyTorch index for ROCm 6.4'
@@ -3558,6 +3565,7 @@ cu92\t'Use the PyTorch index for CUDA 9.2'
 cu91\t'Use the PyTorch index for CUDA 9.1'
 cu90\t'Use the PyTorch index for CUDA 9.0'
 cu80\t'Use the PyTorch index for CUDA 8.0'
+rocm7.2\t'Use the PyTorch index for ROCm 7.2'
 rocm7.1\t'Use the PyTorch index for ROCm 7.1'
 rocm7.0\t'Use the PyTorch index for ROCm 7.0'
 rocm6.4\t'Use the PyTorch index for ROCm 6.4'
@@ -4326,6 +4334,41 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -f -a "metadata" -d 'View metadata about the current workspace'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -f -a "dir" -d 'Display the path of a workspace member'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -f -a "list" -d 'List the members of a workspace'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
+copy\t'Copy packages from the source into the destination'
+hardlink\t'Hard link packages from the source into the destination'
+symlink\t'Symbolically link packages from the source into the destination'"
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s p -l python -d 'The Python interpreter to use during resolution.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -4342,6 +4385,22 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l locked -d 'Check if the lockfile is up-to-date [env: UV_LOCKED=]'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l frozen -d 'Assert that a `uv.lock` exists without checking if it is up-to-date [env: UV_FROZEN=]'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l dry-run -d 'Perform a dry run, without writing the lockfile'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-upgrade
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l pre
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-build-isolation -d 'Disable isolation when building source distributions'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l build-isolation
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-build -d 'Don\'t build source distributions'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l build
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-binary -d 'Don\'t install pre-built wheels'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l binary
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l refresh -d 'Refresh all cached data'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
