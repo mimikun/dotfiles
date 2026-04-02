@@ -290,6 +290,12 @@
       "channel": "latest"
     },
     {
+      "name": "dockerfile-pin",
+      "import_path": "github.com/azu/dockerfile-pin",
+      "version": "v1.0.5",
+      "channel": "latest"
+    },
+    {
       "name": "dstp",
       "import_path": "github.com/ycd/dstp/cmd/dstp",
       "version": "v0.4.23",
