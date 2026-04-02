@@ -1054,7 +1054,7 @@
     {
       "name": "rad",
       "import_path": "github.com/amterp/rad",
-      "version": "v0.9.0",
+      "version": "v0.9.1",
       "channel": "latest"
     },
     {
@@ -1300,7 +1300,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.8.0",
+      "version": "v1.8.1",
       "channel": "latest"
     },
     {
@@ -1438,7 +1438,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.10",
+      "version": "v0.20.11",
       "channel": "latest"
     },
     {
