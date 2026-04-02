@@ -218,6 +218,7 @@ nexus-tui
 nippo
 nomino
 nsh
+nono-cli
 nu
 nu_plugin_formats
 nu_plugin_gstat
@@ -374,6 +375,7 @@ xbps-tui
 xfr
 xh
 xleak
+xremap
 xsv
 yazi-cli
 yazi-fm
