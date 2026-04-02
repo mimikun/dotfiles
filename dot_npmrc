@@ -1,1 +1,13 @@
+# ref: https://zenn.dev/cycloud_blog/articles/5ce66daf4bd0cb
+engine-strict=true
 ignore-scripts=true
+audit=true
+min-release-age=7
+save-exact=true
+audit-level=high
+#audit-level=critical
+strict-peer-deps=true
+allow-git=root
+#allow-git=none
+
+# vim:ft=npmrc
