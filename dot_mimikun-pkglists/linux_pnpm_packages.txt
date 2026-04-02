@@ -50,6 +50,7 @@ memlab
 npkill
 oh-my-logo
 opencode-ai
+pg-micro
 prettier
 ralph-tui
 repomix
