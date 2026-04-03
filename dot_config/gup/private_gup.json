@@ -2,6 +2,12 @@
   "schema_version": 1,
   "packages": [
     {
+      "name": "Surge",
+      "import_path": "github.com/SurgeDM/Surge",
+      "version": "v0.7.6",
+      "channel": "latest"
+    },
+    {
       "name": "act3",
       "import_path": "github.com/dhth/act3",
       "version": "v1.1.4",
@@ -1253,12 +1259,6 @@
       "name": "sunbeam",
       "import_path": "github.com/pomdtr/sunbeam",
       "version": "v1.0.2-0.20250530095249-a19a11faa4a8",
-      "channel": "latest"
-    },
-    {
-      "name": "surge",
-      "import_path": "github.com/surge-downloader/surge",
-      "version": "v0.7.5",
       "channel": "latest"
     },
     {
