@@ -118,7 +118,7 @@
     {
       "name": "bsky",
       "import_path": "github.com/mattn/bsky",
-      "version": "v0.0.77",
+      "version": "v0.0.78",
       "channel": "latest"
     },
     {
@@ -208,7 +208,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.54.0",
+      "version": "v0.55.0",
       "channel": "latest"
     },
     {
@@ -382,7 +382,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.40",
+      "version": "v0.1.42",
       "channel": "latest"
     },
     {
@@ -484,7 +484,7 @@
     {
       "name": "git-wt",
       "import_path": "github.com/k1LoW/git-wt",
-      "version": "v0.26.1",
+      "version": "v0.26.2",
       "channel": "latest"
     },
     {
@@ -940,7 +940,7 @@
     {
       "name": "octocov",
       "import_path": "github.com/k1LoW/octocov",
-      "version": "v0.75.5",
+      "version": "v0.75.6",
       "channel": "latest"
     },
     {
@@ -1054,7 +1054,7 @@
     {
       "name": "qo",
       "import_path": "github.com/kiki-ki/go-qo/cmd/qo",
-      "version": "v0.3.1",
+      "version": "v0.4.0",
       "channel": "latest"
     },
     {
@@ -1084,7 +1084,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.23.6",
+      "version": "v0.24.1",
       "channel": "latest"
     },
     {
@@ -1306,7 +1306,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.8.1",
+      "version": "v1.8.2",
       "channel": "latest"
     },
     {
