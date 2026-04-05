@@ -286,7 +286,7 @@
     {
       "name": "dnspyre",
       "import_path": "github.com/tantalor93/dnspyre/v3",
-      "version": "v3.10.2",
+      "version": "v3.11.1",
       "channel": "latest"
     },
     {
@@ -298,7 +298,7 @@
     {
       "name": "dockerfile-pin",
       "import_path": "github.com/azu/dockerfile-pin",
-      "version": "v1.2.1",
+      "version": "v1.2.2",
       "channel": "latest"
     },
     {
@@ -1090,7 +1090,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.24.1",
+      "version": "v0.24.2",
       "channel": "latest"
     },
     {
@@ -1390,7 +1390,7 @@
     {
       "name": "whosthere",
       "import_path": "github.com/ramonvermeulen/whosthere",
-      "version": "v0.7.0",
+      "version": "v0.7.1",
       "channel": "latest"
     },
     {
