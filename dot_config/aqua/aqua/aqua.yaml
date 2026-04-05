@@ -14,7 +14,7 @@ packages:
   - name: cpisciotta/xcbeautify@3.2.1
   - name: CyberAgent/reminder-lint@0.2.1
   - name: dagu-org/dagu@v2.3.11
-  - name: danvergara/dblab@v0.36.0
+  - name: danvergara/dblab@v0.36.1
   - name: derailed/k9s@v0.50.18
   - name: direnv/direnv@v2.37.1
   - name: dlvhdr/diffnav@v0.11.0
