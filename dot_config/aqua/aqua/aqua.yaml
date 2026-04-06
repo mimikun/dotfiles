@@ -19,7 +19,7 @@ packages:
   - name: direnv/direnv@v2.37.1
   - name: dlvhdr/diffnav@v0.11.0
   - name: dominikh/go-tools/staticcheck@2026.1
-  - name: dotenvx/dotenvx@v1.60.0
+  - name: dotenvx/dotenvx@v1.60.1
   - name: dundee/gdu@v5.35.0
   - name: fastfetch-cli/fastfetch@2.61.0
   - name: git-bug/git-bug@v0.10.1
