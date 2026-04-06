@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.7.7",
+      "version": "v0.7.8",
       "channel": "latest"
     },
     {
@@ -76,7 +76,7 @@
     {
       "name": "amux",
       "import_path": "github.com/andyrewlee/amux/cmd/amux",
-      "version": "v0.0.17",
+      "version": "v0.0.18",
       "channel": "latest"
     },
     {
@@ -850,7 +850,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260331235006-21ac6c1441a8",
+      "version": "v0.0.0-20260405123815-5bcfc6b80d89",
       "channel": "latest"
     },
     {
@@ -1090,7 +1090,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.24.2",
+      "version": "v0.24.3",
       "channel": "latest"
     },
     {
