@@ -1424,6 +1424,12 @@
       "channel": "latest"
     },
     {
+      "name": "xurl",
+      "import_path": "github.com/xdevplatform/xurl",
+      "version": "v1.0.3",
+      "channel": "latest"
+    },
+    {
       "name": "yaml2json",
       "import_path": "github.com/bronze1man/yaml2json",
       "version": "v1.3.5",
