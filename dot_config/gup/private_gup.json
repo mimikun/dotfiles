@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.55.0",
+      "version": "v0.55.1",
       "channel": "latest"
     },
     {
@@ -610,7 +610,7 @@
     {
       "name": "gosh",
       "import_path": "mvdan.cc/sh/v3/cmd/gosh",
-      "version": "v3.13.0",
+      "version": "v3.13.1",
       "channel": "latest"
     },
     {
@@ -802,7 +802,7 @@
     {
       "name": "lazygit",
       "import_path": "github.com/jesseduffield/lazygit",
-      "version": "v0.60.0",
+      "version": "v0.61.0",
       "channel": "latest"
     },
     {
@@ -844,7 +844,7 @@
     {
       "name": "lefthook",
       "import_path": "github.com/evilmartians/lefthook/v2",
-      "version": "v2.1.4",
+      "version": "v2.1.5",
       "channel": "latest"
     },
     {
@@ -898,7 +898,7 @@
     {
       "name": "minify",
       "import_path": "github.com/tdewolff/minify/v2/cmd/minify",
-      "version": "v2.24.11",
+      "version": "v2.24.12",
       "channel": "latest"
     },
     {
@@ -1162,7 +1162,7 @@
     {
       "name": "shfmt",
       "import_path": "mvdan.cc/sh/v3/cmd/shfmt",
-      "version": "v3.13.0",
+      "version": "v3.13.1",
       "channel": "latest"
     },
     {
@@ -1306,7 +1306,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.8.2",
+      "version": "v1.9.2",
       "channel": "latest"
     },
     {
