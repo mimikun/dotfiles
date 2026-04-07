@@ -76,6 +76,7 @@ ttf-udev-gothic
 typioca-git
 warp-terminal-bin
 web-greeter
+webkit2gtk
 wezterm-nightly-bin
 whosthere-bin
 wifitui-bin
