@@ -35,7 +35,7 @@ marker_marked = { fg = "lightcyan", bg = "lightcyan" }
 marker_selected = { fg = "lightyellow", bg = "lightyellow" }
 # Tab
 tab_active = { reversed = true }
-tab_inactive = {}
+tab_inactive = {  }
 tab_width = 1
 # Count
 count_copied = { fg = "white", bg = "green" }
@@ -86,7 +86,7 @@ perm_exec = { fg = "cyan" }
 [pick]
 border = { fg = "blue" }
 active = { fg = "magenta", bold = true }
-inactive = {}
+inactive = {  }
 
 # : }}}
 
@@ -94,8 +94,8 @@ inactive = {}
 
 [input]
 border = { fg = "blue" }
-title = {}
-value = {}
+title = {  }
+value = {  }
 selected = { reversed = true }
 
 # : }}}
@@ -105,10 +105,10 @@ selected = { reversed = true }
 [confirm]
 border = { fg = "blue" }
 title = { fg = "blue" }
-content = {}
-list = {}
+content = {  }
+list = {  }
 btn_yes = { reversed = true }
-btn_no = {}
+btn_no = {  }
 btn_labels = ["  [Y]es  ", "  (N)o  "]
 
 # : }}}
@@ -118,7 +118,7 @@ btn_labels = ["  [Y]es  ", "  (N)o  "]
 [completion]
 border = { fg = "blue" }
 active = { reversed = true }
-inactive = {}
+inactive = {  }
 # Icons
 icon_file = ""
 icon_folder = ""
@@ -130,7 +130,7 @@ icon_command = ""
 
 [tasks]
 border = { fg = "blue" }
-title = {}
+title = {  }
 hovered = { fg = "magenta", underline = true }
 
 # : }}}
@@ -153,7 +153,7 @@ separator_style = { fg = "darkgray" }
 [help]
 on = { fg = "cyan" }
 run = { fg = "magenta" }
-desc = {}
+desc = {  }
 hovered = { reversed = true, bold = true }
 footer = { fg = "black", bg = "white" }
 
