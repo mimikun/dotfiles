@@ -274,7 +274,7 @@
     {
       "name": "dlv",
       "import_path": "github.com/go-delve/delve/cmd/dlv",
-      "version": "v1.26.2-0.20260326082735-0b686c36d065",
+      "version": "v1.26.1",
       "channel": "latest"
     },
     {
@@ -406,7 +406,7 @@
     {
       "name": "fq",
       "import_path": "github.com/wader/fq",
-      "version": "v0.17.1-0.20260325102535-2c1b935857ef",
+      "version": "v0.17.0",
       "channel": "latest"
     },
     {
@@ -1012,7 +1012,7 @@
     {
       "name": "pipeform",
       "import_path": "github.com/magodo/pipeform",
-      "version": "v0.2.2-0.20250131031524-7ee8e3aebd30",
+      "version": "v0.2.1",
       "channel": "latest"
     },
     {
@@ -1126,7 +1126,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.16.11-rc.0",
+      "version": "v3.16.10",
       "channel": "latest"
     },
     {
@@ -1144,7 +1144,7 @@
     {
       "name": "scc",
       "import_path": "github.com/boyter/scc/v3",
-      "version": "v3.7.1-0.20260325211308-16551e04814c",
+      "version": "v3.7.0",
       "channel": "latest"
     },
     {
@@ -1258,7 +1258,7 @@
     {
       "name": "sunbeam",
       "import_path": "github.com/pomdtr/sunbeam",
-      "version": "v1.0.2-0.20250530095249-a19a11faa4a8",
+      "version": "v1.0.1",
       "channel": "latest"
     },
     {
@@ -1312,7 +1312,7 @@
     {
       "name": "todoist",
       "import_path": "github.com/sachaos/todoist",
-      "version": "v0.23.1-0.20260323023952-7cd2ed2927bc+dirty",
+      "version": "v0.23.0",
       "channel": "latest"
     },
     {
