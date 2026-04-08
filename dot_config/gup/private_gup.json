@@ -850,7 +850,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260405123815-5bcfc6b80d89",
+      "version": "v0.0.0-20260408000430-7a3591c834dc",
       "channel": "latest"
     },
     {
