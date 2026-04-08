@@ -71,6 +71,7 @@ csvlens
 cyme
 darya
 ddv
+deadbranch
 dealve-tui
 deff
 desed
@@ -258,6 +259,7 @@ procs
 pueue
 pumas
 punktf
+purple-ssh
 pylyzer
 qmassa
 qrtool
@@ -296,6 +298,7 @@ serie
 serpl
 sheldon
 shellharden
+siggy
 sigrs
 silicon
 similarity-ts
