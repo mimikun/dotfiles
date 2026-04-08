@@ -1,0 +1,52 @@
+worktree_dir: ~/.local/share/worktrees
+sort_mode: switched  # Options: "path", "active" (commit date), "switched" (last accessed)
+auto_fetch_prs: false
+auto_refresh: true
+refresh_interval: 10  # Seconds
+show_icons: true
+search_auto_select: false
+fuzzy_finder_input: false
+palette_mru: true         # Enable MRU (Most Recently Used) sorting for command palette
+palette_mru_limit: 5      # Number of recent commands to show (default: 5)
+max_untracked_diffs: 10
+max_diff_chars: 200000
+max_name_length: 95       # Maximum length for worktree names in table display (0 disables truncation)
+theme: ""       # Leave empty to auto-detect based on terminal background colour
+                # (defaults to "dracula" for dark, "dracula-light" for light).
+                # Options: see the Themes section below.
+git_pager: delta
+pager: "less --use-color --wordwrap -qcR -P 'Press q to exit..'"
+editor: nvim
+git_pager_args:
+  - --syntax-theme
+  - Dracula
+trust_mode: "tofu" # Options: "tofu" (default), "never", "always"
+merge_method: "rebase" # Options: "rebase" (default), "merge"
+session_prefix: "wt-" # Prefix for tmux/zellij session names (default: "wt-")
+# Branch name generation for issues and PRs
+issue_branch_name_template: "issue-{number}-{title}" # Placeholders: {number}, {title}, {generated}
+pr_branch_name_template: "pr-{number}-{title}" # Placeholders: {number}, {title}, {generated}
+# Automatic branch name generation (see "Automatically Generated Branch Names")
+branch_name_script: "" # Script to generate names from diff/issue/PR content
+init_commands:
+  - link_topsymlinks
+terminate_commands:
+  - echo "Cleaning up $WORKTREE_NAME"
+custom_commands:
+  t:
+    command: make test
+    description: Run tests
+    show_help: true
+    wait: true
+# Custom worktree creation menu items
+custom_create_menus:
+  - label: "From JIRA ticket"
+    description: "Create from JIRA issue"
+    command: "jayrah browse 'SRVKP' --choose"
+    interactive: true  # TUI-based commands need this to suspend lazyworktree
+    post_command: "git commit --allow-empty -m 'Initial commit for ${WORKTREE_BRANCH}'"
+    post_interactive: false  # Run post-command in background
+  - label: "From clipboard"
+    description: "Use clipboard as branch name"
+    command: "pbpaste"
+
