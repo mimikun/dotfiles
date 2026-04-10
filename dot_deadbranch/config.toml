@@ -1,0 +1,19 @@
+[general]
+default_days = 30
+
+[branches]
+protected = [
+    "main",
+    "master",
+    "trunk",
+    "development",
+    "develop",
+    "staging",
+    "production",
+]
+exclude_patterns = [
+    "wip/*",
+    "draft/*",
+    "*/wip",
+    "*/draft",
+]
