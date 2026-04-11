@@ -45,7 +45,7 @@ packages:
   - name: muesli/duf@v0.9.1
   - name: naggie/dstask@v1.0.1
   - name: natecraddock/zf@0.10.2
-  - name: pamburus/hl@v0.36.0
+  - name: pamburus/hl@v0.36.1
   - name: pkgxdev/pkgx@v2.10.3
   - name: project-copacetic/copacetic@v0.13.0
   - name: pvolok/mprocs@v0.9.2
