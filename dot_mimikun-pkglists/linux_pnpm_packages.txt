@@ -37,6 +37,7 @@ cline
 codebuff
 commitizen
 cz-conventional-changelog-ja
+czg
 editprompt
 envinfo
 git-rewrite-commits
