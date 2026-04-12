@@ -1148,6 +1148,12 @@
       "channel": "latest"
     },
     {
+      "name": "scion",
+      "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
+      "version": "v0.0.0-20260411220146-b16d6d803e88",
+      "channel": "latest"
+    },
+    {
       "name": "server",
       "import_path": "github.com/takeshy/mcp-gatekeeper/cmd/server",
       "version": "v1.0.1",
