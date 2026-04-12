@@ -56,7 +56,7 @@ packages:
   - name: termkit/gama@v1.2.1
   - name: tsenart/vegeta@v12.13.0
   - name: tsl0922/ttyd@1.7.7
-  - name: tstack/lnav@v0.13.2
+  - name: tstack/lnav@v0.14.0
   - name: twpayne/chezmoi@v2.70.1
   - name: wtetsu/gaze@v1.2.1
   - name: yassinebenaid/bunster@v0.14.0
