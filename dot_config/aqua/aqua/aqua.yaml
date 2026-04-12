@@ -24,7 +24,7 @@ packages:
   - name: fastfetch-cli/fastfetch@2.61.0
   - name: git-bug/git-bug@v0.10.1
   - name: gitleaks/gitleaks@v8.30.1
-  - name: gleam-lang/gleam@v1.15.3
+  - name: gleam-lang/gleam@v1.15.4
   - name: golang/go@go1.26.2
   - name: golang/tools/gorename@v0.25.0
   - name: grafana/k6@v1.7.1
