@@ -183,6 +183,7 @@ krafna
 lawkit
 lazycelery
 lazyjj
+lisette
 lla
 llmfit
 lobtui
@@ -320,6 +321,7 @@ stu
 stylua
 superseedr
 swaptop
+syntaqlite-cli
 systemctl-tui
 systemd-manager-tui
 systeroid
