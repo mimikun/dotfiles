@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.7.8",
+      "version": "v0.8.0",
       "channel": "latest"
     },
     {
@@ -64,7 +64,7 @@
     {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
-      "version": "v0.0.107",
+      "version": "v0.0.111",
       "channel": "latest"
     },
     {
@@ -88,7 +88,7 @@
     {
       "name": "aptui",
       "import_path": "github.com/mexirica/aptui",
-      "version": "v0.5.1",
+      "version": "v0.7.0",
       "channel": "latest"
     },
     {
@@ -142,7 +142,7 @@
     {
       "name": "canopy",
       "import_path": "github.com/isacssw/canopy/cmd/canopy",
-      "version": "v0.6.0",
+      "version": "v0.6.2",
       "channel": "latest"
     },
     {
@@ -214,13 +214,13 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.55.1",
+      "version": "v0.56.0",
       "channel": "latest"
     },
     {
       "name": "csvi",
       "import_path": "github.com/hymkor/csvi/cmd/csvi",
-      "version": "v1.23.1",
+      "version": "v1.23.2",
       "channel": "latest"
     },
     {
@@ -376,7 +376,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.442",
+      "version": "v1.4.444",
       "channel": "latest"
     },
     {
@@ -388,7 +388,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.42",
+      "version": "v0.1.44",
       "channel": "latest"
     },
     {
@@ -466,7 +466,7 @@
     {
       "name": "ghq",
       "import_path": "github.com/x-motemen/ghq",
-      "version": "v1.9.4",
+      "version": "v1.10.1",
       "channel": "latest"
     },
     {
@@ -520,7 +520,7 @@
     {
       "name": "glow",
       "import_path": "github.com/charmbracelet/glow/v2",
-      "version": "v2.1.1",
+      "version": "v2.1.2",
       "channel": "latest"
     },
     {
@@ -532,7 +532,7 @@
     {
       "name": "goimports",
       "import_path": "golang.org/x/tools/cmd/goimports",
-      "version": "v0.43.0",
+      "version": "v0.44.0",
       "channel": "latest"
     },
     {
@@ -574,7 +574,7 @@
     {
       "name": "gonew",
       "import_path": "golang.org/x/tools/cmd/gonew",
-      "version": "v0.43.0",
+      "version": "v0.44.0",
       "channel": "latest"
     },
     {
@@ -640,7 +640,7 @@
     {
       "name": "gowall",
       "import_path": "github.com/Achno/gowall",
-      "version": "v0.2.3",
+      "version": "v0.2.4",
       "channel": "latest"
     },
     {
@@ -832,7 +832,7 @@
     {
       "name": "lazysfn",
       "import_path": "github.com/myuron/lazysfn",
-      "version": "v1.2.0",
+      "version": "v1.3.0",
       "channel": "latest"
     },
     {
@@ -850,7 +850,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260408000430-7a3591c834dc",
+      "version": "v0.0.0-20260410070231-b666a8724fd4",
       "channel": "latest"
     },
     {
@@ -1090,7 +1090,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.24.3",
+      "version": "v0.26.2",
       "channel": "latest"
     },
     {
@@ -1174,7 +1174,7 @@
     {
       "name": "simtool",
       "import_path": "github.com/azizuysal/simtool/cmd/simtool",
-      "version": "v1.0.2",
+      "version": "v1.1.0",
       "channel": "latest"
     },
     {
@@ -1252,7 +1252,7 @@
     {
       "name": "stringer",
       "import_path": "golang.org/x/tools/cmd/stringer",
-      "version": "v0.43.0",
+      "version": "v0.44.0",
       "channel": "latest"
     },
     {
@@ -1450,7 +1450,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.11",
+      "version": "v0.20.12",
       "channel": "latest"
     },
     {
