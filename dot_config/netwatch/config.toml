@@ -1,0 +1,18 @@
+default_tab = "dashboard"
+refresh_rate_ms = 1000
+capture_interface = ""
+show_geo = true
+timeline_window = "5m"
+packet_follow = true
+bpf_filter = ""
+geoip_db = ""
+geoip_asn_db = ""
+insights_enabled = false
+insights_model = "llama3.2"
+insights_endpoint = "local"
+theme = "dark"
+
+[alerts]
+bandwidth_threshold = 100000000
+port_scan_threshold = 20
+port_scan_window_secs = 30
