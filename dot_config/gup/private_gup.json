@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.8.0",
+      "version": "v0.8.1",
       "channel": "latest"
     },
     {
@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.57.0",
+      "version": "v0.58.0",
       "channel": "latest"
     },
     {
@@ -376,7 +376,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.445",
+      "version": "v1.4.446",
       "channel": "latest"
     },
     {
@@ -388,7 +388,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.46",
+      "version": "v0.1.48",
       "channel": "latest"
     },
     {
@@ -604,7 +604,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/aperturerobotics/goscript/cmd/goscript",
-      "version": "v0.0.77",
+      "version": "v0.0.84",
       "channel": "latest"
     },
     {
@@ -670,7 +670,7 @@
     {
       "name": "gwq",
       "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.0.17",
+      "version": "v0.0.18",
       "channel": "latest"
     },
     {
@@ -844,13 +844,13 @@
     {
       "name": "lefthook",
       "import_path": "github.com/evilmartians/lefthook/v2",
-      "version": "v2.1.5",
+      "version": "v2.1.6",
       "channel": "latest"
     },
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260413205705-fed665152741",
+      "version": "v0.0.0-20260416015022-73c7f1be8ccf",
       "channel": "latest"
     },
     {
@@ -1048,7 +1048,7 @@
     {
       "name": "pvetui",
       "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.3.0",
+      "version": "v1.3.1",
       "channel": "latest"
     },
     {
@@ -1090,7 +1090,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.26.2",
+      "version": "v0.27.3",
       "channel": "latest"
     },
     {
@@ -1150,7 +1150,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260414033505-24e6e772284c",
+      "version": "v0.0.0-20260415224727-907fe4842afe",
       "channel": "latest"
     },
     {
