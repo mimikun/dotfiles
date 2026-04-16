@@ -800,6 +800,12 @@
       "channel": "latest"
     },
     {
+      "name": "lazyenv",
+      "import_path": "github.com/lazynop/lazyenv",
+      "version": "v0.5.4",
+      "channel": "latest"
+    },
+    {
       "name": "lazygit",
       "import_path": "github.com/jesseduffield/lazygit",
       "version": "v0.61.1",
@@ -1166,6 +1172,12 @@
       "channel": "latest"
     },
     {
+      "name": "sheets",
+      "import_path": "github.com/maaslalani/sheets",
+      "version": "v0.2.1-0.20260409013804-7beaf1a26ce4",
+      "channel": "latest"
+    },
+    {
       "name": "shfmt",
       "import_path": "mvdan.cc/sh/v3/cmd/shfmt",
       "version": "v3.13.1",
@@ -1205,6 +1217,12 @@
       "name": "snitch",
       "import_path": "github.com/karol-broda/snitch",
       "version": "v0.2.2",
+      "channel": "latest"
+    },
+    {
+      "name": "so",
+      "import_path": "solod.dev/cmd/so",
+      "version": "v0.0.0-20260416062504-9c01793e712e",
       "channel": "latest"
     },
     {
