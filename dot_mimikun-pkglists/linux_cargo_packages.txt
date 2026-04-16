@@ -216,6 +216,7 @@ navi
 ncspot
 needs
 netscanner
+netwatch-tui
 nexus-tui
 nippo
 nomino
@@ -286,6 +287,7 @@ rusk-task
 rust-script
 rustfinity
 rusticon
+rustlens
 rustnet-monitor
 rustormy
 rustscan
@@ -297,6 +299,7 @@ sd
 selene
 serie
 serpl
+sharedserver
 sheldon
 shellharden
 siggy
