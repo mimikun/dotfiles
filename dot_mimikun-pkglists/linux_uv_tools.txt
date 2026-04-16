@@ -2,6 +2,7 @@ a2a-handler
 aider-chat
 bagels
 cloctui
+dinobase
 dotbins
 euporie
 exosphere-cli
