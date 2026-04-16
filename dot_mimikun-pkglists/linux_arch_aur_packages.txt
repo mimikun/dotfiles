@@ -33,6 +33,7 @@ imgcat
 jump
 kl-bin
 kubescape
+lazyenv-bin
 lazyjira-bin
 lazyjournal
 lazykiq-bin
@@ -74,6 +75,7 @@ tracker
 try-rs-bin
 ttf-udev-gothic
 typioca-git
+unifly-bin
 warp-terminal-bin
 web-greeter
 webkit2gtk
