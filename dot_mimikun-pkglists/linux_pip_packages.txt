@@ -184,12 +184,14 @@ deptective
 developer_disk_image
 dictdiffer
 dill
+dinobase
 dirhash
 dirsearch
 diskcache
 distlib
 distro
 django-environ
+dlt
 dnspython
 docker
 dockerfile-parse
@@ -260,6 +262,7 @@ gita
 gitdb
 gitignore_parser
 gitingest
+giturlparse
 glcontext
 glob2
 google-adk
@@ -372,6 +375,7 @@ jmespath
 joblib
 json-schema-to-pydantic
 json_repair
+jsonpath-ng
 jsonpointer
 jsonref
 jsonschema
@@ -520,6 +524,7 @@ pbr
 pbs-installer
 pdf2image
 pdfminer.six
+pendulum
 pexpect
 pfzy
 pg8000
@@ -534,7 +539,9 @@ platformdirs
 playwright
 plotext
 plotille
+pluggy
 plumbum
+ply
 poetry
 poetry-core
 pondpond
@@ -610,6 +617,7 @@ python-pcapng
 python-pptx
 python-slugify
 python-socketio
+python-toon
 python-vlc
 pythonnet
 pytimeparse
@@ -635,11 +643,13 @@ requests-file
 requests-oauthlib
 requests-toolbelt
 requests_ntlm
+requirements-parser
 rexi
 rfc3339-validator
 rfc3986-validator
 rfc3987-syntax
 rich
+rich-argparse
 rich-click
 rich-rst
 rich-toolkit
@@ -671,6 +681,7 @@ shortuuid
 shtab
 sigtools
 simple-websocket
+simplejson
 six
 skia-pathops
 skops
@@ -684,6 +695,7 @@ sortedcontainers
 soupsieve
 spiel
 sqlalchemy-spanner
+sqlglot
 sqlit-tui
 sqlparse
 sqltrie
