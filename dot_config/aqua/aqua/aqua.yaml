@@ -37,7 +37,7 @@ packages:
   - name: junegunn/fzf@v0.71.0
   - name: kdabir/has@v1.5.2
   - name: koalaman/shellcheck@v0.11.0
-  - name: kubescape/kubescape@v4.0.3
+  - name: kubescape/kubescape@v4.0.5
   - name: loeffel-io/ls-lint@v2.3.1
   - name: Macmod/godap@v2.11.0
   - name: mr-karan/doggo@v1.1.5
