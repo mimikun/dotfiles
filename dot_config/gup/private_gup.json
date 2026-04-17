@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.58.0",
+      "version": "v0.59.0",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260415224727-907fe4842afe",
+      "version": "v0.0.0-20260415231911-1cffc27bbf8a",
       "channel": "latest"
     },
     {
@@ -1222,7 +1222,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260416062504-9c01793e712e",
+      "version": "v0.0.0-20260416165345-9bf4475f9f76",
       "channel": "latest"
     },
     {
