@@ -34,11 +34,14 @@ complete -c tombi -n "__fish_tombi_needs_command" -f -a "completion" -d 'Generat
 complete -c tombi -n "__fish_tombi_using_subcommand format" -l stdin-filename -d 'Filename to use when reading from stdin' -r
 complete -c tombi -n "__fish_tombi_using_subcommand format" -l check -d 'Check only and don\'t overwrite files'
 complete -c tombi -n "__fish_tombi_using_subcommand format" -l diff -d 'Show format changes'
+complete -c tombi -n "__fish_tombi_using_subcommand format" -l quiet -d 'Quiet mode'
 complete -c tombi -n "__fish_tombi_using_subcommand format" -l offline -d 'Disable network access'
 complete -c tombi -n "__fish_tombi_using_subcommand format" -l no-cache -d 'Do not use cache'
 complete -c tombi -n "__fish_tombi_using_subcommand format" -s v -l verbose -d 'Change the logging level'
 complete -c tombi -n "__fish_tombi_using_subcommand format" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c tombi -n "__fish_tombi_using_subcommand lint" -l stdin-filename -d 'Filename to use when reading from stdin' -r
+complete -c tombi -n "__fish_tombi_using_subcommand lint" -l error-on-warnings -d 'Exit with error code on warnings'
+complete -c tombi -n "__fish_tombi_using_subcommand lint" -l quiet -d 'Quiet mode'
 complete -c tombi -n "__fish_tombi_using_subcommand lint" -l offline -d 'Disable network access'
 complete -c tombi -n "__fish_tombi_using_subcommand lint" -l no-cache -d 'Do not use cache'
 complete -c tombi -n "__fish_tombi_using_subcommand lint" -s v -l verbose -d 'Change the logging level'
