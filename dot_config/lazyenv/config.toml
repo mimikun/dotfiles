@@ -1,0 +1,29 @@
+recursive = false
+show-secrets = false
+no-git-check = false
+no-backup = false
+no-theme-bg = false
+no-mouse = false
+sort = "position"
+
+[layout]
+var-list-max-key-width = 30
+diff-max-key-width = 25
+matrix-key-width = 20
+matrix-col-width = 14
+var-list-min-value-width = 10
+var-list-padding = 12
+file-list-width = 0
+diff-min-value-width = 8
+diff-padding = 10
+mouse-scroll-lines = 1
+
+[colors]
+
+[files]
+include = [".env", ".env.*", "*.env"]
+exclude = ["*.bak"]
+
+[secrets]
+safe_patterns = []
+extra_patterns = []
