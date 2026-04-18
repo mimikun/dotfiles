@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.59.0",
+      "version": "v0.60.0",
       "channel": "latest"
     },
     {
@@ -376,7 +376,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.446",
+      "version": "v1.4.448",
       "channel": "latest"
     },
     {
@@ -490,7 +490,7 @@
     {
       "name": "git-wt",
       "import_path": "github.com/k1LoW/git-wt",
-      "version": "v0.26.2",
+      "version": "v0.27.0",
       "channel": "latest"
     },
     {
@@ -670,7 +670,7 @@
     {
       "name": "gwq",
       "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.0.18",
+      "version": "v0.0.19",
       "channel": "latest"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.27.3",
+      "version": "v0.28.2",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260415231911-1cffc27bbf8a",
+      "version": "v0.0.0-20260417153713-3ea47a2194e4",
       "channel": "latest"
     },
     {
@@ -1480,7 +1480,7 @@
     {
       "name": "yq",
       "import_path": "github.com/mikefarah/yq/v4",
-      "version": "v4.52.5",
+      "version": "v4.53.2",
       "channel": "latest"
     },
     {
