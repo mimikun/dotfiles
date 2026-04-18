@@ -46,6 +46,7 @@ gut-cli
 httpyac
 jfq
 just-bash
+lumina-lang
 mcp-hub
 memlab
 npkill
