@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.8.1",
+      "version": "v0.8.2",
       "channel": "latest"
     },
     {
@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.60.0",
+      "version": "v0.61.1",
       "channel": "latest"
     },
     {
@@ -274,7 +274,7 @@
     {
       "name": "dlv",
       "import_path": "github.com/go-delve/delve/cmd/dlv",
-      "version": "v1.26.1",
+      "version": "v1.26.2",
       "channel": "latest"
     },
     {
@@ -334,7 +334,7 @@
     {
       "name": "ec",
       "import_path": "github.com/chojs23/ec/cmd/ec",
-      "version": "v0.3.1",
+      "version": "v0.3.2",
       "channel": "latest"
     },
     {
@@ -388,7 +388,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.48",
+      "version": "v0.1.49",
       "channel": "latest"
     },
     {
@@ -796,13 +796,13 @@
     {
       "name": "lazydocker",
       "import_path": "github.com/jesseduffield/lazydocker",
-      "version": "v0.25.0",
+      "version": "v0.25.2",
       "channel": "latest"
     },
     {
       "name": "lazyenv",
       "import_path": "github.com/lazynop/lazyenv",
-      "version": "v0.5.4",
+      "version": "v0.6.0",
       "channel": "latest"
     },
     {
@@ -982,7 +982,7 @@
     {
       "name": "ov",
       "import_path": "github.com/noborus/ov",
-      "version": "v0.51.1",
+      "version": "v0.52.0",
       "channel": "latest"
     },
     {
@@ -1048,13 +1048,13 @@
     {
       "name": "purl",
       "import_path": "github.com/catatsuy/purl",
-      "version": "v0.2.7",
+      "version": "v0.2.8",
       "channel": "latest"
     },
     {
       "name": "pvetui",
       "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.3.1",
+      "version": "v1.3.2",
       "channel": "latest"
     },
     {
@@ -1072,7 +1072,7 @@
     {
       "name": "rad",
       "import_path": "github.com/amterp/rad",
-      "version": "v0.9.2",
+      "version": "v0.10.0",
       "channel": "latest"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.28.2",
+      "version": "v0.30.2",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260417153713-3ea47a2194e4",
+      "version": "v0.0.0-20260421212650-f7f2874522d8",
       "channel": "latest"
     },
     {
@@ -1186,7 +1186,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.83.0",
+      "version": "v0.84.0",
       "channel": "latest"
     },
     {
@@ -1222,7 +1222,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260416165345-9bf4475f9f76",
+      "version": "v0.0.0-20260421182103-925062bf1c6b",
       "channel": "latest"
     },
     {
@@ -1306,7 +1306,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.43.0",
+      "version": "v0.44.0",
       "channel": "latest"
     },
     {
@@ -1330,7 +1330,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.9.2",
+      "version": "v1.9.3",
       "channel": "latest"
     },
     {
@@ -1450,7 +1450,7 @@
     {
       "name": "xurl",
       "import_path": "github.com/xdevplatform/xurl",
-      "version": "v1.0.3",
+      "version": "v1.1.0",
       "channel": "latest"
     },
     {
