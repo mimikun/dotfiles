@@ -19,6 +19,7 @@
 @microsoft/inshellisense
 @mizchi/actrun
 @openai/codex
+@perryts/perry
 @pranshuparmar/witr
 @qwen-code/qwen-code
 @sasazame/ccresume
