@@ -125,7 +125,7 @@ name = "_na.fish"
 name = "cute"
 repo = "ras0q/cute"
 source = "https://github.com/ras0q/cute"
-commit_sha = "cb561ea59cdabea4141e3aa71e8f6f2ab0544ed2"
+commit_sha = "4f7de2c68b01a6d2185c7ef8908dc9522c92ca5a"
 
 [[plugins.files]]
 dir = "functions"
@@ -135,7 +135,7 @@ name = "cute.fish"
 name = "forgit"
 repo = "wfxr/forgit"
 source = "https://github.com/wfxr/forgit"
-commit_sha = "1d6552e5762f9173a168975b9b3af80b06900d4b"
+commit_sha = "650318dc51f95f5c2de1b647b40fe133ee3a4721"
 
 [[plugins.files]]
 dir = "completions"
