@@ -3,6 +3,7 @@ ansi
 base64
 benchmark
 bigdecimal
+bootsnap
 bundler
 cgi
 csv
