@@ -130,6 +130,7 @@ git-graph
 git-interactive-rebase-tool
 gitlogue
 gitnr
+gitpane
 gittype
 gitu
 gitui
@@ -296,6 +297,7 @@ sccache
 scooter
 scraps
 sd
+seetui
 selene
 serie
 serpl
