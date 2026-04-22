@@ -130,6 +130,9 @@ complete -c purple -n "__fish_purple_using_subcommand snippet; and __fish_seen_s
 complete -c purple -n "__fish_purple_using_subcommand snippet; and __fish_seen_subcommand_from help" -f -a "run" -d 'Run a snippet on one or more hosts'
 complete -c purple -n "__fish_purple_using_subcommand snippet; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c purple -n "__fish_purple_using_subcommand update" -s h -l help -d 'Print help'
+complete -c purple -n "__fish_purple_using_subcommand mcp" -l audit-log -d 'Custom path for the MCP audit log (default: ~/.purple/mcp-audit.log). Ignored when --no-audit is set' -r
+complete -c purple -n "__fish_purple_using_subcommand mcp" -l read-only -d 'Restrict tools to read-only operations. Denies run_command and container_action, and removes them from tools/list. Recommended when exposing purple to autonomous agents'
+complete -c purple -n "__fish_purple_using_subcommand mcp" -l no-audit -d 'Disable the MCP audit log. By default every tool call is appended to ~/.purple/mcp-audit.log as JSON Lines'
 complete -c purple -n "__fish_purple_using_subcommand mcp" -s h -l help -d 'Print help'
 complete -c purple -n "__fish_purple_using_subcommand theme; and not __fish_seen_subcommand_from list set help" -s h -l help -d 'Print help'
 complete -c purple -n "__fish_purple_using_subcommand theme; and not __fish_seen_subcommand_from list set help" -f -a "list" -d 'List available themes'

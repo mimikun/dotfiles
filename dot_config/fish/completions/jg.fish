@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_jg_global_optspecs
-	string join \n i/ignore-case compact count depth n/no-display F/fixed-string with-path no-path f/format= h/help V/version
+	string join \n i/ignore-case compact count depth porcelain n/no-display F/fixed-string with-path no-path f/format= h/help V/version
 end
 
 function __fish_jg_needs_command
@@ -35,6 +35,7 @@ complete -c jg -n "__fish_jg_needs_command" -s i -l ignore-case -d 'Case insensi
 complete -c jg -n "__fish_jg_needs_command" -l compact -d 'Do not pretty-print the JSON output'
 complete -c jg -n "__fish_jg_needs_command" -l count -d 'Display count of number of matches'
 complete -c jg -n "__fish_jg_needs_command" -l depth -d 'Display depth of the input document'
+complete -c jg -n "__fish_jg_needs_command" -l porcelain -d 'Machine-readable output: strip labels and colors (useful for piping)'
 complete -c jg -n "__fish_jg_needs_command" -s n -l no-display -d 'Do not display matched JSON values'
 complete -c jg -n "__fish_jg_needs_command" -s F -l fixed-string -d 'Treat the query as a literal field name and search at any depth'
 complete -c jg -n "__fish_jg_needs_command" -l with-path -d 'Always print the path header, even when output is piped'
