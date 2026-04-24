@@ -298,7 +298,7 @@
     {
       "name": "dockerfile-pin",
       "import_path": "github.com/azu/dockerfile-pin",
-      "version": "v1.2.2",
+      "version": "v1.3.0",
       "channel": "latest"
     },
     {
@@ -376,7 +376,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.448",
+      "version": "v1.4.451",
       "channel": "latest"
     },
     {
@@ -856,7 +856,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260416015022-73c7f1be8ccf",
+      "version": "v0.0.0-20260423105031-cef9b45a47d2",
       "channel": "latest"
     },
     {
@@ -952,7 +952,7 @@
     {
       "name": "octocov",
       "import_path": "github.com/k1LoW/octocov",
-      "version": "v0.75.6",
+      "version": "v0.75.7",
       "channel": "latest"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.30.2",
+      "version": "v0.30.3",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260422170922-657fb083d7c6",
+      "version": "v0.0.0-20260423163612-d6b5c930f8e5",
       "channel": "latest"
     },
     {
@@ -1330,7 +1330,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.9.3",
+      "version": "v1.9.4",
       "channel": "latest"
     },
     {
