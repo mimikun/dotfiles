@@ -54,6 +54,7 @@ npkill
 oh-my-logo
 opencode-ai
 pg-micro
+portless
 prettier
 ralph-tui
 repomix
