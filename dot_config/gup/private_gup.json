@@ -310,7 +310,7 @@
     {
       "name": "dyff",
       "import_path": "github.com/homeport/dyff/cmd/dyff",
-      "version": "v1.11.4",
+      "version": "v1.12.0",
       "channel": "latest"
     },
     {
@@ -856,7 +856,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260425150534-e22aea7f33bb",
+      "version": "v0.0.0-20260427031052-8018ebbda58c",
       "channel": "latest"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.31.2",
+      "version": "v0.32.1",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260425152111-707b2944ee1f",
+      "version": "v0.0.0-20260426195744-770980cb0a48",
       "channel": "latest"
     },
     {
@@ -1222,7 +1222,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260425155116-932c6c8385df",
+      "version": "v0.0.0-20260426205502-5f6d838d872e",
       "channel": "latest"
     },
     {
