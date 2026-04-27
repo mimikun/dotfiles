@@ -6,6 +6,7 @@ apisnip
 ast-grep
 atac
 atuin
+aube
 bacon
 ballast
 bandwhich
@@ -117,6 +118,7 @@ flamegraph
 flamelens
 flawz
 flowrs-tui
+fnox
 forgejo-cli
 fresh-editor
 fselect
@@ -256,6 +258,7 @@ pez
 pik
 pikpaktui
 pipr
+pitchfork-cli
 prek
 presenterm
 procs
