@@ -1,0 +1,12 @@
+#:schema https://fnox.jdx.dev/schema.json
+
+# Global default for missing secrets
+if_missing = "warn"
+default_provider = "age"
+
+[providers.age]
+type = "age"
+recipients = ["age1ukrsq9d384zgwrpqvsj5y5ch6v5r7h7zdkhcrhwhtyx5fusl6dgssw2p3e"]
+
+[secrets]
+""= { provider = "age" }
