@@ -37,6 +37,7 @@ ccsearch
 ccusage
 cline
 codebuff
+codeburn
 commitizen
 cz-conventional-changelog-ja
 czg
