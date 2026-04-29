@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.62.1",
+      "version": "v0.63.0",
       "channel": "latest"
     },
     {
@@ -274,7 +274,7 @@
     {
       "name": "dlv",
       "import_path": "github.com/go-delve/delve/cmd/dlv",
-      "version": "v1.26.2",
+      "version": "v1.26.3",
       "channel": "latest"
     },
     {
@@ -388,7 +388,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.51",
+      "version": "v0.1.52",
       "channel": "latest"
     },
     {
@@ -436,7 +436,7 @@
     {
       "name": "gat",
       "import_path": "github.com/koki-develop/gat",
-      "version": "v0.27.0",
+      "version": "v0.27.1",
       "channel": "latest"
     },
     {
@@ -856,7 +856,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260427031052-8018ebbda58c",
+      "version": "v0.0.0-20260428054010-54bcbca6ce80",
       "channel": "latest"
     },
     {
@@ -946,7 +946,7 @@
     {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
-      "version": "v0.0.0-20260313101414-d04da8442314",
+      "version": "v0.0.0-20260427122455-d6e8b7fac3f3",
       "channel": "latest"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.32.1",
+      "version": "v0.33.1",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260426195744-770980cb0a48",
+      "version": "v0.0.0-20260428035944-f1c3da8c10cc",
       "channel": "latest"
     },
     {
@@ -1222,7 +1222,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260426205502-5f6d838d872e",
+      "version": "v0.0.0-20260428032310-a1bde882a054",
       "channel": "latest"
     },
     {
