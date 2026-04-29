@@ -1,0 +1,342 @@
+# see: https://github.com/janosmiko/lfk/blob/main/docs/config-reference.md
+# lfk - Full Configuration Example
+# Place this file at ~/.config/lfk/config.yaml
+# All fields are optional — only specify what you want to override.
+
+# ─── Color Scheme ──────────────────────────────────────────────────────────────
+# Built-in color scheme. 460+ themes are available (generated from ghostty themes).
+# Press T in-app to browse and preview all themes interactively.
+# Popular options: tokyonight (default), dracula, nord, catppuccin-mocha,
+#   rose-pine, gruvbox-dark, everforest-dark, one-half-dark, ayu-dark, nightfox
+colorscheme: tokyonight
+#colorscheme: "dark:catppuccin-mocha,light:catppuccin-latte"
+
+# ─── Auto Dark/Light Mode ─────────────────────────────────────────────────────
+# Use Ghostty-style "dark:X,light:Y" syntax in the colorscheme field to enable
+# automatic switching based on the OS appearance reported by the terminal
+# (CSI 996/2031 protocol). Supported terminals: Ghostty, kitty >= 0.27,
+# Contour, WezTerm (recent nightlies). Other terminals silently ignore the
+# sequences.
+#
+# On startup lfk sends CSI ?2031h (subscribe) + CSI ?996n (query current pref).
+# The terminal responds with dark (CSI ?997;1n) or light (CSI ?997;2n).
+# Any later OS appearance change triggers a real-time switch.
+#
+# Either side may be omitted; segment order does not matter; spaces in scheme
+# names are normalised to hyphens automatically.
+#
+# colorscheme: "dark:catppuccin-mocha,light:catppuccin-latte"
+# colorscheme: "dark:Rose Pine,light:Rose Pine Dawn"
+
+# ─── Transparent Background ───────────────────────────────────────────────────
+# Use the terminal's own background instead of the theme's background colors
+# for title bar and status bar. Selection highlights remain opaque.
+# Default: false
+transparent_background: true
+
+# ─── Icon Mode ─────────────────────────────────────────────────────────────────
+# Icon display mode.
+#   "auto"     - default; detects Nerd Font-capable terminals (Ghostty, Kitty,
+#                WezTerm) and picks "nerdfont"; otherwise picks "unicode".
+#   "unicode"  - curated unicode glyphs (works in any terminal).
+#   "nerdfont" - Material Design Icons from Nerd Fonts v3.x (requires a Nerd
+#                Font in your terminal).
+#   "simple"   - ASCII labels like [Po], [De] (works in any terminal).
+#   "emoji"    - emoji glyphs.
+#   "none"     - no icons.
+# The LFK_ICONS environment variable takes priority over this setting.
+icons: auto
+
+# ─── Mouse ────────────────────────────────────────────────────────────────────
+# Capture mouse input for click navigation, scroll, and tab switching.
+# Set to false to disable mouse capture, allowing native terminal text selection
+# (shift+click, drag-to-select). Useful for macOS Terminal.app where shift+click
+# does not work with mouse capture enabled.
+# Also available as --no-mouse CLI flag.
+# Default: true
+mouse: false
+
+# ─── No Color ─────────────────────────────────────────────────────────────────
+# Disable foreground and background colors throughout the UI. Emphasis is
+# preserved via bold, underline, and reverse-video SGR attributes so the
+# current selection remains visible in monochrome terminals.
+# The NO_COLOR environment variable (https://no-color.org) takes precedence
+# over this field — set NO_COLOR to any non-empty value to force monochrome
+# without editing the config. Also available as --no-color CLI flag.
+# Default: false
+# no_color: false
+
+# ─── Read-Only Mode ────────────────────────────────────────────────────────────
+# Globally disable all mutating actions (delete, edit, scale, restart, exec,
+# port-forward, drain, cordon, etc.). Useful as a safety default for shared
+# kubeconfigs or audit-mode browsing of production clusters.
+# Per-context overrides under clusters.<name>.read_only beat this field; the
+# --read-only CLI flag wins over both.
+# In-app: Ctrl+R toggles read-only — at the cluster picker it flips the
+# highlighted row's [RO] marker (session-scoped, wins over config); inside
+# a context it locks/unlocks the current tab.
+# Default: false
+# read_only: false
+
+# ─── Log Path ──────────────────────────────────────────────────────────────────
+# Application log file location. Default: ~/.local/share/lfk/lfk.log
+log_path: /tmp/lfk.log
+
+# ─── Log Tail Lines ──────────────────────────────────────────────────────────
+# Number of log lines to load initially via --tail.
+# Scrolling to the top of the log viewer automatically fetches older history.
+# Default: 1000
+# log_tail_lines: 1000
+
+# ─── Log ANSI Rendering ──────────────────────────────────────────────────────
+# Render ANSI SGR escape sequences (colour, bold, underline) emitted by log
+# producers. When false, every ESC byte is replaced with U+FFFD (the original
+# safe-but-noisy behaviour). Non-SGR CSI sequences (cursor movement, screen
+# erase) are always stripped regardless — they would corrupt the viewer.
+# Toggle at runtime with `:set ansi` / `:set noansi`.
+# Default: true
+# log_render_ansi: true
+
+# ─── Dashboard ─────────────────────────────────────────────────────────────────
+# Show cluster overview dashboard when entering a context.
+# Set to false to go directly to the resource types list.
+dashboard: true
+
+# ─── Monitoring Endpoints ──────────────────────────────────────────────────────
+# Configure Prometheus and Alertmanager endpoints per cluster context.
+# Keys are kubeconfig context names; the special key "_global" applies to
+# clusters without an explicit entry.
+# When not configured, lfk auto-discovers monitoring services by trying
+# common service names across common namespaces.
+monitoring:
+# my-prod-cluster:
+#   prometheus:
+#     namespaces: ["monitoring"]
+#     services: ["thanos-query"]
+#     port: "9090"
+#   alertmanager:
+#     namespaces: ["monitoring"]
+#     services: ["alertmanager-main"]
+#     port: "9093"
+#   node_metrics: prometheus  # "prometheus" or "metrics-api" (default: auto-detect)
+# _global:
+#   prometheus:
+#     namespaces: ["monitoring", "observability"]
+#     services: ["prometheus-server", "prometheus"]
+
+# ─── Per-Resource-Type Columns ─────────────────────────────────────────────────
+# Configure visible columns for specific resource types (Kind names, case-insensitive).
+# When not set for a kind, columns are auto-detected from resource data.
+resource_columns:
+# Pod: ["IP", "Node", "Image", "CPU", "MEM", "CPU/R", "CPU/L", "MEM/R", "MEM/L"]
+# Deployment: ["Replicas", "Available", "CPU", "MEM"]
+# Service: ["*"]  # show all for Services
+# StatefulSet: ["Replicas"]
+
+# ─── Per-Cluster Overrides ─────────────────────────────────────────────────────
+# Override settings per kubeconfig context name.
+# Supports per-cluster resource_columns and read_only.
+# Per-cluster overrides take precedence over the matching global setting.
+clusters:
+# my-prod-cluster:
+#   read_only: true                       # lock production against mutations
+#   resource_columns:
+#     Pod: ["IP", "Node", "Image", "CPU", "MEM"]
+#     Deployment: ["Replicas", "Available"]
+# my-staging-cluster:
+#   resource_columns:
+#     Pod: ["IP", "Node", "Image"]
+
+# ─── Theme ─────────────────────────────────────────────────────────────────────
+# Custom color theme. All values are CSS hex color codes.
+# Only specify colors you want to override; others keep colorscheme defaults.
+theme:
+  primary: "#7aa2f7" # Borders, headers, breadcrumbs, active columns
+  secondary: "#9ece6a" # Help keys, running status, success markers
+  text: "#c0caf5" # Normal text
+  selected_fg: "#1a1b26" # Selected item foreground
+  selected_bg: "#7aa2f7" # Selected item background
+  border: "#3b4261" # Inactive borders
+  dimmed: "#565f89" # Help text, placeholders, dimmed items
+  error: "#f7768e" # Errors, failures, delete confirmations
+  warning: "#e0af68" # Warnings, pending status, namespace indicator
+  purple: "#bb9af7" # Special values
+  base: "#1a1b26" # Dark background base
+  bar_bg: "#24283b" # Title and status bar backgrounds
+  surface: "#1f2335" # Surface color for overlays
+
+# ─── Keybindings ───────────────────────────────────────────────────────────────
+# Override direct-action keybindings. Navigation and other keys are fixed.
+keybindings:
+  logs: "L" # View logs (default: L)
+  refresh: "R" # Refresh view (default: R)
+  restart: "r" # Restart resource (default: r)
+  exec: "s" # Exec into pod (default: s)
+  describe: "v" # Describe resource (default: v)
+  delete: "D" # Delete resource (default: D)
+  force_delete: "X" # Force delete resource (default: X)
+  scale: "S" # Scale resource (default: S)
+
+# ─── Search Abbreviations ─────────────────────────────────────────────────────
+# Short names for resource types used in search/filter.
+# These extend the built-in defaults. Override a built-in by redefining the key.
+abbreviations:
+  po: pod
+  dp: deployment
+  dep: deployment
+  deploy: deployment
+  rs: replicaset
+  sts: statefulset
+  ds: daemonset
+  svc: service
+  ing: ingress
+  cm: configmap
+  sec: secret
+  ns: namespace
+  no: node
+  pvc: persistentvolumeclaim
+  pv: persistentvolume
+  sc: storageclass
+  sa: serviceaccount
+  hpa: horizontalpodautoscaler
+  vpa: verticalpodautoscaler
+  cj: cronjob
+  job: job
+  crd: customresourcedefinition
+  ev: event
+  ep: endpoint
+  eps: endpointslice
+  rb: rolebinding
+  crb: clusterrolebinding
+  cr: clusterrole
+  role: role
+  limit: limitrange
+  quota: resourcequota
+  pdb: poddisruptionbudget
+  netpol: networkpolicy
+  rc: replicationcontroller
+  # Add your own custom abbreviations:
+  # myapp: myapplication.example.com
+
+# ─── Custom Actions ────────────────────────────────────────────────────────────
+# Define custom shell commands per resource type.
+# These appear in the action menu (x key) after the built-in actions.
+#
+# Template variables:
+#   {name}       - Resource name
+#   {namespace}  - Resource namespace
+#   {context}    - Kubeconfig context name
+#   {kind}       - Resource kind (e.g., "Pod")
+#   {<Column>}   - Any column value (e.g., {Node}, {IP}) — case-insensitive
+#
+# Commands are executed via `sh -c` with KUBECONFIG set.
+# Interactive commands (ssh, etc.) hand over the terminal.
+#
+# Set read_only_safe: true on actions that don't change cluster state so
+# they remain available in read-only mode. Without this flag custom
+# actions are treated as mutating (defensive default) and blocked when
+# read-only is active.
+custom_actions:
+# Pod:
+#   - label: "SSH to Node"
+#     command: "ssh {Node}"
+#     key: "S"
+#     description: "SSH into the pod's node"
+#     # No read_only_safe -> blocked in read-only mode (SSH could mutate).
+#   - label: "Copy Logs"
+#     command: "kubectl logs {name} -n {namespace} --context {context} > /tmp/{name}.log"
+#     key: "C"
+#     description: "Copy pod logs to file"
+#     read_only_safe: true   # logs only, safe in read-only mode
+#   - label: "Tcpdump"
+#     command: "kubectl exec -it {name} -n {namespace} --context {context} -- tcpdump -i any -w /tmp/capture.pcap"
+#     key: "T"
+#     description: "Capture network traffic"
+# Deployment:
+#   - label: "Rollout History"
+#     command: "kubectl rollout history deployment/{name} -n {namespace} --context {context}"
+#     key: "H"
+#     description: "Show deployment rollout history"
+#     read_only_safe: true   # rollout history is read-only
+# Service:
+#   - label: "Curl Endpoint"
+#     command: "kubectl run curl-test --rm -it --image=curlimages/curl --restart=Never -n {namespace} --context {context} -- curl -s http://{name}"
+#     key: "C"
+#     description: "Curl the service endpoint"
+
+# ─── Filter Presets ───────────────────────────────────────────────────────────
+# Define custom quick filter presets per resource type.
+# These appear alongside the built-in presets when you press "." at resource level.
+#
+# Each preset has:
+#   name  - Display name in the filter overlay
+#   key   - Single-character shortcut key (must not conflict with built-in presets)
+#   match - Filter criteria (all specified fields must match — AND logic):
+#     status:       Substring match against the resource status (case-insensitive)
+#     ready_not:    true to match resources where ready count != desired (e.g., "1/3")
+#     restarts_gt:  Match pods with restart count greater than this number
+#     column:       Column key to check (case-insensitive, e.g., "Node", "IP")
+#     column_value: Substring match against the column value (case-insensitive)
+#
+# Built-in presets vary by kind (Pod gets Failing/Pending/NotReady/Restarting,
+# Deployment gets NotReady/Failing, etc.). Universal presets (Old, Recent)
+# are always shown. Your custom presets appear after the built-ins.
+filter_presets:
+# Pod:
+#   - name: "On GPU Nodes"
+#     key: "g"
+#     match:
+#       column: "Node"
+#       column_value: "gpu"
+#   - name: "High Memory"
+#     key: "m"
+#     match:
+#       column: "MEM"
+#       column_value: "Gi"
+# Deployment:
+#   - name: "Single Replica"
+#     key: "1"
+#     match:
+#       column: "Replicas"
+#       column_value: "1"
+# Event:
+#   - name: "OOM Events"
+#     key: "m"
+#     match:
+#       status: "OOMKilled"
+
+# ─── Pinned CRD Groups ──────────────────────────────────────────────────────
+# Pin CRD API groups so they appear right after built-in categories
+# (Workloads, Networking, etc.) instead of being sorted alphabetically.
+# Can also be managed interactively: press 'p' at resource types level.
+# In-app pins are stored per-context in ~/.local/state/lfk/pinned.yaml.
+# pinned_groups:
+#   - karpenter.sh
+#   - monitoring.coreos.com
+#   - argoproj.io
+#   - longhorn.io
+
+# ─── Startup Tips ─────────────────────────────────────────────────────────────
+# Show a random tip in the status bar on startup.
+# Set to false to disable.
+tips: true
+
+# ─── Confirm on Exit ─────────────────────────────────────────────────────────
+# Show quit confirmation when pressing ctrl+c on the last tab.
+# Set to false to exit immediately on ctrl+c.
+confirm_on_exit: true
+
+# ─── Terminal Mode ────────────────────────────────────────────────────────────
+# How exec and shell commands are executed.
+# "pty" (default): Embedded in the TUI
+# "exec": Takes over the terminal (TUI suspends)
+# terminal: pty
+
+# ─── Watch Interval ───────────────────────────────────────────────────────────
+# Polling interval used when watch mode is active (press 'w' to toggle).
+# Accepts any Go duration string: "500ms", "2s", "5s", "1m".
+# Clamped to [500ms, 10m] — values outside the range are pinned to the bounds.
+# Invalid values fall back to the default (2s).
+# Override with the --watch-interval CLI flag.
+# Default: 2s
+# watch_interval: 2s
