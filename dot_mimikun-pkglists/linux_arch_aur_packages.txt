@@ -43,6 +43,7 @@ lazyworktree-bin
 mcat-bin
 lefthook
 mani
+matugen-bin
 mcdu-bin
 minify
 monitui
@@ -71,6 +72,7 @@ t-rec
 tetrio-desktop
 tinifier
 todoist-bin
+toofan-bin
 tracker
 try-rs-bin
 ttf-udev-gothic
