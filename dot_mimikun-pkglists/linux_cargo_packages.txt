@@ -1,3 +1,4 @@
+ThreatDeck
 ad-editor
 ag
 aichat
@@ -198,6 +199,7 @@ macchina
 mairu
 mamediff
 mask
+matugen
 mcat
 mcdu
 mcfly
@@ -295,6 +297,7 @@ rustlens
 rustnet-monitor
 rustormy
 rustscan
+rvpm
 s3grep
 sccache
 scooter
