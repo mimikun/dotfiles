@@ -3,6 +3,7 @@
 dotnet-core = "latest"
 erlang = "latest"
 lua = "5.1"
+pkl = "latest"
 ruby = "latest"
 
 # multi
