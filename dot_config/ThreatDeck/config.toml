@@ -1,0 +1,10 @@
+# dark, light, solarized, dracula, monokai
+theme = "dark"
+# Auto-delete alerts older than N days
+alert_retention_days = 30
+# Dashboard data refresh interval
+dashboard_refresh_secs = 30
+# UI tick rate (lower = more responsive)
+tick_rate_ms = 250
+# Maximum feed health log entries to retain
+max_health_log_entries = 100
