@@ -5,6 +5,7 @@
 node_modules
 .textlintcache
 .claude/settings.local.json
+dot_config/fish/completions/not-found.txt
 
 # Linux only
 dot_config/fish/completions/bd.fish
