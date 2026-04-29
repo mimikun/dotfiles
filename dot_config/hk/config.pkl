@@ -1,0 +1,17 @@
+// ~/.config/hk/config.pkl
+amends "package://github.com/jdx/hk/releases/download/v1.44.2/hk@1.44.2#/Config.pkl"
+
+hooks {
+    ["pre-commit"] {
+        steps {
+            ["gitleaks"] { check = "gitleaks git --staged" }
+        }
+    }
+}
+
+jobs = 4
+fail_fast = false
+exclude = List("node_modules", "dist", "build")
+skip_steps = List("slow-test")
+skip_hooks = List("pre-push")
+
