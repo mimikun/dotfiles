@@ -20,7 +20,7 @@ packages:
   - name: dlvhdr/diffnav@v0.11.0
   - name: dominikh/go-tools/staticcheck@2026.1
   - name: dotenvx/dotenvx@v1.64.0
-  - name: dundee/gdu@v5.36.0
+  - name: dundee/gdu@v5.36.1
   - name: fastfetch-cli/fastfetch@2.62.1
   - name: git-bug/git-bug@v0.10.1
   - name: gitleaks/gitleaks@v8.30.1
