@@ -8,5 +8,5 @@ default_provider = "age"
 type = "age"
 recipients = ["age1ukrsq9d384zgwrpqvsj5y5ch6v5r7h7zdkhcrhwhtyx5fusl6dgssw2p3e"]
 
-[secrets]
-""= { provider = "age" }
+#[secrets]
+#""= { provider = "age" }
