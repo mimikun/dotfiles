@@ -1024,7 +1024,7 @@
     {
       "name": "pinact",
       "import_path": "github.com/suzuki-shunsuke/pinact/v3/cmd/pinact",
-      "version": "v3.9.0",
+      "version": "v3.9.2",
       "channel": "latest"
     },
     {
@@ -1042,7 +1042,7 @@
     {
       "name": "pop",
       "import_path": "github.com/charmbracelet/pop",
-      "version": "v0.2.0",
+      "version": "v0.2.1",
       "channel": "latest"
     },
     {
@@ -1108,7 +1108,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.33.1",
+      "version": "v0.33.4",
       "channel": "latest"
     },
     {
@@ -1234,7 +1234,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260428032310-a1bde882a054",
+      "version": "v0.0.0-20260428201503-449616f64008",
       "channel": "latest"
     },
     {
