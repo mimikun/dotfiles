@@ -1,0 +1,14 @@
+# ~/.config/octoscope/config.toml
+
+# Auto-refresh interval. Go duration syntax: "30s", "1m", "5m", "1h".
+refresh_interval = "1m"
+
+# Hide private repositories, PRs and issues from the list tabs.
+# Useful if you screenshot or screencast octoscope often. Global
+# counters (PRs Authored, Issues Authored, ...) stay complete since
+# they're aggregate numbers, not titles.
+public_only = false
+
+# Use the dense card layout in the Overview tab — smaller cards,
+# abbreviated labels. Fits more onto narrow terminals.
+compact = false
