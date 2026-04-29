@@ -860,6 +860,12 @@
       "channel": "latest"
     },
     {
+      "name": "lfk",
+      "import_path": "github.com/janosmiko/lfk",
+      "version": "v0.9.33",
+      "channel": "latest"
+    },
+    {
       "name": "loggo",
       "import_path": "github.com/aurc/loggo",
       "version": "v0.3.26",
@@ -953,6 +959,12 @@
       "name": "octocov",
       "import_path": "github.com/k1LoW/octocov",
       "version": "v0.75.7",
+      "channel": "latest"
+    },
+    {
+      "name": "octoscope",
+      "import_path": "github.com/gfazioli/octoscope",
+      "version": "v0.8.1",
       "channel": "latest"
     },
     {
@@ -1343,6 +1355,12 @@
       "name": "todotui",
       "import_path": "github.com/yuucu/todotui/cmd/todotui",
       "version": "v0.7.2",
+      "channel": "latest"
+    },
+    {
+      "name": "toofan",
+      "import_path": "github.com/vyrx-dev/toofan",
+      "version": "v1.1.2",
       "channel": "latest"
     },
     {
