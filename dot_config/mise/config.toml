@@ -1,8 +1,11 @@
 [tools]
+# single
 dotnet-core = "latest"
 erlang = "latest"
-ruby = "latest"
 lua = "5.1"
+ruby = "latest"
+
+# multi
 node = [
   "lts",
   "22",
