@@ -2819,6 +2819,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l python-downloads-json-url -d 'URL pointing to JSON of custom Python installations' -r -f
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3701,6 +3702,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l break-system-packages -d 'Allow uv to modify an `EXTERNALLY-MANAGED` Python installation'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-break-system-packages
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l dry-run -d 'Perform a dry run, i.e., don\'t actually uninstall anything but print the resulting plan'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s y -l yes -d 'Don\'t ask for confirmation of uninstall deletions'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l disable-pip-version-check
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'

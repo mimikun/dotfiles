@@ -70,7 +70,7 @@ complete -c deno -n "__fish_deno_needs_command" -l preload -d 'A list of files t
 complete -c deno -n "__fish_deno_needs_command" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_needs_command" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
-complete -c deno -n "__fish_deno_needs_command" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
+complete -c deno -n "__fish_deno_needs_command" -l watch-hmr -d 'Watch for file changes and hot-replace modules. The process restarts if hot replacement fails.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_needs_command" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
@@ -224,7 +224,7 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l preload -d 'A list of 
 complete -c deno -n "__fish_deno_using_subcommand run" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand run" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand run" -l watch-hmr -d 'Watch for file changes and hot-replace modules. The process restarts if hot replacement fails.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand run" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
@@ -339,7 +339,7 @@ complete -c deno -n "__fish_deno_using_subcommand serve" -l port -d 'The TCP por
 complete -c deno -n "__fish_deno_using_subcommand serve" -l host -d 'The TCP address to serve on, defaulting to 0.0.0.0 (all interfaces)' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
-complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-hmr -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-hmr -d 'Watch for file changes and hot-replace modules. The process restarts if hot replacement fails.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand serve" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
@@ -2262,6 +2262,7 @@ complete -c deno -n "__fish_deno_using_subcommand upgrade" -l dry-run -d 'Perfor
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -s f -l force -d 'Replace current exe even if not out-of-date'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l canary -d 'Upgrade to canary builds'
 complete -c deno -n "__fish_deno_using_subcommand upgrade" -l rc -d 'Upgrade to a release candidate'
+complete -c deno -n "__fish_deno_using_subcommand upgrade" -l no-delta -d 'Disable delta updates and always download the full archive'
 complete -c deno -n "__fish_deno_using_subcommand vendor" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand vendor" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
