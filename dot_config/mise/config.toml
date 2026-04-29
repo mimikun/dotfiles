@@ -27,9 +27,7 @@ zig = [
 
 [settings]
 activate_aggressive = true
-# TODO: check
 auto_install = true
-# TODO: check
 exec_auto_install = true
 experimental = true
 idiomatic_version_file_enable_tools = [
