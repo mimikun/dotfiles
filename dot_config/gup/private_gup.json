@@ -614,6 +614,12 @@
       "channel": "latest"
     },
     {
+      "name": "goshs",
+      "import_path": "goshs.de/goshs/v2",
+      "version": "v2.0.6",
+      "channel": "latest"
+    },
+    {
       "name": "gotags",
       "import_path": "github.com/jstemmer/gotags",
       "version": "v1.4.1",
