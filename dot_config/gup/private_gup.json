@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.63.0",
+      "version": "v0.64.0",
       "channel": "latest"
     },
     {
@@ -388,7 +388,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.52",
+      "version": "v0.1.54",
       "channel": "latest"
     },
     {
@@ -496,7 +496,7 @@
     {
       "name": "github-nippou",
       "import_path": "github.com/masutaka/github-nippou/v4",
-      "version": "v4.2.46",
+      "version": "v4.3.0",
       "channel": "latest"
     },
     {
@@ -670,7 +670,7 @@
     {
       "name": "gwq",
       "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.0.19",
+      "version": "v0.0.20",
       "channel": "latest"
     },
     {
@@ -862,7 +862,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.9.33",
+      "version": "v0.9.35",
       "channel": "latest"
     },
     {
@@ -1144,7 +1144,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.16.10",
+      "version": "v3.16.11",
       "channel": "latest"
     },
     {
@@ -1168,7 +1168,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260428035944-f1c3da8c10cc",
+      "version": "v0.0.0-20260429181921-cb2889780c8d",
       "channel": "latest"
     },
     {
@@ -1342,7 +1342,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.9.4",
+      "version": "v1.9.5",
       "channel": "latest"
     },
     {
