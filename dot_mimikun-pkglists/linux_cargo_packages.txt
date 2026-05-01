@@ -57,6 +57,7 @@ ccat
 ccsum
 ccswarm
 cctx
+cell-sheet-tui
 checkpwn
 choose
 cmd-wrapped
