@@ -152,6 +152,12 @@
       "channel": "latest"
     },
     {
+      "name": "ccgate",
+      "import_path": "github.com/tak848/ccgate",
+      "version": "v0.7.1",
+      "channel": "latest"
+    },
+    {
       "name": "chatuino",
       "import_path": "github.com/julez-dev/chatuino",
       "version": "v1.2.0",
@@ -473,6 +479,12 @@
       "name": "ghtkn",
       "import_path": "github.com/suzuki-shunsuke/ghtkn/cmd/ghtkn",
       "version": "v0.2.4",
+      "channel": "latest"
+    },
+    {
+      "name": "git-real",
+      "import_path": "github.com/watany-dev/gitreal/cmd/git-real",
+      "version": "v0.1.0",
       "channel": "latest"
     },
     {
