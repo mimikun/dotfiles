@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.8.3",
+      "version": "v0.8.5",
       "channel": "latest"
     },
     {
@@ -184,7 +184,7 @@
     {
       "name": "clive",
       "import_path": "github.com/koki-develop/clive",
-      "version": "v0.12.16",
+      "version": "v0.12.17",
       "channel": "latest"
     },
     {
@@ -214,7 +214,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.64.0",
+      "version": "v0.65.2",
       "channel": "latest"
     },
     {
@@ -436,7 +436,7 @@
     {
       "name": "gat",
       "import_path": "github.com/koki-develop/gat",
-      "version": "v0.27.1",
+      "version": "v0.27.2",
       "channel": "latest"
     },
     {
@@ -448,7 +448,7 @@
     {
       "name": "ghalint",
       "import_path": "github.com/suzuki-shunsuke/ghalint/cmd/ghalint",
-      "version": "v1.5.5",
+      "version": "v1.5.6",
       "channel": "latest"
     },
     {
@@ -556,7 +556,7 @@
     {
       "name": "golangci-lint",
       "import_path": "github.com/golangci/golangci-lint/v2/cmd/golangci-lint",
-      "version": "v2.11.4",
+      "version": "v2.12.1",
       "channel": "latest"
     },
     {
@@ -676,7 +676,7 @@
     {
       "name": "gwq",
       "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.0.20",
+      "version": "v0.1.0",
       "channel": "latest"
     },
     {
@@ -826,7 +826,7 @@
     {
       "name": "lazyjournal",
       "import_path": "github.com/Lifailon/lazyjournal",
-      "version": "v0.0.0-20260316123144-12dee2192137",
+      "version": "v0.0.0-20260501104401-6c019cc3aaa4",
       "channel": "latest"
     },
     {
@@ -862,13 +862,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260428054010-54bcbca6ce80",
+      "version": "v0.0.0-20260501040658-a88d55e077fc",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.9.35",
+      "version": "v0.9.36",
       "channel": "latest"
     },
     {
@@ -1114,7 +1114,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.33.4",
+      "version": "v0.34.1",
       "channel": "latest"
     },
     {
@@ -1174,7 +1174,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260429181921-cb2889780c8d",
+      "version": "v0.0.0-20260501231833-a040d1c6f388",
       "channel": "latest"
     },
     {
@@ -1240,7 +1240,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260428201503-449616f64008",
+      "version": "v0.0.0-20260430214942-3571b48cfd99",
       "channel": "latest"
     },
     {
@@ -1348,7 +1348,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.9.5",
+      "version": "v1.9.6",
       "channel": "latest"
     },
     {
