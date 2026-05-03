@@ -640,7 +640,7 @@
     {
       "name": "gotip",
       "import_path": "github.com/lusingander/gotip/cmd/gotip",
-      "version": "v0.6.2",
+      "version": "v0.6.3",
       "channel": "latest"
     },
     {
@@ -688,7 +688,7 @@
     {
       "name": "gwq",
       "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.1.0",
+      "version": "v0.1.1",
       "channel": "latest"
     },
     {
@@ -838,7 +838,7 @@
     {
       "name": "lazyjournal",
       "import_path": "github.com/Lifailon/lazyjournal",
-      "version": "v0.0.0-20260501104401-6c019cc3aaa4",
+      "version": "v0.0.0-20260502204449-3461dfca2f78",
       "channel": "latest"
     },
     {
@@ -874,13 +874,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260501040658-a88d55e077fc",
+      "version": "v0.0.0-20260502053804-a170ffd8d9cb",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.9.36",
+      "version": "v0.9.38",
       "channel": "latest"
     },
     {
@@ -1126,7 +1126,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.34.1",
+      "version": "v0.34.2",
       "channel": "latest"
     },
     {
@@ -1186,7 +1186,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260501231833-a040d1c6f388",
+      "version": "v0.0.0-20260502190136-3812beffe650",
       "channel": "latest"
     },
     {
@@ -1252,7 +1252,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260430214942-3571b48cfd99",
+      "version": "v0.0.0-20260502145323-e0284ffc4ae9",
       "channel": "latest"
     },
     {
@@ -1366,7 +1366,7 @@
     {
       "name": "todoist",
       "import_path": "github.com/sachaos/todoist",
-      "version": "v0.23.0",
+      "version": "v0.24.0",
       "channel": "latest"
     },
     {
