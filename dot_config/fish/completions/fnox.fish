@@ -8,7 +8,7 @@ if ! type -p usage &> /dev/null
     return 1
 end
 set -l tmpdir (if set -q TMPDIR; echo $TMPDIR; else; echo /tmp; end)
-set -l spec_file "$tmpdir/usage__usage_spec_fnox_1_23_0.spec"
+set -l spec_file "$tmpdir/usage__usage_spec_fnox_1_23_1.spec"
 if not test -f "$spec_file"
     fnox usage | string collect > "$spec_file"
 end
