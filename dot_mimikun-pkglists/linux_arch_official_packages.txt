@@ -165,6 +165,7 @@ skate
 skk-jisyo
 skktools
 smartmontools
+socat
 sof-firmware
 starship
 sudo
