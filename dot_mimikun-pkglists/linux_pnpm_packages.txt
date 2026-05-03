@@ -46,6 +46,7 @@ envinfo
 git-rewrite-commits
 git-truck
 gut-cli
+homeassistant-lsp
 httpyac
 jfq
 just-bash
