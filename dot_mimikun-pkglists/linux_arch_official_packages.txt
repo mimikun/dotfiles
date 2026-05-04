@@ -129,6 +129,7 @@ noto-fonts-extra
 nyancat
 obsidian
 oniguruma
+openapi-tui
 openssh
 osv-scanner
 otf-ipaexfont
