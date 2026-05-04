@@ -820,7 +820,7 @@
     {
       "name": "lazyenv",
       "import_path": "github.com/lazynop/lazyenv",
-      "version": "v0.6.0",
+      "version": "v0.7.0",
       "channel": "latest"
     },
     {
@@ -874,7 +874,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260502053804-a170ffd8d9cb",
+      "version": "v0.0.0-20260504035604-ac8f594f66e5",
       "channel": "latest"
     },
     {
@@ -1126,7 +1126,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.34.2",
+      "version": "v0.34.3",
       "channel": "latest"
     },
     {
@@ -1186,7 +1186,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260502190136-3812beffe650",
+      "version": "v0.0.0-20260503134950-8c57a072cb32",
       "channel": "latest"
     },
     {
