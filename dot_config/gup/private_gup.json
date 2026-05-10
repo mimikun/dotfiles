@@ -82,7 +82,7 @@
     {
       "name": "andcli",
       "import_path": "github.com/tjblackheart/andcli/v2/cmd/andcli",
-      "version": "v2.6.1",
+      "version": "v2.6.2",
       "channel": "latest"
     },
     {
@@ -154,7 +154,7 @@
     {
       "name": "ccgate",
       "import_path": "github.com/tak848/ccgate",
-      "version": "v0.7.1",
+      "version": "v0.8.0",
       "channel": "latest"
     },
     {
@@ -178,7 +178,7 @@
     {
       "name": "claws",
       "import_path": "github.com/clawscli/claws/cmd/claws",
-      "version": "v0.15.3",
+      "version": "v0.15.4",
       "channel": "latest"
     },
     {
@@ -214,13 +214,13 @@
     {
       "name": "croc",
       "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.4.2",
+      "version": "v10.4.3",
       "channel": "latest"
     },
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.65.2",
+      "version": "v0.66.1",
       "channel": "latest"
     },
     {
@@ -382,7 +382,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.451",
+      "version": "v1.4.452",
       "channel": "latest"
     },
     {
@@ -394,7 +394,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.54",
+      "version": "v0.1.57",
       "channel": "latest"
     },
     {
@@ -424,7 +424,7 @@
     {
       "name": "fx",
       "import_path": "github.com/antonmedv/fx",
-      "version": "v0.0.0-20260328132252-d9f75a1acd7e",
+      "version": "v0.0.0-20260508075547-05f0871ea43d",
       "channel": "latest"
     },
     {
@@ -544,7 +544,7 @@
     {
       "name": "goimports",
       "import_path": "golang.org/x/tools/cmd/goimports",
-      "version": "v0.44.0",
+      "version": "v0.45.0",
       "channel": "latest"
     },
     {
@@ -568,7 +568,7 @@
     {
       "name": "golangci-lint",
       "import_path": "github.com/golangci/golangci-lint/v2/cmd/golangci-lint",
-      "version": "v2.12.1",
+      "version": "v2.12.2",
       "channel": "latest"
     },
     {
@@ -586,7 +586,7 @@
     {
       "name": "gonew",
       "import_path": "golang.org/x/tools/cmd/gonew",
-      "version": "v0.44.0",
+      "version": "v0.45.0",
       "channel": "latest"
     },
     {
@@ -820,7 +820,7 @@
     {
       "name": "lazyenv",
       "import_path": "github.com/lazynop/lazyenv",
-      "version": "v0.7.0",
+      "version": "v0.7.1",
       "channel": "latest"
     },
     {
@@ -838,13 +838,13 @@
     {
       "name": "lazyjournal",
       "import_path": "github.com/Lifailon/lazyjournal",
-      "version": "v0.0.0-20260502204449-3461dfca2f78",
+      "version": "v0.0.0-20260506075442-3cef484429a5",
       "channel": "latest"
     },
     {
       "name": "lazykiq",
       "import_path": "github.com/kpumuk/lazykiq/cmd/lazykiq",
-      "version": "v0.1.0",
+      "version": "v0.1.1",
       "channel": "latest"
     },
     {
@@ -862,7 +862,7 @@
     {
       "name": "lazysql",
       "import_path": "github.com/jorgerojas26/lazysql",
-      "version": "v0.4.8",
+      "version": "v0.5.0",
       "channel": "latest"
     },
     {
@@ -874,13 +874,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260504035604-ac8f594f66e5",
+      "version": "v0.0.0-20260510023627-be2484318fbe",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.9.38",
+      "version": "v0.11.0",
       "channel": "latest"
     },
     {
@@ -982,7 +982,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.8.1",
+      "version": "v0.11.0",
       "channel": "latest"
     },
     {
@@ -1000,13 +1000,13 @@
     {
       "name": "osv-scanner",
       "import_path": "github.com/google/osv-scanner/v2/cmd/osv-scanner",
-      "version": "v2.3.5",
+      "version": "v2.3.8",
       "channel": "latest"
     },
     {
       "name": "otel-tui",
       "import_path": "github.com/ymtdzzz/otel-tui",
-      "version": "v0.7.1",
+      "version": "v0.7.2",
       "channel": "latest"
     },
     {
@@ -1084,7 +1084,7 @@
     {
       "name": "pvetui",
       "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.3.2",
+      "version": "v1.3.3",
       "channel": "latest"
     },
     {
@@ -1102,7 +1102,7 @@
     {
       "name": "rad",
       "import_path": "github.com/amterp/rad",
-      "version": "v0.10.0",
+      "version": "v0.10.1",
       "channel": "latest"
     },
     {
@@ -1126,7 +1126,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.34.3",
+      "version": "v0.37.1",
       "channel": "latest"
     },
     {
@@ -1186,7 +1186,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260503134950-8c57a072cb32",
+      "version": "v0.0.0-20260509170725-c4e9e4f513bd",
       "channel": "latest"
     },
     {
@@ -1204,7 +1204,7 @@
     {
       "name": "sheets",
       "import_path": "github.com/maaslalani/sheets",
-      "version": "v0.2.1-0.20260409013804-7beaf1a26ce4",
+      "version": "v0.2.0",
       "channel": "latest"
     },
     {
@@ -1252,7 +1252,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.0.0-20260502145323-e0284ffc4ae9",
+      "version": "v0.1.0",
       "channel": "latest"
     },
     {
@@ -1282,7 +1282,7 @@
     {
       "name": "squix",
       "import_path": "github.com/eduardofuncao/squix/cmd/squix",
-      "version": "v0.4.0-beta",
+      "version": "v0.4.2-beta",
       "channel": "latest"
     },
     {
@@ -1306,7 +1306,7 @@
     {
       "name": "stringer",
       "import_path": "golang.org/x/tools/cmd/stringer",
-      "version": "v0.44.0",
+      "version": "v0.45.0",
       "channel": "latest"
     },
     {
@@ -1510,7 +1510,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.12",
+      "version": "v0.20.13",
       "channel": "latest"
     },
     {
