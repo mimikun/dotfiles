@@ -63,7 +63,7 @@ complete -c purple -n "__fish_purple_using_subcommand sync" -s h -l help -d 'Pri
 complete -c purple -n "__fish_purple_using_subcommand provider; and not __fish_seen_subcommand_from add list remove help" -s h -l help -d 'Print help'
 complete -c purple -n "__fish_purple_using_subcommand provider; and not __fish_seen_subcommand_from add list remove help" -f -a "add" -d 'Add or update a provider configuration'
 complete -c purple -n "__fish_purple_using_subcommand provider; and not __fish_seen_subcommand_from add list remove help" -f -a "list" -d 'List configured providers'
-complete -c purple -n "__fish_purple_using_subcommand provider; and not __fish_seen_subcommand_from add list remove help" -f -a "remove" -d 'Remove a provider configuration'
+complete -c purple -n "__fish_purple_using_subcommand provider; and not __fish_seen_subcommand_from add list remove help" -f -a "remove" -d 'Remove a provider configuration. Pass `provider` for ALL configs of that provider, or `provider:label` for one specific config'
 complete -c purple -n "__fish_purple_using_subcommand provider; and not __fish_seen_subcommand_from add list remove help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l token -d 'API token (or set PURPLE_TOKEN env var, or use --token-stdin)' -r
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l prefix -d 'Alias prefix (default: provider short label)' -r
@@ -74,6 +74,7 @@ complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l regions -d 'Comma-separated regions, zones or subscription IDs (e.g. us-east-1,eu-west-1 for AWS, fr-par-1,nl-ams-1 for Scaleway, us-central1-a for GCP zones or subscription UUIDs for Azure)' -r
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l project -d 'GCP project ID' -r
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l compartment -d 'OCI compartment OCID (Oracle)' -r
+complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l label -d 'Optional label when adding a second config for the same provider (e.g. --label work, --label personal). Required once a provider already has a labeled config' -r
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l token-stdin -d 'Read token from stdin (e.g. from a password manager)'
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l no-verify-tls -d 'Skip TLS certificate verification (for self-signed certs)'
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from add" -l verify-tls -d 'Explicitly enable TLS certificate verification (overrides stored setting)'
@@ -84,7 +85,7 @@ complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from remove" -s h -l help -d 'Print help'
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from help" -f -a "add" -d 'Add or update a provider configuration'
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from help" -f -a "list" -d 'List configured providers'
-complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from help" -f -a "remove" -d 'Remove a provider configuration'
+complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from help" -f -a "remove" -d 'Remove a provider configuration. Pass `provider` for ALL configs of that provider, or `provider:label` for one specific config'
 complete -c purple -n "__fish_purple_using_subcommand provider; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c purple -n "__fish_purple_using_subcommand tunnel; and not __fish_seen_subcommand_from list add remove start help" -s h -l help -d 'Print help'
 complete -c purple -n "__fish_purple_using_subcommand tunnel; and not __fish_seen_subcommand_from list add remove start help" -f -a "list" -d 'List configured tunnels'
@@ -172,7 +173,7 @@ complete -c purple -n "__fish_purple_using_subcommand help; and not __fish_seen_
 complete -c purple -n "__fish_purple_using_subcommand help; and not __fish_seen_subcommand_from add import sync provider tunnel password snippet update mcp theme vault logs whats-new help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c purple -n "__fish_purple_using_subcommand help; and __fish_seen_subcommand_from provider" -f -a "add" -d 'Add or update a provider configuration'
 complete -c purple -n "__fish_purple_using_subcommand help; and __fish_seen_subcommand_from provider" -f -a "list" -d 'List configured providers'
-complete -c purple -n "__fish_purple_using_subcommand help; and __fish_seen_subcommand_from provider" -f -a "remove" -d 'Remove a provider configuration'
+complete -c purple -n "__fish_purple_using_subcommand help; and __fish_seen_subcommand_from provider" -f -a "remove" -d 'Remove a provider configuration. Pass `provider` for ALL configs of that provider, or `provider:label` for one specific config'
 complete -c purple -n "__fish_purple_using_subcommand help; and __fish_seen_subcommand_from tunnel" -f -a "list" -d 'List configured tunnels'
 complete -c purple -n "__fish_purple_using_subcommand help; and __fish_seen_subcommand_from tunnel" -f -a "add" -d 'Add a tunnel to a host'
 complete -c purple -n "__fish_purple_using_subcommand help; and __fish_seen_subcommand_from tunnel" -f -a "remove" -d 'Remove a tunnel from a host'

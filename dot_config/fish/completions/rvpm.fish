@@ -65,7 +65,8 @@ complete -c rvpm -n "__fish_rvpm_using_subcommand add" -l rev -d 'Set rev (branc
 complete -c rvpm -n "__fish_rvpm_using_subcommand add" -l ai -d 'AI backend for this `add`. Replaces the static-scan + auto-lazy path: the chosen CLI (`claude` / `gemini` / `codex`) reads the plugin\'s README + your config and proposes the full `[[plugins]]` block plus any per-plugin hook files. Overrides `options.ai` for this call' -r -f -a "off\t'Use the static scan + auto_lazy flow (default)'
 claude\t'Spawn the `claude` CLI as a subprocess'
 gemini\t'Spawn the `gemini` CLI as a subprocess'
-codex\t'Spawn the `codex` CLI as a subprocess'"
+codex\t'Spawn the `codex` CLI as a subprocess'
+opencode\t'Spawn the `opencode` CLI as a subprocess'"
 complete -c rvpm -n "__fish_rvpm_using_subcommand add" -l auto-lazy -d 'Accept auto-scanned on_cmd / on_map without prompting. Overrides `options.auto_lazy` for this call (== "always"). Useful for non-TTY scripts that want lazy-by-default'
 complete -c rvpm -n "__fish_rvpm_using_subcommand add" -l no-lazy -d 'Skip the auto-scan entirely for this invocation. Overrides `options.auto_lazy` for this call (== "never"). This does not override explicit `--lazy` / `--on-*` flags — if the plugin is lazy via those, it stays lazy'
 complete -c rvpm -n "__fish_rvpm_using_subcommand add" -l no-ai -d 'Force the static-scan path even if `options.ai` is set in config'
@@ -73,7 +74,8 @@ complete -c rvpm -n "__fish_rvpm_using_subcommand add" -s h -l help -d 'Print he
 complete -c rvpm -n "__fish_rvpm_using_subcommand tune" -l ai -d 'AI backend for this `tune`. Overrides `options.ai` for this call' -r -f -a "off\t'Use the static scan + auto_lazy flow (default)'
 claude\t'Spawn the `claude` CLI as a subprocess'
 gemini\t'Spawn the `gemini` CLI as a subprocess'
-codex\t'Spawn the `codex` CLI as a subprocess'"
+codex\t'Spawn the `codex` CLI as a subprocess'
+opencode\t'Spawn the `opencode` CLI as a subprocess'"
 complete -c rvpm -n "__fish_rvpm_using_subcommand tune" -l no-ai -d 'Force-disable AI for this call. `tune` is AI-only, so this effectively errors out — provided for symmetry with `add`'
 complete -c rvpm -n "__fish_rvpm_using_subcommand tune" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c rvpm -n "__fish_rvpm_using_subcommand edit" -l init -d 'Open init.lua directly (per-plugin path, or Neovim\'s own with --global)'

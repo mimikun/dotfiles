@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_unifly_global_optspecs
-	string join \n p/profile= c/controller= s/site= api-key= host-id= o/output= color= theme= v/verbose q/quiet y/yes totp= no-cache demo k/insecure timeout= h/help V/version
+	string join \n p/profile= c/controller= s/site= api-key= host-id= o/output= color= theme= v/verbose q/quiet y/yes totp= no-cache demo k/insecure timeout= no-effects h/help V/version
 end
 
 function __fish_unifly_needs_command
@@ -46,6 +46,7 @@ complete -c unifly -n "__fish_unifly_needs_command" -s y -l yes -d 'Skip confirm
 complete -c unifly -n "__fish_unifly_needs_command" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_needs_command" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_needs_command" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_needs_command" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_needs_command" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_needs_command" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_needs_command" -f -a "api" -d 'Send a raw API request (GET or POST) to an arbitrary endpoint'
@@ -105,6 +106,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand api" -s y -l yes -d 'Skip 
 complete -c unifly -n "__fish_unifly_using_subcommand api" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand api" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s p -l profile -d 'Controller profile to use' -r
@@ -129,6 +131,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -f -a "list" -d 'List ACL rules'
@@ -164,6 +167,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -188,6 +192,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l name -d 'Rule name' -r
@@ -223,6 +228,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l name -d 'Rule name' -r
@@ -260,6 +266,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s p -l profile -d 'Controller profile to use' -r
@@ -284,6 +291,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l set -d 'Set ordering from comma-separated rule IDs' -r
@@ -310,6 +318,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from help" -f -a "list" -d 'List ACL rules'
@@ -341,6 +350,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -f -a "list" -d 'List site administrators (session API)'
@@ -370,6 +380,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l name -d 'Admin name' -r
@@ -397,6 +408,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s p -l profile -d 'Controller profile to use' -r
@@ -421,6 +433,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l role -d 'New role' -r
@@ -446,6 +459,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from help" -f -a "list" -d 'List site administrators (session API)'
@@ -475,6 +489,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_see
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -f -a "list" -d 'List alarms (session API)'
@@ -505,6 +520,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s p -l profile -d 'Controller profile to use' -r
@@ -529,6 +545,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s p -l profile -d 'Controller profile to use' -r
@@ -553,6 +570,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from help" -f -a "list" -d 'List alarms (session API)'
@@ -581,6 +599,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_se
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -f -a "list" -d 'List connected clients'
@@ -624,6 +643,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s p -l profile -d 'Controller profile to use' -r
@@ -648,6 +668,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -672,6 +693,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l limit -d 'Maximum number of events to return' -r
@@ -697,6 +719,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s p -l profile -d 'Controller profile to use' -r
@@ -721,6 +744,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l minutes -d 'Authorization duration in minutes' -r
@@ -749,6 +773,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s p -l profile -d 'Controller profile to use' -r
@@ -773,6 +798,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s p -l profile -d 'Controller profile to use' -r
@@ -797,6 +823,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s p -l profile -d 'Controller profile to use' -r
@@ -821,6 +848,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s p -l profile -d 'Controller profile to use' -r
@@ -845,6 +873,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s p -l profile -d 'Controller profile to use' -r
@@ -869,6 +898,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s l -l limit -d 'Max results per page (1-200)' -r
@@ -897,6 +927,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l ip -d 'IPv4 address to reserve' -r
@@ -923,6 +954,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l network -d 'Network name or ID (removes from all networks if omitted)' -r
@@ -948,6 +980,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from help" -f -a "list" -d 'List connected clients'
@@ -987,6 +1020,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand completions" -s y -l yes -
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand completions" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s p -l profile -d 'Controller profile to use' -r
@@ -1011,6 +1045,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -f -a "hosts" -d 'List cloud consoles or show a single console'
@@ -1042,6 +1077,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -f -a "get" -d 'Show a single console'
@@ -1068,6 +1104,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s p -l profile -d 'Controller profile to use' -r
@@ -1091,6 +1128,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l host -d 'Restrict device results to one or more cloud hosts' -r
@@ -1116,6 +1154,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l type -d 'Metric interval (`5m` or `1h`)' -r -f -a "5m\t''
@@ -1142,6 +1181,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -f -a "query" -d 'Query ISP metrics for a specific set of sites'
@@ -1168,6 +1208,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -f -a "get" -d 'Show a single SD-WAN configuration'
@@ -1202,6 +1243,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_see
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -f -a "init" -d 'Create initial config file with guided setup for a local controller'
@@ -1235,6 +1277,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s p -l profile -d 'Controller profile to use' -r
@@ -1259,6 +1302,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s p -l profile -d 'Controller profile to use' -r
@@ -1283,6 +1327,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s p -l profile -d 'Controller profile to use' -r
@@ -1307,6 +1352,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s p -l profile -d 'Controller profile to use' -r
@@ -1331,6 +1377,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s p -l profile -d 'Controller profile to use' -r
@@ -1355,6 +1402,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s p -l profile -d 'Controller profile to use' -r
@@ -1379,6 +1427,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l profile -d 'Profile name' -r
@@ -1403,6 +1452,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "init" -d 'Create initial config file with guided setup for a local controller'
@@ -1436,46 +1486,51 @@ complete -c unifly -n "__fish_unifly_using_subcommand countries" -s y -l yes -d 
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand countries" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s V -l version -d 'Print version'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s p -l profile -d 'Controller profile to use' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s c -l controller -d 'Controller URL (overrides profile)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s s -l site -d 'Site name or UUID' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l api-key -d 'Integration API key' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s p -l profile -d 'Controller profile to use' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s c -l controller -d 'Controller URL (overrides profile)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s s -l site -d 'Site name or UUID' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l api-key -d 'Integration API key' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
 json\t'Pretty-printed JSON'
 json-compact\t'Compact single-line JSON'
 yaml\t'YAML'
 plain\t'Plain text, one value per line (scripting)'"
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
 always\t'Always emit color codes'
 never\t'Never emit color codes'"
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l timeout -d 'Request timeout in seconds' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s q -l quiet -d 'Suppress non-error output'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s y -l yes -d 'Skip confirmation prompts'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l no-cache -d 'Disable session caching (forces fresh login)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s k -l insecure -d 'Accept self-signed TLS certificates'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -s V -l version -d 'Print version'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "list" -d 'List adopted devices'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "get" -d 'Get adopted device details'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "adopt" -d 'Adopt a pending device'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "remove" -d 'Remove (unadopt) a device'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "restart" -d 'Restart a device'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "locate" -d 'Toggle locate LED (blink to identify device)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "port-cycle" -d 'Power-cycle a PoE port'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "stats" -d 'Get real-time device statistics'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "pending" -d 'List devices pending adoption'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "upgrade" -d 'Upgrade device firmware (session API)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "provision" -d 'Force re-provision device configuration (session API)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "speedtest" -d 'Run WAN speed test (session API, gateway only)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "tags" -d 'List device tags'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s q -l quiet -d 'Suppress non-error output'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s y -l yes -d 'Skip confirmation prompts'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l no-cache -d 'Disable session caching (forces fresh login)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s V -l version -d 'Print version'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "list" -d 'List adopted devices'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "get" -d 'Get adopted device details'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "adopt" -d 'Adopt a pending device'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "remove" -d 'Remove (unadopt) a device'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "restart" -d 'Restart a device'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "locate" -d 'Toggle locate LED (blink to identify device)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "port-cycle" -d 'Power-cycle a PoE port'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "stats" -d 'Get real-time device statistics'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "pending" -d 'List devices pending adoption'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "upgrade" -d 'Upgrade device firmware (session API)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "provision" -d 'Force re-provision device configuration (session API)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "speedtest" -d 'Run WAN speed test (session API, gateway only)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "tags" -d 'List device tags'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "ports" -d 'List switch ports with VLAN configuration (session API)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "ports-export" -d 'Export switch port configuration as JSONC for `port-set --from-file`'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "port-set" -d 'Configure a switch port (session API)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s l -l limit -d 'Max results per page (1-200)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l offset -d 'Pagination offset' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s f -l filter -d 'Filter expression (Integration API syntax) Examples: "name.eq(\'MyNetwork\')", "state.in(\'ONLINE\',\'OFFLINE\')"' -r
@@ -1502,6 +1557,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -1526,6 +1582,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s p -l profile -d 'Controller profile to use' -r
@@ -1551,6 +1608,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s p -l profile -d 'Controller profile to use' -r
@@ -1575,6 +1633,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s p -l profile -d 'Controller profile to use' -r
@@ -1599,6 +1658,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l on -d 'Turn locate on (default) or off' -r -f -a "true\t''
@@ -1625,6 +1685,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s p -l profile -d 'Controller profile to use' -r
@@ -1649,6 +1710,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s p -l profile -d 'Controller profile to use' -r
@@ -1673,6 +1735,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s l -l limit -d 'Max results per page (1-200)' -r
@@ -1701,6 +1764,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l url -d 'External firmware URL (optional)' -r
@@ -1726,6 +1790,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s p -l profile -d 'Controller profile to use' -r
@@ -1750,6 +1815,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s p -l profile -d 'Controller profile to use' -r
@@ -1774,6 +1840,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s l -l limit -d 'Max results per page (1-200)' -r
@@ -1802,8 +1869,106 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s V -l version -d 'Print version'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s p -l profile -d 'Controller profile to use' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s c -l controller -d 'Controller URL (overrides profile)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s s -l site -d 'Site name or UUID' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l api-key -d 'Integration API key' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
+json\t'Pretty-printed JSON'
+json-compact\t'Compact single-line JSON'
+yaml\t'YAML'
+plain\t'Plain text, one value per line (scripting)'"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
+always\t'Always emit color codes'
+never\t'Never emit color codes'"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l with-clients -d 'Include the wired clients and adopted devices (APs, downstream switches) currently observed on each port. Adds a `connections` array in JSON output (with a `kind` discriminator per entry — `"client"` or `"device"`) and a `Conns` count column (`<clients>/<devices>`) in the table view'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s q -l quiet -d 'Suppress non-error output'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s y -l yes -d 'Skip confirmation prompts'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l no-cache -d 'Disable session caching (forces fresh login)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s V -l version -d 'Print version'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s p -l profile -d 'Controller profile to use' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s c -l controller -d 'Controller URL (overrides profile)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s s -l site -d 'Site name or UUID' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l api-key -d 'Integration API key' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
+json\t'Pretty-printed JSON'
+json-compact\t'Compact single-line JSON'
+yaml\t'YAML'
+plain\t'Plain text, one value per line (scripting)'"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
+always\t'Always emit color codes'
+never\t'Never emit color codes'"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l all -d 'Emit every port, including those without an override entry'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l with-clients -d 'Annotate each port with `// last-seen <ISO8601>: <mac> (<name>, <kind>)` comments for currently-connected wired clients and adopted devices. `<kind>` is `client` or `device`. Useful for drift detection — the comment block records what was observed on each labelled port at export time. The marker prefix `// last-seen ` is a stable parse anchor (don\'t hand-edit those lines)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s q -l quiet -d 'Suppress non-error output'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s y -l yes -d 'Skip confirmation prompts'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l no-cache -d 'Disable session caching (forces fresh login)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s V -l version -d 'Print version'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l mode -d 'Operational mode' -r -f -a "access\t''
+trunk\t''
+mirror\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l native-vlan -d 'Native (untagged) VLAN: network name or session _id' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l tagged-vlans -d 'Comma-separated list of tagged VLAN networks (names or session _ids)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l name -d 'User-facing port label' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l poe -d 'PoE mode for this port' -r -f -a "off\t''
+auto\t''
+pasv24\t''
+passthrough\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l speed -d 'Configured link speed' -r -f -a "auto\t''
+10\t''
+100\t''
+1000\t''
+2500\t''
+5000\t''
+10000\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s F -l from-file -d 'Apply a multi-port configuration from a JSONC file (`{"ports": [{"index": N, ...}, ...]}`). Splice semantics: ports not listed are left untouched. Per-port `"reset": true` removes that port\'s override entry' -r -F
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s p -l profile -d 'Controller profile to use' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s c -l controller -d 'Controller URL (overrides profile)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s s -l site -d 'Site name or UUID' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l api-key -d 'Integration API key' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
+json\t'Pretty-printed JSON'
+json-compact\t'Compact single-line JSON'
+yaml\t'YAML'
+plain\t'Plain text, one value per line (scripting)'"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
+always\t'Always emit color codes'
+never\t'Never emit color codes'"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l reset -d 'Remove this port\'s `port_overrides` entry, returning it to controller defaults. Mutually exclusive with the per-field flags above. Equivalent to applying `{"ports": [{"index": <PORT_IDX>, "reset": true}]}` via `-F`'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s q -l quiet -d 'Suppress non-error output'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s y -l yes -d 'Skip confirmation prompts'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l no-cache -d 'Disable session caching (forces fresh login)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "list" -d 'List adopted devices'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "get" -d 'Get adopted device details'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "adopt" -d 'Adopt a pending device'
@@ -1817,6 +1982,9 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "provision" -d 'Force re-provision device configuration (session API)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "speedtest" -d 'Run WAN speed test (session API, gateway only)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "tags" -d 'List device tags'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "ports" -d 'List switch ports with VLAN configuration (session API)'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "ports-export" -d 'Export switch port configuration as JSONC for `port-set --from-file`'
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "port-set" -d 'Configure a switch port (session API)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s p -l profile -d 'Controller profile to use' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s c -l controller -d 'Controller URL (overrides profile)' -r
@@ -1840,6 +2008,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -f -a "list" -d 'List DNS policies'
@@ -1874,6 +2043,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -1898,6 +2068,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l record-type -d 'Record type' -r -f -a "a\t''
@@ -1934,6 +2105,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s F -l from-file -d 'Load full payload from JSON file' -r -F
@@ -1959,6 +2131,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s p -l profile -d 'Controller profile to use' -r
@@ -1983,6 +2156,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from help" -f -a "list" -d 'List DNS policies'
@@ -2013,6 +2187,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -f -a "apps" -d 'List DPI applications'
@@ -2047,6 +2222,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s l -l limit -d 'Max results per page (1-200)' -r
@@ -2075,6 +2251,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s p -l profile -d 'Controller profile to use' -r
@@ -2099,6 +2276,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s p -l profile -d 'Controller profile to use' -r
@@ -2123,6 +2301,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s p -l profile -d 'Controller profile to use' -r
@@ -2147,6 +2326,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from help" -f -a "apps" -d 'List DPI applications'
@@ -2177,6 +2357,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_see
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -f -a "list" -d 'List recent events (session API)'
@@ -2206,6 +2387,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l types -d 'Event types to filter (comma-separated)' -r
@@ -2231,38 +2413,41 @@ complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from help" -f -a "list" -d 'List recent events (session API)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from help" -f -a "watch" -d 'Stream real-time events via WebSocket (session API)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s p -l profile -d 'Controller profile to use' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s c -l controller -d 'Controller URL (overrides profile)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s s -l site -d 'Site name or UUID' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l api-key -d 'Integration API key' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s p -l profile -d 'Controller profile to use' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s c -l controller -d 'Controller URL (overrides profile)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s s -l site -d 'Site name or UUID' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l api-key -d 'Integration API key' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
 json\t'Pretty-printed JSON'
 json-compact\t'Compact single-line JSON'
 yaml\t'YAML'
 plain\t'Plain text, one value per line (scripting)'"
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
 always\t'Always emit color codes'
 never\t'Never emit color codes'"
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l timeout -d 'Request timeout in seconds' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s q -l quiet -d 'Suppress non-error output'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s y -l yes -d 'Skip confirmation prompts'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l no-cache -d 'Disable session caching (forces fresh login)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s k -l insecure -d 'Accept self-signed TLS certificates'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -s V -l version -d 'Print version'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -f -a "policies" -d 'Manage firewall policies'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -f -a "zones" -d 'Manage firewall zones'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s q -l quiet -d 'Suppress non-error output'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s y -l yes -d 'Skip confirmation prompts'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l no-cache -d 'Disable session caching (forces fresh login)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s V -l version -d 'Print version'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -f -a "policies" -d 'Manage firewall policies'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -f -a "zones" -d 'Manage firewall zones'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -f -a "groups" -d 'Manage firewall groups (port groups, address groups)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s p -l profile -d 'Controller profile to use' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s c -l controller -d 'Controller URL (overrides profile)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s s -l site -d 'Site name or UUID' -r
@@ -2285,6 +2470,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -f -a "list" -d 'List all firewall policies'
@@ -2317,6 +2503,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -f -a "list" -d 'List all firewall zones'
@@ -2325,8 +2512,40 @@ complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -f -a "update" -d 'Update a firewall zone'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -f -a "delete" -d 'Delete a custom firewall zone'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s p -l profile -d 'Controller profile to use' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s c -l controller -d 'Controller URL (overrides profile)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s s -l site -d 'Site name or UUID' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l api-key -d 'Integration API key' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l host-id -d 'Cloud console/host ID (for cloud auth mode)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s o -l output -d 'Output format' -r -f -a "table\t'Pretty table (default, interactive)'
+json\t'Pretty-printed JSON'
+json-compact\t'Compact single-line JSON'
+yaml\t'YAML'
+plain\t'Plain text, one value per line (scripting)'"
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l color -d 'When to use color output' -r -f -a "auto\t'Auto-detect (color if terminal is interactive)'
+always\t'Always emit color codes'
+never\t'Never emit color codes'"
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s q -l quiet -d 'Suppress non-error output'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s y -l yes -d 'Skip confirmation prompts'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l no-cache -d 'Disable session caching (forces fresh login)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s V -l version -d 'Print version'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -f -a "list" -d 'List all firewall groups'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -f -a "get" -d 'Get a specific firewall group'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -f -a "create" -d 'Create a firewall group'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -f -a "update" -d 'Update a firewall group'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -f -a "delete" -d 'Delete a firewall group'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from help" -f -a "policies" -d 'Manage firewall policies'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from help" -f -a "zones" -d 'Manage firewall zones'
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from help" -f -a "groups" -d 'Manage firewall groups (port groups, address groups)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s p -l profile -d 'Controller profile to use' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s c -l controller -d 'Controller URL (overrides profile)' -r
@@ -2350,6 +2569,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_se
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -f -a "list" -d 'List vouchers'
@@ -2382,6 +2602,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -2406,6 +2627,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l name -d 'Voucher name/label' -r
@@ -2437,6 +2659,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s p -l profile -d 'Controller profile to use' -r
@@ -2461,6 +2684,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l filter -d 'Filter expression (required)' -r
@@ -2486,6 +2710,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from help" -f -a "list" -d 'List vouchers'
@@ -2516,6 +2741,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -f -a "policies" -d 'Manage NAT policies'
@@ -2542,6 +2768,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -f -a "list" -d 'List all NAT policies'
@@ -2574,6 +2801,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_s
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -f -a "list" -d 'List all networks'
@@ -2609,6 +2837,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -2633,6 +2862,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l name -d 'Network name' -r
@@ -2675,6 +2905,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s F -l from-file -d 'Load full update payload from JSON file' -r -F
@@ -2704,6 +2935,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s p -l profile -d 'Controller profile to use' -r
@@ -2729,6 +2961,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s p -l profile -d 'Controller profile to use' -r
@@ -2753,6 +2986,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all networks'
@@ -2784,6 +3018,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_see
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -f -a "profiles" -d 'List RADIUS profiles'
@@ -2814,6 +3049,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from help" -f -a "profiles" -d 'List RADIUS profiles'
@@ -2840,6 +3076,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_s
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -f -a "list" -d 'List all site setting sections (session API)'
@@ -2869,6 +3106,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -2893,6 +3131,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l data -d 'Merge a JSON object into the section' -r
@@ -2918,6 +3157,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s p -l profile -d 'Controller profile to use' -r
@@ -2942,6 +3182,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all site setting sections (session API)'
@@ -2971,6 +3212,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -f -a "list" -d 'List local sites'
@@ -3003,6 +3245,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l name -d 'Site name (internal reference)' -r
@@ -3029,6 +3272,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s p -l profile -d 'Controller profile to use' -r
@@ -3053,6 +3297,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from help" -f -a "list" -d 'List local sites'
@@ -3081,6 +3326,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -f -a "site" -d 'Site-level statistics (session API)'
@@ -3119,6 +3365,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l interval -d 'Reporting interval' -r -f -a "5m\t''
@@ -3151,6 +3398,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l interval -d 'Reporting interval' -r -f -a "5m\t''
@@ -3183,6 +3431,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l interval -d 'Reporting interval' -r -f -a "5m\t''
@@ -3215,6 +3464,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l group-by -d 'Analysis type: by-app or by-cat' -r -f -a "by-app\t''
@@ -3242,6 +3492,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_sub
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from help" -f -a "site" -d 'Site-level statistics (session API)'
@@ -3272,6 +3523,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_see
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -f -a "info" -d 'Application version info (Integration API)'
@@ -3303,6 +3555,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s p -l profile -d 'Controller profile to use' -r
@@ -3327,6 +3580,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s p -l profile -d 'Controller profile to use' -r
@@ -3351,6 +3605,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s p -l profile -d 'Controller profile to use' -r
@@ -3375,6 +3630,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -f -a "create" -d 'Create a new backup'
@@ -3404,6 +3660,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s p -l profile -d 'Controller profile to use' -r
@@ -3428,6 +3685,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_su
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from help" -f -a "info" -d 'Application version info (Integration API)'
@@ -3459,6 +3717,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand topology" -s y -l yes -d '
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand topology" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s p -l profile -d 'Controller profile to use' -r
@@ -3483,6 +3742,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __f
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -f -a "list" -d 'List traffic matching lists'
@@ -3517,6 +3777,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -3541,6 +3802,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l name -d 'List name' -r
@@ -3571,6 +3833,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s F -l from-file -d 'Load full payload from JSON file' -r -F
@@ -3596,6 +3859,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s p -l profile -d 'Controller profile to use' -r
@@ -3620,6 +3884,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from help" -f -a "list" -d 'List traffic matching lists'
@@ -3650,6 +3915,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -f -a "servers" -d 'Manage VPN servers'
@@ -3690,6 +3956,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -f -a "get" -d 'Get full details of a VPN server'
@@ -3720,6 +3987,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -f -a "get" -d 'Get full details of a site-to-site VPN tunnel'
@@ -3746,6 +4014,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s p -l profile -d 'Controller profile to use' -r
@@ -3770,6 +4039,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s p -l profile -d 'Controller profile to use' -r
@@ -3794,6 +4064,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -f -a "list" -d 'List site-to-site VPN records'
@@ -3824,6 +4095,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -f -a "list" -d 'List remote-access VPN server records'
@@ -3856,6 +4128,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -f -a "list" -d 'List configured VPN client records'
@@ -3886,6 +4159,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -f -a "list" -d 'List VPN client connections'
@@ -3914,6 +4188,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -f -a "list" -d 'List WireGuard peers, optionally scoped to one server'
@@ -3945,6 +4220,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -f -a "list" -d 'List magic site-to-site VPN configs'
@@ -3972,6 +4248,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subco
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -f -a "list" -d 'List discovered VPN-related site settings'
@@ -4013,6 +4290,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -f -a "list" -d 'List WAN interfaces'
@@ -4043,6 +4321,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from help" -f -a "list" -d 'List WAN interfaces'
@@ -4069,6 +4348,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -f -a "list" -d 'List WiFi broadcasts'
@@ -4105,6 +4385,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s p -l profile -d 'Controller profile to use' -r
@@ -4129,6 +4410,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l within -d 'Only show APs seen within this many seconds' -r
@@ -4156,6 +4438,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s p -l profile -d 'Controller profile to use' -r
@@ -4180,6 +4463,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l name -d 'SSID name' -r
@@ -4221,6 +4505,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s F -l from-file -d 'Load full payload from JSON file' -r -F
@@ -4250,6 +4535,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s p -l profile -d 'Controller profile to use' -r
@@ -4275,6 +4561,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from help" -f -a "list" -d 'List WiFi broadcasts'
@@ -4308,6 +4595,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand tui" -s y -l yes -d 'Skip 
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s k -l insecure -d 'Accept self-signed TLS certificates'
+complete -c unifly -n "__fish_unifly_using_subcommand tui" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s V -l version -d 'Print version'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and not __fish_seen_subcommand_from api acl admin alarms clients completions cloud config countries devices dns dpi events firewall hotspot nat networks radius settings sites stats system topology traffic-lists vpn wans wifi tui help" -f -a "api" -d 'Send a raw API request (GET or POST) to an arbitrary endpoint'
@@ -4393,6 +4681,9 @@ complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from devices" -f -a "provision" -d 'Force re-provision device configuration (session API)'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from devices" -f -a "speedtest" -d 'Run WAN speed test (session API, gateway only)'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from devices" -f -a "tags" -d 'List device tags'
+complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from devices" -f -a "ports" -d 'List switch ports with VLAN configuration (session API)'
+complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from devices" -f -a "ports-export" -d 'Export switch port configuration as JSONC for `port-set --from-file`'
+complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from devices" -f -a "port-set" -d 'Configure a switch port (session API)'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from dns" -f -a "list" -d 'List DNS policies'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from dns" -f -a "get" -d 'Get a DNS policy'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from dns" -f -a "create" -d 'Create a DNS policy'
@@ -4407,6 +4698,7 @@ complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from events" -f -a "watch" -d 'Stream real-time events via WebSocket (session API)'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from firewall" -f -a "policies" -d 'Manage firewall policies'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from firewall" -f -a "zones" -d 'Manage firewall zones'
+complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from firewall" -f -a "groups" -d 'Manage firewall groups (port groups, address groups)'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from hotspot" -f -a "list" -d 'List vouchers'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from hotspot" -f -a "get" -d 'Get voucher details'
 complete -c unifly -n "__fish_unifly_using_subcommand help; and __fish_seen_subcommand_from hotspot" -f -a "create" -d 'Generate new vouchers'

@@ -48,7 +48,7 @@ complete -c uv -n "__fish_uv_needs_command" -l no-python-downloads -d 'Disable a
 complete -c uv -n "__fish_uv_needs_command" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_needs_command" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_needs_command" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_needs_command" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_needs_command" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_needs_command" -l no-native-tls
 complete -c uv -n "__fish_uv_needs_command" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_needs_command" -l no-system-certs
@@ -112,7 +112,7 @@ complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and not __fish_seen_subcommand_from login logout token dir helper" -l no-system-certs
@@ -160,7 +160,7 @@ complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from login" -l no-system-certs
@@ -201,7 +201,7 @@ complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-system-certs
@@ -242,7 +242,7 @@ complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-system-certs
@@ -280,7 +280,7 @@ complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from dir" -l no-system-certs
@@ -319,7 +319,7 @@ complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_from helper" -l no-system-certs
@@ -492,7 +492,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-python-downloads -d 'Di
 complete -c uv -n "__fish_uv_using_subcommand run" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand run" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand run" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand run" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand run" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-system-certs
@@ -558,7 +558,7 @@ complete -c uv -n "__fish_uv_using_subcommand init" -l no-python-downloads -d 'D
 complete -c uv -n "__fish_uv_using_subcommand init" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand init" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand init" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand init" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand init" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand init" -l no-system-certs
@@ -685,7 +685,7 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l no-python-downloads -d 'Di
 complete -c uv -n "__fish_uv_using_subcommand add" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand add" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand add" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand add" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand add" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-system-certs
@@ -787,7 +787,7 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l no-python-downloads -d 
 complete -c uv -n "__fish_uv_using_subcommand remove" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand remove" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand remove" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand remove" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand remove" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand remove" -l no-system-certs
@@ -898,7 +898,7 @@ complete -c uv -n "__fish_uv_using_subcommand version" -l no-python-downloads -d
 complete -c uv -n "__fish_uv_using_subcommand version" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand version" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand version" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand version" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand version" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand version" -l no-system-certs
@@ -1071,7 +1071,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-python-downloads -d 'D
 complete -c uv -n "__fish_uv_using_subcommand sync" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand sync" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand sync" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-system-certs
@@ -1163,7 +1163,7 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l no-python-downloads -d 'D
 complete -c uv -n "__fish_uv_using_subcommand lock" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand lock" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand lock" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand lock" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-system-certs
@@ -1288,7 +1288,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-python-downloads -d 
 complete -c uv -n "__fish_uv_using_subcommand export" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand export" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand export" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand export" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand export" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-system-certs
@@ -1437,7 +1437,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l no-python-downloads -d 'D
 complete -c uv -n "__fish_uv_using_subcommand tree" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tree" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tree" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tree" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-system-certs
@@ -1481,7 +1481,7 @@ complete -c uv -n "__fish_uv_using_subcommand format" -l no-python-downloads -d 
 complete -c uv -n "__fish_uv_using_subcommand format" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand format" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand format" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand format" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand format" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-system-certs
@@ -1623,7 +1623,7 @@ complete -c uv -n "__fish_uv_using_subcommand audit" -l no-python-downloads -d '
 complete -c uv -n "__fish_uv_using_subcommand audit" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand audit" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand audit" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand audit" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand audit" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-system-certs
@@ -1661,7 +1661,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-system-certs
@@ -1873,7 +1873,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-system-certs
@@ -2077,7 +2077,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-system-certs
@@ -2274,7 +2274,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-system-certs
@@ -2408,7 +2408,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-system-certs
@@ -2454,7 +2454,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-system-certs
@@ -2493,7 +2493,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l no-system-certs
@@ -2531,7 +2531,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from update-shell" -l no-system-certs
@@ -2570,7 +2570,7 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from dir" -l no-system-certs
@@ -2608,7 +2608,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcom
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and not __fish_seen_subcommand_from list install upgrade find pin dir uninstall update-shell" -l no-system-certs
@@ -2663,7 +2663,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from list" -l no-system-certs
@@ -2715,7 +2715,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from install" -l no-system-certs
@@ -2760,7 +2760,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from upgrade" -l no-system-certs
@@ -2805,7 +2805,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from find" -l no-system-certs
@@ -2849,7 +2849,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from pin" -l no-system-certs
@@ -2888,7 +2888,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from dir" -l no-system-certs
@@ -2928,7 +2928,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from uninstall" -l no-system-certs
@@ -2966,7 +2966,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-system-certs
@@ -3004,7 +3004,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcomman
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l no-system-certs
@@ -3251,7 +3251,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-system-certs
@@ -3448,7 +3448,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-system-certs
@@ -3619,6 +3619,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-editable -d 'Install any editable dependencies as non-editable [env: UV_NO_EDITABLE=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l all-extras -d 'Include all optional dependencies'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-all-extras
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
@@ -3661,7 +3662,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-system-certs
@@ -3712,7 +3713,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l no-system-certs
@@ -3761,7 +3762,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l no-system-certs
@@ -3827,7 +3828,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l no-system-certs
@@ -3874,7 +3875,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l no-system-certs
@@ -3938,7 +3939,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l no-system-certs
@@ -4025,7 +4026,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l no-system-certs
@@ -4067,7 +4068,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l no-system-certs
@@ -4141,7 +4142,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l no-python-downloads -d 'D
 complete -c uv -n "__fish_uv_using_subcommand venv" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand venv" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand venv" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-system-certs
@@ -4245,7 +4246,7 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l no-python-downloads -d '
 complete -c uv -n "__fish_uv_using_subcommand build" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-system-certs
@@ -4298,7 +4299,7 @@ complete -c uv -n "__fish_uv_using_subcommand publish" -l no-python-downloads -d
 complete -c uv -n "__fish_uv_using_subcommand publish" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand publish" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand publish" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand publish" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand publish" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand publish" -l no-system-certs
@@ -4336,7 +4337,7 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -l no-system-certs
@@ -4429,7 +4430,7 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-system-certs
@@ -4468,7 +4469,7 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from dir" -l no-system-certs
@@ -4507,7 +4508,7 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l no-system-certs
@@ -4545,7 +4546,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and not __fish_seen_subcommand_from build-sdist build-wheel build-editable get-requires-for-build-sdist get-requires-for-build-wheel prepare-metadata-for-build-wheel get-requires-for-build-editable prepare-metadata-for-build-editable" -l no-system-certs
@@ -4591,7 +4592,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-sdist" -l no-system-certs
@@ -4630,7 +4631,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-wheel" -l no-system-certs
@@ -4669,7 +4670,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from build-editable" -l no-system-certs
@@ -4707,7 +4708,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-sdist" -l no-system-certs
@@ -4745,7 +4746,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-wheel" -l no-system-certs
@@ -4783,7 +4784,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-wheel" -l no-system-certs
@@ -4821,7 +4822,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from get-requires-for-build-editable" -l no-system-certs
@@ -4859,7 +4860,7 @@ complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand build-backend; and __fish_seen_subcommand_from prepare-metadata-for-build-editable" -l no-system-certs
@@ -4897,7 +4898,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -l no-system-certs
@@ -4940,7 +4941,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l no-system-certs
@@ -4980,7 +4981,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from prune" -l no-system-certs
@@ -5018,7 +5019,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-system-certs
@@ -5057,7 +5058,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l no-system-certs
@@ -5095,7 +5096,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcomma
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand self; and not __fish_seen_subcommand_from update version" -l no-system-certs
@@ -5137,7 +5138,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from update" -l no-system-certs
@@ -5178,7 +5179,7 @@ complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand self; and __fish_seen_subcommand_from version" -l no-system-certs
@@ -5217,7 +5218,7 @@ complete -c uv -n "__fish_uv_using_subcommand clean" -l no-python-downloads -d '
 complete -c uv -n "__fish_uv_using_subcommand clean" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand clean" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand clean" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand clean" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand clean" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand clean" -l no-system-certs
@@ -5295,7 +5296,7 @@ complete -c uv -n "__fish_uv_using_subcommand help" -l no-python-downloads -d 'D
 complete -c uv -n "__fish_uv_using_subcommand help" -s q -l quiet -d 'Use quiet output'
 complete -c uv -n "__fish_uv_using_subcommand help" -s v -l verbose -d 'Use verbose output'
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand help" -l native-tls -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand help" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-native-tls
 complete -c uv -n "__fish_uv_using_subcommand help" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
 complete -c uv -n "__fish_uv_using_subcommand help" -l no-system-certs
