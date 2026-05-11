@@ -27,6 +27,7 @@
 @thekarel/rum
 @vibe-kit/grok-cli
 actions-up
+agent-desktop
 backlog.md
 bats
 branchlet
