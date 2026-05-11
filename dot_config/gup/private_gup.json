@@ -812,6 +812,12 @@
       "channel": "latest"
     },
     {
+      "name": "lazycwl",
+      "import_path": "github.com/myuron/lazycwl",
+      "version": "v1.4.0",
+      "channel": "latest"
+    },
+    {
       "name": "lazydocker",
       "import_path": "github.com/jesseduffield/lazydocker",
       "version": "v0.25.2",
@@ -1049,6 +1055,12 @@
       "name": "pipeform",
       "import_path": "github.com/magodo/pipeform",
       "version": "v0.2.1",
+      "channel": "latest"
+    },
+    {
+      "name": "plow",
+      "import_path": "github.com/six-ddc/plow",
+      "version": "v1.4.0",
       "channel": "latest"
     },
     {
