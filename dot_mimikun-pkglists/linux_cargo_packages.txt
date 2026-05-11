@@ -59,6 +59,7 @@ ccswarm
 cctx
 cell-sheet-tui
 checkpwn
+chess-tui
 choose
 cmd-wrapped
 codeberg-cli
@@ -322,6 +323,7 @@ snipt
 so
 somo
 soundscope
+splashboard
 sprofile
 srgn
 ssh-list
