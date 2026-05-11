@@ -88,7 +88,7 @@
     {
       "name": "aptui",
       "import_path": "github.com/mexirica/aptui",
-      "version": "v0.7.0",
+      "version": "v0.8.1",
       "channel": "latest"
     },
     {
@@ -880,7 +880,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260510023627-be2484318fbe",
+      "version": "v0.0.0-20260511030751-da044df808fd",
       "channel": "latest"
     },
     {
@@ -1522,7 +1522,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.13",
+      "version": "v0.20.14",
       "channel": "latest"
     },
     {
