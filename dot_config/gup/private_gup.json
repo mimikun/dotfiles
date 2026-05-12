@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.8.5",
+      "version": "v0.8.6",
       "channel": "latest"
     },
     {
@@ -76,7 +76,7 @@
     {
       "name": "amux",
       "import_path": "github.com/andyrewlee/amux/cmd/amux",
-      "version": "v0.0.18",
+      "version": "v0.0.19",
       "channel": "latest"
     },
     {
@@ -154,7 +154,7 @@
     {
       "name": "ccgate",
       "import_path": "github.com/tak848/ccgate",
-      "version": "v0.8.0",
+      "version": "v0.9.0",
       "channel": "latest"
     },
     {
@@ -220,7 +220,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.66.1",
+      "version": "v0.67.0",
       "channel": "latest"
     },
     {
@@ -424,7 +424,7 @@
     {
       "name": "fx",
       "import_path": "github.com/antonmedv/fx",
-      "version": "v0.0.0-20260508075547-05f0871ea43d",
+      "version": "v0.0.0-20260511101514-bb2c34476500",
       "channel": "latest"
     },
     {
@@ -886,7 +886,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.11.0",
+      "version": "v0.11.3",
       "channel": "latest"
     },
     {
@@ -1198,7 +1198,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260509170725-c4e9e4f513bd",
+      "version": "v0.0.0-20260512012644-1d56231fd3ca",
       "channel": "latest"
     },
     {
@@ -1282,7 +1282,7 @@
     {
       "name": "sq",
       "import_path": "github.com/neilotoole/sq",
-      "version": "v0.50.2",
+      "version": "v0.51.0",
       "channel": "latest"
     },
     {
@@ -1516,7 +1516,7 @@
     {
       "name": "yatto",
       "import_path": "github.com/handlebargh/yatto",
-      "version": "v1.2.0",
+      "version": "v1.3.0",
       "channel": "latest"
     },
     {
