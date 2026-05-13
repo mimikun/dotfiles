@@ -99,6 +99,7 @@ dysk
 ecscope
 eilmeldung
 ekphos
+elio
 emmylua_check
 emmylua_doc_cli
 emmylua_ls
@@ -150,6 +151,7 @@ hawk-data
 hazelnut
 heh
 hex-patch
+hexapoda
 hexhog
 hexyl
 hf
