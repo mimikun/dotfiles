@@ -10,6 +10,7 @@ crush-bin
 datui-bin
 eilmeldung
 dstask
+elio
 endcord
 ereandel
 f2-bin
@@ -47,6 +48,7 @@ matugen-bin
 mcdu-bin
 minify
 monitui
+moribito
 morisawa-biz-ud-gothic-fonts
 murex
 murex-debug
@@ -71,6 +73,7 @@ sunbeam-bin
 t-rec
 tetrio-desktop
 tinifier
+tio
 todoist-bin
 toofan-bin
 tracker
