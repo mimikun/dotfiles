@@ -67,3 +67,4 @@ tombi
 up-fetch
 vde-layout
 vde-monitor
+@pnpm/exe
