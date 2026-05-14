@@ -24,6 +24,7 @@
 @pranshuparmar/witr
 @qwen-code/qwen-code
 @sasazame/ccresume
+@struktoai/mirage-cli
 @thekarel/rum
 @vibe-kit/grok-cli
 actions-up
