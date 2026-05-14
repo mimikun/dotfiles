@@ -502,7 +502,7 @@
     {
       "name": "git-wt",
       "import_path": "github.com/k1LoW/git-wt",
-      "version": "v0.27.0",
+      "version": "v0.28.0",
       "channel": "latest"
     },
     {
@@ -1138,7 +1138,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.38.3",
+      "version": "v0.39.1",
       "channel": "latest"
     },
     {
@@ -1198,7 +1198,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260513001639-46d495d1486c",
+      "version": "v0.0.0-20260513214058-0e9d2b67e502",
       "channel": "latest"
     },
     {
