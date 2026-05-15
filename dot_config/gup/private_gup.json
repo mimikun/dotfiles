@@ -64,7 +64,7 @@
     {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
-      "version": "v0.0.112",
+      "version": "v0.0.113",
       "channel": "latest"
     },
     {
@@ -220,7 +220,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.67.0",
+      "version": "v0.68.0",
       "channel": "latest"
     },
     {
@@ -616,7 +616,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/aperturerobotics/goscript/cmd/goscript",
-      "version": "v0.0.84",
+      "version": "v0.1.0",
       "channel": "latest"
     },
     {
@@ -886,7 +886,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.11.5",
+      "version": "v0.11.7",
       "channel": "latest"
     },
     {
@@ -1138,7 +1138,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.39.1",
+      "version": "v0.39.3",
       "channel": "latest"
     },
     {
@@ -1198,7 +1198,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260513214058-0e9d2b67e502",
+      "version": "v0.0.0-20260514154727-9d39b30d6037",
       "channel": "latest"
     },
     {
@@ -1498,7 +1498,7 @@
     {
       "name": "xurl",
       "import_path": "github.com/xdevplatform/xurl",
-      "version": "v1.1.0",
+      "version": "v1.1.1",
       "channel": "latest"
     },
     {
