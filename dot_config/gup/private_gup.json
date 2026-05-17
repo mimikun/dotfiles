@@ -64,7 +64,7 @@
     {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
-      "version": "v0.0.113",
+      "version": "v0.0.120",
       "channel": "latest"
     },
     {
@@ -220,7 +220,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.68.0",
+      "version": "v0.69.1",
       "channel": "latest"
     },
     {
@@ -394,7 +394,7 @@
     {
       "name": "fence",
       "import_path": "github.com/Use-Tusk/fence/cmd/fence",
-      "version": "v0.1.57",
+      "version": "v0.1.58",
       "channel": "latest"
     },
     {
@@ -592,7 +592,7 @@
     {
       "name": "gonzo",
       "import_path": "github.com/control-theory/gonzo/cmd/gonzo",
-      "version": "v0.3.2",
+      "version": "v0.4.2",
       "channel": "latest"
     },
     {
@@ -880,13 +880,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260511030751-da044df808fd",
+      "version": "v0.0.0-20260516005331-42e567abbd35",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.11.7",
+      "version": "v0.11.8",
       "channel": "latest"
     },
     {
@@ -910,7 +910,7 @@
     {
       "name": "mani",
       "import_path": "github.com/alajmo/mani",
-      "version": "v0.32.0",
+      "version": "v0.32.1",
       "channel": "latest"
     },
     {
@@ -988,7 +988,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.11.0",
+      "version": "v0.12.0",
       "channel": "latest"
     },
     {
@@ -1024,7 +1024,7 @@
     {
       "name": "packemon",
       "import_path": "github.com/ddddddO/packemon/cmd/packemon",
-      "version": "v1.8.21",
+      "version": "v1.8.22",
       "channel": "latest"
     },
     {
@@ -1048,7 +1048,7 @@
     {
       "name": "pinact",
       "import_path": "github.com/suzuki-shunsuke/pinact/v3/cmd/pinact",
-      "version": "v3.10.0",
+      "version": "v3.10.1",
       "channel": "latest"
     },
     {
@@ -1282,7 +1282,7 @@
     {
       "name": "sq",
       "import_path": "github.com/neilotoole/sq",
-      "version": "v0.51.0",
+      "version": "v0.52.0",
       "channel": "latest"
     },
     {
@@ -1330,7 +1330,7 @@
     {
       "name": "task",
       "import_path": "github.com/go-task/task/v3/cmd/task",
-      "version": "v3.50.0",
+      "version": "v3.51.1",
       "channel": "latest"
     },
     {
@@ -1468,7 +1468,7 @@
     {
       "name": "witr",
       "import_path": "github.com/pranshuparmar/witr/cmd/witr",
-      "version": "v0.3.1",
+      "version": "v0.3.2",
       "channel": "latest"
     },
     {
@@ -1492,7 +1492,7 @@
     {
       "name": "xpdig",
       "import_path": "github.com/brunoluiz/xpdig/cmd/xpdig",
-      "version": "v1.22.0",
+      "version": "v1.24.0",
       "channel": "latest"
     },
     {
