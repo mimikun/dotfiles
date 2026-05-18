@@ -826,7 +826,7 @@
     {
       "name": "lazyenv",
       "import_path": "github.com/lazynop/lazyenv",
-      "version": "v0.7.1",
+      "version": "v0.8.0",
       "channel": "latest"
     },
     {
@@ -1024,7 +1024,7 @@
     {
       "name": "packemon",
       "import_path": "github.com/ddddddO/packemon/cmd/packemon",
-      "version": "v1.8.22",
+      "version": "v1.8.23",
       "channel": "latest"
     },
     {
@@ -1372,7 +1372,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.9.6",
+      "version": "v1.9.7",
       "channel": "latest"
     },
     {
