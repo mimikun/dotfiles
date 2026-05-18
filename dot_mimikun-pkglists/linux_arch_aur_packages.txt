@@ -1,7 +1,7 @@
 bastet
 betterlockscreen
 bit
-brow6el-git
+brow6el
 charm-pop-bin
 chatuino-bin
 cmigemo-git
