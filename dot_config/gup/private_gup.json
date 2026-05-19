@@ -220,7 +220,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.69.1",
+      "version": "v0.70.0",
       "channel": "latest"
     },
     {
@@ -604,7 +604,7 @@
     {
       "name": "gopls",
       "import_path": "golang.org/x/tools/gopls",
-      "version": "v0.21.1",
+      "version": "v0.22.0",
       "channel": "latest"
     },
     {
@@ -880,13 +880,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260516005331-42e567abbd35",
+      "version": "v0.0.0-20260519013949-3bf2f253743a",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.11.8",
+      "version": "v0.12.0",
       "channel": "latest"
     },
     {
@@ -1024,7 +1024,7 @@
     {
       "name": "packemon",
       "import_path": "github.com/ddddddO/packemon/cmd/packemon",
-      "version": "v1.8.23",
+      "version": "v1.8.24",
       "channel": "latest"
     },
     {
@@ -1138,7 +1138,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.39.3",
+      "version": "v0.39.4",
       "channel": "latest"
     },
     {
@@ -1198,7 +1198,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260514154727-9d39b30d6037",
+      "version": "v0.0.0-20260518172608-1c96daa9a011",
       "channel": "latest"
     },
     {
@@ -1372,7 +1372,7 @@
     {
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
-      "version": "v1.9.7",
+      "version": "v1.9.8",
       "channel": "latest"
     },
     {
