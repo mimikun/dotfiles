@@ -48,7 +48,7 @@ packages:
   - name: pamburus/hl@v0.36.2
   - name: pkgxdev/pkgx@v2.10.3
   - name: project-copacetic/copacetic@v0.14.1
-  - name: pvolok/mprocs@v0.9.2
+  - name: pvolok/mprocs@v0.9.3
   - name: sclevine/yj@v5.1.0
   - name: sheepla/pingu@v0.0.5
   - name: sqshq/sampler@v1.1.0
