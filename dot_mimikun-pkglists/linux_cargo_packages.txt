@@ -66,6 +66,7 @@ codeberg-cli
 colorgen-nvim
 comchan
 commitlint-rs
+concord
 confirm-pam
 countryfetch
 create-tauri-app
@@ -186,6 +187,7 @@ kanha
 kbt
 kdash
 kibi
+kite-tui
 koji
 krafna
 lawkit
@@ -293,6 +295,7 @@ rrc
 rscls
 rucola-notes
 rumdl
+rura
 rusk-task
 rust-script
 rustfinity
@@ -316,6 +319,7 @@ sheldon
 shellharden
 siggy
 sigrs
+sigye
 silicon
 similarity-ts
 skim
@@ -390,6 +394,7 @@ wireman
 wisu
 work-tuimer
 worktrunk
+wrkflw
 wthrr
 xan
 xbps-tui
