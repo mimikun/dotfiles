@@ -68,4 +68,5 @@ tombi
 up-fetch
 vde-layout
 vde-monitor
+@colbymchenry/codegraph
 @pnpm/exe
