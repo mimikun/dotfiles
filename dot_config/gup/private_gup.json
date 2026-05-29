@@ -98,6 +98,12 @@
       "channel": "latest"
     },
     {
+      "name": "ax",
+      "import_path": "github.com/google/ax/cmd/ax",
+      "version": "v0.1.0",
+      "channel": "latest"
+    },
+    {
       "name": "az-tui",
       "import_path": "github.com/IAL32/az-tui/cmd/az-tui",
       "version": "v0.4.0",
@@ -269,6 +275,12 @@
       "name": "deletor",
       "import_path": "github.com/pashkov256/deletor",
       "version": "v1.5.0",
+      "channel": "latest"
+    },
+    {
+      "name": "diffyml",
+      "import_path": "github.com/szhekpisov/diffyml",
+      "version": "v1.6.1",
       "channel": "latest"
     },
     {
@@ -539,6 +551,10 @@
       "name": "gmailctl",
       "import_path": "github.com/mbrt/gmailctl/cmd/gmailctl",
       "version": "v0.11.0",
+    {
+      "name": "gofumpt",
+      "import_path": "mvdan.cc/gofumpt",
+      "version": "v0.10.0",
       "channel": "latest"
     },
     {
@@ -731,6 +747,12 @@
       "name": "httptap",
       "import_path": "github.com/monasticacademy/httptap",
       "version": "v0.1.1",
+      "channel": "latest"
+    },
+    {
+      "name": "hulak",
+      "import_path": "github.com/xaaha/hulak",
+      "version": "v0.2.15",
       "channel": "latest"
     },
     {
@@ -1109,6 +1131,12 @@
       "name": "qo",
       "import_path": "github.com/kiki-ki/go-qo/cmd/qo",
       "version": "v0.4.0",
+      "channel": "latest"
+    },
+    {
+      "name": "quien",
+      "import_path": "github.com/retlehs/quien",
+      "version": "v0.10.0",
       "channel": "latest"
     },
     {
