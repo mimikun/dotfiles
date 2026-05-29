@@ -337,7 +337,7 @@ complete -c uv -n "__fish_uv_using_subcommand auth; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand run" -l extra -d 'Include optional dependencies from the specified extra name' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l group -d 'Include dependencies from the specified dependency group' -r -f
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Disable the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-group -d 'Only include dependencies from the specified dependency group' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l env-file -d 'Load environment variables from a `.env` file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -s w -l with -d 'Run with the given packages installed' -r -f
@@ -375,9 +375,9 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l link-mode -d 'The method t
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand run" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l package -d 'Run the command in a specific package in the workspace' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -s p -l python -d 'The Python interpreter to use for the run environment.' -r -f
@@ -617,9 +617,9 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l link-mode -d 'The method t
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand add" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand add" -l package -d 'Add the dependency to a specific package in the workspace' -r -f
 complete -c uv -n "__fish_uv_using_subcommand add" -l script -d 'Add the dependency to the specified Python script, rather than to a project' -r -F
@@ -733,9 +733,9 @@ complete -c uv -n "__fish_uv_using_subcommand remove" -l link-mode -d 'The metho
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand remove" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand remove" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand remove" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand remove" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand remove" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand remove" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand remove" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand remove" -l package -d 'Remove the dependencies from a specific package in the workspace' -r -f
 complete -c uv -n "__fish_uv_using_subcommand remove" -l script -d 'Remove the dependency from the specified Python script, rather than from a project' -r -F
@@ -844,9 +844,9 @@ complete -c uv -n "__fish_uv_using_subcommand version" -l link-mode -d 'The meth
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand version" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand version" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand version" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand version" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand version" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand version" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand version" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand version" -l package -d 'Update the version of a specific package in the workspace' -r -f
 complete -c uv -n "__fish_uv_using_subcommand version" -s p -l python -d 'The Python interpreter to use for resolving and syncing.' -r -f
@@ -917,7 +917,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l output-format -d 'Select 
 json\t'Display the result in JSON format'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l group -d 'Include dependencies from the specified dependency group' -r -f
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-group -d 'Disable the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-group -d 'Only include dependencies from the specified dependency group' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-package -d 'Do not install the given package(s)' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-install-package -d 'Only install the given package(s)' -r -f
@@ -953,9 +953,9 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l link-mode -d 'The method 
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l package -d 'Sync for specific packages in the workspace' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l script -d 'Sync the environment for a Python script, rather than the current project' -r -F
@@ -1117,9 +1117,9 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l link-mode -d 'The method 
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand lock" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand lock" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand lock" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand lock" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand lock" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand lock" -s p -l python -d 'The Python interpreter to use during resolution.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand lock" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
@@ -1185,7 +1185,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l prune -d 'Prune the giv
 complete -c uv -n "__fish_uv_using_subcommand export" -l extra -d 'Include optional dependencies from the specified extra name' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l group -d 'Include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-group -d 'Disable the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-group -d 'Only include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -s o -l output-file -d 'Write the exported requirements to the given file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-package -d 'Do not emit the given package(s)' -r -f
@@ -1221,9 +1221,9 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l link-mode -d 'The metho
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand export" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand export" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand export" -l script -d 'Export the dependencies for the specified PEP 723 Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -s p -l python -d 'The Python interpreter to use during resolution.' -r -f
@@ -1306,10 +1306,10 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -s d -l depth -d 'Maximum di
 complete -c uv -n "__fish_uv_using_subcommand tree" -l prune -d 'Prune the given package from the display of the dependency tree' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tree" -l package -d 'Display only the specified packages' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tree" -l group -d 'Include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-group -d 'Disable the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l only-group -d 'Only include dependencies from the specified dependency group' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tree" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -1341,7 +1341,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l link-mode -d 'The method 
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand tree" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l script -d 'Show the dependency tree the specified PEP 723 Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand tree" -l python-version -d 'The Python version to use when filtering the tree' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l python-platform -d 'The platform to use when filtering the tree' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
@@ -1496,10 +1496,12 @@ complete -c uv -n "__fish_uv_using_subcommand format" -l no-installer-metadata -
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand format" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-extra -d 'Don\'t audit the specified optional dependencies' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-group -d 'Don\'t audit the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-group -d 'Don\'t audit the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l only-group -d 'Only audit dependencies from the specified dependency group' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand audit" -l output-format -d 'Select the output format' -r -f -a "text\t'Display the result in a human-readable format'
+json\t'Display the result in JSON format'"
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand audit" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand audit" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
@@ -1531,7 +1533,7 @@ complete -c uv -n "__fish_uv_using_subcommand audit" -l link-mode -d 'The method
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand audit" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
+complete -c uv -n "__fish_uv_using_subcommand audit" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand audit" -l script -d 'Audit the specified PEP 723 Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand audit" -l python-version -d 'The Python version to use when auditing' -r
 complete -c uv -n "__fish_uv_using_subcommand audit" -l python-platform -d 'The platform to use when auditing' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
@@ -1723,9 +1725,9 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
@@ -1926,9 +1928,9 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s p -l python -d 'The Python interpreter to use to build the run environment.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
@@ -2131,9 +2133,9 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter to use to build the tool environment.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l python-platform -d 'The platform for which requirements should be installed' -r -f -a "windows\t'An alias for `x86_64-pc-windows-msvc`, the default target for Windows'
@@ -2366,9 +2368,9 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3065,7 +3067,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s o -l output-file -d 'Write the compiled requirements to the given `requirements.txt` or `pylock.toml` file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l format -d 'The format in which the resolution should be output' -r -f -a "requirements.txt\t'Export in `requirements.txt` format'
@@ -3287,7 +3289,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s t -l target -d 'Install packages into the specified directory, rather than into the virtual or system Python environment. The packages will be installed at the top-level of the directory' -r -f -a "(__fish_complete_directories)"
@@ -3501,7 +3503,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s p -l python -d 'The Python interpreter into which packages should be installed.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s t -l target -d 'Install packages into the specified directory, rather than into the virtual or system Python environment. The packages will be installed at the top-level of the directory' -r -f -a "(__fish_complete_directories)"
@@ -4191,9 +4193,9 @@ complete -c uv -n "__fish_uv_using_subcommand build" -l link-mode -d 'The method
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand build" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand build" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand build" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand build" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand build" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand build" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
@@ -4385,9 +4387,9 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcomm
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
 symlink\t'Symbolically link packages from the source into the destination'"
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages' -r
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-build-package -d 'Don\'t build source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s p -l python -d 'The Python interpreter to use during resolution.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"

@@ -20,7 +20,7 @@ complete -c doggo -n '__fish_doggo_no_subcommand' -s 'r' -l 'reverse'    -d "Per
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'any'               -d "Query all supported DNS record types"
 
 # Resolver options
-complete -c doggo -n '__fish_doggo_no_subcommand' -l 'strategy'  -d "Strategy to query nameserver listed in etc/resolv.conf" -x -a "all random first internal"
+complete -c doggo -n '__fish_doggo_no_subcommand' -l 'strategy'  -d "Strategy to query nameservers" -x -a "all random first internal"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'ndots'     -d "Specify ndots parameter"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'search'    -d "Use the search list defined in resolv.conf" -x -a "true false"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'timeout'   -d "Specify timeout (in seconds) for the resolver to return a response"
@@ -41,6 +41,7 @@ complete -c doggo -n '__fish_doggo_no_subcommand' -l 'cookie'  -d "Request DNS C
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'padding' -d "Request EDNS padding for privacy"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'ede'     -d "Request Extended DNS Errors"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'ecs'     -d "EDNS Client Subnet" -x
+complete -c doggo -n '__fish_doggo_no_subcommand' -l 'bufsize' -d "EDNS UDP buffer size in bytes" -x
 
 # Output options
 complete -c doggo -n '__fish_doggo_no_subcommand' -s 'J' -l 'json'  -d "Format the output as JSON"
