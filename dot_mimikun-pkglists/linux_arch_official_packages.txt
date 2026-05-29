@@ -150,6 +150,7 @@ polybar
 poppler
 prismlauncher
 protobuf
+pwndbg
 python-hatch
 ranger
 rclone
