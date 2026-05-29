@@ -63,6 +63,7 @@ paru
 paru-debug
 podliner-bin
 qq-git
+quien
 sampler
 scooter
 shikai-theme
