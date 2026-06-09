@@ -15,7 +15,7 @@ packages:
   - name: CyberAgent/reminder-lint@0.2.1
   - name: dagu-org/dagu@v2.7.13
   - name: danvergara/dblab@v0.40.1
-  - name: derailed/k9s@v0.50.18
+  - name: derailed/k9s@v0.51.0
   - name: direnv/direnv@v2.37.1
   - name: dlvhdr/diffnav@v0.11.0
   - name: dominikh/go-tools/staticcheck@2026.1
