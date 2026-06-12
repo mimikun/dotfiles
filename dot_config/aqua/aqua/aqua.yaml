@@ -60,4 +60,4 @@ packages:
   - name: twpayne/chezmoi@v2.70.5
   - name: wtetsu/gaze@v1.2.1
   - name: yassinebenaid/bunster@v0.14.0
-  - name: yorukot/superfile@v1.5.0
+  - name: yorukot/superfile@v1.6.0
