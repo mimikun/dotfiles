@@ -88,3 +88,7 @@ if [ -s "$HOME/.config/envman/load.sh" ]; then
     source "$HOME/.config/envman/load.sh"
 fi
 
+# kyushu
+if [ -s "$HOME/.kyu/bin/env" ]; then
+    source "$HOME/.kyu/bin/env"
+fi
