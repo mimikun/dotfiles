@@ -113,6 +113,7 @@ llvm
 lsof
 mailcap
 mandoc
+mdfried
 menyoki
 meson
 mingw-w64-gcc
