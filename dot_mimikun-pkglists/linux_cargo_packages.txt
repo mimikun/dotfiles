@@ -28,6 +28,7 @@ bottom
 bpf-linker
 broot
 brush-shell
+bttf
 bugstalker
 cargo-about
 cargo-all-features
@@ -212,6 +213,7 @@ mcfly
 mcp-cli
 mdbook
 mdns-scanner
+mdfried
 menyoki
 mergiraf
 mise
@@ -345,6 +347,7 @@ syntaqlite-cli
 systemctl-tui
 systemd-manager-tui
 systeroid
+syswatch
 t-rec
 tabiew
 taplo-cli
