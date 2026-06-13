@@ -31,6 +31,7 @@ ipaddr
 irb
 itamae
 json
+language_server-protocol
 logger
 matrix
 minitest
@@ -72,6 +73,7 @@ repl_type_completor
 resolv
 resolv-replace
 rexml
+rigortype
 rinda
 rss
 ruby2_keywords
