@@ -600,6 +600,7 @@ pyparsing
 pypdf
 pyperclip
 pyproject_hooks
+pyslang
 pyspnego
 pyte
 python-crontab
@@ -687,6 +688,7 @@ six
 skia-pathops
 skops
 slowapi
+slumber-python
 smassh
 smmap
 sncli
