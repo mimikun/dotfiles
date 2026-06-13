@@ -70,3 +70,4 @@ vde-layout
 vde-monitor
 @colbymchenry/codegraph
 @pnpm/exe
+epiq
