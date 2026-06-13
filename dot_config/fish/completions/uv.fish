@@ -71,9 +71,11 @@ complete -c uv -n "__fish_uv_needs_command" -f -a "remove" -d 'Remove dependenci
 complete -c uv -n "__fish_uv_needs_command" -f -a "version" -d 'Read or update the project\'s version'
 complete -c uv -n "__fish_uv_needs_command" -f -a "sync" -d 'Update the project\'s environment'
 complete -c uv -n "__fish_uv_needs_command" -f -a "lock" -d 'Update the project\'s lockfile'
+complete -c uv -n "__fish_uv_needs_command" -f -a "upgrade" -d 'Upgrade a dependency in the project'
 complete -c uv -n "__fish_uv_needs_command" -f -a "export" -d 'Export the project\'s lockfile to an alternate format'
 complete -c uv -n "__fish_uv_needs_command" -f -a "tree" -d 'Display the project\'s dependency tree'
 complete -c uv -n "__fish_uv_needs_command" -f -a "format" -d 'Format Python code in the project'
+complete -c uv -n "__fish_uv_needs_command" -f -a "check" -d 'Run checks on the project'
 complete -c uv -n "__fish_uv_needs_command" -f -a "audit" -d 'Audit the project\'s dependencies'
 complete -c uv -n "__fish_uv_needs_command" -f -a "tool" -d 'Run and install commands provided by Python packages'
 complete -c uv -n "__fish_uv_needs_command" -f -a "python" -d 'Manage Python versions and installations'
@@ -339,6 +341,7 @@ complete -c uv -n "__fish_uv_using_subcommand run" -l no-extra -d 'Exclude the s
 complete -c uv -n "__fish_uv_using_subcommand run" -l group -d 'Include dependencies from the specified dependency group' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l only-group -d 'Only include dependencies from the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand run" -l no-editable-package -d 'Install the specified editable packages as non-editable' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l env-file -d 'Load environment variables from a `.env` file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand run" -s w -l with -d 'Run with the given packages installed' -r -f
 complete -c uv -n "__fish_uv_using_subcommand run" -l with-editable -d 'Run with the given packages installed in editable mode' -r -f -a "(__fish_complete_directories)"
@@ -423,7 +426,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -577,6 +581,7 @@ complete -c uv -n "__fish_uv_using_subcommand add" -s c -l constraints -d 'Const
 complete -c uv -n "__fish_uv_using_subcommand add" -s m -l marker -d 'Apply this marker to all added packages' -r -f
 complete -c uv -n "__fish_uv_using_subcommand add" -l optional -d 'Add the requirements to the package\'s optional dependencies for the specified extra' -r -f
 complete -c uv -n "__fish_uv_using_subcommand add" -l group -d 'Add the requirements to the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-editable-package -d 'Don\'t add the specified requirements as editable' -r -f
 complete -c uv -n "__fish_uv_using_subcommand add" -l bounds -d 'The kind of version specifier to use when adding dependencies' -r -f -a "lower\t'Only a lower bound, e.g., `>=1.2.3`'
 major\t'Allow the same major version, similar to the semver caret, e.g., `>=1.2.3, <2.0.0`'
 minor\t'Allow the same minor version, similar to the semver tilde, e.g., `>=1.2.3, <1.3.0`'
@@ -671,11 +676,11 @@ complete -c uv -n "__fish_uv_using_subcommand add" -l refresh -d 'Refresh all ca
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-refresh
 complete -c uv -n "__fish_uv_using_subcommand add" -l workspace -d 'Add the dependency as a workspace member'
 complete -c uv -n "__fish_uv_using_subcommand add" -l no-workspace -d 'Don\'t add the dependency as a workspace member'
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-project -d 'Do not install the current project'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-project -d 'Do not install the current project [env: UV_NO_INSTALL_PROJECT=]'
 complete -c uv -n "__fish_uv_using_subcommand add" -l only-install-project -d 'Only install the current project'
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-workspace -d 'Do not install any workspace members, including the current project'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-workspace -d 'Do not install any workspace members, including the current project [env: UV_NO_INSTALL_WORKSPACE=]'
 complete -c uv -n "__fish_uv_using_subcommand add" -l only-install-workspace -d 'Only install workspace members, including the current project'
-complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-local -d 'Do not install local path dependencies'
+complete -c uv -n "__fish_uv_using_subcommand add" -l no-install-local -d 'Do not install local path dependencies [env: UV_NO_INSTALL_LOCAL=]'
 complete -c uv -n "__fish_uv_using_subcommand add" -l only-install-local -d 'Only install local path dependencies'
 complete -c uv -n "__fish_uv_using_subcommand add" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand add" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
@@ -919,6 +924,7 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l no-extra -d 'Exclude the 
 complete -c uv -n "__fish_uv_using_subcommand sync" -l group -d 'Include dependencies from the specified dependency group' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-group -d 'Only include dependencies from the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-editable-package -d 'Install the specified editable packages as non-editable' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-package -d 'Do not install the given package(s)' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-install-package -d 'Only install the given package(s)' -r -f
 complete -c uv -n "__fish_uv_using_subcommand sync" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -1001,7 +1007,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -1034,11 +1041,11 @@ complete -c uv -n "__fish_uv_using_subcommand sync" -l inexact -d 'Do not remove
 complete -c uv -n "__fish_uv_using_subcommand sync" -l exact -d 'Perform an exact sync, removing extraneous packages'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l active -d 'Sync dependencies to the active virtual environment'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l no-active -d 'Prefer project\'s virtual environment over an active environment'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-project -d 'Do not install the current project'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-project -d 'Do not install the current project [env: UV_NO_INSTALL_PROJECT=]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-install-project -d 'Only install the current project'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-workspace -d 'Do not install any workspace members, including the root project'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-workspace -d 'Do not install any workspace members, including the root project [env: UV_NO_INSTALL_WORKSPACE=]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-install-workspace -d 'Only install workspace members, including the root project'
-complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-local -d 'Do not install local path dependencies'
+complete -c uv -n "__fish_uv_using_subcommand sync" -l no-install-local -d 'Do not install local path dependencies [env: UV_NO_INSTALL_LOCAL=]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l only-install-local -d 'Only install local path dependencies'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l locked -d 'Assert that the `uv.lock` will remain unchanged [env: UV_LOCKED=]'
 complete -c uv -n "__fish_uv_using_subcommand sync" -l frozen -d 'Sync without updating the `uv.lock` file [env: UV_FROZEN=]'
@@ -1177,6 +1184,44 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l no-progress -d 'Hide all 
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l allow-insecure-host -d 'Allow insecure connections to a host' -r -f
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-system-certs
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l offline -d 'Disable network access [env: UV_OFFLINE=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l preview -d 'Whether to enable all experimental preview features [env: UV_PREVIEW=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file [env: UV_ISOLATED=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-progress -d 'Hide all progress outputs [env: UV_NO_PROGRESS=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand export" -l format -d 'The format to which `uv.lock` should be exported' -r -f -a "requirements.txt\t'Export in `requirements.txt` format'
 pylock.toml\t'Export in `pylock.toml` format'
 cyclonedx1.5\t'Export in `CycloneDX` v1.5 JSON format'"
@@ -1187,6 +1232,7 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-extra -d 'Exclude th
 complete -c uv -n "__fish_uv_using_subcommand export" -l group -d 'Include dependencies from the specified dependency group' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-group -d 'Only include dependencies from the specified dependency group' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-editable-package -d 'Export the specified editable packages as non-editable' -r -f
 complete -c uv -n "__fish_uv_using_subcommand export" -s o -l output-file -d 'Write the exported requirements to the given file' -r -F
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-package -d 'Do not emit the given package(s)' -r -f
 complete -c uv -n "__fish_uv_using_subcommand export" -l only-emit-package -d 'Only emit the given package(s)' -r -f
@@ -1255,6 +1301,10 @@ complete -c uv -n "__fish_uv_using_subcommand export" -l no-annotate -d 'Exclude
 complete -c uv -n "__fish_uv_using_subcommand export" -l annotate
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-header -d 'Exclude the comment header at the top of the generated output file'
 complete -c uv -n "__fish_uv_using_subcommand export" -l header
+complete -c uv -n "__fish_uv_using_subcommand export" -l emit-index-url -d 'Include `--index-url` and `--extra-index-url` entries in the generated output file'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-index-url
+complete -c uv -n "__fish_uv_using_subcommand export" -l emit-find-links -d 'Include `--find-links` entries in the generated output file'
+complete -c uv -n "__fish_uv_using_subcommand export" -l no-emit-find-links
 complete -c uv -n "__fish_uv_using_subcommand export" -l editable -d 'Export any non-editable dependencies, including the project and any workspace members, as editable'
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-editable -d 'Export any editable dependencies, including the project and any workspace members, as non-editable [env: UV_NO_EDITABLE=]'
 complete -c uv -n "__fish_uv_using_subcommand export" -l hashes -d 'Include hashes for all dependencies'
@@ -1385,7 +1435,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -1495,6 +1546,115 @@ complete -c uv -n "__fish_uv_using_subcommand format" -l no-progress -d 'Hide al
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand format" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand check" -l extra -d 'Include optional dependencies from the specified extra name' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l group -d 'Include dependencies from the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-group -d 'Disable the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l only-group -d 'Only include dependencies from the specified dependency group' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -s p -l python -d 'The Python interpreter to use for the project environment' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l ty-version -d 'The version of ty to use for type checking' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -l extra-index-url -d '(Deprecated: use `--index` instead) Extra URLs of package indexes to use, in addition to `--index-url`' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -s f -l find-links -d 'Locations to search for candidate distributions, in addition to those found in the registry indexes' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -s P -l upgrade-package -d 'Allow upgrades for a specific package, ignoring pinned versions in any existing output file. Implies `--refresh-package`' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l upgrade-group -d 'Allow upgrades for all packages in a dependency group, ignoring pinned versions in any existing output file' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -l reinstall-package -d 'Reinstall a specific package, regardless of whether it\'s already installed. Implies `--refresh-package`' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l index-strategy -d 'The strategy to use when resolving against multiple index URLs' -r -f -a "first-index\t'Only use results from the first index that returns a match for a given package name'
+unsafe-first-match\t'Search for every package name across all indexes, exhausting the versions from the first index before moving on to the next'
+unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
+subprocess\t'Use the `keyring` command for credential lookup'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l resolution -d 'The strategy to use when selecting between the different compatible versions for a given package requirement' -r -f -a "highest\t'Resolve the highest compatible version of each package'
+lowest\t'Resolve the lowest compatible version of each package'
+lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
+allow\t'Allow all pre-release versions'
+if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
+explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
+if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
+requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
+complete -c uv -n "__fish_uv_using_subcommand check" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
+copy\t'Copy packages from the source into the destination'
+hardlink\t'Hard link packages from the source into the destination'
+symlink\t'Symbolically link packages from the source into the destination'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-sources-package -d 'Don\'t use sources from the `tool.uv.sources` table for the specified packages [env: `UV_NO_SOURCES_PACKAGE`=]' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l refresh-package -d 'Refresh cached data for a specific package' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand check" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand check" -l allow-insecure-host -d 'Allow insecure connections to a host' -r -f
+complete -c uv -n "__fish_uv_using_subcommand check" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand check" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand check" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand check" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand check" -l all-extras -d 'Include all optional dependencies'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-all-extras
+complete -c uv -n "__fish_uv_using_subcommand check" -l dev -d 'Include the development dependency group [env: UV_DEV=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-dev -d 'Disable the development dependency group [env: UV_NO_DEV=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l only-dev -d 'Only include the development dependency group'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-default-groups -d 'Ignore the default dependency groups'
+complete -c uv -n "__fish_uv_using_subcommand check" -l all-groups -d 'Include dependencies from all dependency groups'
+complete -c uv -n "__fish_uv_using_subcommand check" -l locked -d 'Assert that the `uv.lock` will remain unchanged [env: UV_LOCKED=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l frozen -d 'Sync without updating the `uv.lock` file [env: UV_FROZEN=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-sync -d 'Avoid syncing the virtual environment [env: UV_NO_SYNC=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l isolated -d 'Run checks without mutating project state [env: UV_ISOLATED=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-project -d 'Avoid discovering a project or workspace'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
+complete -c uv -n "__fish_uv_using_subcommand check" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-upgrade
+complete -c uv -n "__fish_uv_using_subcommand check" -l reinstall -d 'Reinstall all packages, regardless of whether they\'re already installed. Implies `--refresh`'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-reinstall
+complete -c uv -n "__fish_uv_using_subcommand check" -l pre
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-build-isolation -d 'Disable isolation when building source distributions'
+complete -c uv -n "__fish_uv_using_subcommand check" -l build-isolation
+complete -c uv -n "__fish_uv_using_subcommand check" -l compile-bytecode -d 'Compile Python files to bytecode after installation'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-compile-bytecode
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-sources -d 'Ignore the `tool.uv.sources` table when resolving dependencies. Used to lock against the standards-compliant, publishable package metadata, as opposed to using any workspace, Git, URL, or local path sources'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-build -d 'Don\'t build source distributions'
+complete -c uv -n "__fish_uv_using_subcommand check" -l build
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-binary -d 'Don\'t install pre-built wheels'
+complete -c uv -n "__fish_uv_using_subcommand check" -l binary
+complete -c uv -n "__fish_uv_using_subcommand check" -l refresh -d 'Refresh all cached data'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-refresh
+complete -c uv -n "__fish_uv_using_subcommand check" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand check" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand check" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand check" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand check" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand check" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-system-certs
+complete -c uv -n "__fish_uv_using_subcommand check" -l offline -d 'Disable network access [env: UV_OFFLINE=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand check" -l preview -d 'Whether to enable all experimental preview features [env: UV_PREVIEW=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand check" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-progress -d 'Hide all progress outputs [env: UV_NO_PROGRESS=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand check" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-extra -d 'Don\'t audit the specified optional dependencies' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-group -d 'Don\'t audit the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l only-group -d 'Only audit dependencies from the specified dependency group' -r -f
@@ -1577,7 +1737,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -1771,7 +1932,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -1974,7 +2136,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -2179,7 +2342,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -2332,7 +2496,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -3120,7 +3285,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -3338,7 +3504,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -3465,6 +3632,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s r -l requirements -d 'Install the packages listed in the given files' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s e -l editable -d 'Install the editable package based on the provided local file path' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l no-editable-package -d 'Install the specified editable packages as non-editable' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s c -l constraints -d 'Constrain versions using the given requirements files' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l overrides -d 'Override versions using the given requirements files' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l excludes -d 'Exclude packages from resolution using the given requirements files' -r -F
@@ -3552,7 +3720,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -3998,7 +4167,8 @@ aarch64-manylinux_2_39\t'An ARM64 target for the `manylinux_2_39` platform'
 aarch64-manylinux_2_40\t'An ARM64 target for the `manylinux_2_40` platform'
 aarch64-linux-android\t'An ARM64 Android target'
 x86_64-linux-android\t'An `x86_64` Android target'
-wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12'
+wasm32-pyodide2024\t'A wasm32 target using the Pyodide 2024 platform. Meant for use with Python 3.12. See <https://pyodide.org/en/stable/development/abi/312.html>'
+wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for use with Python 3.13. See <https://pyodide.org/en/stable/development/abi/313.html>'
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
@@ -4124,6 +4294,7 @@ complete -c uv -n "__fish_uv_using_subcommand venv" -l no-system -d 'This flag i
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l seed -d 'Install seed packages (one or more of: `pip`, `setuptools`, and `wheel`) into the virtual environment [env: UV_VENV_SEED=]'
 complete -c uv -n "__fish_uv_using_subcommand venv" -s c -l clear -d 'Remove any existing files or directories at the target path [env: UV_VENV_CLEAR=]'
+complete -c uv -n "__fish_uv_using_subcommand venv" -l force -d 'Allow `--clear` to remove a non-virtual environment directory'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l no-clear -d 'Fail without prompting if any existing files or directories are present at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l allow-existing -d 'Preserve any existing files or directories at the target path'
 complete -c uv -n "__fish_uv_using_subcommand venv" -l system-site-packages -d 'Give the virtual environment access to the system site packages directory'
@@ -4424,6 +4595,7 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l binary
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l refresh -d 'Refresh all cached data'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-refresh
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l sync -d 'Sync the environment to include module ownership metadata in the output'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'

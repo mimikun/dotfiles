@@ -52,6 +52,7 @@ complete -c rvpm -n "__fish_rvpm_using_subcommand sync" -l no-lock -d 'Ignore rv
 complete -c rvpm -n "__fish_rvpm_using_subcommand sync" -l refresh -d 'Force-refresh every plugin\'s git state regardless of the fetch cache (`options.fetch_interval`). Useful before checking for held-back plugins when you want a guaranteed fresh remote read'
 complete -c rvpm -n "__fish_rvpm_using_subcommand sync" -l no-refresh -d 'Skip git fetch for every plugin regardless of the fetch cache (offline mode). Plugins whose local HEAD already matches the effective rev complete instantly; others fall through to a local checkout that errors if the commit isn\'t already available'
 complete -c rvpm -n "__fish_rvpm_using_subcommand sync" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c rvpm -n "__fish_rvpm_using_subcommand generate" -l force -d 'Rebuild every view and merged/ from scratch, ignoring the incremental stamps (use after hand-editing clones or build artifacts changed without a new commit)'
 complete -c rvpm -n "__fish_rvpm_using_subcommand generate" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c rvpm -n "__fish_rvpm_using_subcommand clean" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c rvpm -n "__fish_rvpm_using_subcommand add" -l name -d 'Friendly name (optional)' -r
@@ -95,6 +96,7 @@ complete -c rvpm -n "__fish_rvpm_using_subcommand set" -l on-path -d 'Set on_pat
 complete -c rvpm -n "__fish_rvpm_using_subcommand set" -l on-source -d 'Set on_source (plugin names). Comma-separated or JSON array' -r
 complete -c rvpm -n "__fish_rvpm_using_subcommand set" -l rev -d 'Set rev (branch/tag/commit) non-interactively' -r
 complete -c rvpm -n "__fish_rvpm_using_subcommand set" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c rvpm -n "__fish_rvpm_using_subcommand update" -l no-cooldown -d 'Bypass the supply-chain cooldown for this run and update straight to the remote tip (see `options.cooldown`; use for e.g. a security hotfix you want immediately). Note: this run records no observations, so habitually passing it keeps tips from maturing and later non-bypassed updates will hold back again'
 complete -c rvpm -n "__fish_rvpm_using_subcommand update" -s h -l help -d 'Print help'
 complete -c rvpm -n "__fish_rvpm_using_subcommand remove" -s h -l help -d 'Print help'
 complete -c rvpm -n "__fish_rvpm_using_subcommand list" -l no-tui -d 'Print plain text instead of launching the TUI'

@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_deno_global_optspecs
-	string join \n no-check= import-map= no-remote no-npm node-modules-dir= node-modules-linker= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= minimum-dependency-age= A/allow-all P/permission-set= R/allow-read= deny-read= ignore-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= ignore-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= inspect-publish-uid= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use trace-ops= eszip-internal-do-not-use preload= require= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= cpu-prof cpu-prof-dir= cpu-prof-name= cpu-prof-interval= cpu-prof-md cpu-prof-flamegraph t/tunnel= unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-bundle unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-tsgo unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
+	string join \n no-check= import-map= no-remote no-npm node-modules-dir= node-modules-linker= vendor= conditions= c/config= no-config r/reload= lock= no-lock frozen= cert= unsafely-ignore-certificate-errors= minimum-dependency-age= A/allow-all P/permission-set= R/allow-read= deny-read= ignore-read= W/allow-write= deny-write= N/allow-net= deny-net= E/allow-env= deny-env= ignore-env= S/allow-sys= deny-sys= allow-run= deny-run= allow-ffi= deny-ffi= allow-hrtime deny-hrtime no-prompt I/allow-import= deny-import= inspect= inspect-brk= inspect-wait= inspect-publish-uid= allow-scripts= cached-only location= v8-flags= seed= enable-testing-features-do-not-use trace-ops= eszip-internal-do-not-use preload= require= check= watch= watch-hmr= watch-exclude= no-clear-screen ext= env-file= no-code-cache coverage= cpu-prof cpu-prof-dir= cpu-prof-name= cpu-prof-interval= cpu-prof-md cpu-prof-flamegraph t/tunnel= use-env-proxy no-use-env-proxy unstable unstable-bare-node-builtins unstable-broadcast-channel unstable-bundle unstable-byonm unstable-cron unstable-detect-cjs unstable-ffi unstable-fs unstable-http unstable-kv unstable-lazy-dynamic-imports unstable-lockfile-v5 unstable-net unstable-no-legacy-abort unstable-node-globals unstable-npm-lazy-caching unstable-otel unstable-process unstable-raw-imports unstable-sloppy-imports unstable-subdomain-wildcards unstable-temporal unstable-tsgo unstable-unsafe-proto unstable-vsock unstable-webgpu unstable-worker-options h/help= V/version L/log-level= q/quiet
 end
 
 function __fish_deno_needs_command
@@ -109,6 +109,8 @@ complete -c deno -n "__fish_deno_needs_command" -l no-code-cache -d 'Disable V8 
 complete -c deno -n "__fish_deno_needs_command" -l cpu-prof -d 'Start the V8 CPU profiler on startup and write the profile to disk on exit. Profiles are written to the current directory by default'
 complete -c deno -n "__fish_deno_needs_command" -l cpu-prof-md -d 'Generate a human-readable markdown report alongside the CPU profile'
 complete -c deno -n "__fish_deno_needs_command" -l cpu-prof-flamegraph -d 'Generate an SVG flamegraph alongside the CPU profile'
+complete -c deno -n "__fish_deno_needs_command" -l use-env-proxy -d 'Use HTTP_PROXY, HTTPS_PROXY, and NO_PROXY for node:http/node:https'
+complete -c deno -n "__fish_deno_needs_command" -l no-use-env-proxy
 complete -c deno -n "__fish_deno_needs_command" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_needs_command" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -297,6 +299,8 @@ complete -c deno -n "__fish_deno_using_subcommand run" -l no-code-cache -d 'Disa
 complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof -d 'Start the V8 CPU profiler on startup and write the profile to disk on exit. Profiles are written to the current directory by default'
 complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof-md -d 'Generate a human-readable markdown report alongside the CPU profile'
 complete -c deno -n "__fish_deno_using_subcommand run" -l cpu-prof-flamegraph -d 'Generate an SVG flamegraph alongside the CPU profile'
+complete -c deno -n "__fish_deno_using_subcommand run" -l use-env-proxy -d 'Use HTTP_PROXY, HTTPS_PROXY, and NO_PROXY for node:http/node:https'
+complete -c deno -n "__fish_deno_using_subcommand run" -l no-use-env-proxy
 complete -c deno -n "__fish_deno_using_subcommand run" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand serve" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
 complete -c deno -n "__fish_deno_using_subcommand serve" -l import-map -d 'Load import map file from local file or remote URL   Docs: https://docs.deno.com/runtime/manual/basics/import_maps' -r -F
@@ -421,9 +425,12 @@ complete -c deno -n "__fish_deno_using_subcommand add" -s L -l log-level -d 'Set
 debug\t''
 info\t''"
 complete -c deno -n "__fish_deno_using_subcommand add" -l allow-scripts -d 'Allow running npm lifecycle scripts for the given packages   Note: Scripts will only be executed when using a node_modules directory (`--node-modules-dir`)' -r
+complete -c deno -n "__fish_deno_using_subcommand add" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,raw.esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
+complete -c deno -n "__fish_deno_using_subcommand add" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
 complete -c deno -n "__fish_deno_using_subcommand add" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand add" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
+complete -c deno -n "__fish_deno_using_subcommand add" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -468,6 +475,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand audit" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand audit" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
+complete -c deno -n "__fish_deno_using_subcommand audit" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand audit" -l level -d 'Only show advisories with severity greater or equal to the one specified' -r -f -a "low\t''
 moderate\t''
 high\t''
@@ -672,6 +680,7 @@ complete -c deno -n "__fish_deno_using_subcommand bundle" -l cert -d 'Load certi
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l unsafely-ignore-certificate-errors -d 'DANGER: Disables verification of TLS certificates' -r
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
+complete -c deno -n "__fish_deno_using_subcommand bundle" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bundle" -s o -l output -d 'Output path`' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l outdir -d 'Output directory for bundled files' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_deno_using_subcommand bundle" -l external -r
@@ -801,6 +810,7 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l minimum-dependency-a
 complete -c deno -n "__fish_deno_using_subcommand check" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,raw.esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand check" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
 complete -c deno -n "__fish_deno_using_subcommand check" -l v8-flags -d 'To see a list of all available flags use --v8-flags=--help   Flags can also be set via the DENO_V8_FLAGS environment variable.   Any flags set with this flag are appended after the DENO_V8_FLAGS environment variable' -r
+complete -c deno -n "__fish_deno_using_subcommand check" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand check" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
@@ -939,6 +949,7 @@ x86_64-pc-windows-msvc\t''
 x86_64-apple-darwin\t''
 aarch64-apple-darwin\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l icon -d 'Set the icon of the executable on Windows (.ico)' -r
+complete -c deno -n "__fish_deno_using_subcommand compile" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand compile" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
 tsx\t''
 js\t''
@@ -991,6 +1002,11 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -l eszip-internal-do-
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l no-terminal -d 'Hide terminal on Windows'
 complete -c deno -n "__fish_deno_using_subcommand compile" -l self-extracting -d 'Create a self-extracting binary that extracts the embedded file system to disk on first run and then runs from there'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l bundle -d 'Experimental. Bundle the entrypoint with esbuild before embedding, instead of shipping the whole node_modules tree.   Produces a smaller binary with faster startup, at the cost of dropping dynamic require/import patterns that can\'t be statically traced.'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l minify -d 'Experimental. Minify the bundled output. Only meaningful with --bundle.   Reduces both the embedded bundle size and runtime memory use, at the cost of less readable stack traces.'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l exclude-unused-npm -d 'Embed only the npm packages reachable from the module graph (managed npm; no node_modules directory).   Without this flag the full managed npm snapshot from the lockfile / package.json is embedded.   Reduces binary size when the lockfile contains packages the entrypoint does not import.   Skips packages that are only reached through non-statically-analyzable dynamic imports;   pass those with --include npm:<pkg> if needed.'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
+complete -c deno -n "__fish_deno_using_subcommand compile" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand create" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand create" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
@@ -1116,6 +1132,7 @@ complete -c deno -n "__fish_deno_using_subcommand doc" -l frozen -d 'Error out i
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand doc" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,raw.esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand doc" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
+complete -c deno -n "__fish_deno_using_subcommand doc" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand doc" -l name -d 'The name that will be used in the docs (ie for breadcrumbs)' -r
 complete -c deno -n "__fish_deno_using_subcommand doc" -l category-docs -d 'Path to a JSON file keyed by category and an optional value of a markdown doc' -r
 complete -c deno -n "__fish_deno_using_subcommand doc" -l symbol-redirect-map -d 'Path to a JSON file keyed by file, with an inner map of symbol to an external link' -r
@@ -1381,6 +1398,7 @@ complete -c deno -n "__fish_deno_using_subcommand init" -l empty -d 'Generate a 
 complete -c deno -n "__fish_deno_using_subcommand init" -s y -l yes -d 'Bypass the prompt and run with full permissions'
 complete -c deno -n "__fish_deno_using_subcommand info" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,raw.esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand info" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
+complete -c deno -n "__fish_deno_using_subcommand info" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand info" -s h -l help -r -f -a "unstable\t''
 full\t''"
 complete -c deno -n "__fish_deno_using_subcommand info" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
@@ -1400,6 +1418,7 @@ complete -c deno -n "__fish_deno_using_subcommand info" -l node-modules-dir -d '
 complete -c deno -n "__fish_deno_using_subcommand info" -l node-modules-linker -d 'Sets the linker mode for npm packages (isolated or hoisted)' -r
 complete -c deno -n "__fish_deno_using_subcommand info" -l vendor -d 'Toggles local vendor folder usage for remote modules and a node_modules folder for npm packages' -r -f -a "true\t''
 false\t''"
+complete -c deno -n "__fish_deno_using_subcommand info" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand info" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1687,6 +1706,7 @@ full\t''"
 complete -c deno -n "__fish_deno_using_subcommand ci" -s L -l log-level -d 'Set log level' -r -f -a "trace\t''
 debug\t''
 info\t''"
+complete -c deno -n "__fish_deno_using_subcommand ci" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand ci" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand ci" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand ci" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1850,6 +1870,7 @@ complete -c deno -n "__fish_deno_using_subcommand outdated" -l minimum-dependenc
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
+complete -c deno -n "__fish_deno_using_subcommand outdated" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand outdated" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1953,6 +1974,7 @@ complete -c deno -n "__fish_deno_using_subcommand publish" -s c -l config -d 'Co
 complete -c deno -n "__fish_deno_using_subcommand publish" -l set-version -d 'Set version for a package to be published.   This flag can be used while publishing individual packages and cannot be used in a workspace.' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so adding --check is redundant   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand publish" -l no-check -d 'Skip type-checking. If the value of "remote" is supplied, diagnostic errors from remote modules will be ignored' -r
+complete -c deno -n "__fish_deno_using_subcommand publish" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand publish" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -1996,6 +2018,7 @@ complete -c deno -n "__fish_deno_using_subcommand pack" -s o -l output -d 'Outpu
 complete -c deno -n "__fish_deno_using_subcommand pack" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand pack" -l set-version -d 'Override the version in the tarball' -r
 complete -c deno -n "__fish_deno_using_subcommand pack" -l ignore -d 'Ignore files matching these patterns' -r -F
+complete -c deno -n "__fish_deno_using_subcommand pack" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand pack" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand pack" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand pack" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -2133,6 +2156,7 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l frozen -d 'Error out 
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand task" -l cwd -d 'Specify the directory to run the task in' -r -f -a "(__fish_complete_directories)"
 complete -c deno -n "__fish_deno_using_subcommand task" -s f -l filter -d 'Filter members of the workspace by name, implies --recursive flag' -r
+complete -c deno -n "__fish_deno_using_subcommand task" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand task" -l node-modules-dir -d 'Sets the node modules management mode for npm packages' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -l node-modules-linker -d 'Sets the linker mode for npm packages (isolated or hoisted)' -r
 complete -c deno -n "__fish_deno_using_subcommand task" -s t -l tunnel -d 'Execute tasks with a tunnel to Deno Deploy.      Create a secure connection between your local machine and Deno Deploy,     providing access to centralised environment variables, logging,     and serving from your local environment to the public internet' -r -f -a "true\t''
@@ -2394,6 +2418,7 @@ complete -c deno -n "__fish_deno_using_subcommand update" -l minimum-dependency-
 complete -c deno -n "__fish_deno_using_subcommand update" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand update" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
+complete -c deno -n "__fish_deno_using_subcommand update" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand update" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -2482,6 +2507,7 @@ complete -c deno -n "__fish_deno_using_subcommand bump-version" -l start -d '[co
 complete -c deno -n "__fish_deno_using_subcommand bump-version" -l base -d '[conventional-commits mode] Git ref to compare against. Default: current branch' -r
 complete -c deno -n "__fish_deno_using_subcommand bump-version" -l import-map -d 'Path to the import map to rewrite jsr: version constraints in. Defaults to the root deno.json (or its importMap target)' -r
 complete -c deno -n "__fish_deno_using_subcommand bump-version" -l release-notes -d '[conventional-commits mode] Path to the release notes file to prepend. Default: Releases.md' -r
+complete -c deno -n "__fish_deno_using_subcommand bump-version" -s c -l config -d 'Explicit path to the manifest file to bump.   May point to a `deno.json`/`deno.jsonc` or a `package.json`. When   set, single-file mode is forced (workspace auto-detection is bypassed).   Useful when both `deno.json` and `package.json` exist in the same   directory.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bump-version" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand bump-version" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand bump-version" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -2556,6 +2582,7 @@ info\t''"
 complete -c deno -n "__fish_deno_using_subcommand why" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand why" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
+complete -c deno -n "__fish_deno_using_subcommand why" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand why" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand why" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand why" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -2636,6 +2663,7 @@ complete -c deno -n "__fish_deno_using_subcommand x" -l seed -d 'Set the random 
 complete -c deno -n "__fish_deno_using_subcommand x" -l trace-ops -d 'Trace low-level op calls' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l preload -d 'A list of files that will be executed before the main module' -r -F
 complete -c deno -n "__fish_deno_using_subcommand x" -l require -d 'A list of CommonJS modules that will be executed before the main module' -r -F
+complete -c deno -n "__fish_deno_using_subcommand x" -l ignore-scripts -d 'Do not run npm lifecycle scripts for the given packages' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -s p -l package -d 'Package to install (use when the binary name differs from the package name)' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l check -d 'Enable type-checking. This subcommand does not type-check by default   If the value of "all" is supplied, remote modules will be included.   Alternatively, the \'deno check\' subcommand can be used' -r
 complete -c deno -n "__fish_deno_using_subcommand x" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
