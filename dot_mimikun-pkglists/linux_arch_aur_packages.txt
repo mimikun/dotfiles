@@ -50,6 +50,7 @@ minify
 monitui
 moribito
 morisawa-biz-ud-gothic-fonts
+mq-bin
 murex
 murex-debug
 neofetch
