@@ -320,6 +320,12 @@
       "channel": "latest"
     },
     {
+      "name": "dskDitto",
+      "import_path": "github.com/jdefrancesco/dskDitto/cmd/dskDitto",
+      "version": "v0.5.5",
+      "channel": "latest"
+    },
+    {
       "name": "dstp",
       "import_path": "github.com/ycd/dstp/cmd/dstp",
       "version": "v0.4.23",
@@ -587,6 +593,12 @@
       "name": "golangci-lint",
       "import_path": "github.com/golangci/golangci-lint/v2/cmd/golangci-lint",
       "version": "v2.12.2",
+      "channel": "latest"
+    },
+    {
+      "name": "golazo",
+      "import_path": "github.com/0xjuanma/golazo",
+      "version": "v0.27.1",
       "channel": "latest"
     },
     {
@@ -944,6 +956,12 @@
       "channel": "latest"
     },
     {
+      "name": "memtui",
+      "import_path": "github.com/nnnkkk7/memtui/cmd/memtui",
+      "version": "v0.0.6",
+      "channel": "latest"
+    },
+    {
       "name": "meteor",
       "import_path": "github.com/stefanlogue/meteor",
       "version": "v0.31.0",
@@ -1154,6 +1172,12 @@
       "channel": "latest"
     },
     {
+      "name": "redthread",
+      "import_path": "github.com/B33pBeeps/redthread/cmd/redthread",
+      "version": "v0.0.0-20260514054751-e621e41f15c3",
+      "channel": "latest"
+    },
+    {
       "name": "regresql",
       "import_path": "github.com/boringsql/regresql",
       "version": "v1.5.0",
@@ -1163,6 +1187,12 @@
       "name": "remonade",
       "import_path": "github.com/skanehira/remonade",
       "version": "v0.0.4",
+      "channel": "latest"
+    },
+    {
+      "name": "reqlog",
+      "import_path": "github.com/sagarmaheshwary/reqlog/cmd/reqlog",
+      "version": "v0.8.1",
       "channel": "latest"
     },
     {
