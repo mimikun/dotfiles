@@ -62,7 +62,9 @@ cell-sheet-tui
 checkpwn
 chess-tui
 choose
+clin-rs
 cmd-wrapped
+code-minimap
 codeberg-cli
 colorgen-nvim
 comchan
@@ -80,6 +82,7 @@ ddv
 deadbranch
 dealve-tui
 deff
+depsguard
 desed
 diffai
 difftastic
@@ -133,6 +136,7 @@ genact
 gengo-bin
 gfold
 ghciwatch
+gistui
 git-delta
 git-graph
 git-interactive-rebase-tool
@@ -216,6 +220,7 @@ mdns-scanner
 mdfried
 menyoki
 mergiraf
+merman-cli
 mise
 mocword
 modelsdev
@@ -254,6 +259,7 @@ outside
 oxdraw
 oxker
 oyo
+oyui
 pacsea
 parallel-disk-usage
 parallels
@@ -377,6 +383,7 @@ tree-sitter-cli
 treefmt
 treemd
 try-rs
+ttl
 tui-journal
 tuicr
 tuisky
