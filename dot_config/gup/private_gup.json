@@ -836,6 +836,12 @@
       "channel": "latest"
     },
     {
+      "name": "ku",
+      "import_path": "github.com/bjarneo/ku",
+      "version": "v0.2.0",
+      "channel": "latest"
+    },
+    {
       "name": "kyma",
       "import_path": "github.com/museslabs/kyma",
       "version": "v0.2.0",
@@ -1553,6 +1559,12 @@
       "name": "xpdig",
       "import_path": "github.com/brunoluiz/xpdig/cmd/xpdig",
       "version": "v1.25.0",
+      "channel": "latest"
+    },
+    {
+      "name": "xql",
+      "import_path": "github.com/excelano/xql/cmd/xql",
+      "version": "v1.3.0",
       "channel": "latest"
     },
     {
