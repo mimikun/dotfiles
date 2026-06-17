@@ -69,5 +69,6 @@ up-fetch
 vde-layout
 vde-monitor
 @colbymchenry/codegraph
+@moonshot-ai/kimi-code
 @pnpm/exe
 epiq
