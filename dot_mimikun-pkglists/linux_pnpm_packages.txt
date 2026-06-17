@@ -5,6 +5,7 @@
 @augmentcode/auggie
 @bitwarden/cli
 @charmland/crush
+@colbymchenry/codegraph
 @continuedev/cli
 @dotenvx/dotenvx
 @github/copilot
@@ -19,8 +20,10 @@
 @mermaid-js/mermaid-cli
 @microsoft/inshellisense
 @mizchi/actrun
+@moonshot-ai/kimi-code
 @openai/codex
 @perryts/perry
+@pnpm/exe
 @pranshuparmar/witr
 @qwen-code/qwen-code
 @sasazame/ccresume
@@ -45,6 +48,7 @@ cz-conventional-changelog-ja
 czg
 editprompt
 envinfo
+epiq
 git-rewrite-commits
 git-truck
 gut-cli
@@ -68,7 +72,3 @@ tombi
 up-fetch
 vde-layout
 vde-monitor
-@colbymchenry/codegraph
-@moonshot-ai/kimi-code
-@pnpm/exe
-epiq
