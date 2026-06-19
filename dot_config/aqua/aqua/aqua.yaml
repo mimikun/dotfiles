@@ -2,7 +2,7 @@
 packages:
   - name: ahmetb/kubectx@v0.11.0
   - name: aquaproj/registry-tool@v0.5.5
-  - name: aquasecurity/trivy@v0.71.1
+  - name: aquasecurity/trivy@v0.71.2
   - name: aristocratos/btop@v1.4.7
   - name: astral-sh/ruff@0.15.18
   - name: astral-sh/uv@0.11.23
