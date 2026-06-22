@@ -135,7 +135,7 @@ name = "cute.fish"
 name = "forgit"
 repo = "wfxr/forgit"
 source = "https://github.com/wfxr/forgit"
-commit_sha = "e789afed644574eaa79bfaf4b84c39c8040ca36c"
+commit_sha = "f2ea9d14ec98e7bc21f0e276691d0a0fb09be8c6"
 
 [[plugins.files]]
 dir = "completions"
