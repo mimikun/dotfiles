@@ -78,6 +78,7 @@ csview
 csvlens
 cyme
 darya
+databow
 ddv
 deadbranch
 dealve-tui
@@ -271,6 +272,7 @@ pay-respects-module-request-ai
 pay-respects-module-runtime-rules
 perch
 pez
+pgfmt
 pik
 pikpaktui
 pipr
