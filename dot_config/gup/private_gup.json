@@ -806,6 +806,12 @@
       "channel": "latest"
     },
     {
+      "name": "kage",
+      "import_path": "github.com/tamnd/kage/cmd/kage",
+      "version": "v0.3.7",
+      "channel": "latest"
+    },
+    {
       "name": "kat",
       "import_path": "github.com/macropower/kat/cmd/kat",
       "version": "v0.28.1",
