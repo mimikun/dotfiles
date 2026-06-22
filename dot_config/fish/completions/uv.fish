@@ -1546,6 +1546,7 @@ complete -c uv -n "__fish_uv_using_subcommand format" -l no-progress -d 'Hide al
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand format" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand format" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand check" -l script -d 'Run checks for the specified PEP 723 Python script, rather than the current project' -r -F
 complete -c uv -n "__fish_uv_using_subcommand check" -l extra -d 'Include optional dependencies from the specified extra name' -r -f
 complete -c uv -n "__fish_uv_using_subcommand check" -l no-extra -d 'Exclude the specified optional dependencies, if `--all-extras` is supplied' -r -f
 complete -c uv -n "__fish_uv_using_subcommand check" -l group -d 'Include dependencies from the specified dependency group' -r -f
@@ -1616,6 +1617,7 @@ complete -c uv -n "__fish_uv_using_subcommand check" -l locked -d 'Assert that t
 complete -c uv -n "__fish_uv_using_subcommand check" -l frozen -d 'Sync without updating the `uv.lock` file [env: UV_FROZEN=]'
 complete -c uv -n "__fish_uv_using_subcommand check" -l no-sync -d 'Avoid syncing the virtual environment [env: UV_NO_SYNC=]'
 complete -c uv -n "__fish_uv_using_subcommand check" -l isolated -d 'Run checks without mutating project state [env: UV_ISOLATED=]'
+complete -c uv -n "__fish_uv_using_subcommand check" -l show-version -d 'Display the version of ty that will be used for type checking'
 complete -c uv -n "__fish_uv_using_subcommand check" -l no-project -d 'Avoid discovering a project or workspace'
 complete -c uv -n "__fish_uv_using_subcommand check" -l no-index -d 'Ignore the registry index (e.g., PyPI), instead relying on direct URL dependencies and those provided via `--find-links`'
 complete -c uv -n "__fish_uv_using_subcommand check" -s U -l upgrade -d 'Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`'
@@ -1659,7 +1661,8 @@ complete -c uv -n "__fish_uv_using_subcommand audit" -l no-extra -d 'Don\'t audi
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-group -d 'Don\'t audit the specified dependency group [env: `UV_NO_GROUP`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l only-group -d 'Only audit dependencies from the specified dependency group' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l output-format -d 'Select the output format' -r -f -a "text\t'Display the result in a human-readable format'
-json\t'Display the result in JSON format'"
+json\t'Display the result in JSON format'
+sarif\t'Display the result in SARIF format'"
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -4527,6 +4530,7 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_sub
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -f -a "metadata" -d 'View metadata about the current workspace'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -f -a "dir" -d 'Display the path of a workspace member'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and not __fish_seen_subcommand_from metadata dir list" -f -a "list" -d 'List the members of a workspace'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l script -d 'View metadata for the specified PEP 723 Python script, rather than the current workspace' -r -F
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l default-index -d 'The URL of the default package index (by default: <https://pypi.org/simple>)' -r
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s i -l index-url -d '(Deprecated: use `--default-index` instead) The URL of the Python package index (by default: <https://pypi.org/simple>)' -r
