@@ -15,7 +15,8 @@ sha384\t''
 sha512\t''
 xxh32\t''
 xxh64\t''
-xxh3\t''"
+xxh3_64\t''
+xxh3_128\t''"
 complete -c ccsum -s B -l buffer-size -d 'buffer size for reading files, in bytes' -r
 complete -c ccsum -s g -l group -d 'group output by last N segments of the path' -r
 complete -c ccsum -s G -l group-with-check -d 'group output by last N segments of the path, and fail if any checksums in the group are different' -r
