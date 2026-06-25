@@ -20,9 +20,12 @@
 @mermaid-js/mermaid-cli
 @microsoft/inshellisense
 @mizchi/actrun
+@getpaseo/cli
+@mistweaverco/kulala-cli
 @moonshot-ai/kimi-code
 @openai/codex
 @perryts/perry
+@nubjs/nub
 @pnpm/exe
 @pranshuparmar/witr
 @qwen-code/qwen-code
@@ -48,6 +51,7 @@ cz-conventional-changelog-ja
 czg
 editprompt
 envinfo
+@rivolink/leaf
 epiq
 git-rewrite-commits
 git-truck
@@ -72,3 +76,4 @@ tombi
 up-fetch
 vde-layout
 vde-monitor
+hunkdiff
