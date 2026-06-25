@@ -351,6 +351,7 @@ stu
 stylua
 superseedr
 swaptop
+swpui
 syntaqlite-cli
 systemctl-tui
 systemd-manager-tui
