@@ -64,7 +64,7 @@
     {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
-      "version": "v0.0.122",
+      "version": "v0.0.125",
       "channel": "latest"
     },
     {
@@ -160,7 +160,7 @@
     {
       "name": "ccgate",
       "import_path": "github.com/tak848/ccgate",
-      "version": "v0.9.3",
+      "version": "v0.9.4",
       "channel": "latest"
     },
     {
@@ -292,7 +292,7 @@
     {
       "name": "dlv",
       "import_path": "github.com/go-delve/delve/cmd/dlv",
-      "version": "v1.26.3",
+      "version": "v1.27.0",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.6",
+      "version": "v0.2.7",
       "channel": "latest"
     },
     {
@@ -658,7 +658,7 @@
     {
       "name": "goshs",
       "import_path": "goshs.de/goshs/v2",
-      "version": "v2.1.1",
+      "version": "v2.1.2",
       "channel": "latest"
     },
     {
@@ -712,7 +712,7 @@
     {
       "name": "gup",
       "import_path": "github.com/nao1215/gup",
-      "version": "v1.5.0",
+      "version": "v1.7.0",
       "channel": "latest"
     },
     {
@@ -814,7 +814,7 @@
     {
       "name": "kage",
       "import_path": "github.com/tamnd/kage/cmd/kage",
-      "version": "v0.3.7",
+      "version": "v0.3.8",
       "channel": "latest"
     },
     {
@@ -850,7 +850,7 @@
     {
       "name": "ku",
       "import_path": "github.com/bjarneo/ku",
-      "version": "v0.7.0",
+      "version": "v0.7.1",
       "channel": "latest"
     },
     {
@@ -946,7 +946,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.14.13",
+      "version": "v0.14.17",
       "channel": "latest"
     },
     {
@@ -1192,7 +1192,7 @@
     {
       "name": "quien",
       "import_path": "github.com/retlehs/quien",
-      "version": "v0.11.0",
+      "version": "v0.12.0",
       "channel": "latest"
     },
     {
@@ -1234,7 +1234,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.42.1",
+      "version": "v0.44.1",
       "channel": "latest"
     },
     {
@@ -1270,7 +1270,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.16.11",
+      "version": "v3.16.15",
       "channel": "latest"
     },
     {
@@ -1294,7 +1294,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260622061051-e90707e08747",
+      "version": "v0.0.0-20260623201431-f09001fc93d4",
       "channel": "latest"
     },
     {
@@ -1378,7 +1378,7 @@
     {
       "name": "sq",
       "import_path": "github.com/neilotoole/sq",
-      "version": "v0.54.0",
+      "version": "v0.54.1",
       "channel": "latest"
     },
     {
@@ -1390,7 +1390,7 @@
     {
       "name": "squix",
       "import_path": "github.com/eduardofuncao/squix/cmd/squix",
-      "version": "v0.4.2-beta",
+      "version": "v0.4.3-beta",
       "channel": "latest"
     },
     {
@@ -1450,7 +1450,7 @@
     {
       "name": "termpicker",
       "import_path": "github.com/ChausseBenjamin/termpicker",
-      "version": "v1.5.1",
+      "version": "v1.5.2",
       "channel": "latest"
     },
     {
@@ -1564,7 +1564,7 @@
     {
       "name": "witr",
       "import_path": "github.com/pranshuparmar/witr/cmd/witr",
-      "version": "v0.3.2",
+      "version": "v0.3.3",
       "channel": "latest"
     },
     {
@@ -1594,7 +1594,7 @@
     {
       "name": "xql",
       "import_path": "github.com/excelano/xql/cmd/xql",
-      "version": "v1.3.0",
+      "version": "v1.4.0",
       "channel": "latest"
     },
     {
@@ -1624,7 +1624,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.19",
+      "version": "v0.20.21",
       "channel": "latest"
     },
     {
