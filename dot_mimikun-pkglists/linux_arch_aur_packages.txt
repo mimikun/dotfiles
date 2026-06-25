@@ -73,6 +73,7 @@ slides
 snitch-bin
 sunbeam-bin
 t-rec
+tabularis-bin
 tetrio-desktop
 tinifier
 tio
