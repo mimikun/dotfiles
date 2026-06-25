@@ -728,6 +728,12 @@
       "channel": "latest"
     },
     {
+      "name": "herald",
+      "import_path": "github.com/herald-email/herald-mail-app/cmd/herald",
+      "version": "v0.7.3-beta.1",
+      "channel": "latest"
+    },
+    {
       "name": "hexowl",
       "import_path": "github.com/dece2183/hexowl",
       "version": "v1.5.1",
@@ -860,6 +866,12 @@
       "channel": "latest"
     },
     {
+      "name": "layerx",
+      "import_path": "github.com/deveshctl/layerx",
+      "version": "v1.5.0",
+      "channel": "latest"
+    },
+    {
       "name": "lazycwl",
       "import_path": "github.com/myuron/lazycwl",
       "version": "v1.4.2",
@@ -986,6 +998,12 @@
       "channel": "latest"
     },
     {
+      "name": "micro",
+      "import_path": "go-micro.dev/v6/cmd/micro",
+      "version": "v6.3.0",
+      "channel": "latest"
+    },
+    {
       "name": "minify",
       "import_path": "github.com/tdewolff/minify/v2/cmd/minify",
       "version": "v2.24.13",
@@ -1043,6 +1061,12 @@
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
       "version": "v0.21.0",
+      "channel": "latest"
+    },
+    {
+      "name": "oh-my-reddit",
+      "import_path": "github.com/renatoworks/oh-my-reddit",
+      "version": "v0.1.5",
       "channel": "latest"
     },
     {
