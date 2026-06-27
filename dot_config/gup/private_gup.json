@@ -64,7 +64,7 @@
     {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
-      "version": "v0.0.125",
+      "version": "v0.0.130",
       "channel": "latest"
     },
     {
@@ -226,7 +226,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.79.1",
+      "version": "v0.80.0",
       "channel": "latest"
     },
     {
@@ -322,7 +322,7 @@
     {
       "name": "dskDitto",
       "import_path": "github.com/jdefrancesco/dskDitto/cmd/dskDitto",
-      "version": "v0.5.7",
+      "version": "v0.5.8",
       "channel": "latest"
     },
     {
@@ -496,7 +496,7 @@
     {
       "name": "ghtkn",
       "import_path": "github.com/suzuki-shunsuke/ghtkn/cmd/ghtkn",
-      "version": "v0.2.6",
+      "version": "v0.2.8",
       "channel": "latest"
     },
     {
@@ -568,7 +568,7 @@
     {
       "name": "goimports",
       "import_path": "golang.org/x/tools/cmd/goimports",
-      "version": "v0.46.0",
+      "version": "v0.47.0",
       "channel": "latest"
     },
     {
@@ -598,7 +598,7 @@
     {
       "name": "golazo",
       "import_path": "github.com/0xjuanma/golazo",
-      "version": "v0.29.1",
+      "version": "v0.30.0",
       "channel": "latest"
     },
     {
@@ -616,7 +616,7 @@
     {
       "name": "gonew",
       "import_path": "golang.org/x/tools/cmd/gonew",
-      "version": "v0.46.0",
+      "version": "v0.47.0",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.7",
+      "version": "v0.2.8",
       "channel": "latest"
     },
     {
@@ -658,7 +658,7 @@
     {
       "name": "goshs",
       "import_path": "goshs.de/goshs/v2",
-      "version": "v2.1.2",
+      "version": "v2.1.3",
       "channel": "latest"
     },
     {
@@ -712,7 +712,7 @@
     {
       "name": "gup",
       "import_path": "github.com/nao1215/gup",
-      "version": "v1.7.0",
+      "version": "v1.7.1",
       "channel": "latest"
     },
     {
@@ -730,7 +730,7 @@
     {
       "name": "herald",
       "import_path": "github.com/herald-email/herald-mail-app/cmd/herald",
-      "version": "v0.7.3-beta.1",
+      "version": "v0.7.4-beta.1",
       "channel": "latest"
     },
     {
@@ -940,13 +940,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260620050946-4e4701addd3e",
+      "version": "v0.0.0-20260625142716-230ef16ea3d1",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.14.17",
+      "version": "v0.14.18",
       "channel": "latest"
     },
     {
@@ -1186,7 +1186,7 @@
     {
       "name": "qo",
       "import_path": "github.com/kiki-ki/go-qo/cmd/qo",
-      "version": "v0.4.0",
+      "version": "v0.4.1",
       "channel": "latest"
     },
     {
@@ -1228,13 +1228,13 @@
     {
       "name": "reqlog",
       "import_path": "github.com/sagarmaheshwary/reqlog/cmd/reqlog",
-      "version": "v0.8.1",
+      "version": "v0.9.0",
       "channel": "latest"
     },
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.44.1",
+      "version": "v0.44.3",
       "channel": "latest"
     },
     {
@@ -1270,7 +1270,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.16.15",
+      "version": "v3.16.16",
       "channel": "latest"
     },
     {
@@ -1294,7 +1294,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260623201431-f09001fc93d4",
+      "version": "v0.0.0-20260627054053-d51a58458033",
       "channel": "latest"
     },
     {
@@ -1360,7 +1360,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.1.0",
+      "version": "v0.2.0",
       "channel": "latest"
     },
     {
@@ -1414,7 +1414,7 @@
     {
       "name": "stringer",
       "import_path": "golang.org/x/tools/cmd/stringer",
-      "version": "v0.46.0",
+      "version": "v0.47.0",
       "channel": "latest"
     },
     {
@@ -1594,7 +1594,7 @@
     {
       "name": "xql",
       "import_path": "github.com/excelano/xql/cmd/xql",
-      "version": "v1.4.0",
+      "version": "v1.5.0",
       "channel": "latest"
     },
     {
