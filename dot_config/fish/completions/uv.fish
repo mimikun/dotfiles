@@ -4678,6 +4678,7 @@ complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l paths -d 'Show paths instead of names'
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l scripts -d 'List all standalone scripts with inline metadata in the workspace'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from list" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
@@ -5091,7 +5092,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcomm
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -f -a "clean" -d 'Clear the cache, removing all entries or those linked to specific packages'
-complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -f -a "prune" -d 'Prune all unreachable objects from the cache'
+complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -f -a "prune" -d 'Prune dangling cache entries and cached environments'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -f -a "dir" -d 'Show the cache directory'
 complete -c uv -n "__fish_uv_using_subcommand cache; and not __fish_seen_subcommand_from clean prune dir size" -f -a "size" -d 'Show the cache size'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from clean" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
