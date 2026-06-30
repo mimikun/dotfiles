@@ -30,7 +30,7 @@ packages:
   - name: grafana/k6@v2.0.0
   - name: guumaster/hostctl@v1.1.4
   - name: hadolint/hadolint@v2.14.0
-  - name: idursun/jjui@v0.10.6
+  - name: idursun/jjui@v0.10.7
   - name: jesseduffield/horcrux@v0.2
   - name: JFryy/qq@v0.3.4
   - name: jqlang/jq@jq-1.8.2
