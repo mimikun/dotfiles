@@ -27,7 +27,7 @@ packages:
   - name: gleam-lang/gleam@v1.17.0
   - name: golang/go@go1.26.4
   - name: golang/tools/gorename@v0.25.0
-  - name: grafana/k6@v2.0.0
+  - name: grafana/k6@v2.1.0
   - name: guumaster/hostctl@v1.1.4
   - name: hadolint/hadolint@v2.14.0
   - name: idursun/jjui@v0.10.7
