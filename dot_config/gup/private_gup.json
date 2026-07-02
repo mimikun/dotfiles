@@ -124,7 +124,7 @@
     {
       "name": "bluetuith",
       "import_path": "github.com/darkhz/bluetuith",
-      "version": "v0.2.6",
+      "version": "v0.2.7",
       "channel": "latest"
     },
     {
@@ -160,7 +160,7 @@
     {
       "name": "ccgate",
       "import_path": "github.com/tak848/ccgate",
-      "version": "v0.9.4",
+      "version": "v0.9.5",
       "channel": "latest"
     },
     {
@@ -220,13 +220,13 @@
     {
       "name": "croc",
       "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.4.4",
+      "version": "v10.4.6",
       "channel": "latest"
     },
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.80.0",
+      "version": "v0.81.0",
       "channel": "latest"
     },
     {
@@ -364,7 +364,7 @@
     {
       "name": "editorconfig-checker",
       "import_path": "github.com/editorconfig-checker/editorconfig-checker/v3/cmd/editorconfig-checker",
-      "version": "v3.7.0",
+      "version": "v3.8.0",
       "channel": "latest"
     },
     {
@@ -496,7 +496,7 @@
     {
       "name": "ghtkn",
       "import_path": "github.com/suzuki-shunsuke/ghtkn/cmd/ghtkn",
-      "version": "v0.3.1",
+      "version": "v0.3.3",
       "channel": "latest"
     },
     {
@@ -598,7 +598,7 @@
     {
       "name": "golazo",
       "import_path": "github.com/0xjuanma/golazo",
-      "version": "v0.30.0",
+      "version": "v0.31.0",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.8",
+      "version": "v0.2.11",
       "channel": "latest"
     },
     {
@@ -772,7 +772,7 @@
     {
       "name": "hulak",
       "import_path": "github.com/xaaha/hulak",
-      "version": "v0.3.10",
+      "version": "v0.3.20",
       "channel": "latest"
     },
     {
@@ -826,7 +826,7 @@
     {
       "name": "keep-sorted",
       "import_path": "github.com/google/keep-sorted",
-      "version": "v0.9.0",
+      "version": "v0.9.1",
       "channel": "latest"
     },
     {
@@ -928,7 +928,7 @@
     {
       "name": "lazysql",
       "import_path": "github.com/jorgerojas26/lazysql",
-      "version": "v0.5.4",
+      "version": "v0.5.5",
       "channel": "latest"
     },
     {
@@ -946,7 +946,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.14.18",
+      "version": "v0.14.19",
       "channel": "latest"
     },
     {
@@ -1000,7 +1000,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.3.0",
+      "version": "v6.3.12",
       "channel": "latest"
     },
     {
@@ -1060,7 +1060,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.21.0",
+      "version": "v0.22.0",
       "channel": "latest"
     },
     {
@@ -1168,7 +1168,7 @@
     {
       "name": "purl",
       "import_path": "github.com/catatsuy/purl",
-      "version": "v0.2.9",
+      "version": "v0.2.10",
       "channel": "latest"
     },
     {
@@ -1234,7 +1234,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.44.3",
+      "version": "v0.44.5",
       "channel": "latest"
     },
     {
@@ -1270,7 +1270,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.16.16",
+      "version": "v3.16.18",
       "channel": "latest"
     },
     {
@@ -1294,7 +1294,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260627134306-ae841c0b9e39",
+      "version": "v0.0.0-20260702091504-037ce51593cc",
       "channel": "latest"
     },
     {
@@ -1384,13 +1384,13 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v0.24.0",
+      "version": "v0.26.0",
       "channel": "latest"
     },
     {
       "name": "squix",
       "import_path": "github.com/eduardofuncao/squix/cmd/squix",
-      "version": "v0.4.3-beta",
+      "version": "v0.5.0-beta",
       "channel": "latest"
     },
     {
@@ -1600,7 +1600,7 @@
     {
       "name": "xurl",
       "import_path": "github.com/xdevplatform/xurl",
-      "version": "v1.1.1",
+      "version": "v1.2.2",
       "channel": "latest"
     },
     {
