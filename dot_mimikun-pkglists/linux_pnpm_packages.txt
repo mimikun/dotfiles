@@ -21,6 +21,7 @@
 @microsoft/inshellisense
 @mizchi/actrun
 @getpaseo/cli
+@ghgrab/ghgrab
 @mistweaverco/kulala-cli
 @moonshot-ai/kimi-code
 @openai/codex
