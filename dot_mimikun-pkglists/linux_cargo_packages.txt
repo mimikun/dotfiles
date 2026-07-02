@@ -137,6 +137,7 @@ genact
 gengo-bin
 gfold
 ghciwatch
+ghgrab
 gistui
 git-delta
 git-graph
@@ -200,6 +201,7 @@ lawkit
 lazycelery
 lazyjj
 lisette
+livediff
 lla
 llmfit
 lobtui
@@ -284,6 +286,7 @@ pueue
 pumas
 punktf
 purple-ssh
+putzen-cli
 pylyzer
 qmassa
 qrtool
