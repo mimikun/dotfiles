@@ -68,6 +68,7 @@ complete -c starship -n "__fish_starship_using_subcommand module" -l shlvl -d 'T
 complete -c starship -n "__fish_starship_using_subcommand module" -s l -l list -d 'List out all supported modules'
 complete -c starship -n "__fish_starship_using_subcommand module" -s h -l help -d 'Print help'
 complete -c starship -n "__fish_starship_using_subcommand preset" -s o -l output -d 'Output the preset to a file instead of stdout' -r -F
+complete -c starship -n "__fish_starship_using_subcommand preset" -s f -l force -d 'Forcibly overwrite the output file if it already exists'
 complete -c starship -n "__fish_starship_using_subcommand preset" -s l -l list -d 'List out all preset names'
 complete -c starship -n "__fish_starship_using_subcommand preset" -s h -l help -d 'Print help'
 complete -c starship -n "__fish_starship_using_subcommand print-config" -s d -l default -d 'Print the default instead of the computed config'

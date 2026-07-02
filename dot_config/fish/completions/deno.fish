@@ -975,6 +975,7 @@ complete -c deno -n "__fish_deno_using_subcommand check" -l remote -d 'Type-chec
 complete -c deno -n "__fish_deno_using_subcommand check" -l doc -d 'Type-check code blocks in JSDoc as well as actual code'
 complete -c deno -n "__fish_deno_using_subcommand check" -l doc-only -d 'Type-check code blocks in JSDoc and Markdown only'
 complete -c deno -n "__fish_deno_using_subcommand check" -l check-js -d 'Enable type-checking of JavaScript files (equivalent to `compilerOptions.checkJs: true`)'
+complete -c deno -n "__fish_deno_using_subcommand check" -l desktop -d 'Type-check using the type definitions for `deno desktop`'
 complete -c deno -n "__fish_deno_using_subcommand check" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
 complete -c deno -n "__fish_deno_using_subcommand check" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand clean" -s h -l help -r -f -a "unstable\t''
