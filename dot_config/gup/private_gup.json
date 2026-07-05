@@ -64,7 +64,7 @@
     {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
-      "version": "v0.0.130",
+      "version": "v0.0.131",
       "channel": "latest"
     },
     {
@@ -220,7 +220,7 @@
     {
       "name": "croc",
       "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.4.6",
+      "version": "v10.4.7",
       "channel": "latest"
     },
     {
@@ -280,7 +280,7 @@
     {
       "name": "diffyml",
       "import_path": "github.com/szhekpisov/diffyml",
-      "version": "v1.7.0",
+      "version": "v1.7.1",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.11",
+      "version": "v0.2.12",
       "channel": "latest"
     },
     {
@@ -658,7 +658,7 @@
     {
       "name": "goshs",
       "import_path": "goshs.de/goshs/v2",
-      "version": "v2.1.3",
+      "version": "v2.1.4",
       "channel": "latest"
     },
     {
@@ -1006,7 +1006,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.3.12",
+      "version": "v6.3.14",
       "channel": "latest"
     },
     {
@@ -1054,7 +1054,7 @@
     {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
-      "version": "v0.0.0-20260427122455-d6e8b7fac3f3",
+      "version": "v0.0.0-20260704005736-8d7c2aa949e9",
       "channel": "latest"
     },
     {
@@ -1120,7 +1120,7 @@
     {
       "name": "pg-schema-diff",
       "import_path": "github.com/stripe/pg-schema-diff/cmd/pg-schema-diff",
-      "version": "v1.0.5",
+      "version": "v1.0.7",
       "channel": "latest"
     },
     {
@@ -1180,7 +1180,7 @@
     {
       "name": "pvetui",
       "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.4.1",
+      "version": "v1.4.2",
       "channel": "latest"
     },
     {
@@ -1204,7 +1204,7 @@
     {
       "name": "rad",
       "import_path": "github.com/amterp/rad",
-      "version": "v0.10.1",
+      "version": "v0.11.0",
       "channel": "latest"
     },
     {
@@ -1240,7 +1240,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.44.5",
+      "version": "v0.44.6",
       "channel": "latest"
     },
     {
@@ -1300,7 +1300,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260702091504-037ce51593cc",
+      "version": "v0.0.0-20260703124037-76dcfe51e9d3",
       "channel": "latest"
     },
     {
@@ -1390,7 +1390,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v0.26.0",
+      "version": "v0.27.0",
       "channel": "latest"
     },
     {
@@ -1432,7 +1432,7 @@
     {
       "name": "task",
       "import_path": "github.com/go-task/task/v3/cmd/task",
-      "version": "v3.51.1",
+      "version": "v3.52.0",
       "channel": "latest"
     },
     {
