@@ -412,7 +412,7 @@
     {
       "name": "fence",
       "import_path": "github.com/fencesandbox/fence/cmd/fence",
-      "version": "v0.1.61",
+      "version": "v0.1.62",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.12",
+      "version": "v0.2.14",
       "channel": "latest"
     },
     {
@@ -892,7 +892,7 @@
     {
       "name": "lazygit",
       "import_path": "github.com/jesseduffield/lazygit",
-      "version": "v0.62.2",
+      "version": "v0.63.0",
       "channel": "latest"
     },
     {
@@ -976,7 +976,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.1.1",
+      "version": "v0.1.2",
       "channel": "latest"
     },
     {
@@ -1006,7 +1006,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.3.14",
+      "version": "v6.3.15",
       "channel": "latest"
     },
     {
@@ -1054,7 +1054,7 @@
     {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
-      "version": "v0.0.0-20260704005736-8d7c2aa949e9",
+      "version": "v0.0.0-20260705034700-a83448c1a291",
       "channel": "latest"
     },
     {
@@ -1066,7 +1066,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.22.0",
+      "version": "v0.23.0",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "pop",
       "import_path": "github.com/charmbracelet/pop",
-      "version": "v0.2.1",
+      "version": "v0.2.2",
       "channel": "latest"
     },
     {
@@ -1300,7 +1300,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260703124037-76dcfe51e9d3",
+      "version": "v0.0.0-20260704203805-e20320a8e368",
       "channel": "latest"
     },
     {
