@@ -6,7 +6,6 @@
 # NOTE: Type : boolean
 onboarding = false
 
-
 # Built-in themes: catppuccin | catppuccin-latte | terminal \
 # tokyo-night | tokyo-night-day | dracula | nord \
 # gruvbox | gruvbox-light | one-dark | one-light \
@@ -17,10 +16,10 @@ onboarding = false
 [theme]
 # NOTE: catppuccin
 
-#name = "catppuccin"
-#auto_switch = false
-#light_name = "catppuccin-latte"
-#dark_name = "catppuccin"
+# name = "catppuccin"
+# auto_switch = false
+# light_name = "catppuccin-latte"
+# dark_name = "catppuccin"
 
 # NOTE: tokyonight
 
@@ -31,74 +30,71 @@ dark_name = "tokyo-night"
 
 # NOTE: gruvbox
 
-#name = "gruvbox"
-#auto_switch = false
-#light_name = "gruvbox-light"
-#dark_name = "gruvbox"
+# name = "gruvbox"
+# auto_switch = false
+# light_name = "gruvbox-light"
+# dark_name = "gruvbox"
 
 # NOTE: onedark
- 
-#name = "ones"
-#auto_switch = false
-#light_name = "one-light"
-#dark_name = "one-dark"
+# name = "ones"
+# auto_switch = false
+# light_name = "one-light"
+# dark_name = "one-dark"
 
 # NOTE: solarized
 
-#name = "solarized"
-#auto_switch = false
-#light_name = "solarized-light"
-#dark_name = "solarized"
+# name = "solarized"
+# auto_switch = false
+# light_name = "solarized-light"
+# dark_name = "solarized"
 
 # NOTE: kanagawa
 
-#name = "kanagawa"
-#auto_switch = false
-#light_name = "kanagawa-lotus"
-#dark_name = "kanagawa"
+# name = "kanagawa"
+# auto_switch = false
+# light_name = "kanagawa-lotus"
+# dark_name = "kanagawa"
 
 # NOTE: rose-pine
 
-#name = "rosepine"
-#auto_switch = false
-#light_name = "rose-pine-dawn"
-#dark_name = "rose-pine"
+# name = "rosepine"
+# auto_switch = false
+# light_name = "rose-pine-dawn"
+# dark_name = "rose-pine"
 
 # NOTE: others
 
-#name = "terminal"
-#name = "dracula"
-#name = "nord"
-#name = "vesper"
+# name = "terminal"
+# name = "dracula"
+# name = "nord"
+# name = "vesper"
 
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
 
-#[theme.custom]
-#panel_bg = "reset"
-#accent = "#f5c2e7"
-#red = "#ff6188"
-#green = "#a6e3a1"
+# [theme.custom]
+# panel_bg = "reset"
+# accent = "#f5c2e7"
+# red = "#ff6188"
+# green = "#a6e3a1"
 
-#[theme.custom]
-#panel_bg = "reset"
-#accent = "#a6e3a1"
-#green = "#a6e3a1"
-#blue = "#89b4fa"
-#red = "#f38ba8"
-#yellow = "#f9e2af"
+# [theme.custom]
+# panel_bg = "reset"
+# accent = "#a6e3a1"
+# green = "#a6e3a1"
+# blue = "#89b4fa"
+# red = "#f38ba8"
+# yellow = "#f9e2af"
 
 [terminal]
 # Executable used for new interactive panes.
 # Empty means $SHELL, then /bin/sh.
 # NOTE: Type : string | ""
 default_shell = "fish"
-
 # Startup mode for new interactive pane shells: "auto", "login", or "non_login".
 # "auto" uses login shells on macOS and keeps the current behavior elsewhere.
 # NOTE: Type : string | "auto" | "login" | "non_login"
 shell_mode = "auto"
-
 # CWD policy for new panes, tabs, and workspaces when no explicit --cwd is provided.
 # Use "follow" to inherit the source pane/workspace, "home" for $HOME,
 # "current" for Herdr's process directory, or a fixed path such as "~/Projects".
@@ -110,11 +106,9 @@ new_cwd = "follow"
 # Use "stable" for normal releases or "preview" for opt-in preview builds.
 # NOTE: Type : string | "stable" | "preview"
 channel = "preview"
-
 # Check herdr.dev for new Herdr versions in the background.
 # NOTE: Type : boolean
 version_check = true
-
 # Check herdr.dev for remote agent-detection manifest updates in the background.
 # NOTE: Type : boolean
 manifest_check = true
@@ -130,139 +124,89 @@ manifest_check = true
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
 # NOTE: Type : string | "ctrl+b"
 prefix = "ctrl+b"
-
 # Prefix-mode actions
 help = "prefix+?"
-
 settings = "prefix+s"
-
 detach = "prefix+q"
-
 reload_config = "prefix+shift+r"
-
 open_notification_target = "prefix+o"
-
 workspace_picker = "prefix+w"
-
 goto = "prefix+g"
-
 new_workspace = "prefix+shift+n"
-
 new_worktree = "prefix+shift+g"
-
 # optional, unset by default
 open_worktree = "prefix+shift+o"
-
 # optional, unset by default
 # opens confirmation
 remove_worktree = "prefix+alt+d"
-
 rename_workspace = "prefix+shift+w"
-
 close_workspace = "prefix+shift+d"
-
 # optional, unset by default
 previous_workspace = "prefix+shift+left"
-
 # optional, unset by default
 next_workspace = "prefix+shift+right"
-
 # optional, unset by default
 previous_agent = "prefix+alt+left"
-
 # optional, unset by default
 next_agent = "prefix+alt+right"
-
 # optional indexed binding,
 # e.g. "prefix+alt+1..9"
 focus_agent = "prefix+alt+1..9"
-
 # only active in herdr --remote;
 # empty disables raw-key image paste
 remote_image_paste = "ctrl+v"
-
 new_tab = "prefix+c"
-
 rename_tab = "prefix+shift+t"
-
 previous_tab = "prefix+p"
-
-next_tab = [
-  "prefix+n",
-  "ctrl+alt+]"
-]
-
+next_tab = ["prefix+n", "ctrl+alt+]"]
 switch_tab = "prefix+1..9"
-
-# optional indexed binding, 
+# optional indexed binding,
 # e.g. "prefix+shift+1..9"
 switch_workspace = "prefix+shift+1..9"
-
 close_tab = "prefix+shift+x"
-
 rename_pane = "prefix+shift+p"
-
 edit_scrollback = "prefix+e"
-
 focus_pane_left = "prefix+h"
-
 focus_pane_down = "prefix+j"
-
 focus_pane_up = "prefix+k"
-
 focus_pane_right = "prefix+l"
-
 cycle_pane_next = "prefix+tab"
-
 cycle_pane_previous = "prefix+shift+tab"
-
-# optional, unset by default; 
+# optional, unset by default;
 # bind e.g. "prefix+tab" for global back-and-forth
 last_pane = "prefix+tab"
-
 split_vertical = "prefix+v"
-
 split_horizontal = "prefix+minus"
-
 close_pane = "prefix+x"
-
 zoom = "prefix+z"
-
 resize_mode = "prefix+r"
-
 toggle_sidebar = "prefix+b"
-
-# Navigate-mode movement. 
+# Navigate-mode movement.
 # These local shortcuts win while navigate mode is open.
-# They are independent from focus_pane_*. 
+# They are independent from focus_pane_*.
 # Do not include prefix+, esc, enter, tab, or 1..9 here.
 navigate_workspace_up = "up"
-
 navigate_workspace_down = "down"
-
 # left arrow always focuses the pane to the left
 navigate_pane_left = "h"
-
 navigate_pane_down = "j"
-
 navigate_pane_up = "k"
-
 # right arrow always focuses the pane to the right
 navigate_pane_right = "l"
 
 # Custom commands use the same binding syntax.
 # type = "shell" runs detached in the background.
-#[[keys.command]]
-#key = "prefix+alt+g"
-#type = "pane"
-#command = "lazygit"
+# [[keys.command]]
+# key = "prefix+alt+g"
+# type = "pane"
+# command = "lazygit"
 
 # type = "pane" opens a temporary pane and closes it when the command exits.
 
-#[[keys.command]]
-#key = "prefix+alt+g"
-#type = "pane"
-#command = "lazygit"
+# [[keys.command]]
+# key = "prefix+alt+g"
+# type = "pane"
+# command = "lazygit"
 
 [worktrees]
 directory = "~/.herdr/worktrees"
@@ -270,62 +214,47 @@ directory = "~/.herdr/worktrees"
 [ui]
 # Sidebar width (auto-scaled based on workspace names, this sets the default)
 sidebar_width = 26
-
 # Minimum sidebar width when expanded (columns)
 sidebar_min_width = 18
-
 # Maximum sidebar width when expanded (columns)
 sidebar_max_width = 36
-
 # Terminal width at or below which Herdr uses the mobile single-column layout.
 # Increase this for foldables, tablets, or wide phone terminals.
 mobile_width_threshold = 64
-
 # Capture mouse input for Herdr's mouse UI.
 # Set false to let the terminal handle normal clicks, such as Cmd-clicking URLs.
 # Pane apps like lazygit and btop can still receive mouse when they request it.
 mouse_capture = true
-
-# Optional modifier that forwards right-click hold/drag gestures to pane 
+# Optional modifier that forwards right-click hold/drag gestures to pane
 # apps instead of opening Herdr's pane menu.
-# Empty/off disables this. 
+# Empty/off disables this.
 # Shift is intentionally unsupported because terminals commonly reserve Shift+mouse.
 right_click_passthrough_modifier = ""
-
 # Force a full redraw when the outer terminal regains focus.
 # Set false to reduce visible flashing when switching back to Herdr.
 # Trade-off: rare host terminal surface corruption may persist until the next full redraw.
 redraw_on_focus_gained = true
-
 # Pane scrollback lines to scroll per mouse wheel notch.
 mouse_scroll_lines = 3
-
 # Ask for confirmation before closing a workspace
 confirm_close = true
-
 # Ask for a tab name before creating a new tab.
 # Set false to create tabs immediately with generated names.
 prompt_new_tab_name = true
-
 # Draw borders around split panes.
 pane_borders = true
-
 # Keep split panes visually separated instead of sharing divider borders.
 pane_gaps = true
-
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
 show_agent_labels_on_pane_borders = false
-
 # Set `true` to hide the tab row when the active workspace has exactly one tab.
 # New tabs can still be created with the configured keybinding.
 # When a second tab appears, Herdr restores the tab row and resizes panes to make room for it.
 hide_tab_bar_when_single_tab = false
-
 # Agent panel ordering: "spaces" (grouped by space) or "priority" (attention queue).
 # "workspaces" is accepted as an alias for "spaces".
 # NOTE: Type : string | "spaces" | "priority"
 agent_panel_sort = "spaces"
-
 # Accent color for highlights, borders, and navigation UI.
 # Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
 accent = "cyan"
@@ -338,7 +267,6 @@ accent = "cyan"
 # system = ask the OS notification service directly
 # NOTE: Type : string | "off" | "herdr" | "terminal" | "system"
 delivery = "terminal"
-
 delay_seconds = 1
 
 [ui.toast.herdr]
@@ -355,7 +283,7 @@ position = "bottom-center"
 # Play sounds when agents change state in background workspaces
 [ui.sound]
 enabled = true
-# Optional custom mp3 sound files. 
+# Optional custom mp3 sound files.
 # Relative paths are resolved from this config file's directory.
 # one mp3 file for all sound notifications
 path = "sounds/notification.mp3"
@@ -367,94 +295,88 @@ request_path = "sounds/request.mp3"
 # Per-agent overrides: default | on | off
 # By default, droid is muted.
 [ui.sound.agents]
-#pi = "off"
+# pi = "off"
 claude = "on"
-#codex = "off"
-#gemini = "off"
-#cursor = "off"
-#devin = "off"
-#cline = "off"
-#opencode = "off"
-#copilot = "off"
-#kimi = "off"
-#kiro = "off"
+# codex = "off"
+# gemini = "off"
+# cursor = "off"
+# devin = "off"
+# cline = "off"
+# opencode = "off"
+# copilot = "off"
+# kimi = "off"
+# kiro = "off"
 droid = "off"
-#amp  = "off"
-#grok  = "off"
-#hermes  = "off"
-#kilo  = "off"
-#qodercli  = "off"
-#qoder  = "off"
+# amp  = "off"
+# grok  = "off"
+# hermes  = "off"
+# kilo  = "off"
+# qodercli  = "off"
+# qoder  = "off"
 
 [session]
-# Resume supported AI-agent panes into their native conversation sessions after 
-# a Herdr server restart. 
+# Resume supported AI-agent panes into their native conversation sessions after
+# a Herdr server restart.
 # Requires official integrations that report session refs.
 resume_agents_on_restore = true
 
 [remote]
 # Whether herdr manages the ssh config used for the `herdr --remote` bridge.
 # When true (default), herdr runs the bridge ssh through a generated config that
-# includes your ~/.ssh/config first and adds ServerAliveInterval/ServerAliveCountMax 
-# as a fallback (so any keepalive you set yourself still wins) to survive idle 
+# includes your ~/.ssh/config first and adds ServerAliveInterval/ServerAliveCountMax
+# as a fallback (so any keepalive you set yourself still wins) to survive idle
 # network/NAT timeouts.
-# Set false to run plain ssh against your ssh config unchanged 
+# Set false to run plain ssh against your ssh config unchanged
 # — this does not force keepalive off, it only stops herdr from adding its own.
 manage_ssh_config = true
 
 [experimental]
 # Allow launching herdr from inside a herdr-managed pane.
 allow_nested = false
-
 # Experimental local Kitty graphics rendering for attached clients.
 # Requires a Kitty graphics-compatible outer terminal.
 kitty_graphics = false
-
 # Save recent pane screen history across full server restarts.
 pane_history = true
-
 # While prefix mode is active, temporarily switch the macOS host input
 # source to an ASCII-capable keyboard layout so prefix commands register
 # even when a CJK IME is active, then restore the previous input source
-# when prefix mode exits. 
-# macOS only; 
+# when prefix mode exits.
+# macOS only;
 # best-effort. Default: false.
 switch_ascii_input_source_in_prefix = false
-
 # Expose the focused pane's cursor to the outer terminal so macOS input
 # methods keep tracking the candidate window when TUIs paint their own
-# cursor (Claude Code, pi, codex). 
+# cursor (Claude Code, pi, codex).
 # Trade-off: extra cursor visible for
 # apps that hide it without painting a replacement (vim normal mode, etc.).
 reveal_hidden_cursor_for_cjk_ime = false
-
-# Optional allow-list: 
-# only reveal for focused panes whose detected agent matches one of these names. 
+# Optional allow-list:
+# only reveal for focused panes whose detected agent matches one of these names.
 # Empty means apply to any focused pane.
 # If the list contains no valid names, the reveal does not apply.
 # Accepted: pi, claude, codex, gemini, cursor, devin, cline, opencode,
 # copilot, kimi, kiro, droid, amp, grok, hermes, kilo, qodercli, qoder.
 cjk_ime_agents = [
-  #"pi"
+  # "pi"
   "claude",
-  #"codex",
-  #"gemini",
-  #"cursor",
-  #"devin",
-  #"cline",
-  #"opencode",
-  #"copilot",
-  #"kimi", 
-  #"kiro", 
-  #"droid", 
-  #"amp", 
-  #"grok", 
-  #"hermes", 
-  #"kilo", 
-  #"qodercli", 
-  #"qoder", 
+  # "codex",
+  # "gemini",
+  # "cursor",
+  # "devin",
+  # "cline",
+  # "opencode",
+  # "copilot",
+  # "kimi",
+  # "kiro",
+  # "droid",
+  # "amp",
+  # "grok",
+  # "hermes",
+  # "kilo",
+  # "qodercli",
+  # "qoder",
 ]
-
 # Cursor shape r# endered when reveal_hidden_cursor_for_cjk_ime is true.
 # Values: block, steady_block (default), underline, steady_underline, bar, steady_bar.
 # NOTE: Type : string | "steady_block" | "block" | "underline" \
@@ -465,4 +387,3 @@ cjk_ime_cursor_shape = "steady_block"
 # Maximum scrollback buffer size in bytes retained per pane terminal.
 # Matches Ghostty's default scrollback-limit behavior.
 scrollback_limit_bytes = 10000000
-
