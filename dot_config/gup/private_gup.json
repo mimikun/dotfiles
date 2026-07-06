@@ -98,6 +98,12 @@
       "channel": "latest"
     },
     {
+      "name": "atago",
+      "import_path": "github.com/nao1215/atago",
+      "version": "v0.4.2",
+      "channel": "latest"
+    },
+    {
       "name": "ax",
       "import_path": "github.com/google/ax/cmd/ax",
       "version": "v0.1.0",
