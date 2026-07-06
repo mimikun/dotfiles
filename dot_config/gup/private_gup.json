@@ -670,7 +670,7 @@
     {
       "name": "gotip",
       "import_path": "github.com/lusingander/gotip/cmd/gotip",
-      "version": "v0.7.0",
+      "version": "v0.8.0",
       "channel": "latest"
     },
     {
@@ -850,7 +850,7 @@
     {
       "name": "ku",
       "import_path": "github.com/bjarneo/ku",
-      "version": "v0.7.1",
+      "version": "v0.8.0",
       "channel": "latest"
     },
     {
@@ -1006,7 +1006,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.3.15",
+      "version": "v6.3.16",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "pop",
       "import_path": "github.com/charmbracelet/pop",
-      "version": "v0.2.2",
+      "version": "v0.3.0",
       "channel": "latest"
     },
     {
@@ -1300,7 +1300,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260704203805-e20320a8e368",
+      "version": "v0.0.0-20260705194936-2ff4a5b970ad",
       "channel": "latest"
     },
     {
@@ -1396,7 +1396,7 @@
     {
       "name": "squix",
       "import_path": "github.com/eduardofuncao/squix/cmd/squix",
-      "version": "v0.5.0-beta",
+      "version": "v0.5.1-beta",
       "channel": "latest"
     },
     {
