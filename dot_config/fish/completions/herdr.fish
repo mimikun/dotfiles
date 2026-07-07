@@ -40,7 +40,7 @@ complete -c herdr -n "__fish_herdr_needs_command" -f -a "status" -d 'Show local 
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "config" -d 'Manage local configuration'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "channel" -d 'Manage stable and preview update channels'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "server" -d 'Run or control the headless server'
-complete -c herdr -n "__fish_herdr_needs_command" -f -a "api" -d 'Inspect socket API metadata'
+complete -c herdr -n "__fish_herdr_needs_command" -f -a "api" -d 'Inspect socket API metadata and live runtime state'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "workspace" -d 'Manage workspaces over the socket API'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "worktree" -d 'Manage Git worktree-backed workspaces'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "tab" -d 'Manage tabs over the socket API'
@@ -68,7 +68,8 @@ complete -c herdr -n "__fish_herdr_using_subcommand server; and not __fish_seen_
 complete -c herdr -n "__fish_herdr_using_subcommand server; and not __fish_seen_subcommand_from stop reload-config agent-manifests update-agent-manifests reload-agent-manifests" -f -a "reload-agent-manifests" -d 'Reload local agent detection manifest overrides'
 complete -c herdr -n "__fish_herdr_using_subcommand server; and __fish_seen_subcommand_from agent-manifests" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand server; and __fish_seen_subcommand_from update-agent-manifests" -l json
-complete -c herdr -n "__fish_herdr_using_subcommand api; and not __fish_seen_subcommand_from schema" -f -a "schema" -d 'Print or write the bundled API schema'
+complete -c herdr -n "__fish_herdr_using_subcommand api; and not __fish_seen_subcommand_from snapshot schema" -f -a "snapshot" -d 'Print the live session snapshot'
+complete -c herdr -n "__fish_herdr_using_subcommand api; and not __fish_seen_subcommand_from snapshot schema" -f -a "schema" -d 'Print or write the bundled API schema'
 complete -c herdr -n "__fish_herdr_using_subcommand api; and __fish_seen_subcommand_from schema" -l output -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand api; and __fish_seen_subcommand_from schema" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "list" -d 'List workspaces'
