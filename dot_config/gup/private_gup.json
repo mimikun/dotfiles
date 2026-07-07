@@ -26,6 +26,12 @@
       "channel": "latest"
     },
     {
+      "name": "adms",
+      "import_path": "github.com/mickamy/adms",
+      "version": "v0.0.1",
+      "channel": "latest"
+    },
+    {
       "name": "afa",
       "import_path": "github.com/monochromegane/afa",
       "version": "v0.1.5",
