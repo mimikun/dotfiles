@@ -106,7 +106,7 @@
     {
       "name": "atago",
       "import_path": "github.com/nao1215/atago",
-      "version": "v0.4.2",
+      "version": "v0.6.1",
       "channel": "latest"
     },
     {
@@ -862,7 +862,7 @@
     {
       "name": "ku",
       "import_path": "github.com/bjarneo/ku",
-      "version": "v0.8.0",
+      "version": "v0.8.1",
       "channel": "latest"
     },
     {
@@ -880,7 +880,7 @@
     {
       "name": "layerx",
       "import_path": "github.com/deveshctl/layerx",
-      "version": "v1.5.0",
+      "version": "v1.5.1",
       "channel": "latest"
     },
     {
@@ -988,7 +988,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.1.2",
+      "version": "v0.2.0",
       "channel": "latest"
     },
     {
@@ -1018,7 +1018,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.3.16",
+      "version": "v6.3.17",
       "channel": "latest"
     },
     {
@@ -1252,7 +1252,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.44.6",
+      "version": "v0.44.7",
       "channel": "latest"
     },
     {
@@ -1288,7 +1288,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.16.18",
+      "version": "v3.17.0",
       "channel": "latest"
     },
     {
@@ -1312,7 +1312,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260705194936-2ff4a5b970ad",
+      "version": "v0.0.0-20260707032447-ed26a70daa5c",
       "channel": "latest"
     },
     {
@@ -1402,7 +1402,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v0.27.0",
+      "version": "v0.27.1",
       "channel": "latest"
     },
     {
