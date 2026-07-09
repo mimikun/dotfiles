@@ -434,6 +434,12 @@
       "channel": "latest"
     },
     {
+      "name": "flow",
+      "import_path": "github.com/programmersd21/flow/cmd/flow",
+      "version": "v0.1.5",
+      "channel": "latest"
+    },
+    {
       "name": "fm",
       "import_path": "github.com/mistakenelf/fm",
       "version": "v1.2.0",
