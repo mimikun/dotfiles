@@ -171,7 +171,7 @@ complete -c deno -n "__fish_deno_needs_command" -a "ci" -d 'Install dependencies
 complete -c deno -n "__fish_deno_needs_command" -a "json_reference"
 complete -c deno -n "__fish_deno_needs_command" -a "jupyter" -d 'Deno kernel for Jupyter notebooks'
 complete -c deno -n "__fish_deno_needs_command" -a "approve-scripts" -d 'Approve npm lifecycle scripts for installed dependencies.'
-complete -c deno -n "__fish_deno_needs_command" -a "uninstall" -d 'Uninstalls a dependency or an executable script in the installation root\'s bin directory.   deno uninstall @std/dotenv chalk   deno uninstall --global file_server  To change the installation root, use --root flag:   deno uninstall --global --root /usr/local serve  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno'
+complete -c deno -n "__fish_deno_needs_command" -a "uninstall" -d 'Uninstalls dependencies or an executable script in the installation root\'s bin directory.   deno uninstall @std/dotenv chalk   deno uninstall --global file_server  To change the installation root, use --root flag:   deno uninstall --global --root /usr/local cowsay serve  The installation root is determined, in order of precedence:   - --root option   - DENO_INSTALL_ROOT environment variable   - $HOME/.deno'
 complete -c deno -n "__fish_deno_needs_command" -a "outdated" -d 'Find and update outdated dependencies. By default, outdated dependencies are only displayed.  Display outdated dependencies:   deno outdated   deno outdated --compatible  Update dependencies to the latest semver compatible versions:   deno outdated --update Update dependencies to the latest versions, ignoring semver requirements:   deno outdated --update --latest Update dependencies within their existing version ranges, without editing deno.json / package.json (like npm update):   deno outdated --update --lockfile-only  Filters can be used to select which packages to act on. Filters can include wildcards (*) to match multiple packages.   deno outdated --update --latest "@std/*"   deno outdated --update --latest "react*" Note that filters act on their aliases configured in deno.json / package.json, not the actual package names:   Given "foobar": "npm:react@17.0.0" in deno.json or package.json, the filter "foobar" would update npm:react to   the latest version.   deno outdated --update --latest foobar Filters can be combined, and negative filters can be used to exclude results:   deno outdated --update --latest "@std/*" "!@std/fmt*"  Specific version requirements to update to can be specified:   deno outdated --update @std/fmt@^1.0.2 '
 complete -c deno -n "__fish_deno_needs_command" -a "link" -d 'Link a local JSR package into the current project for development.    deno link ../my-local-pkg  Each path must be a directory containing a deno.json with a JSR-style "name" field. The path is appended to the "links" array in the nearest deno.json, and modules imported by that package\'s name resolve to the local copy instead of the registry.  To stop using the local copy:   deno unlink ../my-local-pkg   deno unlink @scope/name '
 complete -c deno -n "__fish_deno_needs_command" -a "unlink" -d 'Remove a linked local package from the current project.    deno unlink ../my-local-pkg   deno unlink @scope/name  Accepts either a path that matches an existing entry in the "links" array, or the JSR-style name of a linked package. '
@@ -727,6 +727,7 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l require -d 'A list o
 complete -c deno -n "__fish_deno_using_subcommand bench" -l check -d 'Set type-checking behavior. This subcommand type-checks local modules by default, so passing --check is redundant; pass --check=all to also type-check remote modules. Alternatively, use the \'deno check\' subcommand.' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ignore -d 'Ignore files' -r
 complete -c deno -n "__fish_deno_using_subcommand bench" -l filter -d 'Run benchmarks with this string or regexp pattern in the bench name' -r
+complete -c deno -n "__fish_deno_using_subcommand bench" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand bench" -l ext -d 'Set content type of the supplied file' -r -f -a "ts\t''
@@ -780,7 +781,6 @@ complete -c deno -n "__fish_deno_using_subcommand bench" -l eszip-internal-do-no
 complete -c deno -n "__fish_deno_using_subcommand bench" -l json -d 'UNSTABLE: Output benchmark result in JSON format'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-run -d 'Cache bench modules, but don\'t run benchmarks'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l permit-no-files -d 'Don\'t return an error code if no files were found'
-complete -c deno -n "__fish_deno_using_subcommand bench" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
 complete -c deno -n "__fish_deno_using_subcommand bench" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand bundle" -s h -l help -r -f -a "unstable\t''
 full\t''"
@@ -1286,6 +1286,7 @@ complete -c deno -n "__fish_deno_using_subcommand desktop" -l no-prompt
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l cached-only -d 'Require that remote dependencies are already cached'
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l enable-testing-features-do-not-use -d 'INTERNAL: Enable internal features used during integration testing'
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l eszip-internal-do-not-use
+complete -c deno -n "__fish_deno_using_subcommand desktop" -l exclude-unused-npm -d 'Embed only the npm packages reachable from the module graph (managed npm; no node_modules directory).   Without this flag the full managed npm snapshot from the lockfile / package.json is embedded.   Reduces binary size when the lockfile contains packages the entrypoint does not import.   Skips packages that are only reached through non-statically-analyzable dynamic imports;   pass those with --include npm:<pkg> if needed.'
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l no-code-cache -d 'Disable V8 code cache feature'
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l hmr -d 'Run the desktop app with Hot Module Replacement enabled'
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l all-targets -d 'Build for all supported target platforms'
@@ -1549,6 +1550,7 @@ sql\t''
 vto\t''
 njk\t''"
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l ignore -d 'Ignore formatting particular source files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand fmt" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l use-tabs -d 'Use tabs instead of spaces for indentation [default: false]' -r -f -a "true\t''
 false\t''"
@@ -1594,7 +1596,6 @@ complete -c deno -n "__fish_deno_using_subcommand fmt" -l no-config -d 'Disable 
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l check -d 'Check if the source files are formatted'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l fail-fast -d 'Stop checking files on first format error'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l permit-no-files -d 'Don\'t return an error code if no files were found'
-complete -c deno -n "__fish_deno_using_subcommand fmt" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l no-editorconfig -d 'Don\'t read .editorconfig files to infer formatting options [default: false]'
 complete -c deno -n "__fish_deno_using_subcommand fmt" -l unstable-css -d 'Enable formatting CSS, SCSS and Less files'
@@ -2141,7 +2142,7 @@ complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-vsock -
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-webgpu -d 'Enable unstable WebGPU APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -s q -l quiet -d 'Suppress diagnostic output'
-complete -c deno -n "__fish_deno_using_subcommand uninstall" -s g -l global -d 'Remove globally installed package or module'
+complete -c deno -n "__fish_deno_using_subcommand uninstall" -s g -l global -d 'Remove globally installed packages or modules'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l lockfile-only -d 'Install only updating the lockfile'
 complete -c deno -n "__fish_deno_using_subcommand uninstall" -l package-json -d 'Force using package.json for dependency management instead of deno.json'
@@ -2286,6 +2287,7 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l rules-include -d 'Inc
 complete -c deno -n "__fish_deno_using_subcommand lint" -l rules-exclude -d 'Exclude lint rules' -r
 complete -c deno -n "__fish_deno_using_subcommand lint" -s c -l config -d 'Configure different aspects of deno including TypeScript, linting, and code formatting.   Typically the configuration file will be called `deno.json` or `deno.jsonc` and   automatically detected; in that case this flag is not necessary.   Docs: https://docs.deno.com/go/config' -r -F
 complete -c deno -n "__fish_deno_using_subcommand lint" -l ignore -d 'Ignore linting particular source files' -r -F
+complete -c deno -n "__fish_deno_using_subcommand lint" -l watch -d 'Watch for file changes and restart process automatically.   Local files from entry point module graph are watched by default.   Additional paths might be watched by passing them as arguments to this flag.' -r -F
 complete -c deno -n "__fish_deno_using_subcommand lint" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
 complete -c deno -n "__fish_deno_using_subcommand lint" -s I -l allow-import -d 'Allow importing from remote hosts. Optionally specify allowed IP addresses and host names, with ports as necessary. Default value: deno.land:443,jsr.io:443,esm.sh:443,raw.esm.sh:443,cdn.jsdelivr.net:443,raw.githubusercontent.com:443,gist.githubusercontent.com:443' -r
 complete -c deno -n "__fish_deno_using_subcommand lint" -l deny-import -d 'Deny importing from remote hosts. Optionally specify denied IP addresses and host names, with ports as necessary.' -r
@@ -2324,7 +2326,6 @@ complete -c deno -n "__fish_deno_using_subcommand lint" -l no-config -d 'Disable
 complete -c deno -n "__fish_deno_using_subcommand lint" -l json -d 'Output lint result in JSON format'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l compact -d 'Output lint result in compact format'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l permit-no-files -d 'Don\'t return an error code if no files were found'
-complete -c deno -n "__fish_deno_using_subcommand lint" -l watch -d 'Watch for file changes and restart process automatically.   Only local files from entry point module graph are watched.'
 complete -c deno -n "__fish_deno_using_subcommand lint" -l no-clear-screen -d 'Do not clear terminal screen when under watch mode'
 complete -c deno -n "__fish_deno_using_subcommand publish" -s h -l help -r -f -a "unstable\t''
 full\t''"
