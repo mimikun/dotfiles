@@ -90,6 +90,7 @@ difftastic
 diffx
 diskonaut
 dns-doge
+dnsglobe
 domain-check
 dotslash
 dotstate
@@ -154,6 +155,7 @@ glues
 gping
 gptop
 grex
+gwm-cli
 harper-ls
 hawk-data
 hazelnut
@@ -235,6 +237,7 @@ mq-run
 natls
 navi
 ncspot
+nectar-lang
 needs
 netscanner
 netwatch-tui
@@ -319,6 +322,7 @@ rustormy
 rustscan
 rvpm
 s3grep
+sabiql
 sccache
 scooter
 scraps
@@ -343,6 +347,7 @@ so
 somo
 soundscope
 splashboard
+spotatui
 sprofile
 srgn
 ssh-list
