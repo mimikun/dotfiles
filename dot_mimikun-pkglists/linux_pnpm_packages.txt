@@ -54,6 +54,7 @@ editprompt
 envinfo
 @rivolink/leaf
 epiq
+fallow
 git-rewrite-commits
 git-truck
 gut-cli
