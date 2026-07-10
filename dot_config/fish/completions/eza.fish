@@ -37,6 +37,7 @@ complete -c eza -l icons -d "When to display icons" -x -a "
   never\t'Never display icons'
 "
 complete -c eza -l no-quotes -d "Don't quote file names with spaces"
+complete -c eza -l short-nix -d "Abbreviate Nix store hashes in file names and paths"
 complete -c eza -l hyperlink -d "When to display entries as hyperlinks" -x -a "
   always\t'Always display entries as hyperlinks'
   auto\t'Display hyperlinks if standard output is a terminal'
@@ -59,6 +60,7 @@ complete -c eza -s a -l all -d "Show hidden and 'dot' files. Use this twice to a
 complete -c eza -s A -l almost-all -d "Equivalent to --all; included for compatibility with `ls -A`"
 complete -c eza -s d -l treat-dirs-as-files -d "List directories like regular files"
 complete -c eza -s L -l level -d "Limit the depth of recursion" -x -a "1 2 3 4 5 6 7 8 9"
+complete -c eza -l code -d "Summarise lines of code by language" -x -a "lines percent both"
 complete -c eza -s w -l width -d "Limits column output of grid, 0 implies auto-width"
 complete -c eza -s r -l reverse -d "Reverse the sort order"
 complete -c eza -s s -l sort -d "Which field to sort by" -x -a "
@@ -98,6 +100,7 @@ complete -c eza -s g -l group -d "List each file's group"
 complete -c eza -s h -l header -d "Add a header row to each column"
 complete -c eza -s H -l links -d "List each file's number of hard links"
 complete -c eza -s i -l inode -d "List each file's inode number"
+complete -c eza -l loc -d "Add lines-of-code and language columns" -x -a "lines percent both"
 complete -c eza -s S -l blocksize -d "List each file's size of allocated file system blocks"
 complete -c eza -s t -l time -d "Which timestamp field to list" -x -a "
     modified\t'Display modified time'

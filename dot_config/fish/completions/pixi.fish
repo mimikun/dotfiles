@@ -1,27 +1,27 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_pixi_global_optspecs
-	string join \n h/help v/verbose q/quiet color= no-progress list V/version
+    string join \n h/help v/verbose q/quiet color= no-progress list V/version
 end
 
 function __fish_pixi_needs_command
-	# Figure out if the current invocation already has a command.
-	set -l cmd (commandline -opc)
-	set -e cmd[1]
-	argparse -s (__fish_pixi_global_optspecs) -- $cmd 2>/dev/null
-	or return
-	if set -q argv[1]
-		# Also print the command, so this can be used to figure out what it is.
-		echo $argv[1]
-		return 1
-	end
-	return 0
+    # Figure out if the current invocation already has a command.
+    set -l cmd (commandline -opc)
+    set -e cmd[1]
+    argparse -s (__fish_pixi_global_optspecs) -- $cmd 2>/dev/null
+    or return
+    if set -q argv[1]
+        # Also print the command, so this can be used to figure out what it is.
+        echo $argv[1]
+        return 1
+    end
+    return 0
 end
 
 function __fish_pixi_using_subcommand
-	set -l cmd (__fish_pixi_needs_command)
-	test -z "$cmd"
-	and return 1
-	contains -- $cmd[1] $argv
+    set -l cmd (__fish_pixi_needs_command)
+    test -z "$cmd"
+    and return 1
+    contains -- $cmd[1] $argv
 end
 
 complete -c pixi -n "__fish_pixi_needs_command" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -47,12 +47,12 @@ complete -c pixi -n "__fish_pixi_needs_command" -f -a "g" -d 'Subcommand for glo
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "info" -d 'Information about the system, workspace and environments for the current machine'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "init" -d 'Creates a new workspace'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "import" -d 'Imports a file into an environment in an existing workspace.'
-complete -c pixi -n "__fish_pixi_needs_command" -f -a "install" -d 'Install an environment, both updating the lockfile and installing the environment'
-complete -c pixi -n "__fish_pixi_needs_command" -f -a "i" -d 'Install an environment, both updating the lockfile and installing the environment'
+complete -c pixi -n "__fish_pixi_needs_command" -f -a "install" -d 'Install an environment, both updating the lock file and installing the environment'
+complete -c pixi -n "__fish_pixi_needs_command" -f -a "i" -d 'Install an environment, both updating the lock file and installing the environment'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "list" -d 'List the packages of the current workspace'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "ls" -d 'List the packages of the current workspace'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "lock" -d 'Solve environment and update the lock file without installing the environments'
-complete -c pixi -n "__fish_pixi_needs_command" -f -a "reinstall" -d 'Re-install an environment, both updating the lockfile and re-installing the environment'
+complete -c pixi -n "__fish_pixi_needs_command" -f -a "reinstall" -d 'Re-install an environment, both updating the lock file and re-installing the environment'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "publish" -d 'Build a conda package and publish it to a channel.'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "remove" -d 'Removes dependencies from the workspace'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "rm" -d 'Removes dependencies from the workspace'
@@ -67,13 +67,13 @@ complete -c pixi -n "__fish_pixi_needs_command" -f -a "task" -d 'Interact with t
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "tree" -d 'Show a tree of workspace dependencies'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "t" -d 'Show a tree of workspace dependencies'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "update" -d 'The `update` command checks if there are newer versions of the dependencies and updates the `pixi.lock` file and environments accordingly'
-complete -c pixi -n "__fish_pixi_needs_command" -f -a "upgrade" -d 'Checks if there are newer versions of the dependencies and upgrades them in the lockfile and manifest file'
+complete -c pixi -n "__fish_pixi_needs_command" -f -a "upgrade" -d 'Checks if there are newer versions of the dependencies and upgrades them in the lock file and manifest file'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "upload" -d 'Upload conda packages to various channels'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "workspace" -d 'Modify the workspace configuration file through the command line'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand add" -s p -l platform -d 'The platform for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand add" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l branch -d 'The git branch' -r
@@ -91,23 +91,26 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l index -d 'The PyPI index URL to use for this dependency. Only applicable when adding pypi dependencies' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l host -d 'The specified dependencies are host dependencies. Conflicts with `build` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l build -d 'The specified dependencies are build dependencies. Conflicts with `host` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l pypi -d 'The specified dependencies are pypi dependencies. Conflicts with `host` and `build`'
-complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand add" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand add" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-hard-links -d 'Disallow hard links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-ref-links -d 'Disallow ref links (copy-on-write) during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l tls-no-verify -d 'Do not verify the TLS certificate of the server'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l use-environment-activation-cache -d 'Use environment activation cache (experimental)'
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l editable -d 'Whether the pypi requirement should be editable'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
@@ -115,7 +118,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand add" -s q -l quiet -d 'Decreas
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand a" -s p -l platform -d 'The platform for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand a" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l branch -d 'The git branch' -r
@@ -133,38 +136,42 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l index -d 'The PyPI index URL to use for this dependency. Only applicable when adding pypi dependencies' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l host -d 'The specified dependencies are host dependencies. Conflicts with `build` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l build -d 'The specified dependencies are build dependencies. Conflicts with `host` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l pypi -d 'The specified dependencies are pypi dependencies. Conflicts with `host` and `build`'
-complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand a" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand a" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-hard-links -d 'Disallow hard links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-ref-links -d 'Disallow ref links (copy-on-write) during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l tls-no-verify -d 'Do not verify the TLS certificate of the server'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l use-environment-activation-cache -d 'Use environment activation cache (experimental)'
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l editable -d 'Whether the pypi requirement should be editable'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -s h -l help -d 'Display help information'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -f -a "login" -d 'Store authentication information for a given host'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -f -a "logout" -d 'Remove authentication information for a given host'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "login" -d 'Store authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "logout" -d 'Remove authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "status" -d 'Show stored authentication entries and non-secret token metadata'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l token -d 'The token to use (for authentication with prefix.dev)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l username -d 'The username to use (for basic HTTP authentication)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l password -d 'The password to use (for basic HTTP authentication)' -r
@@ -175,10 +182,12 @@ complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l oauth-issuer-url -d 'OIDC issuer URL (defaults to <https://{host>})' -r
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l oauth-client-id -d 'OAuth client ID (defaults to "rattler")' -r
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l oauth-client-secret -d 'OAuth client secret (for confidential clients)' -r
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l oauth-flow -d 'OAuth flow: auto (default), auth-code, device-code' -r -f -a "auto\t''
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l oauth-flow -d 'OAuth flow: device-code (default), auth-code, auto' -r -f -a "device-code\t''
 auth-code\t''
-device-code\t''"
+auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l oauth-scope -d 'Additional OAuth scopes to request (repeatable)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l oauth-redirect-uri -d 'OAuth redirect URI (defaults to a random localhost port). Set this when the OAuth client on the `IdP` side is registered with a specific redirect URI such as `http://127.0.0.1:8000/auth/oidc`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l user-agent -d 'User-Agent header used for requests' -r
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -190,12 +199,21 @@ complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -l all -d 'Remove every stored authentication entry (revoking OAuth tokens for each)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+never\t''
+auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -s v -l verbose -d 'Show endpoint URLs, client ID, and other IdP-introspection fields that are only useful for debugging'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "login" -d 'Store authentication information for a given host'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "logout" -d 'Remove authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "status" -d 'Show stored authentication entries and non-secret token metadata'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -208,7 +226,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand build" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s t -l target-platform -d 'The target platform to build for (defaults to the current platform)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l build-platform -d 'The build platform to use for building (defaults to the current platform)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s o -l output-dir -d 'The output directory to place the built artifacts' -r -F
@@ -223,22 +242,25 @@ complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-hard-links -d 'Di
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-ref-links -d 'Disallow ref links (copy-on-write) during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l tls-no-verify -d 'Do not verify the TLS certificate of the server'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l use-environment-activation-cache -d 'Use environment activation cache (experimental)'
-complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand build" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand build" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l as-is -d 'Shorthand for the combination of --no-install and --frozen'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s c -l clean -d 'Whether to clean the build directory before building'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -s e -l environment -d 'The environment directory to remove' -r
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l activation-cache -d 'Only remove the activation cache'
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l build -d 'Only remove the pixi-build cache'
 complete -c pixi -n "__fish_pixi_using_subcommand clean; and not __fish_seen_subcommand_from cache help" -l workspaces-registry -d 'Only remove disassociated workspace registries'
@@ -391,7 +413,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand config; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -s s -l spec -d 'Matchspecs of package to install. If this is not provided, the package is guessed from the command' -r
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -s w -l with -d 'Matchspecs of package to install, while also guessing a package from the command' -r
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
-complete -c pixi -n "__fish_pixi_using_subcommand exec" -s p -l platform -d 'The platform to create the environment for' -r
+complete -c pixi -n "__fish_pixi_using_subcommand exec" -s p -l platform -d 'The platform to create the environment for. Defaults to the current machine\'s subdir. Accepts a workspace platform name or a bare conda subdir (e.g. `linux-64`); `pixi exec` runs outside any workspace so the value resolves to a conda subdir either way' -r
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l list -d 'Before executing the command, list packages in the environment Specify `--list=some_regex` to filter the shown packages' -r
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -404,7 +426,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand exec" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand exec" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -423,7 +445,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand exec" -l no-progress -d 'Hide 
 complete -c pixi -n "__fish_pixi_using_subcommand x" -s s -l spec -d 'Matchspecs of package to install. If this is not provided, the package is guessed from the command' -r
 complete -c pixi -n "__fish_pixi_using_subcommand x" -s w -l with -d 'Matchspecs of package to install, while also guessing a package from the command' -r
 complete -c pixi -n "__fish_pixi_using_subcommand x" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
-complete -c pixi -n "__fish_pixi_using_subcommand x" -s p -l platform -d 'The platform to create the environment for' -r
+complete -c pixi -n "__fish_pixi_using_subcommand x" -s p -l platform -d 'The platform to create the environment for. Defaults to the current machine\'s subdir. Accepts a workspace platform name or a bare conda subdir (e.g. `linux-64`); `pixi exec` runs outside any workspace so the value resolves to a conda subdir either way' -r
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l list -d 'Before executing the command, list packages in the environment Specify `--list=some_regex` to filter the shown packages' -r
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -436,7 +458,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand x" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand x" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -499,7 +521,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -532,7 +554,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -575,7 +597,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -613,7 +635,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -640,7 +662,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -666,7 +688,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -692,7 +714,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -717,7 +739,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
 name\t''"
@@ -746,7 +768,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
 name\t''"
@@ -775,7 +797,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -800,7 +822,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -855,7 +877,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -890,7 +912,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l platform -d 'The platform to install the package for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -984,7 +1006,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1017,7 +1039,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1060,7 +1082,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1098,7 +1120,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1125,7 +1147,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1151,7 +1173,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1177,7 +1199,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1202,7 +1224,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
 name\t''"
@@ -1231,7 +1253,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
 name\t''"
@@ -1260,7 +1282,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1285,7 +1307,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1340,7 +1362,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1375,7 +1397,7 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l platform -d 'The platform to install the package for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1422,11 +1444,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from help" -f -a "upgrade-all" -d 'Upgrade all globally installed packages This command has been removed, please use `pixi global update` instead'
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from help" -f -a "tree" -d 'Show a tree of dependencies for a specific global environment'
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand info" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand info" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand info" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand info" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand info" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand info" -l extended -d 'Show cache and environment size'
 complete -c pixi -n "__fish_pixi_using_subcommand info" -l json -d 'Whether to show the output as JSON or not'
 complete -c pixi -n "__fish_pixi_using_subcommand info" -s h -l help -d 'Display help information'
@@ -1442,7 +1466,7 @@ mojoproject\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand init" -s s -l scm -d 'Source Control Management used for this workspace' -r -f -a "github\t''
 gitlab\t''
 codeberg\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand init" -l conda-pypi-map -d 'Set a mapping between conda channels and pypi channels' -r
+complete -c pixi -n "__fish_pixi_using_subcommand init" -l conda-pypi-map -d 'Set conda↔PyPI mapping configuration' -r
 complete -c pixi -n "__fish_pixi_using_subcommand init" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1455,7 +1479,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand import" -s m -l manifest-path 
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l format -d 'Which format to interpret the file as' -r -f -a "conda-env\t''
 pypi-txt\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand import" -s p -l platform -d 'The platforms for the imported environment' -r
+complete -c pixi -n "__fish_pixi_using_subcommand import" -s p -l platform -d 'The platforms for the imported environment. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted. Names that aren\'t yet declared get auto-added as subdir platforms' -r
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s e -l environment -d 'A name for the created environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s f -l feature -d 'A name for the created feature' -r
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -1469,7 +1493,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand import" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand import" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand import" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1479,10 +1504,12 @@ complete -c pixi -n "__fish_pixi_using_subcommand import" -l no-hard-links -d 'D
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l no-ref-links -d 'Disallow ref links (copy-on-write) during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l tls-no-verify -d 'Do not verify the TLS certificate of the server'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l use-environment-activation-cache -d 'Use environment activation cache (experimental)'
+complete -c pixi -n "__fish_pixi_using_subcommand import" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand install" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s e -l environment -d 'The environment to install' -r
@@ -1497,15 +1524,17 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
-complete -c pixi -n "__fish_pixi_using_subcommand install" -l skip -d 'Skip installation of specific packages present in the lockfile. This uses a soft exclusion: the package will be skipped but its dependencies are installed' -r
+complete -c pixi -n "__fish_pixi_using_subcommand install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand install" -s p -l platform -d 'Install for the given platform; a warning is printed when it doesn\'t run on this machine' -r
+complete -c pixi -n "__fish_pixi_using_subcommand install" -l skip -d 'Skip installation of specific packages present in the lock file. This uses a soft exclusion: the package will be skipped but its dependencies are installed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l skip-with-deps -d 'Skip a package and its entire dependency subtree. This performs a hard exclusion: the package and its dependencies are not installed unless reachable from another non-skipped root' -r
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l only -d 'Install and build only these package(s) and their dependencies. Can be passed multiple times' -r
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand install" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand install" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand install" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand install" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand install" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -1517,6 +1546,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand install" -s h -l help -d 'Disp
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand i" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s e -l environment -d 'The environment to install' -r
@@ -1531,15 +1561,17 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
-complete -c pixi -n "__fish_pixi_using_subcommand i" -l skip -d 'Skip installation of specific packages present in the lockfile. This uses a soft exclusion: the package will be skipped but its dependencies are installed' -r
+complete -c pixi -n "__fish_pixi_using_subcommand i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand i" -s p -l platform -d 'Install for the given platform; a warning is printed when it doesn\'t run on this machine' -r
+complete -c pixi -n "__fish_pixi_using_subcommand i" -l skip -d 'Skip installation of specific packages present in the lock file. This uses a soft exclusion: the package will be skipped but its dependencies are installed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l skip-with-deps -d 'Skip a package and its entire dependency subtree. This performs a hard exclusion: the package and its dependencies are not installed unless reachable from another non-skipped root' -r
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l only -d 'Install and build only these package(s) and their dependencies. Can be passed multiple times' -r
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand i" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand i" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand i" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand i" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand i" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -1551,7 +1583,8 @@ complete -c pixi -n "__fish_pixi_using_subcommand i" -s h -l help -d 'Display he
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand list" -l platform -d 'The platform to list packages for. Defaults to the current platform' -r
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l platform -d 'The platform to list packages for. Defaults to the platform best matching this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l sort-by -d 'Sorting strategy' -r -f -a "size\t''
 name\t''
 kind\t''"
@@ -1584,17 +1617,19 @@ complete -c pixi -n "__fish_pixi_using_subcommand list" -s e -l environment -d '
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l json -d 'Whether to output in json format'
-complete -c pixi -n "__fish_pixi_using_subcommand list" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand list" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand list" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand list" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand list" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s x -l explicit -d 'Only list packages that are explicitly defined in the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -l platform -d 'The platform to list packages for. Defaults to the current platform' -r
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l platform -d 'The platform to list packages for. Defaults to the platform best matching this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l sort-by -d 'Sorting strategy' -r -f -a "size\t''
 name\t''
 kind\t''"
@@ -1627,22 +1662,25 @@ complete -c pixi -n "__fish_pixi_using_subcommand ls" -s e -l environment -d 'Th
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l json -d 'Whether to output in json format'
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s x -l explicit -d 'Only list packages that are explicitly defined in the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l json -d 'Output the changes in JSON format'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l check -d 'Check if any changes have been made to the lock file. If yes, exit with a non-zero code'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l dry-run -d 'Compute the lock file without writing to disk. Implies --no-install'
@@ -1650,6 +1688,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand lock" -s h -l help -d 'Display
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s e -l environment -d 'The environment to install' -r
@@ -1664,12 +1703,14 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s p -l platform -d 'Re-install for the given platform; a warning is printed when it doesn\'t run on this machine' -r
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -1681,6 +1722,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s h -l help -d 'Di
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1692,18 +1734,24 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand publish" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -s t -l target-platform -d 'The target platform to build for (defaults to the current platform)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l build-platform -d 'The build platform to use for building (defaults to the current platform)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l build-string-prefix -d 'An optional prefix prepended to the auto-generated build string' -r
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l build-number -d 'An optional override for the package\'s build number' -r
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -s b -l build-dir -d 'The directory to use for incremental builds artifacts' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l path -d 'The path to a directory containing a package manifest, or to a specific manifest file' -r -F
-complete -c pixi -n "__fish_pixi_using_subcommand publish" -l target-channel -d 'The target channel URL to publish packages to' -r
-complete -c pixi -n "__fish_pixi_using_subcommand publish" -l target-dir -d 'The target local directory to copy packages into (no channel indexing)' -r -F
-complete -c pixi -n "__fish_pixi_using_subcommand publish" -l skip-existing -d 'Skip uploading packages that already exist on the target channel. This is enabled by default. Use `--no-skip-existing` to disable' -r -f -a "true\t''
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l target-channel -l to -d 'The target channel to publish packages to. Accepts a URL (prefix.dev, anaconda.org, cloudsmith://, s3://, quetz://, artifactory://) or a local filesystem path / `file://` URL for an indexed local channel' -r
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l target-dir -d 'The local filesystem path to copy the built package(s) into (no channel indexing)' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l skip-existing -d 'Skip uploading packages that already exist at the target. This is enabled by default. Use `--no-skip-existing` to disable' -r -f -a "true\t''
 false\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l variant -d 'Override a build variant key with one or more values' -r
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -s m -l variant-config -d 'Path to an additional variant configuration YAML file' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l package-format -d 'Archive format and optional compression level, e.g. `conda`, `tar-bz2`, `conda:max`, `conda:15`, `tar-bz2:9`. Numeric ranges match rattler-build: -7..=22 for `.conda`, 1..=9 for `.tar.bz2`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -1717,9 +1765,10 @@ complete -c pixi -n "__fish_pixi_using_subcommand publish" -s h -l help -d 'Disp
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -s p -l platform -d 'The platform for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l branch -d 'The git branch' -r
@@ -1737,17 +1786,18 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l host -d 'The specified dependencies are host dependencies. Conflicts with `build` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l build -d 'The specified dependencies are build dependencies. Conflicts with `host` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l pypi -d 'The specified dependencies are pypi dependencies. Conflicts with `host` and `build`'
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -1758,9 +1808,10 @@ complete -c pixi -n "__fish_pixi_using_subcommand remove" -s h -l help -d 'Displ
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -s p -l platform -d 'The platform for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s f -l feature -d 'The feature for which the dependency should be modified' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l branch -d 'The git branch' -r
@@ -1778,17 +1829,18 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l host -d 'The specified dependencies are host dependencies. Conflicts with `build` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l build -d 'The specified dependencies are build dependencies. Conflicts with `host` and `pypi`'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l pypi -d 'The specified dependencies are pypi dependencies. Conflicts with `host` and `build`'
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -1799,6 +1851,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand rm" -s h -l help -d 'Display h
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -1812,16 +1865,18 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand run" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s e -l environment -d 'The environment to run the task in' -r
+complete -c pixi -n "__fish_pixi_using_subcommand run" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s x -l executable -d 'Execute the command as an executable without resolving Pixi tasks'
-complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand run" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand run" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l as-is -d 'Shorthand for the combination of --no-install and --frozen'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
@@ -1840,6 +1895,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand run" -s h
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -1853,16 +1909,18 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand r" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s e -l environment -d 'The environment to run the task in' -r
+complete -c pixi -n "__fish_pixi_using_subcommand r" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s x -l executable -d 'Execute the command as an executable without resolving Pixi tasks'
-complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand r" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand r" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l as-is -d 'Shorthand for the combination of --no-install and --frozen'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
@@ -1882,14 +1940,16 @@ complete -c pixi -n "__fish_pixi_using_subcommand r" -s v -l verbose -d 'Increas
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand search" -s p -l platform -d 'The platform(s) to search for. By default, searches all platforms from the manifest (or all known platforms if no manifest is found)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand search" -s p -l platform -d 'The platform to search packages for. By default, searches all platforms from the manifest (or all known platforms if no manifest is found). Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s l -l limit -d 'Limit the number of versions shown per package, -1 for no limit' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s n -l limit-packages -d 'Limit the number of packages shown, -1 for no limit' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -l json -d 'Output in JSON format'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
@@ -1906,6 +1966,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand self-update" -s h -l help -d '
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -1919,17 +1980,18 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand shell" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s e -l environment -d 'The environment to activate in the shell' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l change-ps1 -d 'Do not change the PS1 variable when starting a prompt' -r -f -a "true\t''
 false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand shell" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand shell" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l as-is -d 'Shorthand for the combination of --no-install and --frozen'
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
@@ -1943,6 +2005,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand shell" -s h -l help -d 'Displa
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand s" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand s" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -1956,17 +2019,18 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand s" -s e -l environment -d 'The environment to activate in the shell' -r
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l change-ps1 -d 'Do not change the PS1 variable when starting a prompt' -r -f -a "true\t''
 false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand s" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand s" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l as-is -d 'Shorthand for the combination of --no-install and --frozen'
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
@@ -1980,6 +2044,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand s" -s h -l help -d 'Display he
 complete -c pixi -n "__fish_pixi_using_subcommand s" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand s" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s s -l shell -d 'Sets the shell, options: [`bash`,  `zsh`,  `xonsh`,  `cmd`, `powershell`,  `fish`,  `nushell`]' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s w -l workspace -d 'Name of the workspace' -r
@@ -1994,17 +2059,18 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s e -l environment -d 'The environment to activate in the script' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l change-ps1 -d 'Do not change the PS1 variable when starting a prompt' -r -f -a "true\t''
 false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l as-is -d 'Shorthand for the combination of --no-install and --frozen'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
@@ -2019,11 +2085,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s h -l help -d 'D
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subcommand_from add a remove rm alias list ls help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -2136,38 +2204,43 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from help" -f -a "alias" -d 'Alias another specific command'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all tasks in the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand tree" -s p -l platform -d 'The platform to list packages for. Defaults to the current platform' -r
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -s p -l platform -d 'The platform to list packages for. Defaults to the platform best matching this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand tree" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand tree" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand tree" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand tree" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s i -l invert -d 'Invert tree and show what depends on given package in the regex argument'
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand t" -s p -l platform -d 'The platform to list packages for. Defaults to the current platform' -r
+complete -c pixi -n "__fish_pixi_using_subcommand t" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand t" -s p -l platform -d 'The platform to list packages for. Defaults to the platform best matching this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand t" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand t" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand t" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand t" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand t" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
+complete -c pixi -n "__fish_pixi_using_subcommand t" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand t" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand t" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand t" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand t" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s i -l invert -d 'Invert tree and show what depends on given package in the regex argument'
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand t" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand update" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -2179,14 +2252,15 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s e -l environment -d 'The environments to update. If none is specified, all environments are updated' -r
-complete -c pixi -n "__fish_pixi_using_subcommand update" -s p -l platform -d 'The platforms to update. If none is specified, all platforms are updated' -r
+complete -c pixi -n "__fish_pixi_using_subcommand update" -s p -l platform -d 'The platforms to update. If none is specified, all platforms are updated. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted so users don\'t have to declare a platform before targeting it' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand update" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -2194,12 +2268,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand update" -l no-ref-links -d 'Di
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l tls-no-verify -d 'Do not verify the TLS certificate of the server'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l use-environment-activation-cache -d 'Use environment activation cache (experimental)'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l no-install -d 'Don\'t install the (solve) environments needed for pypi-dependencies solving'
-complete -c pixi -n "__fish_pixi_using_subcommand update" -s n -l dry-run -d 'Don\'t actually write the lockfile or update any environment'
+complete -c pixi -n "__fish_pixi_using_subcommand update" -s n -l dry-run -d 'Don\'t actually write the lock file or update any environment'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l json -d 'Output the changes in JSON format'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -2213,16 +2288,17 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots), \'native\' (system store), or \'all\' (both)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s f -l feature -d 'The feature to update' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l exclude -d 'The packages which should be excluded' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-install -d 'Don\'t modify the environment, only modify the lock-file'
-complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-lockfile-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock-file updates'
-complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l frozen -d 'Install the environment as defined in the lockfile, doesn\'t update lockfile if it isn\'t up-to-date with the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l locked -d 'Check if lockfile is up-to-date before installing the environment, aborts when lockfile isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l locked -d 'Check if lock file is up-to-date before installing the environment, aborts when lock file isn\'t up-to-date with the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-hard-links -d 'Disallow hard links during package installation'
@@ -2353,48 +2429,51 @@ complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "s3" -d 'Options for uploading to S3'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "conda-forge" -d 'Options for uploading to conda-forge'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -s h -l help -d 'Display help information'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "channel" -d 'Commands to manage workspace channels'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "description" -d 'Commands to manage workspace description'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "platform" -d 'Commands to manage workspace platforms'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "version" -d 'Commands to manage workspace version'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "environment" -d 'Commands to manage workspace environments'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "feature" -d 'Commands to manage workspace features'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "export" -d 'Commands to export workspaces to other formats'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "name" -d 'Commands to manage workspace name'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "system-requirements" -d 'Commands to manage workspace system requirements'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "register" -d 'Commands to manage the registry of workspaces. Default command will add a new workspace'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name system-requirements register requires-pixi help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "channel" -d 'Commands to manage workspace channels'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "description" -d 'Commands to manage workspace description'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "platform" -d 'Commands to manage workspace platforms'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "version" -d 'Commands to manage workspace version'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "environment" -d 'Commands to manage workspace environments'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "feature" -d 'Commands to manage workspace features'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "export" -d 'Commands to export workspaces to other formats'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "name" -d 'Commands to manage workspace name'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "register" -d 'Commands to manage the registry of workspaces. Default command will add a new workspace'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from channel description platform version environment feature export name register requires-pixi help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "add" -d 'Adds a channel to the manifest and updates the lockfile'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "a" -d 'Adds a channel to the manifest and updates the lockfile'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "add" -d 'Adds a channel to the manifest and updates the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "a" -d 'Adds a channel to the manifest and updates the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "list" -d 'List the channels in the manifest'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "ls" -d 'List the channels in the manifest'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "remove" -d 'Remove channel(s) from the manifest and updates the lockfile'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "rm" -d 'Remove channel(s) from the manifest and updates the lockfile'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "remove" -d 'Remove channel(s) from the manifest and updates the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "rm" -d 'Remove channel(s) from the manifest and updates the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -2402,27 +2481,35 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -f -a "get" -d 'Get the workspace description'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -f -a "set" -d 'Set the workspace description'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "add" -d 'Adds a platform(s) to the workspace file and updates the lockfile'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "a" -d 'Adds a platform(s) to the workspace file and updates the lockfile'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "list" -d 'List the platforms in the workspace file'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "ls" -d 'List the platforms in the workspace file'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "remove" -d 'Remove platform(s) from the workspace file and updates the lockfile'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "rm" -d 'Remove platform(s) from the workspace file and updates the lockfile'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "add" -d 'Adds a platform(s) to the workspace file and updates the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "a" -d 'Adds a platform(s) to the workspace file and updates the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "edit" -d 'Edit an existing workspace platform\'s subdir and/or virtual packages'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "e" -d 'Edit an existing workspace platform\'s subdir and/or virtual packages'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "move" -d 'Reorder a workspace platform, changing its selection priority'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "mv" -d 'Reorder a workspace platform, changing its selection priority'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "list" -d 'List every workspace platform with full detail, preceded by the auto-detected host as a separate entry'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "ls" -d 'List every workspace platform with full detail, preceded by the auto-detected host as a separate entry'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "remove" -d 'Remove platform(s) from the workspace file and updates the lock file'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "rm" -d 'Remove platform(s) from the workspace file and updates the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -2433,11 +2520,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -f -a "minor" -d 'Bump the workspace version to MINOR'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -f -a "patch" -d 'Bump the workspace version to PATCH'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from version" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -2449,11 +2538,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -f -a "remove" -d 'Remove an environment from the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -f -a "rm" -d 'Remove an environment from the manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from environment" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from feature" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -2476,11 +2567,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -f -a "ces" -d 'Export workspace environment to a conda explicit specification file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -f -a "conda-environment" -d 'Export workspace environment to a conda environment.yaml file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from export" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -2488,20 +2581,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -f -a "get" -d 'Get the workspace name'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -f -a "set" -d 'Set the workspace name'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from name" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
-never\t''
-auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -s h -l help -d 'Display help information'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "add" -d 'Adds an environment to the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "a" -d 'Adds an environment to the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "list" -d 'List the environments in the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "ls" -d 'List the environments in the manifest file'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from system-requirements" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -s n -l name -d 'Name of the workspace to register. Defaults to the name of the current workspace' -r
@@ -2509,6 +2589,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -s f -l force -d 'Overwrite the workspace entry if the name of the workspace already exists in the registry'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
@@ -2521,11 +2602,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -f -a "prune" -d 'Prune disassociated workspaces from registry'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -f -a "pr" -d 'Prune disassociated workspaces from registry'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from register" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
@@ -2543,7 +2626,6 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "feature" -d 'Commands to manage workspace features'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "export" -d 'Commands to export workspaces to other formats'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "name" -d 'Commands to manage workspace name'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "system-requirements" -d 'Commands to manage workspace system requirements'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "register" -d 'Commands to manage the registry of workspaces. Default command will add a new workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
@@ -2558,10 +2640,10 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subc
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "info" -d 'Information about the system, workspace and environments for the current machine'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "init" -d 'Creates a new workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "import" -d 'Imports a file into an environment in an existing workspace.'
-complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "install" -d 'Install an environment, both updating the lockfile and installing the environment'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "install" -d 'Install an environment, both updating the lock file and installing the environment'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "list" -d 'List the packages of the current workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "lock" -d 'Solve environment and update the lock file without installing the environments'
-complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "reinstall" -d 'Re-install an environment, both updating the lockfile and re-installing the environment'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "reinstall" -d 'Re-install an environment, both updating the lock file and re-installing the environment'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "publish" -d 'Build a conda package and publish it to a channel.'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "remove" -d 'Removes dependencies from the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "run" -d 'Runs task in the pixi environment'
@@ -2572,12 +2654,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subc
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "task" -d 'Interact with tasks in the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "tree" -d 'Show a tree of workspace dependencies'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "update" -d 'The `update` command checks if there are newer versions of the dependencies and updates the `pixi.lock` file and environments accordingly'
-complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "upgrade" -d 'Checks if there are newer versions of the dependencies and upgrades them in the lockfile and manifest file'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "upgrade" -d 'Checks if there are newer versions of the dependencies and upgrades them in the lock file and manifest file'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "upload" -d 'Upload conda packages to various channels'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "workspace" -d 'Modify the workspace configuration file through the command line'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "login" -d 'Store authentication information for a given host'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "logout" -d 'Remove authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "status" -d 'Show stored authentication entries and non-secret token metadata'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from clean" -f -a "cache" -d 'Clean the cache of your system which are touched by pixi'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "edit" -d 'Edit the configuration file'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "list" -d 'List configuration values'
@@ -2617,7 +2700,6 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "feature" -d 'Commands to manage workspace features'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "export" -d 'Commands to export workspaces to other formats'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "name" -d 'Commands to manage workspace name'
-complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "system-requirements" -d 'Commands to manage workspace system requirements'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "register" -d 'Commands to manage the registry of workspaces. Default command will add a new workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
 complete -c pixi -n "__fish_seen_subcommand_from run; or __fish_seen_subcommand_from r" -f -a "(string split ' ' (pixi task list --machine-readable  2> /dev/null))"
