@@ -106,7 +106,7 @@
     {
       "name": "atago",
       "import_path": "github.com/nao1215/atago",
-      "version": "v0.10.0",
+      "version": "v0.11.0",
       "channel": "latest"
     },
     {
@@ -232,13 +232,13 @@
     {
       "name": "croc",
       "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.4.12",
+      "version": "v10.4.13",
       "channel": "latest"
     },
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.83.0",
+      "version": "v0.84.0",
       "channel": "latest"
     },
     {
@@ -412,7 +412,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.455",
+      "version": "v1.4.457",
       "channel": "latest"
     },
     {
@@ -652,7 +652,7 @@
     {
       "name": "gopls",
       "import_path": "golang.org/x/tools/gopls",
-      "version": "v0.22.0",
+      "version": "v0.23.0",
       "channel": "latest"
     },
     {
@@ -868,7 +868,7 @@
     {
       "name": "ku",
       "import_path": "github.com/bjarneo/ku",
-      "version": "v0.8.1",
+      "version": "v0.8.2",
       "channel": "latest"
     },
     {
@@ -958,13 +958,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260625142716-230ef16ea3d1",
+      "version": "v0.0.0-20260710020816-6fcec86740a6",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.2",
+      "version": "v0.15.3",
       "channel": "latest"
     },
     {
@@ -994,7 +994,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.4.0",
+      "version": "v0.5.0",
       "channel": "latest"
     },
     {
@@ -1024,7 +1024,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.4.0",
+      "version": "v6.5.0",
       "channel": "latest"
     },
     {
@@ -1258,7 +1258,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.46.1",
+      "version": "v0.46.2",
       "channel": "latest"
     },
     {
@@ -1318,7 +1318,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260709003939-ed2aa9879198",
+      "version": "v0.0.0-20260709233752-68f80dd6e7a2",
       "channel": "latest"
     },
     {
