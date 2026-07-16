@@ -207,8 +207,9 @@ complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -s v -l verbose -d 'Show endpoint URLs, client ID, and other IdP-introspection fields that are only useful for debugging'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -l details -d 'Show endpoint URLs, client ID, and other IdP-introspection fields that are only useful for debugging'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "login" -d 'Store authentication information for a given host'
@@ -1866,8 +1867,8 @@ no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
-complete -c pixi -n "__fish_pixi_using_subcommand run" -s e -l environment -d 'The environment to run the task in' -r
-complete -c pixi -n "__fish_pixi_using_subcommand run" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
+complete -c pixi -n "__fish_pixi_using_subcommand run" -s e -l environment -d 'The environment to run the task in' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
+complete -c pixi -n "__fish_pixi_using_subcommand run" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -1910,8 +1911,8 @@ no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
-complete -c pixi -n "__fish_pixi_using_subcommand r" -s e -l environment -d 'The environment to run the task in' -r
-complete -c pixi -n "__fish_pixi_using_subcommand r" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
+complete -c pixi -n "__fish_pixi_using_subcommand r" -s e -l environment -d 'The environment to run the task in' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
+complete -c pixi -n "__fish_pixi_using_subcommand r" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"

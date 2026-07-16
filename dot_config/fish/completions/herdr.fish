@@ -58,7 +58,8 @@ complete -c herdr -n "__fish_herdr_using_subcommand status; and not __fish_seen_
 complete -c herdr -n "__fish_herdr_using_subcommand status; and not __fish_seen_subcommand_from server client" -f -a "client" -d 'Show local client status'
 complete -c herdr -n "__fish_herdr_using_subcommand status; and __fish_seen_subcommand_from server" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand status; and __fish_seen_subcommand_from client" -l json
-complete -c herdr -n "__fish_herdr_using_subcommand config; and not __fish_seen_subcommand_from reset-keys" -f -a "reset-keys" -d 'Reset custom keybindings'
+complete -c herdr -n "__fish_herdr_using_subcommand config; and not __fish_seen_subcommand_from check reset-keys" -f -a "check" -d 'Validate config.toml and print diagnostics'
+complete -c herdr -n "__fish_herdr_using_subcommand config; and not __fish_seen_subcommand_from check reset-keys" -f -a "reset-keys" -d 'Reset custom keybindings'
 complete -c herdr -n "__fish_herdr_using_subcommand channel; and not __fish_seen_subcommand_from show set" -f -a "show" -d 'Print the configured update channel'
 complete -c herdr -n "__fish_herdr_using_subcommand channel; and not __fish_seen_subcommand_from show set" -f -a "set" -d 'Choose the update channel'
 complete -c herdr -n "__fish_herdr_using_subcommand server; and not __fish_seen_subcommand_from stop reload-config agent-manifests update-agent-manifests reload-agent-manifests" -f -a "stop" -d 'Stop the running server'
@@ -72,17 +73,23 @@ complete -c herdr -n "__fish_herdr_using_subcommand api; and not __fish_seen_sub
 complete -c herdr -n "__fish_herdr_using_subcommand api; and not __fish_seen_subcommand_from snapshot schema" -f -a "schema" -d 'Print or write the bundled API schema'
 complete -c herdr -n "__fish_herdr_using_subcommand api; and __fish_seen_subcommand_from schema" -l output -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand api; and __fish_seen_subcommand_from schema" -l json
-complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "list" -d 'List workspaces'
-complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "create" -d 'Create a workspace'
-complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "get" -d 'Show a workspace'
-complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "focus" -d 'Focus a workspace'
-complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "rename" -d 'Rename a workspace'
-complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "close" -d 'Close a workspace'
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename report-metadata close" -f -a "list" -d 'List workspaces'
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename report-metadata close" -f -a "create" -d 'Create a workspace'
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename report-metadata close" -f -a "get" -d 'Show a workspace'
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename report-metadata close" -f -a "focus" -d 'Focus a workspace'
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename report-metadata close" -f -a "rename" -d 'Rename a workspace'
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename report-metadata close" -f -a "report-metadata" -d 'Report display-only workspace metadata'
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and not __fish_seen_subcommand_from list create get focus rename report-metadata close" -f -a "close" -d 'Close a workspace'
 complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from create" -l cwd -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from create" -l label -r
 complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from create" -l env -d 'Set an environment variable for the launched process' -r
 complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from create" -l focus
 complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from create" -l no-focus
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from report-metadata" -l source -r
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from report-metadata" -l token -r
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from report-metadata" -l clear-token -r
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from report-metadata" -l seq -r
+complete -c herdr -n "__fish_herdr_using_subcommand workspace; and __fish_seen_subcommand_from report-metadata" -l ttl-ms -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and not __fish_seen_subcommand_from list create open remove" -f -a "list" -d 'List worktree workspaces'
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and not __fish_seen_subcommand_from list create open remove" -f -a "create" -d 'Create and open a Git worktree'
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and not __fish_seen_subcommand_from list create open remove" -f -a "open" -d 'Open an existing Git worktree'
@@ -273,7 +280,6 @@ working\t''
 blocked\t''
 unknown\t''"
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l message -r
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l custom-status -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l seq -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l agent-session-id -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l agent-session-path -r -F
@@ -291,13 +297,13 @@ complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcom
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l applies-to-source -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l title -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l display-agent -r
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l custom-status -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l state-label -r
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l token -r
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-token -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l seq -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l ttl-ms -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-title
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-display-agent
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-custom-status
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-state-labels
 complete -c herdr -n "__fish_herdr_using_subcommand wait; and not __fish_seen_subcommand_from output agent-status" -f -a "output" -d 'Wait for matching pane output'
 complete -c herdr -n "__fish_herdr_using_subcommand wait; and not __fish_seen_subcommand_from output agent-status" -f -a "agent-status" -d 'Wait for pane agent status'

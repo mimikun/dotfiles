@@ -582,6 +582,8 @@ complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-webgpu -d 'En
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-worker-options -d 'Enable unstable Web Worker APIs'
 complete -c deno -n "__fish_deno_using_subcommand add" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand add" -s D -l dev -d 'Add the package as a dev dependency (under `devDependencies`). Note: this only applies when adding to a `package.json` file.'
+complete -c deno -n "__fish_deno_using_subcommand add" -s O -l save-optional -d 'Add the package as an optional dependency (under `optionalDependencies`). Note: this only applies when adding to a `package.json` file.'
+complete -c deno -n "__fish_deno_using_subcommand add" -l no-save -d 'Install the package(s) without adding them to the configuration file.'
 complete -c deno -n "__fish_deno_using_subcommand add" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand add" -l lockfile-only -d 'Install only updating the lockfile'
 complete -c deno -n "__fish_deno_using_subcommand add" -l npm -d 'assume unprefixed package names are npm packages (default)'
@@ -1071,6 +1073,7 @@ complete -c deno -n "__fish_deno_using_subcommand compile" -s o -l output -d 'Ou
 complete -c deno -n "__fish_deno_using_subcommand compile" -l target -d 'Target OS architecture' -r -f -a "x86_64-unknown-linux-gnu\t''
 aarch64-unknown-linux-gnu\t''
 x86_64-pc-windows-msvc\t''
+aarch64-pc-windows-msvc\t''
 x86_64-apple-darwin\t''
 aarch64-apple-darwin\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l icon -d 'Set the icon of the executable on Windows (.ico)' -r
@@ -1228,6 +1231,7 @@ complete -c deno -n "__fish_deno_using_subcommand desktop" -s o -l output -d 'Ou
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l target -d 'Target OS architecture' -r -f -a "x86_64-unknown-linux-gnu\t''
 aarch64-unknown-linux-gnu\t''
 x86_64-pc-windows-msvc\t''
+aarch64-pc-windows-msvc\t''
 x86_64-apple-darwin\t''
 aarch64-apple-darwin\t''"
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l icon -d 'Set the application icon (.ico on Windows, .icns or .png on macOS)' -r
@@ -1855,6 +1859,8 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l compile -d 'Instal
 complete -c deno -n "__fish_deno_using_subcommand install" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand install" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
 complete -c deno -n "__fish_deno_using_subcommand install" -s D -l dev -d 'Add the package as a dev dependency (under `devDependencies`). Note: this only applies when adding to a `package.json` file.'
+complete -c deno -n "__fish_deno_using_subcommand install" -s O -l save-optional -d 'Add the package as an optional dependency (under `optionalDependencies`). Note: this only applies when adding to a `package.json` file.'
+complete -c deno -n "__fish_deno_using_subcommand install" -l no-save -d 'Install the package(s) without adding them to the configuration file.'
 complete -c deno -n "__fish_deno_using_subcommand install" -l npm -d 'assume unprefixed package names are npm packages (default)'
 complete -c deno -n "__fish_deno_using_subcommand install" -l jsr -d 'assume unprefixed package names are jsr packages'
 complete -c deno -n "__fish_deno_using_subcommand install" -l save-exact -d 'Save exact version without the caret (^)'
@@ -1979,6 +1985,8 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l compile -d 'Install the 
 complete -c deno -n "__fish_deno_using_subcommand i" -s g -l global -d 'Install a package or script as a globally available executable'
 complete -c deno -n "__fish_deno_using_subcommand i" -s e -l entrypoint -d 'Install dependents of the specified entrypoint(s)'
 complete -c deno -n "__fish_deno_using_subcommand i" -s D -l dev -d 'Add the package as a dev dependency (under `devDependencies`). Note: this only applies when adding to a `package.json` file.'
+complete -c deno -n "__fish_deno_using_subcommand i" -s O -l save-optional -d 'Add the package as an optional dependency (under `optionalDependencies`). Note: this only applies when adding to a `package.json` file.'
+complete -c deno -n "__fish_deno_using_subcommand i" -l no-save -d 'Install the package(s) without adding them to the configuration file.'
 complete -c deno -n "__fish_deno_using_subcommand i" -l npm -d 'assume unprefixed package names are npm packages (default)'
 complete -c deno -n "__fish_deno_using_subcommand i" -l jsr -d 'assume unprefixed package names are jsr packages'
 complete -c deno -n "__fish_deno_using_subcommand i" -l save-exact -d 'Save exact version without the caret (^)'
