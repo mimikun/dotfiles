@@ -89,6 +89,7 @@ diffai
 difftastic
 diffx
 diskonaut
+diskwatch
 dns-doge
 dnsglobe
 domain-check
@@ -346,6 +347,7 @@ snipt
 so
 somo
 soundscope
+spectatui
 splashboard
 spotatui
 sprofile
