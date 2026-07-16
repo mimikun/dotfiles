@@ -238,7 +238,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.84.0",
+      "version": "v0.85.0",
       "channel": "latest"
     },
     {
@@ -292,7 +292,7 @@
     {
       "name": "diffyml",
       "import_path": "github.com/szhekpisov/diffyml",
-      "version": "v1.7.1",
+      "version": "v1.8.0",
       "channel": "latest"
     },
     {
@@ -394,7 +394,7 @@
     {
       "name": "enola",
       "import_path": "github.com/theyahya/enola/cmd/enola",
-      "version": "v0.4.2",
+      "version": "v1.0.0",
       "channel": "latest"
     },
     {
@@ -412,7 +412,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.457",
+      "version": "v1.4.459",
       "channel": "latest"
     },
     {
@@ -430,13 +430,13 @@
     {
       "name": "ffuf",
       "import_path": "github.com/ffuf/ffuf/v2",
-      "version": "v2.1.0",
+      "version": "v2.2.1",
       "channel": "latest"
     },
     {
       "name": "flow",
       "import_path": "github.com/programmersd21/flow/cmd/flow",
-      "version": "v0.1.5",
+      "version": "v0.2.0",
       "channel": "latest"
     },
     {
@@ -640,7 +640,7 @@
     {
       "name": "gonzo",
       "import_path": "github.com/control-theory/gonzo/cmd/gonzo",
-      "version": "v0.4.2",
+      "version": "v0.4.3",
       "channel": "latest"
     },
     {
@@ -664,7 +664,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.15",
+      "version": "v0.2.21",
       "channel": "latest"
     },
     {
@@ -754,7 +754,7 @@
     {
       "name": "herald",
       "import_path": "github.com/herald-email/herald-mail-app/cmd/herald",
-      "version": "v0.7.4-beta.1",
+      "version": "v0.7.5-beta.1",
       "channel": "latest"
     },
     {
@@ -916,7 +916,7 @@
     {
       "name": "lazygit",
       "import_path": "github.com/jesseduffield/lazygit",
-      "version": "v0.63.0",
+      "version": "v0.63.1",
       "channel": "latest"
     },
     {
@@ -976,7 +976,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.3",
+      "version": "v0.15.8",
       "channel": "latest"
     },
     {
@@ -1006,7 +1006,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.5.0",
+      "version": "v0.9.0",
       "channel": "latest"
     },
     {
@@ -1036,7 +1036,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.5.0",
+      "version": "v6.7.1",
       "channel": "latest"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.24.0",
+      "version": "v0.24.2",
       "channel": "latest"
     },
     {
@@ -1132,7 +1132,7 @@
     {
       "name": "ov",
       "import_path": "github.com/noborus/ov",
-      "version": "v0.53.0",
+      "version": "v0.54.0",
       "channel": "latest"
     },
     {
@@ -1264,13 +1264,13 @@
     {
       "name": "reqlog",
       "import_path": "github.com/sagarmaheshwary/reqlog/cmd/reqlog",
-      "version": "v0.9.0",
+      "version": "v0.9.6",
       "channel": "latest"
     },
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.46.2",
+      "version": "v0.46.4",
       "channel": "latest"
     },
     {
@@ -1306,13 +1306,13 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.17.1",
+      "version": "v3.17.2",
       "channel": "latest"
     },
     {
       "name": "s3scanner",
       "import_path": "github.com/sa7mon/s3scanner",
-      "version": "v0.0.0-20251106040855-9e26bc46e8ee",
+      "version": "v0.0.0-20260714034206-64a00e2f7668",
       "channel": "latest"
     },
     {
@@ -1330,7 +1330,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260709233752-68f80dd6e7a2",
+      "version": "v0.0.0-20260716021155-855102efd6be",
       "channel": "latest"
     },
     {
@@ -1468,7 +1468,7 @@
     {
       "name": "tcount",
       "import_path": "github.com/lancekrogers/tcount/cmd/tcount",
-      "version": "v0.3.0",
+      "version": "v0.5.0",
       "channel": "latest"
     },
     {
@@ -1642,7 +1642,7 @@
     {
       "name": "xurl",
       "import_path": "github.com/xdevplatform/xurl",
-      "version": "v1.2.2",
+      "version": "v1.2.3",
       "channel": "latest"
     },
     {
