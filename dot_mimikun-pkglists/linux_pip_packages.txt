@@ -418,6 +418,7 @@ kthread
 kubernetes
 la-panic
 lark
+latex2sympy2_extended
 lazy-object-proxy
 leather
 libcst
@@ -444,6 +445,7 @@ markdown-it-py
 markdownify
 markitdown
 marshmallow
+math-verify
 matplotlib
 matplotlib-inline
 mbstrdecoder
@@ -451,10 +453,12 @@ mccabe
 mcp
 mdit-py-plugins
 mdurl
+mellea
 memory-profiler
 mergedeep
 metacode
 minio
+mistletoe
 mistune
 mkdocs
 mkdocs-exclude
