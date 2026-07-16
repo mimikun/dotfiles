@@ -674,6 +674,12 @@
       "channel": "latest"
     },
     {
+      "name": "goshot",
+      "import_path": "github.com/watzon/goshot/cmd/goshot",
+      "version": "v0.8.1",
+      "channel": "latest"
+    },
+    {
       "name": "goshs",
       "import_path": "goshs.de/goshs/v2",
       "version": "v2.1.4",
@@ -947,6 +953,12 @@
       "name": "lazysql",
       "import_path": "github.com/jorgerojas26/lazysql",
       "version": "v0.5.5",
+      "channel": "latest"
+    },
+    {
+      "name": "lazytilt",
+      "import_path": "github.com/tdi/lazytilt",
+      "version": "v0.3.0",
       "channel": "latest"
     },
     {
