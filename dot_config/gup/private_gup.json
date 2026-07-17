@@ -82,7 +82,7 @@
     {
       "name": "amux",
       "import_path": "github.com/andyrewlee/amux/cmd/amux",
-      "version": "v0.0.19",
+      "version": "v0.0.20",
       "channel": "latest"
     },
     {
@@ -172,7 +172,7 @@
     {
       "name": "ccgate",
       "import_path": "github.com/tak848/ccgate",
-      "version": "v0.9.5",
+      "version": "v0.9.6",
       "channel": "latest"
     },
     {
@@ -874,7 +874,7 @@
     {
       "name": "ku",
       "import_path": "github.com/bjarneo/ku",
-      "version": "v0.8.2",
+      "version": "v0.8.3",
       "channel": "latest"
     },
     {
@@ -892,7 +892,7 @@
     {
       "name": "layerx",
       "import_path": "github.com/deveshctl/layerx",
-      "version": "v1.5.2",
+      "version": "v1.5.3",
       "channel": "latest"
     },
     {
@@ -976,7 +976,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.8",
+      "version": "v0.15.9",
       "channel": "latest"
     },
     {
@@ -1138,7 +1138,7 @@
     {
       "name": "packemon",
       "import_path": "github.com/ddddddO/packemon/cmd/packemon",
-      "version": "v1.8.25",
+      "version": "v1.8.26",
       "channel": "latest"
     },
     {
@@ -1210,7 +1210,7 @@
     {
       "name": "pvetui",
       "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.4.2",
+      "version": "v1.4.3",
       "channel": "latest"
     },
     {
@@ -1264,7 +1264,7 @@
     {
       "name": "reqlog",
       "import_path": "github.com/sagarmaheshwary/reqlog/cmd/reqlog",
-      "version": "v0.9.6",
+      "version": "v0.10.0",
       "channel": "latest"
     },
     {
@@ -1330,7 +1330,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260716021155-855102efd6be",
+      "version": "v0.0.0-20260717025422-7095bb3087e5",
       "channel": "latest"
     },
     {
