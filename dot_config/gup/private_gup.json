@@ -664,7 +664,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.21",
+      "version": "v0.2.22",
       "channel": "latest"
     },
     {
@@ -796,7 +796,7 @@
     {
       "name": "hulak",
       "import_path": "github.com/xaaha/hulak",
-      "version": "v0.3.20",
+      "version": "v0.3.30",
       "channel": "latest"
     },
     {
@@ -976,7 +976,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.9",
+      "version": "v0.15.10",
       "channel": "latest"
     },
     {
@@ -1006,7 +1006,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.9.0",
+      "version": "v0.10.0",
       "channel": "latest"
     },
     {
@@ -1036,7 +1036,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.7.1",
+      "version": "v6.8.0",
       "channel": "latest"
     },
     {
@@ -1186,7 +1186,7 @@
     {
       "name": "pop",
       "import_path": "github.com/charmbracelet/pop",
-      "version": "v0.3.0",
+      "version": "v0.4.0",
       "channel": "latest"
     },
     {
@@ -1330,7 +1330,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260717025422-7095bb3087e5",
+      "version": "v0.0.0-20260718054016-720cf36de461",
       "channel": "latest"
     },
     {
