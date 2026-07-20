@@ -424,7 +424,7 @@
     {
       "name": "fence",
       "import_path": "github.com/fencesandbox/fence/cmd/fence",
-      "version": "v0.1.62",
+      "version": "v0.1.63",
       "channel": "latest"
     },
     {
@@ -694,7 +694,7 @@
     {
       "name": "gotip",
       "import_path": "github.com/lusingander/gotip/cmd/gotip",
-      "version": "v0.8.0",
+      "version": "v0.9.0",
       "channel": "latest"
     },
     {
@@ -1006,7 +1006,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.10.0",
+      "version": "v0.12.0",
       "channel": "latest"
     },
     {
@@ -1084,13 +1084,13 @@
     {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
-      "version": "v0.0.0-20260708020625-6623be570074",
+      "version": "v0.0.0-20260719011752-b6fc86eef72d",
       "channel": "latest"
     },
     {
       "name": "octocov",
       "import_path": "github.com/k1LoW/octocov",
-      "version": "v0.75.9",
+      "version": "v0.75.10",
       "channel": "latest"
     },
     {
@@ -1204,7 +1204,7 @@
     {
       "name": "purl",
       "import_path": "github.com/catatsuy/purl",
-      "version": "v0.2.10",
+      "version": "v0.2.11",
       "channel": "latest"
     },
     {
@@ -1270,7 +1270,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.46.4",
+      "version": "v0.47.1",
       "channel": "latest"
     },
     {
@@ -1330,7 +1330,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260718054016-720cf36de461",
+      "version": "v0.0.0-20260720033357-1d9b4f6174a1",
       "channel": "latest"
     },
     {
@@ -1348,7 +1348,7 @@
     {
       "name": "sheets",
       "import_path": "github.com/maaslalani/sheets",
-      "version": "v0.2.0",
+      "version": "v0.3.0",
       "channel": "latest"
     },
     {
@@ -1420,7 +1420,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v0.27.3",
+      "version": "v0.28.0",
       "channel": "latest"
     },
     {
@@ -1480,7 +1480,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.51.0",
+      "version": "v0.51.2",
       "channel": "latest"
     },
     {
