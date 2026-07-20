@@ -20,9 +20,6 @@ repo = "mimikun/gcd"
 repo = "jorgebucaran/getopts.fish"
 
 [[plugins]]
-repo = "kyohsuke/fish-evalcache"
-
-[[plugins]]
 repo = "rcny/gh-copilot-cli-alias.fish"
 
 [[plugins]]
