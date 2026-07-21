@@ -3,7 +3,7 @@ packages:
   # Multi version
   - name: PowerShell/PowerShell@v7.6.4
   - name: PowerShell/PowerShell
-    version: v7.7.0-preview.1
+    version: v7.7.0-preview.3
     command_aliases:
       - command: pwsh
         alias: pwsh-unstable
