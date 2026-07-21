@@ -84,7 +84,6 @@ tasks:
   #tasks/lint/zizmor
   lint:
     desc: Linting
-      - test
     cmds:
       - mise tasks run lint
     silent: true
@@ -116,7 +115,7 @@ tasks:
     cmds:
       - task: clean
       - task: switch-master
-      - git branch --list "patch*" | xargs -n 1 git branch -D
+      - git branch --list "patch*" | xargs -r -n 1 git branch -D
     silent: true
 
   pull:
