@@ -387,6 +387,7 @@ tod
 tokei
 toktop
 toml2json
+topcoat-cli
 topgrade
 tortuise
 trashy
