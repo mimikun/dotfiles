@@ -1,0 +1,19 @@
+dot_config/starship/starship.toml
+  s_4abd27212aa6eb::t_312a70687b6d36 1059-1070
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "8ddc8e81514eb8daaf5184c54b282084da7e4843",
+  "prompts": {},
+  "sessions": {
+    "s_4abd27212aa6eb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c30aa421-e4e4-4116-a2c2-9dc8ca546161",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
