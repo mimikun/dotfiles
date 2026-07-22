@@ -156,6 +156,7 @@ glues
 gping
 gptop
 grex
+gsty
 gwm-cli
 harper-ls
 hawk-data
@@ -203,6 +204,7 @@ krafna
 lawkit
 lazycelery
 lazyjj
+lazyrsync
 lisette
 livediff
 lla
