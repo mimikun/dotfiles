@@ -47,7 +47,6 @@ complete -c herdr -n "__fish_herdr_needs_command" -f -a "tab" -d 'Manage tabs ov
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "notification" -d 'Show Herdr notifications'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "agent" -d 'Control and inspect agent panes'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "pane" -d 'Control terminal panes'
-complete -c herdr -n "__fish_herdr_needs_command" -f -a "wait" -d 'Wait for pane output or agent state'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "terminal" -d 'Attach to or observe raw terminal streams'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "session" -d 'Manage named persistent sessions'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "integration" -d 'Manage built-in agent integrations'
@@ -139,17 +138,18 @@ bottom-right\t''"
 complete -c herdr -n "__fish_herdr_using_subcommand notification; and __fish_seen_subcommand_from show" -l sound -r -f -a "none\t''
 done\t''
 request\t''"
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "list" -d 'List agents'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "get" -d 'Show an agent'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "read" -d 'Read agent terminal output'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "send" -d 'Send text to an agent'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "rename" -d 'Rename an agent'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "focus" -d 'Focus an agent'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "wait" -d 'Wait for an agent status'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "attach" -d 'Attach directly to an agent terminal'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "start" -d 'Start an agent command'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send rename focus wait attach start explain" -f -a "explain" -d 'Explain agent detection state'
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from read" -l source -r -f -a "visible\t''
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "list" -d 'List agents'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "get" -d 'Show an agent'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "read" -d 'Read agent terminal output'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "send-keys" -d 'Send key presses to an agent'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "prompt" -d 'Submit a prompt to an agent'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "rename" -d 'Rename an agent'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "focus" -d 'Focus an agent'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "wait" -d 'Wait until an agent reaches one of the requested states'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "attach" -d 'Attach directly to an agent terminal'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "start" -d 'Start a supported interactive agent in an existing pane'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and not __fish_seen_subcommand_from list get read send-keys prompt rename focus wait attach start explain" -f -a "explain" -d 'Explain agent detection state'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from read" -l source -d 'Terminal snapshot source (default: recent)' -r -f -a "visible\t''
 recent\t''
 recent-unwrapped\t''
 detection\t''"
@@ -157,50 +157,74 @@ complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subco
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from read" -l format -r -f -a "text\t''
 ansi\t''"
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from read" -l ansi
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from rename" -l clear
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from wait" -l status -r -f -a "idle\t''
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from prompt" -l until -d 'State to match after --wait; repeat for more than one state' -r -f -a "idle\t''
 working\t''
 blocked\t''
+done\t''
 unknown\t''"
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from wait" -l timeout -r
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from prompt" -l timeout -d 'Fail after this many milliseconds' -r
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from prompt" -l wait -d 'Wait for the first matching state observed after submission'
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from rename" -l clear
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from wait" -l until -d 'State to match; repeat for more than one state' -r -f -a "idle\t''
+working\t''
+blocked\t''
+done\t''
+unknown\t''"
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from wait" -l timeout -d 'Fail after this many milliseconds' -r
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from attach" -l takeover
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l cwd -r -F
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l workspace -r
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l tab -r
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l split -r -f -a "right\t''
-down\t''"
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l env -d 'Set an environment variable for the launched process' -r
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l focus
-complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l no-focus
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l kind -d 'Supported agent kind and canonical executable' -r -f -a "pi\t''
+claude\t''
+codex\t''
+gemini\t''
+cursor\t''
+devin\t''
+agy\t''
+cline\t''
+omp\t''
+mastracode\t''
+opencode\t''
+copilot\t''
+kimi\t''
+kiro\t''
+droid\t''
+amp\t''
+grok\t''
+hermes\t''
+kilo\t''
+qodercli\t''
+maki\t''"
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l pane -d 'Existing pane at an interactive shell prompt' -r
+complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l timeout -d 'Wait for interactive readiness (default: 30000; max: 300000)' -r
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from explain" -l file -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from explain" -l agent -r
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from explain" -l format -r -f -a "text\t''
 json\t''"
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from explain" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from explain" -s v -l verbose
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "list" -d 'List panes'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "current" -d 'Show the current pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "get" -d 'Show a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "layout" -d 'Show pane layout information'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "process-info" -d 'Show pane process information'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "neighbor" -d 'Find a pane neighbor'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "edges" -d 'Show pane edge information'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "focus" -d 'Focus a neighboring pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "resize" -d 'Resize a pane split'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "zoom" -d 'Toggle or set pane zoom'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "read" -d 'Read pane terminal output'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "rename" -d 'Rename a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "split" -d 'Split a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "swap" -d 'Swap panes'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "move" -d 'Move a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "close" -d 'Close a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "send-text" -d 'Send literal text to a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "send-keys" -d 'Send key presses to a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "run" -d 'Run a command in a pane'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "report-agent" -d 'Report pane agent lifecycle state'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "report-agent-session" -d 'Report pane agent session identity'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "release-agent" -d 'Release pane agent lifecycle authority'
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys run report-agent report-agent-session release-agent report-metadata" -f -a "report-metadata" -d 'Report display-only pane metadata'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "list" -d 'List panes'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "current" -d 'Show the current pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "get" -d 'Show a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "layout" -d 'Show pane layout information'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "process-info" -d 'Show pane process information'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "neighbor" -d 'Find a pane neighbor'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "edges" -d 'Show pane edge information'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "focus" -d 'Focus a neighboring pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "resize" -d 'Resize a pane split'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "zoom" -d 'Toggle or set pane zoom'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "read" -d 'Read pane terminal output'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "rename" -d 'Rename a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "split" -d 'Split a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "swap" -d 'Swap panes'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "move" -d 'Move a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "close" -d 'Close a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "send-text" -d 'Send literal text to a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "send-keys" -d 'Send key presses to a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "wait-output" -d 'Wait for matching pane output'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "run" -d 'Run a command in a pane'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "report-agent" -d 'Report pane agent lifecycle state'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "report-agent-session" -d 'Report pane agent session identity'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "release-agent" -d 'Release pane agent lifecycle authority'
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and not __fish_seen_subcommand_from list current get layout process-info neighbor edges focus resize zoom read rename split swap move close send-text send-keys wait-output run report-agent report-agent-session release-agent report-metadata" -f -a "report-metadata" -d 'Report display-only pane metadata'
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from list" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from current" -l pane -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from current" -l current
@@ -234,7 +258,7 @@ complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcom
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from zoom" -l toggle
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from zoom" -l on
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from zoom" -l off
-complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from read" -l source -r -f -a "visible\t''
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from read" -l source -d 'Terminal snapshot source (default: recent)' -r -f -a "visible\t''
 recent\t''
 recent-unwrapped\t''
 detection\t''"
@@ -273,6 +297,14 @@ complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcom
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from move" -l new-workspace
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from move" -l focus
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from move" -l no-focus
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from wait-output" -l match -d 'Match a literal substring' -r
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from wait-output" -l regex -d 'Match a Rust regular expression' -r
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from wait-output" -l source -d 'Terminal snapshot source (default: recent)' -r -f -a "visible\t''
+recent\t''
+recent-unwrapped\t''"
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from wait-output" -l lines -d 'Restrict the searched snapshot to N lines' -r
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from wait-output" -l timeout -d 'Fail after this many milliseconds' -r
+complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from wait-output" -l raw -d 'Keep ANSI escape sequences while matching'
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l source -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l agent -r
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-agent" -l state -r -f -a "idle\t''
@@ -305,26 +337,11 @@ complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcom
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-title
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-display-agent
 complete -c herdr -n "__fish_herdr_using_subcommand pane; and __fish_seen_subcommand_from report-metadata" -l clear-state-labels
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and not __fish_seen_subcommand_from output agent-status" -f -a "output" -d 'Wait for matching pane output'
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and not __fish_seen_subcommand_from output agent-status" -f -a "agent-status" -d 'Wait for pane agent status'
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from output" -l match -r
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from output" -l source -r -f -a "visible\t''
-recent\t''
-recent-unwrapped\t''"
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from output" -l lines -r
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from output" -l timeout -r
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from output" -l regex
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from output" -l raw
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from agent-status" -l status -r -f -a "idle\t''
-working\t''
-blocked\t''
-done\t''
-unknown\t''"
-complete -c herdr -n "__fish_herdr_using_subcommand wait; and __fish_seen_subcommand_from agent-status" -l timeout -r
 complete -c herdr -n "__fish_herdr_using_subcommand terminal; and not __fish_seen_subcommand_from attach session title" -f -a "attach" -d 'Attach directly to a terminal stream'
 complete -c herdr -n "__fish_herdr_using_subcommand terminal; and not __fish_seen_subcommand_from attach session title" -f -a "session" -d 'Work with terminal sessions'
 complete -c herdr -n "__fish_herdr_using_subcommand terminal; and not __fish_seen_subcommand_from attach session title" -f -a "title" -d 'Manage the outer terminal title'
 complete -c herdr -n "__fish_herdr_using_subcommand terminal; and __fish_seen_subcommand_from attach" -l takeover
+complete -c herdr -n "__fish_herdr_using_subcommand terminal; and __fish_seen_subcommand_from session" -f -a "control" -d 'Control a terminal stream'
 complete -c herdr -n "__fish_herdr_using_subcommand terminal; and __fish_seen_subcommand_from session" -f -a "observe" -d 'Observe a terminal stream'
 complete -c herdr -n "__fish_herdr_using_subcommand terminal; and __fish_seen_subcommand_from title" -f -a "set" -d 'Set the outer terminal title'
 complete -c herdr -n "__fish_herdr_using_subcommand terminal; and __fish_seen_subcommand_from title" -f -a "clear" -d 'Clear the outer terminal title'
