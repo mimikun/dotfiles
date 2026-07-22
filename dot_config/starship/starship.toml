@@ -1056,3 +1056,15 @@ detect_files = []
 detect_folders = []
 
 [custom]
+
+[custom.git_worktree]
+description = "リンクされた git worktree にいるときだけワークツリー名を表示"
+# メイン作業ツリーは git-dir == git-common-dir。リンク先だけ両者が食い違う。
+# パスに /worktrees/ を含む異常リポジトリでも誤判定しない堅牢な判定。
+when = 'test "$(git rev-parse --git-dir 2>/dev/null)" != "$(git rev-parse --git-common-dir 2>/dev/null)"'
+command = 'basename "$(git rev-parse --show-toplevel)"'
+format = "[$symbol$output]($style) "
+symbol = "⑂ "
+style = "bold fg:214"
+shell = ["bash", "--noprofile", "--norc"]
+disabled = false
