@@ -181,6 +181,7 @@ tmux
 tree-sitter-cli
 trivy
 ttf-firacode-nerd
+ugrep
 unzip
 usbutils
 vegeta
