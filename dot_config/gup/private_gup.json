@@ -112,7 +112,7 @@
     {
       "name": "ax",
       "import_path": "github.com/google/ax/cmd/ax",
-      "version": "v0.1.0",
+      "version": "v0.2.0",
       "channel": "latest"
     },
     {
@@ -232,7 +232,7 @@
     {
       "name": "croc",
       "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.4.14",
+      "version": "v10.5.0",
       "channel": "latest"
     },
     {
@@ -664,7 +664,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.22",
+      "version": "v0.2.23",
       "channel": "latest"
     },
     {
@@ -748,7 +748,7 @@
     {
       "name": "hardcover-tui",
       "import_path": "github.com/NotMugil/hardcover-tui/cmd/hardcover-tui",
-      "version": "v1.0.4",
+      "version": "v1.1.1",
       "channel": "latest"
     },
     {
@@ -982,7 +982,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.12",
+      "version": "v0.15.13",
       "channel": "latest"
     },
     {
@@ -1012,7 +1012,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.12.0",
+      "version": "v0.13.0",
       "channel": "latest"
     },
     {
@@ -1336,7 +1336,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260721022353-892340b6525f",
+      "version": "v0.0.0-20260721201453-12ee40451349",
       "channel": "latest"
     },
     {
@@ -1648,7 +1648,7 @@
     {
       "name": "xurl",
       "import_path": "github.com/xdevplatform/xurl",
-      "version": "v1.2.3",
+      "version": "v1.3.1",
       "channel": "latest"
     },
     {
