@@ -854,6 +854,12 @@
       "channel": "latest"
     },
     {
+      "name": "keyward",
+      "import_path": "github.com/gateway-of-last-resort/keyward/cmd/keyward",
+      "version": "v1.0.1",
+      "channel": "latest"
+    },
+    {
       "name": "kl",
       "import_path": "github.com/robinovitch61/kl",
       "version": "v0.9.1",
