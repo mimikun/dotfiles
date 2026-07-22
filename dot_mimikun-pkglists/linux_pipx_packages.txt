@@ -1,5 +1,6 @@
 a2a-handler
 artui
+asmdiff
 austin-dist
 austin-tui
 blueutil-tui

@@ -79,6 +79,7 @@ arrow
 arxiv
 arxiv2bib
 asciidoc
+asmdiff
 asn1
 asn1crypto
 ast-grep-cli
