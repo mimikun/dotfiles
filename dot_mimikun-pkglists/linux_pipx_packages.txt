@@ -15,6 +15,7 @@ hike
 jrnl
 kaskade
 mastui
+mdformat
 moneyterm
 peplum
 pipask
