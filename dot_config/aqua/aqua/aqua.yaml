@@ -46,7 +46,7 @@ packages:
   - name: naggie/dstask@v1.0.1
   - name: natecraddock/zf@0.10.2
   - name: pamburus/hl@v0.36.3
-  - name: pkgxdev/pkgx@v2.10.3
+  - name: pkgxdev/pkgx@v2.11.0
   - name: project-copacetic/copacetic@v0.14.2
   - name: pvolok/mprocs@v0.9.6
   - name: sclevine/yj@v5.1.0
