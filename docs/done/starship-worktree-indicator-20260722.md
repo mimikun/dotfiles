@@ -1,5 +1,10 @@
 # starship プロンプトに git worktree インジケータを追加する
 
+> **状態: 実装済み（2026-07-23）** — `08d60e26 feat(starship): add git worktree indicator to prompt`。
+> 実装は下記「推奨案: custom モジュール」を採用。ただし判定は堅牢性重視で
+> `git-dir != git-common-dir` 方式に変更（下記「注意 / 既知の制約」の厳密版）。
+> env_var 併用案は不採用。
+
 作成日: 2026-07-22
 対象ファイル: `dot_config/starship/starship.toml`（適用先 `~/.config/starship/starship.toml`）
 
