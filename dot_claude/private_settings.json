@@ -1,12 +1,76 @@
 {
-  "model": "sonnet",
   "cleanupPeriodDays": 30,
-  "statusLine": {
-    "type": "command",
-    "command": "input=$(cat); current_dir=$(echo \"$input\" | jq -r '.workspace.current_dir // .cwd'); model=$(echo \"$input\" | jq -r '.model.display_name'); branch=$(git -C \"$current_dir\" branch --show-current 2>/dev/null || echo 'no-git'); printf '\\033[2m%s@%s \\033[36m%s\\033[0m \\033[33m[%s]\\033[0m \\033[2m%s\\033[0m' \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\" \"$branch\" \"$(date +%H:%M)\""
+  "enabledPlugins": {
+    "i-have-adhd@i-have-adhd": true,
+    "obsidian@obsidian-skills": true
   },
+  "extraKnownMarketplaces": {
+    "dotnet-agent-skills": {
+      "source": {
+        "repo": "dotnet/skills",
+        "source": "github"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "path": "/home/mimikun/ghq/github.com/ayghri/i-have-adhd",
+        "source": "directory"
+      }
+    },
+    "obsidian-skills": {
+      "source": {
+        "repo": "kepano/obsidian-skills",
+        "source": "github"
+      }
+    }
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "rtk hook claude",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
+  "model": "opus",
   "permissions": {
-    "defaultMode": "plan",
     "allow": [
       "Bash(npm:*)",
       "Bash(yarn:*)",
@@ -202,51 +266,14 @@
       "Edit(~/.bashrc)",
       "Edit(~/.config/**)",
       "Grep(**)",
-      "Glob(**)",
       "LS(**)",
       "WebFetch(domain:*)",
-      "Write(~/projects/**)",
-      "Write(~/work/**)",
-      "Write(~/dev/**)",
-      "Write(~/src/**)",
-      "Write(./**)",
-      "Write(!.git/**)",
-      "Write(!node_modules/**)",
-      "Write(!vendor/**)",
-      "Write(!.venv/**)",
-      "Write(!venv/**)",
-      "Write(!__pycache__/**)",
-      "Write(!target/**)",
-      "Write(!dist/**)",
-      "Write(!build/**)",
-      "Write(!.next/**)",
-      "Write(!coverage/**)",
-      "MultiEdit(~/projects/**)",
-      "MultiEdit(~/work/**)",
-      "MultiEdit(~/dev/**)",
-      "MultiEdit(~/src/**)",
-      "MultiEdit(./**)",
-      "MultiEdit(!.git/**)",
-      "MultiEdit(!node_modules/**)",
-      "MultiEdit(!vendor/**)",
-      "MultiEdit(!.venv/**)",
-      "MultiEdit(!venv/**)",
-      "MultiEdit(!__pycache__/**)",
-      "MultiEdit(!target/**)",
-      "MultiEdit(!dist/**)",
-      "MultiEdit(!build/**)",
-      "MultiEdit(!.next/**)",
-      "MultiEdit(!coverage/**)",
       "NotebookRead(**)",
-      "NotebookEdit(~/projects/**)",
-      "NotebookEdit(~/work/**)",
-      "NotebookEdit(~/dev/**)",
-      "NotebookEdit(~/src/**)",
-      "NotebookEdit(./**)",
       "TodoRead(**)",
       "TodoWrite(**)",
       "Task(**)"
     ],
+    "defaultMode": "plan",
     "deny": [
       "Bash(rm -rf /)",
       "Bash(rm -rf ~)",
@@ -297,26 +324,19 @@
       "Edit(~/.ssh/*_ed25519)",
       "Edit(/etc/passwd)",
       "Edit(/etc/shadow)",
-      "Edit(/etc/sudoers)",
-      "Write(/etc/**)",
-      "Write(/usr/**)",
-      "Write(/var/**)",
-      "Write(/opt/**)",
-      "Write(/bin/**)",
-      "Write(/sbin/**)",
-      "Write(/lib/**)",
-      "Write(/lib64/**)",
-      "Write(/boot/**)",
-      "Write(/proc/**)",
-      "Write(/sys/**)",
-      "Write(/dev/**)",
-      "Write(~/.ssh/id_*)",
-      "Write(~/.ssh/*_rsa)",
-      "Write(~/.ssh/*_ecdsa)",
-      "Write(~/.ssh/*_ed25519)",
-      "Write(/etc/passwd)",
-      "Write(/etc/shadow)",
-      "Write(/etc/sudoers)"
+      "Edit(/etc/sudoers)"
     ]
-  }
+  },
+  "skillOverrides": {
+    "browser-use": "off",
+    "find-skills": "off",
+    "hello-skill": "off",
+    "nippo": "off",
+    "officecli": "off"
+  },
+  "statusLine": {
+    "command": "input=$(cat); current_dir=$(echo \"$input\" | jq -r '.workspace.current_dir // .cwd'); model=$(echo \"$input\" | jq -r '.model.display_name'); branch=$(git -C \"$current_dir\" branch --show-current 2>/dev/null || echo 'no-git'); printf '\\033[2m%s@%s \\033[36m%s\\033[0m \\033[33m[%s]\\033[0m \\033[2m%s\\033[0m' \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\" \"$branch\" \"$(date +%H:%M)\"",
+    "type": "command"
+  },
+  "tui": "fullscreen"
 }
