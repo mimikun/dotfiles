@@ -108,16 +108,6 @@ dir = "functions"
 name = "_na.fish"
 
 [[plugins]]
-name = "cute"
-repo = "ras0q/cute"
-source = "https://github.com/ras0q/cute"
-commit_sha = "bcdc0f220f89b1f552dac3abfa76dad4b7b0ac41"
-
-[[plugins.files]]
-dir = "functions"
-name = "cute.fish"
-
-[[plugins]]
 name = "forgit"
 repo = "wfxr/forgit"
 source = "https://github.com/wfxr/forgit"
@@ -130,3 +120,13 @@ name = "git-forgit.fish"
 [[plugins.files]]
 dir = "conf.d"
 name = "forgit.plugin.fish"
+
+[[plugins]]
+name = "cute"
+repo = "ras0q/cute"
+source = "https://github.com/ras0q/cute"
+commit_sha = "5feb26942a771d0b89f4588ad3394f9903daa60b"
+
+[[plugins.files]]
+dir = "functions"
+name = "cute.fish"
