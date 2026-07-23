@@ -112,7 +112,7 @@
     {
       "name": "ax",
       "import_path": "github.com/google/ax/cmd/ax",
-      "version": "v0.2.0",
+      "version": "v0.2.2",
       "channel": "latest"
     },
     {
@@ -334,7 +334,7 @@
     {
       "name": "dskDitto",
       "import_path": "github.com/jdefrancesco/dskDitto/cmd/dskDitto",
-      "version": "v0.5.8",
+      "version": "v0.5.9",
       "channel": "latest"
     },
     {
@@ -988,7 +988,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.13",
+      "version": "v0.15.14",
       "channel": "latest"
     },
     {
@@ -1342,7 +1342,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260721201453-12ee40451349",
+      "version": "v0.0.0-20260723024909-593e85bd7dc5",
       "channel": "latest"
     },
     {
@@ -1612,7 +1612,7 @@
     {
       "name": "whosthere",
       "import_path": "github.com/ramonvermeulen/whosthere",
-      "version": "v0.8.2",
+      "version": "v0.8.3",
       "channel": "latest"
     },
     {
