@@ -944,6 +944,12 @@
       "channel": "latest"
     },
     {
+      "name": "lazymake",
+      "import_path": "github.com/rshelekhov/lazymake/cmd/lazymake",
+      "version": "v0.4.1",
+      "channel": "latest"
+    },
+    {
       "name": "lazypkg",
       "import_path": "github.com/ymtdzzz/lazypkg",
       "version": "v0.0.8",
