@@ -1,0 +1,19 @@
+dot_claude/private_RTK.md
+  s_59779b32b28aa6::t_f8d02efab02b96 1-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "80b88fefd9e940c3c2c57b6fb50337d021d2b4c4",
+  "prompts": {},
+  "sessions": {
+    "s_59779b32b28aa6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c0dab38a-6064-4e6f-bccb-b2f67d87442f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
