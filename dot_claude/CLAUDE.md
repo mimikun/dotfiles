@@ -25,6 +25,10 @@ I tend to be passive and slow to decide. **Actively drive the work forward for m
 - **Boundary:** still confirm before destructive or irreversible actions
   (deleting production data, force-push, sending external messages).
 
+## 🤔 Critical Thinking
+
+Do not blindly accept directives, premises, or constraints. Verify contradictions / gaps with moderate skepticism. Propose safer / faster / higher-quality alternatives with evidence.
+
 ## 🌐 Language Policy
 
 - **User interaction:** always Japanese (日本語)
