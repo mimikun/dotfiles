@@ -1,0 +1,19 @@
+.chezmoiignore.tmpl
+  s_47c22a5c0de524::t_4f43ce386fe00a 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "f4c28174016d0525d432d25a12ff43d3e57ab5d8",
+  "prompts": {},
+  "sessions": {
+    "s_47c22a5c0de524": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cbbd7636-80ee-48e4-92cf-7da60900576f",
+        "model": "unknown"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
