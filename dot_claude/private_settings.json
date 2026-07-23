@@ -1,5 +1,8 @@
 {
   "cleanupPeriodDays": 30,
+  "env": {
+    "CLAUDE_CODE_HIDE_ACCOUNT_INFO": "1"
+  },
   "enabledPlugins": {
     "i-have-adhd@i-have-adhd": true,
     "obsidian@obsidian-skills": true
