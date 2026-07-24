@@ -1,0 +1,21 @@
+.mise/tasks/update/chezmoi
+  s_cf6d3e27d3d9b3::t_b2eb9695dd2bb5 56-64
+maskfile.md
+  s_cf6d3e27d3d9b3::t_5a198092874430 289-297
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "9e2966662ff4af16671614c8ffd50f6bf0c332da",
+  "prompts": {},
+  "sessions": {
+    "s_cf6d3e27d3d9b3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5140241b-a8d1-4918-9a93-f31770618ac4",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
