@@ -232,7 +232,7 @@
     {
       "name": "croc",
       "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.5.0",
+      "version": "v10.6.0",
       "channel": "latest"
     },
     {
@@ -436,7 +436,7 @@
     {
       "name": "flow",
       "import_path": "github.com/programmersd21/flow/cmd/flow",
-      "version": "v0.2.0",
+      "version": "v0.2.1",
       "channel": "latest"
     },
     {
@@ -616,7 +616,7 @@
     {
       "name": "golazo",
       "import_path": "github.com/0xjuanma/golazo",
-      "version": "v0.31.0",
+      "version": "v0.32.0",
       "channel": "latest"
     },
     {
@@ -1342,7 +1342,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260723024909-593e85bd7dc5",
+      "version": "v0.0.0-20260724032342-a416c8aa8543",
       "channel": "latest"
     },
     {
@@ -1678,7 +1678,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.21",
+      "version": "v0.20.23",
       "channel": "latest"
     },
     {
