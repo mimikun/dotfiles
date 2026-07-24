@@ -1,0 +1,29 @@
+dot_claude/CLAUDE.md
+  s_8e2289f5436220::t_615fd265665a99 34-44
+  s_8e2289f5436220::t_8c546eaaa194f5 45
+  s_5c846e42b89ec8::t_4c33eaeec20909 48-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "418e3f6f640a2b96c2bf55ca13b57bc2c0c72cd6",
+  "prompts": {},
+  "sessions": {
+    "s_5c846e42b89ec8": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "44c79b0b-0db1-44b4-9423-797c1774e92e",
+        "model": "unknown"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    },
+    "s_8e2289f5436220": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f8ee5be5-4816-40a9-90ac-5325724a38fd",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
