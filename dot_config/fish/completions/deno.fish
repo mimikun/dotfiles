@@ -552,6 +552,7 @@ complete -c deno -n "__fish_deno_using_subcommand add" -l lock -d 'Check the spe
 complete -c deno -n "__fish_deno_using_subcommand add" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
 complete -c deno -n "__fish_deno_using_subcommand add" -l env-file -d 'Load environment variables from local file   Only the first environment variable with a given key is used.   Existing process environment variables are not overwritten, so if variables with the same names already exist in the environment, their values will be preserved.   Where multiple declarations for the same environment variable exist in your .env file, the first one encountered is applied. This is determined by the order of the files you pass as arguments.' -r -F
+complete -c deno -n "__fish_deno_using_subcommand add" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand add" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
@@ -647,6 +648,7 @@ complete -c deno -n "__fish_deno_using_subcommand remove" -l root -d 'Installati
 complete -c deno -n "__fish_deno_using_subcommand remove" -l lock -d 'Check the specified lock file. (If value is not provided, defaults to "./deno.lock")' -r -F
 complete -c deno -n "__fish_deno_using_subcommand remove" -l frozen -d 'Error out if lockfile is out of date' -r -f -a "true\t''
 false\t''"
+complete -c deno -n "__fish_deno_using_subcommand remove" -l minimum-dependency-age -d '(Unstable) The age in minutes, ISO-8601 duration or RFC3339 absolute timestamp (e.g. \'120\' for two hours, \'P2D\' for two days, \'2025-09-16\' for cutoff date, \'2025-09-16T12:00:00+00:00\' for cutoff time, \'0\' to disable)' -r
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable -d 'The `--unstable` flag has been deprecated. Use granular `--unstable-*` flags instead   To view the list of individual unstable feature flags, run this command again with --help=unstable'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-bare-node-builtins -d 'Enable unstable bare node builtins feature'
 complete -c deno -n "__fish_deno_using_subcommand remove" -l unstable-broadcast-channel -d 'Enable unstable `BroadcastChannel` API'
