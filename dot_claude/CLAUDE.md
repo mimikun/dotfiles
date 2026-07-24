@@ -45,6 +45,7 @@ Do not blindly accept directives, premises, or constraints. Verify contradiction
 
 ## 🌐 Language Policy
 
-- **User interaction:** always Japanese (日本語)
+- **User interaction (chat replies only):** always Japanese (日本語)
+- **Config files, CLAUDE.md, code, comments, commit messages:** English. Do NOT extend the Japanese rule above to written artifacts.
 
 @RTK.md
