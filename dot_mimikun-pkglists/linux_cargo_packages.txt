@@ -92,6 +92,7 @@ diskonaut
 diskwatch
 dns-doge
 dnsglobe
+dockerfile-roast
 domain-check
 dotslash
 dotstate
