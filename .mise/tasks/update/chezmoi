@@ -53,6 +53,15 @@ deno fmt dot_config/nvim/dotfyle.json
 # sunbeam
 chezmoi add ~/.config/sunbeam/sunbeam.json
 
+# claude code
+# Claude Code rewrites settings.json every session (keys reordered, runtime
+# state appended), so a raw `git diff` is pure reordering noise. Pull it in and
+# sort keys with `jq -S` so diffs stay semantic. Arrays (e.g. permissions.allow)
+# keep their order; only object keys are sorted.
+chezmoi add ~/.claude/settings.json
+jq -S . dot_claude/private_settings.json >dot_claude/private_settings.json.tmp &&
+    mv dot_claude/private_settings.json.tmp dot_claude/private_settings.json
+
 # brow6el configs
 chezmoi add ~/.brow6el/bookmarks
 chezmoi add ~/.brow6el/userscripts
