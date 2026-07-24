@@ -1,0 +1,22 @@
+---
+client:
+  read_local_logs: true
+  show_confirmation_questions: false
+  show_expanded_aliases: false
+  dark_mode: false
+  max_status_lines: ~
+daemon:
+  default_parallel_tasks: 1
+  pause_group_on_failure: false
+  pause_all_on_failure: false
+  callback: ~
+shared:
+  # Windows does not support unix sockets; the daemon is reached over TCP.
+  pueue_directory: {{ .chezmoi.homeDir }}\AppData\Roaming\pueue
+  host: 127.0.0.1
+  port: "6924"
+  daemon_cert: {{ .chezmoi.homeDir }}\AppData\Roaming\pueue\certs\daemon.cert
+  daemon_key: {{ .chezmoi.homeDir }}\AppData\Roaming\pueue\certs\daemon.key
+  shared_secret_path: {{ .chezmoi.homeDir }}\AppData\Roaming\pueue\shared_secret
+
+# vim:ft=yaml.chezmoitmpl
