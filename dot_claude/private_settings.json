@@ -1,4 +1,5 @@
 {
+  "agentPushNotifEnabled": true,
   "cleanupPeriodDays": 30,
   "enabledPlugins": {
     "i-have-adhd@i-have-adhd": true,
@@ -72,7 +73,8 @@
       }
     ]
   },
-  "model": "claude-opus-4-7",
+  "inputNeededNotifEnabled": true,
+  "model": "opus",
   "permissions": {
     "allow": [
       "Bash(npm:*)",
