@@ -134,11 +134,12 @@ nobody will ever check. So when step 1 tags a problem 🔴, file a record:
 - Fire on trivial things every time — always run the trigger gate first.
 - Stop at "awareness" — always carry through to solution + verification.
 - Just hand over the answer — show the reasoning process so user can reproduce it next time.
+- Record 🟢 problems, or log sessions as such. The unit is one **problem**, never
+  one session and never one date.
 - **Ask "why" about the user's own behaviour.** That is Track B — use A-B-C instead.
 - **Accept a fix of the form "be careful" / "build the habit".** Only placement, count,
   distance, defaults, frequency, or a one-branch decision rule counts as a fix.
-- Record 🟢 problems, or log sessions as such. The unit is one **problem**, never
-  one session and never one date.
+- **Treat a title list, filename, or `ls` output as evidence of content.** Read the body.
 
 **Honest limits (remind user occasionally)**:
 
