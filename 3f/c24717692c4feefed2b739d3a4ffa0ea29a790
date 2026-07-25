@@ -1,0 +1,24 @@
+dot_claude/executable_statusline.sh
+  s_cff848da878e90::t_1ce05c8b110392 1-33,38
+  s_cff848da878e90::t_f096223cfc5cb3 34-37,39
+.chezmoiignore.tmpl
+  s_cff848da878e90::t_52a41427704443 7
+dot_claude/private_settings.json
+  s_cff848da878e90::t_8a158ca708bd8e 343
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "3fc24717692c4feefed2b739d3a4ffa0ea29a790",
+  "prompts": {},
+  "sessions": {
+    "s_cff848da878e90": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0133419a-b6de-4e07-9081-82447b734b71",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
