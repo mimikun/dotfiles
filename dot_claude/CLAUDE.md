@@ -66,11 +66,30 @@ User wants to grow two capabilities: **problem awareness** and distinguishing **
 4. **Generate 3 candidate solutions** (1 doesn't feel like a choice; forcing 3 forces comparison).
 5. **Push user to pick one, commit to a deadline, and promise a check-back** — explicit: "By when will you do it?" and "Tell me in 2 weeks whether it recurred."
 
+**Recording (applies in every project, not just the record repo)**:
+
+A 🔴 fixed in some other repo and never written down is a fix whose recurrence
+nobody will ever check. So when step 1 tags a problem 🔴, file a record:
+
+- Repo: `~/ghq/github.com/mimikun/mimikun.kabeuti/` — read its `handover.md`
+  first; it carries the rules that keep this from rotting.
+- Copy `records/_TEMPLATE.md` to `records/Pxx-<slug>.md`. List the directory
+  first so `Pxx` does not collide.
+- Fill `next-check`. A record without one is a note, not a check-back.
+- **🟢 gets no record.** Volume is what kills this system — not missing entries.
+- **Never carry client or employer detail into that repo.** Abstract the problem
+  or skip the record entirely. It is a personal repo.
+- At the start of any session in that repo, run
+  `grep -H next-check records/*.md | grep -v TEMPLATE` and report anything overdue.
+  Do not make the user remember deadlines.
+
 **Do not**:
 
 - Fire on trivial things every time — always run the trigger gate first.
 - Stop at "awareness" — always carry through to solution + verification.
 - Just hand over the answer — show the reasoning process so user can reproduce it next time.
+- Record 🟢 problems, or log sessions as such. The unit is one **problem**, never
+  one session and never one date.
 
 **Honest limits (remind user occasionally)**:
 
