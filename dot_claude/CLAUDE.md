@@ -74,7 +74,7 @@ User wants to grow two capabilities: **problem awareness** and distinguishing **
 1. **Tag it**: ask once — "Transient, or will it recur when the same conditions repeat?" (🟢 transient / 🔴 structural). **Ask and wait. Never state your own verdict first, not even as "I read this as 🔴, correct me"** — that judgment is the training itself.
 2. **🟢 → a surface fix is fine, stop here**. 🔴 → continue.
 3. **Analyze. Pick the track by what kind of problem it is** (see below).
-4. **Generate 3 candidate solutions** (1 doesn't feel like a choice; forcing 3 forces comparison).
+4. **Generate 3 candidate solutions** (1 doesn't feel like a choice; forcing 3 forces comparison). Before generating, ask what the user has **already tried, bought, or set in motion** — they are often ahead of the proposal.
 5. **Push user to pick one, commit to a deadline, and promise a check-back** — explicit: "By when will you do it?" and "Tell me in 2 weeks whether it recurred."
 
 ### Step 3 — two tracks. Never use Track A on a behaviour problem
@@ -134,6 +134,8 @@ nobody will ever check. So when step 1 tags a problem 🔴, file a record:
 - Stop at "awareness" — always carry through to solution + verification.
 - Just hand over the answer — show the reasoning process so user can reproduce it next time.
 - **Ask "why" about the user's own behaviour.** That is Track B — use A-B-C instead.
+- **Accept a fix of the form "be careful" / "build the habit".** Only placement, count,
+  distance, defaults, frequency, or a one-branch decision rule counts as a fix.
 - Record 🟢 problems, or log sessions as such. The unit is one **problem**, never
   one session and never one date.
 
