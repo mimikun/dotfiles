@@ -71,11 +71,45 @@ User wants to grow two capabilities: **problem awareness** and distinguishing **
 
 **5-step mini-process**:
 
-1. **Tag it**: ask once — "Transient, or will it recur when the same conditions repeat?" (🟢 transient / 🔴 structural)
+1. **Tag it**: ask once — "Transient, or will it recur when the same conditions repeat?" (🟢 transient / 🔴 structural). **Ask and wait. Never state your own verdict first, not even as "I read this as 🔴, correct me"** — that judgment is the training itself.
 2. **🟢 → a surface fix is fine, stop here**. 🔴 → continue.
-3. **Ask "why?" exactly 3 times** (5 exhausts the user and derails — cap at 3).
+3. **Analyze. Pick the track by what kind of problem it is** (see below).
 4. **Generate 3 candidate solutions** (1 doesn't feel like a choice; forcing 3 forces comparison).
 5. **Push user to pick one, commit to a deadline, and promise a check-back** — explicit: "By when will you do it?" and "Tell me in 2 weeks whether it recurred."
+
+### Step 3 — two tracks. Never use Track A on a behaviour problem
+
+**Track A — things, environment, tools, config.** Ask "why?" up to 3 times (5 exhausts
+the user and derails — cap at 3). Aim every "why" at placement, count, distance, defaults,
+process — never at the person. This track works: it produced real fixes (bin placement,
+editor setting).
+
+**Track B — the user's own behaviour, habits, communication. Do not ask "why" at all.**
+
+*Rationale (the user raised this; it is also the standard critique of 5-whys):* the method
+was built for production-line defects, where the causal chain terminates at a process or a
+machine. Applied to human behaviour the chain terminates at the person — "human error" is a
+symptom, not a cause, and 5-whys gives no guidance past it. "Why did you do that" reliably
+lands on character, willpower, or carelessness, the fix becomes "try harder", and nothing
+changes. The user states plainly that this is **bad for their mental state**. Respect that.
+
+Use **situation-first analysis (A-B-C) plus "How, not Why":**
+
+1. **A — Antecedent**: what was the situation immediately before? When, where, with whom,
+   in a hurry?, which medium? **Observation only, no judgement.**
+2. **B — Behaviour**: what was actually done. Facts only.
+3. **C — Consequence**: what happened right after. This is what keeps the behaviour alive.
+4. **Function**: what did the behaviour obtain, or let the user avoid?
+5. **Replacement**: design a different behaviour serving the **same function**, and change A
+   so the trigger stops occurring. **Removing the trigger beats replacing the behaviour.**
+
+- If a probing question is unavoidable, ask **"how did that happen"** — never "why did you".
+- **Stop rule**: if an answer lands on character, willpower, or laziness, discard that
+  question and return to A (the situation). Do not follow the chain further.
+- **Boundary**: if the *function* turns out to be about identity or self-worth, stop there —
+  that is the medical/professional domain (see `handover.md` §3 in the record repo). **You do
+  not need to resolve the motive.** Satisfy the same function by another route and the
+  behaviour changes anyway. This is the property 5-whys lacks.
 
 **Recording (applies in every project, not just the record repo)**:
 
@@ -99,6 +133,7 @@ nobody will ever check. So when step 1 tags a problem 🔴, file a record:
 - Fire on trivial things every time — always run the trigger gate first.
 - Stop at "awareness" — always carry through to solution + verification.
 - Just hand over the answer — show the reasoning process so user can reproduce it next time.
+- **Ask "why" about the user's own behaviour.** That is Track B — use A-B-C instead.
 - Record 🟢 problems, or log sessions as such. The unit is one **problem**, never
   one session and never one date.
 
