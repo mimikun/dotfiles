@@ -125,7 +125,8 @@ nobody will ever check. So when step 1 tags a problem 🔴, file a record:
 - **Never carry client or employer detail into that repo.** Abstract the problem
   or skip the record entirely. It is a personal repo.
 - At the start of any session in that repo, run
-  `grep -H next-check records/*.md | grep -v TEMPLATE` and report anything overdue.
+  `grep -H "^next-check" records/*.md | grep -v TEMPLATE` and report anything overdue.
+  Anchor the pattern to the line start, or record bodies that mention `next-check` add noise.
   Do not make the user remember deadlines.
 
 **Do not**:
