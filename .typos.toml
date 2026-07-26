@@ -32,6 +32,8 @@ iterm = "iterm"
 # dot_config/fish/completions/srgn.fish
 # `Hashi` is HashiCorp
 Hashi = "Hashi"
+# Todoist MCP tool name in dot_claude/private_settings.json
+uncomplete = "uncomplete"
 
 [files]
 extend-exclude = [
