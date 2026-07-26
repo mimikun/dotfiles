@@ -196,7 +196,7 @@
     {
       "name": "claws",
       "import_path": "github.com/clawscli/claws/cmd/claws",
-      "version": "v0.17.0",
+      "version": "v0.18.0",
       "channel": "latest"
     },
     {
@@ -238,7 +238,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.86.0",
+      "version": "v0.87.0",
       "channel": "latest"
     },
     {
@@ -412,7 +412,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.459",
+      "version": "v1.4.460",
       "channel": "latest"
     },
     {
@@ -880,7 +880,7 @@
     {
       "name": "ku",
       "import_path": "github.com/bjarneo/ku",
-      "version": "v0.9.0",
+      "version": "v0.10.0",
       "channel": "latest"
     },
     {
@@ -1018,7 +1018,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.13.0",
+      "version": "v0.15.0",
       "channel": "latest"
     },
     {
@@ -1054,7 +1054,7 @@
     {
       "name": "minify",
       "import_path": "github.com/tdewolff/minify/v2/cmd/minify",
-      "version": "v2.24.13",
+      "version": "v2.24.14",
       "channel": "latest"
     },
     {
@@ -1342,7 +1342,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260724032342-a416c8aa8543",
+      "version": "v0.0.0-20260726004746-826914dea3e9",
       "channel": "latest"
     },
     {
@@ -1372,7 +1372,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.86.0",
+      "version": "v0.87.1",
       "channel": "latest"
     },
     {
@@ -1408,7 +1408,7 @@
     {
       "name": "so",
       "import_path": "solod.dev/cmd/so",
-      "version": "v0.2.0",
+      "version": "v0.3.0",
       "channel": "latest"
     },
     {
@@ -1492,7 +1492,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.51.2",
+      "version": "v0.53.0",
       "channel": "latest"
     },
     {
