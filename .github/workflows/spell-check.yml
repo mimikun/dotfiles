@@ -1,9 +1,13 @@
 name: Spell Check
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
+  # NOTE: no paths filter — typos scans the whole repository, so any file can
+  # introduce a hit
+  pull_request:
 
 permissions: {}
 
