@@ -43,6 +43,6 @@ files that load only when matching files are touched.
   free-form passthrough, so Claude Code cannot warn about a name it does not read, and a
   wrong one stays silently inert forever. This actually happened —
   `CLAUDE_CODE_HIDE_ACCOUNT_INFO` was set for months and never existed
-  (filed as P07 in `mimikun.problem-solving`; the working flag is `IS_DEMO`).
+  (filed as P07 in `mimikun.agent-system`; the working flag is `IS_DEMO`).
 - `~/.claude/hooks/check-settings-env.sh` re-runs that check at session start, but it only
   sees settings.json. Naming a setting in conversation is not covered — grep first.
