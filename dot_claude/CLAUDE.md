@@ -164,4 +164,32 @@ nobody will ever check. So when step 1 tags a problem 🔴, file a record:
 
 Related memory: `projects/-home-mimikun-ghq-github-com-mimikun-mimikun-kabeuti/memory/problem-awareness-growth.md`
 
+## 🧠 Where memory goes (decide by scope AND by visibility)
+
+Before writing a memory, answer two questions.
+
+1. **Scope** — is this knowledge needed in other directories, or only this one?
+2. **Visibility** — can it live in a public repo?
+
+| Scope | Public-safe | Destination |
+|---|---|---|
+| Every project | yes | `~/.claude/rules/<topic>.md` — chezmoi-managed, loaded everywhere |
+| Every project | no | `~/.claude/private.md` — symlink into the kabeuti repo, imported below |
+| This project only | — | project memory (the default location) |
+
+`~/.claude/` is chezmoi-managed, but its source repo `mimikun/dotfiles` is **public**.
+`CLAUDE.md`, `RTK.md`, `rules/**`, `settings.json`, `hooks/**` and `statusline.sh` are
+published. Nothing personal goes in those.
+
+**Two hard rules:**
+
+- **When cwd is under `/tmp`, do not write project memory.** That scope dies with the
+  directory and is never loaded again. Five memories were lost this way before 2026-07-26,
+  including the user's professional background. Put it in one of the two shared files instead.
+- **`~/.claude/projects/` is outside chezmoi, so project memory is not backed up.**
+  Never leave knowledge you would mind losing in project memory alone.
+
+Recorded in `mimikun.kabeuti/records/P08-memory-bunsan.md`.
+
 @RTK.md
+@private.md
