@@ -18,6 +18,13 @@ files that load only when matching files are touched.
 - Document breaking changes and public APIs
 - Proactively suggest improvements (patterns, perf, missing error handling)
 
+## 🕐 Current time
+
+- **Never infer or estimate the current time.** Run `date` and use its output.
+  Elapsed-time guesses drift silently, and the user acts on the number — a wrong
+  "あと10分" changes when they leave the house.
+- Re-run `date` each time it matters, not once per session. Sessions span hours.
+
 ## 🌐 Language Policy (code)
 
 - **Code, comments, docstrings, commit messages:** English
