@@ -132,7 +132,7 @@ Use **situation-first analysis (A-B-C) plus "How, not Why":**
 A 🔴 fixed in some other repo and never written down is a fix whose recurrence
 nobody will ever check. So when step 1 tags a problem 🔴, file a record:
 
-- Repo: `~/ghq/github.com/mimikun/mimikun.kabeuti/` — read its `handover.md`
+- Repo: `~/ghq/github.com/mimikun/mimikun.problem-solving/` — read its `handover.md`
   first; it carries the rules that keep this from rotting.
 - Copy `records/_TEMPLATE.md` to `records/Pxx-<slug>.md`. List the directory
   first so `Pxx` does not collide.
@@ -162,7 +162,7 @@ nobody will ever check. So when step 1 tags a problem 🔴, file a record:
 - This conversational process trains **noticing** and **structuring** only.
 - Step 5's **execution** happens in the real world — reading me is not the same as doing it.
 
-Related memory: `projects/-home-mimikun-ghq-github-com-mimikun-mimikun-kabeuti/memory/problem-awareness-growth.md`
+Related memory: `projects/-home-mimikun-ghq-github-com-mimikun-mimikun-problem-solving/memory/problem-awareness-growth.md`
 
 ## 🧠 Where memory goes (decide by scope AND by visibility)
 
@@ -189,7 +189,7 @@ published. Nothing personal goes in those.
 - **`~/.claude/projects/` is outside chezmoi, so project memory is not backed up.**
   Never leave knowledge you would mind losing in project memory alone.
 
-Recorded in `mimikun.kabeuti/records/P08-memory-bunsan.md`.
+Recorded in `mimikun.problem-solving/records/P08-memory-bunsan.md`.
 
 @RTK.md
 @private.md
