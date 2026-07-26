@@ -148,6 +148,7 @@ clr_loader
 cobble
 cobib
 colorama
+colorclass
 colored
 coloredlogs
 colorlog
@@ -230,6 +231,7 @@ dvc-task
 dvc-webdav
 dvc-webhdfs
 e2b
+easygui
 edge-tts
 editor
 eg
@@ -476,6 +478,7 @@ mpmath
 msal
 msal-extensions
 msgpack
+msoffcrypto-tool
 multidict
 multipart
 multiprocess
@@ -510,6 +513,7 @@ oauth2client
 oauthlib
 obstore
 olefile
+oletools
 ollama
 omegaconf
 onnxruntime
@@ -564,6 +568,7 @@ pathspec
 pathvalidate
 pbr
 pbs-installer
+pcodedmp
 pdf2image
 pdfminer.six
 pendulum
