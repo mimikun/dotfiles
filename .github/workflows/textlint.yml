@@ -6,6 +6,9 @@ on:
       - master
     paths:
       - "**.md"
+  pull_request:
+    paths:
+      - "**.md"
 
 permissions: {}
 
@@ -25,10 +28,9 @@ jobs:
         with:
           node-version: 24
 
+      # NOTE: the pnpm version comes from the "packageManager" field in package.json
       - name: Setup pnpm
         uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
-        with:
-          version: latest
 
       - name: Install dependencies
         run: |

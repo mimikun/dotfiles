@@ -28,6 +28,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # NOTE: we recommend pinning to a specific version in case of formatting changes
-          version: latest
+          # renovate: datasource=github-releases depName=JohnnyMorganz/StyLua extractVersion=^v(?<version>.*)$
+          version: 2.5.2
           # CLI arguments
           args: --check .
