@@ -8,6 +8,11 @@
 !.claude/.editorconfig
 !.claude/rules
 !.claude/rules/**
+# Hooks are config, not runtime state: settings.json references these by
+# absolute path, so leaving them unmanaged makes a fresh apply produce a
+# settings.json whose SessionStart hooks point at files that do not exist.
+!.claude/hooks
+!.claude/hooks/**
 
 # HACK: Now configuration... 2026年3月17日
 .config/elvish/**
