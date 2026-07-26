@@ -174,8 +174,22 @@ Before writing a memory, answer two questions.
 | Scope | Public-safe | Destination |
 |---|---|---|
 | Every project | yes | `~/.claude/rules/<topic>.md` — chezmoi-managed, loaded everywhere |
-| Every project | no | `~/.claude/private.md` — symlink into the kabeuti repo, imported below |
-| This project only | — | project memory (the default location) |
+| Every project | no | `~/.claude/private.md` — symlink into the record repo, imported below |
+| This project only | yes | `PROJECT/CLAUDE.md` — travels with the repo's own git remote |
+| This project only | no | `~/.claude/private.md`, kept short |
+
+**Prefer `PROJECT/CLAUDE.md` over project memory.** Memory under
+`~/.claude/projects/<path>/memory/` belongs to no repo, syncs to no other machine, is
+invisible to anyone reading the project, and is orphaned the moment the directory is
+renamed — nine memories had to be moved by hand on 2026-07-26 for exactly that reason.
+`PROJECT/CLAUDE.md` has none of those properties. Write project memory only when the repo
+has no CLAUDE.md and creating one would be intrusive.
+
+**Check the repo's visibility before writing to `PROJECT/CLAUDE.md`** — `~/.config/nvim`,
+`~/.config/fish`, `~/.local/share/chezmoi` and several `mimikun.*` repos are public. Health,
+employment, finances, or anything about the user's situation never goes into a public repo,
+whatever its scope; put it in `~/.claude/private.md`. Inside a private repo those subjects
+are fine, and belong in that repo's own `CLAUDE.md` rather than in the global file.
 
 `~/.claude/` is chezmoi-managed, but its source repo `mimikun/dotfiles` is **public**.
 `CLAUDE.md`, `RTK.md`, `rules/**`, `settings.json`, `hooks/**` and `statusline.sh` are
