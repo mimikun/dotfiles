@@ -1,0 +1,19 @@
+.github/workflows/spell-check.yml
+  s_6786799677fee6::t_d9cba3ee97902f 4,8-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "72c9a3bb4a8f9ca76719d78939b36cd9ccee6767",
+  "prompts": {},
+  "sessions": {
+    "s_6786799677fee6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "f2a755dc-8e68-4f2e-a50b-6306d878f54f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
