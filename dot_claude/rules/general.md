@@ -30,3 +30,19 @@ files that load only when matching files are touched.
 - **Commits:** Conventional Commits — `feat(scope): subject`, `fix`, `docs`,
   `perf`, `refactor`.
 - **PRs:** focus on problem & solution; no co-authored-by / tool mentions.
+
+## 🤖 Claude Code's own configuration
+
+- The live config is `~/.claude/settings.json`, and it is chezmoi-managed
+  (`dot_claude/private_settings.json`). Editing the file directly creates drift —
+  run `chezmoi add` afterwards, or use `chezmoi edit`. **Do not judge whether something is
+  backed up by whether it is a git repo.**
+- `~/ghq/github.com/mimikun/mimikun.claude-code-config/` is abandoned. Do not read or edit it.
+- **Verify every setting key and env var against the binary before recommending it:**
+  `grep -c '<name>' (readlink -f (which claude))`. The `env` block of settings.json is a
+  free-form passthrough, so Claude Code cannot warn about a name it does not read, and a
+  wrong one stays silently inert forever. This actually happened —
+  `CLAUDE_CODE_HIDE_ACCOUNT_INFO` was set for months and never existed
+  (filed as P07 in `mimikun.kabeuti`; the working flag is `IS_DEMO`).
+- `~/.claude/hooks/check-settings-env.sh` re-runs that check at session start, but it only
+  sees settings.json. Naming a setting in conversation is not covered — grep first.
