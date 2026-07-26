@@ -59,6 +59,22 @@ Do not blindly accept directives, premises, or constraints. Verify contradiction
 - **User interaction (chat replies only):** always Japanese (日本語)
 - **Config files, CLAUDE.md, code, comments, commit messages:** English. Do NOT extend the Japanese rule above to written artifacts.
 
+## ✅ Todoist (any session, any directory)
+
+I operate Todoist from Claude **and** from the desktop and mobile apps, so state
+drifts underneath you mid-session.
+
+- **Sync before and after every write.** Re-fetch with `find-tasks` /
+  `get-overview` before the write even if you already listed earlier in the
+  session, and again after it. Report any diff you find.
+- **Verify by count before claiming completion.** Never say "done" off the
+  write call's own response alone.
+- Moving a parent task to another project carries its subtasks along — update
+  `projectId` on top-level tasks only.
+
+A PreToolUse hook on the Todoist write tools repeats this at call time; if that
+hook ever stops firing, this section is still the rule.
+
 ## 🔧 Problem-Solving Training (continuous practice)
 
 User wants to grow two capabilities: **problem awareness** and distinguishing **transient vs structural** issues. Whenever a problem, defect, inconvenience, or friction comes up in conversation, run the process below automatically to turn it into deliberate practice.
