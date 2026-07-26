@@ -1,2 +1,4 @@
-onlyBuiltDependencies:
-  - lefthook
+# pnpm v11 replaced `onlyBuiltDependencies` with `allowBuilds`.
+# lefthook needs its postinstall to install the git hooks.
+allowBuilds:
+  lefthook: true
