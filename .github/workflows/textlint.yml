@@ -1,14 +1,28 @@
 name: Run textlint
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
+    # NOTE: keep in sync with the pull_request paths below
     paths:
       - "**.md"
+      - ".github/workflows/textlint.yml"
+      - ".textlintrc.json"
+      - ".textlintignore"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
   pull_request:
     paths:
       - "**.md"
+      - ".github/workflows/textlint.yml"
+      - ".textlintrc.json"
+      - ".textlintignore"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
 
 permissions: {}
 
