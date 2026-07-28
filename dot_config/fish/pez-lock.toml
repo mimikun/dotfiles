@@ -125,7 +125,7 @@ name = "forgit.plugin.fish"
 name = "cute"
 repo = "ras0q/cute"
 source = "https://github.com/ras0q/cute"
-commit_sha = "5feb26942a771d0b89f4588ad3394f9903daa60b"
+commit_sha = "23c803031103998b3c9fe4511486a187c7c41cfc"
 
 [[plugins.files]]
 dir = "functions"
