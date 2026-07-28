@@ -79,3 +79,5 @@ up-fetch
 vde-layout
 vde-monitor
 hunkdiff
+pixtuoid
+scriptc
