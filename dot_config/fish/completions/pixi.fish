@@ -75,11 +75,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand add" -s m -l manifest-path -d 
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s f -l feature -d 'The feature for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand add" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand add" -s s -l subdir -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand add" -s s -l subdirectory -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -91,6 +93,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand add" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l index -d 'The PyPI index URL to use for this dependency. Only applicable when adding pypi dependencies' -r
@@ -120,11 +124,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand a" -s m -l manifest-path -d 'T
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s f -l feature -d 'The feature for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand a" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand a" -s s -l subdir -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand a" -s s -l subdirectory -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -136,6 +142,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand a" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l index -d 'The PyPI index URL to use for this dependency. Only applicable when adding pypi dependencies' -r
@@ -161,17 +169,18 @@ complete -c pixi -n "__fish_pixi_using_subcommand a" -s h -l help -d 'Display he
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -s h -l help -d 'Display help information'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "login" -d 'Store authentication information for a given host'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "logout" -d 'Remove authentication information for a given host'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "status" -d 'Show stored authentication entries and non-secret token metadata'
-complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout status help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -f -a "login" -d 'Store authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -f -a "logout" -d 'Remove authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -f -a "token" -d 'Print the stored authentication token for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -f -a "status" -d 'Show stored authentication entries and non-secret token metadata'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and not __fish_seen_subcommand_from login logout token status help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l token -d 'The token to use (for authentication with prefix.dev)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l username -d 'The username to use (for basic HTTP authentication)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from login" -l password -d 'The password to use (for basic HTTP authentication)' -r
@@ -204,6 +213,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from logout" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from token" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+never\t''
+auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from token" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from token" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from token" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from token" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -214,6 +230,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from status" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "login" -d 'Store authentication information for a given host'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "logout" -d 'Remove authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "token" -d 'Print the stored authentication token for a given host'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "status" -d 'Show stored authentication entries and non-secret token metadata'
 complete -c pixi -n "__fish_pixi_using_subcommand auth; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -227,6 +244,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand build" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand build" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand build" -s t -l target-platform -d 'The target platform to build for (defaults to the current platform)' -r
@@ -427,6 +446,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand exec" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand exec" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -459,6 +480,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand x" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand x" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -507,8 +530,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -s e -l environment -d 'Specifies the environment that the dependencies need to be added to' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l expose -d 'Add one or more mapping which describe which executables are exposed. The syntax is `exposed_name=executable_name`, so for example `python3.10=python`. Alternatively, you can input only an executable_name and `executable_name=executable_name` is assumed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -522,6 +548,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from add" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -540,8 +568,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -s e -l environment -d 'Specifies the environment that the dependencies need to be added to' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l expose -d 'Add one or more mapping which describe which executables are exposed. The syntax is `exposed_name=executable_name`, so for example `python3.10=python`. Alternatively, you can input only an executable_name and `executable_name=executable_name` is assumed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -555,6 +586,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from a" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -580,8 +613,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -s p -l platform -d 'The platform to install the packages for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -s e -l environment -d 'Ensures that all packages will be installed in the same environment' -r
@@ -598,6 +634,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from install" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -618,8 +656,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -s p -l platform -d 'The platform to install the packages for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -s e -l environment -d 'Ensures that all packages will be installed in the same environment' -r
@@ -636,6 +677,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from i" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -663,6 +706,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from uninstall" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -689,6 +734,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -715,6 +762,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -740,6 +789,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from list" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
@@ -769,6 +820,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from ls" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
@@ -798,6 +851,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from sync" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -823,6 +878,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from s" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -878,6 +935,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -913,6 +972,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l platform -d 'The platform to install the package for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand global; and __fish_seen_subcommand_from upgrade-all" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -992,8 +1053,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -s e -l environment -d 'Specifies the environment that the dependencies need to be added to' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l expose -d 'Add one or more mapping which describe which executables are exposed. The syntax is `exposed_name=executable_name`, so for example `python3.10=python`. Alternatively, you can input only an executable_name and `executable_name=executable_name` is assumed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -1007,6 +1071,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from add" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1025,8 +1091,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -s e -l environment -d 'Specifies the environment that the dependencies need to be added to' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l expose -d 'Add one or more mapping which describe which executables are exposed. The syntax is `exposed_name=executable_name`, so for example `python3.10=python`. Alternatively, you can input only an executable_name and `executable_name=executable_name` is assumed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l auth-file -d 'Path to the file containing the authentication token' -r -F
@@ -1040,6 +1109,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from a" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1065,8 +1136,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -s p -l platform -d 'The platform to install the packages for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -s e -l environment -d 'Ensures that all packages will be installed in the same environment' -r
@@ -1083,6 +1157,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from install" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1103,8 +1179,11 @@ complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l subdir -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l subdirectory -d 'The subdirectory within the git repository' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l path -d 'The path to the local package' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l build-backend -d 'The build backend to build the source with, when the source does not provide its own package manifest (or to override the one it has). Accepts a name with an optional version constraint, e.g. `pixi-build-rust` or `"pixi-build-rust>=0.3,<0.4"`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l package -d 'Additional fields of the inline package definition, as `DOTTED_KEY=TOML_VALUE` pairs that are recorded under the `package` key of the dependency, e.g. `host-dependencies.hatchling="*"` or `build.config.extra-args=["--all-features"]`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -s c -l channel -d 'The channels to consider as a name or a url. Multiple channels can be specified by using this field multiple times' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -s p -l platform -d 'The platform to install the packages for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -s e -l environment -d 'Ensures that all packages will be installed in the same environment' -r
@@ -1121,6 +1200,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from i" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1148,6 +1229,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from uninstall" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1174,6 +1257,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1200,6 +1285,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1225,6 +1312,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from list" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
@@ -1254,6 +1343,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -s e -l environment -d 'Allows listing all the packages installed in a specific environment, with an output similar to `pixi list`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from ls" -l sort-by -d 'Sorting strategy for the package table of an environment' -r -f -a "size\t''
@@ -1283,6 +1374,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from sync" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1308,6 +1401,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from s" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1363,6 +1458,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1398,6 +1495,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l platform -d 'The platform to install the package for' -r
 complete -c pixi -n "__fish_pixi_using_subcommand g; and __fish_seen_subcommand_from upgrade-all" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -1481,8 +1580,8 @@ complete -c pixi -n "__fish_pixi_using_subcommand import" -s w -l workspace -d '
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l format -d 'Which format to interpret the file as' -r -f -a "conda-env\t''
 pypi-txt\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand import" -s p -l platform -d 'The platforms for the imported environment. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted. Names that aren\'t yet declared get auto-added as subdir platforms' -r
-complete -c pixi -n "__fish_pixi_using_subcommand import" -s e -l environment -d 'A name for the created environment' -r
-complete -c pixi -n "__fish_pixi_using_subcommand import" -s f -l feature -d 'A name for the created feature' -r
+complete -c pixi -n "__fish_pixi_using_subcommand import" -s e -l environment -d 'A name for the created environment. Without `--feature` the imported content is written inline on the environment' -r
+complete -c pixi -n "__fish_pixi_using_subcommand import" -s f -l feature -d 'A name for the created feature. The feature is added to the environment of the same name unless `--environment` is given' -r
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1494,6 +1593,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand import" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand import" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -1525,6 +1626,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand install" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s p -l platform -d 'Install for the given platform; a warning is printed when it doesn\'t run on this machine' -r
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l skip -d 'Skip installation of specific packages present in the lock file. This uses a soft exclusion: the package will be skipped but its dependencies are installed' -r
@@ -1562,6 +1665,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand i" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s p -l platform -d 'Install for the given platform; a warning is printed when it doesn\'t run on this machine' -r
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l skip -d 'Skip installation of specific packages present in the lock file. This uses a soft exclusion: the package will be skipped but its dependencies are installed' -r
@@ -1677,10 +1782,30 @@ complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-progress -d 'Hide al
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l auth-file -d 'Path to the file containing the authentication token' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l pinning-strategy -d 'Set pinning strategy' -r -f -a "semver\t'Default semver strategy e.g. `1.2.3` becomes `>=1.2.3, <2` but `0.1.0` becomes `>=0.1.0, <0.2`'
+minor\t'Pin the latest minor e.g. `1.2.3` becomes `>=1.2.3, <1.3`'
+major\t'Pin the latest major e.g. `1.2.3` becomes `>=1.2.3, <2`'
+latest-up\t'Pin to the latest version or higher. e.g. `1.2.3` becomes `>=1.2.3`'
+exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.2.3`'
+no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
+subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-hard-links -d 'Disallow hard links during package installation'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-ref-links -d 'Disallow ref links (copy-on-write) during package installation'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l tls-no-verify -d 'Do not verify the TLS certificate of the server'
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -l use-environment-activation-cache -d 'Use environment activation cache (experimental)'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l json -d 'Output the changes in JSON format'
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l check -d 'Check if any changes have been made to the lock file. If yes, exit with a non-zero code'
@@ -1704,6 +1829,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -s p -l platform -d 'Re-install for the given platform; a warning is printed when it doesn\'t run on this machine' -r
 complete -c pixi -n "__fish_pixi_using_subcommand reinstall" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -1735,6 +1862,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand publish" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -s t -l target-platform -d 'The target platform to build for (defaults to the current platform)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand publish" -l build-platform -d 'The build platform to use for building (defaults to the current platform)' -r
@@ -1771,11 +1900,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand remove" -s m -l manifest-path 
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s f -l feature -d 'The feature for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -s s -l subdir -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -s s -l subdirectory -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1787,6 +1918,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1814,11 +1947,13 @@ complete -c pixi -n "__fish_pixi_using_subcommand rm" -s m -l manifest-path -d '
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s f -l feature -d 'The feature for which the dependency should be modified' -r
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s g -l git -d 'The git url to use when adding a git dependency' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l branch -d 'The git branch' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l tag -d 'The git tag' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l rev -d 'The git revision' -r
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -s s -l subdir -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -s s -l subdirectory -d 'The subdirectory of the git repository to use' -r
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l subdir -d 'Deprecated alias for `--subdirectory`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1830,6 +1965,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1866,6 +2003,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s e -l environment -d 'The environment to run the task in' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
@@ -1910,6 +2049,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s e -l environment -d 'The environment to run the task in' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s p -l platform -d 'Install and run in the environment for the given platform; a warning is printed when it doesn\'t run on this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
@@ -1944,6 +2085,20 @@ complete -c pixi -n "__fish_pixi_using_subcommand search" -s c -l channel -d 'Th
 complete -c pixi -n "__fish_pixi_using_subcommand search" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l auth-file -d 'Path to the file containing the authentication token' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l pinning-strategy -d 'Set pinning strategy' -r -f -a "semver\t'Default semver strategy e.g. `1.2.3` becomes `>=1.2.3, <2` but `0.1.0` becomes `>=0.1.0, <0.2`'
+minor\t'Pin the latest minor e.g. `1.2.3` becomes `>=1.2.3, <1.3`'
+major\t'Pin the latest major e.g. `1.2.3` becomes `>=1.2.3, <2`'
+latest-up\t'Pin to the latest version or higher. e.g. `1.2.3` becomes `>=1.2.3`'
+exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.2.3`'
+no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
+subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s p -l platform -d 'The platform to search packages for. By default, searches all platforms from the manifest (or all known platforms if no manifest is found). Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s l -l limit -d 'Limit the number of versions shown per package, -1 for no limit' -r
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s n -l limit-packages -d 'Limit the number of packages shown, -1 for no limit' -r
@@ -1951,15 +2106,26 @@ complete -c pixi -n "__fish_pixi_using_subcommand search" -l color -d 'Whether t
 never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand search" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l run-post-link-scripts -d 'Run post-link scripts (insecure)'
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l no-symbolic-links -d 'Disallow symbolic links during package installation'
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l no-hard-links -d 'Disallow hard links during package installation'
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l no-ref-links -d 'Disallow ref links (copy-on-write) during package installation'
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l tls-no-verify -d 'Do not verify the TLS certificate of the server'
+complete -c pixi -n "__fish_pixi_using_subcommand search" -l use-environment-activation-cache -d 'Use environment activation cache (experimental)'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -l json -d 'Output in JSON format'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand search" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l offline -d 'Run without network access. Updating always requires the network, so this makes `pixi self-update` fail fast instead of attempting to connect' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l version -d 'The desired version (to downgrade or upgrade to)' -r
+complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l from-url -d 'The github releases URL, useful when behind a proxy, or using custom Pixi release' -r
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l dry-run -d 'Only show release notes, do not modify the binary'
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l force -d 'Force download the desired version when not exactly same with the current. If no desired version, always replace with the latest version'
 complete -c pixi -n "__fish_pixi_using_subcommand self-update" -l no-release-note -d 'Skip printing the release notes'
@@ -1981,6 +2147,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand shell" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -s e -l environment -d 'The environment to activate in the shell' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell" -l change-ps1 -d 'Do not change the PS1 variable when starting a prompt' -r -f -a "true\t''
@@ -2020,6 +2188,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand s" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand s" -s e -l environment -d 'The environment to activate in the shell' -r
 complete -c pixi -n "__fish_pixi_using_subcommand s" -l change-ps1 -d 'Do not change the PS1 variable when starting a prompt' -r -f -a "true\t''
@@ -2060,6 +2230,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -s e -l environment -d 'The environment to activate in the script' -r
 complete -c pixi -n "__fish_pixi_using_subcommand shell-hook" -l change-ps1 -d 'Do not change the PS1 variable when starting a prompt' -r -f -a "true\t''
@@ -2108,6 +2280,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and not __fish_seen_subc
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l depends-on -d 'Depends on these other commands' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -s p -l platform -d 'The platform for which the task should be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -s f -l feature -d 'The feature for which the task should be added' -r
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -s e -l environment -d 'The environment for which the task should be added. The task is written to the tasks defined inline on the environment, creating the environment if it does not exist' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l cwd -d 'The working directory relative to the root of the workspace' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l env -d 'The environment variable to set, use --env key=value multiple times for more than one variable' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from add" -l default-environment -d 'Add a default environment for the task' -r
@@ -2126,6 +2299,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l depends-on -d 'Depends on these other commands' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -s p -l platform -d 'The platform for which the task should be added' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -s f -l feature -d 'The feature for which the task should be added' -r
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -s e -l environment -d 'The environment for which the task should be added. The task is written to the tasks defined inline on the environment, creating the environment if it does not exist' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l cwd -d 'The working directory relative to the root of the workspace' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l env -d 'The environment variable to set, use --env key=value multiple times for more than one variable' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l default-environment -d 'Add a default environment for the task' -r
@@ -2143,6 +2317,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from a" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s p -l platform -d 'The platform for which the task should be removed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s f -l feature -d 'The feature for which the task should be removed' -r
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s e -l environment -d 'The environment for which the task should be removed. The task is removed from the tasks defined inline on the environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -2154,6 +2329,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from remove" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s p -l platform -d 'The platform for which the task should be removed' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s f -l feature -d 'The feature for which the task should be removed' -r
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s e -l environment -d 'The environment for which the task should be removed. The task is removed from the tasks defined inline on the environment' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s w -l workspace -d 'Name of the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -2164,6 +2340,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from rm" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -s p -l platform -d 'The platform for which the alias should be added' -r
+complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -s e -l environment -d 'The environment for which the alias should be added. The alias is written to the tasks defined inline on the environment, creating the environment if it does not exist' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -l description -d 'The description of the alias task' -r
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand task; and __fish_seen_subcommand_from alias" -s w -l workspace -d 'Name of the workspace' -r
@@ -2253,6 +2430,8 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand update" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s w -l workspace -d 'Name of the workspace' -r
@@ -2289,8 +2468,11 @@ exact-version\t'Pin the version chosen by the solver. e.g. `1.2.3` becomes `==1.
 no-pin\t'No pinning, keep the requirement empty. e.g. `1.2.3` becomes `*`'"
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l pypi-keyring-provider -d 'Specifies whether to use the keyring to look up credentials for PyPI' -r -f -a "disabled\t''
 subprocess\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l offline -d 'Run without network access, using only cached data. Commands fail if data is missing from the cache. Pass `--offline=false` to override an `offline` setting from the configuration' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s f -l feature -d 'The feature to update' -r
+complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s e -l environment -d 'The environment whose inline dependencies should be updated' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l exclude -d 'The packages which should be excluded' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -2312,17 +2494,21 @@ complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s h -l help -d 'Disp
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand upgrade" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -l offline -d 'Run without network access. Uploading always requires the network, so this makes `pixi upload` fail fast instead of attempting to connect. Defined here rather than through the shared config flags because `UploadOpts` already owns `--auth-file`' -r -f -a "true\t''
+false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -l allow-insecure-host -d 'List of hosts for which SSL certificate verification should be skipped' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -l auth-file -d 'Path to an auth-file to read authentication information from' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -s h -l help -d 'Display help information'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -a "quetz" -d 'Upload to a Quetz server. Authentication is used from the keychain / auth-file'
-complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -a "artifactory" -d 'Options for uploading to a Artifactory channel. Authentication is used from the keychain / auth-file'
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -a "artifactory" -d 'Options for uploading to an Artifactory channel'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -a "prefix" -d 'Options for uploading to a prefix.dev server. Authentication is used from the keychain / auth-file'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -a "anaconda" -d 'Options for uploading to a Anaconda.org server'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and not __fish_seen_subcommand_from quetz artifactory prefix anaconda cloudsmith s3 conda-forge help" -a "cloudsmith" -d 'Options for uploading to a Cloudsmith repository. Authentication is used from the keychain / auth-file'
@@ -2341,9 +2527,9 @@ complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from quetz" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -s u -l url -d 'The URL to your Artifactory server' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -s c -l channel -d 'The URL to your channel' -r
-complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -l username -d 'Your Artifactory username' -r
-complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -l password -d 'Your Artifactory password' -r
-complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -s t -l token -d 'Your Artifactory token' -r
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -l username -d 'Your Artifactory username for HTTP basic authentication' -r
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -l password -d 'Your Artifactory password for HTTP basic authentication' -r
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -s t -l token -d 'Your Artifactory token for bearer authentication' -r
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from artifactory" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2423,7 +2609,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from conda-forge" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from conda-forge" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "quetz" -d 'Upload to a Quetz server. Authentication is used from the keychain / auth-file'
-complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "artifactory" -d 'Options for uploading to a Artifactory channel. Authentication is used from the keychain / auth-file'
+complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "artifactory" -d 'Options for uploading to an Artifactory channel'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "prefix" -d 'Options for uploading to a prefix.dev server. Authentication is used from the keychain / auth-file'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "anaconda" -d 'Options for uploading to a Anaconda.org server'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "cloudsmith" -d 'Options for uploading to a Cloudsmith repository. Authentication is used from the keychain / auth-file'
@@ -2661,6 +2847,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subc
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "login" -d 'Store authentication information for a given host'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "logout" -d 'Remove authentication information for a given host'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "token" -d 'Print the stored authentication token for a given host'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from auth" -f -a "status" -d 'Show stored authentication entries and non-secret token metadata'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from clean" -f -a "cache" -d 'Clean the cache of your system which are touched by pixi'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "edit" -d 'Edit the configuration file'
@@ -2687,7 +2874,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from task" -f -a "alias" -d 'Alias another specific command'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from task" -f -a "list" -d 'List all tasks in the workspace'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from upload" -f -a "quetz" -d 'Upload to a Quetz server. Authentication is used from the keychain / auth-file'
-complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from upload" -f -a "artifactory" -d 'Options for uploading to a Artifactory channel. Authentication is used from the keychain / auth-file'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from upload" -f -a "artifactory" -d 'Options for uploading to an Artifactory channel'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from upload" -f -a "prefix" -d 'Options for uploading to a prefix.dev server. Authentication is used from the keychain / auth-file'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from upload" -f -a "anaconda" -d 'Options for uploading to a Anaconda.org server'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from upload" -f -a "cloudsmith" -d 'Options for uploading to a Cloudsmith repository. Authentication is used from the keychain / auth-file'

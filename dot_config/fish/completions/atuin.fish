@@ -63,7 +63,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "tail" -d 'Stream history events from the daemon as they are received'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "list" -d 'List all items in history'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "last" -d 'Get the last command ran'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "last" -d 'Get the last command that was run'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "init-store"
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen_subcommand_from start end tail list last init-store prune dedup help" -f -a "dedup" -d 'Delete duplicate history entries (that have the same command, cwd and hostname)'
@@ -71,23 +71,25 @@ complete -c atuin -n "__fish_atuin_using_subcommand history; and not __fish_seen
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -l author -d 'Author of this command, eg `ellie`, `claude`, or `copilot`' -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -l intent -d 'Optional intent/rationale for running this command' -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -l command-from-env -d 'Collects the command from the `ATUIN_COMMAND_LINE` environment variable, which does not need escaping and is more compatible between OS and shells'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -l hook -d 'Passed by shell hooks; this flag disables logging to avoid corrupting the terminal and to minimize the amount of time the command takes to run'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from start" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from end" -s e -l exit -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from end" -s d -l duration -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from end" -l hook -d 'Passed by shell hooks; this flag disables logging to avoid corrupting the terminal and to minimize the amount of time the command takes to run'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from end" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from tail" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s r -l reverse -r -f -a "true\t''
 false\t''"
-complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default' -r
-complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {author}, {intent}, {exit}, {time}, {session}, and {uuid} Example: --format "{time} - [{duration}] - {directory}$\\t{command}"' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default.' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {author}, {intent}, {exit}, {time}, {session}, and {uuid}' -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s c -l cwd
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s s -l session
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l human
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l cmd-only -d 'Show only the text of the command'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -l print0 -d 'Terminate the output with a null, for better multiline support'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default' -r
-complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {author}, {intent}, {time}, {session}, {uuid} and {relativetime}. Example: --format "{time} - [{duration}] - {directory}$\\t{command}"' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default.' -r
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {author}, {intent}, {time}, {session}, {uuid} and {relativetime}' -r
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -l human
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -l cmd-only -d 'Show only the text of the command'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from last" -s h -l help -d 'Print help (see more with \'--help\')'
@@ -102,7 +104,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_sub
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "tail" -d 'Stream history events from the daemon as they are received'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "list" -d 'List all items in history'
-complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "last" -d 'Get the last command ran'
+complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "last" -d 'Get the last command that was run'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "init-store"
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
 complete -c atuin -n "__fish_atuin_using_subcommand history; and __fish_seen_subcommand_from help" -f -a "dedup" -d 'Delete duplicate history entries (that have the same command, cwd and hostname)'
@@ -154,7 +156,13 @@ complete -c atuin -n "__fish_atuin_using_subcommand import; and __fish_seen_subc
 complete -c atuin -n "__fish_atuin_using_subcommand import; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand stats" -s c -l count -d 'How many top commands to list' -r
 complete -c atuin -n "__fish_atuin_using_subcommand stats" -s n -l ngram-size -d 'The number of consecutive commands to consider' -r
-complete -c atuin -n "__fish_atuin_using_subcommand stats" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand stats" -l filter-mode -d 'Filter commands by scope [global, host, session, directory, workspace]' -r -f -a "global\t''
+host\t''
+session\t''
+directory\t''
+workspace\t''
+session-preload\t''"
+complete -c atuin -n "__fish_atuin_using_subcommand stats" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c atuin -n "__fish_atuin_using_subcommand search" -s c -l cwd -d 'Filter search result by directory' -r
 complete -c atuin -n "__fish_atuin_using_subcommand search" -l exclude-cwd -d 'Exclude directory from results' -r
 complete -c atuin -n "__fish_atuin_using_subcommand search" -s e -l exit -d 'Filter search result by exit code' -r
@@ -178,11 +186,12 @@ complete -c atuin -n "__fish_atuin_using_subcommand search" -l keymap-mode -d 'N
 vim-normal\t''
 vim-insert\t''
 auto\t''"
-complete -c atuin -n "__fish_atuin_using_subcommand search" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default' -r
-complete -c atuin -n "__fish_atuin_using_subcommand search" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {time}, {exit} and {relativetime}. Example: --format "{time} - [{duration}] - {directory}$\\t{command}"' -r
+complete -c atuin -n "__fish_atuin_using_subcommand search" -l timezone -l tz -d 'Display the command time in another timezone other than the configured default.' -r
+complete -c atuin -n "__fish_atuin_using_subcommand search" -s f -l format -d 'Available variables: {command}, {directory}, {duration}, {user}, {host}, {time}, {exit} and {relativetime}' -r
 complete -c atuin -n "__fish_atuin_using_subcommand search" -l inline-height -d 'Set the maximum number of lines Atuin\'s interface should take up' -r
-complete -c atuin -n "__fish_atuin_using_subcommand search" -l author -d 'Filter by author. Supports $all-user (non-agents), $all-agent, or literal names. Can be specified multiple times' -r
+complete -c atuin -n "__fish_atuin_using_subcommand search" -l author -d 'Filter by author. Supports $all-user (non-agents), $all-agent, or literal names' -r
 complete -c atuin -n "__fish_atuin_using_subcommand search" -l result-file -d 'File name to write the result to (hidden from help as this is meant to be used from a script)' -r
+complete -c atuin -n "__fish_atuin_using_subcommand search" -l shell -d 'Filter by the shell that was used to run the command' -r
 complete -c atuin -n "__fish_atuin_using_subcommand search" -s i -l interactive -d 'Open interactive search UI'
 complete -c atuin -n "__fish_atuin_using_subcommand search" -l shell-up-key-binding -d 'Marker argument used to inform atuin that it was invoked from a shell up-key binding (hidden from help to avoid confusion)'
 complete -c atuin -n "__fish_atuin_using_subcommand search" -l human -d 'Use human-readable formatting for time'
@@ -283,13 +292,13 @@ complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subco
 complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from verify" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -s t -l tag -d 'The tag to push (eg, \'history\'). Defaults to all tags' -r
 complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -l host -d 'The host to push, in the form of a UUID host ID. Defaults to the current host' -r
-complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -l page -d 'Page Size How many records to upload at once. Defaults to 100' -r
-complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -l force -d 'Force push records This will override both host and tag, to be all hosts and all tags. First clear the remote store, then upload all of the local store'
-complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -l page -d 'Page Size' -r
+complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -l force -d 'Force push records'
+complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from push" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from pull" -s t -l tag -d 'The tag to push (eg, \'history\'). Defaults to all tags' -r
-complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from pull" -l page -d 'Page Size How many records to download at once. Defaults to 100' -r
-complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from pull" -l force -d 'Force push records This will first wipe the local store, and then download all records from the remote'
-complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from pull" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from pull" -l page -d 'Page Size' -r
+complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from pull" -l force -d 'Force push records'
+complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from pull" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from help" -f -a "status" -d 'Print the current status of the record store'
 complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from help" -f -a "rebuild" -d 'Rebuild a store (eg atuin store rebuild history)'
 complete -c atuin -n "__fish_atuin_using_subcommand store; and __fish_seen_subcommand_from help" -f -a "rekey" -d 'Re-encrypt the store with a new key (potential for data loss!)'
@@ -328,11 +337,11 @@ complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_sub
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -s t -l tags -r
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -s s -l shebang -r
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -l script -r -F
-complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -l last -d 'Use the last command as the script content Optionally specify a number to use the last N commands' -r
+complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -l last -d 'Use the last command as the script content' -r
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -l no-edit -d 'Skip opening editor when using --last'
-complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from run" -s v -l var -d 'Specify template variables in the format KEY=VALUE Example: -v name=John -v greeting="Hello there"' -r
-complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from run" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from new" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from run" -s v -l var -d 'Specify template variables in the format KEY=VALUE' -r
+complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from run" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from get" -s s -l script -d 'Display only the executable script with shebang'
 complete -c atuin -n "__fish_atuin_using_subcommand scripts; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help'
@@ -467,7 +476,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcom
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "end" -d 'Finishes a new command in the history (adds time, exit code)'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "tail" -d 'Stream history events from the daemon as they are received'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "list" -d 'List all items in history'
-complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "last" -d 'Get the last command ran'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "last" -d 'Get the last command that was run'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "init-store"
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "prune" -d 'Delete history entries matching the configured exclusion filters'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from history" -f -a "dedup" -d 'Delete duplicate history entries (that have the same command, cwd and hostname)'
