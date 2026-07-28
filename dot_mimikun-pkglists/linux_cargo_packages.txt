@@ -154,6 +154,7 @@ gitui
 gitv-tui
 glitchcat
 glues
+gnomad
 gping
 gptop
 grex
