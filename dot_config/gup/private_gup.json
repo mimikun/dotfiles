@@ -70,7 +70,7 @@
     {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
-      "version": "v0.0.131",
+      "version": "v0.0.133",
       "channel": "latest"
     },
     {
@@ -106,7 +106,7 @@
     {
       "name": "atago",
       "import_path": "github.com/nao1215/atago",
-      "version": "v0.11.0",
+      "version": "v0.17.0",
       "channel": "latest"
     },
     {
@@ -424,7 +424,7 @@
     {
       "name": "fence",
       "import_path": "github.com/fencesandbox/fence/cmd/fence",
-      "version": "v0.1.63",
+      "version": "v0.1.64",
       "channel": "latest"
     },
     {
@@ -580,7 +580,7 @@
     {
       "name": "gofumpt",
       "import_path": "mvdan.cc/gofumpt",
-      "version": "v0.10.0",
+      "version": "v0.11.0",
       "channel": "latest"
     },
     {
@@ -664,7 +664,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.23",
+      "version": "v0.2.24",
       "channel": "latest"
     },
     {
@@ -808,7 +808,7 @@
     {
       "name": "iferr",
       "import_path": "github.com/koron/iferr",
-      "version": "v0.0.0-20240122035601-9c3e2fbe4bd1",
+      "version": "v1.0.0",
       "channel": "latest"
     },
     {
@@ -856,7 +856,7 @@
     {
       "name": "keyward",
       "import_path": "github.com/gateway-of-last-resort/keyward/cmd/keyward",
-      "version": "v1.0.1",
+      "version": "v1.0.2",
       "channel": "latest"
     },
     {
@@ -982,13 +982,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260710020816-6fcec86740a6",
+      "version": "v0.0.0-20260727210151-fb668f12be74",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.14",
+      "version": "v0.15.15",
       "channel": "latest"
     },
     {
@@ -1018,7 +1018,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.15.0",
+      "version": "v0.16.0",
       "channel": "latest"
     },
     {
@@ -1102,7 +1102,7 @@
     {
       "name": "octocov",
       "import_path": "github.com/k1LoW/octocov",
-      "version": "v0.75.10",
+      "version": "v0.75.12",
       "channel": "latest"
     },
     {
@@ -1282,7 +1282,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.47.3",
+      "version": "v0.48.1",
       "channel": "latest"
     },
     {
@@ -1342,7 +1342,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260726004746-826914dea3e9",
+      "version": "v0.0.0-20260728063144-04afd754b96a",
       "channel": "latest"
     },
     {
@@ -1372,7 +1372,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.87.1",
+      "version": "v0.88.1",
       "channel": "latest"
     },
     {
@@ -1504,7 +1504,7 @@
     {
       "name": "tgpt",
       "import_path": "github.com/aandrew-me/tgpt/v2",
-      "version": "v2.11.1",
+      "version": "v2.12.0",
       "channel": "latest"
     },
     {
