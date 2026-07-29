@@ -296,6 +296,12 @@
       "channel": "latest"
     },
     {
+      "name": "diskbloom",
+      "import_path": "github.com/Zingzy/diskbloom",
+      "version": "v0.1.0",
+      "channel": "latest"
+    },
+    {
       "name": "dive",
       "import_path": "github.com/wagoodman/dive",
       "version": "v0.13.1",
@@ -1550,6 +1556,12 @@
       "channel": "latest"
     },
     {
+      "name": "ttt",
+      "import_path": "github.com/eugenioenko/ttt/cmd/ttt",
+      "version": "v1.1.0",
+      "channel": "latest"
+    },
+    {
       "name": "ttyimg",
       "import_path": "github.com/Skardyy/ttyimg",
       "version": "v1.0.5",
@@ -1655,6 +1667,12 @@
       "name": "xurl",
       "import_path": "github.com/xdevplatform/xurl",
       "version": "v1.3.1",
+      "channel": "latest"
+    },
+    {
+      "name": "xytz",
+      "import_path": "github.com/xdagiz/xytz",
+      "version": "v0.9.2",
       "channel": "latest"
     },
     {
