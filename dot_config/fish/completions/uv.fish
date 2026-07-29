@@ -364,9 +364,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand run" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand run" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -608,9 +608,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand add" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand add" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand add" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -724,9 +724,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand remove" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -835,9 +835,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand version" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand version" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand version" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -945,9 +945,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -1110,16 +1110,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand lock" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand lock" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand lock" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand lock" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand lock" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand lock" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -1184,6 +1184,7 @@ complete -c uv -n "__fish_uv_using_subcommand lock" -l no-progress -d 'Hide all 
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand lock" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand lock" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand upgrade" -l exclude -d 'Exclude the named package from upgrades' -r -f
 complete -c uv -n "__fish_uv_using_subcommand upgrade" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand upgrade" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -1253,16 +1254,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand export" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand export" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand export" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand export" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand export" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand export" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand export" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand export" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand export" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -1379,16 +1380,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tree" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tree" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand tree" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tree" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tree" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tree" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -1505,7 +1506,7 @@ complete -c uv -n "__fish_uv_using_subcommand tree" -l no-installer-metadata -d 
 complete -c uv -n "__fish_uv_using_subcommand tree" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tree" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand format" -l version -d 'The version of Ruff to use for formatting' -r -f
-complete -c uv -n "__fish_uv_using_subcommand format" -l exclude-newer -d 'Limit candidate Ruff versions to those released prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand format" -l exclude-newer -d 'Limit candidate Ruff versions to those released prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand format" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand format" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -1575,9 +1576,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand check" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand check" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand check" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -1686,16 +1687,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand audit" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand audit" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand audit" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand audit" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand audit" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand audit" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand audit" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand audit" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -1879,9 +1880,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -2084,9 +2085,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uvx" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -2291,9 +2292,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from install" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -2529,16 +2530,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l config-setting-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -2599,7 +2600,8 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from upgrade" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
 system\t'Prefer system Python installations over managed Python installations'
@@ -3157,6 +3159,7 @@ complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand python; and __fish_seen_subcommand_from update-shell" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and not __fish_seen_subcommand_from compile sync install uninstall freeze list show tree check debug" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3228,16 +3231,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -3354,10 +3357,10 @@ xpu\t'Use the PyTorch index for Intel XPU'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l resolver -r -f -a "backtracking\t''
 legacy\t''"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l max-rounds -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l client-cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l config -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l pip-args -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from compile" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3460,8 +3463,8 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -3571,10 +3574,10 @@ rocm4.1\t'Use the PyTorch index for ROCm 4.1'
 rocm4.0.1\t'Use the PyTorch index for ROCm 4.0.1'
 xpu\t'Use the PyTorch index for Intel XPU'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-executable -r
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l client-cert -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l config -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l pip-args -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from sync" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3669,9 +3672,9 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r -f
@@ -3787,6 +3790,7 @@ rocm4.2\t'Use the PyTorch index for ROCm 4.2'
 rocm4.1\t'Use the PyTorch index for ROCm 4.1'
 rocm4.0.1\t'Use the PyTorch index for ROCm 4.0.1'
 xpu\t'Use the PyTorch index for Intel XPU'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from install" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3866,6 +3870,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 subprocess\t'Use the `keyring` command for credential lookup'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -s t -l target -d 'Uninstall packages from the specified `--target` directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l prefix -d 'Uninstall packages from the specified `--prefix` directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from uninstall" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3916,6 +3921,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l path -d 'Restrict to the specified installation path for listing packages (can be used multiple times)' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -s t -l target -d 'List packages from the specified `--target` directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l prefix -d 'List packages from the specified `--prefix` directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from freeze" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -3974,10 +3980,12 @@ unsafe-first-match\t'Search for every package name across all indexes, exhaustin
 unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
 subprocess\t'Use the `keyring` command for credential lookup'"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -s t -l target -d 'List packages from the specified `--target` directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l prefix -d 'List packages from the specified `--prefix` directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from list" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -4029,6 +4037,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s p -l python -d 'The Python interpreter to find the package in.' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -s t -l target -d 'Show a package from the specified `--target` directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l prefix -d 'Show a package from the specified `--prefix` directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from show" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -4086,8 +4095,10 @@ unsafe-first-match\t'Search for every package name across all indexes, exhaustin
 unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
 subprocess\t'Use the `keyring` command for credential lookup'"
-complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -s p -l python -d 'The Python interpreter for which packages should be listed.' -r -f
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from tree" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -4185,6 +4196,7 @@ wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for 
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from check" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -4229,6 +4241,7 @@ complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_fr
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l python-version -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l implementation -r
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l abi -r
+complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l cert -d 'Path to a PEM-encoded CA certificate bundle' -r -F
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand pip; and __fish_seen_subcommand_from debug" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -4279,8 +4292,8 @@ unsafe-first-match\t'Search for every package name across all indexes, exhaustin
 unsafe-best-match\t'Search for every package name across all indexes, preferring the "best" version found. If a package version is in multiple indexes, only look at the entry for the first index'"
 complete -c uv -n "__fish_uv_using_subcommand venv" -l keyring-provider -d 'Attempt to use `keyring` for authentication for index URLs' -r -f -a "disabled\t'Do not use keyring for credential lookup'
 subprocess\t'Use the `keyring` command for credential lookup'"
-complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer-package -d 'Limit candidate packages for a specific package to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand venv" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand venv" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -4363,16 +4376,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand build" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand build" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand build" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand build" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand build" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand build" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand build" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand build" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand build" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
@@ -4558,16 +4571,16 @@ lowest\t'Resolve the lowest compatible version of each package'
 lowest-direct\t'Resolve the lowest compatible version of any direct dependencies, and the highest compatible version of any transitive dependencies'"
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l prerelease -d 'The strategy to use when considering pre-release versions' -r -f -a "disallow\t'Disallow all pre-release versions'
 allow\t'Allow all pre-release versions'
-if-necessary\t'Allow pre-release versions if all versions of a package are pre-release'
-explicit\t'Allow pre-release versions for first-party packages with explicit pre-release markers in their version requirements'
-if-necessary-or-explicit\t'Allow pre-release versions if all versions of a package are pre-release, or if the package has an explicit pre-release marker in its version requirements'"
+if-necessary\t'Prefer stable versions, falling back to pre-release versions when necessary'
+explicit\t'Prefer stable versions for first-party packages with explicit pre-release specifiers, falling back to pre-release versions when necessary. Disallow pre-release versions for all other packages'
+if-necessary-or-explicit\t'Deprecated alias for `if-necessary`'"
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l fork-strategy -d 'The strategy to use when selecting multiple versions of a given package across Python versions and platforms' -r -f -a "fewest\t'Optimize for selecting the fewest number of versions for each package. Older versions may be preferred if they are compatible with a wider range of supported Python versions or platforms'
 requires-python\t'Optimize for selecting latest supported version of each package, for each supported Python version'"
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -s C -l config-setting -d 'Settings to pass to the PEP 517 build backend, specified as `KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l config-settings-package -d 'Settings to pass to the PEP 517 build backend for a specific package, specified as `PACKAGE:KEY=VALUE` pairs' -r
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l no-build-isolation-package -d 'Disable isolation when building source distributions for a specific package' -r -f
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r
-complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l exclude-newer -d 'Limit candidate packages to those that were uploaded prior to the given date' -r -f
+complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l exclude-newer-package -d 'Limit candidate packages for specific packages to those that were uploaded prior to the given date' -r -f
 complete -c uv -n "__fish_uv_using_subcommand workspace; and __fish_seen_subcommand_from metadata" -l link-mode -d 'The method to use when installing packages from the global cache' -r -f -a "clone\t'Clone (i.e., copy-on-write) packages from the source into the destination'
 copy\t'Copy packages from the source into the destination'
 hardlink\t'Hard link packages from the source into the destination'
