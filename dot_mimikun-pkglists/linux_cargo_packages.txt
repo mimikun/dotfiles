@@ -152,6 +152,7 @@ gittype
 gitu
 gitui
 gitv-tui
+glab-tui-crate
 glitchcat
 glues
 gnomad
