@@ -232,7 +232,7 @@
     {
       "name": "croc",
       "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.6.0",
+      "version": "v10.7.0",
       "channel": "latest"
     },
     {
@@ -262,7 +262,7 @@
     {
       "name": "cull",
       "import_path": "github.com/legostin/cull",
-      "version": "v0.6.1",
+      "version": "v0.7.0",
       "channel": "latest"
     },
     {
@@ -418,7 +418,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.460",
+      "version": "v1.4.463",
       "channel": "latest"
     },
     {
@@ -466,7 +466,7 @@
     {
       "name": "fx",
       "import_path": "github.com/antonmedv/fx",
-      "version": "v0.0.0-20260511101514-bb2c34476500",
+      "version": "v0.0.0-20260728113644-63eb255ad014",
       "channel": "latest"
     },
     {
@@ -802,7 +802,7 @@
     {
       "name": "hulak",
       "import_path": "github.com/xaaha/hulak",
-      "version": "v0.3.30",
+      "version": "v0.3.31",
       "channel": "latest"
     },
     {
@@ -904,7 +904,7 @@
     {
       "name": "layerx",
       "import_path": "github.com/deveshctl/layerx",
-      "version": "v1.5.3",
+      "version": "v1.6.0",
       "channel": "latest"
     },
     {
@@ -1168,7 +1168,7 @@
     {
       "name": "pg-schema-diff",
       "import_path": "github.com/stripe/pg-schema-diff/cmd/pg-schema-diff",
-      "version": "v1.0.7",
+      "version": "v1.0.8",
       "channel": "latest"
     },
     {
@@ -1348,7 +1348,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260728063144-04afd754b96a",
+      "version": "v0.0.0-20260729034307-13db01047950",
       "channel": "latest"
     },
     {
@@ -1378,7 +1378,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.88.1",
+      "version": "v0.88.2",
       "channel": "latest"
     },
     {
@@ -1438,7 +1438,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v0.28.0",
+      "version": "v0.29.0",
       "channel": "latest"
     },
     {
