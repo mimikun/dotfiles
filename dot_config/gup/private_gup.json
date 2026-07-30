@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.10.0",
+      "version": "v0.11.1",
       "channel": "latest"
     },
     {
@@ -418,7 +418,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.463",
+      "version": "v1.4.465",
       "channel": "latest"
     },
     {
@@ -520,7 +520,7 @@
     {
       "name": "ghtkn",
       "import_path": "github.com/suzuki-shunsuke/ghtkn/cmd/ghtkn",
-      "version": "v0.3.3",
+      "version": "v0.3.4",
       "channel": "latest"
     },
     {
@@ -1348,7 +1348,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260729034307-13db01047950",
+      "version": "v0.0.0-20260730003807-d693a5eec5b7",
       "channel": "latest"
     },
     {
@@ -1438,7 +1438,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v0.29.0",
+      "version": "v0.30.0",
       "channel": "latest"
     },
     {
@@ -1660,7 +1660,7 @@
     {
       "name": "xql",
       "import_path": "github.com/excelano/xql/cmd/xql",
-      "version": "v1.6.1",
+      "version": "v1.8.0",
       "channel": "latest"
     },
     {
