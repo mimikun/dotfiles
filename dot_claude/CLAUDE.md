@@ -71,6 +71,9 @@ drifts underneath you mid-session.
   write call's own response alone.
 - Moving a parent task to another project carries its subtasks along — update
   `projectId` on top-level tasks only.
+- **Tasks labelled `no-ai` are mine. Never create, edit, complete, reschedule, or
+  delete them.** Reading is fine when it affects planning; say so and move on.
+  I maintain these by hand, so any write from you is drift I have to undo.
 
 A PreToolUse hook on the Todoist write tools repeats this at call time; if that
 hook ever stops firing, this section is still the rule.
