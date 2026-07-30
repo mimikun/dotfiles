@@ -69,6 +69,7 @@ git
 git-delta
 github-cli
 gitui
+glab
 gleam
 glow
 gnumeric
