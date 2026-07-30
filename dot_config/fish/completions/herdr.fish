@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_herdr_global_optspecs
-	string join \n h/help no-session session= remote= remote-keybindings= handoff default-config V/version
+	string join \n h/help no-session session= remote= remote-keybindings= handoff default-config skill V/version
 end
 
 function __fish_herdr_needs_command
@@ -32,6 +32,7 @@ complete -c herdr -n "__fish_herdr_needs_command" -s h -l help -d 'Show help'
 complete -c herdr -n "__fish_herdr_needs_command" -l no-session -d 'Run monolithically without server/client session mode'
 complete -c herdr -n "__fish_herdr_needs_command" -l handoff -d 'Opt into live handoff for update or remote attach'
 complete -c herdr -n "__fish_herdr_needs_command" -l default-config -d 'Print default configuration and exit'
+complete -c herdr -n "__fish_herdr_needs_command" -l skill -d 'Print the agent skill file and exit'
 complete -c herdr -n "__fish_herdr_needs_command" -s V -l version -d 'Print version and exit'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "completion" -d 'Generate shell completion scripts'
 complete -c herdr -n "__fish_herdr_needs_command" -f -a "completions" -d 'Generate shell completion scripts'

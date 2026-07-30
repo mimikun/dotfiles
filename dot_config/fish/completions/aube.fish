@@ -9,7 +9,7 @@ if ! type -p usage &> /dev/null
 end
 set -l spec_dir (if set -q XDG_CACHE_HOME; echo $XDG_CACHE_HOME; else; echo $HOME/.cache; end)/usage
 test -d "$spec_dir"; or mkdir -p -m 700 "$spec_dir"
-set -l spec_file "$spec_dir/usage__usage_spec_aube_1_35_0.spec"
+set -l spec_file "$spec_dir/usage__usage_spec_aube_1_36_0.spec"
 if not test -f "$spec_file"
     find "$spec_dir" -maxdepth 1 -name 'usage__usage_spec_aube_*.spec' -type f -mtime +30 -delete 2>/dev/null
     aube usage | string collect > "$spec_file"
@@ -33,7 +33,7 @@ end
 
 set _usage_spec_aubr 'name aubr
 bin aubr
-version "1.35.0"
+version "1.36.0"
 about "Run a script defined in package.json"
 flag "-C --dir --cd --prefix" help="Change to directory before running (like `make -C` or `mise --cd`)" global=#true {
     arg <DIR>
@@ -364,7 +364,7 @@ end
 
 set _usage_spec_aubx 'name aubx
 bin aubx
-version "1.35.0"
+version "1.36.0"
 about "Fetch a package into a throwaway environment and run its binary"
 flag "-C --dir --cd --prefix" help="Change to directory before running (like `make -C` or `mise --cd`)" global=#true {
     arg <DIR>
