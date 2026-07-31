@@ -58,4 +58,5 @@ files that load only when matching files are touched.
   — `Edit` covers every file-editing tool, `Read` covers every file-reading tool. Adding the
   per-tool variants "for symmetry" produces 26 startup warnings and zero protection; this was
   done and reverted on 2026-07-31 (see `docs/plan/claude-permission-holes-20260731.md` §第5弾).
-  Rules containing `:*` are exempt from this — they are matched as command prefixes.
+  Writing `:*` inside a file rule is a hard validation error, not a workaround — `:*` prefix
+  matching exists only for `Bash(...)`.
