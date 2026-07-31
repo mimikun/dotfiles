@@ -1,4 +1,4 @@
-# hook: Checking for destructive git
+# script: deny-destructive-git.sh
 #
 # git clean deletes untracked files, which no reflog can restore, so it is the
 # reason this hook exists. git reset --hard is covered too, though git-ai

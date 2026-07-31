@@ -98,7 +98,7 @@
       {
         "hooks": [
           {
-            "command": "jq -r '.tool_input.command // empty' | grep -Eq 'git[[:space:]]+(clean([[:space:]][^;&|]*)?[[:space:]]+(-[a-zA-Z]*f[a-zA-Z]*|--force)([[:space:]]|$)|reset([[:space:]][^;&|]*)?[[:space:]]+--hard([[:space:]]|$))' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"git clean --force and git reset --hard are blocked. Run it by hand if you really need it.\"}}' || true",
+            "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-git.sh'",
             "statusMessage": "Checking for destructive git",
             "type": "command"
           }
