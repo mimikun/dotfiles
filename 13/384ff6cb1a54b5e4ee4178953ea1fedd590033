@@ -1,0 +1,19 @@
+dot_config/ccstatusline/settings.json
+  s_8e095854fa8632::t_38a110d24f89c4 1-66
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "13384ff6cb1a54b5e4ee4178953ea1fedd590033",
+  "prompts": {},
+  "sessions": {
+    "s_8e095854fa8632": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dca63ab9-a41a-4f39-b92d-84b5b33d943d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
