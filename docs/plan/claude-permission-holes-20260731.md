@@ -158,19 +158,22 @@ allow に `Bash(mv:*)`。rm を塞いでも `mv important-dir /tmp/x` で実質�
 
 ---
 
-## 低 — 限定的、または別ルールで既に守られている
+## 低 — 対応済み (2026-07-31)
 
-### L1. `~/.ssh/authorized_keys` が deny 対象外 📖
+L1 と L2 は対応済み、L3 は対応不要。実装は末尾「今回塞いだもの > 第4弾」を
+参照。以下は経緯の記録として残す。
+
+### L1. `~/.ssh/authorized_keys` が deny 対象外 📖 → 対応済み
 
 Edit / Write の SSH deny は `id_*` `*_rsa` `*_ecdsa` `*_ed25519` の4パターン
 のみ。`authorized_keys` と `config` は含まれない。
 
-### L2. `NotebookEdit` / `MultiEdit` の deny がゼロ 📖
+### L2. `NotebookEdit` / `MultiEdit` の deny がゼロ 📖 → NotebookEdit のみ対応
 
 `Edit` 19件 + `Write` 16件は揃えたが、この2ツールは1件もない。
 `.ipynb` 経由の書き込みだけルールの外にある。
 
-### L3. git push main/master の exact 一致4件（害はない）📖
+### L3. git push main/master の exact 一致4件（害はない）📖 → 対応不要
 
 ```
 Bash(git push --force-with-lease origin main)
@@ -297,6 +300,70 @@ $ rm -f /tmp/.../probe2.txt
   `git push origin --delete foo` が含まれるため deny される。
   ファイル編集は Edit / Write ツールを使えば回避できる
 
+### 第4弾: L1 / L2 (同日)
+
+ファイル系 deny を **Edit / Write / NotebookEdit の3ツールで同一の13パターン**
+に揃えた。
+
+```
+/etc/** /usr/** /var/** /opt/** /bin/** /sbin/** /lib/** /lib64/**
+/boot/** /proc/** /sys/** /dev/** ~/.ssh/**
+```
+
+検算 (3ツールのパスリストが完全一致することの確認):
+
+```console
+$ for t in Edit Write NotebookEdit; do ... | sort | md5sum; done
+3fe9daed33c5dd94227eb5e7c6838b7e  Edit
+3fe9daed33c5dd94227eb5e7c6838b7e  Write
+3fe9daed33c5dd94227eb5e7c6838b7e  NotebookEdit
+```
+
+#### L1: SSH のパターン列挙を `~/.ssh/**` に統合
+
+`id_*` `*_rsa` `*_ecdsa` `*_ed25519` の4パターンをやめ、`~/.ssh/**` 1つにした。
+
+**列挙をやめた理由**: `authorized_keys` と `config` が漏れていた。しかも
+`~/.ssh/` は chezmoi 管理下 (`.ssh/config`、`.ssh/conf.d/*`) なので、
+そもそも直接編集はドリフトになる。編集はソース側の `private_dot_ssh/` で
+行うべきで、`~/.ssh/**` を丸ごと deny しても失うものがない。
+
+実機確認:
+
+```console
+$ Write(~/.ssh/claude-permission-probe.txt)
+File is in a directory that is denied by your permission settings.
+```
+
+#### L2: NotebookEdit を追加、MultiEdit は意図的に見送り
+
+`NotebookEdit` は同じ13パターンを追加した。
+
+**`MultiEdit` は追加しなかった。** このバージョン (2.1.220) でエージェントに
+露出しているファイル編集ツールは `Edit` / `Write` / `NotebookEdit` の3つで、
+`MultiEdit` は含まれない。バイナリ内の出現数も `Edit` 17 / `Write` 20 /
+`NotebookEdit` 6 に対して `MultiEdit` は 2 で、過去の文言の残骸に見える。
+
+存在しないツールに deny を足すのは `Bash(sudo shadow:*)` と同じ轍
+(発火しないルールが「守られている」という誤った安心を生む) なので、
+ルールではなくこの判断を残す。
+
+**再確認のトリガー**: ツール一覧に `MultiEdit` が現れたら、上の13パターンを
+`MultiEdit(...)` にも複製する。
+
+#### L3: 対応不要
+
+git push main/master の exact 一致4件は、前方一致と hook が実際の守りなので
+冗長なだけで害がない。main がデフォルトブランチのリポジトリもあるため
+意図的に残す。変更なし。
+
+#### 未確認のまま残った点
+
+`Write(~/.ssh/**)` は permission settings 由来のメッセージでブロックされる
+ことを確認したが、**`Edit(...)` 側のルールが発火することは今回独立に確認
+できていない。** `/proc/version` への Edit で試したところ、permissions
+より上流の auto mode classifier に先に止められたため。
+
 ### 第3弾: M1 / M2 / M3 / M4 (同日)
 
 #### hook 3: destructive git (新規)
@@ -398,9 +465,27 @@ ok
 
 1. ~~H1 と H2 を塞ぐ~~ — 2026-07-31 対応済み (H3 も同時に対応)
 2. ~~M1〜M5 の方針決め~~ — 2026-07-31 対応済み (M5 は意図的に対応しない)
-3. **L1 (`~/.ssh/authorized_keys`) と L2 (`NotebookEdit` / `MultiEdit` の
-   deny がゼロ)** — deny に数行足すだけ。残作業のうち最も費用対効果が高い
-4. **U1 を通常 mode のセッションで確認する** — `Edit(!...)` の negation が
-   効いているかどうか。効いていないなら allow の11行は削除できる
-5. ~~回帰テストをリポジトリに置く~~ — 2026-07-31 対応済み。
+3. ~~L1 と L2~~ — 2026-07-31 対応済み (L3 は対応不要、MultiEdit は見送り)
+4. ~~回帰テストをリポジトリに置く~~ — 2026-07-31 対応済み。
    `scripts/test-claude-hooks.sh` (113ケース)。冒頭「回帰テスト」を参照
+5. **U1 を通常 mode のセッションで確認する** — `Edit(!...)` の negation が
+   効いているかどうか。効いていないなら allow の11行は削除できる。
+   **残っている唯一の未着手項目**
+6. `Edit(...)` 系 deny が実際に発火することの確認 — 第4弾の「未確認のまま
+   残った点」を参照。`Write` 側は確認済み
+
+## 将来の構想: hook を cchook で管理する
+
+**現時点では着手しない。** 方針として記録しておく。
+
+- 移行先: <https://github.com/syou6162/cchook>
+- 現状: hook 4本が `dot_claude/private_settings.json` の
+  `hooks.PreToolUse` に JSON 文字列として直接埋まっている。正規表現が
+  JSON エスケープの中にあり、読むのも直すのも辛い
+
+**移行時に必ず対応が要る点**: `scripts/test-claude-hooks.sh` は
+`dot_claude/private_settings.json` から `statusMessage` をキーに hook
+コマンドを抽出している。hook の管理が cchook に移ると**この抽出が空振り
+してテストが全 FAIL する**。移行の際は、ランナーの抽出元を cchook の設定に
+差し替えること。テストを消してはいけない — 正規表現は3回書き直して3回とも
+穴が見つかっている。
