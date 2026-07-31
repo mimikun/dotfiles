@@ -108,7 +108,7 @@
       {
         "hooks": [
           {
-            "command": "c=$(jq -r '.tool_input.command // empty'); printf '%s' \"$c\" | grep -Eq '(^|[[:space:];&|(/])(python[0-9.]*|node|deno|bun|perl|ruby)[[:space:]]+([^;&|]*[[:space:]])?(-[a-zA-Z]*[cep]([[:space:]]|$)|--eval([[:space:]]|=)|eval([[:space:]]|$))' && printf '%s' \"$c\" | grep -Eq '(rmtree|shutil|subprocess|child_process|execSync|spawnSync|os\\.system|os\\.popen|os\\.remove|os\\.rmdir|unlink|rmSync|rmdirSync|Deno\\.remove|Deno\\.run|Deno\\.Command|FileUtils|File\\.delete|Dir\\.delete|\\.rmdir|truncate)' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Interpreter one-liner touching file removal or process spawning is blocked. Write a script file, or run it by hand.\"}}' || true",
+            "command": "bash '/home/mimikun/.claude/hooks/deny-interpreter-oneliners.sh'",
             "statusMessage": "Checking interpreter one-liners",
             "type": "command"
           }
