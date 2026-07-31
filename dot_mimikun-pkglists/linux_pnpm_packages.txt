@@ -22,6 +22,7 @@
 @mizchi/actrun
 @getpaseo/cli
 @ghgrab/ghgrab
+@mindfoldhq/trellis
 @mistweaverco/kulala-cli
 @moonshot-ai/kimi-code
 @openai/codex
@@ -79,5 +80,6 @@ up-fetch
 vde-layout
 vde-monitor
 hunkdiff
+openwiki
 pixtuoid
 scriptc
