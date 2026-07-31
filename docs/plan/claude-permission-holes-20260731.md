@@ -265,15 +265,22 @@ negation の有無を分離できない。** 同じ確認をやり直す人は p
   と絶対パス両方を拾わせるため。旧ルールの `node_modules/**` は先頭一致に
   依存していた
 
-**⚠️ この11件はまだ発火を確認していない。** 第5弾の教訓 (設定同士の整合性は
-発火の証拠にならない) をここで繰り返さないこと。次のセッションで:
+#### ✅ 2026-07-31 実測: 11件は発火する
+
+再起動後の manual mode セッションで probe した。
 
 ```console
-$ mkdir -p node_modules && printf x > node_modules/u1-probe.txt
-# manual mode で node_modules/u1-probe.txt を Edit させる
-# → プロンプトが出れば ask は発火している。出なければ ask も無効
-$ rm -rf node_modules
+$ mkdir -p node_modules && printf x > node_modules/ask-probe.txt
+# manual mode で node_modules/ask-probe.txt を Edit → プロンプトが出た
+$ rm node_modules/ask-probe.txt && rmdir node_modules
 ```
+
+**プロンプトが出た。** 同じパスは `allow` の `Edit(./**)` にも一致するので、
+これは同時に **`ask` が `allow` に優先する**ことの実測でもある
+(移行前の probe 3 では同じパスがプロンプトなしで通っていた。差分は
+`permissions.ask` の追加だけ)。
+
+これで「設定同士の整合性は発火の証拠にならない」(第5弾の教訓) の宿題は完了。
 
 ---
 
@@ -599,11 +606,15 @@ ok
    `scripts/test-claude-hooks.sh` (113ケース)。冒頭「回帰テスト」を参照
 5. ~~U1 を通常 mode のセッションで確認する~~ — 2026-07-31 決着。negation は無効。
    11件を削除し `permissions.ask` に移した
-7. **`permissions.ask` の11件が実際に発火するか確認する** — U1 §「対応」の
-   probe を次セッションで実行。**残っている唯一の未着手項目**
 6. ~~`Edit(...)` 系 deny が実際に発火することの確認~~ — 2026-07-31 解決。
    第4弾で「`Write` 側が確認済み」としたブロックは、実は `Edit(~/.ssh/**)`
    が発火したものだった (第5弾)
+7. ~~`permissions.ask` の11件が実際に発火するか確認する~~ — 2026-07-31 実測済み。
+   プロンプトが出た。U1 §「2026-07-31 実測」を参照
+8. ~~26件の警告が消えたことの確認~~ — 2026-07-31 実測済み。再起動後の起動時、
+   警告は1件も出なくなった (第5弾の削除で解決)
+
+**このドキュメントの未着手項目はゼロ。** 以降は下記「将来の構想」だけが残る。
 
 ## 将来の構想: hook を cchook で管理する
 
