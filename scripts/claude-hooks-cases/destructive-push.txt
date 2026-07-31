@@ -1,4 +1,4 @@
-# hook: Checking for destructive push
+# script: deny-destructive-push.sh
 #
 # Force push and its equivalents. The + refspec form was verified to slip past
 # an earlier version of this hook, because it contains neither --force nor -f.
