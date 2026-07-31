@@ -152,19 +152,6 @@
   "inputNeededNotifEnabled": true,
   "model": "opus",
   "permissions": {
-    "ask": [
-      "Edit(**/.git/**)",
-      "Edit(**/node_modules/**)",
-      "Edit(**/vendor/**)",
-      "Edit(**/.venv/**)",
-      "Edit(**/venv/**)",
-      "Edit(**/__pycache__/**)",
-      "Edit(**/target/**)",
-      "Edit(**/dist/**)",
-      "Edit(**/build/**)",
-      "Edit(**/.next/**)",
-      "Edit(**/coverage/**)"
-    ],
     "allow": [
       "Bash(npm:*)",
       "Bash(yarn:*)",
@@ -351,6 +338,19 @@
       "TodoRead(**)",
       "TodoWrite(**)",
       "Task(**)"
+    ],
+    "ask": [
+      "Edit(**/.git/**)",
+      "Edit(**/node_modules/**)",
+      "Edit(**/vendor/**)",
+      "Edit(**/.venv/**)",
+      "Edit(**/venv/**)",
+      "Edit(**/__pycache__/**)",
+      "Edit(**/target/**)",
+      "Edit(**/dist/**)",
+      "Edit(**/build/**)",
+      "Edit(**/.next/**)",
+      "Edit(**/coverage/**)"
     ],
     "defaultMode": "plan",
     "deny": [
