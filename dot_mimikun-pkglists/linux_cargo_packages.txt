@@ -105,6 +105,7 @@ ducker
 dusage
 dutree
 dysk
+ecolog-lsp
 ecscope
 eilmeldung
 ekphos
@@ -197,6 +198,7 @@ jql
 jsongrep
 judo
 just
+jwt-ui
 kanha
 kbt
 kdash
