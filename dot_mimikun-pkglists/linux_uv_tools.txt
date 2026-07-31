@@ -15,6 +15,7 @@ lexy
 llm
 mistral-vibe
 parllama
+posting
 prek
 rovr
 sot
