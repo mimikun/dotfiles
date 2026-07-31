@@ -88,7 +88,7 @@
       {
         "hooks": [
           {
-            "command": "jq -r '.tool_input.command // empty' | grep -Eq '(^|[[:space:];&|(/])rm[[:space:]]+([^;&|]*[[:space:]])?(-[a-zA-Z]*[rR][a-zA-Z]*|--recursive)([[:space:]]|$)' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Recursive rm is blocked. Run it by hand if you really need it.\"}}' || true",
+            "command": "bash '/home/mimikun/.claude/hooks/deny-recursive-rm.sh'",
             "statusMessage": "Checking for recursive rm",
             "type": "command"
           }
@@ -383,10 +383,6 @@
     ]
   },
   "skillOverrides": {
-    "browser-use": "off",
-    "find-skills": "off",
-    "hello-skill": "off",
-    "nippo": "off",
     "officecli": "off"
   },
   "statusLine": {
