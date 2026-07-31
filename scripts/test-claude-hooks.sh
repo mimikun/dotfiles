@@ -10,18 +10,12 @@
 # so treat a change to any hook as a reason to run this first.
 #
 # The hook body is never duplicated here, so this tests what actually runs. A
-# case file locates its hook one of two ways:
+# case file names its hook with a `# script: <name>.sh` header, resolved to
+# dot_claude/hooks/executable_<name>.sh.
 #
-#   # script: <name>.sh   the hook lives in dot_claude/hooks/executable_<name>.sh
-#   # hook: <statusMessage>   the hook is still inline in the settings file
-#
-# The second form is the pre-migration path and goes away once every hook has
-# been extracted (see docs/plan/hooks-to-scripts-20260731.md). While both exist,
-# a case file carrying both headers takes the script.
-#
-# For an extracted hook the runner also asserts that the settings file actually
-# references the script. Without that, a typo in the hook command leaves every
-# case passing against a script that production never invokes.
+# The runner also asserts that the settings file references the script. Without
+# that, a typo in the hook command leaves every case passing against a script
+# production never invokes.
 #
 # Usage:
 #   scripts/test-claude-hooks.sh            # run every suite
@@ -49,36 +43,24 @@ for case_file in "$cases_dir"/*.txt; do
     [ -n "$filter" ] && [[ $name != *"$filter"* ]] && continue
 
     script_name=$(sed -n 's/^# script: //p' "$case_file" | head -1)
-    status_message=$(sed -n 's/^# hook: //p' "$case_file" | head -1)
-    script_path=""
-    hook_cmd=""
+    if [ -z "$script_name" ]; then
+        echo "FAIL $name: case file has no '# script: <name>.sh' header"
+        total_fail=$((total_fail + 1))
+        continue
+    fi
 
-    if [ -n "$script_name" ]; then
-        script_path="$hooks_dir/executable_$script_name"
-        if [ ! -f "$script_path" ]; then
-            echo "FAIL $name: '# script: $script_name' names a file that does not exist: $script_path"
-            total_fail=$((total_fail + 1))
-            continue
-        fi
-        # The script must be what production runs, not just what passes here.
-        if ! jq -e --arg n "$script_name" \
-            '[.hooks[]?[]?.hooks[]?.command // empty | select(contains($n))] | length > 0' \
-            "$settings" >/dev/null; then
-            echo "FAIL $name: $script_name is not referenced by any hook command in settings"
-            total_fail=$((total_fail + 1))
-            continue
-        fi
-    elif [ -n "$status_message" ]; then
-        hook_cmd=$(jq -r --arg s "$status_message" \
-            '.hooks.PreToolUse[].hooks[] | select(.statusMessage == $s) | .command' \
-            "$settings")
-        if [ -z "$hook_cmd" ]; then
-            echo "FAIL $name: no hook in settings with statusMessage '$status_message'"
-            total_fail=$((total_fail + 1))
-            continue
-        fi
-    else
-        echo "FAIL $name: case file has no '# script:' or '# hook:' header"
+    script_path="$hooks_dir/executable_$script_name"
+    if [ ! -f "$script_path" ]; then
+        echo "FAIL $name: '# script: $script_name' names a file that does not exist: $script_path"
+        total_fail=$((total_fail + 1))
+        continue
+    fi
+
+    # The script must be what production runs, not just what passes here.
+    if ! jq -e --arg n "$script_name" \
+        '[.hooks[]?[]?.hooks[]?.command // empty | select(contains($n))] | length > 0' \
+        "$settings" >/dev/null; then
+        echo "FAIL $name: $script_name is not referenced by any hook command in settings"
         total_fail=$((total_fail + 1))
         continue
     fi
@@ -91,11 +73,7 @@ for case_file in "$cases_dir"/*.txt; do
 
         payload=$(jq -cn --arg c "$command_under_test" \
             '{tool_name: "Bash", tool_input: {command: $c}}')
-        if [ -n "$script_path" ]; then
-            out=$(printf '%s' "$payload" | bash "$script_path")
-        else
-            out=$(printf '%s' "$payload" | sh -c "$hook_cmd")
-        fi
+        out=$(printf '%s' "$payload" | bash "$script_path")
         rc=$?
 
         # A no-match grep exits 1, which is the normal path. A hook that lets
