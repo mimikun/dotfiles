@@ -94,6 +94,26 @@
           }
         ],
         "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "jq -r '.tool_input.command // empty' | grep -Eq 'git[[:space:]]+(clean([[:space:]][^;&|]*)?[[:space:]]+(-[a-zA-Z]*f[a-zA-Z]*|--force)([[:space:]]|$)|reset([[:space:]][^;&|]*)?[[:space:]]+--hard([[:space:]]|$))' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"git clean --force and git reset --hard are blocked. Run it by hand if you really need it.\"}}' || true",
+            "statusMessage": "Checking for destructive git",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "c=$(jq -r '.tool_input.command // empty'); printf '%s' \"$c\" | grep -Eq '(^|[[:space:];&|(/])(python[0-9.]*|node|deno|bun|perl|ruby)[[:space:]]+([^;&|]*[[:space:]])?(-[a-zA-Z]*[cep]([[:space:]]|$)|--eval([[:space:]]|=)|eval([[:space:]]|$))' && printf '%s' \"$c\" | grep -Eq '(rmtree|shutil|subprocess|child_process|execSync|spawnSync|os\\.system|os\\.popen|os\\.remove|os\\.rmdir|unlink|rmSync|rmdirSync|Deno\\.remove|Deno\\.run|Deno\\.Command|FileUtils|File\\.delete|Dir\\.delete|\\.rmdir|truncate)' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Interpreter one-liner touching file removal or process spawning is blocked. Write a script file, or run it by hand.\"}}' || true",
+            "statusMessage": "Checking interpreter one-liners",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
       }
     ],
     "SessionStart": [
@@ -249,8 +269,6 @@
       "Bash(jq:*)",
       "Bash(yq:*)",
       "Bash(fx:*)",
-      "Bash(httpie:*)",
-      "Bash(http:*)",
       "Bash(unzip:*)",
       "Bash(tar:*)",
       "Bash(gzip:*)",
@@ -326,24 +344,16 @@
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(rm -fr:*)",
-      "Bash(sudo rm:*)",
-      "Bash(sudo dd:*)",
-      "Bash(sudo mkfs:*)",
-      "Bash(sudo fdisk:*)",
-      "Bash(sudo mount:*)",
-      "Bash(sudo umount:*)",
+      "Bash(sudo:*)",
       "Bash(dd:*)",
       "Bash(mkfs:*)",
       "Bash(fdisk:*)",
-      "Bash(sudo passwd:*)",
       "Bash(chmod 777:*)",
       "Bash(chown root:*)",
-      "Bash(sudo chmod 777:*)",
-      "Bash(sudo chown:*)",
-      "Bash(sudo -i:*)",
-      "Bash(sudo su:*)",
       "Bash(curl:*)",
       "Bash(wget:*)",
+      "Bash(http:*)",
+      "Bash(httpie:*)",
       "Bash(git push --force-with-lease origin main)",
       "Bash(git push -f origin main)",
       "Bash(git push --force-with-lease origin master)",

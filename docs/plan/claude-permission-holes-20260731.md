@@ -62,9 +62,12 @@ PreToolUse hook で `rm` の引数を正規表現判定するのが確実。
 
 ---
 
-## 中 — 別の道具で同じ結果に到達できる
+## 中 — 対応済み (2026-07-31)
 
-### M1. インタプリタ経由の任意操作 📖
+M1〜M4 は対応済み、M5 は意図的に対応しない。実装と検証結果は末尾
+「今回塞いだもの > 第3弾」を参照。以下は経緯の記録として残す。
+
+### M1. インタプリタ経由の任意操作 📖 → 対応済み
 
 allow に以下がある:
 
@@ -86,12 +89,13 @@ Bash(python:*) Bash(python3:*) Bash(node:*) Bash(deno:*) Bash(bun:*)
 
 ただしこれはソフト判定であり、ハード禁止ではない。
 
-### M2. `httpie` / `http` が allow に残っている 📖
+### M2. `httpie` / `http` が allow に残っている 📖 → 対応済み
 
 curl / wget は deny 済みだが `http GET ...` で同じことができる。
-意図的なら問題なし。
+**`/usr/bin/http` として実際にインストール済み**だったので、実在する
+バイパスだった。
 
-### M3. sudo の名指しが11個だけ 📖
+### M3. sudo の名指しが11個だけ 📖 → 対応済み
 
 deny にあるのは `sudo rm` `sudo dd` `sudo mkfs` `sudo fdisk` `sudo mount`
 `sudo umount` `sudo passwd` `sudo chmod 777` `sudo chown` `sudo -i` `sudo su`
@@ -101,7 +105,15 @@ deny にあるのは `sudo rm` `sudo dd` `sudo mkfs` `sudo fdisk` `sudo mount`
 - `sudo tee /etc/passwd`
 - `sudo vim /etc/sudoers`
 
-### M4. git の破壊系コマンドが無防備 📖
+ただし実害は低かった。**この環境の sudo はパスワード必須**で、Claude には
+tty がないため sudo コマンドはそもそも完走できない:
+
+```console
+$ sudo -n true
+sudo: a password is required
+```
+
+### M4. git の破壊系コマンドが無防備 📖 → 一部対応済み
 
 allow に `Bash(git:*)` があり、deny 側は push 系だけ。以下は無確認で通る:
 
@@ -110,9 +122,14 @@ allow に `Bash(git:*)` があり、deny 側は push 系だけ。以下は無確
 - `git branch -D`
 - `git checkout -- .`
 
-### M5. `mv` が無防備 📖
+### M5. `mv` が無防備 📖 → 意図的に対応しない
 
 allow に `Bash(mv:*)`。rm を塞いでも `mv important-dir /tmp/x` で実質同じ。
+
+**対応しない理由**: `mv` は移動でありデータは移動先に残る。誤って移動された
+場合も戻せる。破壊 (`rm`) と復元可能な移動を同列に扱うと deny が肥大化し、
+日常作業のコストだけが増える。`mv x /dev/null` は例外的に破壊的だが、
+`Write(/dev/**)` と `Edit(/dev/**)` が別途 deny しており頻度も極めて低い。
 
 ---
 
@@ -255,6 +272,78 @@ $ rm -f /tmp/.../probe2.txt
   `git push origin --delete foo` が含まれるため deny される。
   ファイル編集は Edit / Write ツールを使えば回避できる
 
+### 第3弾: M1 / M2 / M3 / M4 (同日)
+
+#### hook 3: destructive git (新規)
+
+```
+git[[:space:]]+(clean([[:space:]][^;&|]*)?[[:space:]]+(-[a-zA-Z]*f[a-zA-Z]*|--force)([[:space:]]|$)|reset([[:space:]][^;&|]*)?[[:space:]]+--hard([[:space:]]|$))
+```
+
+`git clean` は `-f` / `--force` を伴う場合のみ deny。`git clean -n` /
+`--dry-run` は通る (git は `-f` なしでは何も削除しないため)。
+`git reset --hard` はフラグ後置 (`git reset HEAD~1 --hard`) も捕捉。
+
+**`git branch -D` と `git checkout -- .` は対象外**にした。reflog と
+git-ai checkpoint (PreToolUse / PostToolUse で全ツール呼び出しごとに
+スナップショット) で復旧できる。戻せないのは `git clean` の untracked
+削除なので、そこを優先した。
+
+24ケースでテストし全通過。実機確認:
+
+```console
+$ git reset --hard HEAD
+git clean --force and git reset --hard are blocked.
+$ git reset
+Unstaged changes after reset: ...          ← --hard なしは通る
+$ git clean --dry-run
+(通った)
+```
+
+#### hook 4: interpreter one-liners (新規)
+
+2つの grep の **AND** で判定する。片方だけでは発火しない。
+
+条件1 — ワンライナー実行の形:
+
+```
+(^|[[:space:];&|(/])(python[0-9.]*|node|deno|bun|perl|ruby)[[:space:]]+([^;&|]*[[:space:]])?(-[a-zA-Z]*[cep]([[:space:]]|$)|--eval([[:space:]]|=)|eval([[:space:]]|$))
+```
+
+条件2 — 危険なシンボルを含む:
+
+```
+(rmtree|shutil|subprocess|child_process|execSync|spawnSync|os\.system|os\.popen|os\.remove|os\.rmdir|unlink|rmSync|rmdirSync|Deno\.remove|Deno\.run|Deno\.Command|FileUtils|File\.delete|Dir\.delete|\.rmdir|truncate)
+```
+
+`python -c "print(2**10)"` のような計算用ワンライナーは通り、
+`python -c "import shutil; ..."` は止まる。スクリプトファイル実行
+(`python script.py`) も通る。28ケースでテストし全通過。
+
+実機確認:
+
+```console
+$ python3 -c "import shutil; print('would rmtree')"
+Interpreter one-liner touching file removal or process spawning is blocked.
+$ python3 -c "print(2**10)"
+1024
+$ node -e "console.log('ok')"
+ok
+```
+
+**限界**: これは網羅的な防御ではない。`getattr(__import__('sh'+'util'), ...)`
+のような文字列分割は当然すり抜ける。**allow に `Bash(python:*)` がある以上、
+インタプリタ経由の任意操作を hook で完全に塞ぐことは原理的に不可能**で、
+これは「うっかり」を止める層として入れている。完全に塞ぐなら allow から
+インタプリタを外すしかない。
+
+#### deny の変更
+
+| 変更 | 理由 |
+|---|---|
+| sudo 系11件を `Bash(sudo:*)` 1件に統合 | 名指し列挙は必ず取り逃す (`sudo bash` `sudo tee` `sudo vim` が漏れていた)。この環境の sudo はパスワード必須で Claude には tty がないため、全面 deny の実害はゼロ |
+| `Bash(http:*)` `Bash(httpie:*)` を deny に追加、allow から削除 | curl / wget を deny していても httpie で同じことができた。`/usr/bin/http` として実在 |
+
 ### 第1弾: 死んでいた deny の掃除
 
 | 変更 | 理由 |
@@ -283,10 +372,11 @@ $ rm -f /tmp/.../probe2.txt
 ## 次のアクション
 
 1. ~~H1 と H2 を塞ぐ~~ — 2026-07-31 対応済み (H3 も同時に対応)
-2. **M1〜M5 の方針決め** — インタプリタ・sudo・git 破壊系・mv をどこまで
-   縛るか。縛りすぎると日常作業が止まるのでトレードオフの判断が要る。
-   特に M1 (python/node 経由) は hook では原理的に塞げないため、
-   縛るなら allow から外す判断になる
-3. U1 を通常 mode のセッションで確認する
-4. L1 (`~/.ssh/authorized_keys`) と L2 (`NotebookEdit` / `MultiEdit` の
-   deny がゼロ) は deny に数行足すだけなので、いつでも対応可能
+2. ~~M1〜M5 の方針決め~~ — 2026-07-31 対応済み (M5 は意図的に対応しない)
+3. **L1 (`~/.ssh/authorized_keys`) と L2 (`NotebookEdit` / `MultiEdit` の
+   deny がゼロ)** — deny に数行足すだけ。残作業のうち最も費用対効果が高い
+4. **U1 を通常 mode のセッションで確認する** — `Edit(!...)` の negation が
+   効いているかどうか。効いていないなら allow の11行は削除できる
+5. hook が4本になったので、いずれ**回帰テストをリポジトリに置く**ことを
+   検討する。現状テストケースはセッションのスクラッチ領域にしかなく、
+   次に正規表現を触る人が同じ検証をやり直すことになる
