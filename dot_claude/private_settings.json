@@ -136,6 +136,16 @@
           }
         ],
         "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/check-agent-skills.sh'",
+            "timeout": 15,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
       }
     ]
   },
