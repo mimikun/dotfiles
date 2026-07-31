@@ -13,7 +13,9 @@
 
 set -euo pipefail
 
-command=$(jq -r '.tool_input.command // empty')
+# Input that jq cannot parse must not abort the hook. The inline version had no
+# set -e and simply carried on with an empty command, so match that.
+command=$(jq -r '.tool_input.command // empty' 2>/dev/null) || command=""
 
 pattern='(^|[[:space:];&|(/])rm[[:space:]]+([^;&|]*[[:space:]])?(-[a-zA-Z]*[rR][a-zA-Z]*|--recursive)([[:space:]]|$)'
 
