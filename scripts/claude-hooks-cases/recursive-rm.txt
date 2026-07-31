@@ -1,4 +1,4 @@
-# hook: Checking for recursive rm
+# script: deny-recursive-rm.sh
 #
 # Any recursive rm, regardless of flag order or spelling. -f is deliberately not
 # required: an agent shell has nobody to answer an interactive prompt, so rm -r
