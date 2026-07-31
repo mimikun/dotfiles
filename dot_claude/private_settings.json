@@ -78,7 +78,7 @@
       {
         "hooks": [
           {
-            "command": "jq -r '.tool_input.command // empty' | grep -Eq 'git[[:space:]]+push([[:space:]][^;&|]*)?[[:space:]]+([\"]?\\+[^[:space:]]|(--force[^[:space:]]*|--mirror|--delete|-f|-d)([[:space:]]|$))' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Destructive push is blocked (force, mirror, delete, or a + refspec). Run it by hand if you really need it.\"}}' || true",
+            "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-push.sh'",
             "statusMessage": "Checking for destructive push",
             "type": "command"
           }
