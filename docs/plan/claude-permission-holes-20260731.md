@@ -154,24 +154,28 @@ allow に `Bash(mv:*)`。rm を塞いでも `mv important-dir /tmp/x` で実質�
 **対応しない理由**: `mv` は移動でありデータは移動先に残る。誤って移動された
 場合も戻せる。破壊 (`rm`) と復元可能な移動を同列に扱うと deny が肥大化し、
 日常作業のコストだけが増える。`mv x /dev/null` は例外的に破壊的だが、
-`Write(/dev/**)` と `Edit(/dev/**)` が別途 deny しており頻度も極めて低い。
+`Edit(/dev/**)` が別途 deny しており頻度も極めて低い。
 
 ---
 
 ## 低 — 対応済み (2026-07-31)
 
-L1 と L2 は対応済み、L3 は対応不要。実装は末尾「今回塞いだもの > 第4弾」を
-参照。以下は経緯の記録として残す。
+L1 は対応済み、L2 は誤診 (第5弾で撤回)、L3 は対応不要。実装は末尾
+「今回塞いだもの > 第4弾 / 第5弾」を参照。以下は経緯として残す。
 
 ### L1. `~/.ssh/authorized_keys` が deny 対象外 📖 → 対応済み
 
 Edit / Write の SSH deny は `id_*` `*_rsa` `*_ecdsa` `*_ed25519` の4パターン
 のみ。`authorized_keys` と `config` は含まれない。
 
-### L2. `NotebookEdit` / `MultiEdit` の deny がゼロ 📖 → NotebookEdit のみ対応
+### L2. `NotebookEdit` / `MultiEdit` の deny がゼロ 📖 → **穴ではなかった**
 
 `Edit` 19件 + `Write` 16件は揃えたが、この2ツールは1件もない。
 `.ipynb` 経由の書き込みだけルールの外にある。
+
+**→ 誤診 (第5弾)。** `Edit(path)` が全ファイル編集ツールをカバーするため、
+`NotebookEdit` / `MultiEdit` に deny が0件なのは正常。ここで足した13件も、
+`Write` の16件も、第5弾で削除した。
 
 ### L3. git push main/master の exact 一致4件（害はない）📖 → 対応不要
 
@@ -300,7 +304,53 @@ $ rm -f /tmp/.../probe2.txt
   `git push origin --delete foo` が含まれるため deny される。
   ファイル編集は Edit / Write ツールを使えば回避できる
 
-### 第4弾: L1 / L2 (同日)
+### 第5弾: 第4弾の撤回 — `Write(...)` / `NotebookEdit(...)` 26件を削除 (同日)
+
+第4弾の直後から、Claude 起動のたびに26件の警告が出るようになった:
+
+```
+Permission deny rule (.claude/settings.json): Write(/etc/**) is not matched by
+file permission checks — only Edit(path) rules are. Use Edit(/etc/**) instead
+(Edit rules cover all file-editing tools).
+```
+
+**第4弾の前提が逆だった。** バイナリ (2.1.220) の該当ロジック:
+
+```js
+let a = o.toolName==="Write" || o.toolName==="NotebookEdit" || o.toolName==="MultiEdit"
+      ? "Edit"
+      : o.toolName==="Glob" ? "Read" : void 0;
+if (a !== void 0 && !o.ruleContent.includes(":*"))
+  return { valid:!0, warning:`... is not matched by file permission checks — only ${a}(path) rules are ...` };
+```
+
+つまり:
+
+- ファイル権限チェックは **`Edit(path)` ルールしか読まない**。
+  `Write(path)` / `NotebookEdit(path)` / `MultiEdit(path)` は**参照すらされない**
+- `Edit(path)` の側が `Edit` / `Write` / `MultiEdit` / `NotebookEdit` を**まとめて**カバーする
+- 同じ扱いが Read 系にもある (`Glob(path)` は死に、`Read(path)` がカバーする)
+- `:*` を含むルールはこの判定の対象外 (Bash 風の前方一致として別扱い)
+
+よって追加した26件は、`Bash(sudo shadow:*)` と同種の**発火しないルール**だった。
+削除しても保護は一切落ちない — 13パターンはすべて `Edit(...)` 側に残っている。
+
+第4弾の「実機確認」で `Write(~/.ssh/probe.txt)` がブロックされたのは、
+`Write(~/.ssh/**)` ではなく `Edit(~/.ssh/**)` が発火した結果。第4弾で
+「未確認」としていた点は、これで確認できたことになる。
+
+**`MultiEdit` 見送りの判断は結果的に正しかった** (理由は違うが)。ツール一覧に
+`MultiEdit` が現れても、`Edit(...)` がカバーするので複製は不要になった。
+
+#### 教訓
+
+**警告を出さない設定は「正しい」の証拠にならないが、警告を出す設定は「間違い」
+の証拠になる。** 第4弾は3ツールに揃えた md5 検算までやって整合性を確認したが、
+検算したのは *設定同士の一致* であって *設定が読まれるか* ではなかった。
+`~/.claude/rules/general.md` の「バイナリに対して grep して検証しろ」は、
+env var だけでなく **permission ルールのツール名にも適用する**。
+
+### 第4弾: L1 / L2 (同日) — ⚠️ 一部撤回、第5弾を参照
 
 ファイル系 deny を **Edit / Write / NotebookEdit の3ツールで同一の13パターン**
 に揃えた。
@@ -357,12 +407,14 @@ git push main/master の exact 一致4件は、前方一致と hook が実際の
 冗長なだけで害がない。main がデフォルトブランチのリポジトリもあるため
 意図的に残す。変更なし。
 
-#### 未確認のまま残った点
+#### 未確認のまま残った点 → 第5弾で解決
 
 `Write(~/.ssh/**)` は permission settings 由来のメッセージでブロックされる
 ことを確認したが、**`Edit(...)` 側のルールが発火することは今回独立に確認
 できていない。** `/proc/version` への Edit で試したところ、permissions
 より上流の auto mode classifier に先に止められたため。
+
+→ 第5弾で判明: あのとき実際に発火していたのは `Edit(~/.ssh/**)` の方だった。
 
 ### 第3弾: M1 / M2 / M3 / M4 (同日)
 
@@ -441,12 +493,12 @@ ok
 | 変更 | 理由 |
 |---|---|
 | `Bash(rm -rf /)` `Bash(rm -rf ~)` `Bash(rm -rf /*)` `Bash(rm -rf .git)` を削除 | `Bash(rm -rf:*)` `Bash(rm -fr:*)` に吸収 |
-| `Bash(> /dev/*)` `Bash(>> /dev/*)` を削除 | リテラル `*` で永久に発火しない。`Edit(/dev/**)` + `Write(/dev/**)` が実際の守り |
+| `Bash(> /dev/*)` `Bash(>> /dev/*)` を削除 | リテラル `*` で永久に発火しない。`Edit(/dev/**)` が実際の守り |
 | `Bash(sudo shadow:*)` を削除 | `shadow` というコマンドが存在しない |
 | `Bash(chmod 777 /*)` → `Bash(chmod 777:*)` | リテラル `*` → 前方一致 |
 | `Bash(docker system prune -af)` → `Bash(docker system prune:*)` | exact → 前方一致 |
 | allow から `Bash(curl:*)` `Bash(wget:*)` を削除 | deny と重複しており deny が勝つ。矛盾の解消 |
-| deny に `Write(...)` 16件を追加 | `Edit(...)` は Write ツール経由の書き込みをハード禁止しない |
+| ~~deny に `Write(...)` 16件を追加~~ | ~~`Edit(...)` は Write ツール経由の書き込みをハード禁止しない~~ **誤り。第5弾で全削除** |
 
 ### 判明したルール構文の性質
 
@@ -456,8 +508,10 @@ ok
   マーカーとして解釈された結果、偶然「`chown root` で始まる全部」を
   カバーしている
 - deny は allow より優先される (実測: allow / deny 両方にある `curl` が拒否された)
-- deny のツール名はそれぞれ独立して enforce される。
-  `Edit(...)` は `Write` / `MultiEdit` / `NotebookEdit` をハード禁止しない
+- ~~deny のツール名はそれぞれ独立して enforce される~~ — **逆だった (第5弾)**。
+  ファイル系ルールは `Edit(path)` だけが読まれ、`Edit(...)` が
+  `Write` / `MultiEdit` / `NotebookEdit` をまとめてカバーする。
+  読み取り系も同様に `Read(path)` が `Glob` をカバーする
 
 ---
 
@@ -465,14 +519,15 @@ ok
 
 1. ~~H1 と H2 を塞ぐ~~ — 2026-07-31 対応済み (H3 も同時に対応)
 2. ~~M1〜M5 の方針決め~~ — 2026-07-31 対応済み (M5 は意図的に対応しない)
-3. ~~L1 と L2~~ — 2026-07-31 対応済み (L3 は対応不要、MultiEdit は見送り)
+3. ~~L1 と L2~~ — 2026-07-31 対応済み (L1 のみ。L2 は誤診で第5弾にて撤回、L3 は対応不要)
 4. ~~回帰テストをリポジトリに置く~~ — 2026-07-31 対応済み。
    `scripts/test-claude-hooks.sh` (113ケース)。冒頭「回帰テスト」を参照
 5. **U1 を通常 mode のセッションで確認する** — `Edit(!...)` の negation が
    効いているかどうか。効いていないなら allow の11行は削除できる。
    **残っている唯一の未着手項目**
-6. `Edit(...)` 系 deny が実際に発火することの確認 — 第4弾の「未確認のまま
-   残った点」を参照。`Write` 側は確認済み
+6. ~~`Edit(...)` 系 deny が実際に発火することの確認~~ — 2026-07-31 解決。
+   第4弾で「`Write` 側が確認済み」としたブロックは、実は `Edit(~/.ssh/**)`
+   が発火したものだった (第5弾)
 
 ## 将来の構想: hook を cchook で管理する
 
