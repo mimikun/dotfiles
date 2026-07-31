@@ -22,7 +22,7 @@
     {
       "name": "admin",
       "import_path": "github.com/takeshy/mcp-gatekeeper/cmd/admin",
-      "version": "v1.0.1",
+      "version": "v1.1.0",
       "channel": "latest"
     },
     {
@@ -88,7 +88,7 @@
     {
       "name": "andcli",
       "import_path": "github.com/tjblackheart/andcli/v2/cmd/andcli",
-      "version": "v2.7.0",
+      "version": "v2.8.0",
       "channel": "latest"
     },
     {
@@ -106,7 +106,7 @@
     {
       "name": "atago",
       "import_path": "github.com/nao1215/atago",
-      "version": "v0.17.0",
+      "version": "v0.18.0",
       "channel": "latest"
     },
     {
@@ -418,7 +418,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.465",
+      "version": "v1.4.466",
       "channel": "latest"
     },
     {
@@ -664,7 +664,7 @@
     {
       "name": "gore",
       "import_path": "github.com/x-motemen/gore/cmd/gore",
-      "version": "v0.6.2",
+      "version": "v0.7.0",
       "channel": "latest"
     },
     {
@@ -1114,7 +1114,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.24.2",
+      "version": "v0.26.0",
       "channel": "latest"
     },
     {
@@ -1288,7 +1288,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.48.1",
+      "version": "v0.49.1",
       "channel": "latest"
     },
     {
@@ -1348,13 +1348,13 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260730003807-d693a5eec5b7",
+      "version": "v0.0.0-20260731043246-685071531565",
       "channel": "latest"
     },
     {
       "name": "server",
       "import_path": "github.com/takeshy/mcp-gatekeeper/cmd/server",
-      "version": "v1.0.1",
+      "version": "v1.1.0",
       "channel": "latest"
     },
     {
@@ -1378,7 +1378,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.88.2",
+      "version": "v0.89.0",
       "channel": "latest"
     },
     {
@@ -1438,7 +1438,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v0.30.0",
+      "version": "v0.31.0",
       "channel": "latest"
     },
     {
@@ -1486,7 +1486,7 @@
     {
       "name": "tcount",
       "import_path": "github.com/lancekrogers/tcount/cmd/tcount",
-      "version": "v0.5.0",
+      "version": "v0.5.1",
       "channel": "latest"
     },
     {
@@ -1498,7 +1498,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.53.0",
+      "version": "v0.54.0",
       "channel": "latest"
     },
     {
