@@ -16,9 +16,12 @@
 
 ---
 
-## 高 — 今回塞いだはずの防御を直接迂回できる
+## 高 — 対応済み (2026-07-31)
 
-### H1. `git push origin +branch:branch` (refspec の `+`) 🔬
+H1 / H2 / H3 は同日に PreToolUse hook で塞いだ。実装と検証結果は末尾
+「今回塞いだもの > 第2弾」を参照。以下は経緯の記録として残す。
+
+### H1. `git push origin +branch:branch` (refspec の `+`) 🔬 → 対応済み
 
 ```console
 $ git push --dry-run origin +refactor/claude:refactor/claude
@@ -36,7 +39,7 @@ ok refactor/claude
 **塞ぎ方**: hook の正規表現に refspec パターンを追加する。
 `git push` の引数に `[[:space:]]\+[^[:space:]]` が現れたら deny。
 
-### H2. `rm -Rf` (大文字 R) 🔬
+### H2. `rm -Rf` (大文字 R) 🔬 → 対応済み
 
 ```console
 $ rm -Rf /tmp/claude-probe-nonexistent-xyz2
@@ -52,7 +55,7 @@ $ rm -Rf /tmp/claude-probe-nonexistent-xyz2
 **塞ぎ方**: 前方一致の列挙では追いつかない。force push と同じく
 PreToolUse hook で `rm` の引数を正規表現判定するのが確実。
 
-### H3. `git push origin --delete foo` 📖
+### H3. `git push origin --delete foo` 📖 → 対応済み
 
 `deny: Bash(git push --delete:*)` は前方一致のみ。`--delete` が `origin` の
 後ろに来る形は当たらない。hook も force 系しか見ていない。
@@ -191,7 +194,68 @@ PreToolUse hook の正規表現を直した理由 (`cd x && git push -f` が素�
   `cd x && git push -f` を取り逃し、逆に `git push origin wip-f`
   (ブランチ名) を誤検出していた。
 
-### 死んでいた deny の掃除
+### 第2弾: H1 / H2 / H3 (同日)
+
+#### hook 1: destructive push (既存 hook を拡張)
+
+```
+git[[:space:]]+push([[:space:]][^;&|]*)?[[:space:]]+(["]?\+[^[:space:]]|(--force[^[:space:]]*|--mirror|--delete|-f|-d)([[:space:]]|$))
+```
+
+`--force*` / `-f` に加えて `--mirror` / `--delete` / `-d` / `+refspec` を
+捕捉するようにした。28ケースでテストし全通過。
+
+実機確認:
+
+```console
+$ git push --dry-run origin +refactor/claude:refactor/claude
+Destructive push is blocked (force, mirror, delete, or a + refspec).
+$ git push --dry-run origin refactor/claude
+To github.com:mimikun/dotfiles.git
+ * [new branch]  refactor/claude -> refactor/claude   ← 通常の push は通る
+```
+
+#### hook 2: recursive rm (新規)
+
+```
+(^|[[:space:];&|(/])rm[[:space:]]+([^;&|]*[[:space:]])?(-[a-zA-Z]*[rR][a-zA-Z]*|--recursive)([[:space:]]|$)
+```
+
+`-rf` `-fr` `-Rf` `-vrf` `-r -f` `--recursive`、フラグ後置 (`rm /tmp/x -rf`)、
+`/bin/rm`、`sudo rm` を全部捕捉。31ケースでテストし全通過。
+
+**方針を1点広げた**: 当初の合意は「`rm -rf` だけ deny」だったが、hook は
+**再帰フラグがあれば `-f` の有無を問わず deny** にした。エージェントの
+シェルには対話プロンプトに答える人間がいないため、`rm -r` は `rm -rf` と
+同じ破壊力を持つ。`-f` の有無で線を引くと、また「守っているつもりで
+素通り」になる。
+
+`rm file` / `rm -f file` / `rm -i` / `rmdir` は通るので日常作業は止まらない。
+
+実機確認:
+
+```console
+$ rm -Rf /tmp/claude-probe-nonexistent-xyz3
+Recursive rm is blocked. Run it by hand if you really need it.
+$ rm -f /tmp/.../probe2.txt
+(通った)
+```
+
+#### 既知のトレードオフ
+
+- **`git rm -r --cached x` も止まる。** `rm` の前が空白であれば拾う設計の
+  ため。POSIX ERE に後読みがなく `git rm` だけを除外できない。除外を
+  別 grep で書くと `git rm -r a && rm -rf b` が丸ごと素通りするので、
+  誤検知 (手で打ち直すだけ) より取り逃し (実害) を避ける側に倒した
+- **シングルクォートされた refspec `git push origin '+master'` は未対応。**
+  hook のコマンド文字列がシェルのシングルクォートで囲まれており、
+  正規表現内に `'` を書けないため。ダブルクォートと裸の `+` は対応済み
+- **hook はコマンド文字列を見るだけなので、内容に言及しただけでも止まる。**
+  例えばこのドキュメントを heredoc で編集しようとすると、本文に
+  `git push origin --delete foo` が含まれるため deny される。
+  ファイル編集は Edit / Write ツールを使えば回避できる
+
+### 第1弾: 死んでいた deny の掃除
 
 | 変更 | 理由 |
 |---|---|
@@ -218,8 +282,11 @@ PreToolUse hook の正規表現を直した理由 (`cd x && git push -f` が素�
 
 ## 次のアクション
 
-1. **H1 と H2 を塞ぐ** — どちらも「今日直したはずの防御を迂回できる」ので
-   優先度が高い。hook の正規表現追加で対応可能
-2. M1〜M5 の方針決め — インタプリタ・sudo・git 破壊系・mv をどこまで縛るか。
-   縛りすぎると日常作業が止まるのでトレードオフの判断が要る
+1. ~~H1 と H2 を塞ぐ~~ — 2026-07-31 対応済み (H3 も同時に対応)
+2. **M1〜M5 の方針決め** — インタプリタ・sudo・git 破壊系・mv をどこまで
+   縛るか。縛りすぎると日常作業が止まるのでトレードオフの判断が要る。
+   特に M1 (python/node 経由) は hook では原理的に塞げないため、
+   縛るなら allow から外す判断になる
 3. U1 を通常 mode のセッションで確認する
+4. L1 (`~/.ssh/authorized_keys`) と L2 (`NotebookEdit` / `MultiEdit` の
+   deny がゼロ) は deny に数行足すだけなので、いつでも対応可能
