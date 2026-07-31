@@ -62,3 +62,49 @@
 ### ファイル
 - 修正対象: `/home/mimikun/.claude/settings.json`
 - 同期対象: `@dot_claude/settings.json` (chezmoi管理下)
+
+## 訂正 (2026-07-31)
+
+上記「セキュリティへの影響」の記述に誤りがあったので訂正する。
+
+### 誤り1: deny と allow の優先順位が逆
+
+> ただし、allowリストに `Bash(curl:*)` と `Bash(wget:*)` が含まれているため、
+> 実際には許可される
+
+**実際は deny が勝つ。** 実測で確認済み:
+
+```console
+$ curl --version
+Permission to use Bash with command curl --version has been denied.
+```
+
+つまり 2025-10-16 の時点から curl / wget は**完全に封鎖されていた**。
+「許可される」と書いてあるので、封鎖されている自覚がないまま10ヶ月弱運用
+していたことになる。
+
+2026-07-31 に、同ドキュメントの提案どおり allow 側から
+`Bash(curl:*)` `Bash(wget:*)` を削除した。deny は残っているので挙動は
+変わらないが、設定から意図が読めるようになった。
+
+### 誤り2: `Bash(sudo shadow:*)` は無意味なルールだった
+
+`Bash(sudo:*shadow*)` → `Bash(sudo shadow:*)` の書き換えは構文エラーは
+消えたが、**`shadow` というコマンドは存在しない**ため一度も発火しない
+ルールになっていた。
+
+```console
+$ command -v shadow
+(何も出ない)
+```
+
+元の意図 (`/etc/shadow` の保護) は `Edit(/etc/shadow)` と
+`Edit(/etc/**)` が既に担当しているため、2026-07-31 に削除した。
+
+**教訓**: 構文エラーを消すだけの機械的な修正は、意味が通らないルールを
+生む。書き換え後に「そのコマンドは実在するか」「実際に発火するか」を
+確認する必要がある。
+
+### 関連
+
+現在の残存穴は [claude-permission-holes-20260731.md](claude-permission-holes-20260731.md) を参照。
