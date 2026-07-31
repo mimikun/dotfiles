@@ -3,7 +3,8 @@
   "cleanupPeriodDays": 30,
   "enabledPlugins": {
     "i-have-adhd@i-have-adhd": true,
-    "obsidian@obsidian-skills": true
+    "obsidian@obsidian-skills": true,
+    "reviewable-html-workbench@reviewable-html-workbench-local": true
   },
   "env": {
     "IS_DEMO": "1"
@@ -24,6 +25,12 @@
     "obsidian-skills": {
       "source": {
         "repo": "kepano/obsidian-skills",
+        "source": "github"
+      }
+    },
+    "reviewable-html-workbench-local": {
+      "source": {
+        "repo": "u-ichi/reviewable-html-workbench",
         "source": "github"
       }
     }
