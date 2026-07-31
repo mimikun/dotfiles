@@ -1,0 +1,19 @@
+dot_claude/executable_statusline.sh
+  s_8e095854fa8632::t_edb7464682b959 2-11,16-34,36-44,47-58,60-71
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "b5341c8d3de2ee93084da4bac5c06229b399e418",
+  "prompts": {},
+  "sessions": {
+    "s_8e095854fa8632": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dca63ab9-a41a-4f39-b92d-84b5b33d943d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
