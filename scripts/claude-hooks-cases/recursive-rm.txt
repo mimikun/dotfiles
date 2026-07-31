@@ -1,0 +1,43 @@
+# hook: Checking for recursive rm
+#
+# Any recursive rm, regardless of flag order or spelling. -f is deliberately not
+# required: an agent shell has nobody to answer an interactive prompt, so rm -r
+# is as destructive as rm -rf. rm -Rf slipped past the prefix deny rules.
+#
+# DENY|<command>  or  allow|<command>
+
+DENY|rm -rf /tmp/x
+DENY|rm -fr /tmp/x
+DENY|rm -Rf /tmp/x
+DENY|rm -fR /tmp/x
+DENY|rm -r /tmp/x
+DENY|rm -R /tmp/x
+DENY|rm -r -f /tmp/x
+DENY|rm -f -r /tmp/x
+DENY|rm --recursive --force /tmp/x
+DENY|rm -rvf /tmp/x
+DENY|rm -vrf /tmp/x
+# flag after the operand
+DENY|rm /tmp/x -rf
+DENY|cd /tmp && rm -rf x
+DENY|/bin/rm -rf /tmp/x
+DENY|sudo rm -rf /tmp/x
+DENY|rm -rf
+DENY|rm -r
+
+allow|rm /tmp/x
+allow|rm -f /tmp/x
+allow|rm -i /tmp/x
+allow|rm -v /tmp/x
+allow|rm file1 file2
+allow|rmdir /tmp/x
+# other commands whose name ends in rm, or whose flags contain r
+allow|npm run build
+allow|npm -r install
+allow|charm -r
+allow|ls -r
+allow|grep -r pattern .
+allow|git status
+allow|cargo build --release
+# quoted mention rather than an invocation
+allow|echo "rm -rf is dangerous"

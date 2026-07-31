@@ -1,0 +1,45 @@
+# hook: Checking interpreter one-liners
+#
+# An interpreter one-liner reaches the filesystem without matching any Bash deny
+# rule. This hook fires only when BOTH conditions hold: the command runs inline
+# code, AND that code names a removal or process-spawning symbol. Computation
+# one-liners and script files stay usable.
+#
+# This is a layer against slips, not a boundary. Splitting a symbol across string
+# concatenation defeats it, and nothing here can change that while the
+# interpreters remain in permissions.allow.
+#
+# DENY|<command>  or  allow|<command>
+
+DENY|python -c "import shutil; shutil.rmtree('/tmp/x')"
+DENY|python3 -c "import os; os.remove('/tmp/x')"
+DENY|python -c "import subprocess; subprocess.run(['ls'])"
+DENY|python3.12 -c "import os; os.unlink('/tmp/x')"
+DENY|node -e "require('fs').rmSync('/tmp/x', {recursive:true})"
+DENY|node -e "require('child_process').execSync('ls')"
+DENY|node --eval "require('fs').unlinkSync('/tmp/x')"
+DENY|deno eval "Deno.remove('/tmp/x')"
+DENY|bun -e "require('fs').rmSync('/tmp/x')"
+DENY|perl -e "unlink '/tmp/x'"
+DENY|ruby -e "FileUtils.rm_rf('/tmp/x')"
+DENY|cd /tmp && python -c "import shutil; shutil.rmtree('x')"
+DENY|/usr/bin/python3 -c "import os; os.system('ls')"
+
+# inline code, but nothing destructive named
+allow|python -c "print(2**10)"
+allow|python3 -c "import json; print(json.dumps({'a':1}))"
+allow|python -c "import datetime; print(datetime.date.today())"
+allow|node -e "console.log(1+1)"
+allow|node -p "process.version"
+allow|deno eval "console.log(Math.PI)"
+allow|ruby -e "puts 1+1"
+# script files and module invocation, not inline code
+allow|python script.py
+allow|python3 -m pytest
+allow|python -m venv .venv
+allow|node server.js
+# the dangerous symbol appears, but no interpreter runs inline code
+allow|echo "shutil.rmtree is dangerous"
+allow|grep -n subprocess src/main.py
+allow|git status
+allow|cat notes.md
