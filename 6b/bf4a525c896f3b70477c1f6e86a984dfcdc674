@@ -1,0 +1,25 @@
+dot_claude/hooks/executable_deny-destructive-git.sh
+  s_6f6b110a937887::t_77e328f0652bc5 16-18
+dot_claude/hooks/executable_deny-interpreter-oneliners.sh
+  s_6f6b110a937887::t_e5f1ed69e935c8 24-26
+dot_claude/hooks/executable_deny-destructive-push.sh
+  s_6f6b110a937887::t_5bba29b4276a02 16-18
+dot_claude/hooks/executable_deny-recursive-rm.sh
+  s_6f6b110a937887::t_0021ea0277a7eb 16-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "6bbf4a525c896f3b70477c1f6e86a984dfcdc674",
+  "prompts": {},
+  "sessions": {
+    "s_6f6b110a937887": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fa914fb9-207e-4d73-94e0-68431ca4fe4a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
