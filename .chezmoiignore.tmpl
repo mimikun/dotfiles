@@ -13,6 +13,13 @@
 # settings.json whose SessionStart hooks point at files that do not exist.
 !.claude/hooks
 !.claude/hooks/**
+# Skills are normally reinstallable and therefore left unmanaged (see
+# .chezmoiscripts/linux/run_onchange_after-install-agent-skills.sh.tmpl).
+# use-spark is the exception: it has no upstream repo and no CLI that ships
+# it, so this copy is the only one that exists.
+!.claude/skills
+!.claude/skills/use-spark
+!.claude/skills/use-spark/**
 
 # HACK: Now configuration... 2026年3月17日
 .config/elvish/**

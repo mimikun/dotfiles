@@ -1,0 +1,69 @@
+{{ if (eq .chezmoi.os "linux") -}}
+
+#!/bin/bash
+
+# Reinstall the global agent skills used by Claude Code and Codex CLI.
+#
+# The skills themselves are NOT stored in this repository. Each one is either
+# published in a remote repo (installed with `npx skills`) or bundled inside
+# its own CLI (installed with that CLI's own subcommand). Committing the
+# generated SKILL.md files here would create a second copy to sync by hand.
+#
+# The one exception is use-spark: no upstream repo, and the spark CLI has no
+# subcommand that ships it, so its SKILL.md is tracked under
+# dot_claude/skills/use-spark/ and restored by chezmoi itself.
+#
+# No `set -e`: one unreachable network or missing CLI must not abort the rest.
+
+skills_dir="$HOME/.agents/skills"
+agents="claude,codex"
+
+# --- skills published in a remote repo --------------------------------------
+declare -A remote_skills=(
+    ["browser-use"]="browser-use/browser-use"
+    ["find-skills"]="vercel-labs/skills"
+    ["herdr"]="ogulcancelik/herdr"
+)
+
+for name in "${!remote_skills[@]}"; do
+    if [[ -d "$skills_dir/$name" ]]; then
+        echo "skill '$name' is already installed."
+    else
+        echo "Installing skill '$name' from ${remote_skills[$name]}"
+        npx -y skills add "${remote_skills[$name]}" \
+            --global --agent "$agents" --skill "$name" --yes
+    fi
+done
+
+# --- skills bundled inside their own CLI ------------------------------------
+# `officecli install` would also register an MCP server, which is not wanted
+# here; `officecli skills install` places the SKILL.md only.
+if [[ -d "$skills_dir/neowright" ]]; then
+    echo "skill 'neowright' is already installed."
+elif command -v neowright >/dev/null 2>&1; then
+    neowright skills install --global
+fi
+
+if [[ -d "$skills_dir/officecli" ]]; then
+    echo "skill 'officecli' is already installed."
+elif command -v officecli >/dev/null 2>&1; then
+    officecli skills install claude
+fi
+
+# --- CLIs the skills drive --------------------------------------------------
+# A skill whose CLI is missing looks installed but fails on its first command,
+# so report the gap rather than leaving it silent.
+check_cli() {
+    command -v "$1" >/dev/null 2>&1 \
+        || echo "WARN: '$1' is missing, so skill '$2' will not work. See $3"
+}
+
+check_cli browser-use browser-use "https://github.com/browser-use/browser-use"
+check_cli herdr       herdr       "https://github.com/ogulcancelik/herdr"
+check_cli neowright   neowright   "https://github.com/isak102/neowright"
+check_cli officecli   officecli   "https://github.com/iOfficeAI/OfficeCLI"
+check_cli spark       use-spark   "ships with Spark Desktop, which must be running"
+
+# vim:ft=bash.chezmoitmpl
+
+{{ end -}}
