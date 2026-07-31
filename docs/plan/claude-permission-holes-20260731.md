@@ -194,7 +194,7 @@ Bash(git push -f origin master)
 
 ## 未検証
 
-### U1. allow の `Edit(!...)` 11件 (negation)
+### U1. allow の `Edit(!...)` 11件 (negation) ✅ 2026-07-31 決着 — negation は無効だった
 
 ```
 Edit(!.git/**) Edit(!node_modules/**) Edit(!vendor/**) Edit(!.venv/**)
@@ -230,6 +230,50 @@ Edit してみる。プロンプトが出れば negation は有効。
 
 **確認方法は変わらない**が、優先度は上がる。無効なだけなら 11行が無駄なだけ
 だが、この仮説が当たっていれば allow が意図せず広がっている。
+
+#### 2026-07-31 決着: manual mode で3回 probe した
+
+`⏸ manual mode on` (内部名 `default`。`shift+tab` の `chat:cycleMode` で切替) で実測。
+
+| # | 対象 | プロンプト | 読み取れること |
+|---|---|---|---|
+| 1 | `.git/description` | 出た | **判定不能**。下記の落とし穴を参照 |
+| 2 | `/tmp/u1-probe.txt` | 出た | picomatch 全体否定説を**否定**。かつ「プロンプトが出る状態」の対照実験 |
+| 3 | `node_modules/u1-probe.txt` | **出なかった** | `Edit(./**)` が通し、`Edit(!node_modules/**)` は**除外しなかった** |
+
+**結論: `!` は単に無視されている。** 危険な全面 allow ではなかったが、
+意図した保護は最初から一度も存在していなかった。
+
+**テスト設計の落とし穴 (probe 1 が使えなかった理由)**: 当初は
+「`.git/` 配下を Edit してプロンプトが出れば negation は有効」で判定する
+つもりだったが、glob の `**` は**デフォルトでドット始まりの要素にマッチしない**。
+`.git` `.venv` `.next` はこれで偶然守られており、`Edit(./**)` にそもそも
+拾われていない。**ドットを含まないパス (`node_modules/`) を使わないと
+negation の有無を分離できない。** 同じ確認をやり直す人は probe 3 だけでよい。
+
+#### 対応: `permissions.ask` へ移した
+
+11件を allow から削除し、`permissions.ask` に `Edit(**/<dir>/**)` として置いた。
+
+- `ask` はバイナリ上で第一級のリスト
+  (`{allow:"alwaysAllowRules", deny:"alwaysDenyRules", ask:"alwaysAskRules"}`)。
+  UI にも「Explicit ask/deny rules are always respected」とある
+- **`deny` ではなく `ask` を選んだ理由**: node_modules を意図的にパッチする
+  場面が実在する。`deny` はハードブロックで手詰まりになるが、`ask` なら
+  聞かれるだけ。「自動許可はするな、聞け」という元の意図と完全に一致する
+- パターンを `**/<dir>/**` にしたのは、ネストした `packages/x/node_modules/`
+  と絶対パス両方を拾わせるため。旧ルールの `node_modules/**` は先頭一致に
+  依存していた
+
+**⚠️ この11件はまだ発火を確認していない。** 第5弾の教訓 (設定同士の整合性は
+発火の証拠にならない) をここで繰り返さないこと。次のセッションで:
+
+```console
+$ mkdir -p node_modules && printf x > node_modules/u1-probe.txt
+# manual mode で node_modules/u1-probe.txt を Edit させる
+# → プロンプトが出れば ask は発火している。出なければ ask も無効
+$ rm -rf node_modules
+```
 
 ---
 
@@ -534,6 +578,11 @@ ok
   マーカーとして解釈された結果、偶然「`chown root` で始まる全部」を
   カバーしている
 - deny は allow より優先される (実測: allow / deny 両方にある `curl` が拒否された)
+- **ルール内の先頭 `!` (negation) は効かない。** 無視される (実測: U1)。
+  「allow から一部を除外する」は `!` では書けない。`permissions.ask` を使う
+- **glob の `**` はドット始まりの要素にマッチしない。** `Edit(./**)` は
+  `.git/` `.venv/` `.next/` を拾わない。保護しているつもりで
+  「たまたま当たっていない」状態を作らないこと
 - ~~deny のツール名はそれぞれ独立して enforce される~~ — **逆だった (第5弾)**。
   ファイル系ルールは `Edit(path)` だけが読まれ、`Edit(...)` が
   `Write` / `MultiEdit` / `NotebookEdit` をまとめてカバーする。
@@ -548,9 +597,10 @@ ok
 3. ~~L1 と L2~~ — 2026-07-31 対応済み (L1 のみ。L2 は誤診で第5弾にて撤回、L3 は対応不要)
 4. ~~回帰テストをリポジトリに置く~~ — 2026-07-31 対応済み。
    `scripts/test-claude-hooks.sh` (113ケース)。冒頭「回帰テスト」を参照
-5. **U1 を通常 mode のセッションで確認する（優先度上げ）** — `Edit(!...)` の negation が
-   効いているかどうか。効いていないなら allow の11行は削除できる。
-   **残っている唯一の未着手項目**
+5. ~~U1 を通常 mode のセッションで確認する~~ — 2026-07-31 決着。negation は無効。
+   11件を削除し `permissions.ask` に移した
+7. **`permissions.ask` の11件が実際に発火するか確認する** — U1 §「対応」の
+   probe を次セッションで実行。**残っている唯一の未着手項目**
 6. ~~`Edit(...)` 系 deny が実際に発火することの確認~~ — 2026-07-31 解決。
    第4弾で「`Write` 側が確認済み」としたブロックは、実は `Edit(~/.ssh/**)`
    が発火したものだった (第5弾)
