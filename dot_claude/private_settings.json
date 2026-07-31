@@ -74,6 +74,16 @@
           }
         ],
         "matcher": "mcp__claude_ai_Todoist__(add|update|delete|complete|uncomplete|reschedule|reorder|manage|project)-"
+      },
+      {
+        "hooks": [
+          {
+            "command": "jq -r '.tool_input.command // empty' | grep -Eq 'git[[:space:]]+push([[:space:]][^;&|]*)?[[:space:]]+(--force[^[:space:]]*|-f)([[:space:]]|$)' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Force push is blocked. Run it by hand if you really need it.\"}}' || true",
+            "statusMessage": "Checking for force push",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
       }
     ],
     "SessionStart": [
@@ -229,8 +239,6 @@
       "Bash(jq:*)",
       "Bash(yq:*)",
       "Bash(fx:*)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
       "Bash(httpie:*)",
       "Bash(http:*)",
       "Bash(unzip:*)",
@@ -306,9 +314,8 @@
     ],
     "defaultMode": "plan",
     "deny": [
-      "Bash(rm -rf /)",
-      "Bash(rm -rf ~)",
-      "Bash(rm -rf /*)",
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)",
       "Bash(sudo rm:*)",
       "Bash(sudo dd:*)",
       "Bash(sudo mkfs:*)",
@@ -318,11 +325,8 @@
       "Bash(dd:*)",
       "Bash(mkfs:*)",
       "Bash(fdisk:*)",
-      "Bash(> /dev/*)",
-      "Bash(>> /dev/*)",
       "Bash(sudo passwd:*)",
-      "Bash(sudo shadow:*)",
-      "Bash(chmod 777 /*)",
+      "Bash(chmod 777:*)",
       "Bash(chown root:*)",
       "Bash(sudo chmod 777:*)",
       "Bash(sudo chown:*)",
@@ -330,10 +334,14 @@
       "Bash(sudo su:*)",
       "Bash(curl:*)",
       "Bash(wget:*)",
-      "Bash(rm -rf .git)",
       "Bash(git push --force-with-lease origin main)",
       "Bash(git push -f origin main)",
-      "Bash(docker system prune -af)",
+      "Bash(git push --force-with-lease origin master)",
+      "Bash(git push -f origin master)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git push --delete:*)",
+      "Bash(docker system prune:*)",
       "Bash(npm publish:*)",
       "Bash(cargo publish:*)",
       "Bash(deno publish:*)",
@@ -355,7 +363,23 @@
       "Edit(~/.ssh/*_ed25519)",
       "Edit(/etc/passwd)",
       "Edit(/etc/shadow)",
-      "Edit(/etc/sudoers)"
+      "Edit(/etc/sudoers)",
+      "Write(/etc/**)",
+      "Write(/usr/**)",
+      "Write(/var/**)",
+      "Write(/opt/**)",
+      "Write(/bin/**)",
+      "Write(/sbin/**)",
+      "Write(/lib/**)",
+      "Write(/lib64/**)",
+      "Write(/boot/**)",
+      "Write(/proc/**)",
+      "Write(/sys/**)",
+      "Write(/dev/**)",
+      "Write(~/.ssh/id_*)",
+      "Write(~/.ssh/*_rsa)",
+      "Write(~/.ssh/*_ecdsa)",
+      "Write(~/.ssh/*_ed25519)"
     ]
   },
   "skillOverrides": {
