@@ -1,0 +1,20 @@
+dot_config/cship.toml
+  s_8e095854fa8632::t_d8fce2a75e1cab 11-36
+  s_8e095854fa8632::t_4aec709afd6941 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "78f9ffae79e8c78ca949300877035134767a33ba",
+  "prompts": {},
+  "sessions": {
+    "s_8e095854fa8632": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dca63ab9-a41a-4f39-b92d-84b5b33d943d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
