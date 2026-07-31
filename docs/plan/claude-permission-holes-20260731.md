@@ -14,6 +14,31 @@
 - 🔬 実際にコマンドを流して確認済み
 - 📖 設定ファイル / バイナリ文字列からの推定（未実測）
 
+## 回帰テスト
+
+**hook の正規表現を触る前に必ず実行すること。**
+
+```console
+$ scripts/test-claude-hooks.sh
+ok   destructive-git          24 cases
+ok   destructive-push         30 cases
+ok   interpreter-oneliners    28 cases
+ok   recursive-rm             31 cases
+---
+all 113 cases passed
+```
+
+- ランナー: `scripts/test-claude-hooks.sh` (`<文字列>` を渡すと部分一致で絞り込み)
+- ケース: `scripts/claude-hooks-cases/*.txt`、1行 `DENY|<コマンド>` または
+  `allow|<コマンド>`
+- **正規表現は `dot_claude/private_settings.json` から実行時に抽出する。**
+  テスト側にコピーを持たないので、設定とテストがドリフトしない。
+  ケースファイルの先頭 `# hook: <statusMessage>` で hook を指定する
+
+この日だけで正規表現を3回書き直し、**毎回そこから新しい穴が見つかった**
+(`cd x && git push -f` の取り逃し、`git push origin wip-f` の誤検知、
+`+refspec` の素通り)。手で確認し直す前提の運用は続かない。
+
 ---
 
 ## 高 — 対応済み (2026-07-31)
@@ -377,6 +402,5 @@ ok
    deny がゼロ)** — deny に数行足すだけ。残作業のうち最も費用対効果が高い
 4. **U1 を通常 mode のセッションで確認する** — `Edit(!...)` の negation が
    効いているかどうか。効いていないなら allow の11行は削除できる
-5. hook が4本になったので、いずれ**回帰テストをリポジトリに置く**ことを
-   検討する。現状テストケースはセッションのスクラッチ領域にしかなく、
-   次に正規表現を触る人が同じ検証をやり直すことになる
+5. ~~回帰テストをリポジトリに置く~~ — 2026-07-31 対応済み。
+   `scripts/test-claude-hooks.sh` (113ケース)。冒頭「回帰テスト」を参照

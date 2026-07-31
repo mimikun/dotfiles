@@ -1,0 +1,42 @@
+# hook: Checking for destructive git
+#
+# git clean deletes untracked files, which no reflog can restore, so it is the
+# reason this hook exists. git reset --hard is covered too, though git-ai
+# checkpoints usually make it recoverable.
+#
+# git branch -D and git checkout -- . are intentionally NOT denied: the reflog
+# and the git-ai checkpoint hooks can restore both.
+#
+# DENY|<command>  or  allow|<command>
+
+DENY|git clean -fdx
+DENY|git clean -fd
+DENY|git clean -f
+DENY|git clean -xdf
+DENY|git clean --force -d
+DENY|git clean -d -f
+DENY|cd /repo && git clean -fdx
+DENY|git reset --hard
+DENY|git reset --hard HEAD~1
+DENY|git reset --hard origin/master
+# flag after the operand
+DENY|git reset HEAD~1 --hard
+# known false positive: the hook sees the command string, not the shell's parse,
+# so quoting the command inside another one still trips it. Denying is the safe
+# direction, and Edit/Write avoid it when editing files that mention these.
+DENY|echo "never run git reset --hard here"
+
+# git refuses to delete anything without -f, so a dry run is safe
+allow|git clean -n
+allow|git clean --dry-run
+allow|git clean -nd
+allow|git reset
+allow|git reset HEAD~1
+allow|git reset --soft HEAD~1
+allow|git reset --mixed
+allow|git status
+allow|git stash
+allow|git diff --stat
+# recoverable, deliberately out of scope
+allow|git checkout -- .
+allow|git branch -D old-branch

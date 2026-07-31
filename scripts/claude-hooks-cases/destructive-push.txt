@@ -1,0 +1,43 @@
+# hook: Checking for destructive push
+#
+# Force push and its equivalents. The + refspec form was verified to slip past
+# an earlier version of this hook, because it contains neither --force nor -f.
+#
+# DENY|<command>  or  allow|<command>
+
+DENY|git push --force
+DENY|git push origin master --force
+DENY|git push -f
+DENY|git push -f origin master
+DENY|git push origin master -f
+DENY|git push --force-with-lease origin main
+DENY|git push --force-if-includes origin main
+# flags at the end of a compound command: prefix matching cannot see these
+DENY|cd /tmp && git push -f
+DENY|cd /repo; git push --force
+# + refspec is a force push without the word force
+DENY|git push origin +refactor/claude:refactor/claude
+DENY|git push origin +master
+DENY|git push "+master:master" origin
+DENY|git push --mirror origin
+# branch deletion, both flag positions and both spellings
+DENY|git push origin --delete foo
+DENY|git push --delete origin foo
+DENY|git push -d origin foo
+DENY|git push origin -d foo
+
+allow|git push
+allow|git push origin master
+allow|git push -u origin feature
+allow|git push --set-upstream origin feature
+allow|git push --tags
+allow|git push origin HEAD
+allow|git status
+# -f belongs to another command, not to push
+allow|grep -f pat file
+allow|git log -f
+# branch names that merely contain the flag spellings
+allow|git push origin feature-force-test
+allow|git push origin wip-f
+allow|git push origin add-d
+allow|git commit -m "add force flag docs"
