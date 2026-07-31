@@ -397,6 +397,7 @@
   },
   "statusLine": {
     "command": "bash \"$HOME/.claude/statusline.sh\"",
+    "refreshInterval": 30,
     "type": "command"
   },
   "tui": "fullscreen"
