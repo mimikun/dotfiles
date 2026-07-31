@@ -1,0 +1,29 @@
+dot_claude/private_settings.json
+  s_f8f16868af7814::t_235b9a6bf53016 355-356
+  s_f8f16868af7814::t_863add98a18fcf 97-116
+  s_f8f16868af7814::t_db2a7e1e162192 347
+docs/plan/claude-permission-holes-20260731.md
+  s_f8f16868af7814::t_0a1ca4a29b4fd3 65,67-70
+  s_f8f16868af7814::t_0eee3d511c7819 275-346
+  s_f8f16868af7814::t_cceb1a7414fe82 375-382
+  s_f8f16868af7814::t_4b44af06215d0e 125,129-132
+  s_f8f16868af7814::t_8df79b1a9e61bb 92,95-96,98
+  s_f8f16868af7814::t_eb39e40ce46680 108-116
+  s_f8f16868af7814::t_a2979dd8c75118 133
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "c1d1b63a854b176ba567cc776a81cfbf184b4bbe",
+  "prompts": {},
+  "sessions": {
+    "s_f8f16868af7814": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b6dde062-152d-4431-9436-4a39511ea38f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
