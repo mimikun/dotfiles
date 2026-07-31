@@ -1,4 +1,4 @@
-# hook: Checking interpreter one-liners
+# script: deny-interpreter-oneliners.sh
 #
 # An interpreter one-liner reaches the filesystem without matching any Bash deny
 # rule. This hook fires only when BOTH conditions hold: the command runs inline
