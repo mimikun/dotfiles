@@ -69,7 +69,7 @@
       {
         "hooks": [
           {
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"TODOIST SYNC RULE: the user also edits Todoist from desktop and mobile apps, so any listing fetched earlier in this session may already be stale. (1) BEFORE this write, re-fetch the target with find-tasks / get-overview unless you already did so in this same turn. (2) AFTER the write, re-fetch the same query and verify by count before claiming completion.\"}}'",
+            "command": "bash '/home/mimikun/.claude/hooks/todoist-sync-reminder.sh'",
             "type": "command"
           }
         ],
