@@ -4,6 +4,7 @@
 # CLAUDE_STATUSLINE picks the renderer:
 #   builtin (default) - the shell implementation below
 #   cship             - hand the payload to the cship binary
+#   ccstatusline      - hand the payload to the ccstatusline binary
 #
 # Set it from fish with `set -Ux CLAUDE_STATUSLINE cship`; the universal
 # variable is exported, so this bash script sees it as a plain env var.
@@ -52,15 +53,18 @@ render_builtin() {
     "$(whoami)" "$host" "$(basename "$current_dir")" "$branch" "$(date +%H:%M)" "$ctx"
 }
 
-# cship: configured by ~/.config/cship.toml, reads the same stdin payload.
-render_cship() {
-  printf '%s' "$input" | cship
+# External renderers take the same stdin payload and carry their own config:
+# cship reads ~/.config/cship.toml, ccstatusline ~/.config/ccstatusline/settings.json.
+render_external() {
+  printf '%s' "$input" | "$1"
 }
 
-case "${CLAUDE_STATUSLINE:-builtin}" in
-  cship)
-    if command -v cship >/dev/null 2>&1; then
-      render_cship
+renderer=${CLAUDE_STATUSLINE:-builtin}
+
+case "$renderer" in
+  cship | ccstatusline)
+    if command -v "$renderer" >/dev/null 2>&1; then
+      render_external "$renderer"
     else
       render_builtin
     fi
