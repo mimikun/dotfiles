@@ -1,0 +1,19 @@
+docs/plan/hooks-to-scripts-20260731.md
+  s_6f6b110a937887::t_db49e88848ed53 1-106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "af62d8954e1479525ca51048d1c23a6868032585",
+  "prompts": {},
+  "sessions": {
+    "s_6f6b110a937887": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fa914fb9-207e-4d73-94e0-68431ca4fe4a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
