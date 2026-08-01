@@ -6,5 +6,5 @@ paths:
 
 # Python
 
-- **Package manager:** `uv` only — NEVER use `pip install`
-- **Pre-commit checks:** `uv run --frozen ruff format . && ruff check . --fix && pyright && pytest`
+- **パッケージマネージャ:** `uv` のみ — `pip install` は使わない
+- **コミット前チェック:** `uv run --frozen ruff format . && ruff check . --fix && pyright && pytest`
