@@ -7,7 +7,8 @@ if ! test "$(
   return
 fi
 
-read_prompt="Shutdown?"
+# read_confirm runs as a separate process, so this has to be exported to reach it.
+export read_prompt="Shutdown?"
 
 if read_confirm; then
   sync
