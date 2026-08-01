@@ -74,6 +74,8 @@ confirm-pam
 countryfetch
 create-tauri-app
 crmux
+cship
+cship
 csview
 csvlens
 cyme
