@@ -2,6 +2,6 @@
 #MISE description="Lint by shellcheck"
 #MISE hide=true
 
-# TODO: it
+bash scripts/shellcheck.sh
 
 # vim:ft=bash
