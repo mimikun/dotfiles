@@ -20,6 +20,10 @@
 #>
 
 [CmdletBinding(SupportsShouldProcess)]
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+    'PSAvoidUsingWriteHost', '',
+    Justification = 'Interactive setup script; coloured status output is intentional.'
+)]
 param()
 
 Set-StrictMode -Version Latest
