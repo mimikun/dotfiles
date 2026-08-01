@@ -2,6 +2,7 @@
   "agentPushNotifEnabled": true,
   "cleanupPeriodDays": 30,
   "enabledPlugins": {
+    "cclens@cclens": true,
     "i-have-adhd@i-have-adhd": true,
     "obsidian@obsidian-skills": true,
     "reviewable-html-workbench@reviewable-html-workbench-local": true
@@ -10,6 +11,12 @@
     "IS_DEMO": "1"
   },
   "extraKnownMarketplaces": {
+    "cclens": {
+      "source": {
+        "repo": "lambdalisue/cclens",
+        "source": "github"
+      }
+    },
     "dotnet-agent-skills": {
       "source": {
         "repo": "dotnet/skills",
