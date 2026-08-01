@@ -5,6 +5,6 @@ paths:
 
 # Go
 
-- **Package manager:** `go mod`
-- **Pre-commit checks:** `go fmt ./... && golangci-lint run && go test -race ./...`
-- NEVER ignore returned errors
+- **パッケージマネージャ:** `go mod`
+- **コミット前チェック:** `go fmt ./... && golangci-lint run && go test -race ./...`
+- 返り値のエラーを無視しない

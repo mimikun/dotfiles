@@ -5,6 +5,6 @@ paths:
 
 # Rust
 
-- **Package manager:** `cargo`
-- **Pre-commit checks:** `cargo fmt && cargo clippy -- -D warnings && cargo test`
-- NEVER use `.unwrap()` in production code
+- **パッケージマネージャ:** `cargo`
+- **コミット前チェック:** `cargo fmt && cargo clippy -- -D warnings && cargo test`
+- 本番コードで `.unwrap()` を使わない
