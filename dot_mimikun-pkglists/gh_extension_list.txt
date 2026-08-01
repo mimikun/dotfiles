@@ -4,6 +4,8 @@ aymanbagabas/gh-stars
 carlsberg/gh-releaser
 dlvhdr/gh-dash
 gennaro-tedesco/gh-s
+github/gh-aw
+github/gh-stack
 johnmanjiro13/gh-bump
 jrnxf/gh-eco
 kawarimidoll/gh-prism
