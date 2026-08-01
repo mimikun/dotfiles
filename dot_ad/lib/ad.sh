@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Helper functions for writing scripts to interact with ad
 
+# shellcheck source=/dev/null
 [ -e "$HOME/.profile" ] && source ~/.profile
 
 # Write a control message to ad.

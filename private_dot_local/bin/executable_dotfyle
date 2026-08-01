@@ -4,6 +4,9 @@ dir_name="neovim-configs"
 
 is_ignored() {
   found=false
+  # Upstream code. *"." already subsumes *"..", so the redundant pattern is
+  # harmless; left as-is to keep the diff against upstream empty.
+  # shellcheck disable=SC2221,SC2222
   case "$1" in
     *"." | *".." | *"*" | *".git")
       found=true

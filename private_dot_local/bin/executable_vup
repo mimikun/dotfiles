@@ -244,7 +244,7 @@ other() {
 }
 
 w_only() {
-    if [ $(hostname) == $W_NAME ]; then
+    if [ "$(hostname)" = "$W_NAME" ]; then
         echo "This is Work-PC!!!"
         echo "Run Work-PC only update tasks"
         deps_update
