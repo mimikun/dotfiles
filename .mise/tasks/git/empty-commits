@@ -17,7 +17,7 @@ function count_commits(){
         wc -l
 }
 
-for i in $(seq 1 $(count_commits)); do
+for _ in $(seq 1 "$(count_commits)"); do
     git commit -nm "wip" --allow-empty
 done
 
