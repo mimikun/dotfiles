@@ -36,6 +36,19 @@
 
 - **ワークフロー:** Explore → Plan → Code → Commit。feature ブランチを使う。
   並行作業には worktree を使う（`git worktree add ../project-<type>-<desc> <branch>`）。
+- **前提: 本人は基本 rebase merge を使う。** マージのたびに master 上の SHA が
+  変わる。squash も同じ。merge commit だけが SHA を保つ。下2つはこの前提から出ている。
+- **新しいブランチは master を最新にしてから切る。分岐元を省略しない:**
+  `git switch master; and git pull --ff-only; and git switch -c <name>`。
+  `git switch -c <name>` だけ実行すると**直前のブランチから枝分かれする**。
+  未マージのブランチの上に積むと、そのブランチがマージされた時点で SHA が変わり、
+  同じパッチを古い SHA で抱えたままになる。
+- **PR がマージ可能かを GitHub の `mergeable` で判断しない。**
+  `git cherry origin/master <branch>` を使い、**`-` が付いたコミットが無いこと**を見る。
+  `-` は「同等パッチが master に既にある」の意味で、rebase すると空コミットになり
+  GitHub が rebase merge を拒否する。**このとき GitHub は
+  `mergeable: MERGEABLE` / `mergeStateStatus: CLEAN` と表示するので当てにならない**
+  （2026-08-01 に発生。force push は禁止なので PR を出し直して対処した）。
 - **コミット:** Conventional Commits — `feat(scope): subject`、`fix`、`docs`、
   `perf`、`refactor`。
 - **PR:** 問題と解決策に焦点を当てる。co-authored-by やツールへの言及は入れない。
