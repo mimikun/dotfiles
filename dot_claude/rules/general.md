@@ -1,62 +1,65 @@
-# General Rules (language-agnostic)
+# 共通ルール（言語非依存）
 
-Applies to every project. Language-specific checks live in sibling `rules/<lang>.md`
-files that load only when matching files are touched.
+全プロジェクトに適用される。言語固有のチェックは兄弟ファイル `rules/<lang>.md` にあり、
+該当するファイルを触ったときにだけ読み込まれる。
 
-## 🚫 Absolute Rules (NEVER)
+## 🚫 絶対禁止（NEVER）
 
-- NEVER push directly to main/master; use feature branches
-- NEVER hardcode API keys, passwords, or secrets
-- NEVER commit code with failing tests or lint errors
-- NEVER delete production data without explicit confirmation
-- NEVER skip review for auth/authorization code
+- main/master へ直接 push しない。feature ブランチを使う
+- API キー、パスワード、シークレットをハードコードしない
+- テストや lint が通らないコードをコミットしない
+- 明示的な確認なしに本番データを削除しない
+- 認証・認可のコードでレビューを飛ばさない
 
-## ✅ Required (YOU MUST)
+## ✅ 必須（YOU MUST）
 
-- Write tests for new features and bug fixes
-- Run quality checks before marking a task done
-- Document breaking changes and public APIs
-- Proactively suggest improvements (patterns, perf, missing error handling)
+- 新機能とバグ修正にはテストを書く
+- タスクを完了とする前に品質チェックを実行する
+- 破壊的変更と公開 API を文書化する
+- 改善を能動的に提案する（設計パターン、性能、抜けているエラー処理）
 
-## 🕐 Current time
+## 🕐 現在時刻
 
-- **Never infer or estimate the current time.** Run `date` and use its output.
-  Elapsed-time guesses drift silently, and the user acts on the number — a wrong
-  "あと10分" changes when they leave the house.
-- Re-run `date` each time it matters, not once per session. Sessions span hours.
+- **現在時刻を推測・概算しない。** `date` を実行し、その出力を使う。
+  経過時間の推測は静かにずれていき、本人はその数字を信じて動く。
+  「あと10分」が間違っていれば、家を出る時刻が変わる。
+- 重要になるたびに `date` を実行し直す。セッション1回につき1度ではない。
+  セッションは数時間にわたる。
 
-## 🌐 Language Policy (code)
+## 🌐 言語ポリシー（コード）
 
-- **Code, comments, docstrings, commit messages:** English
-- **README / file content:** follow project preference
+- **コード、コメント、docstring、コミットメッセージ:** 英語
+- **ルール・指示文書の散文（`rules/**`、`CLAUDE.md`、`handover.md` など）:** 日本語
+- **README / ファイルの本文:** プロジェクトの方針に従う
 
-## 🌳 Git & Commits
+## 🌳 Git とコミット
 
-- **Workflow:** Explore → Plan → Code → Commit. Feature branches; use worktrees
-  for parallel work (`git worktree add ../project-<type>-<desc> <branch>`).
-- **Commits:** Conventional Commits — `feat(scope): subject`, `fix`, `docs`,
-  `perf`, `refactor`.
-- **PRs:** focus on problem & solution; no co-authored-by / tool mentions.
+- **ワークフロー:** Explore → Plan → Code → Commit。feature ブランチを使う。
+  並行作業には worktree を使う（`git worktree add ../project-<type>-<desc> <branch>`）。
+- **コミット:** Conventional Commits — `feat(scope): subject`、`fix`、`docs`、
+  `perf`、`refactor`。
+- **PR:** 問題と解決策に焦点を当てる。co-authored-by やツールへの言及は入れない。
 
-## 🤖 Claude Code's own configuration
+## 🤖 Claude Code 自身の設定
 
-- The live config is `~/.claude/settings.json`, and it is chezmoi-managed
-  (`dot_claude/private_settings.json`). Editing the file directly creates drift —
-  run `chezmoi add` afterwards, or use `chezmoi edit`. **Do not judge whether something is
-  backed up by whether it is a git repo.**
-- `~/ghq/github.com/mimikun/mimikun.claude-code-config/` is abandoned. Do not read or edit it.
-- **Verify every setting key and env var against the binary before recommending it:**
-  `grep -c '<name>' (readlink -f (which claude))`. The `env` block of settings.json is a
-  free-form passthrough, so Claude Code cannot warn about a name it does not read, and a
-  wrong one stays silently inert forever. This actually happened —
-  `CLAUDE_CODE_HIDE_ACCOUNT_INFO` was set for months and never existed
-  (filed as P07 in `mimikun.agent-system`; the working flag is `IS_DEMO`).
-- `~/.claude/hooks/check-settings-env.sh` re-runs that check at session start, but it only
-  sees settings.json. Naming a setting in conversation is not covered — grep first.
-- **Permission rules: file-path rules only work under `Edit(path)` and `Read(path)`.**
-  `Write(path)`, `MultiEdit(path)`, `NotebookEdit(path)` and `Glob(path)` are never consulted
-  — `Edit` covers every file-editing tool, `Read` covers every file-reading tool. Adding the
-  per-tool variants "for symmetry" produces 26 startup warnings and zero protection; this was
-  done and reverted on 2026-07-31 (see `docs/plan/claude-permission-holes-20260731.md` §第5弾).
-  Writing `:*` inside a file rule is a hard validation error, not a workaround — `:*` prefix
-  matching exists only for `Bash(...)`.
+- 実際に読まれる設定は `~/.claude/settings.json` で、chezmoi 管理下にある
+  （`dot_claude/private_settings.json`）。ファイルを直接編集すると drift が発生する。
+  編集後に `chezmoi add` を実行するか、`chezmoi edit` を使うこと。
+  **git リポジトリかどうかでバックアップの有無を判断しないこと。**
+- `~/ghq/github.com/mimikun/mimikun.claude-code-config/` は放棄済み。読まない、編集しない。
+- **設定キーと環境変数は、勧める前に必ずバイナリに対して検証する:**
+  `grep -c '<name>' (readlink -f (which claude))`。settings.json の `env` ブロックは
+  自由記述のパススルーなので、Claude Code は自分が読まない名前について警告できず、
+  間違った名前は永久に静かに無効のままになる。実際に起きた —
+  `CLAUDE_CODE_HIDE_ACCOUNT_INFO` が数ヶ月間設定されていたが、そんなものは存在しなかった
+  （`mimikun.agent-system` に P07 として記録済み。実際に効くフラグは `IS_DEMO`）。
+- `~/.claude/hooks/check-settings-env.sh` がセッション開始時に同じチェックを再実行するが、
+  見ているのは settings.json だけ。会話の中で設定名を挙げる場合は対象外なので、先に grep すること。
+- **権限ルール: ファイルパス指定のルールは `Edit(path)` と `Read(path)` でしか効かない。**
+  `Write(path)`、`MultiEdit(path)`、`NotebookEdit(path)`、`Glob(path)` は一切参照されない。
+  `Edit` がファイル編集系ツールすべてを、`Read` がファイル読み取り系ツールすべてをカバーする。
+  「対称性のため」にツール別の変種を足すと、起動時警告が26件出て保護は増えない。
+  2026-07-31 に実際にやって差し戻した
+  （`docs/plan/claude-permission-holes-20260731.md` §第5弾 を参照）。
+  ファイルルールの中に `:*` を書くのは回避策ではなく明確なバリデーションエラー。
+  `:*` の前方一致は `Bash(...)` にしか存在しない。
