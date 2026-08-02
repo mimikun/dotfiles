@@ -1,0 +1,14 @@
+dot_claude/skills/todoist/SKILL.md
+  h_220433a6faf6b8 84-98
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "b457241529c506d93d8821ebd2530e3d5014e2b4",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
