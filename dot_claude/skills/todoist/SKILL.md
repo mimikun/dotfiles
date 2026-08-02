@@ -1,69 +1,33 @@
 ---
 name: todoist
 description: >-
-  Rules for creating, rewording and rescheduling the user's Todoist tasks — the
-  end-condition format every self-contained task must carry, the one test for
-  judging whether a proposed condition is decidable, what to offer when it is
-  not, and where to leave a line when a task gets cut off partway. Use whenever
-  the user says todo, ToDo, タスク or Todoist, whenever a task is being created
-  or reworded, and whenever a Todoist write tool is about to be called.
+  Rules for creating, rewording and rescheduling the user's Todoist tasks —
+  which tasks need an end condition and which to leave alone, where the
+  condition goes, and where to leave a line when one gets cut off partway. Use
+  whenever the user says todo, ToDo, タスク or Todoist, whenever a task is being
+  created or reworded, and whenever a Todoist write tool is about to be called.
 ---
 
-# Todoist — タスクの作り方と終了条件
+# Todoist — タスクへの落とし込み
 
-`~/.claude/CLAUDE.md` の「✅ Todoist」節が**同期ルールと `no-ai` の扱い**を持っている。
-**それをここに写さないこと。** ここが持つのは、タスクを作る・書き換えるときの手順だけ。
+**手順そのものは `~/.claude/CLAUDE.md` の「🧱 作業の刻み方」にある。**
+終了条件の導出4ステップ、判定基準、A / B / C の分岐、中断の扱い、
+「外れたら分かる1行」は全部あちら。**ここに写さないこと。**
+ここが持つのは Todoist 固有の部分だけ。
 
-## 終了条件（2026-08-01 運用開始）
-
+同期ルールと `no-ai` の扱いは `CLAUDE.md` の「✅ Todoist」節にある。
 出典・経緯・「扱わない項目」は
 `~/ghq/github.com/mimikun/mimikun.agent-system/todo.md` の
-「「やり切る」のフォーマット作り」にある。**そちらをここに写さないこと。**
+「「やり切る」のフォーマット作り」にある。
 
-**やり切った = 自分以外の何かが「終わった」と判定できる状態に到達すること。**
-自己完結タスクは判定者がいないので、終了条件を先に書かないと原理的にやり切れない。
+## どのタスクに適用するか
 
 **終了条件が既に明確なタスクには何もしない。** ゴミ出し、繰り返しの定型作業、
 フォーム送信のように、外部が完了を判定するものは対象外。手を入れると雑音が増えるだけ。
 
-### 不明確なときの手順
+**判定者が自分しかいないタスクにだけ適用する。**
 
-**分担を崩さない — 導出は本人、検算は AI。** 一緒に決めると判定基準が本人の目的から
-離れ、条件が本人のものでなくなる。手伝ってよいのは「手順のどこで詰まっているか」を
-指すところまで。
-
-1. **本人に考えてもらう。うながして、待つ。自分から終了条件を書かない。**
-   目的を持っているのは本人であり、そこだけが判定基準の根拠になる。
-   これは `CLAUDE.md` の「案を出す」既定の例外にあたる。
-
-   本人が回す導出手順は次の4つ。**代わりに回さない。**
-
-   1. **壊れていたものを1文で書く**（**どこに / 何が / どうなっている**）
-   2. それが直るのに**最低限いる物**を並べる
-   3. 各項目に一度だけ問う ——「**これが無いと成立しないか？**」
-      Yes なら必須。No ならオプショナル（後から足せばよい）
-   4. **必須が全部そろった時点が完了**
-
-   - **3 の問いは「あると良いか」ではない。**「無いと回らないか」。
-     ここを取り違えると全部が必須になり、終わらなくなる
-   - **1 を飛ばすと詰まる。** 困りごとには「どこに」「何が」が必ず入っているので、
-     そこから写せば場所と物が手に入る。「完成させる」のような状態語から始めると
-     写す元が無い
-
-2. **出てきた条件を評価する。ここが AI の役割。判定基準は1つ —
-   本人以外の誰かが読んで、終わったかどうか判定できるか。**
-   - 適切なら、そのまま記入する
-   - 不適切なら、**不適切だと伝えたうえで**、次の3つから提案する
-     - **A**: 書けるところまで小さく割る（「勉強する」→「第3章を読む」）
-     - **B**: 時間で切る（「30分やったら完了」）
-     - **C**: いったん保留にし、書けるようになってから着手する
-
-3. **完了と決めるときは「外れたら分かる1行」を添える。**
-   「本当に完了なら、いつまでに何が起きていないはず」を書き、その日に見る。
-   外れていたら失敗ではなく、**手順3の必須判定を1つ取り違えた**という情報なので、
-   手順3へ戻す。これで「やってみないと分からない」を日付付きの検査に変えられる。
-
-### 記入様式
+## 記入様式
 
 ```txt
 タイトル: 終了条件の明確な、わかりやすいタイトル
@@ -74,12 +38,14 @@ description: >-
   説明欄に置くと読まれない。
 - **説明欄は補足であって再掲ではない。** タイトルの内容を書き直さない。
 - **完了日時は書かない。** Todoist が完了時に自動で持つ。
+- **本人に考えてもらう。うながして、待つ。自分から終了条件を書かない。**
+  これは `CLAUDE.md` の「案を出す」既定の例外にあたる。
 
-### 途中で切れたとき
+## 途中で切れたとき
 
-1回で終わらせようとしない。切れたときは「今日わかったこと」または
-「今日進んだところ」を**1行だけ、そのタスクのコメント欄**に残して終わる。
-**1行あればその日は完了。** 全部終わったかは関係ない。
+「今日わかったこと」または「今日進んだところ」を
+**1行だけ、そのタスクのコメント欄**に残して終わる。**1行あればその日は完了。**
+コメント欄なのは、タスクと同じ場所にあって次に開いたとき必ず目に入るから。
 
 ## 構造の注意
 
