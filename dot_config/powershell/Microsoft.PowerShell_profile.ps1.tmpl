@@ -603,83 +603,52 @@ if ($res) {
 }
 
 # alias cargo packages
-if ($IsLinux) {
-    $tmp = Join-Path -Path $env:HOME -ChildPath ".mimikun-pkglists"
-    $cargo_packages = Join-Path -Path $tmp -ChildPath "linux_cargo_packages.txt"
+#
+# These are thin wrappers. The implementation lives in mimikun/mimikun.scripts
+# as TypeScript run by bun, so Linux and Windows share one copy. The package
+# list path (linux_* vs windows_*) is resolved there, not here.
+$MimikunScriptsDir = if ($env:MIMIKUN_SCRIPTS_DIR) {
+    $env:MIMIKUN_SCRIPTS_DIR
 } else {
-    $tmp = Join-Path -Path $env:USERPROFILE -ChildPath ".mimikun-pkglists"
-    $cargo_packages = Join-Path -Path $tmp -ChildPath "windows_cargo_packages.txt"
+    Join-Path -Path $HOME -ChildPath "scripts"
 }
 
-function Invoke-ExistsCmd() {
-    Param($cmdName)
-    Get-Command -Name $cmdName > $null 2>&1
-    $result = $?
-    return $result
+function Invoke-MimikunCargoScript() {
+    Param(
+        [Parameter(Mandatory)][string]$Script,
+        [string[]]$ScriptArgs = @()
+    )
+    $path = Join-Path -Path $MimikunScriptsDir -ChildPath $Script
+    if (-not (Test-Path -Path $path)) {
+        Write-Error "mimikun.scripts not found at $MimikunScriptsDir - clone it, or set MIMIKUN_SCRIPTS_DIR"
+        return
+    }
+    bun run $path @ScriptArgs
 }
 
 function Invoke-GenerateCargoPackageLists() {
-    cargo install-update --list |
-    Select-Object -Skip 3 |
-    ForEach-Object { $_.Split(" ")[0] } |
-    Where-Object { $_ -ne "" } |
-    Out-File -FilePath $cargo_packages -Encoding utf8
+    Invoke-MimikunCargoScript -Script "src/generate/cargo-package-list.ts"
 }
 
 Set-Alias -Name generate_cargo_package_list -Value Invoke-GenerateCargoPackageLists
 Set-Alias -Name genecapa -Value Invoke-GenerateCargoPackageLists
 
 function Invoke-InstallCargoPackages() {
-    Get-Content -Path $cargo_packages |
-    ForEach-Object {
-        $pkg = $_
-        $cond = Invoke-ExistsCmd $pkg
-        if (-not $cond) {
-            Write-Output "$pkg is not found"
-            pueue add -- "cargo install $pkg"
-        }
-    }
+    Invoke-MimikunCargoScript -Script "src/install/cargo-packages.ts"
     Invoke-GenerateCargoPackageLists
 }
 
 Set-Alias -Name install_cargo_packages -Value Invoke-InstallCargoPackages
 Set-Alias -Name instacapa -Value Invoke-InstallCargoPackages
 
-function Get-NeedUpdateCargoPackages() {
-    $tmp = cargo install-update --list |
-    Select-Object -Skip 2
-    $need_update_pkgs = $tmp -split "`n" |
-    ForEach-Object {
-        if ($_ -match "^\s*Package\s+Installed\s+Latest\s+Needs update\s*$") {
-            return
-        }
-        if ($_ -match "^\s*(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s*$" -and $matches[4] -eq "Yes") {
-            [PSCustomObject]@{
-                Package      = $matches[1]
-                Installed    = $matches[2]
-                Latest       = $matches[3]
-                NeedsUpdate  = $matches[4]
-            }
-        }
-    }
-    return $need_update_pkgs
-}
-
+# Builds in the foreground rather than going through pueue.
 function Invoke-UpdateCargoPackages() {
-    Get-NeedUpdateCargoPackages | ForEach-Object {
-        $pkgs = $_.Package
-        Write-Output "Update: $pkgs"
-        cargo install $pkgs
-    }
+    Invoke-MimikunCargoScript -Script "src/update/cargo-packages.ts" -ScriptArgs @("--no-pueue")
     Invoke-GenerateCargoPackageLists
 }
 
 function Invoke-PueueUpdateCargoPackages() {
-    Get-NeedUpdateCargoPackages | ForEach-Object {
-        $pkgs = $_.Package
-        Write-Output "Update: $pkgs"
-        pueue add -- "cargo install $pkgs"
-    }
+    Invoke-MimikunCargoScript -Script "src/update/cargo-packages.ts"
     Invoke-GenerateCargoPackageLists
 }
 
