@@ -10,4 +10,4 @@ if [[ ! -d "$SCRIPTS_DIR" ]]; then
   exit 1
 fi
 
-exec bun run "$SCRIPTS_DIR/src/generate/cargo-package-list.ts" "$@"
+exec bun run "$SCRIPTS_DIR/src/generate/package-lists.ts" cargo
