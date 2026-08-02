@@ -71,4 +71,5 @@ extend-exclude = [
   "dot_mimikun-pkglists/linux_arch_aur_packages.txt",
   "dot_mimikun-pkglists/linux_rubygem_list.txt",
   "dot_config/gup/private_gup.json",
+  "dot_config/fish/completions/claude.fish",
 ]
