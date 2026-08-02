@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Thin shim. The implementation lives in mimikun/mimikun.scripts as TypeScript,
-# so the same code runs here and on Windows. See that repo's AGENTS.md.
+# Thin shim. The implementation lives in mimikun/mimikun.scripts as TypeScript.
+# See that repo's AGENTS.md.
 #
-# --serial keeps one cargo build running at a time, which is what the
-# hand-rolled `pueue add --after "$task_id"` chain here used to do.
+# --serial installs one package at a time, which is what the hand-rolled
+# `pueue add --after "$task_id"` chain here used to do.
 set -euo pipefail
 
 SCRIPTS_DIR="${MIMIKUN_SCRIPTS_DIR:-$HOME/scripts}"
@@ -13,4 +13,4 @@ if [[ ! -d "$SCRIPTS_DIR" ]]; then
   exit 1
 fi
 
-exec bun run "$SCRIPTS_DIR/src/install/cargo-packages.ts" --serial "$@"
+exec bun run "$SCRIPTS_DIR/src/install/packages.ts" cargo --serial "$@"
