@@ -1,0 +1,19 @@
+private_dot_local/bin/executable_update_fish_completions
+  s_7d5d109a7dd36b::t_b1beaa6f83e9c8 1-4,6-10,13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "2a90d768a751553f37eaddc3b7398a32ba9f3701",
+  "prompts": {},
+  "sessions": {
+    "s_7d5d109a7dd36b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "62e664b1-0cf2-4c0c-9a0e-6715a5fe9868",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
