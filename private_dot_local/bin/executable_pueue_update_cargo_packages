@@ -1,8 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Thin shim. The implementation lives in mimikun/mimikun.scripts as TypeScript,
+# so the same code runs here and on Windows. See that repo's AGENTS.md.
+#
+# Unlike update_cargo_packages this does not pass --serial: every build is
+# enqueued at once and pueue's own parallelism decides how many run.
+set -euo pipefail
 
-cargo_outdated_pkgs=$(cargo install-update -l | grep "Yes" | cut -d " " -f 1)
-echo "Update these packages:"
-echo "$cargo_outdated_pkgs"
-for i in $cargo_outdated_pkgs; do
-  pueue add -- "cargo install $i"
-done
+SCRIPTS_DIR="${MIMIKUN_SCRIPTS_DIR:-$HOME/scripts}"
+if [[ ! -d "$SCRIPTS_DIR" ]]; then
+  echo "mimikun.scripts not found at $SCRIPTS_DIR" >&2
+  echo "clone it, or set MIMIKUN_SCRIPTS_DIR" >&2
+  exit 1
+fi
+
+exec bun run "$SCRIPTS_DIR/src/update/cargo-packages.ts" "$@"
