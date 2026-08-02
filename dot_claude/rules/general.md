@@ -76,3 +76,10 @@
   （`docs/plan/claude-permission-holes-20260731.md` §第5弾 を参照）。
   ファイルルールの中に `:*` を書くのは回避策ではなく明確なバリデーションエラー。
   `:*` の前方一致は `Bash(...)` にしか存在しない。
+- **Plan Mode: `ExitPlanMode` を呼ぶ前に `plan-preview` skill を走らせ、
+  計画本文に `Plan preview: <url>` の行を入れる。**
+  強制しているのは `reviewable-html-workbench` plugin 同梱の
+  `PreToolUse(ExitPlanMode)` hook であって、このルールではない。hook は
+  `Plan preview: <url>` か `Plan preview: unavailable (<理由>)` の行が無ければ deny する。
+  つまり先に走らせなければ deny → 生成 → 再試行で毎回1往復無駄になる。それだけの話。
+  `unavailable` は preview 生成が実際に失敗したときのためのもので、省略の手段ではない。
