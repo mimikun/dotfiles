@@ -1,6 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Thin shim. The implementation lives in mimikun/mimikun.scripts as TypeScript,
+# so the same code runs here and on Windows. See that repo's AGENTS.md.
+set -euo pipefail
 
-uv tool list |
-    grep "v[0-9]" |
-    sed -e "s/\s.*//g" |
-    sort >"$HOME/.mimikun-pkglists/linux_uv_tools.txt"
+SCRIPTS_DIR="${MIMIKUN_SCRIPTS_DIR:-$HOME/scripts}"
+if [[ ! -d "$SCRIPTS_DIR" ]]; then
+  echo "mimikun.scripts not found at $SCRIPTS_DIR" >&2
+  echo "clone it, or set MIMIKUN_SCRIPTS_DIR" >&2
+  exit 1
+fi
+
+exec bun run "$SCRIPTS_DIR/src/generate/package-lists.ts" uv
