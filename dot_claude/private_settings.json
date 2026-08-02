@@ -4,6 +4,7 @@
   "enabledPlugins": {
     "cclens@cclens": true,
     "i-have-adhd@i-have-adhd": true,
+    "mattpocock-skills@claude-plugins-official": true,
     "obsidian@obsidian-skills": true,
     "reviewable-html-workbench@reviewable-html-workbench-local": true
   },
