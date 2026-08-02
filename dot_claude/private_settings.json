@@ -401,6 +401,7 @@
     ]
   },
   "skillOverrides": {
+    "mattpocock-skills:grilling": "user-invocable-only",
     "officecli": "off"
   },
   "statusLine": {
