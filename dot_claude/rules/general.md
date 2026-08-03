@@ -60,6 +60,12 @@
   GitHub が rebase merge を拒否する。**このとき GitHub は
   `mergeable: MERGEABLE` / `mergeStateStatus: CLEAN` と表示するので当てにならない**
   （2026-08-01 に発生。force push は禁止なので PR を出し直して対処した）。
+- **マージ後、コミットが全部 master に載ったか数える。**
+  `git log origin/master --oneline` で自分のコミットを確認する。
+  **GitHub は、同等のパッチが別経路で master に載ると PR を「マージ済み」として
+  自動クローズすることがあり、残りのコミットは黙って取り残される。**
+  上の rebase 拒否と違い**エラーが出ないので、数えない限り気づけない**
+  （2026-08-03 に発生。PR に積んだ2件のうち1件が消え、切り直して出し直した）。
 - **コミット:** Conventional Commits — `feat(scope): subject`、`fix`、`docs`、
   `perf`、`refactor`。
 - **PR:** 問題と解決策に焦点を当てる。co-authored-by やツールへの言及は入れない。
@@ -72,6 +78,14 @@
 ```
 git worktree add ../<repo>-<desc> <branch>   # 作業 → commit → push
 git worktree remove ../<repo>-<desc>         # 終わったら必ず消す
+```
+
+**`<branch>` が他の worktree でチェックアウト済みだと `worktree add` は失敗する。**
+master はほぼ常にこれに当たるので、master で作業するときは次の形にする。
+
+```
+git worktree add --detach ../<repo>-<desc> master
+git push origin HEAD:master
 ```
 
 - **chezmoi は `-S` で worktree を指す:** `chezmoi add -S <worktree> <対象ファイル>`。
