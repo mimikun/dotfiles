@@ -64,6 +64,19 @@
   `perf`、`refactor`。
 - **PR:** 問題と解決策に焦点を当てる。co-authored-by やツールへの言及は入れない。
 
+### リモートの使い分け（2026-08-03 に定義）
+
+**主かミラーかは `origin` が指す先で決まる。** リモート名の並び順や登録数では決めない。
+
+- **既定は GitHub が主、Codeberg はミラー。push は GitHub だけでよい。**
+  Codeberg へは本人が手で push する（Codeberg 側のミラー機能が使えないため）。
+  **AI は Codeberg へ push しない。** PR も GitHub に出す
+- **例外: `origin` が Codeberg を指すリポジトリだけは Codeberg が主。**
+  そのリポジトリでは PR も Codeberg（`berg` CLI）に出す
+- **迷ったら `git remote get-url origin` を見る。** これが唯一の判定材料
+- **ミラー側が遅れていても勝手に追いつかせない。** 本人が手で push する運用なので、
+  差があるのは異常ではない
+
 ## 🤖 Claude Code 自身の設定
 
 - 実際に読まれる設定は `~/.claude/settings.json` で、chezmoi 管理下にある
