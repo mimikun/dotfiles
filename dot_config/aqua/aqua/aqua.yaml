@@ -13,7 +13,7 @@ packages:
   - name: cli/cli@v2.97.0
   - name: cpisciotta/xcbeautify@3.2.1
   - name: CyberAgent/reminder-lint@0.2.1
-  - name: dagu-org/dagu@v2.11.2
+  - name: dagu-org/dagu@v2.11.3
   - name: danvergara/dblab@v0.47.2
   - name: derailed/k9s@v0.51.0
   - name: direnv/direnv@v2.37.1
@@ -58,7 +58,7 @@ packages:
   - name: tsl0922/ttyd@1.7.7
   - name: tstack/lnav@v0.14.0
   - name: twitchdev/twitch-cli@v1.1.24
-  - name: twpayne/chezmoi@v2.71.1
+  - name: twpayne/chezmoi@v2.72.0
   - name: wtetsu/gaze@v1.2.1
   - name: yassinebenaid/bunster@v0.14.0
   - name: yorukot/superfile@v1.6.0
