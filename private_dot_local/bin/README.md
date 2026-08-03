@@ -22,7 +22,6 @@
     - update_bat_fish_completion
     - update_helix_fish_completion
 - [utilities](https://github.com/mimikun/utilities)
-    - update_poetry
     - generate_cargo_package_list
     - git-amend-commit
     - git-browse
