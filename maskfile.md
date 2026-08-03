@@ -316,7 +316,6 @@ chezmoi add ~/.local/bin/lk
 chezmoi add ~/.local/bin/numeronym
 chezmoi add ~/.local/bin/pcd
 chezmoi add ~/.local/bin/pueue_update_cargo_packages
-chezmoi add ~/.local/bin/pueue_update_pip_packages
 chezmoi add ~/.local/bin/re_boot
 chezmoi add ~/.local/bin/read_confirm
 chezmoi add ~/.local/bin/shut_down
@@ -324,7 +323,6 @@ chezmoi add ~/.local/bin/update_cargo_packages
 chezmoi add ~/.local/bin/update_docker_compose
 chezmoi add ~/.local/bin/update_fish_completions
 chezmoi add ~/.local/bin/update_mise
-chezmoi add ~/.local/bin/update_pip_packages
 chezmoi add ~/.local/bin/vup
 chezmoi add ~/.local/bin/wsl-open
 
