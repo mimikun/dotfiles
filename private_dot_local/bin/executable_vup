@@ -233,14 +233,9 @@ other() {
   echo "update_docker_compose"
   update_docker_compose
 
-  echo "update_chromedriver"
-  update_chromedriver
-
-  echo "update_geckodriver"
-  update_geckodriver
-
-  echo "update_twitch_cli"
-  update_twitch_cli
+  # chromedriver, geckodriver and twitch-cli used to be updated here by hand.
+  # They are package-manager tools now, so `mise upgrade` and `aqua update`
+  # already cover them.
 }
 
 w_only() {

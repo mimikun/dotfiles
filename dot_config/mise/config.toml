@@ -5,6 +5,10 @@ erlang = "latest"
 lua = "5.1"
 pkl = "latest"
 ruby = "latest"
+# Browser drivers. Formerly hand-written updaters in ~/.local/bin; the
+# chromedriver one silently pinned itself to Chrome 114 for years because its
+# endpoint was retired without ever returning an error.
+"github:mozilla/geckodriver" = "latest"
 
 # multi
 node = [
@@ -28,6 +32,18 @@ zig = [
   "master",
   "latest",
 ]
+
+# Chrome for Testing. The plain-text endpoint returns a single Stable version,
+# which mise takes as the whole version list. Chrome itself auto-updates on the
+# stable channel, so this tracks the installed browser's major in practice.
+# The short-name `chromedriver` is deliberately not used: its version list spans
+# every channel, so `latest` resolves to Canary.
+[tools."http:chromedriver"]
+version = "latest"
+version_list_url = "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE"
+
+[tools."http:chromedriver".platforms]
+linux-x64 = { url = "https://storage.googleapis.com/chrome-for-testing-public/{{version}}/linux64/chromedriver-linux64.zip" }
 
 [settings]
 activate_aggressive = true
