@@ -1,0 +1,21 @@
+private_dot_local/bin/executable_editorconfig
+  s_3037b6df4d5a60::t_a8600c08a7e4de 1-6,8-12,14-15
+dot_config/powershell/Microsoft.PowerShell_profile.ps1.tmpl
+  s_3037b6df4d5a60::t_40e6c58f188405 616,630,637,646,651,675
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "129990192e4c01a3deae3d4d4b155fe8b56aad7a",
+  "prompts": {},
+  "sessions": {
+    "s_3037b6df4d5a60": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "70bd2622-1c53-4bee-8703-ebc89a8467f6",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
