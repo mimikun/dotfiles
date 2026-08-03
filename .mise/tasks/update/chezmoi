@@ -94,7 +94,6 @@ chezmoi add ~/.local/bin/update_docker_compose
 chezmoi add ~/.local/bin/update_fish_completions
 chezmoi add ~/.local/bin/update_mise
 chezmoi add ~/.local/bin/update_pip_packages
-chezmoi add ~/.local/bin/update_pnpm
 chezmoi add ~/.local/bin/update_poetry
 chezmoi add ~/.local/bin/vup
 chezmoi add ~/.local/bin/wsl-open
