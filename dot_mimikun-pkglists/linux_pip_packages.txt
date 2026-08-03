@@ -33,9 +33,7 @@ Send2Trash
 Simperium3
 SpeechRecognition
 Twisted
-Typeinc
 Werkzeug
-a2a-handler
 a2a-sdk
 absl-py
 addict
@@ -74,12 +72,8 @@ appdirs
 argcomplete
 argon2-cffi
 argon2-cffi-bindings
-aria2tui
 arrow
 arxiv
-arxiv2bib
-asciidoc
-asmdiff
 asn1
 asn1crypto
 ast-grep-cli
@@ -107,11 +101,9 @@ bibtexparser
 bidict
 billiard
 binaryornot
-bkp
 bleach
 blessed
 blinker
-blueutil-tui
 boto3
 botocore
 bpylist2
@@ -125,10 +117,8 @@ build
 cached-property
 cachetools
 caio
-castero
 cbor2
 cdp-use
-celerator
 celery
 certifi
 cffi
@@ -168,7 +158,6 @@ crcmod
 cron_descriptor
 croniter
 cryptography
-csvkit
 cuda-bindings
 cuda-pathfinder
 cuda-toolkit
@@ -184,7 +173,6 @@ daytona_api_client_async
 daytona_toolbox_api_client
 daytona_toolbox_api_client_async
 dbfread
-ddgr
 debugpy
 decorator
 deepdiff
@@ -195,9 +183,7 @@ deptective
 developer_disk_image
 dictdiffer
 dill
-dinobase
 dirhash
-dirsearch
 diskcache
 distlib
 distro
@@ -210,7 +196,6 @@ docstring_parser
 docutils
 dominate
 dpath
-dtop
 duckdb
 dulwich
 durationpy
@@ -232,7 +217,6 @@ dvc-webdav
 dvc-webhdfs
 e2b
 easygui
-edge-tts
 editor
 eg
 email-validator
@@ -272,10 +256,8 @@ gcsfs
 gevent
 gevent-websocket
 ghp-import
-gita
 gitdb
 gitignore_parser
-gitingest
 giturlparse
 glcontext
 glob2
@@ -332,9 +314,7 @@ gymnasium
 h11
 h2
 h5py
-h5ui
 habanero
-hapless
 headroom-ai
 hexdump
 hf-xet
@@ -345,7 +325,6 @@ html2text
 htmldate
 httpcore
 httplib2
-httpstat
 httptools
 httpx
 httpx-aiohttp
@@ -354,7 +333,6 @@ huey
 huggingface_hub
 humanfriendly
 humanize
-hwinfo-tui
 hydra-core
 hyperframe
 hyperlink
@@ -382,12 +360,9 @@ itsdangerous
 jaraco.classes
 jaraco.context
 jaraco.functools
-jc
 jedi
 jeepney
-jellex
 jello
-jiratui
 jiter
 jmespath
 joblib
@@ -409,8 +384,6 @@ jupyterlab_pygments
 jupyterlab_widgets
 jusText
 jwcrypto
-k2l
-kb-manager
 keyring
 khal
 kimg4
@@ -433,7 +406,6 @@ litellm
 littletable
 lm_eval
 lmnr
-logmerger
 loguru
 lupa
 lxml
@@ -442,11 +414,9 @@ lzfse
 madoka
 magika
 mammoth
-manimgl
 mapbox_earcut
 markdown-it-py
 markdownify
-markitdown
 marshmallow
 math-verify
 matplotlib
@@ -554,11 +524,8 @@ ossfs
 packaging
 pandas
 pandocfilters
-papis
-para-cada
 parameter-decorators
 paramiko
-parqv
 parse
 parsedatetime
 parso
@@ -575,12 +542,9 @@ pendulum
 pexpect
 pfzy
 pg8000
-pgcli
 pgspecial
 pgtree
 pillow
-pipupgrade
-pipx
 pkginfo
 platformdirs
 playwright
@@ -594,7 +558,6 @@ poetry-core
 pondpond
 portalocker
 posthog
-pqviewer
 pre_commit
 prek
 prettytable
@@ -606,7 +569,6 @@ protobuf
 psutil
 psycopg
 ptyprocess
-pur
 pure_eval
 puremagic
 py-key-value-aio
@@ -631,7 +593,6 @@ pydub
 pyee
 pyflakes
 pygit2
-pygitzen
 pyglet
 pyglm
 pygnuutils
@@ -640,7 +601,6 @@ pyimg4
 pykdebugparser
 pylatexenc
 pylzss
-pymobiledevice3
 pymongo
 pynvim
 pyotp
@@ -684,7 +644,6 @@ randomname
 rapidocr-onnxruntime
 rarfile
 readchar
-recoverpy
 redis
 referencing
 regex
@@ -696,7 +655,6 @@ requests-oauthlib
 requests-toolbelt
 requests_ntlm
 requirements-parser
-rexi
 rfc3339-validator
 rfc3986-validator
 rfc3987-syntax
@@ -707,7 +665,6 @@ rich-rst
 rich-toolkit
 rignore
 rouge_score
-rovr
 rpds-py
 rsa
 ruamel.yaml
@@ -733,7 +690,6 @@ setuptools
 sgmllib3k
 shapely
 shellingham
-shodan
 shortuuid
 shtab
 sigtools
@@ -744,17 +700,12 @@ skia-pathops
 skops
 slowapi
 slumber-python
-smassh
 smmap
-sncli
 sniffio
-snowmachine
 sortedcontainers
 soupsieve
-spiel
 sqlalchemy-spanner
 sqlglot
-sqlit-tui
 sqlite-vec
 sqlitedict
 sqlparse
@@ -762,8 +713,6 @@ sqltrie
 srptools
 srt
 sse-starlette
-ssh-para
-sshclick
 sshfs
 sshtunnel
 sslpsk-pmd3
@@ -779,7 +728,6 @@ sympy
 synchronicity
 tabledata
 tabulate
-taipy
 taipy-common
 taipy-core
 taipy-gui
@@ -789,7 +737,6 @@ tcolorpy
 tenacity
 termcolor
 terminado
-terminaltexteffects
 text-unidecode
 textual
 textual-autocomplete
@@ -839,7 +786,6 @@ triton
 trove-classifiers
 truststore
 turm
-twg
 ty
 typepy
 typer
@@ -865,7 +811,6 @@ uuid_utils
 uvicorn
 uvloop
 validators
-vignore
 vine
 virtualenv
 voluptuous
@@ -883,7 +828,6 @@ widgetsnbextension
 word2number
 wrapt
 wsproto
-wtfis
 xdg-base-dirs
 xlrd
 xlsxwriter
@@ -891,11 +835,9 @@ xmltodict
 xmod
 xonsh
 xxhash
-yamllint
 yarl
 youtube-transcript-api
 yt-dlp
-ytm-player
 ytmusicapi
 zc.lockfile
 zeroconf
