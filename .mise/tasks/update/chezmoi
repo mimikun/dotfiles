@@ -76,11 +76,9 @@ chezmoi add ~/.local/bin/cpat
 chezmoi add ~/.local/bin/editorconfig
 chezmoi add ~/.local/bin/generate_cargo_package_list
 chezmoi add ~/.local/bin/generate_pip_package_list
-chezmoi add ~/.local/bin/generate_pipx_package_list
 chezmoi add ~/.local/bin/install_cargo_packages
 chezmoi add ~/.local/bin/install_gh_extensions
 chezmoi add ~/.local/bin/install_pip_packages
-chezmoi add ~/.local/bin/install_pipx_packages
 chezmoi add ~/.local/bin/lk
 chezmoi add ~/.local/bin/numeronym
 chezmoi add ~/.local/bin/pcd

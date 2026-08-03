@@ -1,26 +1,61 @@
-a2a-handler
-aider-chat
-asmdiff
-bagels
-cloctui
-databow
-dinobase
-dotbins
-euporie
-exosphere-cli
-isd-tui
-jiratui
-kimi-cli
-lexy
-llm
-mistral-vibe
-parllama
-posting
-prek
-rovr
-sot
-sqlit-tui
-squall-sql
-turm
-twg
-ty
+a2a-handler 3.11
+aider-chat 3.10
+artui 3.12
+asmdiff 3.10
+austin-dist 3.12
+austin-tui 3.12
+bagels 3.13
+blueutil-tui 3.12
+braindrop 3.12
+calcure 3.12
+cloctui 3.10
+cronboard 3.13
+databow 3.10
+dinobase 3.10
+dotbins 3.10
+dotenvhub 3.12
+edge-tts 3.12
+euporie 3.10
+exosphere-cli 3.13
+ghgrab 3.12
+git-filter-repo 3.12
+glances 3.12
+gptme 3.12
+hike 3.12
+isd-tui 3.12
+jiratui 3.10
+jrnl 3.12
+kaskade 3.12
+kimi-cli 3.13
+lexy 3.10
+llm 3.10
+mastui 3.12
+mdformat 3.12
+mistral-vibe 3.12
+moneyterm 3.12
+parllama 3.10
+peplum 3.12
+pipask 3.12
+pocker-tui 3.12
+posting 3.13
+prek 3.10
+renux 3.12
+rogallo 3.12
+rovr 3.13
+rsyncy 3.12
+sherlock-project 3.12
+shotgun-sh 3.12
+sot 3.10
+sqlit-tui 3.10
+squall-sql 3.11
+starlit-cli 3.12
+terminaltexteffects 3.12
+tofuref 3.12
+tombi 3.12
+toolong 3.12
+trash-cli 3.12
+turm 3.10
+twg 3.10
+ty 3.10
+vectorcode 3.12
+wut-cli 3.12
