@@ -110,10 +110,10 @@ use_pueue() {
   echo "pnpm self-update"
   pueue add -- "pnpm self-update"
 
-  echo "update mise tools"
-  pvim_task_id=$(pueue add -p --after "$mise_task_id" -- "update_mise paleovim-master --use-pueue")
-  pueue add --after "$pvim_task_id" -- "update_mise paleovim-latest --use-pueue"
-  pueue add --after "$mise_task_id" -- "update_mise zig-master --use-pueue"
+  # `mise upgrade` above already covers vim@latest and zig@master. The one pin
+  # it cannot refresh is vim@ref:master, which is all update_mise does now.
+  echo "update mise ref-pinned tools"
+  update_mise --after "$mise_task_id"
 
   echo "update neovim managed by bob"
   bob_task_id=$(pueue add -p -- "bob use latest")
@@ -188,10 +188,8 @@ no_pueue() {
   echo "pnpm self-update"
   pnpm self-update
 
-  echo "update mise tools"
-  update_mise paleovim-master
-  update_mise paleovim-latest
-  update_mise zig-master
+  echo "update mise ref-pinned tools"
+  update_mise --no-pueue
 
   echo "update neovim managed by bob"
   bob use latest
