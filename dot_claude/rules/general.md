@@ -46,7 +46,7 @@
 ## 🌳 Git とコミット
 
 - **ワークフロー:** Explore → Plan → Code → Commit。feature ブランチを使う。
-  並行作業には worktree を使う（`git worktree add ../project-<type>-<desc> <branch>`）。
+  作業場所は下の「エージェントは worktree で作業する」に従う。
 - **前提: 本人は基本 rebase merge を使う。** マージのたびに master 上の SHA が
   変わる。squash も同じ。merge commit だけが SHA を保つ。下2つはこの前提から出ている。
 - **新しいブランチは master を最新にしてから切る。分岐元を省略しない:**
@@ -63,6 +63,25 @@
 - **コミット:** Conventional Commits — `feat(scope): subject`、`fix`、`docs`、
   `perf`、`refactor`。
 - **PR:** 問題と解決策に焦点を当てる。co-authored-by やツールへの言及は入れない。
+
+### エージェントは worktree で作業する（2026-08-03 に決定）
+
+**リポジトリに書き込むときは、必ず新規 worktree を切る。既存の作業ディレクトリは
+本人専用。** 判定は不要 — 全リポジトリ、常に。
+
+```
+git worktree add ../<repo>-<desc> <branch>   # 作業 → commit → push
+git worktree remove ../<repo>-<desc>         # 終わったら必ず消す
+```
+
+- **chezmoi は `-S` で worktree を指す:** `chezmoi add -S <worktree> <対象ファイル>`。
+  実体ファイルを編集して `chezmoi add` すると、**共有の source ディレクトリに書く**ので
+  worktree の意味が消える
+- **例外は1つだけ: ビルド成果物や依存を持つリポジトリ**（`node_modules`、`venv` など）。
+  worktree ごとに再構築が要るので、本人に確認してから決める
+- **理由:** 2026-08-03、別セッションが同じリポジトリでブランチを切り替えている最中に
+  `chezmoi add` が相手の作業ツリーへ紛れ込んだ。**共有資源を無くせば原理的に起きない。**
+  「書き込む前に確認する」型の対策では、同時書き込み自体は残る
 
 ### リモートの使い分け（2026-08-03 に定義）
 
