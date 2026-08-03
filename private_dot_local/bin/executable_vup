@@ -107,8 +107,8 @@ use_pueue() {
   echo "flyctl version upgrade"
   pueue add -- "flyctl version upgrade"
 
-  echo "update_pnpm"
-  pueue add -- "update_pnpm"
+  echo "pnpm self-update"
+  pueue add -- "pnpm self-update"
 
   echo "update mise tools"
   pvim_task_id=$(pueue add -p --after "$mise_task_id" -- "update_mise paleovim-master --use-pueue")
@@ -185,8 +185,8 @@ no_pueue() {
   echo "flyctl version upgrade"
   flyctl version upgrade
 
-  echo "update_pnpm"
-  update_pnpm
+  echo "pnpm self-update"
+  pnpm self-update
 
   echo "update mise tools"
   update_mise paleovim-master
