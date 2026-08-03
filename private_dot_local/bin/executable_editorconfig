@@ -1,8 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Thin shim. The implementation lives in mimikun/mimikun.scripts as TypeScript,
+# so the same code runs here and on Windows -- this and the PowerShell
+# Invoke-GenerateEditorConfig were the same five lines twice.
+# See that repo's AGENTS.md.
+set -euo pipefail
 
-# Generate editorconfig
-if test ! -e .editorconfig; then
-    echo ".editorconfig not exist."
-    echo "Creating .editorconfig."
-    cp "$HOME"/.editorconfig-template ./.editorconfig
+SCRIPTS_DIR="${MIMIKUN_SCRIPTS_DIR:-$HOME/scripts}"
+if [[ ! -d "$SCRIPTS_DIR" ]]; then
+  echo "mimikun.scripts not found at $SCRIPTS_DIR" >&2
+  echo "clone it, or set MIMIKUN_SCRIPTS_DIR" >&2
+  exit 1
 fi
+
+exec bun run "$SCRIPTS_DIR/src/misc/editorconfig.ts" "$@"

@@ -613,7 +613,7 @@ $MimikunScriptsDir = if ($env:MIMIKUN_SCRIPTS_DIR) {
     Join-Path -Path $HOME -ChildPath "scripts"
 }
 
-function Invoke-MimikunCargoScript() {
+function Invoke-MimikunScript() {
     Param(
         [Parameter(Mandatory)][string]$Script,
         [string[]]$ScriptArgs = @()
@@ -627,14 +627,14 @@ function Invoke-MimikunCargoScript() {
 }
 
 function Invoke-GenerateCargoPackageLists() {
-    Invoke-MimikunCargoScript -Script "src/generate/cargo-package-list.ts"
+    Invoke-MimikunScript -Script "src/generate/package-lists.ts" -ScriptArgs @("cargo")
 }
 
 Set-Alias -Name generate_cargo_package_list -Value Invoke-GenerateCargoPackageLists
 Set-Alias -Name genecapa -Value Invoke-GenerateCargoPackageLists
 
 function Invoke-InstallCargoPackages() {
-    Invoke-MimikunCargoScript -Script "src/install/cargo-packages.ts"
+    Invoke-MimikunScript -Script "src/install/packages.ts" -ScriptArgs @("cargo")
     Invoke-GenerateCargoPackageLists
 }
 
@@ -643,12 +643,12 @@ Set-Alias -Name instacapa -Value Invoke-InstallCargoPackages
 
 # Builds in the foreground rather than going through pueue.
 function Invoke-UpdateCargoPackages() {
-    Invoke-MimikunCargoScript -Script "src/update/cargo-packages.ts" -ScriptArgs @("--no-pueue")
+    Invoke-MimikunScript -Script "src/update/cargo-packages.ts" -ScriptArgs @("--no-pueue")
     Invoke-GenerateCargoPackageLists
 }
 
 function Invoke-PueueUpdateCargoPackages() {
-    Invoke-MimikunCargoScript -Script "src/update/cargo-packages.ts"
+    Invoke-MimikunScript -Script "src/update/cargo-packages.ts"
     Invoke-GenerateCargoPackageLists
 }
 
@@ -672,13 +672,7 @@ if ($isMSWindows) {
 
 # alias editorconfig Invoke-GenerateEditorConfig
 function Invoke-GenerateEditorConfig() {
-    Get-Item -Path .\.editorconfig -ErrorAction Ignore
-    $res = $?
-    if (!$res) {
-        Write-Output ".editorconfig not exist."
-        Write-Output "Creating .editorconfig."
-        Copy-Item -Path $env:USERPROFILE\.editorconfig-template -Destination .\.editorconfig
-    }
+    Invoke-MimikunScript -Script "src/misc/editorconfig.ts"
 }
 Set-Alias -Name editorconfig Invoke-GenerateEditorConfig
 
