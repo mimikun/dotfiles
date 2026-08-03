@@ -62,9 +62,7 @@ github = "romkatv/zsh-defer"
 #mimikun/shut_down
 #mimikun/supersync
 #mimikun/update_bw
-#mimikun/update_chromedriver
 #mimikun/update_docker_compose
-#mimikun/update_geckodriver
 #mimikun/update_peco
 #sijad/gitignore
 #halostatue/fish-docker@v1.x
