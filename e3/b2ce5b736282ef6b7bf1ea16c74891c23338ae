@@ -1,0 +1,19 @@
+dot_config/aqua/aqua/aqua.yaml
+  s_3037b6df4d5a60::t_24ee6b34713706 16,61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "e3b2ce5b736282ef6b7bf1ea16c74891c23338ae",
+  "prompts": {},
+  "sessions": {
+    "s_3037b6df4d5a60": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "70bd2622-1c53-4bee-8703-ebc89a8467f6",
+        "model": "unknown"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
