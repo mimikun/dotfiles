@@ -1,0 +1,19 @@
+dot_mimikun-pkglists/linux_uv_tools.txt
+  s_4cd287ae44dcef::t_86805375dc86c7 1-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "0a63da3e84ecd5cfb70b04e81b4b51eebf2fbce7",
+  "prompts": {},
+  "sessions": {
+    "s_4cd287ae44dcef": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "04df9549-d33d-4e66-a052-5f6472b600b5",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
