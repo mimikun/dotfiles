@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.11.1",
+      "version": "v0.11.2",
       "channel": "latest"
     },
     {
@@ -310,7 +310,7 @@
     {
       "name": "dlv",
       "import_path": "github.com/go-delve/delve/cmd/dlv",
-      "version": "v1.27.0",
+      "version": "v1.27.1",
       "channel": "latest"
     },
     {
@@ -418,7 +418,7 @@
     {
       "name": "fabric",
       "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.467",
+      "version": "v1.4.470",
       "channel": "latest"
     },
     {
@@ -520,7 +520,7 @@
     {
       "name": "ghtkn",
       "import_path": "github.com/suzuki-shunsuke/ghtkn/cmd/ghtkn",
-      "version": "v0.3.5",
+      "version": "v0.3.6",
       "channel": "latest"
     },
     {
@@ -886,7 +886,7 @@
     {
       "name": "ku",
       "import_path": "github.com/bjarneo/ku",
-      "version": "v0.10.0",
+      "version": "v0.11.0",
       "channel": "latest"
     },
     {
@@ -928,7 +928,7 @@
     {
       "name": "lazygit",
       "import_path": "github.com/jesseduffield/lazygit",
-      "version": "v0.63.1",
+      "version": "v0.64.0",
       "channel": "latest"
     },
     {
@@ -988,7 +988,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260731111915-685c6e24a530",
+      "version": "v0.0.0-20260802224418-9f27e57c4b0e",
       "channel": "latest"
     },
     {
@@ -1102,7 +1102,7 @@
     {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
-      "version": "v0.0.0-20260719011752-b6fc86eef72d",
+      "version": "v0.0.0-20260802171128-9b594da02110",
       "channel": "latest"
     },
     {
@@ -1114,7 +1114,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.26.0",
+      "version": "v0.27.0",
       "channel": "latest"
     },
     {
@@ -1288,7 +1288,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.49.4",
+      "version": "v0.51.1",
       "channel": "latest"
     },
     {
@@ -1348,7 +1348,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260802035623-f40348cba05a",
+      "version": "v0.0.0-20260804231926-8dc3cf15c077",
       "channel": "latest"
     },
     {
