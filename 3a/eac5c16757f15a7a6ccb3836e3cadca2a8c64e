@@ -1,0 +1,14 @@
+dot_mimikun-pkglists/linux_pnpm_packages.txt
+  h_220433a6faf6b8 25,58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "3aeac5c16757f15a7a6ccb3836e3cadca2a8c64e",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
