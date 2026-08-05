@@ -2,7 +2,7 @@
 # single
 dotnet-core = "latest"
 erlang = "latest"
-lua = "5.1"
+lua = "5.5.1"
 pkl = "latest"
 ruby = "latest"
 # Browser drivers. Formerly hand-written updaters in ~/.local/bin; the
