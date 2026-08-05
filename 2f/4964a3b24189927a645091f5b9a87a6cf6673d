@@ -1,0 +1,21 @@
+dot_config/fish/config.fish.tmpl
+  s_7e19058011e828::t_99b04af852efd3 7-10
+dot_mimikun-pkglists/linux_uv_tools.txt
+  s_7e19058011e828::t_9ec9e663502cf1 1-2,7,17,20,22,24,28,44,50-51,61,70,86,88-89,99-101,108
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "2f4964a3b24189927a645091f5b9a87a6cf6673d",
+  "prompts": {},
+  "sessions": {
+    "s_7e19058011e828": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c5a4a8e7-3505-4cdf-a435-c7a99208081f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
