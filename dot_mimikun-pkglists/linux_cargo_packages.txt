@@ -155,6 +155,7 @@ gittype
 gitu
 gitui
 gitv-tui
+gitwig
 glab-tui-crate
 glitchcat
 glues
