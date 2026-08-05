@@ -22,6 +22,7 @@
 @mizchi/actrun
 @getpaseo/cli
 @ghgrab/ghgrab
+@microck/moji
 @mindfoldhq/trellis
 @mistweaverco/kulala-cli
 @moonshot-ai/kimi-code
@@ -54,6 +55,7 @@ czg
 editprompt
 envinfo
 @rivolink/leaf
+bullmq-dash
 epiq
 fallow
 git-rewrite-commits
