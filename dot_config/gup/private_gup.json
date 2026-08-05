@@ -1100,6 +1100,12 @@
       "channel": "latest"
     },
     {
+      "name": "network-doctor",
+      "import_path": "github.com/heymaikol/network-doctor",
+      "version": "v1.10.5",
+      "channel": "latest"
+    },
+    {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
       "version": "v0.0.0-20260802171128-9b594da02110",
@@ -1358,6 +1364,12 @@
       "channel": "latest"
     },
     {
+      "name": "seshagy",
+      "import_path": "github.com/lmilojevicc/seshagy/cmd/seshagy",
+      "version": "v0.11.0",
+      "channel": "latest"
+    },
+    {
       "name": "sheep",
       "import_path": "github.com/koki-develop/sheep",
       "version": "v0.4.0",
@@ -1547,6 +1559,12 @@
       "name": "tpack",
       "import_path": "github.com/tmuxpack/tpack/cmd/tpack",
       "version": "v1.2.1",
+      "channel": "latest"
+    },
+    {
+      "name": "treehouse",
+      "import_path": "github.com/kunchenguid/treehouse",
+      "version": "v1.8.0",
       "channel": "latest"
     },
     {
