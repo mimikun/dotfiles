@@ -96,7 +96,6 @@ complete -c herdr -n "__fish_herdr_using_subcommand worktree; and not __fish_see
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and not __fish_seen_subcommand_from list create open remove" -f -a "remove" -d 'Remove a worktree checkout'
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from list" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from list" -l cwd -r -F
-complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from list" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l cwd -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l branch -r
@@ -105,7 +104,6 @@ complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_su
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l label -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l focus
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l no-focus
-complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l cwd -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l path -r -F
@@ -113,10 +111,8 @@ complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_su
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l label -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l focus
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l no-focus
-complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from remove" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from remove" -l force
-complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from remove" -l json
 complete -c herdr -n "__fish_herdr_using_subcommand tab; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "list" -d 'List tabs'
 complete -c herdr -n "__fish_herdr_using_subcommand tab; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "create" -d 'Create a tab'
 complete -c herdr -n "__fish_herdr_using_subcommand tab; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "get" -d 'Show a tab'

@@ -16,7 +16,7 @@ complete -c ttl -l interface -d 'Bind probes to specific network interface (e.g.
 complete -c ttl -l dscp -d 'DSCP value for QoS testing (0-63)' -r
 complete -c ttl -l size -d 'Probe packet size in bytes (36-9216 for IPv4, 56-9216 for IPv6) Includes IP + protocol headers. Smaller values are clamped to minimum. Supports jumbo frames up to 9216 bytes' -r
 complete -c ttl -l rate -d 'Maximum probes per second (0 = unlimited)' -r
-complete -c ttl -l source-ip -d 'Source IP address for probes' -r
+complete -c ttl -l source-ip -d 'Source IP address for probes (supports IPv6 zone: fe80::1%eth0)' -r
 complete -c ttl -l completions -d 'Generate shell completions and exit' -r -f -a "bash\t''
 zsh\t''
 fish\t''
@@ -30,6 +30,7 @@ complete -c ttl -l no-asn -d 'Skip ASN enrichment'
 complete -c ttl -l no-geo -d 'Skip geolocation'
 complete -c ttl -l no-ix -d 'Skip IX detection (PeeringDB)'
 complete -c ttl -l no-tui -d 'Disable TUI (streaming output mode)'
+complete -c ttl -l no-update-check -d 'Skip the startup check for new releases (also honors DO_NOT_TRACK=1 or TTL_NO_UPDATE_CHECK=1, or a saved `no_update_check = true` preference)'
 complete -c ttl -l json -d 'Output JSON (batch mode, requires -c)'
 complete -c ttl -l csv -d 'Output CSV (batch mode, requires -c)'
 complete -c ttl -l report -d 'Report mode (batch, requires -c)'

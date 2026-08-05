@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.220 on 2026-08-02.
+# Generated from claude 2.1.222 on 2026-08-05.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -65,6 +65,8 @@ function __fish_claude_child -d 'Resolve a token to a canonical subcommand path'
                     echo 'doctor'
                 case 'gateway'
                     echo 'gateway'
+                case 'import'
+                    echo 'import'
                 case 'install'
                     echo 'install'
                 case 'mcp'
@@ -182,6 +184,7 @@ complete -c claude -n '__fish_claude_at ""' -a 'auth' -d 'Manage authentication'
 complete -c claude -n '__fish_claude_at ""' -a 'auto-mode' -d 'Inspect or reset auto mode classifier configuration'
 complete -c claude -n '__fish_claude_at ""' -a 'doctor' -d 'Check the health of your Claude Code installation. Reads settings files in the current di…'
 complete -c claude -n '__fish_claude_at ""' -a 'gateway' -d 'Run the enterprise auth/telemetry gateway'
+complete -c claude -n '__fish_claude_at ""' -a 'import' -d 'Import config from another AI coding agent into Claude Code'
 complete -c claude -n '__fish_claude_at ""' -a 'install' -d 'Install Claude Code native build. Use [target] to specify version (stable, latest, or spe…'
 complete -c claude -n '__fish_claude_at ""' -a 'mcp' -d 'Configure and manage MCP servers'
 complete -c claude -n '__fish_claude_at ""' -a 'plugin' -d 'Manage Claude Code plugins'
@@ -197,6 +200,7 @@ complete -c claude -n '__fish_claude_at ""' -l agents -d 'JSON object defining c
 complete -c claude -n '__fish_claude_at ""' -l allow-dangerously-skip-permissions -d 'Enable bypassing all permission checks as an option, without it being enabled by default.…'
 complete -c claude -n '__fish_claude_at ""' -l allowedTools -l allowed-tools -d 'Comma or space-separated list of tool names to allow (e.g. "Bash(git *) Edit")' -r
 complete -c claude -n '__fish_claude_at ""' -l append-system-prompt -d 'Append a system prompt to the default system prompt' -r
+complete -c claude -n '__fish_claude_at ""' -l autocompact -d 'Auto-compact window size (auto, or 100k–1M tokens)' -r
 complete -c claude -n '__fish_claude_at ""' -l ax-screen-reader -d 'Render screen-reader friendly output (flat text, no decorative borders or animations).'
 complete -c claude -n '__fish_claude_at ""' -l bg -l background -d 'Start the session as a background agent and return immediately (manage with `claude agent…'
 complete -c claude -n '__fish_claude_at ""' -l bare -d 'Minimal mode: skip hooks, LSP, plugin sync, attribution, auto-memory, background prefetch…'
@@ -332,6 +336,11 @@ complete -c claude -n '__fish_claude_at "doctor"' -s h -l help -d 'Display help 
 # claude gateway
 complete -c claude -n '__fish_claude_at "gateway"' -l config -d 'Path to gateway YAML config' -r -F
 complete -c claude -n '__fish_claude_at "gateway"' -s h -l help -d 'Display help for command'
+
+# claude import
+complete -c claude -n '__fish_claude_at "import"' -l dry-run -d 'Show what would be imported without writing anything'
+complete -c claude -n '__fish_claude_at "import"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "import"' -l yes -d 'Skip the interactive picker. On headless surfaces, pass --yes=<digest> from the `/import`…'
 
 # claude install
 complete -c claude -n '__fish_claude_at "install"' -x -a 'stable latest'
