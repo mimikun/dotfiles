@@ -23,7 +23,7 @@ onboarding = false
 
 # NOTE: tokyonight
 
-name = "tokyonight"
+name = "tokyo-night"
 auto_switch = false
 light_name = "tokyo-night-day"
 dark_name = "tokyo-night"
@@ -246,7 +246,7 @@ pane_borders = true
 # Keep split panes visually separated instead of sharing divider borders.
 pane_gaps = true
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
-show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
 # Set `true` to hide the tab row when the active workspace has exactly one tab.
 # New tabs can still be created with the configured keybinding.
 # When a second tab appears, Herdr restores the tab row and resizes panes to make room for it.
