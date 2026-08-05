@@ -1,0 +1,14 @@
+dot_config/herdr/config.toml
+  h_220433a6faf6b8 26,249
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "93b7bdabfa66f94a301fa65412d42c8ce9515ca3",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
