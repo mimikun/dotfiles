@@ -3,5 +3,17 @@
   "extends": [
     "config:recommended",
     "github>aquaproj/aqua-renovate-config:file#2.13.0(aqua/.*\\.ya?ml)"
+  ],
+  "packageRules": [
+    {
+      // These are deliberately floating pins: mise resolves "5.1" / "3.12" to the
+      // newest release in that series. Renovate rewrites them to a concrete
+      // version, which defeats the point. Both were reverted before (1f81d111,
+      // 75e6a1ed). Note the mise manager only updates the FIRST entry of an
+      // array, so this also covers python's list.
+      "matchManagers": ["mise"],
+      "matchDepNames": ["lua", "python"],
+      "enabled": false
+    }
   ]
 }
