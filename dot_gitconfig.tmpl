@@ -131,8 +131,12 @@
 [hook "hk-post-rewrite"]
 	command = test \"${HK:-1}\" = \"0\" || hk run post-rewrite --from-hook \"$@\"
 	event = post-rewrite
+# No repository here has an hk.pkl, and `--from-hook` makes hk exit 0 silently in
+# that case -- so the steps in ~/.config/hk/config.pkl never ran. Dropping the
+# flag is what makes the global config take effect. `hk install --global` will
+# put `--from-hook` back if it is ever re-run.
 [hook "hk-pre-commit"]
-	command = test \"${HK:-1}\" = \"0\" || hk run pre-commit --from-hook \"$@\"
+	command = test \"${HK:-1}\" = \"0\" || hk run pre-commit \"$@\"
 	event = pre-commit
 [hook "hk-pre-push"]
 	command = test \"${HK:-1}\" = \"0\" || hk run pre-push --from-hook \"$@\"
