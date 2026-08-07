@@ -1678,6 +1678,10 @@ complete -c uv -n "__fish_uv_using_subcommand audit" -l only-group -d 'Only audi
 complete -c uv -n "__fish_uv_using_subcommand audit" -l output-format -d 'Select the output format' -r -f -a "text\t'Display the result in a human-readable format'
 json\t'Display the result in JSON format'
 sarif\t'Display the result in SARIF format'"
+complete -c uv -n "__fish_uv_using_subcommand audit" -l ignore -d 'Ignore a vulnerability by ID' -r
+complete -c uv -n "__fish_uv_using_subcommand audit" -l ignore-until-fixed -d 'Ignore a vulnerability by ID, but only while no fix is available' -r
+complete -c uv -n "__fish_uv_using_subcommand audit" -l service-format -d 'The service format to use for vulnerability lookups' -r -f -a "osv\t''"
+complete -c uv -n "__fish_uv_using_subcommand audit" -l service-url -d 'The URL to vulnerability service API endpoint' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-build-package -d 'Don\'t build source distributions for a specific package [env: `UV_NO_BUILD_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-binary-package -d 'Don\'t install pre-built wheels for a specific package [env: `UV_NO_BINARY_PACKAGE`=]' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l index -d 'The URLs to use when resolving dependencies, in addition to the default index' -r
@@ -1761,10 +1765,6 @@ wasm32-pyodide2025\t'A wasm32 target using the Pyodide 2025 platform. Meant for 
 arm64-apple-ios\t'An ARM64 target for iOS device'
 arm64-apple-ios-simulator\t'An ARM64 target for iOS simulator'
 x86_64-apple-ios-simulator\t'An `x86_64` target for iOS simulator'"
-complete -c uv -n "__fish_uv_using_subcommand audit" -l ignore -d 'Ignore a vulnerability by ID' -r
-complete -c uv -n "__fish_uv_using_subcommand audit" -l ignore-until-fixed -d 'Ignore a vulnerability by ID, but only while no fix is available' -r
-complete -c uv -n "__fish_uv_using_subcommand audit" -l service-format -d 'The service format to use for vulnerability lookups' -r -f -a "osv\t''"
-complete -c uv -n "__fish_uv_using_subcommand audit" -l service-url -d 'The URL to vulnerability service API endpoint' -r -f
 complete -c uv -n "__fish_uv_using_subcommand audit" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand audit" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -1819,52 +1819,53 @@ complete -c uv -n "__fish_uv_using_subcommand audit" -l no-progress -d 'Hide all
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand audit" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand audit" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
 system\t'Prefer system Python installations over managed Python installations'
 only-system\t'Only use system Python installations; never use managed Python installations'"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
 manual\t'Do not automatically download managed Python installations; require explicit installation'
 never\t'Do not ever allow Python downloads'"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
 always\t'Enables colored output regardless of the detected environment'
 never\t'Disables colored output'"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r -f
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l preview-features -d 'Enable experimental preview features' -r
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s q -l quiet -d 'Use quiet output'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s v -l verbose -d 'Use verbose output'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-color -d 'Disable colors'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-native-tls
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-system-certs
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l offline -d 'Disable network access [env: UV_OFFLINE=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-offline
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l preview -d 'Whether to enable all experimental preview features [env: UV_PREVIEW=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-preview
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file [env: UV_ISOLATED=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l show-settings -d 'Show the resolved settings for the current command'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-progress -d 'Hide all progress outputs [env: UV_NO_PROGRESS=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -s h -l help -d 'Display the concise help for this command'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "run" -d 'Run a command provided by a Python package'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "uvx" -d 'Run a command provided by a Python package.'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "install" -d 'Install commands provided by a Python package'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "upgrade" -d 'Upgrade installed tools'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "list" -d 'List installed tools'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "uninstall" -d 'Uninstall a tool'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "update-shell" -d 'Ensure that the tool executable directory is on the `PATH`'
-complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list uninstall update-shell dir" -f -a "dir" -d 'Show the path to the uv tools directory'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l allow-insecure-host -d 'Allow insecure connections to a host' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-system-certs
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l offline -d 'Disable network access [env: UV_OFFLINE=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l preview -d 'Whether to enable all experimental preview features [env: UV_PREVIEW=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file [env: UV_ISOLATED=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-progress -d 'Hide all progress outputs [env: UV_NO_PROGRESS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "run" -d 'Run a command provided by a Python package'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "uvx" -d 'Run a command provided by a Python package.'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "install" -d 'Install commands provided by a Python package'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "upgrade" -d 'Upgrade installed tools'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "list" -d 'List installed tools'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "audit" -d 'Audit installed tools and their dependencies'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "uninstall" -d 'Uninstall a tool'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "update-shell" -d 'Ensure that the tool executable directory is on the `PATH`'
+complete -c uv -n "__fish_uv_using_subcommand tool; and not __fish_seen_subcommand_from run uvx install upgrade list audit uninstall update-shell dir" -f -a "dir" -d 'Show the path to the uv tools directory'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l from -d 'Use the given package to provide the command' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -s w -l with -d 'Run with the given packages installed' -r -f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from run" -l with-editable -d 'Run with the given packages installed in editable mode' -r -f -a "(__fish_complete_directories)"
@@ -2662,6 +2663,52 @@ complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_f
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from list" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l output-format -d 'Select the output format' -r -f -a "text\t'Display the result in a human-readable format'
+json\t'Display the result in JSON format'
+sarif\t'Display the result in SARIF format'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l ignore -d 'Ignore a vulnerability by ID' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l ignore-until-fixed -d 'Ignore a vulnerability by ID, but only while no fix is available' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l service-format -d 'The service format to use for vulnerability lookups' -r -f -a "osv\t''"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l service-url -d 'The URL to vulnerability service API endpoint' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
+managed\t'Prefer managed Python installations over system Python installations'
+system\t'Prefer system Python installations over managed Python installations'
+only-system\t'Only use system Python installations; never use managed Python installations'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l python-fetch -d 'Deprecated version of [`Self::python_downloads`]' -r -f -a "automatic\t'Automatically download managed Python installations when needed'
+manual\t'Do not automatically download managed Python installations; require explicit installation'
+never\t'Do not ever allow Python downloads'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l color -d 'Control the use of color in output' -r -f -a "auto\t'Enables colored output only when the output is going to a terminal or TTY with support'
+always\t'Enables colored output regardless of the detected environment'
+never\t'Disables colored output'"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l allow-insecure-host -d 'Allow insecure connections to a host' -r -f
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l preview-features -d 'Enable experimental preview features' -r
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l all -d 'Audit all installed tools'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l allow-python-downloads -d 'Allow automatically downloading Python when required. [env: "UV_PYTHON_DOWNLOADS=auto"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-python-downloads -d 'Disable automatic downloads of Python. [env: "UV_PYTHON_DOWNLOADS=never"]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -s q -l quiet -d 'Use quiet output'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -s v -l verbose -d 'Use verbose output'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-color -d 'Disable colors'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l native-tls -d '(Deprecated: use `--system-certs` instead.) Whether to load TLS certificates from the platform\'s native certificate store [env: UV_NATIVE_TLS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-native-tls
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l system-certs -d 'Whether to load TLS certificates from the platform\'s native certificate store [env: UV_SYSTEM_CERTS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-system-certs
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l offline -d 'Disable network access [env: UV_OFFLINE=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-offline
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l preview -d 'Whether to enable all experimental preview features [env: UV_PREVIEW=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-preview
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l isolated -d 'Avoid discovering a `pyproject.toml` or `uv.toml` file [env: UV_ISOLATED=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l show-settings -d 'Show the resolved settings for the current command'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-progress -d 'Hide all progress outputs [env: UV_NO_PROGRESS=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
+complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from audit" -s h -l help -d 'Display the concise help for this command'
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand tool; and __fish_seen_subcommand_from uninstall" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'

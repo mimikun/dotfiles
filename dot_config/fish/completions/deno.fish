@@ -590,6 +590,7 @@ complete -c deno -n "__fish_deno_using_subcommand add" -l lockfile-only -d 'Inst
 complete -c deno -n "__fish_deno_using_subcommand add" -l npm -d 'assume unprefixed package names are npm packages (default)'
 complete -c deno -n "__fish_deno_using_subcommand add" -l jsr -d 'assume unprefixed package names are jsr packages'
 complete -c deno -n "__fish_deno_using_subcommand add" -l save-exact -d 'Save exact version without the caret (^)'
+complete -c deno -n "__fish_deno_using_subcommand add" -l unscoped -d 'Use the package name without its scope as the alias (ex. `jsr:@david/jsonc-morph` is added as `jsonc-morph`). Packages given an explicit alias are unaffected.'
 complete -c deno -n "__fish_deno_using_subcommand add" -l package-json -d 'Force using package.json for dependency management instead of deno.json'
 complete -c deno -n "__fish_deno_using_subcommand audit" -s h -l help -r -f -a "unstable\t''
 full\t''"
@@ -1078,6 +1079,8 @@ x86_64-pc-windows-msvc\t''
 aarch64-pc-windows-msvc\t''
 x86_64-apple-darwin\t''
 aarch64-apple-darwin\t''"
+complete -c deno -n "__fish_deno_using_subcommand compile" -l engine -d 'JS engine the compiled binary runs on (quickjs is smaller and experimental, and does not receive the same security updates as v8)' -r -f -a "v8\t''
+quickjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand compile" -l icon -d 'Set the icon of the executable on Windows (.ico)' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l app-name -d 'Stable identity for the compiled app.   Determines where origin-bound storage such as the default `Deno.openKv()`,   `localStorage` and `caches` is persisted (under the platform\'s app data directory).   Defaults to the output file name. Set this to keep storage stable across renames.' -r
 complete -c deno -n "__fish_deno_using_subcommand compile" -l watch-exclude -d 'Exclude provided files/patterns from watch mode' -r -F
@@ -1240,6 +1243,8 @@ complete -c deno -n "__fish_deno_using_subcommand desktop" -l icon -d 'Set the a
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l backend -d 'Backend to use for the desktop app' -r -f -a "webview\t''
 cef\t''
 raw\t''"
+complete -c deno -n "__fish_deno_using_subcommand desktop" -l engine -d 'JS engine the desktop binary runs on (quickjs is smaller and experimental, and does not receive the same security updates as v8)' -r -f -a "v8\t''
+quickjs\t''"
 complete -c deno -n "__fish_deno_using_subcommand desktop" -l compress -d 'Make the packaged app self-extracting: the payload is compressed inside the app and unpacked on first launch. Off by default. Defaults to xz (decompressed by the system `tar` everywhere); zstd is smaller/faster but needs the `zstd` tool at runtime.' -r -f -a "xz\t''
 lzma\t''
 zstd\t''"
@@ -1546,6 +1551,8 @@ css\t''
 scss\t''
 less\t''
 html\t''
+xml\t''
+svg\t''
 svelte\t''
 vue\t''
 astro\t''
@@ -1866,6 +1873,7 @@ complete -c deno -n "__fish_deno_using_subcommand install" -l no-save -d 'Instal
 complete -c deno -n "__fish_deno_using_subcommand install" -l npm -d 'assume unprefixed package names are npm packages (default)'
 complete -c deno -n "__fish_deno_using_subcommand install" -l jsr -d 'assume unprefixed package names are jsr packages'
 complete -c deno -n "__fish_deno_using_subcommand install" -l save-exact -d 'Save exact version without the caret (^)'
+complete -c deno -n "__fish_deno_using_subcommand install" -l unscoped -d 'Use the package name without its scope as the alias (ex. `jsr:@david/jsonc-morph` is added as `jsonc-morph`). Packages given an explicit alias are unaffected.'
 complete -c deno -n "__fish_deno_using_subcommand install" -l lockfile-only -d 'Install only updating the lockfile'
 complete -c deno -n "__fish_deno_using_subcommand install" -l package-json -d 'Force using package.json for dependency management instead of deno.json'
 complete -c deno -n "__fish_deno_using_subcommand install" -l prod -d 'Only install production dependencies (excludes devDependencies)'
@@ -1992,6 +2000,7 @@ complete -c deno -n "__fish_deno_using_subcommand i" -l no-save -d 'Install the 
 complete -c deno -n "__fish_deno_using_subcommand i" -l npm -d 'assume unprefixed package names are npm packages (default)'
 complete -c deno -n "__fish_deno_using_subcommand i" -l jsr -d 'assume unprefixed package names are jsr packages'
 complete -c deno -n "__fish_deno_using_subcommand i" -l save-exact -d 'Save exact version without the caret (^)'
+complete -c deno -n "__fish_deno_using_subcommand i" -l unscoped -d 'Use the package name without its scope as the alias (ex. `jsr:@david/jsonc-morph` is added as `jsonc-morph`). Packages given an explicit alias are unaffected.'
 complete -c deno -n "__fish_deno_using_subcommand i" -l lockfile-only -d 'Install only updating the lockfile'
 complete -c deno -n "__fish_deno_using_subcommand i" -l package-json -d 'Force using package.json for dependency management instead of deno.json'
 complete -c deno -n "__fish_deno_using_subcommand i" -l prod -d 'Only install production dependencies (excludes devDependencies)'
@@ -2566,6 +2575,7 @@ complete -c deno -n "__fish_deno_using_subcommand task" -l unstable-worker-optio
 complete -c deno -n "__fish_deno_using_subcommand task" -s q -l quiet -d 'Suppress diagnostic output'
 complete -c deno -n "__fish_deno_using_subcommand task" -l no-lock -d 'Disable auto discovery of the lock file'
 complete -c deno -n "__fish_deno_using_subcommand task" -s r -l recursive -d 'Run the task in all projects in the workspace'
+complete -c deno -n "__fish_deno_using_subcommand task" -l members -d 'Run the task in all workspace members, but not in the workspace root'
 complete -c deno -n "__fish_deno_using_subcommand task" -l eval -d 'Evaluate the passed value as if it was a task in a configuration file'
 complete -c deno -n "__fish_deno_using_subcommand task" -l no-prefix -d 'Disable prefixing the output of concurrently-executing tasks with the task name'
 complete -c deno -n "__fish_deno_using_subcommand task" -l if-present -d 'Exit with code 0 instead of an error when the task is not found'
