@@ -141,9 +141,14 @@
 [hook "hk-pre-push"]
 	command = test \"${HK:-1}\" = \"0\" || hk run pre-push --from-hook \"$@\"
 	event = pre-push
+# `git rebase --root` passes no UPSTREAM (and passes `--root` through), but
+# `hk run pre-rebase` requires one, so every rooted rebase is refused. No
+# pre-rebase steps are configured in ~/.config/hk/config.pkl, so this hook can
+# only break things. `hk install --global` will drop the `enabled` line if re-run.
 [hook "hk-pre-rebase"]
 	command = test \"${HK:-1}\" = \"0\" || hk run pre-rebase --from-hook \"$@\"
 	event = pre-rebase
+	enabled = false
 [hook "hk-prepare-commit-msg"]
 	command = test \"${HK:-1}\" = \"0\" || hk run prepare-commit-msg --from-hook \"$@\"
 	event = prepare-commit-msg
