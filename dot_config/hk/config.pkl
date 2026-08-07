@@ -1,5 +1,5 @@
 // ~/.config/hk/config.pkl
-amends "package://github.com/jdx/hk/releases/download/v1.44.2/hk@1.44.2#/Config.pkl"
+amends "package://github.com/jdx/hk/releases/download/v1.54.0/hk@1.54.0#/Config.pkl"
 
 hooks {
     ["pre-commit"] {
