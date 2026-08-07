@@ -19,8 +19,12 @@ skills_dir="$HOME/.agents/skills"
 agents="claude,codex"
 
 # --- skills published in a remote repo --------------------------------------
+# The key is the skill name and the value is the repo it lives in. The two
+# differ whenever a repo publishes a skill under another name, so the loop
+# below passes the key to `--skill` to pick the right one out of the repo.
 declare -A remote_skills=(
     ["browser-use"]="browser-use/browser-use"
+    ["convert-documents-to-markdown"]="firecrawl/anydoc"
     ["find-skills"]="vercel-labs/skills"
     ["herdr"]="ogulcancelik/herdr"
 )
