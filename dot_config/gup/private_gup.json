@@ -88,7 +88,7 @@
     {
       "name": "andcli",
       "import_path": "github.com/tjblackheart/andcli/v2/cmd/andcli",
-      "version": "v2.8.0",
+      "version": "v2.8.1",
       "channel": "latest"
     },
     {
@@ -274,7 +274,7 @@
     {
       "name": "d2",
       "import_path": "oss.terrastruct.com/d2",
-      "version": "v0.7.1",
+      "version": "v0.7.2",
       "channel": "latest"
     },
     {
@@ -430,7 +430,7 @@
     {
       "name": "fence",
       "import_path": "github.com/fencesandbox/fence/cmd/fence",
-      "version": "v0.1.65",
+      "version": "v0.1.66",
       "channel": "latest"
     },
     {
@@ -670,7 +670,7 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.24",
+      "version": "v0.2.25",
       "channel": "latest"
     },
     {
@@ -994,7 +994,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.15.16",
+      "version": "v0.16.1",
       "channel": "latest"
     },
     {
@@ -1054,13 +1054,13 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.9.0",
+      "version": "v6.10.0",
       "channel": "latest"
     },
     {
       "name": "minify",
       "import_path": "github.com/tdewolff/minify/v2/cmd/minify",
-      "version": "v2.24.14",
+      "version": "v2.24.16",
       "channel": "latest"
     },
     {
@@ -1102,7 +1102,7 @@
     {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.10.5",
+      "version": "v1.10.6",
       "channel": "latest"
     },
     {
@@ -1120,7 +1120,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.27.0",
+      "version": "v0.28.0",
       "channel": "latest"
     },
     {
@@ -1144,7 +1144,7 @@
     {
       "name": "osv-scanner",
       "import_path": "github.com/google/osv-scanner/v2/cmd/osv-scanner",
-      "version": "v2.4.0",
+      "version": "v2.5.0",
       "channel": "latest"
     },
     {
@@ -1174,7 +1174,7 @@
     {
       "name": "pg-schema-diff",
       "import_path": "github.com/stripe/pg-schema-diff/cmd/pg-schema-diff",
-      "version": "v1.0.8",
+      "version": "v1.0.9",
       "channel": "latest"
     },
     {
@@ -1294,7 +1294,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.51.1",
+      "version": "v0.51.3",
       "channel": "latest"
     },
     {
@@ -1366,7 +1366,7 @@
     {
       "name": "seshagy",
       "import_path": "github.com/lmilojevicc/seshagy/cmd/seshagy",
-      "version": "v0.11.0",
+      "version": "v0.12.0",
       "channel": "latest"
     },
     {
@@ -1390,7 +1390,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.91.0",
+      "version": "v0.92.0",
       "channel": "latest"
     },
     {
@@ -1456,7 +1456,7 @@
     {
       "name": "squix",
       "import_path": "github.com/eduardofuncao/squix/cmd/squix",
-      "version": "v0.5.2-beta",
+      "version": "v0.5.3-beta",
       "channel": "latest"
     },
     {
@@ -1498,7 +1498,7 @@
     {
       "name": "tcount",
       "import_path": "github.com/lancekrogers/tcount/cmd/tcount",
-      "version": "v0.5.1",
+      "version": "v0.6.0",
       "channel": "latest"
     },
     {
