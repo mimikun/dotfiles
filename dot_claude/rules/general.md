@@ -88,6 +88,12 @@ git worktree add --detach ../<repo>-<desc> master
 git push origin HEAD:master
 ```
 
+- **detached HEAD から新しいブランチを作るときは ref を完全修飾する:**
+  `git push origin HEAD:refs/heads/<name>`。`HEAD:<name>` の短い形は
+  **既存ブランチにしか当たらず**、新規だと
+  `You must fully qualify the ref.` で落ちる。すぐ上の `HEAD:master` が
+  通るのは master が既にあるからで、**例外のほうが既定に見えている**
+  （2026-08-07 に踏んだ）。
 - **chezmoi は `-S` で worktree を指す:** `chezmoi add -S <worktree> <対象ファイル>`。
   実体ファイルを編集して `chezmoi add` すると、**共有の source ディレクトリに書く**ので
   worktree の意味が消える
