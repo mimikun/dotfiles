@@ -46,7 +46,7 @@ jrnl 3.12
 k2l 3.12
 kaskade 3.12
 kb-manager 3.12
-kimi-cli 3.13
+kimi-cli 3.12
 lexy 3.12
 llm 3.12
 logmerger 3.12
@@ -65,7 +65,7 @@ pgcli 3.12
 pipask 3.12
 pipupgrade 3.12
 pocker-tui 3.12
-posting 3.13
+posting 3.12
 pqviewer 3.12
 prek 3.12
 pur 3.12
@@ -75,7 +75,7 @@ recoverpy 3.12
 renux 3.12
 rexi 3.12
 rogallo 3.12
-rovr 3.13
+rovr 3.12
 rsyncy 3.12
 sherlock-project 3.12
 shodan 3.12
