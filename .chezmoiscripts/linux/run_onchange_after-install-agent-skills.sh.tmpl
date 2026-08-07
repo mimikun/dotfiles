@@ -16,7 +16,11 @@
 # No `set -e`: one unreachable network or missing CLI must not abort the rest.
 
 skills_dir="$HOME/.agents/skills"
-agents="claude,codex"
+
+# `--agent` takes one name per flag. A comma-separated list is read as a single
+# name and rejected, and the loop below then installs nothing while still
+# exiting cleanly. The Claude Code agent is called `claude-code`, not `claude`.
+agent_flags=(--agent claude-code --agent codex)
 
 # --- skills published in a remote repo --------------------------------------
 # The key is the skill name and the value is the repo it lives in. The two
@@ -26,6 +30,7 @@ declare -A remote_skills=(
     ["browser-use"]="browser-use/browser-use"
     ["convert-documents-to-markdown"]="firecrawl/anydoc"
     ["find-skills"]="vercel-labs/skills"
+    ["gh-stack"]="github/gh-stack"
     ["herdr"]="ogulcancelik/herdr"
 )
 
@@ -35,7 +40,7 @@ for name in "${!remote_skills[@]}"; do
     else
         echo "Installing skill '$name' from ${remote_skills[$name]}"
         npx -y skills add "${remote_skills[$name]}" \
-            --global --agent "$agents" --skill "$name" --yes
+            --global "${agent_flags[@]}" --skill "$name" --yes
     fi
 done
 
@@ -67,6 +72,12 @@ check_cli herdr       herdr       "https://github.com/ogulcancelik/herdr"
 check_cli neowright   neowright   "https://github.com/isak102/neowright"
 check_cli officecli   officecli   "https://github.com/iOfficeAI/OfficeCLI"
 check_cli spark       use-spark   "ships with Spark Desktop, which must be running"
+
+# gh-stack drives a gh extension, not a binary on PATH, so check_cli cannot see
+# it. Nothing in this repo reinstalls gh extensions, so a fresh machine gets the
+# skill without the command it calls.
+gh extension list 2>/dev/null | grep -q "github/gh-stack" \
+    || echo "WARN: the 'gh stack' extension is missing, so skill 'gh-stack' will not work. Run: gh extension install github/gh-stack"
 
 # vim:ft=bash.chezmoitmpl
 
