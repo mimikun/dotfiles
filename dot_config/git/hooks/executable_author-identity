@@ -1,0 +1,38 @@
+#!/bin/bash
+# git pre-commit hook: refuse a commit attributed to an identity that is not mine.
+#
+# Agent runtimes have overridden GIT_AUTHOR_EMAIL / GIT_COMMITTER_EMAIL, producing
+# commits attributed to the wrong person. An env override never shows up in
+# `git config user.email`, so checking config is useless here -- `git var *_IDENT`
+# is the value that actually reflects it.
+#
+# Wired up in ~/.gitconfig as [hook "author-identity"], so it applies to every
+# repository on this machine without a per-repo install.
+#
+# Denied addresses are stored as SHA-256 digests because this repository is public.
+#
+# Bypass: GIT_ALLOW_ANY_IDENTITY=1 git commit ...   (or `git commit --no-verify`)
+
+set -euo pipefail
+
+if [[ "${GIT_ALLOW_ANY_IDENTITY:-0}" == "1" ]]; then
+  exit 0
+fi
+
+# The Claude account address behind the mis-attributed commits of 2026-08-07.
+denied_digests=(
+  "80481824b07faaca9d28153e346f4fc3601c7bb8702e4513ec1f18c53c21d8fe"
+)
+
+for var in GIT_AUTHOR_IDENT GIT_COMMITTER_IDENT; do
+  email="$(git var "$var" | sed -n 's/.*<\(.*\)>.*/\1/p' | tr '[:upper:]' '[:lower:]')"
+  digest="$(printf '%s' "$email" | sha256sum | cut -d ' ' -f 1)"
+
+  for denied in "${denied_digests[@]}"; do
+    if [[ "$digest" == "$denied" ]]; then
+      echo "git: $var is <$email>, which is on the denied-identity list." >&2
+      echo "git: fix the identity before committing, or set GIT_ALLOW_ANY_IDENTITY=1." >&2
+      exit 1
+    fi
+  done
+done

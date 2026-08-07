@@ -103,6 +103,16 @@
 	diffFilter = delta --color-only
 
 # =============================================================================
+# git hooks (mine)
+# =============================================================================
+
+# Refuse commits attributed to an identity that is not mine. Config-based hooks
+# are global, so this needs no per-repo install. See the script for the why.
+[hook "author-identity"]
+	command = {{ .chezmoi.homeDir }}/.config/git/hooks/author-identity
+	event = pre-commit
+
+# =============================================================================
 # git hooks (by hk.jdx.dev)
 # =============================================================================
 
