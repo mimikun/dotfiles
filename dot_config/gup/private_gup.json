@@ -1562,6 +1562,12 @@
       "channel": "latest"
     },
     {
+      "name": "transit",
+      "import_path": "github.com/atani/transit/cmd/transit",
+      "version": "v0.3.2",
+      "channel": "latest"
+    },
+    {
       "name": "treehouse",
       "import_path": "github.com/kunchenguid/treehouse",
       "version": "v1.8.0",
