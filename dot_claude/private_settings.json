@@ -1,6 +1,7 @@
 {
   "agentPushNotifEnabled": true,
   "cleanupPeriodDays": 30,
+  "effortLevel": "medium",
   "enabledPlugins": {
     "cclens@cclens": true,
     "i-have-adhd@i-have-adhd": true,
