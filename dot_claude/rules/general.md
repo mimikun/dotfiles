@@ -143,6 +143,14 @@ git push origin HEAD:master
   （`docs/plan/claude-permission-holes-20260731.md` §第5弾 を参照）。
   ファイルルールの中に `:*` を書くのは回避策ではなく明確なバリデーションエラー。
   `:*` の前方一致は `Bash(...)` にしか存在しない。
+  - **先頭の `!` は無視される**（実測）。`Edit(!...)` の除外は一度も効いていなかった。
+    除外したいものは `permissions.ask` に置く。**`ask` は `allow` に勝つ**
+    （`allow` の `Edit(./**)` にも一致するパスで、実際に確認が出た）
+  - **`**` はドット始まりのセグメントに当たらない。** `Edit(./**)` は `.git/` を
+    一度もカバーしていなかった。ルールを試すときは、**他のルールに当たらない
+    ドット無しのパス**（`node_modules/` など）を使う
+  - **権限の挙動を試せるのは `manual mode` だけ**（shift+tab で切替。
+    UI 上の `manual` が内部の `default`）
 - **Plan Mode: `ExitPlanMode` を呼ぶ前に `plan-preview` skill を走らせ、
   計画本文に `Plan preview: <url>` の行を入れる。**
   強制しているのは `reviewable-html-workbench` plugin 同梱の
