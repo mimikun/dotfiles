@@ -1,0 +1,14 @@
+dot_claude/rules/general.md
+  h_220433a6faf6b8 71-74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "c4141a99fdb76b1dadbcb32f8b768a1ba68da01d",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
