@@ -277,8 +277,17 @@ memory を書く前に、2つの問いに答えること。
 プロジェクト memory を書くのは、そのリポジトリに CLAUDE.md がなく、新規作成が出過ぎた行為に
 なる場合だけ。
 
-**`PROJECT/CLAUDE.md` に書く前に、そのリポジトリの可視性を確認する** — `~/.config/nvim`、
-`~/.config/fish`、`~/.local/share/chezmoi`、および複数の `mimikun.*` リポジトリは公開。
+**`PROJECT/CLAUDE.md` に書く前に、そのリポジトリの可視性を確認する。**
+**名前からは判定できない。** 実測（2026-08-09）:
+
+| 公開 | `~/.config/nvim` / `~/.config/fish` / `~/.local/share/chezmoi` / `mastodon` |
+|---|---|
+| 非公開 | `mimikun.career` / `mimikun.home-assistant` / `mimikun.question` / `mimikun.agent-system` |
+| リモート無し | `mimikun.question` / `dev-plugins/mason-nvim-lint.nvim`（**バックアップが無い**） |
+
+**「`mimikun.*` は公開」と書いていたが誤りだった。** 判定は
+`gh repo view <owner/repo> --json visibility` で毎回取ること。
+**引数を省くと cwd のリポジトリを見るので、空文字を渡すと嘘の結果が返る**（実際に踏んだ）。
 健康、雇用、金銭、本人の状況に関することは、スコープが何であれ公開リポジトリには絶対に
 入れない。`~/.claude/private.md` へ置くこと。非公開リポジトリの中であればこれらの話題は
 問題なく、グローバルファイルではなくそのリポジトリ自身の `CLAUDE.md` に属する。
