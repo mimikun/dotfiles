@@ -132,6 +132,9 @@ git push origin HEAD:master
   （`dot_claude/private_settings.json`）。ファイルを直接編集すると drift が発生する。
   編集後に `chezmoi add` を実行するか、`chezmoi edit` を使うこと。
   **git リポジトリかどうかでバックアップの有無を判断しないこと。**
+- **`~/.claude/` のソースリポジトリ `mimikun/dotfiles` は公開。**
+  ここに挙げたファイルを編集すると外から読める。**何を書いてよいかは
+  `CLAUDE.md` の「🧠 memory の置き場所」にある。**
 - `~/ghq/github.com/mimikun/mimikun.claude-code-config/` は放棄済み。読まない、編集しない。
 - **設定キーと環境変数は、勧める前に必ずバイナリに対して検証する:**
   `grep -c '<name>' (readlink -f (which claude))`。settings.json の `env` ブロックは
