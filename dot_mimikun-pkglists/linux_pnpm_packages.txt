@@ -55,6 +55,7 @@ czg
 editprompt
 envinfo
 @rivolink/leaf
+@weborigami/origami
 bullmq-dash
 epiq
 fallow
