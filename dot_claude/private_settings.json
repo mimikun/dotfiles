@@ -156,6 +156,18 @@
         ],
         "matcher": "*"
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/inject-current-time.sh'",
+            "timeout": 5,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
     ]
   },
   "inputNeededNotifEnabled": true,
