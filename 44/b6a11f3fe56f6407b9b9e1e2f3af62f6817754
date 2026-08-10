@@ -1,0 +1,14 @@
+dot_config/yazi/theme.toml
+  h_220433a6faf6b8 38,89,97-98,108-109,111,121,133,156
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "44b6a11f3fe56f6407b9b9e1e2f3af62f6817754",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
