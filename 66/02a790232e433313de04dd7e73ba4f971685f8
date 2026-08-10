@@ -1,0 +1,21 @@
+dot_claude/hooks/executable_inject-current-time.sh
+  s_4ea7e77113a489::t_409863c8e97e5f 1-28
+dot_claude/private_settings.json
+  s_4ea7e77113a489::t_df6e56a644fc1c 159-170
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "6602a790232e433313de04dd7e73ba4f971685f8",
+  "prompts": {},
+  "sessions": {
+    "s_4ea7e77113a489": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "aa475ff8-d22d-4f44-93f0-6f1ccedf488d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
