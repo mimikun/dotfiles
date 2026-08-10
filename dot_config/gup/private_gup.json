@@ -68,6 +68,12 @@
       "channel": "latest"
     },
     {
+      "name": "agtlog",
+      "import_path": "github.com/motoki317/agtlog/cmd/agtlog",
+      "version": "v0.2.1",
+      "channel": "latest"
+    },
+    {
       "name": "algia",
       "import_path": "github.com/mattn/algia",
       "version": "v0.0.135",
