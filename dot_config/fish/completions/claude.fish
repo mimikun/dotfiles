@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.223 on 2026-08-07.
+# Generated from claude 2.1.226 on 2026-08-10.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -207,6 +207,7 @@ complete -c claude -n '__fish_claude_at ""' -l bare -d 'Minimal mode: skip hooks
 complete -c claude -n '__fish_claude_at ""' -l betas -d 'Beta headers to include in API requests (API key users only)' -r
 complete -c claude -n '__fish_claude_at ""' -l brief -d 'Enable SendUserMessage tool for agent-to-user communication'
 complete -c claude -n '__fish_claude_at ""' -l chrome -d 'Enable Claude in Chrome integration'
+complete -c claude -n '__fish_claude_at ""' -l cloud -d 'Create a cloud session with the given description, or attach to an existing one by sessio…'
 complete -c claude -n '__fish_claude_at ""' -s c -l continue -d 'Continue the most recent conversation in the current directory'
 complete -c claude -n '__fish_claude_at ""' -l dangerously-skip-permissions -d 'Bypass all permission checks. Recommended only for sandboxes with no internet access.'
 complete -c claude -n '__fish_claude_at ""' -s d -l debug -d 'Enable debug mode with optional category filtering (e.g., "api,hooks" or "!1p,!file")'
@@ -215,6 +216,7 @@ complete -c claude -n '__fish_claude_at ""' -l disable-slash-commands -d 'Disabl
 complete -c claude -n '__fish_claude_at ""' -l disallowedTools -l disallowed-tools -d 'Comma or space-separated list of tool names to deny (e.g. "Bash(git *) Edit")' -r
 complete -c claude -n '__fish_claude_at ""' -l effort -x -a 'low medium high xhigh max'
 complete -c claude -n '__fish_claude_at ""' -l effort -d 'Effort level for the current session (low, medium, high, xhigh, max)' -x
+complete -c claude -n '__fish_claude_at ""' -l environment -d 'Create a new cloud session that runs on the given self-hosted environment (ccpool_...).' -r
 complete -c claude -n '__fish_claude_at ""' -l exclude-dynamic-system-prompt-sections -d 'Move per-machine sections (cwd, env info, memory paths, git status) from the system promp…'
 complete -c claude -n '__fish_claude_at ""' -l fallback-model -x -a 'fable opus sonnet haiku claude-fable-5 claude-opus-5 claude-sonnet-5 claude-haiku-4-5-20251001'
 complete -c claude -n '__fish_claude_at ""' -l fallback-model -d 'Enable automatic fallback to specified model(s) when the default model is overloaded or n…' -x
@@ -256,6 +258,7 @@ complete -c claude -n '__fish_claude_at ""' -l setting-sources -d 'Comma-separat
 complete -c claude -n '__fish_claude_at ""' -l settings -d 'Path to a settings JSON file or a JSON string to load additional settings from' -r -F
 complete -c claude -n '__fish_claude_at ""' -l strict-mcp-config -d 'Only use MCP servers from --mcp-config, ignoring all other MCP configurations'
 complete -c claude -n '__fish_claude_at ""' -l system-prompt -d 'System prompt to use for the session' -r
+complete -c claude -n '__fish_claude_at ""' -l teleport -d 'Resume a teleport session, optionally specify session ID'
 complete -c claude -n '__fish_claude_at ""' -l tmux -d 'Create a tmux session for the worktree (requires --worktree). Uses iTerm2 native panes wh…'
 complete -c claude -n '__fish_claude_at ""' -l tools -d 'Specify the list of available tools from the built-in set. Use "" to disable all tools, "…' -r
 complete -c claude -n '__fish_claude_at ""' -l verbose -d 'Override verbose mode setting from config'
@@ -447,10 +450,11 @@ complete -c claude -n '__fish_claude_at "plugin eval"' -l keep-temp -d 'Preserve
 complete -c claude -n '__fish_claude_at "plugin eval"' -l max-cost-usd -d 'Optional hard cost ceiling; abort and report partial results if hit (exit 2). Overrun is…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l model -x -a 'fable opus sonnet haiku claude-fable-5 claude-opus-5 claude-sonnet-5 claude-haiku-4-5-20251001'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l model -d 'Override model for all cases' -x
+complete -c claude -n '__fish_claude_at "plugin eval"' -l no-publish -d 'Keep the HTML report local only; skip publishing it to claude.ai'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l no-scaffold -d 'Explicitly skip scaffold_script'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l output-dir -d 'Directory for aggregate-result.json (default: ./evals/results/<timestamp>/)' -r
-complete -c claude -n '__fish_claude_at "plugin eval"' -l publish-report -d 'Publish the HTML report privately to claude.ai and print its link'
-complete -c claude -n '__fish_claude_at "plugin eval"' -l report -d 'Write a self-contained HTML report (scores, prompts, grader verdicts) to <path>' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l publish-report -d 'Also require publishing the report to claude.ai (already the default when your account su…'
+complete -c claude -n '__fish_claude_at "plugin eval"' -l report -d 'Write the self-contained HTML report (scores, prompts, grader verdicts) to <path> instead…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l runs -d 'Override per-case runs (default: case.runs ?? 3)' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l scaffold -d 'Run each case\'s scaffold_script (runs author-supplied bash as you; off by default — only…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l tag -d 'Filter cases by tag (repeatable)' -r
@@ -460,6 +464,7 @@ complete -c claude -n '__fish_claude_at "plugin eval"' -l verbose -d 'Stream the
 # claude plugin eval init
 complete -c claude -n '__fish_claude_at "plugin eval init"' -l bare -d 'Write a blank template (prompt.md + graders/criteria.md) instead of running the interview'
 complete -c claude -n '__fish_claude_at "plugin eval init"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "plugin eval init"' -s i -l interactive -d 'Run the authoring interview (already the default in a terminal); requires an interactive…'
 
 # claude plugin init
 complete -c claude -n '__fish_claude_at "plugin init"' -l author -d 'Author name (default: git config user.name)' -r

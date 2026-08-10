@@ -265,3 +265,4 @@ complete -c $bat -s h -d "Print a concise overview of $bat-cache help" -n __bat_
 complete -c $bat -l help -f -d "Print all $bat-cache help" -n __bat_cache_no_excl
 
 # vim:ft=fish
+

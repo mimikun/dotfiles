@@ -10,10 +10,11 @@ end
 # Meta options
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'version' -d "Show version of doggo"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'help'    -d "Show list of command-line options"
+complete -c doggo -n '__fish_doggo_no_subcommand' -l 'config'  -d "Load defaults from a TOML config file" -r
 
 # Query options
 complete -c doggo -n '__fish_doggo_no_subcommand' -s 'q' -l 'query'      -d "Hostname to query the DNS records for" -x -a "(__fish_print_hostnames)"
-complete -c doggo -n '__fish_doggo_no_subcommand' -s 't' -l 'type'       -d "Type of the DNS Record" -x -a "A AAAA CAA CNAME HINFO MX NS PTR SOA SRV TXT"
+complete -c doggo -n '__fish_doggo_no_subcommand' -s 't' -l 'type'       -d "DNS record type by name, number, or TYPE<number>" -x -a "A AAAA CAA CNAME HINFO HTTPS MX NS PTR SOA SRV SVCB TXT"
 complete -c doggo -n '__fish_doggo_no_subcommand' -s 'n' -l 'nameserver' -d "Address of a specific nameserver to send queries to" -x -a "(__fish_print_hostnames)"
 complete -c doggo -n '__fish_doggo_no_subcommand' -s 'c' -l 'class'      -d "Network class of the DNS record being queried" -x -a "IN CH HS"
 complete -c doggo -n '__fish_doggo_no_subcommand' -s 'r' -l 'reverse'    -d "Performs a DNS Lookup for an IPv4 or IPv6 address"
@@ -26,6 +27,7 @@ complete -c doggo -n '__fish_doggo_no_subcommand' -l 'search'    -d "Use the sea
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'timeout'   -d "Specify timeout (in seconds) for the resolver to return a response"
 complete -c doggo -n '__fish_doggo_no_subcommand' -s '4' -l 'ipv4' -d "Use IPv4 only"
 complete -c doggo -n '__fish_doggo_no_subcommand' -s '6' -l 'ipv6' -d "Use IPv6 only"
+complete -c doggo -n '__fish_doggo_no_subcommand' -l 'http3' -d "Use HTTP/3 for DNS-over-HTTPS nameservers"
 
 # Query flags
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'aa' -d "Set Authoritative Answer flag"
@@ -39,7 +41,7 @@ complete -c doggo -n '__fish_doggo_no_subcommand' -l 'do' -d "Set DNSSEC OK flag
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'nsid'    -d "Request Name Server Identifier (NSID)"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'cookie'  -d "Request DNS Cookie"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'padding' -d "Request EDNS padding for privacy"
-complete -c doggo -n '__fish_doggo_no_subcommand' -l 'ede'     -d "Request Extended DNS Errors"
+complete -c doggo -n '__fish_doggo_no_subcommand' -l 'ede'     -d "Enable EDNS to receive Extended DNS Errors"
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'ecs'     -d "EDNS Client Subnet" -x
 complete -c doggo -n '__fish_doggo_no_subcommand' -l 'bufsize' -d "EDNS UDP buffer size in bytes" -x
 

@@ -5302,6 +5302,9 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-installer-metadata -d 'Skip writing `uv` installer metadata files (e.g., `INSTALLER`, `REQUESTED`, and `direct_url.json`) to site-packages `.dist-info` directories [env: UV_NO_INSTALLER_METADATA=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -l no-config -d 'Avoid discovering configuration files (`pyproject.toml`, `uv.toml`)'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from dir" -s h -l help -d 'Display the concise help for this command'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l output-format -d 'Select the output format' -r -f -a "auto\t'Display a human-readable size in terminals and raw bytes otherwise'
+human\t'Display the cache size in a human-readable format'
+machine\t'Display the cache size in raw bytes'"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l cache-dir -d 'Path to the cache directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l python-preference -r -f -a "only-managed\t'Only use managed Python installations; never use system Python installations'
 managed\t'Prefer managed Python installations over system Python installations'
@@ -5318,7 +5321,7 @@ complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l directory -d 'Change to the given directory prior to running the command' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l project -d 'Discover a project in the given directory' -r -f -a "(__fish_complete_directories)"
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l config-file -d 'The path to a `uv.toml` file to use for configuration' -r -F
-complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -s H -l human -d 'Display the cache size in human-readable format (e.g., `1.2 GiB` instead of raw bytes)'
+complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -s H -l human -d 'Display the cache size in human-readable format (e.g., `1.2GiB` instead of raw bytes)'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -s n -l no-cache -d 'Avoid reading from or writing to the cache, instead using a temporary directory for the duration of the operation'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l managed-python -d 'Require use of uv-managed Python versions [env: UV_MANAGED_PYTHON=]'
 complete -c uv -n "__fish_uv_using_subcommand cache; and __fish_seen_subcommand_from size" -l no-managed-python -d 'Disable use of uv-managed Python versions [env: UV_NO_MANAGED_PYTHON=]'
