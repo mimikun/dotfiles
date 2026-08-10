@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 # UserPromptSubmit hook: put the real current time into context on every turn.
 #
-# Reason it is not SessionStart: the failure this replaces (M02) is not "the time
-# was never known", it is "a value taken once was extrapolated from". Injecting a
-# single timestamp per session reproduces exactly that, and lends it authority.
-# Turn intervals are unrelated to wall-clock time — the user leaves for hours —
-# so the only safe value is one measured on this turn.
+# Reason it is not SessionStart: the failure this replaces is not "the time was
+# never known", it is "a value taken once was extrapolated from" — readings drifted
+# by 12 to 60 minutes that way, including after a rule said to re-measure.
+# A single timestamp per session reproduces exactly that shape, and lends it the
+# authority of coming from the harness. Turn intervals are unrelated to wall-clock
+# time — hours can pass — so the only safe value is one measured on this turn.
 set -uo pipefail
 
 # Without jq the JSON could not be escaped safely; emitting nothing is correct,
-# since the rule in rules/general.md still says to run `date`.
+# since the "current time" rule in rules/general.md still says to run `date`.
 command -v jq >/dev/null 2>&1 || exit 0
 
 now=$(date '+%Y-%m-%d (%a) %H:%M:%S %Z') || exit 0
