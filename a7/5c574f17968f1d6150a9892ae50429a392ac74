@@ -1,0 +1,21 @@
+dot_config/fish/completions/claude.fish
+  s_55cee479aaa4fd::t_d12ec1ddbfed44 3,560-561
+dot_config/fish/completions/mise.fish
+  s_55cee479aaa4fd::t_8ec1c3bbd887ff 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a75c574f17968f1d6150a9892ae50429a392ac74",
+  "prompts": {},
+  "sessions": {
+    "s_55cee479aaa4fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "db33bfc8-44f2-482f-b432-0327cadd2f54",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
