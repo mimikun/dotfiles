@@ -1,3 +1,4 @@
+arf-bin
 bastet
 betterlockscreen
 bit
@@ -44,6 +45,7 @@ lazyworktree-bin
 mcat-bin
 lefthook
 mani
+matcha-client-bin
 matugen-bin
 mcdu-bin
 minify
