@@ -112,7 +112,7 @@
     {
       "name": "atago",
       "import_path": "github.com/nao1215/atago",
-      "version": "v0.18.0",
+      "version": "v0.19.0",
       "channel": "latest"
     },
     {
@@ -706,7 +706,7 @@
     {
       "name": "gotip",
       "import_path": "github.com/lusingander/gotip/cmd/gotip",
-      "version": "v0.10.0",
+      "version": "v0.10.1",
       "channel": "latest"
     },
     {
@@ -850,7 +850,7 @@
     {
       "name": "kage",
       "import_path": "github.com/tamnd/kage/cmd/kage",
-      "version": "v0.3.11",
+      "version": "v0.3.12",
       "channel": "latest"
     },
     {
@@ -994,7 +994,7 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260802224418-9f27e57c4b0e",
+      "version": "v0.0.0-20260810211804-34ecd96967eb",
       "channel": "latest"
     },
     {
@@ -1108,7 +1108,7 @@
     {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.10.8",
+      "version": "v1.11.2",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "otel-tui",
       "import_path": "github.com/ymtdzzz/otel-tui",
-      "version": "v0.7.3",
+      "version": "v0.7.4",
       "channel": "latest"
     },
     {
@@ -1300,7 +1300,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.52.1",
+      "version": "v0.53.1",
       "channel": "latest"
     },
     {
@@ -1336,7 +1336,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.17.2",
+      "version": "v3.17.3",
       "channel": "latest"
     },
     {
@@ -1396,7 +1396,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.94.0",
+      "version": "v0.95.0",
       "channel": "latest"
     },
     {
@@ -1726,7 +1726,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.24",
+      "version": "v0.20.26",
       "channel": "latest"
     },
     {
