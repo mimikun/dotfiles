@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.226 on 2026-08-10.
+# Generated from claude 2.1.227 on 2026-08-11.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -557,6 +557,8 @@ complete -c claude -n '__fish_claude_at "setup-token"' -s h -l help -d 'Display 
 # claude ultrareview
 complete -c claude -n '__fish_claude_at "ultrareview"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "ultrareview"' -l json -d 'Print the raw bugs.json payload instead of formatted findings'
+complete -c claude -n '__fish_claude_at "ultrareview"' -l no-post -d 'Do not post the findings to the PR (the default; accepted for parity with the /ultrarevie…'
+complete -c claude -n '__fish_claude_at "ultrareview"' -l post -d 'Post the finished review\'s findings to the PR as you (PR targets only; one plain comment,…'
 complete -c claude -n '__fish_claude_at "ultrareview"' -l timeout -d 'Maximum minutes to wait for the review to finish (default: 30)' -r
 
 # claude update
