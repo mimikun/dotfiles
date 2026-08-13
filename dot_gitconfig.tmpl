@@ -116,21 +116,34 @@
 # git hooks (by hk.jdx.dev)
 # =============================================================================
 
+# hk only defines steps for pre-commit (~/.config/hk/config.pkl), so every hook
+# below starts hk just to have it exit doing nothing. That cost is invisible on a
+# single commit and brutal on a rebase, which fires post-checkout,
+# prepare-commit-msg, post-commit and post-rewrite once per replayed commit:
+# a 20-commit rebase measured 33.6s, and 0.27s with HK=0 (2026-08-13).
+# Re-enable any of these the moment config.pkl grows steps for it.
+# `hk install --global` will drop the `enabled` lines if re-run.
+
 [hook "hk-commit-msg"]
 	command = test \"${HK:-1}\" = \"0\" || hk run commit-msg --from-hook \"$@\"
 	event = commit-msg
+	enabled = false
 [hook "hk-post-checkout"]
 	command = test \"${HK:-1}\" = \"0\" || hk run post-checkout --from-hook \"$@\"
 	event = post-checkout
+	enabled = false
 [hook "hk-post-commit"]
 	command = test \"${HK:-1}\" = \"0\" || hk run post-commit --from-hook \"$@\"
 	event = post-commit
+	enabled = false
 [hook "hk-post-merge"]
 	command = test \"${HK:-1}\" = \"0\" || hk run post-merge --from-hook \"$@\"
 	event = post-merge
+	enabled = false
 [hook "hk-post-rewrite"]
 	command = test \"${HK:-1}\" = \"0\" || hk run post-rewrite --from-hook \"$@\"
 	event = post-rewrite
+	enabled = false
 # No repository here has an hk.pkl, and `--from-hook` makes hk exit 0 silently in
 # that case -- so the steps in ~/.config/hk/config.pkl never ran. Dropping the
 # flag is what makes the global config take effect. `hk install --global` will
@@ -141,6 +154,7 @@
 [hook "hk-pre-push"]
 	command = test \"${HK:-1}\" = \"0\" || hk run pre-push --from-hook \"$@\"
 	event = pre-push
+	enabled = false
 # `git rebase --root` passes no UPSTREAM (and passes `--root` through), but
 # `hk run pre-rebase` requires one, so every rooted rebase is refused. No
 # pre-rebase steps are configured in ~/.config/hk/config.pkl, so this hook can
@@ -152,6 +166,7 @@
 [hook "hk-prepare-commit-msg"]
 	command = test \"${HK:-1}\" = \"0\" || hk run prepare-commit-msg --from-hook \"$@\"
 	event = prepare-commit-msg
+	enabled = false
 
 # =============================================================================
 # git-ai
