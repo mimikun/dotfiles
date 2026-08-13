@@ -1,27 +1,27 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_unifly_global_optspecs
-	string join \n p/profile= c/controller= s/site= api-key= host-id= o/output= color= theme= v/verbose q/quiet y/yes totp= no-cache demo k/insecure timeout= no-effects h/help V/version
+    string join \n p/profile= c/controller= s/site= api-key= host-id= o/output= color= theme= v/verbose q/quiet y/yes totp= no-cache demo k/insecure= timeout= no-effects h/help V/version
 end
 
 function __fish_unifly_needs_command
-	# Figure out if the current invocation already has a command.
-	set -l cmd (commandline -opc)
-	set -e cmd[1]
-	argparse -s (__fish_unifly_global_optspecs) -- $cmd 2>/dev/null
-	or return
-	if set -q argv[1]
-		# Also print the command, so this can be used to figure out what it is.
-		echo $argv[1]
-		return 1
-	end
-	return 0
+    # Figure out if the current invocation already has a command.
+    set -l cmd (commandline -opc)
+    set -e cmd[1]
+    argparse -s (__fish_unifly_global_optspecs) -- $cmd 2>/dev/null
+    or return
+    if set -q argv[1]
+        # Also print the command, so this can be used to figure out what it is.
+        echo $argv[1]
+        return 1
+    end
+    return 0
 end
 
 function __fish_unifly_using_subcommand
-	set -l cmd (__fish_unifly_needs_command)
-	test -z "$cmd"
-	and return 1
-	contains -- $cmd[1] $argv
+    set -l cmd (__fish_unifly_needs_command)
+    test -z "$cmd"
+    and return 1
+    contains -- $cmd[1] $argv
 end
 
 complete -c unifly -n "__fish_unifly_needs_command" -s p -l profile -d 'Controller profile to use' -r
@@ -39,13 +39,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_needs_command" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_needs_command" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_needs_command" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_needs_command" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_needs_command" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_needs_command" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_needs_command" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_needs_command" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_needs_command" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_needs_command" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_needs_command" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_needs_command" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_needs_command" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_needs_command" -s V -l version -d 'Print version'
@@ -99,13 +100,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand api" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand api" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand api" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand api" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand api" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand api" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand api" -s V -l version -d 'Print version'
@@ -124,13 +126,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and not __fish_seen_subcommand_from list get create update delete reorder help" -s V -l version -d 'Print version'
@@ -159,14 +162,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -185,13 +189,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -221,13 +226,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
@@ -259,13 +265,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -284,13 +291,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
@@ -310,14 +318,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l get -d 'Get current ordering'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand acl; and __fish_seen_subcommand_from reorder" -s V -l version -d 'Print version'
@@ -343,13 +352,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and not __fish_seen_subcommand_from list invite revoke update help" -s V -l version -d 'Print version'
@@ -373,13 +383,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -401,13 +412,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from invite" -s V -l version -d 'Print version'
@@ -426,13 +438,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from revoke" -s V -l version -d 'Print version'
@@ -452,13 +465,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand admin; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -482,13 +496,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and not __fish_seen_subcommand_from list archive archive-all help" -s V -l version -d 'Print version'
@@ -512,14 +527,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l unarchived -d 'Only show unarchived alarms'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -538,13 +554,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive" -s V -l version -d 'Print version'
@@ -563,13 +580,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand alarms; and __fish_seen_subcommand_from archive-all" -s V -l version -d 'Print version'
@@ -592,13 +610,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and not __fish_seen_subcommand_from list find get roams wifi authorize unauthorize block unblock kick forget reservations set-ip remove-ip help" -s V -l version -d 'Print version'
@@ -635,14 +654,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -661,13 +681,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from find" -s V -l version -d 'Print version'
@@ -686,13 +707,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -712,13 +734,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from roams" -s V -l version -d 'Print version'
@@ -737,13 +760,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from wifi" -s V -l version -d 'Print version'
@@ -766,13 +790,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from authorize" -s V -l version -d 'Print version'
@@ -791,13 +816,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unauthorize" -s V -l version -d 'Print version'
@@ -816,13 +842,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from block" -s V -l version -d 'Print version'
@@ -841,13 +868,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from unblock" -s V -l version -d 'Print version'
@@ -866,13 +894,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from kick" -s V -l version -d 'Print version'
@@ -891,13 +920,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from forget" -s V -l version -d 'Print version'
@@ -919,14 +949,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from reservations" -s V -l version -d 'Print version'
@@ -947,13 +978,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from set-ip" -s V -l version -d 'Print version'
@@ -973,13 +1005,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand clients; and __fish_seen_subcommand_from remove-ip" -s V -l version -d 'Print version'
@@ -1013,13 +1046,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand completions" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand completions" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand completions" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand completions" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand completions" -s V -l version -d 'Print version'
@@ -1038,13 +1072,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and not __fish_seen_subcommand_from hosts sites switch devices isp sdwan help" -s V -l version -d 'Print version'
@@ -1070,13 +1105,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from hosts" -s V -l version -d 'Print version'
@@ -1097,13 +1133,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sites" -s V -l version -d 'Print version'
@@ -1121,13 +1158,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from switch" -s V -l version -d 'Print version'
@@ -1147,13 +1185,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from devices" -s V -l version -d 'Print version'
@@ -1174,13 +1213,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from isp" -s V -l version -d 'Print version'
@@ -1201,13 +1241,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand cloud; and __fish_seen_subcommand_from sdwan" -s V -l version -d 'Print version'
@@ -1236,13 +1277,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and not __fish_seen_subcommand_from init cloud-setup show set profiles use theme set-password help" -s V -l version -d 'Print version'
@@ -1270,13 +1312,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from init" -s V -l version -d 'Print version'
@@ -1295,13 +1338,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from cloud-setup" -s V -l version -d 'Print version'
@@ -1320,13 +1364,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from show" -s V -l version -d 'Print version'
@@ -1345,13 +1390,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set" -s V -l version -d 'Print version'
@@ -1370,13 +1416,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from profiles" -s V -l version -d 'Print version'
@@ -1395,13 +1442,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from use" -s V -l version -d 'Print version'
@@ -1420,13 +1468,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from theme" -s V -l version -d 'Print version'
@@ -1445,13 +1494,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand config; and __fish_seen_subcommand_from set-password" -s V -l version -d 'Print version'
@@ -1479,13 +1529,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand countries" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand countries" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand countries" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand countries" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand countries" -s V -l version -d 'Print version'
@@ -1504,13 +1555,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and not __fish_seen_subcommand_from list get adopt remove restart locate port-cycle stats pending upgrade provision speedtest tags ports ports-export port-set help" -s V -l version -d 'Print version'
@@ -1549,14 +1601,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -1575,13 +1628,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -1600,14 +1654,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l ignore-limit -d 'Ignore device limit on the site'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from adopt" -s V -l version -d 'Print version'
@@ -1626,13 +1681,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from remove" -s V -l version -d 'Print version'
@@ -1651,13 +1707,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from restart" -s V -l version -d 'Print version'
@@ -1678,13 +1735,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from locate" -s V -l version -d 'Print version'
@@ -1703,13 +1761,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-cycle" -s V -l version -d 'Print version'
@@ -1728,13 +1787,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from stats" -s V -l version -d 'Print version'
@@ -1756,14 +1816,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from pending" -s V -l version -d 'Print version'
@@ -1783,13 +1844,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from upgrade" -s V -l version -d 'Print version'
@@ -1808,13 +1870,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from provision" -s V -l version -d 'Print version'
@@ -1833,13 +1896,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from speedtest" -s V -l version -d 'Print version'
@@ -1861,14 +1925,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from tags" -s V -l version -d 'Print version'
@@ -1887,14 +1952,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l with-clients -d 'Include the wired clients and adopted devices (APs, downstream switches) currently observed on each port. Adds a `connections` array in JSON output (with a `kind` discriminator per entry — `"client"` or `"device"`) and a `Conns` count column (`<clients>/<devices>`) in the table view'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports" -s V -l version -d 'Print version'
@@ -1913,7 +1979,9 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l all -d 'Emit every port, including those without an override entry'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l with-clients -d 'Annotate each port with `// last-seen <ISO8601>: <mac> (<name>, <kind>)` comments for currently-connected wired clients and adopted devices. `<kind>` is `client` or `device`. Useful for drift detection — the comment block records what was observed on each labelled port at export time. The marker prefix `// last-seen ` is a stable parse anchor (don\'t hand-edit those lines)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
@@ -1921,7 +1989,6 @@ complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_s
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from ports-export" -s V -l version -d 'Print version'
@@ -1958,14 +2025,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l reset -d 'Remove this port\'s `port_overrides` entry, returning it to controller defaults. Mutually exclusive with the per-field flags above. Equivalent to applying `{"ports": [{"index": <PORT_IDX>, "reset": true}]}` via `-F`'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand devices; and __fish_seen_subcommand_from port-set" -s V -l version -d 'Print version'
@@ -2001,13 +2069,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and not __fish_seen_subcommand_from list get create update delete help" -s V -l version -d 'Print version'
@@ -2035,14 +2104,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -2061,13 +2131,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -2098,13 +2169,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
@@ -2124,13 +2196,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -2149,13 +2222,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dns; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
@@ -2180,13 +2254,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and not __fish_seen_subcommand_from apps categories status enable disable help" -s V -l version -d 'Print version'
@@ -2214,14 +2289,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from apps" -s V -l version -d 'Print version'
@@ -2243,14 +2319,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from categories" -s V -l version -d 'Print version'
@@ -2269,13 +2346,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from status" -s V -l version -d 'Print version'
@@ -2294,13 +2372,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from enable" -s V -l version -d 'Print version'
@@ -2319,13 +2398,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand dpi; and __fish_seen_subcommand_from disable" -s V -l version -d 'Print version'
@@ -2350,13 +2430,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and not __fish_seen_subcommand_from list watch help" -s V -l version -d 'Print version'
@@ -2380,13 +2461,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -2406,13 +2488,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand events; and __fish_seen_subcommand_from watch" -s V -l version -d 'Print version'
@@ -2434,13 +2517,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and not __fish_seen_subcommand_from policies zones groups help" -s V -l version -d 'Print version'
@@ -2463,13 +2547,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from policies" -s V -l version -d 'Print version'
@@ -2496,13 +2581,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from zones" -s V -l version -d 'Print version'
@@ -2527,13 +2613,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand firewall; and __fish_seen_subcommand_from groups" -s V -l version -d 'Print version'
@@ -2562,13 +2649,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and not __fish_seen_subcommand_from list get create delete purge help" -s V -l version -d 'Print version'
@@ -2595,13 +2683,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -2620,13 +2709,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -2652,13 +2742,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
@@ -2677,13 +2768,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
@@ -2703,13 +2795,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand hotspot; and __fish_seen_subcommand_from purge" -s V -l version -d 'Print version'
@@ -2734,13 +2827,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and not __fish_seen_subcommand_from policies help" -s V -l version -d 'Print version'
@@ -2761,13 +2855,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand nat; and __fish_seen_subcommand_from policies" -s V -l version -d 'Print version'
@@ -2794,13 +2889,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and not __fish_seen_subcommand_from list get create update delete refs help" -s V -l version -d 'Print version'
@@ -2829,14 +2925,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -2855,13 +2952,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -2896,7 +2994,9 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l dhcp -d 'Enable DHCP server'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l isolated -d 'Enable network isolation'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
@@ -2904,7 +3004,6 @@ complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
@@ -2928,13 +3027,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -2953,14 +3053,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l force -d 'Force delete even if referenced'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
@@ -2979,13 +3080,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand networks; and __fish_seen_subcommand_from refs" -s V -l version -d 'Print version'
@@ -3011,13 +3113,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and not __fish_seen_subcommand_from profiles help" -s V -l version -d 'Print version'
@@ -3041,14 +3144,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand radius; and __fish_seen_subcommand_from profiles" -s V -l version -d 'Print version'
@@ -3069,13 +3173,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and not __fish_seen_subcommand_from list get set export help" -s V -l version -d 'Print version'
@@ -3099,13 +3204,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -3124,13 +3230,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -3150,13 +3257,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from set" -s V -l version -d 'Print version'
@@ -3175,13 +3283,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand settings; and __fish_seen_subcommand_from export" -s V -l version -d 'Print version'
@@ -3205,13 +3314,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and not __fish_seen_subcommand_from list create delete help" -s V -l version -d 'Print version'
@@ -3237,14 +3347,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -3265,13 +3376,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
@@ -3290,13 +3402,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand sites; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
@@ -3319,13 +3432,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and not __fish_seen_subcommand_from site device client gateway dpi help" -s V -l version -d 'Print version'
@@ -3358,13 +3472,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from site" -s V -l version -d 'Print version'
@@ -3391,13 +3506,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from device" -s V -l version -d 'Print version'
@@ -3424,13 +3540,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from client" -s V -l version -d 'Print version'
@@ -3457,13 +3574,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from gateway" -s V -l version -d 'Print version'
@@ -3485,13 +3603,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand stats; and __fish_seen_subcommand_from dpi" -s V -l version -d 'Print version'
@@ -3516,13 +3635,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and not __fish_seen_subcommand_from info health sysinfo backup reboot poweroff help" -s V -l version -d 'Print version'
@@ -3548,13 +3668,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from info" -s V -l version -d 'Print version'
@@ -3573,13 +3694,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from health" -s V -l version -d 'Print version'
@@ -3598,13 +3720,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from sysinfo" -s V -l version -d 'Print version'
@@ -3623,13 +3746,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from backup" -s V -l version -d 'Print version'
@@ -3653,13 +3777,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from reboot" -s V -l version -d 'Print version'
@@ -3678,13 +3803,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand system; and __fish_seen_subcommand_from poweroff" -s V -l version -d 'Print version'
@@ -3710,13 +3836,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand topology" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand topology" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand topology" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand topology" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand topology" -s V -l version -d 'Print version'
@@ -3735,13 +3862,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and not __fish_seen_subcommand_from list get create update delete help" -s V -l version -d 'Print version'
@@ -3769,14 +3897,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -3795,13 +3924,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -3826,13 +3956,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
@@ -3852,13 +3983,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -3877,13 +4009,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand traffic-lists; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
@@ -3908,13 +4041,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and not __fish_seen_subcommand_from servers tunnels status health site-to-site remote-access clients connections peers magic-site-to-site settings help" -s V -l version -d 'Print version'
@@ -3948,14 +4082,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from servers" -s V -l version -d 'Print version'
@@ -3979,14 +4114,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from tunnels" -s V -l version -d 'Print version'
@@ -4007,13 +4143,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from status" -s V -l version -d 'Print version'
@@ -4032,13 +4169,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from health" -s V -l version -d 'Print version'
@@ -4057,13 +4195,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from site-to-site" -s V -l version -d 'Print version'
@@ -4088,13 +4227,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from remote-access" -s V -l version -d 'Print version'
@@ -4121,13 +4261,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from clients" -s V -l version -d 'Print version'
@@ -4152,13 +4293,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from connections" -s V -l version -d 'Print version'
@@ -4181,13 +4323,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from peers" -s V -l version -d 'Print version'
@@ -4213,13 +4356,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from magic-site-to-site" -s V -l version -d 'Print version'
@@ -4241,13 +4385,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand vpn; and __fish_seen_subcommand_from settings" -s V -l version -d 'Print version'
@@ -4283,13 +4428,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and not __fish_seen_subcommand_from list help" -s V -l version -d 'Print version'
@@ -4313,14 +4459,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wans; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -4341,13 +4488,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and not __fish_seen_subcommand_from list get neighbors channels create update delete help" -s V -l version -d 'Print version'
@@ -4377,14 +4525,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s a -l all -d 'Fetch all pages automatically'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from list" -s V -l version -d 'Print version'
@@ -4403,13 +4552,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from get" -s V -l version -d 'Print version'
@@ -4430,14 +4580,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l all -d 'Show all results (no limit)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from neighbors" -s V -l version -d 'Print version'
@@ -4456,13 +4607,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from channels" -s V -l version -d 'Print version'
@@ -4495,7 +4647,9 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l hidden -d 'Hide SSID name'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l band-steering -d 'Enable band steering (standard type only)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l fast-roaming -d 'Enable fast roaming'
@@ -4504,7 +4658,6 @@ complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subc
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from create" -s V -l version -d 'Print version'
@@ -4528,13 +4681,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from update" -s V -l version -d 'Print version'
@@ -4553,14 +4707,15 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l force -d 'Force delete even if referenced'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand wifi; and __fish_seen_subcommand_from delete" -s V -l version -d 'Print version'
@@ -4588,13 +4743,14 @@ always\t'Always emit color codes'
 never\t'Never emit color codes'"
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -l theme -d 'Color theme (e.g., nord, dracula, silkcircuit-neon)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -l totp -d 'TOTP token for MFA-enabled controllers (prefer UNIFI_TOTP env var)' -r
-complete -c unifly -n "__fish_unifly_using_subcommand tui" -l timeout -d 'Request timeout in seconds' -r
+complete -c unifly -n "__fish_unifly_using_subcommand tui" -s k -l insecure -d 'Accept self-signed TLS certificates (--insecure=false forces verification)' -r -f -a "true\t''
+false\t''"
+complete -c unifly -n "__fish_unifly_using_subcommand tui" -l timeout -d 'Request timeout in seconds (default 30, profiles may override)' -r
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s v -l verbose -d 'Increase verbosity (-v, -vv, -vvv)'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s q -l quiet -d 'Suppress non-error output'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s y -l yes -d 'Skip confirmation prompts'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -l no-cache -d 'Disable session caching (forces fresh login)'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -l demo -d 'Sanitize PII for demo recordings (uses [demo] config section)'
-complete -c unifly -n "__fish_unifly_using_subcommand tui" -s k -l insecure -d 'Accept self-signed TLS certificates'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -l no-effects -d 'Disable tachyonfx animations in the TUI (honours `NO_EFFECTS=1`)'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c unifly -n "__fish_unifly_using_subcommand tui" -s V -l version -d 'Print version'
