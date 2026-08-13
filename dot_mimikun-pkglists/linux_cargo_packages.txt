@@ -3,6 +3,7 @@ ad-editor
 ag
 aichat
 aim
+amdtop
 apisnip
 ast-grep
 atac
@@ -69,6 +70,7 @@ codeberg-cli
 colorgen-nvim
 comchan
 commitlint-rs
+committed
 concord
 confirm-pam
 countryfetch
@@ -337,6 +339,7 @@ s3grep
 sabiql
 sccache
 scooter
+scope-monitor
 scraps
 sd
 seetui
