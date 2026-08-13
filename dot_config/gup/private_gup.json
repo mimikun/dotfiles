@@ -1562,6 +1562,12 @@
       "channel": "latest"
     },
     {
+      "name": "tornado",
+      "import_path": "codeberg.org/ozeye/tornado/cmd/tornado",
+      "version": "v0.4.0",
+      "channel": "latest"
+    },
+    {
       "name": "tpack",
       "import_path": "github.com/tmuxpack/tpack/cmd/tpack",
       "version": "v1.2.1",
@@ -1637,6 +1643,12 @@
       "name": "vim-startuptime",
       "import_path": "github.com/rhysd/vim-startuptime",
       "version": "v1.3.2",
+      "channel": "latest"
+    },
+    {
+      "name": "wails",
+      "import_path": "github.com/wailsapp/wails/v2/cmd/wails",
+      "version": "v2.14.0",
       "channel": "latest"
     },
     {
