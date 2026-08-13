@@ -7,7 +7,8 @@
     "i-have-adhd@i-have-adhd": true,
     "mattpocock-skills@claude-plugins-official": true,
     "obsidian@obsidian-skills": true,
-    "reviewable-html-workbench@reviewable-html-workbench-local": true
+    "reviewable-html-workbench@reviewable-html-workbench-local": true,
+    "understand-anything@understand-anything": true
   },
   "env": {
     "IS_DEMO": "1"
@@ -40,6 +41,12 @@
     "reviewable-html-workbench-local": {
       "source": {
         "repo": "u-ichi/reviewable-html-workbench",
+        "source": "github"
+      }
+    },
+    "understand-anything": {
+      "source": {
+        "repo": "Egonex-AI/Understand-Anything",
         "source": "github"
       }
     }
