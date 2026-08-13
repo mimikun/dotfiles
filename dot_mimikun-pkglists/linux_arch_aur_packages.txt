@@ -1,3 +1,4 @@
+amdtop
 arf-bin
 bastet
 betterlockscreen
@@ -86,6 +87,7 @@ try-rs-bin
 ttf-udev-gothic
 typioca-git
 unifly-bin
+visigrid-bin
 warp-terminal-bin
 web-greeter
 webkit2gtk
