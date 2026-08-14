@@ -118,7 +118,7 @@
     {
       "name": "ax",
       "import_path": "github.com/google/ax/cmd/ax",
-      "version": "v0.2.2",
+      "version": "v0.2.3",
       "channel": "latest"
     },
     {
@@ -550,13 +550,13 @@
     {
       "name": "git-wt",
       "import_path": "github.com/k1LoW/git-wt",
-      "version": "v0.29.0",
+      "version": "v0.29.1",
       "channel": "latest"
     },
     {
       "name": "github-nippou",
       "import_path": "github.com/masutaka/github-nippou/v4",
-      "version": "v4.3.0",
+      "version": "v4.3.2",
       "channel": "latest"
     },
     {
@@ -598,7 +598,7 @@
     {
       "name": "goimports",
       "import_path": "golang.org/x/tools/cmd/goimports",
-      "version": "v0.48.0",
+      "version": "v0.49.0",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "gonew",
       "import_path": "golang.org/x/tools/cmd/gonew",
-      "version": "v0.48.0",
+      "version": "v0.49.0",
       "channel": "latest"
     },
     {
@@ -994,13 +994,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260812202637-1f779c5d7e5f",
+      "version": "v0.0.0-20260813234339-e6789ab125fc",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.16.1",
+      "version": "v0.17.0",
       "channel": "latest"
     },
     {
@@ -1108,7 +1108,7 @@
     {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.11.2",
+      "version": "v1.11.3",
       "channel": "latest"
     },
     {
@@ -1300,7 +1300,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v0.53.1",
+      "version": "v1.0.0",
       "channel": "latest"
     },
     {
@@ -1336,7 +1336,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.17.3",
+      "version": "v3.17.4",
       "channel": "latest"
     },
     {
@@ -1360,7 +1360,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260813023811-fe2d9968f01e",
+      "version": "v0.0.0-20260813164225-49dcefb1a67f",
       "channel": "latest"
     },
     {
@@ -1396,7 +1396,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.97.0",
+      "version": "v0.98.0",
       "channel": "latest"
     },
     {
@@ -1486,7 +1486,7 @@
     {
       "name": "stringer",
       "import_path": "golang.org/x/tools/cmd/stringer",
-      "version": "v0.48.0",
+      "version": "v0.49.0",
       "channel": "latest"
     },
     {
@@ -1516,7 +1516,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.56.0",
+      "version": "v0.57.0",
       "channel": "latest"
     },
     {
@@ -1534,7 +1534,7 @@
     {
       "name": "tldx",
       "import_path": "github.com/brandonyoungdev/tldx",
-      "version": "v1.5.0",
+      "version": "v1.6.0",
       "channel": "latest"
     },
     {
@@ -1594,7 +1594,7 @@
     {
       "name": "ttt",
       "import_path": "github.com/eugenioenko/ttt/cmd/ttt",
-      "version": "v1.2.1",
+      "version": "v1.2.2",
       "channel": "latest"
     },
     {
