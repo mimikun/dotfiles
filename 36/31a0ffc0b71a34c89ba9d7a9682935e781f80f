@@ -1,0 +1,22 @@
+.chezmoiscripts/linux/run_onchange_after-install-agent-skills.sh.tmpl
+  s_88915ce00d3ea2::t_09cbcd34db60ba 68,70-72
+  s_88915ce00d3ea2::t_b0e9f56a281c85 8
+  s_88915ce00d3ea2::t_fe1e1828ccc4ba 46
+  s_88915ce00d3ea2::t_9f21448fb4a0d5 26-29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3631a0ffc0b71a34c89ba9d7a9682935e781f80f",
+  "prompts": {},
+  "sessions": {
+    "s_88915ce00d3ea2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "96935e8a-f48e-49dd-aa5b-24643496f31f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
