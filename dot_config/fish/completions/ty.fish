@@ -60,16 +60,20 @@ complete -c ty -n "__fish_ty_using_subcommand check" -l exclude -d 'Glob pattern
 complete -c ty -n "__fish_ty_using_subcommand check" -l color -d 'Control when colored output is used' -r -f -a "auto\t'Display colors if the output goes to an interactive terminal'
 always\t'Always display colors'
 never\t'Never display colors'"
+complete -c ty -n "__fish_ty_using_subcommand check" -l fix -d 'Apply fixes to resolve errors'
 complete -c ty -n "__fish_ty_using_subcommand check" -l add-ignore -d 'Adds `ty: ignore` comments to suppress all rule diagnostics'
 complete -c ty -n "__fish_ty_using_subcommand check" -s v -l verbose -d 'Use verbose output (or `-vv` and `-vvv` for more verbose output)'
 complete -c ty -n "__fish_ty_using_subcommand check" -s q -l quiet -d 'Use quiet output (or `-qq` for silent output)'
 complete -c ty -n "__fish_ty_using_subcommand check" -l error-on-warning -d 'Use exit code 1 if there are any warning-level diagnostics'
 complete -c ty -n "__fish_ty_using_subcommand check" -l exit-zero -d 'Always use exit code 0, even when there are error-level diagnostics'
+complete -c ty -n "__fish_ty_using_subcommand check" -l exit-zero-on-warning -d 'Use exit code 0 if there are no error-level diagnostics'
 complete -c ty -n "__fish_ty_using_subcommand check" -s W -l watch -d 'Watch files for changes and recheck files related to the changed files'
 complete -c ty -n "__fish_ty_using_subcommand check" -l respect-ignore-files -d 'Respect file exclusions via `.gitignore` and other standard ignore files. Use `--no-respect-ignore-files` to disable'
 complete -c ty -n "__fish_ty_using_subcommand check" -l no-respect-ignore-files
 complete -c ty -n "__fish_ty_using_subcommand check" -l force-exclude -d 'Enforce exclusions, even for paths passed to ty directly on the command-line. Use `--no-force-exclude` to disable'
 complete -c ty -n "__fish_ty_using_subcommand check" -l no-force-exclude
+complete -c ty -n "__fish_ty_using_subcommand check" -l exclude-scripts -d 'Exclude files containing PEP 723 inline script metadata unless passed explicitly. Use `--include-scripts` to disable'
+complete -c ty -n "__fish_ty_using_subcommand check" -l include-scripts
 complete -c ty -n "__fish_ty_using_subcommand check" -l no-progress -d 'Hide all progress outputs'
 complete -c ty -n "__fish_ty_using_subcommand check" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c ty -n "__fish_ty_using_subcommand server" -s h -l help -d 'Print help'

@@ -1,27 +1,27 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_ast_grep_global_optspecs
-	string join \n c/config= h/help V/version
+    string join \n c/config= h/help V/version
 end
 
 function __fish_ast_grep_needs_command
-	# Figure out if the current invocation already has a command.
-	set -l cmd (commandline -opc)
-	set -e cmd[1]
-	argparse -s (__fish_ast_grep_global_optspecs) -- $cmd 2>/dev/null
-	or return
-	if set -q argv[1]
-		# Also print the command, so this can be used to figure out what it is.
-		echo $argv[1]
-		return 1
-	end
-	return 0
+    # Figure out if the current invocation already has a command.
+    set -l cmd (commandline -opc)
+    set -e cmd[1]
+    argparse -s (__fish_ast_grep_global_optspecs) -- $cmd 2>/dev/null
+    or return
+    if set -q argv[1]
+        # Also print the command, so this can be used to figure out what it is.
+        echo $argv[1]
+        return 1
+    end
+    return 0
 end
 
 function __fish_ast_grep_using_subcommand
-	set -l cmd (__fish_ast_grep_needs_command)
-	test -z "$cmd"
-	and return 1
-	contains -- $cmd[1] $argv
+    set -l cmd (__fish_ast_grep_needs_command)
+    test -z "$cmd"
+    and return 1
+    contains -- $cmd[1] $argv
 end
 
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
@@ -32,22 +32,24 @@ complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "scan" -d 'Scan an
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "test" -d 'Test ast-grep rules'
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "new" -d 'Create new ast-grep project or items like rules/tests'
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "lsp" -d 'Start language server'
+complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "outline" -d 'Explore code structure for symbols, imports, exports, and members'
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "completions" -d 'Generate shell completion script'
 complete -c ast-grep -n "__fish_ast_grep_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s p -l pattern -d 'AST pattern to match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l selector -d 'AST kind to extract sub-part of pattern to match' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l strictness -d 'The strictness of the pattern' -r -f -a "cst\t'Match all nodes exactly'
+smart\t'Match all nodes except source trivial nodes'
+ast\t'Match only ast nodes'
+relaxed\t'Match ast nodes except comments'
+signature\t'Match ast nodes except comments, without text'
+template\t'Similar to smart but match text only, node kinds are ignored'"
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s k -l kind -d 'AST kind to match' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s r -l rewrite -d 'String to replace the matched AST node' -r
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s l -l lang -d 'The language of the pattern. Supported languages are: [Bash, C, Cpp, CSharp, Css, Elixir, Go, Haskell, Hcl, Html, Java, JavaScript, Json, Kotlin, Lua, Nix, Php, Python, Ruby, Rust, Scala, Solidity, Swift, Tsx, TypeScript, Yaml]' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -s l -l lang -d 'The language of the pattern. Supported languages are: [Bash, C, Cpp, CSharp, Css, Dart, Elixir, Go, Haskell, Hcl, Html, Java, JavaScript, Json, Kotlin, Lua, Markdown, Nix, Php, Python, Ruby, Rust, Scala, Solidity, Swift, Tsx, TypeScript, Yaml]' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l debug-query -d 'Print query pattern\'s tree-sitter AST. Requires lang be set explicitly' -r -f -a "pattern\t'Print the query parsed in Pattern format'
 ast\t'Print the query in tree-sitter AST format, only named nodes are shown'
 cst\t'Print the query in tree-sitter CST format, both named and unnamed nodes are shown'
 sexp\t'Print the query in S-expression format'"
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l strictness -d 'The strictness of the pattern' -r -f -a "cst\t'Match exact all node'
-smart\t'Match all node except source trivial nodes'
-ast\t'Match only ast nodes'
-relaxed\t'Match ast node except comments'
-signature\t'Match ast node except comments, without text'
-template\t'Similar to smart but match text only, node kinds are ignored'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand run" -l no-ignore -d 'Do not respect hidden file system or ignore files (.gitignore, .ignore, etc.)' -r -f -a "hidden\t'Search hidden files and directories. By default, hidden files and directories are skipped'
 dot\t'Don\'t respect .ignore files. This does *not* affect whether ast-grep will ignore files and directories whose names begin with a dot. For that, use --no-ignore hidden'
 exclude\t'Don\'t respect ignore files that are manually configured for the repository such as git\'s \'.git/info/exclude\''
@@ -125,11 +127,16 @@ complete -c ast-grep -n "__fish_ast_grep_using_subcommand scan" -s h -l help -d 
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -s t -l test-dir -d 'the directories to search test YAML files' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -l snapshot-dir -d 'Specify the directory name storing snapshots. Default to __snapshots__' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -s f -l filter -d 'Only run rule test cases that matches REGEX' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -l color -d 'Controls output color' -r -f -a "auto\t'Try to use colors, but don\'t force the issue. If the output is piped to another program, or the console isn\'t available on Windows, or if TERM=dumb, or if `NO_COLOR` is defined, for example, then don\'t use colors'
+always\t'Try very hard to emit colors. This includes emitting ANSI colors on Windows if the console API is unavailable (not implemented yet)'
+ansi\t'Ansi is like Always, except it never tries to use anything other than emitting ANSI color codes'
+never\t'Never emit colors'"
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -l skip-snapshot-tests -d 'Only check if the test code is valid, without checking rule output. Turn it on when you want to ignore the output of rules. Conflicts with --update-all'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -s U -l update-all -d 'Update the content of all snapshots that have changed in test. Conflicts with --skip-snapshot-tests'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -s i -l interactive -d 'Start an interactive review to update snapshots selectively'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -l include-off -d 'Include `severity:off` rules in test'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -l follow -d 'Follow symbolic links while searching test YAML files'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand test" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand new; and not __fish_seen_subcommand_from project rule test util help" -s l -l lang -d 'The language of the item to create' -r
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand new; and not __fish_seen_subcommand_from project rule test util help" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
@@ -163,15 +170,51 @@ complete -c ast-grep -n "__fish_ast_grep_using_subcommand new; and __fish_seen_s
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand new; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand lsp" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand lsp" -s h -l help -d 'Print help'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -s l -l lang -d 'Specify the input language' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l json -d 'Output outline entries in structured JSON' -r -f -a "pretty\t'Prints the matches as a pretty-printed JSON array, with indentation and line breaks. This is useful for human readability, but not for parsing by other programs. This is the default value for the `--json` option'
+stream\t'Prints each match as a separate JSON object, followed by a newline character. This is useful for streaming the output to other programs that can read one object per line'
+compact\t'Prints the matches as a single-line JSON array, without any whitespace. This is useful for saving space and minimizing the output size'"
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l color -d 'Controls output color' -r -f -a "auto\t'Try to use colors, but don\'t force the issue. If the output is piped to another program, or the console isn\'t available on Windows, or if TERM=dumb, or if `NO_COLOR` is defined, for example, then don\'t use colors'
+always\t'Try very hard to emit colors. This includes emitting ANSI colors on Windows if the console API is unavailable (not implemented yet)'
+ansi\t'Ansi is like Always, except it never tries to use anything other than emitting ANSI color codes'
+never\t'Never emit colors'"
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l items -d 'Select which top-level items to include' -r -f -a "auto\t'Use `structure` for file or stdin input, `exports` when any directory is given'
+structure\t'Top-level items defined locally in the file, excluding imports'
+exports\t'Top-level items exported from the file or module'
+imports\t'Top-level items imported from other files or modules'
+all\t'All top-level items, including imports and exports'"
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l type -d 'Keep only top-level items with these comma-separated symbol types' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l match -d 'Keep only top-level items matching this regex' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l view -d 'Select the text presentation' -r -f -a "auto\t'Use `digest` for file or stdin input, `names` when any directory is given'
+names\t'One grouped name line per symbol type for each file'
+signatures\t'One source/signature line per top-level item'
+digest\t'Signatures plus compact member name digests'
+expanded\t'Signatures plus one source/signature line per direct member'"
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l outline-rules -d 'Load additional outline extractor definitions' -r -F
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l no-ignore -d 'Do not respect hidden file system or ignore files (.gitignore, .ignore, etc.)' -r -f -a "hidden\t'Search hidden files and directories. By default, hidden files and directories are skipped'
+dot\t'Don\'t respect .ignore files. This does *not* affect whether ast-grep will ignore files and directories whose names begin with a dot. For that, use --no-ignore hidden'
+exclude\t'Don\'t respect ignore files that are manually configured for the repository such as git\'s \'.git/info/exclude\''
+global\t'Don\'t respect ignore files that come from "global" sources such as git\'s `core.excludesFile` configuration option (which defaults to `$HOME/.config/git/ignore`)'
+parent\t'Don\'t respect ignore files (.gitignore, .ignore, etc.) in parent directories'
+vcs\t'Don\'t respect version control ignore files (.gitignore, etc.). This implies --no-ignore parent for VCS files. Note that .ignore files will continue to be respected'"
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l globs -d 'Include or exclude file paths' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -s j -l threads -d 'Set the approximate number of threads to use' -r
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l pub-members -d 'Display only public members in member views'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l no-default-outline-rules -d 'Do not load bundled outline extractor definitions'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l follow -d 'Follow symbolic links'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -l stdin -d 'Enable search code from StdIn'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand outline" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand completions" -s c -l config -d 'Path to ast-grep root config, default is sgconfig.yml' -r -F
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand completions" -s h -l help -d 'Print help'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "run" -d 'Run one time search or rewrite in command line. (default command)'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "scan" -d 'Scan and rewrite code by configuration'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "test" -d 'Test ast-grep rules'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "new" -d 'Create new ast-grep project or items like rules/tests'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "lsp" -d 'Start language server'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "completions" -d 'Generate shell completion script'
-complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "run" -d 'Run one time search or rewrite in command line. (default command)'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "scan" -d 'Scan and rewrite code by configuration'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "test" -d 'Test ast-grep rules'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "new" -d 'Create new ast-grep project or items like rules/tests'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "lsp" -d 'Start language server'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "outline" -d 'Explore code structure for symbols, imports, exports, and members'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "completions" -d 'Generate shell completion script'
+complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and not __fish_seen_subcommand_from run scan test new lsp outline completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and __fish_seen_subcommand_from new" -f -a "project" -d 'Create an new project by scaffolding'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and __fish_seen_subcommand_from new" -f -a "rule" -d 'Create a new rule'
 complete -c ast-grep -n "__fish_ast_grep_using_subcommand help; and __fish_seen_subcommand_from new" -f -a "test" -d 'Create a new test case'

@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.232 on 2026-08-14.
+# Generated from claude 2.1.233 on 2026-08-15.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -420,7 +420,7 @@ complete -c claude -n '__fish_claude_at "plugin"' -a 'prune' -d 'Remove auto-ins
 complete -c claude -n '__fish_claude_at "plugin"' -a 'tag' -d 'Create a {name}--v{version} git tag for a plugin release, validating that plugin.json and…'
 complete -c claude -n '__fish_claude_at "plugin"' -a 'uninstall' -d 'Uninstall an installed plugin'
 complete -c claude -n '__fish_claude_at "plugin"' -a 'update' -d 'Update a plugin to the latest version (restart required to apply)'
-complete -c claude -n '__fish_claude_at "plugin"' -a 'validate' -d 'Validate a plugin or marketplace manifest'
+complete -c claude -n '__fish_claude_at "plugin"' -a 'validate' -d 'Validate a plugin or marketplace manifest, or the skills, agents, and commands in a direc…'
 complete -c claude -n '__fish_claude_at "plugin"' -s h -l help -d 'Display help for command'
 
 # claude plugin details
@@ -459,7 +459,7 @@ complete -c claude -n '__fish_claude_at "plugin eval"' -l runs -d 'Override per-
 complete -c claude -n '__fish_claude_at "plugin eval"' -l scaffold -d 'Run each case\'s scaffold_script (runs author-supplied bash as you; off by default — only…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l tag -d 'Filter cases by tag (repeatable)' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l threshold -d 'Exit 1 if any case score is below this threshold (default: 1.0)' -r
-complete -c claude -n '__fish_claude_at "plugin eval"' -l verbose -d 'Stream the trace as it runs'
+complete -c claude -n '__fish_claude_at "plugin eval"' -l verbose -d 'Log per-message trace events to the debug log (use --debug-file to read them)'
 
 # claude plugin eval init
 complete -c claude -n '__fish_claude_at "plugin eval init"' -l bare -d 'Write a blank template (prompt.md + graders/criteria.md) instead of running the interview'
