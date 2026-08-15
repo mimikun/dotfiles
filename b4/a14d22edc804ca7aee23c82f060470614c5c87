@@ -1,0 +1,14 @@
+dot_claude/private_settings.json
+  h_220433a6faf6b8 2-34,36-44,48-213,391-404,442,450-451,453
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b4a14d22edc804ca7aee23c82f060470614c5c87",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
