@@ -83,6 +83,7 @@ up-fetch
 vde-layout
 vde-monitor
 hunkdiff
+mcp-hub
 openwiki
 pixtuoid
 scriptc
