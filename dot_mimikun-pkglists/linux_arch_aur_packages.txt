@@ -85,6 +85,7 @@ toofan-bin
 tracker
 try-rs-bin
 ttf-udev-gothic
+ttt
 typioca-git
 unifly-bin
 visigrid-bin
