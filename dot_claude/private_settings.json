@@ -1,8 +1,216 @@
 {
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: private (mimikun/mimikun.agent-system, confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: master (default); no rulesets or protected-branch rules listed via gh — but this repo's own CLAUDE.md records an explicit owner decision (2026-07-31) permitting direct push to master, and blocks force-push via settings.json + a PreToolUse hook",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo (mimikun/mimikun.agent-system) and its origin remote (github.com:mimikun/mimikun.agent-system.git) only — private repo, single author, no additional orgs configured",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar. This repo's CLAUDE.md additionally flags health, employment, financial, and personal-situation details as never to be placed in any public repository (the linked dotfiles source repo, mimikun/dotfiles, is public)",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development, personal knowledge/records management (this repo is a personal record-keeping system)",
+      "**Trusted repo**: mimikun/mimikun.agent-system (private, single-author) and its origin remote — direct push to master is explicitly allowed by owner decision recorded in CLAUDE.md; force-push remains blocked",
+      "**Org-specific CLIs**: None configured (non-standard CLIs seen — herdr, chezmoi, neowright, spark, codex, officecli, rumdl, rtk — are personal/hobby tools, not org-specific)",
+      "**routine under mimikun/ prefix**: commits and pushes to master within mimikun/mimikun.agent-system are routine per repo's own documented policy"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(rm:*) — irreversible file deletion. rm is not in permissions.allow, and the prose records under mimikun/mimikun.agent-system are the only copy of content that cannot be regenerated, so deletions must stay confirmed rather than run unattended"
+    ]
+  },
   "cleanupPeriodDays": 30,
+  "effortLevel": "medium",
+  "enabledPlugins": {
+    "cclens@cclens": true,
+    "i-have-adhd@i-have-adhd": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "obsidian@obsidian-skills": true,
+    "reviewable-html-workbench@reviewable-html-workbench-local": true,
+    "understand-anything@understand-anything": true
+  },
   "env": {
     "IS_DEMO": "1"
   },
+  "extraKnownMarketplaces": {
+    "cclens": {
+      "source": {
+        "repo": "lambdalisue/cclens",
+        "source": "github"
+      }
+    },
+    "dotnet-agent-skills": {
+      "source": {
+        "repo": "dotnet/skills",
+        "source": "github"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "path": "/home/mimikun/ghq/github.com/ayghri/i-have-adhd",
+        "source": "directory"
+      }
+    },
+    "obsidian-skills": {
+      "source": {
+        "repo": "kepano/obsidian-skills",
+        "source": "github"
+      }
+    },
+    "reviewable-html-workbench-local": {
+      "source": {
+        "repo": "u-ichi/reviewable-html-workbench",
+        "source": "github"
+      }
+    },
+    "understand-anything": {
+      "source": {
+        "repo": "Egonex-AI/Understand-Anything",
+        "source": "github"
+      }
+    }
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "rtk hook claude",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/todoist-sync-reminder.sh'",
+            "type": "command"
+          }
+        ],
+        "matcher": "mcp__claude_ai_Todoist__(add|update|delete|complete|uncomplete|reschedule|reorder|manage|project)-"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-push.sh'",
+            "statusMessage": "Checking for destructive push",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/deny-recursive-rm.sh'",
+            "statusMessage": "Checking for recursive rm",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-git.sh'",
+            "statusMessage": "Checking for destructive git",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/deny-interpreter-oneliners.sh'",
+            "statusMessage": "Checking interpreter one-liners",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/check-settings-env.sh'",
+            "timeout": 20,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/check-agent-skills.sh'",
+            "timeout": 15,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/mimikun/.claude/hooks/inject-current-time.sh'",
+            "timeout": 5,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
+  "inputNeededNotifEnabled": true,
+  "model": "opus",
   "permissions": {
     "allow": [
       "Bash(npm:*)",
@@ -180,6 +388,20 @@
       "TodoRead(**)",
       "TodoWrite(**)"
     ],
+    "ask": [
+      "Edit(**/.git/**)",
+      "Edit(**/node_modules/**)",
+      "Edit(**/vendor/**)",
+      "Edit(**/.venv/**)",
+      "Edit(**/venv/**)",
+      "Edit(**/__pycache__/**)",
+      "Edit(**/target/**)",
+      "Edit(**/dist/**)",
+      "Edit(**/build/**)",
+      "Edit(**/.next/**)",
+      "Edit(**/coverage/**)"
+    ],
+    "defaultMode": "auto",
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(rm -fr:*)",
@@ -217,238 +439,16 @@
       "Edit(/sys/**)",
       "Edit(/dev/**)",
       "Edit(~/.ssh/**)"
-    ],
-    "ask": [
-      "Edit(**/.git/**)",
-      "Edit(**/node_modules/**)",
-      "Edit(**/vendor/**)",
-      "Edit(**/.venv/**)",
-      "Edit(**/venv/**)",
-      "Edit(**/__pycache__/**)",
-      "Edit(**/target/**)",
-      "Edit(**/dist/**)",
-      "Edit(**/build/**)",
-      "Edit(**/.next/**)",
-      "Edit(**/coverage/**)"
-    ],
-    "defaultMode": "auto"
+    ]
   },
-  "model": "opus",
   "skillOverrides": {
     "mattpocock-skills:grilling": "user-invocable-only",
     "officecli": "off"
   },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "rtk hook claude"
-          }
-        ]
-      },
-      {
-        "matcher": "mcp__claude_ai_Todoist__(add|update|delete|complete|uncomplete|reschedule|reorder|manage|project)-",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/todoist-sync-reminder.sh'"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-push.sh'",
-            "statusMessage": "Checking for destructive push"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/deny-recursive-rm.sh'",
-            "statusMessage": "Checking for recursive rm"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-git.sh'",
-            "statusMessage": "Checking for destructive git"
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/deny-interpreter-oneliners.sh'",
-            "statusMessage": "Checking interpreter one-liners"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/check-settings-env.sh'",
-            "timeout": 20
-          }
-        ]
-      },
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10
-          }
-        ]
-      },
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/check-agent-skills.sh'",
-            "timeout": 15
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/mimikun/.claude/hooks/inject-current-time.sh'",
-            "timeout": 5
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
-    "type": "command",
     "command": "bash \"$HOME/.claude/statusline.sh\"",
-    "refreshInterval": 30
+    "refreshInterval": 30,
+    "type": "command"
   },
-  "enabledPlugins": {
-    "cclens@cclens": true,
-    "i-have-adhd@i-have-adhd": true,
-    "mattpocock-skills@claude-plugins-official": true,
-    "obsidian@obsidian-skills": true,
-    "reviewable-html-workbench@reviewable-html-workbench-local": true,
-    "understand-anything@understand-anything": true
-  },
-  "extraKnownMarketplaces": {
-    "cclens": {
-      "source": {
-        "source": "github",
-        "repo": "lambdalisue/cclens"
-      }
-    },
-    "dotnet-agent-skills": {
-      "source": {
-        "source": "github",
-        "repo": "dotnet/skills"
-      }
-    },
-    "i-have-adhd": {
-      "source": {
-        "source": "directory",
-        "path": "/home/mimikun/ghq/github.com/ayghri/i-have-adhd"
-      }
-    },
-    "obsidian-skills": {
-      "source": {
-        "source": "github",
-        "repo": "kepano/obsidian-skills"
-      }
-    },
-    "reviewable-html-workbench-local": {
-      "source": {
-        "source": "github",
-        "repo": "u-ichi/reviewable-html-workbench"
-      }
-    },
-    "understand-anything": {
-      "source": {
-        "source": "github",
-        "repo": "Egonex-AI/Understand-Anything"
-      }
-    }
-  },
-  "effortLevel": "medium",
-  "tui": "fullscreen",
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
-  "autoMode": {
-    "soft_deny": [
-      "$defaults",
-      "Bash(rm:*) — irreversible file deletion. rm is not in permissions.allow, and the prose records under mimikun/mimikun.agent-system are the only copy of content that cannot be regenerated, so deletions must stay confirmed rather than run unattended"
-    ],
-    "environment": [
-      "### Org-wide",
-      "**Organization**: None configured",
-      "**Cloud provider(s)**: None configured",
-      "**Repository visibility**: private (mimikun/mimikun.agent-system, confirmed via gh)",
-      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
-      "**Secrets management**: None configured",
-      "**Default / protected branches**: master (default); no rulesets or protected-branch rules listed via gh — but this repo's own CLAUDE.md records an explicit owner decision (2026-07-31) permitting direct push to master, and blocks force-push via settings.json + a PreToolUse hook",
-      "**CI/CD deploy targets**: None configured",
-      "**Network posture**: None configured",
-      "**Source control**: The trusted repo (mimikun/mimikun.agent-system) and its origin remote (github.com:mimikun/mimikun.agent-system.git) only — private repo, single author, no additional orgs configured",
-      "**Trusted internal domains**: None configured",
-      "**Trusted cloud buckets**: None configured",
-      "**Key internal services**: None configured",
-      "**Internal package registry**: None configured",
-      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar. This repo's CLAUDE.md additionally flags health, employment, financial, and personal-situation details as never to be placed in any public repository (the linked dotfiles source repo, mimikun/dotfiles, is public)",
-      "**Data retention / declassification**: None configured",
-      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
-      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
-      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
-      "### User-specific",
-      "**Primary use of Claude Code**: software development, personal knowledge/records management (this repo is a personal record-keeping system)",
-      "**Trusted repo**: mimikun/mimikun.agent-system (private, single-author) and its origin remote — direct push to master is explicitly allowed by owner decision recorded in CLAUDE.md; force-push remains blocked",
-      "**Org-specific CLIs**: None configured (non-standard CLIs seen — herdr, chezmoi, neowright, spark, codex, officecli, rumdl, rtk — are personal/hobby tools, not org-specific)",
-      "**routine under mimikun/ prefix**: commits and pushes to master within mimikun/mimikun.agent-system are routine per repo's own documented policy"
-    ]
-  }
+  "tui": "fullscreen"
 }
