@@ -59,6 +59,21 @@ elif command -v officecli >/dev/null 2>&1; then
     officecli skills install claude
 fi
 
+# --- skills with their own installer ----------------------------------------
+# agmsg (https://github.com/fujibee/agmsg, MIT) ships its own bootstrapper, so
+# it joins neither the `npx skills` loop above nor a CLI subcommand. `npx agmsg`
+# is the tagged-release path; the git clone and setup.sh paths track main and
+# would report a version like v1.1.13-6-g1a2b3c4 instead.
+#
+# It also drops ~/.claude/commands/agmsg.md and a hook, which is why neither is
+# tracked in this repository: reinstalling the skill restores them.
+if [[ -d "$skills_dir/agmsg" ]]; then
+    echo "skill 'agmsg' is already installed."
+else
+    echo "Installing skill 'agmsg' from fujibee/agmsg"
+    npx -y agmsg
+fi
+
 # --- CLIs the skills drive --------------------------------------------------
 # A skill whose CLI is missing looks installed but fails on its first command,
 # so report the gap rather than leaving it silent.
@@ -72,6 +87,9 @@ check_cli herdr       herdr       "https://github.com/ogulcancelik/herdr"
 check_cli neowright   neowright   "https://github.com/isak102/neowright"
 check_cli officecli   officecli   "https://github.com/iOfficeAI/OfficeCLI"
 check_cli spark       use-spark   "ships with Spark Desktop, which must be running"
+# agmsg calls its own scripts rather than a binary on PATH, but every one of
+# them reads a SQLite file, so sqlite3 is the dependency worth reporting.
+check_cli sqlite3     agmsg       "https://github.com/fujibee/agmsg"
 
 # gh-stack drives a gh extension, not a binary on PATH, so check_cli cannot see
 # it. Nothing in this repo reinstalls gh extensions, so a fresh machine gets the
