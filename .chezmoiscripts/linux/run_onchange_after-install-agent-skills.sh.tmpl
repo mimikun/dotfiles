@@ -5,7 +5,7 @@
 # Reinstall the global agent skills used by Claude Code and Codex CLI.
 #
 # The skills themselves are NOT stored in this repository. Each one is either
-# published in a remote repo (installed with `npx skills`) or bundled inside
+# published in a remote repo (installed with `bunx skills`) or bundled inside
 # its own CLI (installed with that CLI's own subcommand). Committing the
 # generated SKILL.md files here would create a second copy to sync by hand.
 #
@@ -23,6 +23,10 @@ skills_dir="$HOME/.agents/skills"
 agent_flags=(--agent claude-code --agent codex)
 
 # --- skills published in a remote repo --------------------------------------
+# `bunx` has no `-y`: it installs into its cache without prompting, and any
+# unknown flag is handed to the package instead. Adding npx's `-y` back here
+# would reach `skills add` as an argument. `--yes` below is the skills flag.
+#
 # The key is the skill name and the value is the repo it lives in. The two
 # differ whenever a repo publishes a skill under another name, so the loop
 # below passes the key to `--skill` to pick the right one out of the repo.
@@ -39,7 +43,7 @@ for name in "${!remote_skills[@]}"; do
         echo "skill '$name' is already installed."
     else
         echo "Installing skill '$name' from ${remote_skills[$name]}"
-        npx -y skills add "${remote_skills[$name]}" \
+        bunx skills add "${remote_skills[$name]}" \
             --global "${agent_flags[@]}" --skill "$name" --yes
     fi
 done
@@ -61,9 +65,11 @@ fi
 
 # --- skills with their own installer ----------------------------------------
 # agmsg (https://github.com/fujibee/agmsg, MIT) ships its own bootstrapper, so
-# it joins neither the `npx skills` loop above nor a CLI subcommand. `npx agmsg`
+# it joins neither the `skills add` loop above nor a CLI subcommand. `npx agmsg`
 # is the tagged-release path; the git clone and setup.sh paths track main and
-# would report a version like v1.1.13-6-g1a2b3c4 instead.
+# would report a version like v1.1.13-6-g1a2b3c4 instead. It stays on npx
+# because that is the invocation upstream documents and attests with SLSA
+# provenance; the loop above moved to bunx, where no such attestation is named.
 #
 # It also drops ~/.claude/commands/agmsg.md and a hook, which is why neither is
 # tracked in this repository: reinstalling the skill restores them.
