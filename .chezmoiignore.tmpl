@@ -22,6 +22,15 @@
 !.claude/skills/use-spark/**
 !.claude/skills/todoist
 !.claude/skills/todoist/**
+# Subagents are vendored, not reinstalled. There is no installer for agents the
+# way `npx skills` covers skills, so each file was copied by hand and had its
+# MIT attribution header written in by hand too. The copies are pinned to one
+# upstream commit and are never edited in place, so they create nothing to sync
+# back - what would be lost without them is which twelve were picked and at
+# which commit. LICENSE carries the MIT permission notice the headers only link
+# to.
+!.claude/agents
+!.claude/agents/**
 
 # HACK: Now configuration... 2026年3月17日
 .config/elvish/**
