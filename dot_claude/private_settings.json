@@ -422,7 +422,7 @@
   "autoMode": {
     "soft_deny": [
       "$defaults",
-      "Bash(rm:*) — force-push style irreversible git history rewrite in mimikun/mimikun.agent-system (git push --force / --force-with-lease), matching this repo's own explicit force-push ban"
+      "Bash(rm:*) — irreversible file deletion. rm is not in permissions.allow, and the prose records under mimikun/mimikun.agent-system are the only copy of content that cannot be regenerated, so deletions must stay confirmed rather than run unattended"
     ],
     "environment": [
       "### Org-wide",
