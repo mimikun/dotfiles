@@ -1,0 +1,18 @@
+dot_mimikun-pkglists/linux_arch_aur_packages.txt
+  h_220433a6faf6b8 77
+dot_mimikun-pkglists/linux_arch_official_packages.txt
+  h_220433a6faf6b8 137
+dot_mimikun-pkglists/linux_pnpm_packages.txt
+  h_220433a6faf6b8 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f0df4760383f3cf27bf24f00b06d2c336138a9c9",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
