@@ -1112,6 +1112,12 @@
       "channel": "latest"
     },
     {
+      "name": "nvim-mcp",
+      "import_path": "github.com/waldnzwrld/nvim-mcp",
+      "version": "v0.4.1",
+      "channel": "latest"
+    },
+    {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
       "version": "v0.0.0-20260802171128-9b594da02110",
