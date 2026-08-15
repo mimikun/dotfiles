@@ -139,6 +139,7 @@ otf-ipaexfont
 otf-ipafont
 ouch
 pacman-contrib
+pandoc-cli
 parallel-disk-usage
 pavucontrol
 pcaudiolib
