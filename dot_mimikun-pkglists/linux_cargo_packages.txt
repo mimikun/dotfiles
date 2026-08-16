@@ -337,6 +337,7 @@ rustscan
 rvpm
 s3grep
 sabiql
+sara-cli
 sccache
 scooter
 scope-monitor
