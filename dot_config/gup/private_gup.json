@@ -70,7 +70,7 @@
     {
       "name": "agtlog",
       "import_path": "github.com/motoki317/agtlog/cmd/agtlog",
-      "version": "v0.2.3",
+      "version": "v0.2.4",
       "channel": "latest"
     },
     {
@@ -112,7 +112,7 @@
     {
       "name": "atago",
       "import_path": "github.com/nao1215/atago",
-      "version": "v0.20.0",
+      "version": "v0.20.1",
       "channel": "latest"
     },
     {
@@ -346,7 +346,7 @@
     {
       "name": "dskDitto",
       "import_path": "github.com/jdefrancesco/dskDitto/cmd/dskDitto",
-      "version": "v0.5.9",
+      "version": "v0.6.2",
       "channel": "latest"
     },
     {
@@ -748,7 +748,7 @@
     {
       "name": "gup",
       "import_path": "github.com/nao1215/gup",
-      "version": "v1.8.0",
+      "version": "v1.8.1",
       "channel": "latest"
     },
     {
@@ -808,7 +808,7 @@
     {
       "name": "hulak",
       "import_path": "github.com/xaaha/hulak",
-      "version": "v0.3.31",
+      "version": "v0.3.32",
       "channel": "latest"
     },
     {
@@ -1000,7 +1000,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.17.1",
+      "version": "v0.17.2",
       "channel": "latest"
     },
     {
@@ -1366,7 +1366,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260814151607-90bf246e3c76",
+      "version": "v0.0.0-20260815165446-8dbb96fb799e",
       "channel": "latest"
     },
     {
@@ -1378,7 +1378,7 @@
     {
       "name": "seshagy",
       "import_path": "github.com/lmilojevicc/seshagy/cmd/seshagy",
-      "version": "v0.12.0",
+      "version": "v0.13.0",
       "channel": "latest"
     },
     {
@@ -1462,7 +1462,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v1.0.0",
+      "version": "v1.0.1",
       "channel": "latest"
     },
     {
