@@ -1,0 +1,14 @@
+dot_mimikun-pkglists/gh_extension_list.txt
+  h_220433a6faf6b8 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b5baf4b600847bc8636de8bcf4766eb8b8a7ba3b",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
