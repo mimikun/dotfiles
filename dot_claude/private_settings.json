@@ -37,6 +37,7 @@
   "enabledPlugins": {
     "cclens@cclens": true,
     "i-have-adhd@i-have-adhd": true,
+    "last30days@last30days-skill": true,
     "mattpocock-skills@claude-plugins-official": true,
     "obsidian@obsidian-skills": true,
     "reviewable-html-workbench@reviewable-html-workbench-local": true,
@@ -62,6 +63,12 @@
       "source": {
         "path": "/home/mimikun/ghq/github.com/ayghri/i-have-adhd",
         "source": "directory"
+      }
+    },
+    "last30days-skill": {
+      "source": {
+        "repo": "mvanhorn/last30days-skill",
+        "source": "github"
       }
     },
     "obsidian-skills": {
