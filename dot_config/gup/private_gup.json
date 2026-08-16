@@ -1460,6 +1460,12 @@
       "channel": "latest"
     },
     {
+      "name": "sqlc",
+      "import_path": "github.com/sqlc-dev/sqlc/cmd/sqlc",
+      "version": "v1.31.1",
+      "channel": "latest"
+    },
+    {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
       "version": "v1.0.1",
