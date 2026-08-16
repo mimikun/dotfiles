@@ -172,7 +172,6 @@
         "hooks": [
           {
             "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-push.sh'",
-            "statusMessage": "Checking for destructive push",
             "type": "command"
           }
         ],
@@ -182,7 +181,6 @@
         "hooks": [
           {
             "command": "bash '/home/mimikun/.claude/hooks/deny-recursive-rm.sh'",
-            "statusMessage": "Checking for recursive rm",
             "type": "command"
           }
         ],
@@ -192,7 +190,6 @@
         "hooks": [
           {
             "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-git.sh'",
-            "statusMessage": "Checking for destructive git",
             "type": "command"
           }
         ],
@@ -202,7 +199,6 @@
         "hooks": [
           {
             "command": "bash '/home/mimikun/.claude/hooks/deny-interpreter-oneliners.sh'",
-            "statusMessage": "Checking interpreter one-liners",
             "type": "command"
           }
         ],
@@ -264,7 +260,6 @@
         "hooks": [
           {
             "command": "bash '/home/mimikun/.claude/hooks/inject-current-time.sh'",
-            "timeout": 5,
             "type": "command"
           }
         ],
