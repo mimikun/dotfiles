@@ -1,0 +1,75 @@
+# lazy-tmux configuration.
+#
+# lazy-tmux reads this file from (first match wins):
+#   $LAZY_TMUX_CONFIG
+#   $XDG_CONFIG_HOME/lazy-tmux/lazy-tmux.toml
+#   ~/.config/lazy-tmux/lazy-tmux.toml
+#
+# Every key is optional; omitted keys fall back to the built-in defaults.
+# Command-line flags override anything set here.
+# Run `lazy-tmux config show` to see the effective config actually being read.
+
+# TUI picker color theme: "dark" or "light". It can also be changed from the
+# picker with `/theme light` or by running `lazy-tmux hook theme light`.
+theme = "dark"
+
+# tmux binary to invoke. A leading ~ is expanded. Set this if your tmux is a
+# shell alias or lives outside PATH (e.g. "~/bin/tmux.appimage").
+tmux_bin = "tmux"
+
+# Directory where session snapshots are stored. A leading ~ is expanded.
+data_dir = "~/.local/share/lazy-tmux"
+
+# Autosave interval for the background daemon (Go duration, e.g. "30s", "5m").
+save_interval = "5m"
+
+# How long restore waits for each restored pane command to actually start
+# before returning. "0s" disables waiting (old fire-and-forget behavior).
+restore_timeout = "5s"
+
+# Allowlist of commands lazy-tmux may replay on restore. Each entry is a regular
+# expression matched against the full command, anchored so it must match the
+# whole line (e.g. "nvim( .*)?" allows nvim with or without arguments, "ssh .*"
+# allows any ssh command). Omit this key entirely to restore every command (the
+# default). Provide a list to restore only matching commands; use an empty list
+# [] to restore no commands at all.
+# restore_allowlist = ["nvim( .*)?", "vim( .*)?", "htop", "less .*", "tail .*", "ssh .*"]
+
+# Denylist of commands lazy-tmux must never replay on restore. Each entry is a
+# regular expression matched against the full command (anchored). Use this
+# instead of an allowlist when you trust most commands and only want to exclude
+# a few. Write a literal command to block exactly it (e.g.
+# "node ./scripts/heavy-watch\.js --poll"), or wildcard the arguments (e.g.
+# "node .*"). The denylist wins over the allowlist: a denied command is skipped
+# even if the allowlist would permit it. Omit or leave empty to block nothing.
+# restore_denylist = ["htop", "npm .*", "node .*"]
+
+[scrollback]
+# Capture and replay shell pane scrollback on save/restore.
+enabled = false
+# Maximum scrollback lines captured per pane.
+lines = 5000
+
+# Program integrations adapt interactive programs to lazy-tmux's save/restore.
+# When a pane runs a supported program, lazy-tmux records program-specific state
+# on save and replays a smarter command on restore. Integrations compose with
+# restore_allowlist: if an allowlist is set, the replayed command must match it
+# (e.g. "claude .*" to permit the `claude --resume <id>` restore command).
+[integrations]
+# Master switch for all program integrations.
+enabled = true
+
+# Claude Code: restore a `claude` pane as `claude --resume <session-id>` so the
+# conversation continues instead of starting fresh.
+[integrations.claude]
+enabled = true
+# Claude Code data directory. Transcripts are read from
+# <home>/projects/<cwd>/<session-id>.jsonl to resolve the pane's session. A
+# leading ~ is expanded.
+home = "~/.claude"
+
+# Codex CLI: restore a `codex` pane as `codex resume <session-id>`.
+[integrations.codex]
+enabled = true
+# Codex data directory containing sessions/YYYY/MM/DD/rollout-*.jsonl files.
+home = "~/.codex"

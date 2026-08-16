@@ -91,6 +91,36 @@
     }
   },
   "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state awaiting_decision",
+            "type": "command"
+          }
+        ],
+        "matcher": "permission_prompt"
+      },
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state awaiting_input",
+            "type": "command"
+          }
+        ],
+        "matcher": "idle_prompt"
+      }
+    ],
+    "PermissionDenied": [
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "type": "command"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "hooks": [
@@ -100,6 +130,14 @@
           }
         ],
         "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "type": "command"
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -169,6 +207,14 @@
           }
         ],
         "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "type": "command"
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -203,6 +249,16 @@
         "matcher": "*"
       }
     ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state idle",
+            "type": "command"
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [
@@ -213,6 +269,14 @@
           }
         ],
         "matcher": "*"
+      },
+      {
+        "hooks": [
+          {
+            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "type": "command"
+          }
+        ]
       }
     ]
   },
