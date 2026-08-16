@@ -11,6 +11,7 @@ jrnxf/gh-eco
 kawarimidoll/gh-prism
 koozz/gh-semver
 meiji163/gh-notify
+orangain/gh-pr-graph
 ryoppippi/gh-nippou
 seachicken/gh-poi
 valeriobelli/gh-milestone
