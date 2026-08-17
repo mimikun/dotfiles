@@ -7,9 +7,11 @@
 # edit if a nixpkgs version turns out to be unusable.
 #
 # Still owned by aqua: tools nixpkgs does not package, xcbeautify (macOS only),
-# the Go toolchain (mise owns language runtimes), PowerShell (two versions plus
-# an alias -- undecided), and three name collisions where the nixpkgs attribute
-# ships unrelated software: qq, gama, pingu.
+# the Go toolchain (mise owns language runtimes), and three name collisions
+# where the nixpkgs attribute ships unrelated software: qq, gama, pingu.
+#
+# PowerShell moved to home-manager; see the header of other.yaml for why the
+# preview version was dropped instead of reproduced.
 #
 # Two commands change name under nixpkgs: ls-lint becomes ls_lint, and
 # superfile installs as superfile rather than spf.
