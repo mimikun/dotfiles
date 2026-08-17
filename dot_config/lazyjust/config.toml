@@ -1,0 +1,55 @@
+# lazyjust config file
+#
+# Every key is optional. Delete any section or key to use the built-in
+# default. Unknown keys are ignored so you can keep blocks for features
+# that land in later releases.
+
+[ui]
+# Built-in theme name or a filename (without .toml) under
+# <config_dir>/lazyjust/themes/.
+theme = "tokyo-night"
+# Recipe list mode.
+#   "active" (default) — show recipes for the active justfile, switch with `d`.
+#   "all"              — merge recipes from every discovered justfile in
+#                        one list, grouped by justfile path. `d` disabled.
+list_mode = "active"
+# Fraction of terminal width given to the recipe list.
+split_ratio = 0.30
+# Glyph set for list indicators. "round" | "ascii" | "none".
+icon_style = "round"
+
+[keys]
+# Single chars, named keys ("enter", "esc", "tab", "pgup", "pgdn",
+# "home", "end", "up", "down", "left", "right", "space"), or chords
+# ("ctrl+c", "alt+t"). Case-insensitive.
+quit           = "q"
+filter         = "/"
+clear_filter   = "esc"
+help           = "?"
+theme_picker   = "t"
+run            = "enter"
+move_down      = "j"
+move_up        = "k"
+page_down      = "pgdn"
+page_up        = "pgup"
+focus_list     = "left"
+focus_right    = "right"
+errors_list    = "e"
+
+[paths]
+# Override the state directory (logs, session output). Default:
+# platform-specific via dirs::state_dir().
+# state_dir = "/absolute/path"
+# sessions_log_dir = "/absolute/path"
+
+[logging]
+# Per-session log file size cap in MiB before rotation.
+session_log_size_cap_mb = 10
+# Days to keep per-session log directories on startup.
+session_log_retention_days = 7
+
+[engine]
+# Minimum wall time between render frames (ms).
+render_throttle_ms = 16
+# Event-loop tick interval for polling child exit status (ms).
+tick_interval_ms = 250
