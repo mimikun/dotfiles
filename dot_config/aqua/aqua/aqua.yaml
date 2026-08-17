@@ -6,13 +6,16 @@
 # Keeping the lines documents what moved, and makes a rollback a one-character
 # edit if a nixpkgs version turns out to be unusable.
 #
-# Three declarations are left, and each has a reason that is not "nobody got
-# to it yet":
+# Two declarations are left, and neither is in use:
 #
 #   cpisciotta/xcbeautify   macOS only; refuses to evaluate on x86_64-linux
 #   golang/go               mise owns language runtimes
-#   golang/tools/gorename   deleted upstream at x/tools v0.26.0, so it is not
-#                           in the nixpkgs gotools package either
+#
+# gorename is retired rather than migrated. Upstream deleted it at x/tools
+# v0.26.0 (golang/go#69360) because gopls covers renaming, gopls is installed
+# and wired into the editor as an LSP, and gorename appears zero times in
+# 71920 lines of shell history -- against gopls appearing in the same file, so
+# the count means "never run", not "no history".
 #
 # Everything else, including the tools nixpkgs does not package and the three
 # whose nixpkgs attribute name belongs to unrelated software (qq, gama,
@@ -50,7 +53,7 @@ packages:
   #- name: gitleaks/gitleaks@v8.30.1
   #- name: gleam-lang/gleam@v1.18.1
   - name: golang/go@go1.26.6
-  - name: golang/tools/gorename@v0.25.0
+  #- name: golang/tools/gorename@v0.25.0
   #- name: grafana/k6@v2.2.0
   #- name: guumaster/hostctl@v1.1.4
   #- name: hadolint/hadolint@v2.15.1
