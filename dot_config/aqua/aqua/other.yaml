@@ -1,17 +1,26 @@
 ---
-# ncdu is commented out because home-manager (nixpkgs) now provides it. See
-# mimikun/mimikun.home-manager, packages/cli.nix.
+# Everything in this file is handled elsewhere now; nothing is left for aqua.
 #
-# PowerShell stays here for now: aqua declares two versions with a pwsh-unstable
-# alias, and a single home.packages entry cannot express that. Undecided.
+# ncdu moved to home-manager (nixpkgs). See mimikun/mimikun.home-manager,
+# packages/cli.nix.
+#
+# PowerShell also moved. aqua declared two versions here: stable 7.6.5, and
+# 7.7.0-preview.3 exposed as pwsh-unstable. The preview is unused and was
+# dropped rather than reproduced -- nixpkgs has no preview attribute, and
+# home.packages has no equivalent of command_aliases, so keeping it would have
+# meant carrying a second source of PowerShell for a command nobody runs.
+#
+# nixpkgs ships 7.6.4, one patch behind what aqua installed, so the stable
+# version is pinned to 7.6.5 by overlays/powershell.nix on the home-manager
+# side. The version does not regress.
 packages:
   # Multi version
-  - name: PowerShell/PowerShell@v7.6.5
-  - name: PowerShell/PowerShell
-    version: v7.7.0-preview.3
-    command_aliases:
-      - command: pwsh
-        alias: pwsh-unstable
+  #- name: PowerShell/PowerShell@v7.6.5
+  #- name: PowerShell/PowerShell
+  #  version: v7.7.0-preview.3
+  #  command_aliases:
+  #    - command: pwsh
+  #      alias: pwsh-unstable
   # Not GitHub hosted
   #- name: dev.yorhel.nl/ncdu
   #  version: '2.4'
