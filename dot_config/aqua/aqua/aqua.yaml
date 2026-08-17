@@ -10,8 +10,8 @@
 # the Go toolchain (mise owns language runtimes), and three name collisions
 # where the nixpkgs attribute ships unrelated software: qq, gama, pingu.
 #
-# PowerShell moved to home-manager; see the header of other.yaml for why the
-# preview version was dropped instead of reproduced.
+# PowerShell moved to home-manager, preview included; see the header of
+# other.yaml for how the two versions are kept apart there.
 #
 # Two commands change name under nixpkgs: ls-lint becomes ls_lint, and
 # superfile installs as superfile rather than spf.
