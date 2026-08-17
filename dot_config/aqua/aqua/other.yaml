@@ -4,15 +4,17 @@
 # ncdu moved to home-manager (nixpkgs). See mimikun/mimikun.home-manager,
 # packages/cli.nix.
 #
-# PowerShell also moved. aqua declared two versions here: stable 7.6.5, and
-# 7.7.0-preview.3 exposed as pwsh-unstable. The preview is unused and was
-# dropped rather than reproduced -- nixpkgs has no preview attribute, and
-# home.packages has no equivalent of command_aliases, so keeping it would have
-# meant carrying a second source of PowerShell for a command nobody runs.
+# PowerShell also moved, both versions of it. nixpkgs has one PowerShell
+# attribute, pinned to the stable line at 7.6.4, and no preview, so
+# overlays/powershell.nix on the home-manager side supplies all three pieces:
 #
-# nixpkgs ships 7.6.4, one patch behind what aqua installed, so the stable
-# version is pinned to 7.6.5 by overlays/powershell.nix on the home-manager
-# side. The version does not regress.
+#   powershell     stable, pinned forward to 7.6.5 so it does not regress
+#   pwsh-unstable  the 7.7.0-preview.3 build, under the same command name
+#                  aqua exposed it as
+#
+# The preview needed the extra hop because both derivations install bin/pwsh
+# and a share/powershell tree; putting both in the profile fails to build on
+# the collision. Only a one-binary wrapper around the preview goes in.
 packages:
   # Multi version
   #- name: PowerShell/PowerShell@v7.6.5
