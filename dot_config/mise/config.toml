@@ -2,6 +2,10 @@
 # single
 dotnet-core = "latest"
 erlang = "latest"
+# Moved off aqua. A language runtime belongs with the other runtimes, and
+# idiomatic_version_file_enable_tools below already listed go, so the setting
+# was in place before the tool was declared.
+go = "latest"
 lua = "5.1"
 pkl = "latest"
 ruby = "latest"
