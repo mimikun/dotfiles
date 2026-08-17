@@ -1,10 +1,13 @@
 ---
+# github.com/kisielk/errcheck is commented out because home-manager (nixpkgs)
+# now provides it as the errcheck package. See mimikun/mimikun.home-manager,
+# packages/dev-tools.nix. The remaining entries have no nixpkgs equivalent.
 packages:
   # Use custom registry
   - name: mikuta0407/misskey-cli@v0.4.0
     registry: github-release
   - name: Mayowa-Ojo/chmod-cli@v0.2.0
     registry: github-release
-  - name: github.com/kisielk/errcheck
-    registry: go-install
-    version: 'v1.6.3'
+  #- name: github.com/kisielk/errcheck
+  #  registry: go-install
+  #  version: 'v1.6.3'

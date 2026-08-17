@@ -1,64 +1,75 @@
 ---
+# Tools that home-manager (nixpkgs) now provides are commented out below
+# rather than deleted. The declarations live in mimikun/mimikun.home-manager
+# under packages/cli.nix and packages/dev-tools.nix.
+#
+# Keeping the lines documents what moved, and makes a rollback a one-character
+# edit if a nixpkgs version turns out to be unusable.
+#
+# Still owned by aqua: tools nixpkgs does not package, xcbeautify (macOS only),
+# the Go toolchain (mise owns language runtimes), PowerShell (two versions plus
+# an alias -- undecided), and three name collisions where the nixpkgs attribute
+# ships unrelated software: qq, gama, pingu.
 packages:
-  - name: ahmetb/kubectx@v0.11.0
+  #- name: ahmetb/kubectx@v0.11.0
   - name: aquaproj/registry-tool@v0.5.7
-  - name: aquasecurity/trivy@v0.74.0
-  - name: aristocratos/btop@v1.4.7
-  - name: astral-sh/ruff@0.16.3
-  - name: astral-sh/uv@0.12.5
-  - name: babarot/gomi@v1.6.4
-  - name: bcicen/ctop@v0.7.7
-  - name: bitwarden/clients@cli-v2026.7.0
-  - name: charmbracelet/mods@v1.8.1
-  - name: cli/cli@v2.97.0
+  #- name: aquasecurity/trivy@v0.74.0
+  #- name: aristocratos/btop@v1.4.7
+  #- name: astral-sh/ruff@0.16.3
+  #- name: astral-sh/uv@0.12.5
+  #- name: babarot/gomi@v1.6.4
+  #- name: bcicen/ctop@v0.7.7
+  #- name: bitwarden/clients@cli-v2026.7.0
+  #- name: charmbracelet/mods@v1.8.1
+  #- name: cli/cli@v2.97.0
   - name: cpisciotta/xcbeautify@3.2.1
   - name: CyberAgent/reminder-lint@0.2.1
   - name: dagu-org/dagu@v2.14.0
-  - name: danvergara/dblab@v0.48.0
-  - name: derailed/k9s@v0.51.0
-  - name: direnv/direnv@v2.37.1
-  - name: dlvhdr/diffnav@v0.12.0
-  - name: dominikh/go-tools/staticcheck@2026.1
-  - name: dotenvx/dotenvx@v2.21.0
-  - name: dundee/gdu@v5.36.1
-  - name: fastfetch-cli/fastfetch@2.67.1
-  - name: git-bug/git-bug@v0.10.1
-  - name: gitleaks/gitleaks@v8.30.1
-  - name: gleam-lang/gleam@v1.18.1
+  #- name: danvergara/dblab@v0.48.0
+  #- name: derailed/k9s@v0.51.0
+  #- name: direnv/direnv@v2.37.1
+  #- name: dlvhdr/diffnav@v0.12.0
+  #- name: dominikh/go-tools/staticcheck@2026.1
+  #- name: dotenvx/dotenvx@v2.21.0
+  #- name: dundee/gdu@v5.36.1
+  #- name: fastfetch-cli/fastfetch@2.67.1
+  #- name: git-bug/git-bug@v0.10.1
+  #- name: gitleaks/gitleaks@v8.30.1
+  #- name: gleam-lang/gleam@v1.18.1
   - name: golang/go@go1.26.6
-  - name: golang/tools/gorename@v0.25.0
-  - name: grafana/k6@v2.2.0
-  - name: guumaster/hostctl@v1.1.4
-  - name: hadolint/hadolint@v2.15.1
-  - name: idursun/jjui@v0.10.9
-  - name: jesseduffield/horcrux@v0.2
+  #- name: golang/tools/gorename@v0.25.0
+  #- name: grafana/k6@v2.2.0
+  #- name: guumaster/hostctl@v1.1.4
+  #- name: hadolint/hadolint@v2.15.1
+  #- name: idursun/jjui@v0.10.9
+  #- name: jesseduffield/horcrux@v0.2
   - name: JFryy/qq@v0.3.4
-  - name: jqlang/jq@jq-1.8.2
-  - name: junegunn/fzf@v0.74.2
-  - name: kdabir/has@v1.5.2
-  - name: koalaman/shellcheck@v0.11.0
-  - name: kubescape/kubescape@v4.0.12
-  - name: loeffel-io/ls-lint@v2.3.1
+  #- name: jqlang/jq@jq-1.8.2
+  #- name: junegunn/fzf@v0.74.2
+  #- name: kdabir/has@v1.5.2
+  #- name: koalaman/shellcheck@v0.11.0
+  #- name: kubescape/kubescape@v4.0.12
+  #- name: loeffel-io/ls-lint@v2.3.1
   - name: Macmod/godap@v2.12.0
-  - name: mr-karan/doggo@v1.3.0
-  - name: mrtazz/checkmake@v0.3.2
-  - name: muesli/duf@v0.9.1
-  - name: naggie/dstask@v1.0.1
-  - name: natecraddock/zf@0.10.2
-  - name: pamburus/hl@v0.36.3
+  #- name: mr-karan/doggo@v1.3.0
+  #- name: mrtazz/checkmake@v0.3.2
+  #- name: muesli/duf@v0.9.1
+  #- name: naggie/dstask@v1.0.1
+  #- name: natecraddock/zf@0.10.2
+  #- name: pamburus/hl@v0.36.3
   - name: pkgxdev/pkgx@v2.11.0
-  - name: project-copacetic/copacetic@v0.14.2
-  - name: pvolok/mprocs@v0.9.6
-  - name: sclevine/yj@v5.1.0
+  #- name: project-copacetic/copacetic@v0.14.2
+  #- name: pvolok/mprocs@v0.9.6
+  #- name: sclevine/yj@v5.1.0
   - name: sheepla/pingu@v0.0.5
-  - name: sqshq/sampler@v1.1.0
+  #- name: sqshq/sampler@v1.1.0
   - name: suzuki-shunsuke/cmdx@v2.0.2
   - name: termkit/gama@v1.2.1
-  - name: tsenart/vegeta@v12.13.0
-  - name: tsl0922/ttyd@1.7.7
-  - name: tstack/lnav@v0.14.0
-  - name: twitchdev/twitch-cli@v1.1.24
-  - name: twpayne/chezmoi@v2.72.0
+  #- name: tsenart/vegeta@v12.13.0
+  #- name: tsl0922/ttyd@1.7.7
+  #- name: tstack/lnav@v0.14.0
+  #- name: twitchdev/twitch-cli@v1.1.24
+  #- name: twpayne/chezmoi@v2.72.0
   - name: wtetsu/gaze@v1.2.1
-  - name: yassinebenaid/bunster@v0.14.0
-  - name: yorukot/superfile@v1.6.0
+  #- name: yassinebenaid/bunster@v0.14.0
+  #- name: yorukot/superfile@v1.6.0
