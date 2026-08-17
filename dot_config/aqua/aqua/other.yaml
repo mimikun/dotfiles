@@ -1,4 +1,9 @@
 ---
+# ncdu is commented out because home-manager (nixpkgs) now provides it. See
+# mimikun/mimikun.home-manager, packages/cli.nix.
+#
+# PowerShell stays here for now: aqua declares two versions with a pwsh-unstable
+# alias, and a single home.packages entry cannot express that. Undecided.
 packages:
   # Multi version
   - name: PowerShell/PowerShell@v7.6.5
@@ -8,5 +13,5 @@ packages:
       - command: pwsh
         alias: pwsh-unstable
   # Not GitHub hosted
-  - name: dev.yorhel.nl/ncdu
-    version: '2.4'
+  #- name: dev.yorhel.nl/ncdu
+  #  version: '2.4'
