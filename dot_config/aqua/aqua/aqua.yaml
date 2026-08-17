@@ -10,6 +10,12 @@
 # the Go toolchain (mise owns language runtimes), PowerShell (two versions plus
 # an alias -- undecided), and three name collisions where the nixpkgs attribute
 # ships unrelated software: qq, gama, pingu.
+#
+# Two commands change name under nixpkgs: ls-lint becomes ls_lint, and
+# superfile installs as superfile rather than spf.
+#
+# gorename stays with aqua: it is not part of the nixpkgs gotools package,
+# because upstream removed it from x/tools.
 packages:
   #- name: ahmetb/kubectx@v0.11.0
   - name: aquaproj/registry-tool@v0.5.7
@@ -37,7 +43,7 @@ packages:
   #- name: gitleaks/gitleaks@v8.30.1
   #- name: gleam-lang/gleam@v1.18.1
   - name: golang/go@go1.26.6
-  #- name: golang/tools/gorename@v0.25.0
+  - name: golang/tools/gorename@v0.25.0
   #- name: grafana/k6@v2.2.0
   #- name: guumaster/hostctl@v1.1.4
   #- name: hadolint/hadolint@v2.15.1
