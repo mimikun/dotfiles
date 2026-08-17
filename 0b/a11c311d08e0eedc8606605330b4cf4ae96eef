@@ -1,0 +1,21 @@
+.mise/tasks/update/fish-completions
+  s_9653ba170c092a::t_92af186f8c961f 55
+renovate.json5
+  s_9653ba170c092a::t_48148338150930 4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0ba11c311d08e0eedc8606605330b4cf4ae96eef",
+  "prompts": {},
+  "sessions": {
+    "s_9653ba170c092a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b1f642e0-0f13-4825-a0a3-b064805d8927",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
