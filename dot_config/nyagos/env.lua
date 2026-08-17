@@ -343,11 +343,6 @@ if is_linux then
         nyagos.alias.cs = coursier_path .. "bin"
     end
 
-    -- aqua
-    local aqua_root_dir = table.concat({ xdg_data_home, "aquaproj-aqua" }, path_sep)
-    nyagos.envadd("AQUA_ROOT_DIR", nyagos.getenv("AQUA_ROOT_DIR") or aqua_root_dir)
-    local aqua_bin = table.concat({ nyagos.getenv("AQUA_ROOT_DIR"), "bin" }, path_sep)
-    nyagos.envadd("PATH", aqua_bin)
 
     -- bob-nvim
     local bob_config = table.concat({ xdg_config_home, "bob", "config.toml" }, path_sep)

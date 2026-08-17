@@ -1,8 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    "github>aquaproj/aqua-renovate-config:file#2.13.0(aqua/.*\\.ya?ml)"
+    "config:recommended"
   ],
   "packageRules": [
     {

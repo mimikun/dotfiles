@@ -35,14 +35,6 @@ fi
 # go packages (managed by gup)
 chezmoi add ~/.config/gup/gup.json
 
-# managed by aqua
-chezmoi add ~/.config/aqua/aqua/aqua.yaml
-chezmoi add ~/.config/aqua/aqua/other.yaml
-chezmoi add ~/.config/aqua/aqua/custom.yaml
-chezmoi add ~/.config/aqua/aqua.yaml
-chezmoi add ~/.config/aqua/policy.yaml
-chezmoi add ~/.config/aqua/registries/go-install.yaml
-chezmoi add ~/.config/aqua/registries/github-release.yaml
 
 # neovim lockfiles
 chezmoi add ~/.config/nvim/lazy-lock.json

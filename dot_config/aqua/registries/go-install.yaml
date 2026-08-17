@@ -1,8 +1,0 @@
----
-# yaml-language-server: $schema=https://raw.githubusercontent.com/aquaproj/aqua/refs/heads/main/json-schema/registry.json
-packages:
-  # errcheck
-  # https://github.com/kisielk/errcheck
-  - type: go_install
-    path: github.com/kisielk/errcheck
-    description: errcheck checks that you checked errors.
