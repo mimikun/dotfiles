@@ -1,13 +1,18 @@
 ---
-# github.com/kisielk/errcheck is commented out because home-manager (nixpkgs)
-# now provides it as the errcheck package. See mimikun/mimikun.home-manager,
-# packages/dev-tools.nix. The remaining entries have no nixpkgs equivalent.
+# This file declares nothing now; all three entries moved to home-manager.
+#
+# errcheck is packaged in nixpkgs directly. misskey-cli and chmod-cli are not,
+# so they come from overlays/prebuilt-github-tools.nix, which installs the same
+# upstream release binaries this file used to fetch.
+#
+# The two local registries under ../registries/ are still referenced by
+# ../aqua.yaml and are left alone; nothing uses them at the moment.
 packages:
   # Use custom registry
-  - name: mikuta0407/misskey-cli@v0.4.0
-    registry: github-release
-  - name: Mayowa-Ojo/chmod-cli@v0.2.0
-    registry: github-release
+  #- name: mikuta0407/misskey-cli@v0.4.0
+  #  registry: github-release
+  #- name: Mayowa-Ojo/chmod-cli@v0.2.0
+  #  registry: github-release
   #- name: github.com/kisielk/errcheck
   #  registry: go-install
   #  version: 'v1.6.3'
