@@ -1000,7 +1000,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.17.2",
+      "version": "v0.17.3",
       "channel": "latest"
     },
     {
@@ -1156,7 +1156,7 @@
     {
       "name": "osv-scanner",
       "import_path": "github.com/google/osv-scanner/v2/cmd/osv-scanner",
-      "version": "v2.5.0",
+      "version": "v2.5.1",
       "channel": "latest"
     },
     {
@@ -1306,7 +1306,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v1.1.0",
+      "version": "v1.1.1",
       "channel": "latest"
     },
     {
@@ -1366,7 +1366,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260815165446-8dbb96fb799e",
+      "version": "v0.0.0-20260818022511-0a97c64c25c2",
       "channel": "latest"
     },
     {
@@ -1402,7 +1402,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v0.99.1",
+      "version": "v1.0.2",
       "channel": "latest"
     },
     {
@@ -1528,7 +1528,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.57.0",
+      "version": "v0.58.0",
       "channel": "latest"
     },
     {
@@ -1660,7 +1660,7 @@
     {
       "name": "wails",
       "import_path": "github.com/wailsapp/wails/v2/cmd/wails",
-      "version": "v2.14.0",
+      "version": "v2.15.0",
       "channel": "latest"
     },
     {
@@ -1750,7 +1750,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.26",
+      "version": "v0.20.27",
       "channel": "latest"
     },
     {
