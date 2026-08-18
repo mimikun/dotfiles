@@ -1,6 +1,13 @@
 [tools]
 # single
-dotnet-core = "latest"
+# Fully qualified, like the geckodriver and chromedriver entries below. The
+# short names do not resolve on 2026.8.4: `dotnet-core` and `dotnet` both send
+# mise to ~/.local/share/mise/plugins/dotnet/bin/list-all, and `core:dotnet`
+# errors even though `mise registry` lists it. The failure surfaced as
+# "Failed to run .../bin/list-all" on every `mise upgrade`, which still exited
+# 0 -- so vup recorded a success while dotnet sat at 10.0.300 with no
+# executable on PATH.
+"asdf:mise-plugins/mise-dotnet" = "latest"
 erlang = "latest"
 # Moved off aqua. A language runtime belongs with the other runtimes, and
 # idiomatic_version_file_enable_tools below already listed go, so the setting
