@@ -1604,6 +1604,12 @@
       "channel": "latest"
     },
     {
+      "name": "trophy",
+      "import_path": "github.com/taigrr/trophy/cmd/trophy",
+      "version": "v1.4.0",
+      "channel": "latest"
+    },
+    {
       "name": "ttt",
       "import_path": "github.com/eugenioenko/ttt/cmd/ttt",
       "version": "v1.2.2",
