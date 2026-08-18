@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.233 on 2026-08-16.
+# Generated from claude 2.1.234 on 2026-08-18.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
