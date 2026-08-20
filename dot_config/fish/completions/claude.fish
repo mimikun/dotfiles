@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.234 on 2026-08-18.
+# Generated from claude 2.1.237 on 2026-08-20.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -411,7 +411,7 @@ complete -c claude -n '__fish_claude_at "mcp serve"' -l verbose -d 'Override ver
 complete -c claude -n '__fish_claude_at "plugin"' -a 'details' -d 'Show a plugin\'s component inventory and projected token cost'
 complete -c claude -n '__fish_claude_at "plugin"' -a 'disable' -d 'Disable an enabled plugin'
 complete -c claude -n '__fish_claude_at "plugin"' -a 'enable' -d 'Enable a disabled plugin'
-complete -c claude -n '__fish_claude_at "plugin"' -a 'eval' -d 'Run eval cases (evals/**/case.yaml or evals/**/prompt.md + graders/*.md) against a plugin…'
+complete -c claude -n '__fish_claude_at "plugin"' -a 'eval' -d 'Run eval cases (<eval dir>/**/case.yaml or prompt.md + graders/*.md; the eval dir is eval…'
 complete -c claude -n '__fish_claude_at "plugin"' -a 'init' -d 'Scaffold a new plugin at ~/.claude/skills/<name>/ (auto-loads next session as <name>@skil…'
 complete -c claude -n '__fish_claude_at "plugin"' -a 'install' -d 'Install a plugin from available marketplaces (use plugin@marketplace for specific marketp…'
 complete -c claude -n '__fish_claude_at "plugin"' -a 'list' -d 'List installed plugins'
@@ -439,10 +439,11 @@ complete -c claude -n '__fish_claude_at "plugin enable"' -s h -l help -d 'Displa
 complete -c claude -n '__fish_claude_at "plugin enable"' -s s -l scope -d 'Installation scope: user, project, local (default: auto-detect)' -r
 
 # claude plugin eval
-complete -c claude -n '__fish_claude_at "plugin eval"' -a 'init' -d 'Author an eval suite under evals/ via an interview that sources inputs and designs grader…'
+complete -c claude -n '__fish_claude_at "plugin eval"' -a 'init' -d 'Author an eval suite under the eval dir (evals/ unless --eval-dir or the manifest says ot…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l ablation -d 'Run a no-plugin baseline arm and report the score delta (none | with-without; default: wi…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l allow-tools -d 'Operator grant for gated tools (Bash, Write, Edit, WebFetch, mcp__*). Supports Tool(patte…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l case -d 'Filter cases by name glob' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l eval-dir -d 'Directory name (below the plugin) that holds the eval cases; results go to <plugin>/<dir>…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l json -d 'Print the full run result (prompts, graders, per-run scores) as JSON to stdout, or write…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l judge-model -d 'Override LLM-grader model (default: haiku)' -r
@@ -452,7 +453,7 @@ complete -c claude -n '__fish_claude_at "plugin eval"' -l model -x -a 'fable opu
 complete -c claude -n '__fish_claude_at "plugin eval"' -l model -d 'Override model for all cases' -x
 complete -c claude -n '__fish_claude_at "plugin eval"' -l no-publish -d 'Keep the HTML report local only; skip publishing it to claude.ai'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l no-scaffold -d 'Explicitly skip scaffold_script'
-complete -c claude -n '__fish_claude_at "plugin eval"' -l output-dir -d 'Directory for aggregate-result.json (default: ./evals/results/<timestamp>/)' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l output-dir -d 'Directory for aggregate-result.json (default: ./<eval dir>/results/<timestamp>/)' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l publish-report -d 'Also require publishing the report to claude.ai (already the default when your account su…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l report -d 'Write the self-contained HTML report (scores, prompts, grader verdicts) to <path> instead…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l runs -d 'Override per-case runs (default: case.runs ?? 3)' -r
@@ -463,6 +464,7 @@ complete -c claude -n '__fish_claude_at "plugin eval"' -l verbose -d 'Log per-me
 
 # claude plugin eval init
 complete -c claude -n '__fish_claude_at "plugin eval init"' -l bare -d 'Write a blank template (prompt.md + graders/criteria.md) instead of running the interview'
+complete -c claude -n '__fish_claude_at "plugin eval init"' -l eval-dir -d 'Directory (below the current directory) to write cases into (default: experimental.evals…' -r
 complete -c claude -n '__fish_claude_at "plugin eval init"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin eval init"' -s i -l interactive -d 'Run the authoring interview (already the default in a terminal); requires an interactive…'
 
