@@ -17,7 +17,6 @@ basilk
 bat
 bibiman
 bingrep
-binsider
 bitchat-tui
 blogr-cli
 bluetui
@@ -77,7 +76,6 @@ countryfetch
 create-tauri-app
 crmux
 cship
-cship
 csview
 csvlens
 cyme
@@ -131,7 +129,6 @@ fd-find
 felix
 feluda
 fend
-ferium
 filessh
 flamegraph
 flamelens
@@ -154,9 +151,7 @@ git-interactive-rebase-tool
 gitlogue
 gitnr
 gitpane
-gittype
 gitu
-gitui
 gitv-tui
 gitwig
 glab-tui-crate
@@ -208,14 +203,12 @@ jwt-ui
 kakehashi
 kanha
 kbt
-kdash
 kibi
 kite-tui
 koji
 krafna
 lawkit
 lazycelery
-lazyjj
 lazyrsync
 lisette
 livediff
@@ -236,7 +229,6 @@ mcdu
 mcfly
 mcp-cli
 mdbook
-mdns-scanner
 mdfried
 menyoki
 mergiraf
@@ -251,7 +243,6 @@ motus
 mq-run
 natls
 navi
-ncspot
 nectar-lang
 needs
 netscanner
@@ -259,7 +250,6 @@ netwatch-tui
 nexus-tui
 nippo
 nomino
-nsh
 nono-cli
 nu
 nu_plugin_formats
@@ -267,7 +257,6 @@ nu_plugin_gstat
 nu_plugin_inc
 nu_plugin_polars
 nu_plugin_query
-nvrs
 octorus
 octotype
 oeis-tui
@@ -340,7 +329,6 @@ s3grep
 sabiql
 sara-cli
 sccache
-scooter
 scope-monitor
 scraps
 sd
@@ -361,7 +349,6 @@ skim
 slumber
 smartcat
 snipt
-so
 somo
 soundscope
 spectatui
@@ -385,7 +372,6 @@ systemd-manager-tui
 systeroid
 syswatch
 t-rec
-tabiew
 taplo-cli
 tatuin
 tauri-cli
