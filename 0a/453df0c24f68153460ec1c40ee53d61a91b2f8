@@ -1,0 +1,18 @@
+dot_config/fish/completions/claude.fish
+  h_220433a6faf6b8 3,414,442,446,456,467
+dot_config/fish/completions/pixi.fish
+  h_220433a6faf6b8 2631-2668,2840,2916
+dot_config/fish/completions/tldr.fish
+  h_220433a6faf6b8 25-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0a453df0c24f68153460ec1c40ee53d61a91b2f8",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
