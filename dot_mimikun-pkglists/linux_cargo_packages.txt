@@ -103,6 +103,7 @@ dotstate
 dotter
 doxx
 drft
+dtop
 du-dust
 dua-cli
 ducker
@@ -343,6 +344,7 @@ scooter
 scope-monitor
 scraps
 sd
+seednaut
 seetui
 selene
 serie
