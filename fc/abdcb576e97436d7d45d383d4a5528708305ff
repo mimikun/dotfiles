@@ -1,0 +1,14 @@
+dot_claude/hooks/executable_herdr-agent-state.sh
+  h_220433a6faf6b8 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "fcabdcb576e97436d7d45d383d4a5528708305ff",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
