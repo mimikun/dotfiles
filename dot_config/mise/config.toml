@@ -28,9 +28,13 @@ node = [
   "latest",
   "23",
 ]
+# `latest` first: mise takes the first entry of a multi-version list as the one
+# that lands on PATH, and 3.12 was only ever the default because /usr/bin won
+# outright -- see the fish_user_paths fix. Keeping 3.12 first would have made
+# that fix a downgrade from 3.14.7.
 python = [
-  "3.12",
   "latest",
+  "3.12",
   "3",
   "3.11",
   "3.13",
