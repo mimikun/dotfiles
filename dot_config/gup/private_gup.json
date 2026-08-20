@@ -112,7 +112,7 @@
     {
       "name": "atago",
       "import_path": "github.com/nao1215/atago",
-      "version": "v0.20.1",
+      "version": "v0.21.0",
       "channel": "latest"
     },
     {
@@ -148,7 +148,7 @@
     {
       "name": "bsky",
       "import_path": "github.com/mattn/bsky",
-      "version": "v0.0.81",
+      "version": "v0.0.82",
       "channel": "latest"
     },
     {
@@ -220,7 +220,7 @@
     {
       "name": "cmdperf",
       "import_path": "github.com/miklosn/cmdperf/cmd/cmdperf",
-      "version": "v0.1.4",
+      "version": "v0.2.0",
       "channel": "latest"
     },
     {
@@ -448,7 +448,7 @@
     {
       "name": "flow",
       "import_path": "github.com/programmersd21/flow/cmd/flow",
-      "version": "v0.2.1",
+      "version": "v0.2.3",
       "channel": "latest"
     },
     {
@@ -1000,7 +1000,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.17.3",
+      "version": "v0.17.5",
       "channel": "latest"
     },
     {
@@ -1060,7 +1060,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.10.0",
+      "version": "v6.11.0",
       "channel": "latest"
     },
     {
@@ -1120,7 +1120,7 @@
     {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
-      "version": "v0.0.0-20260802171128-9b594da02110",
+      "version": "v0.0.0-20260819012124-a8b4b30d05d9",
       "channel": "latest"
     },
     {
@@ -1270,7 +1270,7 @@
     {
       "name": "rad",
       "import_path": "github.com/amterp/rad",
-      "version": "v0.11.0",
+      "version": "v0.12.1",
       "channel": "latest"
     },
     {
@@ -1306,7 +1306,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v1.1.1",
+      "version": "v1.2.1",
       "channel": "latest"
     },
     {
@@ -1366,7 +1366,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260818022511-0a97c64c25c2",
+      "version": "v0.0.0-20260818221929-dfd44200f3cc",
       "channel": "latest"
     },
     {
@@ -1402,7 +1402,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v1.0.2",
+      "version": "v1.1.0",
       "channel": "latest"
     },
     {
@@ -1510,7 +1510,7 @@
     {
       "name": "task",
       "import_path": "github.com/go-task/task/v3/cmd/task",
-      "version": "v3.52.0",
+      "version": "v3.53.1",
       "channel": "latest"
     },
     {
@@ -1528,7 +1528,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.58.0",
+      "version": "v0.60.0",
       "channel": "latest"
     },
     {
@@ -1762,7 +1762,7 @@
     {
       "name": "yq",
       "import_path": "github.com/mikefarah/yq/v4",
-      "version": "v4.53.3",
+      "version": "v4.53.4",
       "channel": "latest"
     },
     {
