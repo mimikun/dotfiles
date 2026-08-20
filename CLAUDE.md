@@ -3,6 +3,13 @@
 `~/.claude` を含む dotfiles の source。**実体を編集して `chezmoi add` すると
 共有の source に書くので、agent は `chezmoi add -S <worktree>` を使う。**
 
+## ブランチ名
+
+**`patch-YYYYMMDD` は本人の手作業用。agent は作らない・使い回さない・消さない。**
+
+agent は作業の Conventional Commits の型で名前を付ける
+（`feat/<topic>` `fix/<topic>` `docs/<topic>` `chore/<topic>` `refactor/<topic>`）。
+
 ## `~/.claude` は allowlist 方式で管理されている
 
 `.chezmoiignore.tmpl` はまず `.claude/**` を無視し、そのあと `!` 行で個別に戻している。
