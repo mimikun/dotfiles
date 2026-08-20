@@ -1,0 +1,14 @@
+dot_config/tmux/tmux.conf
+  h_220433a6faf6b8 106-110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f317c298d555fb4be1346b1d7bdf393ae62b3627",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
