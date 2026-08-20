@@ -8,7 +8,6 @@ apisnip
 ast-grep
 atac
 atuin
-aube
 bacon
 ballast
 bandwhich
@@ -44,7 +43,6 @@ cargo-limit
 cargo-llvm-cov
 cargo-make
 cargo-msrv
-cargo-nextest
 cargo-outdated
 cargo-release
 cargo-seek
@@ -299,7 +297,6 @@ qmassa
 qrtool
 rage
 railwayapp
-rainfrog
 rana
 rascii_art
 rbw
@@ -430,11 +427,8 @@ xh
 xleak
 xremap
 xsv
-yazi-cli
-yazi-fm
 zeitfetch
 zellij
 zenith
 zipsign
-zizmor
 zoxide
