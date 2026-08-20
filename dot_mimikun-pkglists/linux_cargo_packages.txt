@@ -29,7 +29,6 @@ broot
 brush-shell
 bttf
 bugstalker
-cargo-about
 cargo-all-features
 cargo-audit
 cargo-cache
@@ -171,7 +170,6 @@ hexhog
 hexyl
 hf
 himalaya
-hk
 hoard-rs
 ht
 hwatch
@@ -248,7 +246,6 @@ netwatch-tui
 nexus-tui
 nippo
 nomino
-nono-cli
 nu
 nu_plugin_formats
 nu_plugin_gstat
@@ -311,7 +308,6 @@ ron-lsp
 rrc
 rscls
 rucola-notes
-rumdl
 rura
 rusk-task
 rust-script
@@ -399,7 +395,6 @@ treemd
 try-rs
 ttl
 tui-journal
-tuicr
 tuisky
 tukai
 turm
