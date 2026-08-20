@@ -48,6 +48,7 @@ kaskade 3.12
 kb-manager 3.12
 kimi-cli 3.12
 lexy 3.12
+linecast 3.12
 llm 3.12
 logmerger 3.12
 manimgl 3.12
