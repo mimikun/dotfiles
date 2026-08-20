@@ -1,0 +1,14 @@
+dot_config/mise/config.toml
+  h_220433a6faf6b8 2,11,20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "67b5c438d55c2d4efc185a7e0e76a8055be7c3ee",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
