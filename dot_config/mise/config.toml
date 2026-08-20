@@ -1,42 +1,25 @@
 [tools]
-# single
-# Fully qualified, like the geckodriver and chromedriver entries below. The
-# short names do not resolve on 2026.8.4: `dotnet-core` and `dotnet` both send
-# mise to ~/.local/share/mise/plugins/dotnet/bin/list-all, and `core:dotnet`
-# errors even though `mise registry` lists it. The failure surfaced as
-# "Failed to run .../bin/list-all" on every `mise upgrade`, which still exited
-# 0 -- so vup recorded a success while dotnet sat at 10.0.300 with no
-# executable on PATH.
+# NOTE: single
 "asdf:mise-plugins/mise-dotnet" = "latest"
 erlang = "latest"
-# Moved off aqua. A language runtime belongs with the other runtimes, and
-# idiomatic_version_file_enable_tools below already listed go, so the setting
-# was in place before the tool was declared.
 go = "latest"
 lua = "5.1"
 pkl = "latest"
 ruby = "latest"
-# Browser drivers. Formerly hand-written updaters in ~/.local/bin; the
-# chromedriver one silently pinned itself to Chrome 114 for years because its
-# endpoint was retired without ever returning an error.
 "github:mozilla/geckodriver" = "latest"
 
-# multi
+# NOTE: multi
 node = [
   "lts",
   "22",
   "latest",
   "23",
 ]
-# `latest` first: mise takes the first entry of a multi-version list as the one
-# that lands on PATH, and 3.12 was only ever the default because /usr/bin won
-# outright -- see the fish_user_paths fix. Keeping 3.12 first would have made
-# that fix a downgrade from 3.14.7.
 python = [
   "latest",
+  "3.14",
   "3.12",
   "3",
-  "3.11",
   "3.13",
 ]
 vim = [
@@ -48,11 +31,6 @@ zig = [
   "latest",
 ]
 
-# Chrome for Testing. The plain-text endpoint returns a single Stable version,
-# which mise takes as the whole version list. Chrome itself auto-updates on the
-# stable channel, so this tracks the installed browser's major in practice.
-# The short-name `chromedriver` is deliberately not used: its version list spans
-# every channel, so `latest` resolves to Canary.
 [tools."http:chromedriver"]
 version = "latest"
 version_list_url = "https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE"
