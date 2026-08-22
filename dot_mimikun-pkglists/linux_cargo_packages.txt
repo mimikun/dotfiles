@@ -6,14 +6,11 @@ apisnip
 atuin
 ballast
 basalt-tui
-basilk
 bibiman
 bitchat-tui
 blogr-cli
 bluetui
-bmm
 boa_cli
-bob-nvim
 bookokrat
 bottom
 bpf-linker
@@ -27,8 +24,6 @@ ccsum
 ccswarm
 cctx
 cell-sheet-tui
-checkpwn
-chess-tui
 clin-rs
 colorgen-nvim
 comchan
@@ -51,10 +46,7 @@ diskonaut
 dns-doge
 dnsglobe
 dockerfile-roast
-domain-check
-dotslash
 dotstate
-dotter
 drft
 du-dust
 dua-cli
@@ -116,7 +108,6 @@ jql
 judo
 jwt-ui
 kakehashi
-kibi
 kite-tui
 krafna
 lawkit
@@ -126,12 +117,10 @@ lisette
 livediff
 lla
 llmfit
-lobtui
 logria
 lstr
 mairu
 mamediff
-mask
 matugen
 mcdu
 mcfly
@@ -170,7 +159,6 @@ pacsea
 parallel-disk-usage
 parallels
 parqeye
-passepartui
 pay-respects-module-request-ai
 pay-respects-module-runtime-rules
 perch
@@ -186,11 +174,8 @@ punktf
 purple-ssh
 putzen-cli
 qmassa
-rage
 railwayapp
-rana
 rascii_art
-rbw
 rgx-cli
 riffdiff
 rioterm
@@ -200,7 +185,6 @@ rscls
 rucola-notes
 rura
 rusk-task
-rustfinity
 rusticon
 rustnet-monitor
 rustormy
@@ -249,9 +233,6 @@ tredis
 tree-sitter-cli
 treefmt
 try-rs
-tui-journal
-tuisky
-tukai
 turm
 typst-cli
 usage-cli
@@ -263,7 +244,6 @@ watchexec-cli
 wireman
 wisu
 work-tuimer
-wthrr
 xbps-tui
 xremap
 xsv
