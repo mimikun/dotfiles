@@ -5,10 +5,8 @@ aichat
 aim
 amdtop
 apisnip
-ast-grep
 atac
 atuin
-bacon
 ballast
 bandwhich
 basalt-tui
@@ -47,8 +45,6 @@ code-minimap
 codeberg-cli
 colorgen-nvim
 comchan
-commitlint-rs
-committed
 concord
 confirm-pam
 countryfetch
@@ -92,9 +88,6 @@ ecscope
 eilmeldung
 ekphos
 elio
-emmylua_check
-emmylua_doc_cli
-emmylua_ls
 envex
 envfetch
 epiq
@@ -196,7 +189,6 @@ lobtui
 logria
 lsd
 lstr
-lychee
 macchina
 mairu
 mamediff
@@ -271,7 +263,6 @@ pumas
 punktf
 purple-ssh
 putzen-cli
-pylyzer
 qmassa
 qrtool
 rage
@@ -309,12 +300,10 @@ scraps
 sd
 seednaut
 seetui
-selene
 serie
 serpl
 sharedserver
 sheldon
-shellharden
 siggy
 sigrs
 sigye
@@ -337,7 +326,6 @@ starship
 starship-jj
 strace-tui
 stu
-stylua
 superseedr
 swaptop
 swpui
@@ -347,7 +335,6 @@ systemd-manager-tui
 systeroid
 syswatch
 t-rec
-taplo-cli
 tatuin
 tauri-cli
 taws
@@ -380,7 +367,6 @@ tui-journal
 tuisky
 tukai
 turm
-typos-cli
 typst-cli
 tzupdate
 usage-cli
