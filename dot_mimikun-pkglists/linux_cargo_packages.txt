@@ -39,7 +39,6 @@ checkpwn
 chess-tui
 choose
 clin-rs
-cmd-wrapped
 code-minimap
 colorgen-nvim
 comchan
@@ -99,7 +98,6 @@ flowrs-tui
 fnox
 fresh-editor
 ftdv
-genact
 gengo-bin
 ghciwatch
 gistui
@@ -127,7 +125,6 @@ hf
 himalaya
 hoard-rs
 ht
-hwatch
 hygg
 hyperfine
 hysp
@@ -137,7 +134,6 @@ igrep
 imdl
 impala
 inspect-cert-chain
-intelli-shell
 intentrace
 iwe
 iwes
@@ -148,11 +144,9 @@ jocalsend
 jql
 jsongrep
 judo
-just
 jwt-ui
 kakehashi
 kanha
-kbt
 kibi
 kite-tui
 krafna
@@ -188,7 +182,6 @@ monitui
 monolith
 motus
 mq-run
-navi
 nectar-lang
 needs
 netscanner
@@ -218,7 +211,6 @@ parallels
 parqeye
 passepartui
 pastel
-pay-respects
 pay-respects-module-request-ai
 pay-respects-module-runtime-rules
 perch
@@ -228,7 +220,6 @@ pik
 pikpaktui
 pipr
 pitchfork-cli
-presenterm
 procs
 pueue
 pumas
@@ -272,7 +263,6 @@ seednaut
 seetui
 serpl
 sharedserver
-sheldon
 siggy
 sigrs
 sigye
@@ -281,7 +271,6 @@ similarity-ts
 skim
 slumber
 smartcat
-snipt
 somo
 soundscope
 spectatui
@@ -291,7 +280,6 @@ sprofile
 srgn
 ssh-list
 sshx
-starship
 strace-tui
 superseedr
 swaptop
@@ -299,20 +287,16 @@ swpui
 syntaqlite-cli
 systemctl-tui
 systemd-manager-tui
-systeroid
 syswatch
 t-rec
 tatuin
 tauri-cli
 taws
-tealdeer
 tegratop
-television
 tenere
 testing-language-server
 testing-ls-adapter
 tgt
-theattyr
 tmux-rs
 tod
 tokei
@@ -336,7 +320,6 @@ tzupdate
 usage-cli
 uuinfo
 vibe-ticket
-viddy
 viu
 vortix
 vscli
@@ -353,6 +336,5 @@ xleak
 xremap
 xsv
 zeitfetch
-zellij
 zenith
 zipsign
