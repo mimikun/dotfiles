@@ -3,12 +3,9 @@ ad-editor
 ag
 aichat
 aim
-amdtop
 apisnip
-atac
 atuin
 ballast
-bandwhich
 basalt-tui
 basilk
 bat
@@ -50,7 +47,6 @@ crmux
 cship
 csview
 csvlens
-cyme
 darya
 databow
 ddv
@@ -70,10 +66,8 @@ dotstate
 dotter
 doxx
 drft
-dtop
 du-dust
 dua-cli
-ducker
 dusage
 ecolog-lsp
 ecscope
@@ -93,7 +87,6 @@ fend
 filessh
 flamegraph
 flamelens
-flawz
 flowrs-tui
 fnox
 fresh-editor
@@ -126,7 +119,6 @@ himalaya
 hoard-rs
 ht
 hygg
-hyperfine
 hysp
 i3-style
 ibtop
@@ -146,7 +138,6 @@ jsongrep
 judo
 jwt-ui
 kakehashi
-kanha
 kibi
 kite-tui
 krafna
@@ -160,7 +151,6 @@ llmfit
 lobtui
 logria
 lstr
-macchina
 mairu
 mamediff
 mask
@@ -179,12 +169,10 @@ mocword
 modelsdev
 moltbook-tui
 monitui
-monolith
 motus
 mq-run
 nectar-lang
 needs
-netscanner
 netwatch-tui
 nexus-tui
 nippo
@@ -203,7 +191,6 @@ osintui
 ouch
 outside
 oxdraw
-oxker
 oyo
 pacsea
 parallel-disk-usage
@@ -220,7 +207,6 @@ pik
 pikpaktui
 pipr
 pitchfork-cli
-procs
 pueue
 pumas
 punktf
@@ -250,7 +236,6 @@ rusticon
 rustlens
 rustnet-monitor
 rustormy
-rustscan
 rvpm
 s3grep
 sabiql
@@ -269,7 +254,6 @@ sigye
 silicon
 similarity-ts
 skim
-slumber
 smartcat
 somo
 soundscope
@@ -279,14 +263,11 @@ spotatui
 sprofile
 srgn
 ssh-list
-sshx
 strace-tui
 superseedr
 swaptop
 swpui
 syntaqlite-cli
-systemctl-tui
-systemd-manager-tui
 syswatch
 t-rec
 tatuin
@@ -310,13 +291,11 @@ tree-sitter-cli
 treefmt
 treemd
 try-rs
-ttl
 tui-journal
 tuisky
 tukai
 turm
 typst-cli
-tzupdate
 usage-cli
 uuinfo
 vibe-ticket
@@ -330,8 +309,6 @@ work-tuimer
 wthrr
 xan
 xbps-tui
-xfr
-xh
 xleak
 xremap
 xsv
