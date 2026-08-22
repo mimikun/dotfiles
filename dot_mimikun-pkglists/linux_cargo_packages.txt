@@ -42,7 +42,6 @@ choose
 clin-rs
 cmd-wrapped
 code-minimap
-codeberg-cli
 colorgen-nvim
 comchan
 concord
@@ -57,13 +56,11 @@ cyme
 darya
 databow
 ddv
-deadbranch
 dealve-tui
 deff
 depsguard
 desed
 diffai
-difftastic
 diffx
 diskonaut
 diskwatch
@@ -107,23 +104,14 @@ flamelens
 flawz
 flowrs-tui
 fnox
-forgejo-cli
 fresh-editor
 fselect
 ftdv
 genact
 gengo-bin
-gfold
 ghciwatch
-ghgrab
 gistui
-git-delta
-git-graph
-git-interactive-rebase-tool
-gitlogue
-gitnr
 gitpane
-gitu
 gitv-tui
 gitwig
 glab-tui-crate
@@ -162,7 +150,6 @@ intentrace
 iwe
 iwes
 jiq
-jj-cli
 jjj
 jnv
 jocalsend
@@ -176,7 +163,6 @@ kanha
 kbt
 kibi
 kite-tui
-koji
 krafna
 lawkit
 lazycelery
@@ -230,7 +216,6 @@ octorus
 octotype
 oeis-tui
 omp-manager
-onefetch
 os_info_cli
 osintui
 ouch
@@ -238,7 +223,6 @@ outside
 oxdraw
 oxker
 oyo
-oyui
 pacsea
 parallel-disk-usage
 parallels
@@ -255,7 +239,6 @@ pik
 pikpaktui
 pipr
 pitchfork-cli
-prek
 presenterm
 procs
 pueue
@@ -300,7 +283,6 @@ scraps
 sd
 seednaut
 seetui
-serie
 serpl
 sharedserver
 sheldon
@@ -323,7 +305,6 @@ srgn
 ssh-list
 sshx
 starship
-starship-jj
 strace-tui
 stu
 superseedr
@@ -380,8 +361,6 @@ watchexec-cli
 wireman
 wisu
 work-tuimer
-worktrunk
-wrkflw
 wthrr
 xan
 xbps-tui
