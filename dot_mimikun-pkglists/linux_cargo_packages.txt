@@ -8,9 +8,7 @@ atuin
 ballast
 basalt-tui
 basilk
-bat
 bibiman
-bingrep
 bitchat-tui
 blogr-cli
 bluetui
@@ -34,7 +32,6 @@ cctx
 cell-sheet-tui
 checkpwn
 chess-tui
-choose
 clin-rs
 code-minimap
 colorgen-nvim
@@ -45,7 +42,6 @@ countryfetch
 create-tauri-app
 crmux
 cship
-csview
 csvlens
 darya
 databow
@@ -64,7 +60,6 @@ domain-check
 dotslash
 dotstate
 dotter
-doxx
 drft
 du-dust
 dua-cli
@@ -79,7 +74,6 @@ envfetch
 epiq
 erg
 eva
-fblog
 fd-find
 felix
 feluda
@@ -103,17 +97,14 @@ glues
 gnomad
 gping
 gptop
-grex
 gsty
 gwm-cli
 harper-ls
 hawk-data
 hazelnut
-heh
 hex-patch
 hexapoda
 hexhog
-hexyl
 hf
 himalaya
 hoard-rs
@@ -131,10 +122,8 @@ iwe
 iwes
 jiq
 jjj
-jnv
 jocalsend
 jql
-jsongrep
 judo
 jwt-ui
 kakehashi
@@ -159,8 +148,6 @@ mcat
 mcdu
 mcfly
 mcp-cli
-mdbook
-mdfried
 menyoki
 mergiraf
 merman-cli
@@ -222,7 +209,6 @@ rbw
 rgx-cli
 riffdiff
 rioterm
-ripgrep
 ripgrep_all
 ron-lsp
 rrc
@@ -246,7 +232,6 @@ scraps
 sd
 seednaut
 seetui
-serpl
 sharedserver
 siggy
 sigrs
@@ -261,12 +246,10 @@ spectatui
 splashboard
 spotatui
 sprofile
-srgn
 ssh-list
 strace-tui
 superseedr
 swaptop
-swpui
 syntaqlite-cli
 syswatch
 t-rec
@@ -280,16 +263,13 @@ testing-ls-adapter
 tgt
 tmux-rs
 tod
-tokei
 toktop
-toml2json
 topcoat-cli
 topgrade
 tortuise
 tredis
 tree-sitter-cli
 treefmt
-treemd
 try-rs
 tui-journal
 tuisky
@@ -307,9 +287,7 @@ wireman
 wisu
 work-tuimer
 wthrr
-xan
 xbps-tui
-xleak
 xremap
 xsv
 zeitfetch
