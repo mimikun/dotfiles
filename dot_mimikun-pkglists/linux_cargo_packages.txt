@@ -23,7 +23,6 @@ bob-nvim
 bookokrat
 bottom
 bpf-linker
-broot
 brush-shell
 bttf
 bugstalker
@@ -63,7 +62,6 @@ desed
 diffai
 diffx
 diskonaut
-diskwatch
 dns-doge
 dnsglobe
 dockerfile-roast
@@ -78,8 +76,6 @@ du-dust
 dua-cli
 ducker
 dusage
-dutree
-dysk
 ecolog-lsp
 ecscope
 eilmeldung
@@ -88,12 +84,9 @@ elio
 envex
 envfetch
 epiq
-erdtree
 erg
 eva
-eza
 fblog
-fclones
 fd-find
 felix
 feluda
@@ -105,7 +98,6 @@ flawz
 flowrs-tui
 fnox
 fresh-editor
-fselect
 ftdv
 genact
 gengo-bin
@@ -173,7 +165,6 @@ lla
 llmfit
 lobtui
 logria
-lsd
 lstr
 macchina
 mairu
@@ -197,7 +188,6 @@ monitui
 monolith
 motus
 mq-run
-natls
 navi
 nectar-lang
 needs
@@ -205,7 +195,6 @@ netscanner
 netwatch-tui
 nexus-tui
 nippo
-nomino
 nu
 nu_plugin_formats
 nu_plugin_gstat
@@ -253,11 +242,9 @@ railwayapp
 rana
 rascii_art
 rbw
-redu
 rgx-cli
 riffdiff
 rioterm
-rip2
 ripgrep
 ripgrep_all
 ron-lsp
@@ -306,7 +293,6 @@ ssh-list
 sshx
 starship
 strace-tui
-stu
 superseedr
 swaptop
 swpui
@@ -323,7 +309,6 @@ tealdeer
 tegratop
 television
 tenere
-tere
 testing-language-server
 testing-ls-adapter
 tgt
@@ -336,8 +321,6 @@ toml2json
 topcoat-cli
 topgrade
 tortuise
-trashy
-tre-command
 tredis
 tree-sitter-cli
 treefmt
@@ -373,4 +356,3 @@ zeitfetch
 zellij
 zenith
 zipsign
-zoxide
