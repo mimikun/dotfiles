@@ -1,0 +1,19 @@
+dot_claude/hooks/executable_todoist-sync-reminder.sh
+  s_7f44726c487d3a::t_dd312ae8da8b3f 17-23,31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.23",
+  "base_commit_sha": "72090a8f2e9457b1a8607943f16b50079d35e000",
+  "prompts": {},
+  "sessions": {
+    "s_7f44726c487d3a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8aca6e9c-1985-4ccc-84a7-157439dc2e9a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
