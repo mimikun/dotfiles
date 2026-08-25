@@ -35,6 +35,15 @@ declare -A remote_skills=(
     ["convert-documents-to-markdown"]="firecrawl/anydoc"
     ["find-skills"]="vercel-labs/skills"
     ["gh-stack"]="github/gh-stack"
+    # googleworkspace/cli publishes 95 skills, one per API it covers. Only the
+    # calendar path is installed here: the other 91 would flood the skill list
+    # with APIs this machine never calls. gws-shared is not optional - the
+    # calendar skills open by telling the reader to go read it for auth and
+    # global flags, so leaving it out breaks them.
+    ["gws-calendar"]="googleworkspace/cli"
+    ["gws-calendar-agenda"]="googleworkspace/cli"
+    ["gws-calendar-insert"]="googleworkspace/cli"
+    ["gws-shared"]="googleworkspace/cli"
     ["herdr"]="ogulcancelik/herdr"
 )
 
@@ -89,6 +98,7 @@ check_cli() {
 }
 
 check_cli browser-use browser-use "https://github.com/browser-use/browser-use"
+check_cli gws         gws-calendar "https://github.com/googleworkspace/cli"
 check_cli herdr       herdr       "https://github.com/ogulcancelik/herdr"
 check_cli neowright   neowright   "https://github.com/isak102/neowright"
 check_cli officecli   officecli   "https://github.com/iOfficeAI/OfficeCLI"
