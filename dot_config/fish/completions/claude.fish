@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.237 on 2026-08-20.
+# Generated from claude 2.1.241 on 2026-08-23.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -480,7 +480,7 @@ complete -c claude -n '__fish_claude_at "plugin init"' -l with -d 'Also scaffold
 complete -c claude -n '__fish_claude_at "plugin install"' -l config -d 'Set a userConfig option declared in the plugin\'s manifest (repeatable). Values are valida…' -r -F
 complete -c claude -n '__fish_claude_at "plugin install"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin install"' -s s -l scope -d 'Installation scope: user, project, or local (default: "user")' -r
-complete -c claude -n '__fish_claude_at "plugin install"' -s y -l yes -d 'For a plugin installed by running a marketplace-declared command: accept the displayed co…'
+complete -c claude -n '__fish_claude_at "plugin install"' -s y -l yes -d 'Accept the displayed marketplace-declared command without the confirmation prompt — a plu…'
 
 # claude plugin list
 complete -c claude -n '__fish_claude_at "plugin list"' -l available -d 'Include available plugins from marketplaces (requires --json)'
@@ -538,7 +538,7 @@ complete -c claude -n '__fish_claude_at "plugin uninstall"' -s y -l yes -d 'Skip
 complete -c claude -n '__fish_claude_at "plugin update"' -x -a '(__fish_claude_plugins)'
 complete -c claude -n '__fish_claude_at "plugin update"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin update"' -s s -l scope -d 'Installation scope: user, project, local, managed (default: user)' -r
-complete -c claude -n '__fish_claude_at "plugin update"' -s y -l yes -d 'For a plugin installed by running a marketplace-declared command: accept a changed comman…'
+complete -c claude -n '__fish_claude_at "plugin update"' -s y -l yes -d 'Accept the displayed marketplace-declared command without the confirmation prompt — a cha…'
 
 # claude plugin validate
 complete -c claude -n '__fish_claude_at "plugin validate"' -s h -l help -d 'Display help for command'
