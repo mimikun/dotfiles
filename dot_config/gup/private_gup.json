@@ -34,7 +34,7 @@
     {
       "name": "agtlog",
       "import_path": "github.com/motoki317/agtlog/cmd/agtlog",
-      "version": "v0.2.5",
+      "version": "v0.3.0",
       "channel": "latest"
     },
     {
@@ -538,7 +538,7 @@
     {
       "name": "lazykiq",
       "import_path": "github.com/kpumuk/lazykiq/cmd/lazykiq",
-      "version": "v0.1.1",
+      "version": "v0.1.2",
       "channel": "latest"
     },
     {
@@ -568,7 +568,7 @@
     {
       "name": "lazytilt",
       "import_path": "github.com/tdi/lazytilt",
-      "version": "v0.3.0",
+      "version": "v0.4.0",
       "channel": "latest"
     },
     {
@@ -580,13 +580,13 @@
     {
       "name": "lf",
       "import_path": "github.com/gokcehan/lf",
-      "version": "v0.0.0-20260815020720-252ca3e4253d",
+      "version": "v0.0.0-20260825003720-1c9029e9ece6",
       "channel": "latest"
     },
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.18.1",
+      "version": "v0.18.2",
       "channel": "latest"
     },
     {
@@ -598,7 +598,7 @@
     {
       "name": "lsoff",
       "import_path": "github.com/yutat23/lsoff",
-      "version": "v0.1.3",
+      "version": "v0.1.4",
       "channel": "latest"
     },
     {
@@ -610,7 +610,7 @@
     {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.19.0",
+      "version": "v0.21.0",
       "channel": "latest"
     },
     {
@@ -634,7 +634,7 @@
     {
       "name": "micro",
       "import_path": "go-micro.dev/v6/cmd/micro",
-      "version": "v6.11.0",
+      "version": "v6.12.0",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.12.2",
+      "version": "v1.12.3",
       "channel": "latest"
     },
     {
@@ -784,7 +784,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v1.2.2",
+      "version": "v1.2.4",
       "channel": "latest"
     },
     {
@@ -820,7 +820,7 @@
     {
       "name": "runme",
       "import_path": "github.com/runmedev/runme/v3",
-      "version": "v3.17.4",
+      "version": "v3.17.5",
       "channel": "latest"
     },
     {
@@ -838,7 +838,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260822212002-7d171a503fbc",
+      "version": "v0.0.0-20260825032218-2053f236b2e2",
       "channel": "latest"
     },
     {
@@ -868,7 +868,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v1.4.0",
+      "version": "v1.6.0",
       "channel": "latest"
     },
     {
@@ -898,7 +898,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v1.0.2",
+      "version": "v1.0.3",
       "channel": "latest"
     },
     {
@@ -1096,7 +1096,7 @@
     {
       "name": "y509",
       "import_path": "github.com/kanywst/y509/cmd/y509",
-      "version": "v1.0.2",
+      "version": "v1.0.3",
       "channel": "latest"
     },
     {
