@@ -1,0 +1,14 @@
+.chezmoiscripts/linux/run_onchange_after-install-agent-skills.sh.tmpl
+  h_220433a6faf6b8 38-46,101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "9ba76322b6141f2045d72a4685cf608dfe59e9f3",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
