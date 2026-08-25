@@ -4,19 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.11.2",
-      "channel": "latest"
-    },
-    {
-      "name": "act3",
-      "import_path": "github.com/dhth/act3",
-      "version": "v1.1.4",
-      "channel": "latest"
-    },
-    {
-      "name": "actionlint",
-      "import_path": "github.com/rhysd/actionlint/cmd/actionlint",
-      "version": "v1.7.12",
+      "version": "v0.12.0",
       "channel": "latest"
     },
     {
@@ -44,45 +32,9 @@
       "channel": "latest"
     },
     {
-      "name": "age",
-      "import_path": "filippo.io/age/cmd/age",
-      "version": "v1.3.1",
-      "channel": "latest"
-    },
-    {
-      "name": "age-inspect",
-      "import_path": "filippo.io/age/cmd/age-inspect",
-      "version": "v1.3.1",
-      "channel": "latest"
-    },
-    {
-      "name": "age-keygen",
-      "import_path": "filippo.io/age/cmd/age-keygen",
-      "version": "v1.3.1",
-      "channel": "latest"
-    },
-    {
-      "name": "age-plugin-batchpass",
-      "import_path": "filippo.io/age/cmd/age-plugin-batchpass",
-      "version": "v1.3.1",
-      "channel": "latest"
-    },
-    {
       "name": "agtlog",
       "import_path": "github.com/motoki317/agtlog/cmd/agtlog",
-      "version": "v0.2.4",
-      "channel": "latest"
-    },
-    {
-      "name": "algia",
-      "import_path": "github.com/mattn/algia",
-      "version": "v0.0.135",
-      "channel": "latest"
-    },
-    {
-      "name": "ali",
-      "import_path": "github.com/nakabonne/ali",
-      "version": "v0.8.0",
+      "version": "v0.2.5",
       "channel": "latest"
     },
     {
@@ -92,21 +44,9 @@
       "channel": "latest"
     },
     {
-      "name": "andcli",
-      "import_path": "github.com/tjblackheart/andcli/v2/cmd/andcli",
-      "version": "v2.8.1",
-      "channel": "latest"
-    },
-    {
       "name": "aptui",
       "import_path": "github.com/mexirica/aptui",
       "version": "v0.8.1",
-      "channel": "latest"
-    },
-    {
-      "name": "asmfmt",
-      "import_path": "github.com/klauspost/asmfmt/cmd/asmfmt",
-      "version": "v1.3.2",
       "channel": "latest"
     },
     {
@@ -134,18 +74,6 @@
       "channel": "latest"
     },
     {
-      "name": "bit",
-      "import_path": "github.com/chriswalz/bit",
-      "version": "v1.1.2",
-      "channel": "latest"
-    },
-    {
-      "name": "bluetuith",
-      "import_path": "github.com/darkhz/bluetuith",
-      "version": "v0.2.7",
-      "channel": "latest"
-    },
-    {
       "name": "bsky",
       "import_path": "github.com/mattn/bsky",
       "version": "v0.0.82",
@@ -170,12 +98,6 @@
       "channel": "latest"
     },
     {
-      "name": "cariddi",
-      "import_path": "github.com/edoardottt/cariddi/cmd/cariddi",
-      "version": "v1.4.6",
-      "channel": "latest"
-    },
-    {
       "name": "ccgate",
       "import_path": "github.com/tak848/ccgate",
       "version": "v0.10.0",
@@ -185,12 +107,6 @@
       "name": "chatuino",
       "import_path": "github.com/julez-dev/chatuino",
       "version": "v1.3.0",
-      "channel": "latest"
-    },
-    {
-      "name": "checkmake",
-      "import_path": "github.com/checkmake/checkmake/cmd/checkmake",
-      "version": "v0.3.2",
       "channel": "latest"
     },
     {
@@ -212,12 +128,6 @@
       "channel": "latest"
     },
     {
-      "name": "clive",
-      "import_path": "github.com/koki-develop/clive",
-      "version": "v0.12.17",
-      "channel": "latest"
-    },
-    {
       "name": "cmdperf",
       "import_path": "github.com/miklosn/cmdperf/cmd/cmdperf",
       "version": "v0.2.0",
@@ -236,15 +146,9 @@
       "channel": "latest"
     },
     {
-      "name": "croc",
-      "import_path": "github.com/schollz/croc/v10",
-      "version": "v10.7.0",
-      "channel": "latest"
-    },
-    {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.89.0",
+      "version": "v0.91.0",
       "channel": "latest"
     },
     {
@@ -272,12 +176,6 @@
       "channel": "latest"
     },
     {
-      "name": "curlie",
-      "import_path": "github.com/rs/curlie",
-      "version": "v1.8.2",
-      "channel": "latest"
-    },
-    {
       "name": "d2",
       "import_path": "oss.terrastruct.com/d2",
       "version": "v0.7.2",
@@ -293,30 +191,6 @@
       "name": "deletor",
       "import_path": "github.com/pashkov256/deletor",
       "version": "v1.5.0",
-      "channel": "latest"
-    },
-    {
-      "name": "diffyml",
-      "import_path": "github.com/szhekpisov/diffyml",
-      "version": "v1.8.0",
-      "channel": "latest"
-    },
-    {
-      "name": "diskbloom",
-      "import_path": "github.com/Zingzy/diskbloom",
-      "version": "v0.1.0",
-      "channel": "latest"
-    },
-    {
-      "name": "dive",
-      "import_path": "github.com/wagoodman/dive",
-      "version": "v0.13.1",
-      "channel": "latest"
-    },
-    {
-      "name": "dlv",
-      "import_path": "github.com/go-delve/delve/cmd/dlv",
-      "version": "v1.27.1",
       "channel": "latest"
     },
     {
@@ -338,33 +212,9 @@
       "channel": "latest"
     },
     {
-      "name": "dockerfile-pin",
-      "import_path": "github.com/azu/dockerfile-pin",
-      "version": "v1.3.0",
-      "channel": "latest"
-    },
-    {
       "name": "dskDitto",
       "import_path": "github.com/jdefrancesco/dskDitto/cmd/dskDitto",
       "version": "v0.6.2",
-      "channel": "latest"
-    },
-    {
-      "name": "dstp",
-      "import_path": "github.com/ycd/dstp/cmd/dstp",
-      "version": "v0.4.23",
-      "channel": "latest"
-    },
-    {
-      "name": "dyff",
-      "import_path": "github.com/homeport/dyff/cmd/dyff",
-      "version": "v1.12.0",
-      "channel": "latest"
-    },
-    {
-      "name": "e1s",
-      "import_path": "github.com/keidarcy/e1s/cmd/e1s",
-      "version": "v1.0.53",
       "channel": "latest"
     },
     {
@@ -380,30 +230,6 @@
       "channel": "latest"
     },
     {
-      "name": "ec",
-      "import_path": "github.com/chojs23/ec/cmd/ec",
-      "version": "v0.3.3",
-      "channel": "latest"
-    },
-    {
-      "name": "editorconfig-checker",
-      "import_path": "github.com/editorconfig-checker/editorconfig-checker/v3/cmd/editorconfig-checker",
-      "version": "v3.11.1",
-      "channel": "latest"
-    },
-    {
-      "name": "efm-langserver",
-      "import_path": "github.com/mattn/efm-langserver",
-      "version": "v0.0.57",
-      "channel": "latest"
-    },
-    {
-      "name": "eget",
-      "import_path": "github.com/zyedidia/eget",
-      "version": "v1.3.4",
-      "channel": "latest"
-    },
-    {
       "name": "enola",
       "import_path": "github.com/theyahya/enola/cmd/enola",
       "version": "v1.0.0",
@@ -416,27 +242,9 @@
       "channel": "latest"
     },
     {
-      "name": "f2",
-      "import_path": "github.com/ayoisaiah/f2/v2/cmd/f2",
-      "version": "v2.2.2",
-      "channel": "latest"
-    },
-    {
-      "name": "fabric",
-      "import_path": "github.com/danielmiessler/fabric/cmd/fabric",
-      "version": "v1.4.470",
-      "channel": "latest"
-    },
-    {
       "name": "faw",
       "import_path": "github.com/kamichidu/go-fu-kin-ambiwidth/cmd/faw",
       "version": "v1.0.0",
-      "channel": "latest"
-    },
-    {
-      "name": "fence",
-      "import_path": "github.com/fencesandbox/fence/cmd/fence",
-      "version": "v0.1.66",
       "channel": "latest"
     },
     {
@@ -449,24 +257,6 @@
       "name": "flow",
       "import_path": "github.com/programmersd21/flow/cmd/flow",
       "version": "v0.2.3",
-      "channel": "latest"
-    },
-    {
-      "name": "fm",
-      "import_path": "github.com/mistakenelf/fm",
-      "version": "v1.2.0",
-      "channel": "latest"
-    },
-    {
-      "name": "fq",
-      "import_path": "github.com/wader/fq",
-      "version": "v0.17.0",
-      "channel": "latest"
-    },
-    {
-      "name": "freeze",
-      "import_path": "github.com/charmbracelet/freeze",
-      "version": "v0.2.2",
       "channel": "latest"
     },
     {
@@ -488,39 +278,15 @@
       "channel": "latest"
     },
     {
-      "name": "gat",
-      "import_path": "github.com/koki-develop/gat",
-      "version": "v0.30.2",
-      "channel": "latest"
-    },
-    {
       "name": "ggh",
       "import_path": "github.com/byawitz/ggh",
       "version": "v0.1.5",
       "channel": "latest"
     },
     {
-      "name": "ghalint",
-      "import_path": "github.com/suzuki-shunsuke/ghalint/cmd/ghalint",
-      "version": "v1.5.6",
-      "channel": "latest"
-    },
-    {
       "name": "ghaver",
       "import_path": "github.com/tenkoh/go-ghaver/cmd/ghaver",
       "version": "v0.1.2",
-      "channel": "latest"
-    },
-    {
-      "name": "ghfetch",
-      "import_path": "github.com/orangekame3/ghfetch",
-      "version": "v0.0.19",
-      "channel": "latest"
-    },
-    {
-      "name": "ghq",
-      "import_path": "github.com/x-motemen/ghq",
-      "version": "v1.10.1",
       "channel": "latest"
     },
     {
@@ -548,12 +314,6 @@
       "channel": "latest"
     },
     {
-      "name": "git-wt",
-      "import_path": "github.com/k1LoW/git-wt",
-      "version": "v0.29.1",
-      "channel": "latest"
-    },
-    {
       "name": "github-nippou",
       "import_path": "github.com/masutaka/github-nippou/v4",
       "version": "v4.3.2",
@@ -566,33 +326,9 @@
       "channel": "latest"
     },
     {
-      "name": "gitsnip",
-      "import_path": "github.com/dagimg-dot/gitsnip/cmd/gitsnip",
-      "version": "v0.1.1",
-      "channel": "latest"
-    },
-    {
       "name": "gittop",
       "import_path": "github.com/hjr265/gittop",
       "version": "v0.4.0",
-      "channel": "latest"
-    },
-    {
-      "name": "glow",
-      "import_path": "github.com/charmbracelet/glow/v2",
-      "version": "v2.1.2",
-      "channel": "latest"
-    },
-    {
-      "name": "gmailctl",
-      "import_path": "github.com/mbrt/gmailctl/cmd/gmailctl",
-      "version": "v0.12.0",
-      "channel": "latest"
-    },
-    {
-      "name": "gofumpt",
-      "import_path": "mvdan.cc/gofumpt",
-      "version": "v0.11.0",
       "channel": "latest"
     },
     {
@@ -614,33 +350,15 @@
       "channel": "latest"
     },
     {
-      "name": "gokey",
-      "import_path": "github.com/cloudflare/gokey/cmd/gokey",
-      "version": "v0.2.1",
-      "channel": "latest"
-    },
-    {
       "name": "golangci-lint",
       "import_path": "github.com/golangci/golangci-lint/v2/cmd/golangci-lint",
-      "version": "v2.12.2",
+      "version": "v2.13.1",
       "channel": "latest"
     },
     {
       "name": "golazo",
       "import_path": "github.com/0xjuanma/golazo",
       "version": "v0.32.0",
-      "channel": "latest"
-    },
-    {
-      "name": "gollama",
-      "import_path": "github.com/sammcj/gollama",
-      "version": "v1.37.5",
-      "channel": "latest"
-    },
-    {
-      "name": "gomodifytags",
-      "import_path": "github.com/fatih/gomodifytags",
-      "version": "v1.17.0",
       "channel": "latest"
     },
     {
@@ -653,24 +371,6 @@
       "name": "gonzo",
       "import_path": "github.com/control-theory/gonzo/cmd/gonzo",
       "version": "v0.4.3",
-      "channel": "latest"
-    },
-    {
-      "name": "gopass",
-      "import_path": "github.com/gopasspw/gopass",
-      "version": "v1.16.1",
-      "channel": "latest"
-    },
-    {
-      "name": "gopls",
-      "import_path": "golang.org/x/tools/gopls",
-      "version": "v0.23.0",
-      "channel": "latest"
-    },
-    {
-      "name": "gore",
-      "import_path": "github.com/x-motemen/gore/cmd/gore",
-      "version": "v0.7.0",
       "channel": "latest"
     },
     {
@@ -692,39 +392,9 @@
       "channel": "latest"
     },
     {
-      "name": "goshs",
-      "import_path": "goshs.de/goshs/v2",
-      "version": "v2.1.5",
-      "channel": "latest"
-    },
-    {
-      "name": "gotags",
-      "import_path": "github.com/jstemmer/gotags",
-      "version": "v1.4.1",
-      "channel": "latest"
-    },
-    {
-      "name": "gotip",
-      "import_path": "github.com/lusingander/gotip/cmd/gotip",
-      "version": "v0.10.1",
-      "channel": "latest"
-    },
-    {
-      "name": "gotop",
-      "import_path": "github.com/xxxserxxx/gotop/v4/cmd/gotop",
-      "version": "v4.2.0",
-      "channel": "latest"
-    },
-    {
       "name": "gotz",
       "import_path": "github.com/merschformann/gotz",
       "version": "v0.1.15",
-      "channel": "latest"
-    },
-    {
-      "name": "gowall",
-      "import_path": "github.com/Achno/gowall",
-      "version": "v0.2.4",
       "channel": "latest"
     },
     {
@@ -734,27 +404,9 @@
       "channel": "latest"
     },
     {
-      "name": "gtrash",
-      "import_path": "github.com/umlx5h/gtrash",
-      "version": "v0.0.6",
-      "channel": "latest"
-    },
-    {
-      "name": "gum",
-      "import_path": "github.com/charmbracelet/gum",
-      "version": "v0.17.0",
-      "channel": "latest"
-    },
-    {
       "name": "gup",
       "import_path": "github.com/nao1215/gup",
       "version": "v1.8.1",
-      "channel": "latest"
-    },
-    {
-      "name": "gwq",
-      "import_path": "github.com/d-kuro/gwq/cmd/gwq",
-      "version": "v0.1.1",
       "channel": "latest"
     },
     {
@@ -776,18 +428,6 @@
       "channel": "latest"
     },
     {
-      "name": "hours",
-      "import_path": "github.com/dhth/hours",
-      "version": "v0.6.0",
-      "channel": "latest"
-    },
-    {
-      "name": "httplab",
-      "import_path": "github.com/gchaincl/httplab/cmd/httplab",
-      "version": "v0.4.2",
-      "channel": "latest"
-    },
-    {
       "name": "httpmonitor",
       "import_path": "github.com/ricoberger/httpmonitor",
       "version": "v0.4.1",
@@ -800,21 +440,9 @@
       "channel": "latest"
     },
     {
-      "name": "httptap",
-      "import_path": "github.com/monasticacademy/httptap",
-      "version": "v0.1.1",
-      "channel": "latest"
-    },
-    {
       "name": "hulak",
       "import_path": "github.com/xaaha/hulak",
       "version": "v0.3.32",
-      "channel": "latest"
-    },
-    {
-      "name": "hut",
-      "import_path": "git.sr.ht/~xenrox/hut",
-      "version": "v0.8.0",
       "channel": "latest"
     },
     {
@@ -830,21 +458,9 @@
       "channel": "latest"
     },
     {
-      "name": "impl",
-      "import_path": "github.com/josharian/impl",
-      "version": "v1.5.0",
-      "channel": "latest"
-    },
-    {
       "name": "json2yaml",
       "import_path": "github.com/itchyny/json2yaml/cmd/json2yaml",
       "version": "v0.1.5",
-      "channel": "latest"
-    },
-    {
-      "name": "jump",
-      "import_path": "github.com/gsamokovarov/jump",
-      "version": "v0.67.0",
       "channel": "latest"
     },
     {
@@ -862,13 +478,13 @@
     {
       "name": "keep-sorted",
       "import_path": "github.com/google/keep-sorted",
-      "version": "v0.9.1",
+      "version": "v0.10.0",
       "channel": "latest"
     },
     {
       "name": "keyward",
       "import_path": "github.com/gateway-of-last-resort/keyward/cmd/keyward",
-      "version": "v1.0.2",
+      "version": "v1.0.3",
       "channel": "latest"
     },
     {
@@ -884,18 +500,6 @@
       "channel": "latest"
     },
     {
-      "name": "ktop",
-      "import_path": "github.com/vladimirvivien/ktop",
-      "version": "v0.5.3",
-      "channel": "latest"
-    },
-    {
-      "name": "ku",
-      "import_path": "github.com/bjarneo/ku",
-      "version": "v0.11.0",
-      "channel": "latest"
-    },
-    {
       "name": "kyma",
       "import_path": "github.com/museslabs/kyma",
       "version": "v0.2.0",
@@ -908,33 +512,15 @@
       "channel": "latest"
     },
     {
-      "name": "layerx",
-      "import_path": "github.com/deveshctl/layerx",
-      "version": "v1.6.1",
-      "channel": "latest"
-    },
-    {
       "name": "lazycwl",
       "import_path": "github.com/myuron/lazycwl",
       "version": "v1.4.2",
       "channel": "latest"
     },
     {
-      "name": "lazydocker",
-      "import_path": "github.com/jesseduffield/lazydocker",
-      "version": "v0.25.2",
-      "channel": "latest"
-    },
-    {
       "name": "lazyenv",
       "import_path": "github.com/lazynop/lazyenv",
       "version": "v0.9.0",
-      "channel": "latest"
-    },
-    {
-      "name": "lazygit",
-      "import_path": "github.com/jesseduffield/lazygit",
-      "version": "v0.64.1",
       "channel": "latest"
     },
     {
@@ -976,7 +562,7 @@
     {
       "name": "lazysql",
       "import_path": "github.com/jorgerojas26/lazysql",
-      "version": "v0.5.5",
+      "version": "v0.5.6",
       "channel": "latest"
     },
     {
@@ -988,7 +574,7 @@
     {
       "name": "lefthook",
       "import_path": "github.com/evilmartians/lefthook/v2",
-      "version": "v2.1.10",
+      "version": "v2.1.11",
       "channel": "latest"
     },
     {
@@ -1000,7 +586,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.17.5",
+      "version": "v0.18.1",
       "channel": "latest"
     },
     {
@@ -1016,27 +602,15 @@
       "channel": "latest"
     },
     {
-      "name": "mage",
-      "import_path": "github.com/magefile/mage",
-      "version": "v1.17.2",
-      "channel": "latest"
-    },
-    {
       "name": "make2help",
       "import_path": "github.com/Songmu/make2help/cmd/make2help",
       "version": "v0.2.1",
       "channel": "latest"
     },
     {
-      "name": "mani",
-      "import_path": "github.com/alajmo/mani",
-      "version": "v0.32.1",
-      "channel": "latest"
-    },
-    {
       "name": "mcpsnoop",
       "import_path": "github.com/kerlenton/mcpsnoop/cmd/mcpsnoop",
-      "version": "v0.18.0",
+      "version": "v0.19.0",
       "channel": "latest"
     },
     {
@@ -1052,12 +626,6 @@
       "channel": "latest"
     },
     {
-      "name": "meteor",
-      "import_path": "github.com/stefanlogue/meteor",
-      "version": "v0.31.0",
-      "channel": "latest"
-    },
-    {
       "name": "micasa",
       "import_path": "github.com/cpcloud/micasa/cmd/micasa",
       "version": "v1.80.0",
@@ -1070,51 +638,15 @@
       "channel": "latest"
     },
     {
-      "name": "minify",
-      "import_path": "github.com/tdewolff/minify/v2/cmd/minify",
-      "version": "v2.24.17",
-      "channel": "latest"
-    },
-    {
-      "name": "motion",
-      "import_path": "github.com/fatih/motion",
-      "version": "v1.2.0",
-      "channel": "latest"
-    },
-    {
-      "name": "mufetch",
-      "import_path": "github.com/ashish0kumar/mufetch",
-      "version": "v0.1.1",
-      "channel": "latest"
-    },
-    {
       "name": "mult",
       "import_path": "github.com/dhth/mult",
       "version": "v0.3.0",
       "channel": "latest"
     },
     {
-      "name": "murex",
-      "import_path": "github.com/lmorg/murex",
-      "version": "v0.0.0-20260202231244-8678ad89405c",
-      "channel": "latest"
-    },
-    {
-      "name": "nap",
-      "import_path": "github.com/maaslalani/nap",
-      "version": "v0.1.1",
-      "channel": "latest"
-    },
-    {
-      "name": "nerdlog",
-      "import_path": "github.com/dimonomid/nerdlog/cmd/nerdlog",
-      "version": "v1.10.0",
-      "channel": "latest"
-    },
-    {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.11.4",
+      "version": "v1.12.2",
       "channel": "latest"
     },
     {
@@ -1138,7 +670,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.28.0",
+      "version": "v0.29.0",
       "channel": "latest"
     },
     {
@@ -1172,27 +704,9 @@
       "channel": "latest"
     },
     {
-      "name": "ov",
-      "import_path": "github.com/noborus/ov",
-      "version": "v0.54.0",
-      "channel": "latest"
-    },
-    {
       "name": "packemon",
       "import_path": "github.com/ddddddO/packemon/cmd/packemon",
       "version": "v1.8.26",
-      "channel": "latest"
-    },
-    {
-      "name": "peco",
-      "import_path": "github.com/peco/peco/cmd/peco",
-      "version": "v0.6.0",
-      "channel": "latest"
-    },
-    {
-      "name": "pg-schema-diff",
-      "import_path": "github.com/stripe/pg-schema-diff/cmd/pg-schema-diff",
-      "version": "v1.0.9",
       "channel": "latest"
     },
     {
@@ -1202,33 +716,9 @@
       "channel": "latest"
     },
     {
-      "name": "pinact",
-      "import_path": "github.com/suzuki-shunsuke/pinact/v3/cmd/pinact",
-      "version": "v3.10.1",
-      "channel": "latest"
-    },
-    {
-      "name": "pipeform",
-      "import_path": "github.com/magodo/pipeform",
-      "version": "v0.2.1",
-      "channel": "latest"
-    },
-    {
-      "name": "plow",
-      "import_path": "github.com/six-ddc/plow",
-      "version": "v1.4.0",
-      "channel": "latest"
-    },
-    {
-      "name": "pomo",
-      "import_path": "github.com/Bahaaio/pomo",
-      "version": "v1.2.1",
-      "channel": "latest"
-    },
-    {
       "name": "pop",
       "import_path": "github.com/charmbracelet/pop",
-      "version": "v0.4.0",
+      "version": "v0.5.0",
       "channel": "latest"
     },
     {
@@ -1250,18 +740,6 @@
       "channel": "latest"
     },
     {
-      "name": "pvetui",
-      "import_path": "github.com/devnullvoid/pvetui/cmd/pvetui",
-      "version": "v1.4.3",
-      "channel": "latest"
-    },
-    {
-      "name": "pwdsafety",
-      "import_path": "github.com/edoardottt/pwdsafety/cmd/pwdsafety",
-      "version": "v0.4.2",
-      "channel": "latest"
-    },
-    {
       "name": "qo",
       "import_path": "github.com/kiki-ki/go-qo/cmd/qo",
       "version": "v0.4.1",
@@ -1277,12 +755,6 @@
       "name": "rad",
       "import_path": "github.com/amterp/rad",
       "version": "v0.12.1",
-      "channel": "latest"
-    },
-    {
-      "name": "reader",
-      "import_path": "github.com/mrusme/reader",
-      "version": "v0.6.0",
       "channel": "latest"
     },
     {
@@ -1312,7 +784,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v1.2.1",
+      "version": "v1.2.2",
       "channel": "latest"
     },
     {
@@ -1324,7 +796,7 @@
     {
       "name": "revive",
       "import_path": "github.com/mgechev/revive",
-      "version": "v1.15.0",
+      "version": "v1.16.0",
       "channel": "latest"
     },
     {
@@ -1364,15 +836,9 @@
       "channel": "latest"
     },
     {
-      "name": "scc",
-      "import_path": "github.com/boyter/scc/v3",
-      "version": "v3.7.0",
-      "channel": "latest"
-    },
-    {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260818221929-dfd44200f3cc",
+      "version": "v0.0.0-20260822212002-7d171a503fbc",
       "channel": "latest"
     },
     {
@@ -1400,15 +866,9 @@
       "channel": "latest"
     },
     {
-      "name": "shfmt",
-      "import_path": "mvdan.cc/sh/v3/cmd/shfmt",
-      "version": "v3.13.1",
-      "channel": "latest"
-    },
-    {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v1.1.0",
+      "version": "v1.4.0",
       "channel": "latest"
     },
     {
@@ -1418,27 +878,9 @@
       "channel": "latest"
     },
     {
-      "name": "skate",
-      "import_path": "github.com/charmbracelet/skate",
-      "version": "v1.0.1",
-      "channel": "latest"
-    },
-    {
       "name": "sleepy",
       "import_path": "github.com/mattn/sleepy",
       "version": "v0.0.12",
-      "channel": "latest"
-    },
-    {
-      "name": "slides",
-      "import_path": "github.com/maaslalani/slides",
-      "version": "v0.9.0",
-      "channel": "latest"
-    },
-    {
-      "name": "snitch",
-      "import_path": "github.com/karol-broda/snitch",
-      "version": "v0.2.2",
       "channel": "latest"
     },
     {
@@ -1454,27 +896,9 @@
       "channel": "latest"
     },
     {
-      "name": "sou",
-      "import_path": "github.com/knqyf263/sou",
-      "version": "v0.2.0",
-      "channel": "latest"
-    },
-    {
-      "name": "sq",
-      "import_path": "github.com/neilotoole/sq",
-      "version": "v0.54.1",
-      "channel": "latest"
-    },
-    {
-      "name": "sqlc",
-      "import_path": "github.com/sqlc-dev/sqlc/cmd/sqlc",
-      "version": "v1.31.1",
-      "channel": "latest"
-    },
-    {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v1.0.1",
+      "version": "v1.0.2",
       "channel": "latest"
     },
     {
@@ -1514,12 +938,6 @@
       "channel": "latest"
     },
     {
-      "name": "task",
-      "import_path": "github.com/go-task/task/v3/cmd/task",
-      "version": "v3.53.1",
-      "channel": "latest"
-    },
-    {
       "name": "tcount",
       "import_path": "github.com/lancekrogers/tcount/cmd/tcount",
       "version": "v0.6.0",
@@ -1534,7 +952,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.60.0",
+      "version": "v0.63.0",
       "channel": "latest"
     },
     {
@@ -1559,12 +977,6 @@
       "name": "tock",
       "import_path": "github.com/kriuchkov/tock/cmd/tock",
       "version": "v1.9.8",
-      "channel": "latest"
-    },
-    {
-      "name": "todoist",
-      "import_path": "github.com/sachaos/todoist",
-      "version": "v0.24.0",
       "channel": "latest"
     },
     {
@@ -1612,13 +1024,13 @@
     {
       "name": "trophy",
       "import_path": "github.com/taigrr/trophy/cmd/trophy",
-      "version": "v1.4.0",
+      "version": "v1.4.1",
       "channel": "latest"
     },
     {
       "name": "ttt",
       "import_path": "github.com/eugenioenko/ttt/cmd/ttt",
-      "version": "v1.2.2",
+      "version": "v1.3.0",
       "channel": "latest"
     },
     {
@@ -1628,21 +1040,9 @@
       "channel": "latest"
     },
     {
-      "name": "tuios",
-      "import_path": "github.com/Gaurav-Gosain/tuios/cmd/tuios",
-      "version": "v0.7.0",
-      "channel": "latest"
-    },
-    {
       "name": "typioca",
       "import_path": "github.com/bloznelis/typioca",
       "version": "v0.0.0-20250306105257-baf41701e43d",
-      "channel": "latest"
-    },
-    {
-      "name": "typtea",
-      "import_path": "github.com/ashish0kumar/typtea",
-      "version": "v0.1.6",
       "channel": "latest"
     },
     {
@@ -1658,63 +1058,15 @@
       "channel": "latest"
     },
     {
-      "name": "vhs",
-      "import_path": "github.com/charmbracelet/vhs",
-      "version": "v0.11.0",
-      "channel": "latest"
-    },
-    {
-      "name": "vim-startuptime",
-      "import_path": "github.com/rhysd/vim-startuptime",
-      "version": "v1.3.2",
-      "channel": "latest"
-    },
-    {
       "name": "wails",
       "import_path": "github.com/wailsapp/wails/v2/cmd/wails",
       "version": "v2.15.0",
       "channel": "latest"
     },
     {
-      "name": "walk",
-      "import_path": "github.com/antonmedv/walk",
-      "version": "v1.13.0",
-      "channel": "latest"
-    },
-    {
       "name": "wez-cc-viewer",
       "import_path": "github.com/sorafujitani/wez-cc-viewer",
       "version": "v0.0.0-20260329084518-a05ba4b0dad7",
-      "channel": "latest"
-    },
-    {
-      "name": "whosthere",
-      "import_path": "github.com/ramonvermeulen/whosthere",
-      "version": "v0.8.3",
-      "channel": "latest"
-    },
-    {
-      "name": "witr",
-      "import_path": "github.com/pranshuparmar/witr/cmd/witr",
-      "version": "v0.3.3",
-      "channel": "latest"
-    },
-    {
-      "name": "wtp",
-      "import_path": "github.com/satococoa/wtp/v2/cmd/wtp",
-      "version": "v2.10.3",
-      "channel": "latest"
-    },
-    {
-      "name": "wuzz",
-      "import_path": "github.com/asciimoo/wuzz",
-      "version": "v0.5.0",
-      "channel": "latest"
-    },
-    {
-      "name": "xc",
-      "import_path": "github.com/joerdav/xc/cmd/xc",
-      "version": "v0.9.0",
       "channel": "latest"
     },
     {
@@ -1748,18 +1100,6 @@
       "channel": "latest"
     },
     {
-      "name": "yaml2json",
-      "import_path": "github.com/bronze1man/yaml2json",
-      "version": "v1.3.5",
-      "channel": "latest"
-    },
-    {
-      "name": "yamlfmt",
-      "import_path": "github.com/google/yamlfmt/cmd/yamlfmt",
-      "version": "v0.21.0",
-      "channel": "latest"
-    },
-    {
       "name": "yatto",
       "import_path": "github.com/handlebargh/yatto",
       "version": "v1.4.0",
@@ -1774,7 +1114,7 @@
     {
       "name": "yq",
       "import_path": "github.com/mikefarah/yq/v4",
-      "version": "v4.53.4",
+      "version": "v4.53.6",
       "channel": "latest"
     },
     {
