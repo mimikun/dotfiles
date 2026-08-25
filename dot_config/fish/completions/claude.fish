@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.241 on 2026-08-23.
+# Generated from claude 2.1.245 on 2026-08-25.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -449,6 +449,7 @@ complete -c claude -n '__fish_claude_at "plugin eval"' -l json -d 'Print the ful
 complete -c claude -n '__fish_claude_at "plugin eval"' -l judge-model -d 'Override LLM-grader model (default: haiku)' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l keep-temp -d 'Preserve scaffold dirs for debugging'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l max-cost-usd -d 'Optional hard cost ceiling; abort and report partial results if hit (exit 2). Overrun is…' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l mocks -d 'Mock stand-ins for MCP servers, from <eval dir>/mocks/ (record | off; default: record — o…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l model -x -a 'fable opus sonnet haiku claude-fable-5 claude-opus-5 claude-sonnet-5 claude-haiku-4-5-20251001'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l model -d 'Override model for all cases' -x
 complete -c claude -n '__fish_claude_at "plugin eval"' -l no-publish -d 'Keep the HTML report local only; skip publishing it to claude.ai'

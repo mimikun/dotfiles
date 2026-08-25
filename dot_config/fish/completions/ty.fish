@@ -76,6 +76,7 @@ complete -c ty -n "__fish_ty_using_subcommand check" -l exclude-scripts -d 'Excl
 complete -c ty -n "__fish_ty_using_subcommand check" -l include-scripts
 complete -c ty -n "__fish_ty_using_subcommand check" -l no-progress -d 'Hide all progress outputs'
 complete -c ty -n "__fish_ty_using_subcommand check" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c ty -n "__fish_ty_using_subcommand server" -l find-executable -d 'Print the absolute path to the ty executable to use for the current folder'
 complete -c ty -n "__fish_ty_using_subcommand server" -s h -l help -d 'Print help'
 complete -c ty -n "__fish_ty_using_subcommand version" -l output-format -d 'The format in which to display the version information' -r -f -a "text\t''
 json\t''"
