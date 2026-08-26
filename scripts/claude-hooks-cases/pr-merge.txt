@@ -1,0 +1,40 @@
+# script: deny-pr-merge.sh
+#
+# Merging is the owner's job (rules/general.md). This guard is purely lexical,
+# so it belongs here rather than in scripts/test-master-guard.sh.
+#
+# DENY|<command>  or  allow|<command>
+
+DENY|gh pr merge
+DENY|gh pr merge 3705
+DENY|gh pr merge 3705 --rebase
+DENY|gh pr merge --squash --delete-branch
+DENY|gh pr merge --admin
+# global flags sit between gh and the subcommand
+DENY|gh --repo mimikun/dotfiles pr merge 3705
+DENY|gh -R mimikun/dotfiles pr merge
+# flags at the end of a compound command: prefix matching cannot see these
+DENY|cd /tmp && gh pr merge 3705
+DENY|git switch master; gh pr merge
+# the api route to the same endpoint, which is what is left once the subcommand is blocked
+DENY|gh api --method PUT repos/mimikun/dotfiles/pulls/3705/merge
+DENY|gh api -X PUT /repos/mimikun/dotfiles/pulls/3705/merge -f merge_method=rebase
+
+allow|gh pr create --title x --body y
+allow|gh pr view 3705
+allow|gh pr view 3705 --json state,mergeable
+allow|gh pr list --state open
+allow|gh pr checkout 3705
+allow|gh pr diff 3705
+allow|gh pr edit 3705 --title x
+# reading a PR through the api is not merging it
+allow|gh api repos/mimikun/dotfiles/pulls/3705
+allow|gh api repos/mimikun/dotfiles/pulls/3705/commits
+# an endpoint path without gh api is not a request
+allow|echo repos/mimikun/dotfiles/pulls/3705/merge >notes.txt
+# a local merge is not a publish step
+allow|git merge --ff-only origin/master
+allow|git status
+# merge named inside a quoted argument, not as a subcommand
+allow|gh pr list --search "pr merge"
+allow|gh issue list --search "merge"
