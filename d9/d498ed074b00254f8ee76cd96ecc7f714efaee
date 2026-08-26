@@ -1,0 +1,18 @@
+dot_claude/hooks/executable_deny-master-commit.sh
+  h_220433a6faf6b8 1-164
+dot_claude/private_settings.json
+  h_220433a6faf6b8 198-206
+scripts/test-master-guard.sh
+  h_220433a6faf6b8 1-131
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "d9d498ed074b00254f8ee76cd96ecc7f714efaee",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
