@@ -1,0 +1,18 @@
+dot_claude/hooks/executable_deny-pr-merge.sh
+  h_220433a6faf6b8 1-41
+dot_claude/private_settings.json
+  h_220433a6faf6b8 207-215
+scripts/claude-hooks-cases/pr-merge.txt
+  h_220433a6faf6b8 1-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "8b330311b9a96ba601156809d906032532b65f97",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
