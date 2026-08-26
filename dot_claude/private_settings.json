@@ -207,6 +207,15 @@
       {
         "hooks": [
           {
+            "command": "bash '/home/mimikun/.claude/hooks/deny-pr-merge.sh'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
             "command": "bash '/home/mimikun/.claude/hooks/deny-interpreter-oneliners.sh'",
             "type": "command"
           }
