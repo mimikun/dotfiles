@@ -198,6 +198,15 @@
       {
         "hooks": [
           {
+            "command": "bash '/home/mimikun/.claude/hooks/deny-master-commit.sh'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
             "command": "bash '/home/mimikun/.claude/hooks/deny-interpreter-oneliners.sh'",
             "type": "command"
           }
