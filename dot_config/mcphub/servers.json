@@ -8,10 +8,6 @@
       "command": "uvx",
       "args": ["mcp-server-time"]
     },
-    "playwright": {
-      "command": "npx",
-      "args": ["-y", "@executeautomation/playwright-mcp-server"]
-    },
     "github": {
       "command": "github-mcp-server",
       "args": ["stdio"],
