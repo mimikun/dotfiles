@@ -4,7 +4,7 @@
     {
       "name": "Surge",
       "import_path": "github.com/SurgeDM/Surge",
-      "version": "v0.12.0",
+      "version": "v0.12.1",
       "channel": "latest"
     },
     {
@@ -148,13 +148,13 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.91.0",
+      "version": "v0.91.2",
       "channel": "latest"
     },
     {
       "name": "csvi",
       "import_path": "github.com/hymkor/csvi/cmd/csvi",
-      "version": "v1.23.2",
+      "version": "v1.23.3",
       "channel": "latest"
     },
     {
@@ -262,7 +262,7 @@
     {
       "name": "fx",
       "import_path": "github.com/antonmedv/fx",
-      "version": "v0.0.0-20260728113644-63eb255ad014",
+      "version": "v0.0.0-20260826144931-4f31cd3a0c5d",
       "channel": "latest"
     },
     {
@@ -586,7 +586,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.18.2",
+      "version": "v0.18.3",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.12.3",
+      "version": "v1.13.0",
       "channel": "latest"
     },
     {
@@ -784,7 +784,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v1.2.4",
+      "version": "v1.4.1",
       "channel": "latest"
     },
     {
@@ -838,7 +838,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260825032218-2053f236b2e2",
+      "version": "v0.0.0-20260827055938-3aeb77296d99",
       "channel": "latest"
     },
     {
@@ -868,7 +868,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v1.6.0",
+      "version": "v1.9.0",
       "channel": "latest"
     },
     {
@@ -898,7 +898,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v1.0.3",
+      "version": "v1.2.2",
       "channel": "latest"
     },
     {
@@ -952,7 +952,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.63.0",
+      "version": "v0.64.0",
       "channel": "latest"
     },
     {
@@ -1030,7 +1030,7 @@
     {
       "name": "ttt",
       "import_path": "github.com/eugenioenko/ttt/cmd/ttt",
-      "version": "v1.3.0",
+      "version": "v1.4.0",
       "channel": "latest"
     },
     {
@@ -1108,7 +1108,7 @@
     {
       "name": "yoke",
       "import_path": "github.com/yokecd/yoke/cmd/yoke",
-      "version": "v0.20.27",
+      "version": "v0.21.0",
       "channel": "latest"
     },
     {
