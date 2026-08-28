@@ -94,7 +94,18 @@
 ```
 git worktree add ../<repo>-<desc> <branch>   # 作業 → commit → push
 git worktree remove ../<repo>-<desc>         # 終わったら必ず消す
+git branch -d <branch>                       # PR を出したら手元には残さない
 ```
+
+**push して PR を出した時点で、worktree もローカルブランチも不要。両方消す。**
+ブランチはリモートに残っており PR がそれを指しているので、手元の複製は**次に同じ
+ブランチ名で worktree を切ろうとしたときに邪魔になるだけ**。マージはユーザーが
+WebUI で行うので、手元のブランチがマージ後に自動で消えることもない。
+
+- **`git branch -d` が拒否したら、消さずに止まる。** `-d` は upstream と同一かを見るので、
+  拒否は「push し損ねたコミットがある」の意味。**`-D` で潰さない** — 先に何が残って
+  いるかを見ること
+- **リモートブランチは消さない。** PR がそれを参照している
 
 **`<branch>` が他の worktree でチェックアウト済みだと `worktree add` は失敗する。**
 master はほぼ常にこれに当たるので、master で作業するときは次の形にする。
