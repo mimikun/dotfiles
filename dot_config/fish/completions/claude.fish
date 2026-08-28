@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.247 on 2026-08-27.
+# Generated from claude 2.1.248 on 2026-08-28.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -251,6 +251,7 @@ complete -c claude -n '__fish_claude_at ""' -l prompt-suggestions -d 'Enable pro
 complete -c claude -n '__fish_claude_at ""' -l remote-control -d 'Start an interactive session with Remote Control enabled (optionally named)'
 complete -c claude -n '__fish_claude_at ""' -l remote-control-session-name-prefix -d 'Prefix for auto-generated Remote Control session names (default: hostname)' -r
 complete -c claude -n '__fish_claude_at ""' -l replay-user-messages -d 'Re-emit user messages from stdin back on stdout for acknowledgment (only works with --inp…'
+complete -c claude -n '__fish_claude_at ""' -l restricted -d 'Restricted mode: removes the built-in tools that run commands or code (Bash, PowerShell,…'
 complete -c claude -n '__fish_claude_at ""' -s r -l resume -d 'Resume a conversation by session ID, or open interactive picker with optional search term'
 complete -c claude -n '__fish_claude_at ""' -l safe-mode -d 'Start with all customizations (CLAUDE.md, skills, plugins, hooks, MCP servers, custom com…'
 complete -c claude -n '__fish_claude_at ""' -l session-id -d 'Use a specific session ID for the conversation (must be a valid UUID)' -r
@@ -285,6 +286,7 @@ complete -c claude -n '__fish_claude_at "agents"' -l model -d 'Default model for
 complete -c claude -n '__fish_claude_at "agents"' -l permission-mode -d 'Default permission mode for sessions dispatched from agent view' -r
 complete -c claude -n '__fish_claude_at "agents"' -l plugin-dir -x -a '(__fish_complete_directories)'
 complete -c claude -n '__fish_claude_at "agents"' -l plugin-dir -d 'Load plugins from specified directory for the agent view and dispatched sessions (repeata…' -x
+complete -c claude -n '__fish_claude_at "agents"' -l restricted -d 'Start dispatched sessions in restricted mode'
 complete -c claude -n '__fish_claude_at "agents"' -l setting-sources -d 'Comma-separated list of setting sources to load (user, project, local).' -r
 complete -c claude -n '__fish_claude_at "agents"' -l settings -d 'Settings file or JSON string to apply to the agent view and dispatched sessions' -r -F
 complete -c claude -n '__fish_claude_at "agents"' -l strict-mcp-config -d 'Only use MCP servers from --mcp-config in dispatched sessions'
