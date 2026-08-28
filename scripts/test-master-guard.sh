@@ -112,6 +112,22 @@ check DENY "$tmp/plain" "cd $tmp/on-master && git commit -m x"
 check allow "$tmp/on-master" "cd $tmp/on-feature && git commit -m x"
 check DENY "$tmp/on-master" 'git -c user.name=t commit -m x'
 
+# A command that changes directory twice. Reading only the first `cd` and
+# applying it to the whole command answered both of these backwards: the guard
+# denied a commit that would land on a feature branch, and — the half that
+# matters — allowed one that would land on master.
+check allow "$tmp/plain" "cd $tmp/on-master && git status; cd $tmp/on-feature && git commit -m x"
+check DENY "$tmp/plain" "cd $tmp/on-feature && git status; cd $tmp/on-master && git commit -m x"
+check DENY "$tmp/plain" "cd $tmp/on-feature && git status; cd $tmp/on-master && git push"
+# A relative hop composes onto where the command already is.
+check DENY "$tmp/plain" "cd $tmp && cd on-master && git commit -m x"
+check allow "$tmp/plain" "cd $tmp && cd on-feature && git commit -m x"
+# -C belongs to one invocation and must not leak onto the next.
+check DENY "$tmp/on-feature" "git -C $tmp/on-feature status; git -C $tmp/on-master commit -m x"
+check allow "$tmp/on-master" "git -C $tmp/on-master status; git -C $tmp/on-feature commit -m x"
+# Every git in the command is judged, not just the last one.
+check DENY "$tmp/plain" "cd $tmp/on-master && git commit -m x; cd $tmp/on-feature && git commit -m y"
+
 # mimikun.agent-system grants direct master commits in its own AGENTS.md.
 check allow "$tmp/mimikun.agent-system" 'git commit -m "chore: x"'
 check allow "$tmp/mimikun.agent-system" 'git push origin HEAD:master'
