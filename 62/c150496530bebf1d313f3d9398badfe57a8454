@@ -1,0 +1,21 @@
+dot_claude/hooks/executable_deny-master-commit.sh
+  s_a372b297d60d88::t_77b0486aab45cf 20-27,65-102,116-128,134-136,163-165,170,183
+scripts/test-master-guard.sh
+  s_a372b297d60d88::t_c7f8a1cc05f3da 115-130
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "62c150496530bebf1d313f3d9398badfe57a8454",
+  "prompts": {},
+  "sessions": {
+    "s_a372b297d60d88": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4c499fba-d785-4cf3-a07e-67ca9decb812",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
