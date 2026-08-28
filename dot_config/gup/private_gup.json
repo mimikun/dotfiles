@@ -256,7 +256,7 @@
     {
       "name": "flow",
       "import_path": "github.com/programmersd21/flow/cmd/flow",
-      "version": "v0.2.3",
+      "version": "v0.2.4",
       "channel": "latest"
     },
     {
@@ -352,7 +352,7 @@
     {
       "name": "golangci-lint",
       "import_path": "github.com/golangci/golangci-lint/v2/cmd/golangci-lint",
-      "version": "v2.13.1",
+      "version": "v2.13.2",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.13.0",
+      "version": "v1.14.0",
       "channel": "latest"
     },
     {
@@ -838,7 +838,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260827055938-3aeb77296d99",
+      "version": "v0.0.0-20260827233520-c600df518707",
       "channel": "latest"
     },
     {
@@ -952,7 +952,7 @@
     {
       "name": "td",
       "import_path": "github.com/marcus/td",
-      "version": "v0.64.0",
+      "version": "v0.65.0",
       "channel": "latest"
     },
     {
