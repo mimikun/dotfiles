@@ -17,8 +17,14 @@
 # commit but does not run it, and a regex loose enough to see `git -C <dir>
 # commit` is also loose enough to see that.
 #
-# The repository is resolved from `git -C <dir>`, a leading `cd <dir>`, or the
-# hook's own cwd, in that order.
+# The repository is resolved from `git -C <dir>`, the `cd <dir>` in effect at
+# that point in the command, or the hook's own cwd, in that order.
+#
+# Layer 2 runs once per git invocation, not once per command, and a `cd` updates
+# the directory every git after it sees. Reading only the first `cd` and applying
+# it to the whole command got both answers wrong when a command changed directory
+# twice: `cd <feature> && git status; cd <master> && git commit` was allowed,
+# because the commit was judged against the feature checkout it never ran in.
 #
 # Allowlist: mimikun.agent-system permits direct master commits by its own
 # AGENTS.md. Nothing else does.
@@ -56,12 +62,46 @@ hook_cwd=$(printf '%s' "$input" | jq -r '.cwd // empty' 2>/dev/null) || hook_cwd
 
 [ -n "$command" ] || exit 0
 
+# ---- layer 2: repository and branch ---------------------------------------
+
+# Denies (and exits) when <kind> would act on a protected branch of the
+# repository containing <dir>. Called per git invocation, so a command that
+# changes directory partway is judged where each git actually runs.
+#   $1 kind             commit | push
+#   $2 dir              directory that git would run in
+#   $3 targets_protected  push only: 1 when the refspec names master/main
+check_git() {
+    local kind=$1 target_dir=$2 targets_protected=${3:-0}
+    local toplevel branch on_protected=0
+
+    target_dir=${target_dir/#\~/$HOME}
+    [ -n "$target_dir" ] || target_dir=$PWD
+
+    toplevel=$(git -C "$target_dir" rev-parse --show-toplevel 2>/dev/null) || toplevel=""
+    # Not a repository, or a path this hook cannot resolve: nothing to protect.
+    [ -n "$toplevel" ] || return 0
+
+    # The one repository whose own AGENTS.md grants direct master commits.
+    case ${toplevel##*/} in
+        mimikun.agent-system) return 0 ;;
+    esac
+
+    branch=$(git -C "$target_dir" symbolic-ref --quiet --short HEAD 2>/dev/null) || branch=""
+    case $branch in
+        master | main) on_protected=1 ;;
+    esac
+
+    if [ "$kind" = commit ] && [ "$on_protected" -eq 1 ]; then
+        deny "Committing on $branch is blocked in this repository. rules/general.md: branch, commit, push, open a PR. Start with: git switch -c <name>"
+    fi
+
+    if [ "$kind" = push ] && { [ "$targets_protected" -eq 1 ] || [ "$on_protected" -eq 1 ]; }; then
+        deny "Pushing to master/main is blocked in this repository. rules/general.md: push a feature branch and open a PR instead."
+    fi
+}
+
 # ---- layer 1: parse --------------------------------------------------------
 
-is_commit=0
-is_push=0
-push_targets_protected=0
-dir_flag=""
 cd_dir=""
 
 # Word splitting is the point here: the operators become their own tokens.
@@ -73,13 +113,26 @@ while [ "$i" -lt "$count" ]; do
     token=${tokens[i]}
     i=$((i + 1))
 
-    # `cd <dir>` at the head of a segment moves where a later git runs.
-    if [ "$token" = "cd" ] && [ "$i" -lt "$count" ] && [ -z "$cd_dir" ]; then
-        cd_dir=$(unquote "${tokens[i]}")
+    # `cd <dir>` moves where every later git in the command runs. The most recent
+    # one wins: a shell does not forget the second `cd` because a first one ran.
+    if [ "$token" = "cd" ] && [ "$i" -lt "$count" ]; then
+        new_dir=$(unquote "${tokens[i]}")
+        case $new_dir in
+            # `&` is a segment break, so `cd` had no argument at all. `cd -`
+            # returns somewhere this hook cannot name; leave the last known
+            # directory in place rather than invent one.
+            '&' | -*) ;;
+            /* | '~'*) cd_dir=$new_dir ;;
+            # A relative hop composes onto wherever the command already is.
+            *) cd_dir=${cd_dir:+$cd_dir/}$new_dir ;;
+        esac
         continue
     fi
 
     [ "$token" = "git" ] || continue
+
+    # Per invocation: `git -C a commit; git commit` must not reuse a.
+    dir_flag=""
 
     # Skip git's own options. These four take a separate argument.
     while [ "$i" -lt "$count" ]; do
@@ -107,12 +160,14 @@ while [ "$i" -lt "$count" ]; do
     i=$((i + 1))
 
     case $subcommand in
-        commit) is_commit=1 ;;
+        commit)
+            check_git commit "${dir_flag:-${cd_dir:-$hook_cwd}}"
+            ;;
         push)
-            is_push=1
             # A push names its destination, so a protected target is visible
             # without asking git. Whole tokens only: feature-master-test is not
             # master.
+            push_targets_protected=0
             while [ "$i" -lt "$count" ]; do
                 case ${tokens[i]} in
                     '&') break ;;
@@ -125,40 +180,9 @@ while [ "$i" -lt "$count" ]; do
                 esac
                 i=$((i + 1))
             done
+            check_git push "${dir_flag:-${cd_dir:-$hook_cwd}}" "$push_targets_protected"
             ;;
     esac
 done
-
-[ "$is_commit" -eq 1 ] || [ "$is_push" -eq 1 ] || exit 0
-
-# ---- layer 2: repository and branch ---------------------------------------
-
-target_dir=${dir_flag:-${cd_dir:-$hook_cwd}}
-target_dir=${target_dir/#\~/$HOME}
-[ -n "$target_dir" ] || target_dir=$PWD
-
-toplevel=$(git -C "$target_dir" rev-parse --show-toplevel 2>/dev/null) || toplevel=""
-# Not a repository, or a path this hook cannot resolve: nothing to protect.
-[ -n "$toplevel" ] || exit 0
-
-# The one repository whose own AGENTS.md grants direct master commits.
-case ${toplevel##*/} in
-    mimikun.agent-system) exit 0 ;;
-esac
-
-branch=$(git -C "$target_dir" symbolic-ref --quiet --short HEAD 2>/dev/null) || branch=""
-
-on_protected=0
-case $branch in
-    master | main) on_protected=1 ;;
-esac
-
-if [ "$is_commit" -eq 1 ] && [ "$on_protected" -eq 1 ]; then
-    deny "Committing on $branch is blocked in this repository. rules/general.md: branch, commit, push, open a PR. Start with: git switch -c <name>"
-fi
-
-if [ "$is_push" -eq 1 ] && { [ "$push_targets_protected" -eq 1 ] || [ "$on_protected" -eq 1 ]; }; then
-    deny "Pushing to master/main is blocked in this repository. rules/general.md: push a feature branch and open a PR instead."
-fi
 
 exit 0
