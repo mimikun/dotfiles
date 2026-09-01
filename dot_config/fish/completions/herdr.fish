@@ -96,6 +96,7 @@ complete -c herdr -n "__fish_herdr_using_subcommand worktree; and not __fish_see
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and not __fish_seen_subcommand_from list create open remove" -f -a "remove" -d 'Remove a worktree checkout'
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from list" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from list" -l cwd -r -F
+complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from list" -l trust-repository
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l cwd -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l branch -r
@@ -104,6 +105,7 @@ complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_su
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l label -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l focus
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l no-focus
+complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from create" -l trust-repository
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l cwd -r -F
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l path -r -F
@@ -111,8 +113,10 @@ complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_su
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l label -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l focus
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l no-focus
+complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from open" -l trust-repository
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from remove" -l workspace -r
 complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from remove" -l force
+complete -c herdr -n "__fish_herdr_using_subcommand worktree; and __fish_seen_subcommand_from remove" -l trust-repository
 complete -c herdr -n "__fish_herdr_using_subcommand tab; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "list" -d 'List tabs'
 complete -c herdr -n "__fish_herdr_using_subcommand tab; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "create" -d 'Create a tab'
 complete -c herdr -n "__fish_herdr_using_subcommand tab; and not __fish_seen_subcommand_from list create get focus rename close" -f -a "get" -d 'Show a tab'
@@ -190,7 +194,8 @@ hermes\t''
 kilo\t''
 qodercli\t''
 qwen\t''
-maki\t''"
+maki\t''
+muse\t''"
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l pane -d 'Existing pane at an interactive shell prompt' -r
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from start" -l timeout -d 'Wait for interactive readiness (default: 30000; max: 300000)' -r
 complete -c herdr -n "__fish_herdr_using_subcommand agent; and __fish_seen_subcommand_from explain" -l file -r -F
