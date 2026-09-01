@@ -343,7 +343,6 @@ if is_linux then
         nyagos.alias.cs = coursier_path .. "bin"
     end
 
-
     -- bob-nvim
     local bob_config = table.concat({ xdg_config_home, "bob", "config.toml" }, path_sep)
     local bob_bin = table.concat({ xdg_data_home, "bob", "nvim-bin" }, path_sep)
