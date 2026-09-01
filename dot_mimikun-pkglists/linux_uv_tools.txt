@@ -96,6 +96,7 @@ terminaltexteffects 3.12
 tofuref 3.12
 tombi 3.12
 toolong 3.12
+trafilatura 3.12
 trash-cli 3.12
 turm 3.12
 twg 3.12
