@@ -100,7 +100,7 @@
     {
       "name": "ccgate",
       "import_path": "github.com/tak848/ccgate",
-      "version": "v0.10.0",
+      "version": "v0.10.1",
       "channel": "latest"
     },
     {
@@ -148,7 +148,7 @@
     {
       "name": "crush",
       "import_path": "github.com/charmbracelet/crush",
-      "version": "v0.91.2",
+      "version": "v0.92.0",
       "channel": "latest"
     },
     {
@@ -172,7 +172,7 @@
     {
       "name": "cull",
       "import_path": "github.com/legostin/cull",
-      "version": "v0.8.1",
+      "version": "v0.9.0",
       "channel": "latest"
     },
     {
@@ -256,7 +256,7 @@
     {
       "name": "flow",
       "import_path": "github.com/programmersd21/flow/cmd/flow",
-      "version": "v0.2.4",
+      "version": "v0.2.5",
       "channel": "latest"
     },
     {
@@ -376,13 +376,13 @@
     {
       "name": "goscript",
       "import_path": "github.com/s4wave/goscript/cmd/goscript",
-      "version": "v0.2.26",
+      "version": "v0.2.29",
       "channel": "latest"
     },
     {
       "name": "gosh",
       "import_path": "mvdan.cc/sh/v3/cmd/gosh",
-      "version": "v3.13.1",
+      "version": "v3.14.0",
       "channel": "latest"
     },
     {
@@ -406,7 +406,7 @@
     {
       "name": "gup",
       "import_path": "github.com/nao1215/gup",
-      "version": "v1.8.1",
+      "version": "v1.9.1",
       "channel": "latest"
     },
     {
@@ -442,7 +442,7 @@
     {
       "name": "hulak",
       "import_path": "github.com/xaaha/hulak",
-      "version": "v0.3.32",
+      "version": "v0.3.33",
       "channel": "latest"
     },
     {
@@ -574,7 +574,7 @@
     {
       "name": "lefthook",
       "import_path": "github.com/evilmartians/lefthook/v2",
-      "version": "v2.1.11",
+      "version": "v2.1.12",
       "channel": "latest"
     },
     {
@@ -586,7 +586,7 @@
     {
       "name": "lfk",
       "import_path": "github.com/janosmiko/lfk",
-      "version": "v0.18.3",
+      "version": "v0.18.5",
       "channel": "latest"
     },
     {
@@ -646,7 +646,7 @@
     {
       "name": "network-doctor",
       "import_path": "github.com/heymaikol/network-doctor",
-      "version": "v1.14.0",
+      "version": "v1.15.1",
       "channel": "latest"
     },
     {
@@ -658,7 +658,7 @@
     {
       "name": "nyagos",
       "import_path": "github.com/nyaosorg/nyagos",
-      "version": "v0.0.0-20260819012124-a8b4b30d05d9",
+      "version": "v0.0.0-20260831150952-4eb9c6da1f56",
       "channel": "latest"
     },
     {
@@ -670,7 +670,7 @@
     {
       "name": "octoscope",
       "import_path": "github.com/gfazioli/octoscope",
-      "version": "v0.29.0",
+      "version": "v0.30.1",
       "channel": "latest"
     },
     {
@@ -784,7 +784,7 @@
     {
       "name": "resterm",
       "import_path": "github.com/unkn0wn-root/resterm/cmd/resterm",
-      "version": "v1.4.1",
+      "version": "v1.5.1",
       "channel": "latest"
     },
     {
@@ -838,7 +838,7 @@
     {
       "name": "scion",
       "import_path": "github.com/GoogleCloudPlatform/scion/cmd/scion",
-      "version": "v0.0.0-20260827233520-c600df518707",
+      "version": "v0.0.0-20260901092022-0188a93417b4",
       "channel": "latest"
     },
     {
@@ -868,7 +868,7 @@
     {
       "name": "sidecar",
       "import_path": "github.com/marcus/sidecar/cmd/sidecar",
-      "version": "v1.9.0",
+      "version": "v1.11.2",
       "channel": "latest"
     },
     {
@@ -898,7 +898,7 @@
     {
       "name": "sqly",
       "import_path": "github.com/nao1215/sqly",
-      "version": "v1.2.2",
+      "version": "v1.5.0",
       "channel": "latest"
     },
     {
@@ -964,7 +964,7 @@
     {
       "name": "tgpt",
       "import_path": "github.com/aandrew-me/tgpt/v2",
-      "version": "v2.13.0",
+      "version": "v2.14.0",
       "channel": "latest"
     },
     {
