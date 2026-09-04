@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.252 on 2026-09-01.
+# Generated from claude 2.1.259 on 2026-09-03.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -257,6 +257,8 @@ complete -c claude -n '__fish_claude_at ""' -l output-format -x -a 'text json st
 complete -c claude -n '__fish_claude_at ""' -l output-format -d 'Output format (only works with --print): "text" (default), "json" (single result), or "st…' -x
 complete -c claude -n '__fish_claude_at ""' -l permission-mode -x -a 'acceptEdits auto bypassPermissions manual dontAsk plan'
 complete -c claude -n '__fish_claude_at ""' -l permission-mode -d 'Permission mode to use for the session (choices: "acceptEdits", "auto", "bypassPermission…' -x
+complete -c claude -n '__fish_claude_at ""' -l permission-prompts -x -a 'host none'
+complete -c claude -n '__fish_claude_at ""' -l permission-prompts -d 'Who answers permission prompts with --print: "host" (the SDK host or --permission-prompt-…' -x
 complete -c claude -n '__fish_claude_at ""' -l plugin-dir -x -a '(__fish_complete_directories)'
 complete -c claude -n '__fish_claude_at ""' -l plugin-dir -d 'Load a plugin from a directory or .zip for this session only (repeatable: --plugin-dir A…' -x
 complete -c claude -n '__fish_claude_at ""' -l plugin-url -d 'Fetch a plugin .zip from a URL for this session only (repeatable: --plugin-url A --plugin…' -r
@@ -274,6 +276,8 @@ complete -c claude -n '__fish_claude_at ""' -l setting-sources -d 'Comma-separat
 complete -c claude -n '__fish_claude_at ""' -l settings -d 'Path to a settings JSON file or a JSON string to load additional settings from' -r -F
 complete -c claude -n '__fish_claude_at ""' -l strict-mcp-config -d 'Only use MCP servers from --mcp-config, ignoring all other MCP configurations'
 complete -c claude -n '__fish_claude_at ""' -l system-prompt -d 'System prompt to use for the session' -r
+complete -c claude -n '__fish_claude_at ""' -l system-prompt-snapshot -x -a 'on off'
+complete -c claude -n '__fish_claude_at ""' -l system-prompt-snapshot -d 'Record the system prompt once per conversation and reuse it verbatim on every request and…' -x
 complete -c claude -n '__fish_claude_at ""' -l teleport -d 'Resume a teleport session, optionally specify session ID'
 complete -c claude -n '__fish_claude_at ""' -l tmux -d 'Create a tmux session for the worktree (requires --worktree). Uses iTerm2 native panes wh…'
 complete -c claude -n '__fish_claude_at ""' -l tools -d 'Specify the list of available tools from the built-in set. Use "" to disable all tools, "…' -r
@@ -564,6 +568,7 @@ complete -c claude -n '__fish_claude_at "plugin update"' -s y -l yes -d 'Accept 
 
 # claude plugin validate
 complete -c claude -n '__fish_claude_at "plugin validate"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "plugin validate"' -l json -d 'Output the validation report as JSON (same exit codes)'
 complete -c claude -n '__fish_claude_at "plugin validate"' -l strict -d 'Treat warnings as errors (exit 1). Use in CI to fail on unrecognized fields, missing meta…'
 
 # claude project
@@ -591,7 +596,7 @@ complete -c claude -n '__fish_claude_at "ultrareview"' -s h -l help -d 'Display 
 complete -c claude -n '__fish_claude_at "ultrareview"' -l json -d 'Print the raw bugs.json payload instead of formatted findings'
 complete -c claude -n '__fish_claude_at "ultrareview"' -l no-post -d 'Do not post the findings to the PR (the default; accepted for parity with the /ultrarevie…'
 complete -c claude -n '__fish_claude_at "ultrareview"' -l post -d 'Post the finished review\'s findings to the PR as you (PR targets only; one plain comment,…'
-complete -c claude -n '__fish_claude_at "ultrareview"' -l timeout -d 'Maximum minutes to wait for the review to finish (default: 30)' -r
+complete -c claude -n '__fish_claude_at "ultrareview"' -l timeout -d 'Maximum minutes to wait for the review to finish (default: 45)' -r
 
 # claude update
 complete -c claude -n '__fish_claude_at "update"' -s h -l help -d 'Display help for command'
