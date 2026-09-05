@@ -1,0 +1,104 @@
+{{ if (eq .chezmoi.os "linux") -}}
+
+#!/bin/bash
+
+# The three tools private_settings.json wires into its Claude Code hooks.
+#
+# Every hook there names its binary by a fixed path, so a machine without the
+# binary ran a command that did not exist -- on every single tool call. Nothing
+# in this repository installed them: the settings travelled here while the
+# binaries were only ever put on one machine by hand.
+#
+# On the Azusa machine these come from mimikun.home-manager instead, which links
+# the same paths into the Nix store. The `-e` checks below see those links and
+# skip, so the two mechanisms never fight over a path. Versions are pinned to
+# what that repository declares -- bump one side and you must bump the other,
+# or the machines drift apart again, which is the whole problem this fixes.
+
+set -uo pipefail
+
+# A failed download leaves the tool missing rather than aborting the apply. The
+# hook that wanted it is one status notification, not something worth stopping a
+# machine's whole setup over.
+install_release() {
+	name="$1"
+	bin_path="$2"
+	url="$3"
+	want_sha="$4"
+	# empty means the asset is the binary itself, not an archive holding one
+	member="$5"
+
+	if [[ -e "$bin_path" ]]; then
+		echo "$name is already installed."
+		return 0
+	fi
+
+	echo "Installing $name"
+	tmp="$(mktemp -d)" || return 0
+
+	if ! curl -fsSL -o "$tmp/asset" "$url"; then
+		echo "$name: download failed, skipping" >&2
+		cleanup_tmp "$tmp"
+		return 0
+	fi
+
+	# The asset arrives over the network and is then executed on every tool
+	# call, so the hash is checked rather than trusted.
+	got_sha="$(sha256sum "$tmp/asset" | cut -d' ' -f1)"
+	if [[ "$got_sha" != "$want_sha" ]]; then
+		echo "$name: sha256 mismatch, refusing to install" >&2
+		echo "  want $want_sha" >&2
+		echo "  got  $got_sha" >&2
+		cleanup_tmp "$tmp"
+		return 0
+	fi
+
+	if [[ -n "$member" ]]; then
+		if ! tar xzf "$tmp/asset" -C "$tmp" "$member"; then
+			echo "$name: could not extract $member, skipping" >&2
+			cleanup_tmp "$tmp"
+			return 0
+		fi
+		mv "$tmp/$member" "$tmp/asset"
+	fi
+
+	mkdir -p "$(dirname "$bin_path")"
+	install -m755 "$tmp/asset" "$bin_path"
+	cleanup_tmp "$tmp"
+	echo "$name installed to $bin_path"
+}
+
+# The directory only ever holds the files above, so removing them by name is
+# enough and avoids a recursive delete on a path built from a variable.
+cleanup_tmp() {
+	rm -f "$1"/* 2>/dev/null
+	rmdir "$1" 2>/dev/null
+	return 0
+}
+
+# rtk is the one hook written as a plain command name, so it has to land
+# somewhere on PATH rather than at a path the settings spell out.
+install_release \
+	"rtk" \
+	"$HOME/.local/bin/rtk" \
+	"https://github.com/rtk-ai/rtk/releases/download/v0.45.0/rtk-x86_64-unknown-linux-musl.tar.gz" \
+	"c4c036fbf181fc55ef329786c8c17e0d427972b053b825944d968a6aafef1ba4" \
+	"rtk"
+
+install_release \
+	"lazy-tmux" \
+	"$HOME/.local/bin/lazy-tmux" \
+	"https://github.com/alchemmist/lazy-tmux/releases/download/v0.2.1/lazy-tmux_linux_amd64.tar.gz" \
+	"ec3d100fd5d297f2f91660977692c24f238896ae265999b32aede8fd1e91c2fa" \
+	"lazy-tmux"
+
+install_release \
+	"git-ai" \
+	"$HOME/.git-ai/bin/git-ai" \
+	"https://github.com/git-ai-project/git-ai/releases/download/v1.7.2/git-ai-linux-x64" \
+	"3c28b74348ff78132fb42bc8e7fe4dc2f090ebeb431793ea706b5e5319d71571" \
+	""
+
+# vim:ft=bash.chezmoitmpl
+
+{{ end -}}
