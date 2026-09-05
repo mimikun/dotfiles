@@ -1,0 +1,19 @@
+dot_claude/skills/todoist/SKILL.md
+  s_1dfb8021f3daae::t_5ea1762ad13b01 50-72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "fae44a0ada1ec6a1a9bbc5984c311e9fa2dc143d",
+  "prompts": {},
+  "sessions": {
+    "s_1dfb8021f3daae": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8a7fd503-9459-4d2e-8ebb-ee07aa157700",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
