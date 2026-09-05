@@ -1,0 +1,19 @@
+.chezmoiscripts/linux/run_onchange_after-install-claude-hook-tools.sh.tmpl
+  s_94d3f304653fe5::t_78b35dcbd24def 1-104
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "5b8e6755f19975668e80511d2dd51647e2fd18f9",
+  "prompts": {},
+  "sessions": {
+    "s_94d3f304653fe5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c134ee02-ee19-4a55-9f8a-8b4b60395305",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
