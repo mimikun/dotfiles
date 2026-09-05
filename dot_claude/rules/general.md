@@ -89,7 +89,8 @@
   複数の論理単位にまたがったら、**コミット前に分割案を出す**。
 - **PR:** 問題と解決策に焦点を当てる。co-authored-by やツールへの言及は入れない。
 - **PR のタイトルを手で打たない。コミットの subject から機械的に取る:**
-  `gh pr create --title (git log -1 --format=%s) ...`。
+  `gh pr create --title "$(git log -1 --format=%s)" ...`
+  （fish で手打ちするなら `--title (git log -1 --format=%s)`）。
   **打ち直すと prefix が落ちる。** 2026-09-05 に、コミットは
   `feat(packages): ...` と正しく書きながら、`--title` に別の文字列を打ち直して
   Conventional Commits でない PR を2本出した。commitlint はコミットしか見ないので
