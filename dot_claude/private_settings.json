@@ -95,7 +95,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state awaiting_decision",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.local/bin/lazy-tmux hook claude-status --state awaiting_decision",
             "type": "command"
           }
         ],
@@ -104,7 +104,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state awaiting_input",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.local/bin/lazy-tmux hook claude-status --state awaiting_input",
             "type": "command"
           }
         ],
@@ -115,7 +115,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
             "type": "command"
           }
         ]
@@ -125,7 +125,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
             "type": "command"
           }
         ],
@@ -134,7 +134,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
             "type": "command"
           }
         ]
@@ -144,7 +144,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.git-ai/bin/git-ai checkpoint claude --hook-input stdin",
             "type": "command"
           }
         ],
@@ -153,7 +153,7 @@
       {
         "hooks": [
           {
-            "command": "rtk hook claude",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' rtk hook claude",
             "type": "command"
           }
         ],
@@ -225,7 +225,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
             "type": "command"
           }
         ]
@@ -267,7 +267,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state idle",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.local/bin/lazy-tmux hook claude-status --state idle",
             "type": "command"
           }
         ]
@@ -286,7 +286,7 @@
       {
         "hooks": [
           {
-            "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
+            "command": "bash '/home/mimikun/.claude/hooks/run-if-installed.sh' /home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
             "type": "command"
           }
         ]
