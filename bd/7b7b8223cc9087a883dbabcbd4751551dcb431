@@ -1,0 +1,21 @@
+scripts/shellcheck.sh
+  s_768cd59cf5dc56::t_f90a4235122cc1 1-38
+.mise/tasks/lint/shell
+  s_768cd59cf5dc56::t_b0575c85542441 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "bd7b7b8223cc9087a883dbabcbd4751551dcb431",
+  "prompts": {},
+  "sessions": {
+    "s_768cd59cf5dc56": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6d95df15-bbaf-4756-b733-c374c1993855",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

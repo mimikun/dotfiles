@@ -1,0 +1,19 @@
+dot_config/hk/config.pkl
+  s_d5cc4e3cc0701f::t_6158fe2b5afa65 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "be92da45840951f3c88f0d857f9387eca7c58126",
+  "prompts": {},
+  "sessions": {
+    "s_d5cc4e3cc0701f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0d912b5d-125d-49fc-ae1b-0bf5de9a83b5",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

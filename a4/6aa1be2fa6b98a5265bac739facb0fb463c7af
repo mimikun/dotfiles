@@ -1,0 +1,14 @@
+.typos.toml
+  h_220433a6faf6b8 74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "a46aa1be2fa6b98a5265bac739facb0fb463c7af",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

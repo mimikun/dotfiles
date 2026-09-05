@@ -1,0 +1,25 @@
+private_dot_local/bin/executable_vup
+  s_3037b6df4d5a60::t_15067715b30fa2 236-238
+dot_config/mise/config.toml
+  s_3037b6df4d5a60::t_13f1086650edca 36-47
+  s_3037b6df4d5a60::t_c23ed3a5ad3ec5 11
+  s_3037b6df4d5a60::t_4490f91d7f157c 8-10
+dot_config/aqua/aqua/aqua.yaml
+  s_3037b6df4d5a60::t_9454f88052883d 60
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "90d11c85616585c5cecf5c32d37cd6bdd2580eea",
+  "prompts": {},
+  "sessions": {
+    "s_3037b6df4d5a60": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "70bd2622-1c53-4bee-8703-ebc89a8467f6",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

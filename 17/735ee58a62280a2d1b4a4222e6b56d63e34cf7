@@ -1,0 +1,14 @@
+dot_mimikun-pkglists/linux_uv_tools.txt
+  h_220433a6faf6b8 99
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "17735ee58a62280a2d1b4a4222e6b56d63e34cf7",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

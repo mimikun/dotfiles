@@ -1,0 +1,19 @@
+AppData/Roaming/pueue/pueue.yml.tmpl
+  s_56cd1c571e3239::t_8661b6a2a6bce0 1-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "ab529deba43930ae96b265653287f9bce91bbdce",
+  "prompts": {},
+  "sessions": {
+    "s_56cd1c571e3239": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7a7199ae-a766-483c-abe1-6fe50821d47a",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

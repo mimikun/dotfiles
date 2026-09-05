@@ -1,0 +1,22 @@
+scripts/test-claude-hooks.sh
+  s_6f6b110a937887::t_dfb40477827da7 12-24
+  s_6f6b110a937887::t_abac2f2aa2f016 94-109
+  s_6f6b110a937887::t_49047a338e3523 37
+  s_6f6b110a937887::t_520a6a5717caf8 51,53-54,56-81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "7582b8778266f2f29a66667d774fd920cbbb91ce",
+  "prompts": {},
+  "sessions": {
+    "s_6f6b110a937887": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fa914fb9-207e-4d73-94e0-68431ca4fe4a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

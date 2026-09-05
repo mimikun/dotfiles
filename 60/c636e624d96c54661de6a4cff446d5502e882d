@@ -1,0 +1,27 @@
+.chezmoiignore.tmpl
+  s_476c6b69755361::t_8b410cc1ec237b 25-33
+dot_claude/skills/cognitive-rhythm-writing/NOTICE.md
+  s_476c6b69755361::t_99953aef7a8176 1-17
+dot_claude/skills/cognitive-rhythm-writing/SKILL.md
+  s_476c6b69755361::t_1a0fcc30fe80d9 1-133
+dot_claude/skills/japanese-tech-writing/NOTICE.md
+  s_476c6b69755361::t_c798d7c59a592f 1-17
+dot_claude/skills/japanese-tech-writing/SKILL.md
+  s_476c6b69755361::t_8d9074ca6cd91a 1-148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "60c636e624d96c54661de6a4cff446d5502e882d",
+  "prompts": {},
+  "sessions": {
+    "s_476c6b69755361": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4f3bd12f-3d57-49ac-9539-06785226e2c1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

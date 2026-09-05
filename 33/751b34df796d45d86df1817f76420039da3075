@@ -1,0 +1,23 @@
+docs/misc/for-windows/taskschd.msc/tasks/nvidia-smi-power-saving/register-nvidia-smi-power-saving.ps1
+  s_768cd59cf5dc56::t_6f448f3de4895e 23-26
+scripts/pssa.ps1
+  s_768cd59cf5dc56::t_7230e44980c6c5 1-28
+dot_config/try-rs/try-rs.ps1
+  s_768cd59cf5dc56::t_7f3a07975bbadf 3-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "33751b34df796d45d86df1817f76420039da3075",
+  "prompts": {},
+  "sessions": {
+    "s_768cd59cf5dc56": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6d95df15-bbaf-4756-b733-c374c1993855",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

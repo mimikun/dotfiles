@@ -1,0 +1,27 @@
+private_dot_local/bin/executable_install_cargo_packages
+  s_7d5d109a7dd36b::t_3bcb16567b3e17 2-3,5-6,16
+private_dot_local/bin/executable_install_gh_extensions
+  s_7d5d109a7dd36b::t_865e101daefe7b 1-7,9-14,16
+private_dot_local/bin/executable_install_pip_packages
+  s_7d5d109a7dd36b::t_1912583020f819 1-7,9-14,16
+private_dot_local/bin/executable_install_pipx_packages
+  s_7d5d109a7dd36b::t_859e21cd520a90 1-7,9-14,16
+private_dot_local/bin/executable_install_uv_tools
+  s_7d5d109a7dd36b::t_01a9322d7097fd 1-7,9-14,16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "2d1e2840c2b94c50e45fb79db7a579ace0e1ffc8",
+  "prompts": {},
+  "sessions": {
+    "s_7d5d109a7dd36b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "62e664b1-0cf2-4c0c-9a0e-6715a5fe9868",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+dot_mimikun-pkglists/linux_arch_aur_packages.txt
+  h_220433a6faf6b8 88
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a1a7d8769791e1e2a5bc536f9cf178701a6073d9",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

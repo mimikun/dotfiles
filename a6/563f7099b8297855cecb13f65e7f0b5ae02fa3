@@ -1,0 +1,35 @@
+dot_claude/rules/general.md
+  s_e3dada5aaefe51::t_c67054d29daf8b 56-61
+dot_claude/private_settings.json
+  s_e3dada5aaefe51::t_0710bbbb4d3161 380
+docs/plan/claude-permission-holes-20260731.md
+  s_e3dada5aaefe51::t_4ad68e95b6e079 528-530
+  s_e3dada5aaefe51::t_9e906b42eda907 171,176-178
+  s_e3dada5aaefe51::t_ba13a6dfd688af 157
+  s_e3dada5aaefe51::t_58d86663fab492 511-514
+  s_e3dada5aaefe51::t_004340709a7687 496
+  s_e3dada5aaefe51::t_0fe32b3a609913 522
+  s_e3dada5aaefe51::t_b154668ec56293 353
+  s_e3dada5aaefe51::t_d3ce4e87ececee 307-352
+  s_e3dada5aaefe51::t_ff444ce182349b 501
+  s_e3dada5aaefe51::t_3154ce1daf64c8 410,417
+  s_e3dada5aaefe51::t_a2acb9d26f5f47 163-164
+  s_e3dada5aaefe51::t_e50822b2712388 179
+  s_e3dada5aaefe51::t_2cfb15aca8e3ab 418
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "a6563f7099b8297855cecb13f65e7f0b5ae02fa3",
+  "prompts": {},
+  "sessions": {
+    "s_e3dada5aaefe51": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "26628261-5bd6-47eb-a632-60a4650fc390",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

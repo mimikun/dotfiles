@@ -1,0 +1,25 @@
+private_dot_local/bin/executable_generate_cargo_package_list
+  s_7d5d109a7dd36b::t_1a94306ff337af 13
+private_dot_local/bin/executable_generate_pip_package_list
+  s_7d5d109a7dd36b::t_1f4ac14229dae0 1-4,6-13
+private_dot_local/bin/executable_generate_pipx_package_list
+  s_7d5d109a7dd36b::t_ae80651c8f9ee5 1-4,6-13
+private_dot_local/bin/executable_generate_uv_tool_list
+  s_7d5d109a7dd36b::t_f7fe5ebfd437fc 1-4,6-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "41f935c38f9f1e2b883385f3298f14fa82ce8dd4",
+  "prompts": {},
+  "sessions": {
+    "s_7d5d109a7dd36b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "62e664b1-0cf2-4c0c-9a0e-6715a5fe9868",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+dot_config/fish/completions/aube.fish
+  h_220433a6faf6b8 12,36,367
+dot_config/fish/completions/bat.fish
+  h_220433a6faf6b8 268
+dot_config/fish/completions/claude.fish
+  h_220433a6faf6b8 3,210,219,261,453,456-457,467
+dot_config/fish/completions/codex.fish
+  h_220433a6faf6b8 3,27,30-31,34-35,39-40,44-47,49-51,56,59-63,65-66,68-69,73-76,79-80,83-86,89-93,96-120,124-133,135-154,156,158-161,164-168,171-195,199-208,210-229,231,233-242,246,250,252,256,259,263,266,268,271,273-278,280,284,286,290,295-297,300,302,305,307-308,311,313,316,318-323,325-372,375-376,378-482,485,487-559,561-578,581,583,586,588-589,592-593,597-598,602,606-610,612-615,618-722,725-726,729,731-756,758-761,765-767,771,773-800,803,805-814,816-817,819-845,847,849-872,874-877,879-880
+dot_config/fish/completions/doggo.fish
+  h_220433a6faf6b8 13,17,30,44
+dot_config/fish/completions/fnox.fish
+  h_220433a6faf6b8 12
+dot_config/fish/completions/mise.fish
+  h_220433a6faf6b8 12
+dot_config/fish/completions/pixi.fish
+  h_220433a6faf6b8 56,76-79,84,126-129,134,281,438,472,1562,1564,1569,1585-1587,1620,1635,1659,1674,1696,1725-1726,1742,1771-1772,1790,1826,1841,1897-1898,1907-1910,1915,1955-1958,1963,2003,2050,2112,2163,2204,2246,2290-2293,2296,2309-2312,2315,2328-2330,2340-2342,2352-2353,2364,2377,2396,2399-2400,2415,2418-2419,2450-2451,2486-2487,2654,2687,2848,2907
+dot_config/fish/completions/task.fish
+  h_220433a6faf6b8 8,19
+dot_config/fish/completions/tombi.fish
+  h_220433a6faf6b8 37,43-44
+dot_config/fish/completions/uv.fish
+  h_220433a6faf6b8 5305-5307,5324
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "ae0dbe3ad6fdf532c873e0d8290b16444ae38aac",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

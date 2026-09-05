@@ -1,0 +1,19 @@
+dot_config/gup/private_gup.json
+  s_55cee479aaa4fd::t_1c4035fae942e8 115,709,853,997,1111,1159,1303,1339,1399,1729
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "0ff8079d79ab910a777e8e2174ff506c8af75fe4",
+  "prompts": {},
+  "sessions": {
+    "s_55cee479aaa4fd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "db33bfc8-44f2-482f-b432-0327cadd2f54",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+dot_config/fish/completions/fnox.fish
+  s_d94119ca88713a::t_fed3486136f630 11
+dot_config/fish/completions/mise.fish
+  s_d94119ca88713a::t_18aec8e388cafb 11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.14",
+  "base_commit_sha": "69a91731be6948fa1da46b94435e599e3f739274",
+  "prompts": {},
+  "sessions": {
+    "s_d94119ca88713a": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "719d1c7c-cea2-482b-9345-b65bd9ce7f5c",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+dot_claude/rules/general.md
+  s_352f16c9959eda::t_7da8aac2834180 67-85
+  s_352f16c9959eda::t_b77202b6b290f3 49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "86ec0dda69f87112bcfd8e887df88f1fff21604f",
+  "prompts": {},
+  "sessions": {
+    "s_352f16c9959eda": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c99140dd-3cf1-4964-a2e7-967e85337229",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

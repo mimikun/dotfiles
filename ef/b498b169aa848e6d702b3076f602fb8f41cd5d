@@ -1,0 +1,22 @@
+docs/plan/claude-permission-holes-20260731.md
+  s_e3dada5aaefe51::t_9b095b90261a19 234-277
+  s_e3dada5aaefe51::t_a21947edcb408d 581-585
+  s_e3dada5aaefe51::t_9448bc3b8e3fde 600-603
+  s_e3dada5aaefe51::t_fc04100c11ea7d 197
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "efb498b169aa848e6d702b3076f602fb8f41cd5d",
+  "prompts": {},
+  "sessions": {
+    "s_e3dada5aaefe51": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "26628261-5bd6-47eb-a632-60a4650fc390",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

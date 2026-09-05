@@ -1,0 +1,19 @@
+dot_config/mise/config.toml
+  s_967317a0dbd8b0::t_ce04f9f9f1cbc8 31-34,37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "a4b162f5e6290734917fccc82c9661bb4aabcedb",
+  "prompts": {},
+  "sessions": {
+    "s_967317a0dbd8b0": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "80fbfb5d-5db8-48a2-9e2b-162e31f87f32",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

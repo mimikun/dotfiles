@@ -1,0 +1,14 @@
+dot_claude/CLAUDE.md
+  h_220433a6faf6b8 280-290
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "a694369bbdab3b1eb42d72f907d421c3263a4e92",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

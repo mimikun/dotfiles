@@ -1,0 +1,19 @@
+dot_claude/hooks/executable_herdr-agent-state.sh
+  s_b0014165915972::t_e885c5df5a102e 6,51-52,54-55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "4790d84dd77a69e05eb0ecc07dd75bc602834b14",
+  "prompts": {},
+  "sessions": {
+    "s_b0014165915972": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "647d542e-f9a6-4fb8-be8a-48d0dc6dff12",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

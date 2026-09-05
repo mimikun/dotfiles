@@ -1,0 +1,26 @@
+dot_config/fish/completions/claude.fish
+  h_220433a6faf6b8 3
+dot_config/fish/completions/fnox.fish
+  h_220433a6faf6b8 12
+dot_config/fish/completions/herdr.fish
+  h_220433a6faf6b8 192,202-226,270-273,280-281
+dot_config/fish/completions/purple.fish
+  h_220433a6faf6b8 135,137
+dot_config/fish/completions/sharedserver.fish
+  h_220433a6faf6b8 31-33,48-107,146-163
+dot_config/fish/completions/task.fish
+  h_220433a6faf6b8 8,19
+dot_config/fish/completions/uv.fish
+  h_220433a6faf6b8 349-350,594-595,711-712,823-824,934-935,1101-1102,1246-1247,1373-1374,1569-1570,1687-1688,1877-1878,2083-2084,2291-2292,2532-2533,3279-3280,3516-3517,3720-3721,4037-4038,4152-4153,4349-4350,4426-4427,4622-4623
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "00124407e6a6ac929d60d3bf511ce3b3409203d9",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

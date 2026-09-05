@@ -1,0 +1,25 @@
+private_dot_local/bin/executable_dotfyle
+  s_768cd59cf5dc56::t_d3550c29bb4f92 7-9
+dot_ad/lib/ad.sh
+  s_768cd59cf5dc56::t_8286a88b8794c3 4
+private_dot_local/bin/executable_vup
+  s_768cd59cf5dc56::t_3a5318c7c370e7 247
+.mise/tasks/git/empty-commits
+  s_768cd59cf5dc56::t_c6ee77f8cfddab 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.19",
+  "base_commit_sha": "214ccc8241f56e0e5b615a61093d158554c84114",
+  "prompts": {},
+  "sessions": {
+    "s_768cd59cf5dc56": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6d95df15-bbaf-4756-b733-c374c1993855",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

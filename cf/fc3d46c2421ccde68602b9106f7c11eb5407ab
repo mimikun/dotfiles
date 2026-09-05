@@ -1,0 +1,35 @@
+dot_claude/hooks/executable_check-agent-skills.sh
+  s_f0d2b081679d3e::t_c35b92781716bc 1-72
+dot_claude/private_settings.json
+  s_f0d2b081679d3e::t_4b76737120fd91 139-148
+dot_claude/skills/use-spark/SKILL.md
+  s_f0d2b081679d3e::t_86a3735647bd12 1-780
+.chezmoiignore.tmpl
+  s_6f6b110a937887::t_2db27020ca3776 16-22
+.chezmoiscripts/linux/run_onchange_after-install-agent-skills.sh.tmpl
+  s_6f6b110a937887::t_d49df71c616e09 1-69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "cffc3d46c2421ccde68602b9106f7c11eb5407ab",
+  "prompts": {},
+  "sessions": {
+    "s_6f6b110a937887": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fa914fb9-207e-4d73-94e0-68431ca4fe4a",
+        "model": "unknown"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    },
+    "s_f0d2b081679d3e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "af85fd39-47d7-48dd-b482-4ff540939e3d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+dot_claude/CLAUDE.md
+  h_220433a6faf6b8 62-116
+dot_claude/skills/todoist/SKILL.md
+  h_220433a6faf6b8 4-8,11,13-16,18,21,23,28,30,41-42,44,46-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "79e94b112fad7a0aad3e63e31be629dbf24d9572",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+docs/plan/starship-worktree-indicator-20260722.md
+  s_f31a5819e11282::t_0ce09db14bf0b2 1-138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "8b507b7b46b735929eba4ada710d47c65e74752b",
+  "prompts": {},
+  "sessions": {
+    "s_f31a5819e11282": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "79d7947e-b94f-438c-953d-b2e22b12809a",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

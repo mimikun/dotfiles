@@ -1,0 +1,16 @@
+dot_claude/private_settings.json
+  h_220433a6faf6b8 94-123,133-140,210-217,252-261,272-279
+dot_config/lazy-tmux/private_lazy-tmux.toml
+  h_220433a6faf6b8 1-75
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "7d6c8ccfd7cd12436d859e95f8d53b2013a68e6b",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

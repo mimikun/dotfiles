@@ -1,0 +1,22 @@
+dot_claude/executable_statusline.sh
+  s_8e095854fa8632::t_610438386dcac3 7
+  s_8e095854fa8632::t_d0ff6f72483782 56-59,62-67
+dot_claude/private_settings.json
+  s_8e095854fa8632::t_fca605f4b310c6 400-401
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "e93038f3d98879fd7350f374a615b8c555c01492",
+  "prompts": {},
+  "sessions": {
+    "s_8e095854fa8632": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "dca63ab9-a41a-4f39-b92d-84b5b33d943d",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

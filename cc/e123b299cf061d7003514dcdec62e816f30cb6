@@ -1,0 +1,45 @@
+.chezmoiignore.tmpl
+  s_88915ce00d3ea2::t_224467e1371a2f 25-33
+dot_claude/agents/LICENSE
+  s_88915ce00d3ea2::t_f2f9f7e26d8812 1-21
+dot_claude/agents/cli-developer.md
+  s_88915ce00d3ea2::t_e7182be9d12cc2 1-300
+dot_claude/agents/documentation-engineer.md
+  s_88915ce00d3ea2::t_e524973bc46816 1-290
+dot_claude/agents/embedded-systems.md
+  s_88915ce00d3ea2::t_23694104834303 1-300
+dot_claude/agents/git-workflow-manager.md
+  s_88915ce00d3ea2::t_b0f71734a2439a 1-300
+dot_claude/agents/powershell-5.1-expert.md
+  s_88915ce00d3ea2::t_37f138431d1149 1-74
+dot_claude/agents/powershell-7-expert.md
+  s_88915ce00d3ea2::t_691cd5460d12d2 1-73
+dot_claude/agents/powershell-module-architect.md
+  s_88915ce00d3ea2::t_96bc818fb3a3f2 1-75
+dot_claude/agents/powershell-ui-architect.md
+  s_88915ce00d3ea2::t_ef1b6c81f4dac4 1-153
+dot_claude/agents/research-analyst.md
+  s_88915ce00d3ea2::t_c6ccc1250f33e7 1-300
+dot_claude/agents/rust-engineer.md
+  s_88915ce00d3ea2::t_0c354a8b302387 1-300
+dot_claude/agents/search-specialist.md
+  s_88915ce00d3ea2::t_e46a5ec38eb4e2 1-300
+dot_claude/agents/tooling-engineer.md
+  s_88915ce00d3ea2::t_d9912ca587858d 1-300
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "cce123b299cf061d7003514dcdec62e816f30cb6",
+  "prompts": {},
+  "sessions": {
+    "s_88915ce00d3ea2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "96935e8a-f48e-49dd-aa5b-24643496f31f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

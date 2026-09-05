@@ -1,0 +1,20 @@
+dot_config/gup/private_gup.json
+  h_220433a6faf6b8 73,115,529,997,1003,1111-1117,1309,1369,1405,1711
+dot_mimikun-pkglists/linux_arch_aur_packages.txt
+  h_220433a6faf6b8 77
+dot_mimikun-pkglists/linux_arch_official_packages.txt
+  h_220433a6faf6b8 137
+dot_mimikun-pkglists/linux_pnpm_packages.txt
+  h_220433a6faf6b8 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "82f44e881f3a4094b346b9f856627ad68e42c77f",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

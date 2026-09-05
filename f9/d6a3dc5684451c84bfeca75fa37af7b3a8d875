@@ -1,0 +1,41 @@
+dot_claude/CLAUDE.md
+  s_59779b32b28aa6::t_c804f55877cd64 1-32
+.chezmoiignore.tmpl
+  s_47c22a5c0de524::t_6cc9f368f81563 8-9
+dot_claude/rules/bash.md
+  s_47c22a5c0de524::t_38e859698d39f3 1-10
+dot_claude/rules/general.md
+  s_47c22a5c0de524::t_91d30d2179251b 1-32
+dot_claude/rules/go.md
+  s_47c22a5c0de524::t_ebbc167c5e1477 1-10
+dot_claude/rules/python.md
+  s_47c22a5c0de524::t_79d3e27d31f96d 1-10
+dot_claude/rules/rust.md
+  s_47c22a5c0de524::t_e846e31313e456 1-10
+dot_claude/rules/typescript.md
+  s_47c22a5c0de524::t_f6e78871847994 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "f9d6a3dc5684451c84bfeca75fa37af7b3a8d875",
+  "prompts": {},
+  "sessions": {
+    "s_47c22a5c0de524": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cbbd7636-80ee-48e4-92cf-7da60900576f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    },
+    "s_59779b32b28aa6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c0dab38a-6064-4e6f-bccb-b2f67d87442f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

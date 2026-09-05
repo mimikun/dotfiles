@@ -1,0 +1,19 @@
+renovate.json5
+  s_6847b04dcbc846::t_8662414739c3c4 6-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "1b20bbb481033228b2584eb5a8035f0277bb7729",
+  "prompts": {},
+  "sessions": {
+    "s_6847b04dcbc846": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e9e64f20-fc14-499b-828f-1c527d46ad9f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

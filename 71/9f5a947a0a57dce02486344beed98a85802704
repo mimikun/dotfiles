@@ -1,0 +1,14 @@
+dot_config/lazyjust/config.toml
+  h_220433a6faf6b8 1-55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "719f5a947a0a57dce02486344beed98a85802704",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

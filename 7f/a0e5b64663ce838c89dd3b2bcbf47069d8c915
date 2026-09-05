@@ -1,0 +1,19 @@
+dot_claude/dot_editorconfig
+  s_59779b32b28aa6::t_4d4006a215b84c 1-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "7fa0e5b64663ce838c89dd3b2bcbf47069d8c915",
+  "prompts": {},
+  "sessions": {
+    "s_59779b32b28aa6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c0dab38a-6064-4e6f-bccb-b2f67d87442f",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

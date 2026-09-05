@@ -1,0 +1,23 @@
+dot_claude/private_settings.json
+  s_6f6b110a937887::t_a9960e885b231e 101
+dot_claude/hooks/executable_deny-destructive-git.sh
+  s_6f6b110a937887::t_15bba3c420ae3b 1-22
+scripts/claude-hooks-cases/destructive-git.txt
+  s_6f6b110a937887::t_343c78ea1441e6 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "1f9798c08613a3c7064f5e771a0a12e09a9b88d4",
+  "prompts": {},
+  "sessions": {
+    "s_6f6b110a937887": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fa914fb9-207e-4d73-94e0-68431ca4fe4a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

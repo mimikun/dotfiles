@@ -1,0 +1,21 @@
+dot_claude/private_settings.json
+  s_6f6b110a937887::t_153e0d81ef3899 72
+dot_claude/hooks/executable_todoist-sync-reminder.sh
+  s_6f6b110a937887::t_7f87ff5c234072 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "5ce6a5db0afecaccb7cde020baec0e0a7bbb8f6a",
+  "prompts": {},
+  "sessions": {
+    "s_6f6b110a937887": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "fa914fb9-207e-4d73-94e0-68431ca4fe4a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}

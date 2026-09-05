@@ -1,0 +1,16 @@
+dot_mimikun-pkglists/linux_cargo_packages.txt
+  h_220433a6faf6b8 154
+dot_mimikun-pkglists/linux_pnpm_packages.txt
+  h_220433a6faf6b8 4,11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "816e2fd894e960f6d35d254797d028d0466cbdfc",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
