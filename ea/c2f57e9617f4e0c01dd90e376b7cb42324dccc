@@ -1,0 +1,19 @@
+dot_claude/CLAUDE.md
+  s_d1b16c23941e79::t_007fddc489c0a5 144-148,153
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "eac2f57e9617f4e0c01dd90e376b7cb42324dccc",
+  "prompts": {},
+  "sessions": {
+    "s_d1b16c23941e79": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "9ead3aec-0aa6-478b-8fdd-c39dc8cdc7d6",
+        "model": "unknown"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
