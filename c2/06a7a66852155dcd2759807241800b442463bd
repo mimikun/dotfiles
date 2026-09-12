@@ -1,0 +1,14 @@
+dot_config/gup/private_gup.json
+  h_220433a6faf6b8 13,37,151,217,337,361,367,379,385,565,583,589,601,613,643,649,655,661,667,673,787,841,847,871,877,931,997,1033,1081,1093,1099,1111
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "c206a7a66852155dcd2759807241800b442463bd",
+  "prompts": {},
+  "humans": {
+    "h_220433a6faf6b8": {
+      "author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
