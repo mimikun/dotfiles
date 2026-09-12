@@ -58,6 +58,7 @@ opencode-ai
 openwiki
 pg-micro
 pixtuoid
+pnpm
 portless
 ralph-tui
 repomix
