@@ -45,7 +45,7 @@ complete -c pixi -n "__fish_pixi_needs_command" -f -a "x" -d 'Run a command and 
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "global" -d 'Subcommand for global package management actions'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "g" -d 'Subcommand for global package management actions'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "info" -d 'Information about the system, workspace and environments for the current machine'
-complete -c pixi -n "__fish_pixi_needs_command" -f -a "init" -d 'Creates a new workspace'
+complete -c pixi -n "__fish_pixi_needs_command" -f -a "init" -d 'Creates a new workspace or script'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "import" -d 'Imports a file into an environment in an existing workspace.'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "install" -d 'Install an environment, both updating the lock file and installing the environment'
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "i" -d 'Install an environment, both updating the lock file and installing the environment'
@@ -73,7 +73,7 @@ complete -c pixi -n "__fish_pixi_needs_command" -f -a "workspace" -d 'Modify the
 complete -c pixi -n "__fish_pixi_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand add" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand add" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s f -l feature -d 'The feature for which the dependency should be modified' -r -f -a "(string split ' ' (pixi workspace feature list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand add" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
@@ -124,7 +124,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand add" -s q -l quiet -d 'Decreas
 complete -c pixi -n "__fish_pixi_using_subcommand add" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand a" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand a" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s f -l feature -d 'The feature for which the dependency should be modified' -r -f -a "(string split ' ' (pixi workspace feature list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand a" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
@@ -1566,13 +1566,15 @@ complete -c pixi -n "__fish_pixi_using_subcommand info" -s h -l help -d 'Display
 complete -c pixi -n "__fish_pixi_using_subcommand info" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
 complete -c pixi -n "__fish_pixi_using_subcommand info" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
 complete -c pixi -n "__fish_pixi_using_subcommand info" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand init" -s s -l script -d 'Create a PEP 723 metadata block in a Python script' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand init" -s s -l script -d 'Create a metadata block in a script instead of a workspace' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand init" -s c -l channel -d 'Channel to use in the workspace' -r
 complete -c pixi -n "__fish_pixi_using_subcommand init" -s p -l platform -d 'Platforms that the workspace supports' -r -f
 complete -c pixi -n "__fish_pixi_using_subcommand init" -s i -l import -d 'Environment.yml file to bootstrap the workspace' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand init" -l format -d 'The manifest format to create' -r -f -a "pixi\t''
 pyproject\t''
-mojoproject\t''"
+mojoproject\t''
+pep723\t''
+conda-script\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand init" -l scm -d 'Source Control Management used for this workspace' -r -f -a "github\t''
 gitlab\t''
 codeberg\t''"
@@ -1624,6 +1626,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand import" -l no-progress -d 'Hid
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand install" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -s e -l environment -d 'The environment to install' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand install" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -1663,6 +1666,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand install" -l no-progress -d 'Hi
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand i" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -s e -l environment -d 'The environment to install' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand i" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
@@ -1729,7 +1733,7 @@ url\t''
 version\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand list" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand list" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand list" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand list" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1775,7 +1779,7 @@ url\t''
 version\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand ls" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand ls" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand ls" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -1794,7 +1798,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand ls" -l no-progress -d 'Hide al
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand lock" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand lock" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand lock" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -1911,7 +1915,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand publish" -l no-progress -d 'Hi
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand remove" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand remove" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s f -l feature -d 'The feature for which the dependency should be modified' -r -f -a "(string split ' ' (pixi workspace feature list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand remove" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
@@ -1959,7 +1963,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand remove" -l no-progress -d 'Hid
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand rm" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand rm" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s p -l platform -d 'The platform for which the dependency should be modified. Must be the name of a platform already defined in the workspace' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s f -l feature -d 'The feature for which the dependency should be modified' -r -f -a "(string split ' ' (pixi workspace feature list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand rm" -s e -l environment -d 'The environment for which the dependency should be modified. The dependency is written to the content defined inline on the environment, creating the environment if it does not exist' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
@@ -2007,7 +2011,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand rm" -l no-progress -d 'Hide al
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand run" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand run" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -2029,6 +2033,7 @@ never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -s x -l executable -d 'Execute the command as an executable without resolving Pixi tasks'
+complete -c pixi -n "__fish_pixi_using_subcommand run" -l experimental -d 'Enable experimental `--script` features; currently the `conda-script` block'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
 complete -c pixi -n "__fish_pixi_using_subcommand run" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
@@ -2054,7 +2059,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand run" -l no-progress -d 'Hide a
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand r" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand r" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l auth-file -d 'Path to the file containing the authentication token' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l concurrent-downloads -d 'Max concurrent network requests, default is `50`' -r
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l concurrent-solves -d 'Max concurrent solves, default is the number of CPUs' -r
@@ -2076,6 +2081,7 @@ never\t''
 auto\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -s x -l executable -d 'Execute the command as an executable without resolving Pixi tasks'
+complete -c pixi -n "__fish_pixi_using_subcommand r" -l experimental -d 'Enable experimental `--script` features; currently the `conda-script` block'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-install -d 'Don\'t modify the environment, only modify the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l no-lock-file-update -d 'DEPRECATED: use `--frozen` `--no-install`. Skips lock file updates'
 complete -c pixi -n "__fish_pixi_using_subcommand r" -l frozen -d 'Install the environment as defined in the lock file, doesn\'t update lock file if it isn\'t up-to-date with the manifest file'
@@ -2403,7 +2409,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand tree" -l config-file -d 'Load 
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s p -l platform -d 'The platform to list packages for. Defaults to the platform best matching this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand tree" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand tree" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand tree" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -2422,7 +2428,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand t" -l config-file -d 'Load con
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s p -l platform -d 'The platform to list packages for. Defaults to the platform best matching this machine. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand t" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand t" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand t" -s e -l environment -d 'The environment to list packages for. Defaults to the default environment' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand t" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
@@ -2454,7 +2460,7 @@ false\t''"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l tls-root-certs -d 'Which TLS root certificates to use: \'webpki\' (bundled Mozilla roots) or \'system\' (system store)' -r
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand update" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand update" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s e -l environment -d 'The environments to update. If none is specified, all environments are updated' -r -f -a "(string split ' ' (pixi workspace environment list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -s p -l platform -d 'The platforms to update. If none is specified, all platforms are updated. Accepts a workspace platform name; a bare conda subdir (e.g. `linux-64`) is also accepted so users don\'t have to declare a platform before targeting it' -r -f -a "(string split ' ' (pixi workspace platform list --machine-readable 2> /dev/null))"
 complete -c pixi -n "__fish_pixi_using_subcommand update" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
@@ -2636,28 +2642,31 @@ complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcom
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "s3" -d 'Options for uploading to S3'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "conda-forge" -d 'Options for uploading to conda-forge'
 complete -c pixi -n "__fish_pixi_using_subcommand upload; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -s h -l help -d 'Display help information'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "activation" -d 'Commands to manage the activation of environments: the scripts that run and the environment variables that are set when an environment is activated'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "channel" -d 'Commands to manage workspace channels'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "description" -d 'Commands to manage workspace description'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "platform" -d 'Commands to manage workspace platforms'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "version" -d 'Commands to manage workspace version'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "environment" -d 'Commands to manage workspace environments'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "feature" -d 'Commands to manage workspace features'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "export" -d 'Commands to export workspaces to other formats'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "name" -d 'Commands to manage workspace name'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "preview" -d 'Commands to manage workspace preview flags'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "register" -d 'Commands to manage the registry of workspaces. Default command will add a new workspace'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel description platform version environment feature export name preview register requires-pixi help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "activation" -d 'Commands to manage the activation of environments: the scripts that run and the environment variables that are set when an environment is activated'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "channel" -d 'Commands to manage workspace channels'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "dependencies" -d 'Commands to manage the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "dependency" -d 'Commands to manage the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "dep" -d 'Commands to manage the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "description" -d 'Commands to manage workspace description'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "platform" -d 'Commands to manage workspace platforms'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "version" -d 'Commands to manage workspace version'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "environment" -d 'Commands to manage workspace environments'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "feature" -d 'Commands to manage workspace features'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "export" -d 'Commands to export workspaces to other formats'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "name" -d 'Commands to manage workspace name'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "preview" -d 'Commands to manage workspace preview flags'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "register" -d 'Commands to manage the registry of workspaces. Default command will add a new workspace'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "requires-pixi" -d 'Commands to manage the pixi minimum version requirement'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and not __fish_seen_subcommand_from activation channel dependencies dependency dep description platform version environment feature export name preview register requires-pixi help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from activation" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from activation" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from activation" -s w -l workspace -d 'Name of the workspace' -r
@@ -2678,7 +2687,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2694,6 +2703,60 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "remove" -d 'Remove channel(s) from the manifest and updates the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "rm" -d 'Remove channel(s) from the manifest and updates the lock file'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from channel" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+never\t''
+auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -f -a "add" -d 'Add dependencies to the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -f -a "a" -d 'Add dependencies to the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -f -a "list" -d 'List dependencies in the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -f -a "ls" -d 'List dependencies in the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -f -a "remove" -d 'Remove dependencies from the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -f -a "rm" -d 'Remove dependencies from the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependencies" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+never\t''
+auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -f -a "add" -d 'Add dependencies to the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -f -a "a" -d 'Add dependencies to the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -f -a "list" -d 'List dependencies in the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -f -a "ls" -d 'List dependencies in the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -f -a "remove" -d 'Remove dependencies from the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -f -a "rm" -d 'Remove dependencies from the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dependency" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -s w -l workspace -d 'Name of the workspace' -r
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
+never\t''
+auto\t''"
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -l no-config -d 'Don\'t read system or user-level configuration files. Project-local `<project>/.pixi/config.toml` is still loaded'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -s h -l help -d 'Display help information'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -s v -l verbose -d 'Increase logging verbosity (-v for warnings, -vv for info, -vvv for debug, -vvvv for trace)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -s q -l quiet -d 'Decrease logging verbosity (quiet mode)'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -l no-progress -d 'Hide all progress bars, always turned on if stderr is not a terminal'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -f -a "add" -d 'Add dependencies to the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -f -a "a" -d 'Add dependencies to the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -f -a "list" -d 'List dependencies in the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -f -a "ls" -d 'List dependencies in the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -f -a "remove" -d 'Remove dependencies from the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -f -a "rm" -d 'Remove dependencies from the `[workspace.dependencies]` table'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from dep" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from description" -s w -l workspace -d 'Name of the workspace' -r
@@ -2711,7 +2774,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l config-file -d 'Load configuration from this file instead of searching system and user-level paths. Project-local `<project>/.pixi/config.toml` is still merged on top' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s m -l manifest-path -d 'The path to `pixi.toml`, `pyproject.toml`, or the workspace directory' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s w -l workspace -d 'Name of the workspace' -r
-complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s s -l script -d 'The path to a Python script containing PEP 723 metadata' -r -F
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -s s -l script -d 'The path to a script with an embedded manifest: a Python script containing PEP 723 metadata, or a file of any language containing a `/// conda-script` block' -r -F
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from platform" -l color -d 'Whether the log needs to be colored' -r -f -a "always\t''
 never\t''
 auto\t''"
@@ -2866,6 +2929,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_sub
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from requires-pixi" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "activation" -d 'Commands to manage the activation of environments: the scripts that run and the environment variables that are set when an environment is activated'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "channel" -d 'Commands to manage workspace channels'
+complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "dependencies" -d 'Commands to manage the `[workspace.dependencies]` table'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "description" -d 'Commands to manage workspace description'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "platform" -d 'Commands to manage workspace platforms'
 complete -c pixi -n "__fish_pixi_using_subcommand workspace; and __fish_seen_subcommand_from help" -f -a "version" -d 'Commands to manage workspace version'
@@ -2886,7 +2950,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subc
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "exec" -d 'Run a command and install it in a temporary environment'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "global" -d 'Subcommand for global package management actions'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "info" -d 'Information about the system, workspace and environments for the current machine'
-complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "init" -d 'Creates a new workspace'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "init" -d 'Creates a new workspace or script'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "import" -d 'Imports a file into an environment in an existing workspace.'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "install" -d 'Install an environment, both updating the lock file and installing the environment'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and not __fish_seen_subcommand_from add auth build clean completion config exec global info init import install list lock reinstall publish remove run search self-update shell shell-hook task tree update upgrade upload workspace help" -f -a "list" -d 'List the packages of the current workspace'
@@ -2943,6 +3007,7 @@ complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcomma
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from upload" -f -a "conda-forge" -d 'Options for uploading to conda-forge'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "activation" -d 'Commands to manage the activation of environments: the scripts that run and the environment variables that are set when an environment is activated'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "channel" -d 'Commands to manage workspace channels'
+complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "dependencies" -d 'Commands to manage the `[workspace.dependencies]` table'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "description" -d 'Commands to manage workspace description'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "platform" -d 'Commands to manage workspace platforms'
 complete -c pixi -n "__fish_pixi_using_subcommand help; and __fish_seen_subcommand_from workspace" -f -a "version" -d 'Commands to manage workspace version'

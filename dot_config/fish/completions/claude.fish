@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.259 on 2026-09-03.
+# Generated from claude 2.1.269 on 2026-09-12.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -260,7 +260,7 @@ complete -c claude -n '__fish_claude_at ""' -l permission-mode -d 'Permission mo
 complete -c claude -n '__fish_claude_at ""' -l permission-prompts -x -a 'host none'
 complete -c claude -n '__fish_claude_at ""' -l permission-prompts -d 'Who answers permission prompts with --print: "host" (the SDK host or --permission-prompt-…' -x
 complete -c claude -n '__fish_claude_at ""' -l plugin-dir -x -a '(__fish_complete_directories)'
-complete -c claude -n '__fish_claude_at ""' -l plugin-dir -d 'Load a plugin from a directory or .zip for this session only (repeatable: --plugin-dir A…' -x
+complete -c claude -n '__fish_claude_at ""' -l plugin-dir -d 'Load a plugin from a directory or .zip for this session only; a folder of plugins loads e…' -x
 complete -c claude -n '__fish_claude_at ""' -l plugin-url -d 'Fetch a plugin .zip from a URL for this session only (repeatable: --plugin-url A --plugin…' -r
 complete -c claude -n '__fish_claude_at ""' -s p -l print -d 'Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped w…'
 complete -c claude -n '__fish_claude_at ""' -l prompt-suggestions -x -a 'true false 1 0 yes no on off'
@@ -304,7 +304,7 @@ complete -c claude -n '__fish_claude_at "agents"' -l model -x -a 'fable opus son
 complete -c claude -n '__fish_claude_at "agents"' -l model -d 'Default model for sessions dispatched from agent view' -x
 complete -c claude -n '__fish_claude_at "agents"' -l permission-mode -d 'Default permission mode for sessions dispatched from agent view' -r
 complete -c claude -n '__fish_claude_at "agents"' -l plugin-dir -x -a '(__fish_complete_directories)'
-complete -c claude -n '__fish_claude_at "agents"' -l plugin-dir -d 'Load plugins from specified directory for the agent view and dispatched sessions (repeata…' -x
+complete -c claude -n '__fish_claude_at "agents"' -l plugin-dir -d 'Load plugins from specified directory for the agent view and dispatched sessions; a folde…' -x
 complete -c claude -n '__fish_claude_at "agents"' -l restricted -d 'Start dispatched sessions in restricted mode'
 complete -c claude -n '__fish_claude_at "agents"' -l setting-sources -d 'Comma-separated list of setting sources to load (user, project, local).' -r
 complete -c claude -n '__fish_claude_at "agents"' -l settings -d 'Settings file or JSON string to apply to the agent view and dispatched sessions' -r -F
@@ -456,25 +456,29 @@ complete -c claude -n '__fish_claude_at "plugin details"' -s h -l help -d 'Displ
 complete -c claude -n '__fish_claude_at "plugin disable"' -x -a '(__fish_claude_plugins)'
 complete -c claude -n '__fish_claude_at "plugin disable"' -s a -l all -d 'Disable all enabled plugins'
 complete -c claude -n '__fish_claude_at "plugin disable"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "plugin disable"' -l json -d 'Print one machine-readable result line on stdout instead of the human message (same exit…'
 complete -c claude -n '__fish_claude_at "plugin disable"' -s s -l scope -d 'Installation scope: user, project, local (default: auto-detect)' -r
 
 # claude plugin enable
 complete -c claude -n '__fish_claude_at "plugin enable"' -x -a '(__fish_claude_plugins)'
 complete -c claude -n '__fish_claude_at "plugin enable"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "plugin enable"' -l json -d 'Print one machine-readable result line on stdout instead of the human message (same exit…'
 complete -c claude -n '__fish_claude_at "plugin enable"' -s s -l scope -d 'Installation scope: user, project, local (default: auto-detect)' -r
 
 # claude plugin eval
 complete -c claude -n '__fish_claude_at "plugin eval"' -a 'init' -d 'Author an eval suite under the eval dir (evals/ unless --eval-dir or the manifest says ot…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l ablation -d 'Run a no-plugin baseline arm and report the score delta (none | with-without; default: wi…' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l allow-real-servers -d 'With --mocks record: also start the plugin\'s REAL MCP server processes for servers that h…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l allow-tools -d 'Operator grant for gated tools (Bash, Write, Edit, WebFetch, mcp__*). Supports Tool(patte…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l case -d 'Filter cases by name glob' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -s j -l concurrency -d 'Run up to <n> agent runs at once (1-8; default 1). Each run is a full claude child on you…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l eval-dir -d 'Directory name (below the plugin) that holds the eval cases; results go to <plugin>/<dir>…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l json -d 'Print the full run result (prompts, graders, per-run scores) as JSON to stdout, or write…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l judge-model -d 'Override LLM-grader model (default: haiku)' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l keep-temp -d 'Preserve scaffold dirs for debugging'
-complete -c claude -n '__fish_claude_at "plugin eval"' -l max-cost-usd -d 'Optional hard cost ceiling; abort and report partial results if hit (exit 2). Overrun is…' -r
-complete -c claude -n '__fish_claude_at "plugin eval"' -l mocks -d 'Mock stand-ins for MCP servers, from <eval dir>/mocks/ (record | off; default: record — o…' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l max-cost-usd -d 'Optional hard cost ceiling; abort and report partial results if hit (exit 2). The ceiling…' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l mocks -d 'Mock stand-ins for MCP servers, from <eval dir>/mocks/ (record | off; default: record). r…' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l model -x -a 'fable opus sonnet haiku claude-fable-5 claude-opus-5 claude-sonnet-5 claude-haiku-4-5-20251001'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l model -d 'Override model for all cases' -x
 complete -c claude -n '__fish_claude_at "plugin eval"' -l no-publish -d 'Keep the HTML report local only; skip publishing it to claude.ai'
@@ -486,6 +490,7 @@ complete -c claude -n '__fish_claude_at "plugin eval"' -l runs -d 'Override per-
 complete -c claude -n '__fish_claude_at "plugin eval"' -l scaffold -d 'Run each case\'s scaffold_script (runs author-supplied bash as you; off by default — only…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l tag -d 'Filter cases by tag (repeatable)' -r
 complete -c claude -n '__fish_claude_at "plugin eval"' -l threshold -d 'Exit 1 if any case score is below this threshold (default: 1.0)' -r
+complete -c claude -n '__fish_claude_at "plugin eval"' -l trust-plugin -d 'Assert that you trust this plugin\'s code and eval suite, and skip the first-run trust pro…'
 complete -c claude -n '__fish_claude_at "plugin eval"' -l verbose -d 'Log per-message trace events to the debug log (use --debug-file to read them)'
 
 # claude plugin eval init
@@ -505,6 +510,7 @@ complete -c claude -n '__fish_claude_at "plugin init"' -l with -d 'Also scaffold
 # claude plugin install
 complete -c claude -n '__fish_claude_at "plugin install"' -l config -d 'Set a userConfig option declared in the plugin\'s manifest (repeatable). Values are valida…' -r -F
 complete -c claude -n '__fish_claude_at "plugin install"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "plugin install"' -l json -d 'Print one machine-readable result line on stdout instead of the human message (same exit…'
 complete -c claude -n '__fish_claude_at "plugin install"' -s s -l scope -d 'Installation scope: user, project, or local (default: "user")' -r
 complete -c claude -n '__fish_claude_at "plugin install"' -s y -l yes -d 'Accept the displayed marketplace-declared command without the confirmation prompt — a plu…'
 
@@ -521,6 +527,7 @@ complete -c claude -n '__fish_claude_at "plugin marketplace"' -a 'update' -d 'Up
 complete -c claude -n '__fish_claude_at "plugin marketplace"' -s h -l help -d 'Display help for command'
 
 # claude plugin marketplace add
+complete -c claude -n '__fish_claude_at "plugin marketplace add"' -l claudeai -d 'Add the marketplace of this name that claude.ai hosts for you, by its listed name or its…'
 complete -c claude -n '__fish_claude_at "plugin marketplace add"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin marketplace add"' -l scope -d 'Where to declare the marketplace: user (default), project, or local' -r
 complete -c claude -n '__fish_claude_at "plugin marketplace add"' -l sparse -d 'Limit checkout to specific directories via git sparse-checkout (for monorepos). Example:…' -r
@@ -555,6 +562,7 @@ complete -c claude -n '__fish_claude_at "plugin tag"' -l remote -d 'Remote to pu
 # claude plugin uninstall
 complete -c claude -n '__fish_claude_at "plugin uninstall"' -x -a '(__fish_claude_plugins)'
 complete -c claude -n '__fish_claude_at "plugin uninstall"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "plugin uninstall"' -l json -d 'Print one machine-readable result line on stdout instead of the human message (same exit…'
 complete -c claude -n '__fish_claude_at "plugin uninstall"' -l keep-data -d 'Preserve the plugin\'s persistent data directory (~/.claude/plugins/data/{id}/)'
 complete -c claude -n '__fish_claude_at "plugin uninstall"' -l prune -d 'Also remove auto-installed dependencies that are no longer needed (requires -y in non-int…'
 complete -c claude -n '__fish_claude_at "plugin uninstall"' -s s -l scope -d 'Uninstall from scope: user, project, or local (default: "user")' -r
@@ -563,6 +571,7 @@ complete -c claude -n '__fish_claude_at "plugin uninstall"' -s y -l yes -d 'Skip
 # claude plugin update
 complete -c claude -n '__fish_claude_at "plugin update"' -x -a '(__fish_claude_plugins)'
 complete -c claude -n '__fish_claude_at "plugin update"' -s h -l help -d 'Display help for command'
+complete -c claude -n '__fish_claude_at "plugin update"' -l json -d 'Print one machine-readable result line on stdout instead of the human message (same exit…'
 complete -c claude -n '__fish_claude_at "plugin update"' -s s -l scope -d 'Installation scope: user, project, local, managed (default: user)' -r
 complete -c claude -n '__fish_claude_at "plugin update"' -s y -l yes -d 'Accept the displayed marketplace-declared command without the confirmation prompt — a cha…'
 

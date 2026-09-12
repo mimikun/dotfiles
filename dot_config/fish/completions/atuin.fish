@@ -412,18 +412,22 @@ complete -c atuin -n "__fish_atuin_using_subcommand config; and __fish_seen_subc
 complete -c atuin -n "__fish_atuin_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "set" -d 'Set a configuration value in your config.toml file'
 complete -c atuin -n "__fish_atuin_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "print" -d 'Print all configuration values from your config.toml file in TOML format'
 complete -c atuin -n "__fish_atuin_using_subcommand config; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from inline help" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from inline help" -f -a "inline" -d 'Inline completion mode with small TUI overlay'
-complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from inline help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from inline init help" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from inline init help" -f -a "inline" -d 'Inline completion mode with small TUI overlay'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from inline init help" -f -a "init" -d 'This command is no longer necessary. If you have it in your shell init file, feel free to remove it'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and not __fish_seen_subcommand_from inline init help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l api-endpoint -d 'Custom API endpoint; defaults to reading from the `ai.endpoint` setting' -r
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l api-token -d 'Custom API token; defaults to reading from the `ai.api_token` setting' -r
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -s v -l verbose -d 'Enable verbose logging'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -l hook -d 'Use the hook mode'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from inline" -s h -l help -d 'Print help'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from init" -s h -l help -d 'Print help'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from help" -f -a "inline" -d 'Inline completion mode with small TUI overlay'
+complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from help" -f -a "init" -d 'This command is no longer necessary. If you have it in your shell init file, feel free to remove it'
 complete -c atuin -n "__fish_atuin_using_subcommand ai; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c atuin -n "__fish_atuin_using_subcommand mcp" -s h -l help -d 'Print help'
-complete -c atuin -n "__fish_atuin_using_subcommand __internal; and not __fish_seen_subcommand_from prepare-search-index" -f -a "prepare-search-index"
+complete -c atuin -n "__fish_atuin_using_subcommand __internal; and not __fish_seen_subcommand_from prepare-search-index pty-proxy-active" -f -a "prepare-search-index"
+complete -c atuin -n "__fish_atuin_using_subcommand __internal; and not __fish_seen_subcommand_from prepare-search-index pty-proxy-active" -f -a "pty-proxy-active" -d 'Check whether the current terminal belongs to a live PTY proxy'
 complete -c atuin -n "__fish_atuin_using_subcommand pty-proxy; and not __fish_seen_subcommand_from init help" -l shell -d 'Path to the shell binary that atuin pty-proxy should spawn. Defaults to the system login shell. Only valid when no subcommand is given' -r -F
 complete -c atuin -n "__fish_atuin_using_subcommand pty-proxy; and not __fish_seen_subcommand_from init help" -l debug-osc133 -d 'Highlight OSC 133 prompt, input, output, and exit-code regions'
 complete -c atuin -n "__fish_atuin_using_subcommand pty-proxy; and not __fish_seen_subcommand_from init help" -s h -l help -d 'Print help'
@@ -530,5 +534,7 @@ complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcom
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "set" -d 'Set a configuration value in your config.toml file'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from config" -f -a "print" -d 'Print all configuration values from your config.toml file in TOML format'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from ai" -f -a "inline" -d 'Inline completion mode with small TUI overlay'
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from ai" -f -a "init" -d 'This command is no longer necessary. If you have it in your shell init file, feel free to remove it'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from __internal" -f -a "prepare-search-index"
+complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from __internal" -f -a "pty-proxy-active" -d 'Check whether the current terminal belongs to a live PTY proxy'
 complete -c atuin -n "__fish_atuin_using_subcommand help; and __fish_seen_subcommand_from pty-proxy" -f -a "init" -d 'Print shell code to initialize atuin pty-proxy on shell startup'

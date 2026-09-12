@@ -71,6 +71,8 @@ false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand options" -l theme -d 'Set the default theme' -r
 complete -c zellij -n "__fish_zellij_using_subcommand options" -l theme-dark -d 'Theme name to apply when the host terminal reports a dark color palette (CSI 2031 / DSR 997). Requires `theme_light` to also be set; if either is missing the static `theme` remains authoritative' -r
 complete -c zellij -n "__fish_zellij_using_subcommand options" -l theme-light -d 'Theme name to apply when the host terminal reports a light color palette (CSI 2031 / DSR 997). Requires `theme_dark` to also be set; if either is missing the static `theme` remains authoritative' -r
+complete -c zellij -n "__fish_zellij_using_subcommand options" -l explicit-theme-hue -d 'Pin the session to a dark or light appearance ("dark" or "light"), resolved before the first render and kept authoritative over ambient host terminal reports (CSI 2031 / DSR 997). When unset, the session follows the host terminal' -r -f -a "light\t''
+dark\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand options" -l default-mode -d 'Set the default mode' -r -f -a "normal\t'In `Normal` mode, input is always written to the terminal, except for the shortcuts leading to other modes'
 locked\t'In `Locked` mode, input is always written to the terminal and all shortcuts are disabled except the one leading back to normal mode'
 resize\t'`Resize` mode allows resizing the different existing panes'
@@ -145,6 +147,8 @@ false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand options" -l advanced-mouse-actions -d 'Whether to enable mouse hover effects and pane grouping functionality default is true' -r -f -a "true\t''
 false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand options" -l mouse-scroll-resize -d 'Whether Ctrl+ScrollWheel resizes panes default is true' -r -f -a "true\t''
+false\t''"
+complete -c zellij -n "__fish_zellij_using_subcommand options" -l scroll-mode-sync -d 'Whether scrolling a pane implicitly enters (and leaving the scroll implicitly exits) Scroll mode default is true' -r -f -a "true\t''
 false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand options" -l mouse-hover-effects -d 'Whether to enable mouse hover visual effects (frame highlight and help text) default is true' -r -f -a "true\t''
 false\t''"
@@ -1022,6 +1026,8 @@ complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_see
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -s r -l remember -d 'Save session for automatic re-authentication (4 weeks)'
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -l forget -d 'Delete saved session before connecting'
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -l insecure -d 'Skip TLS certificate validation (DANGEROUS — development only)'
+complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -l close-on-exit -d 'Close the initial command\'s pane immediately when it exits'
+complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -l start-suspended -d 'Start the initial command suspended, only running it after you first press ENTER'
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -s h -l help -d 'Print help'
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -a "options" -d 'Change the behaviour of zellij'
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and not __fish_seen_subcommand_from options help" -a "help" -d 'Print this message or the help of the given subcommand(s)'
@@ -1030,6 +1036,8 @@ false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l theme -d 'Set the default theme' -r
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l theme-dark -d 'Theme name to apply when the host terminal reports a dark color palette (CSI 2031 / DSR 997). Requires `theme_light` to also be set; if either is missing the static `theme` remains authoritative' -r
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l theme-light -d 'Theme name to apply when the host terminal reports a light color palette (CSI 2031 / DSR 997). Requires `theme_dark` to also be set; if either is missing the static `theme` remains authoritative' -r
+complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l explicit-theme-hue -d 'Pin the session to a dark or light appearance ("dark" or "light"), resolved before the first render and kept authoritative over ambient host terminal reports (CSI 2031 / DSR 997). When unset, the session follows the host terminal' -r -f -a "light\t''
+dark\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l default-mode -d 'Set the default mode' -r -f -a "normal\t'In `Normal` mode, input is always written to the terminal, except for the shortcuts leading to other modes'
 locked\t'In `Locked` mode, input is always written to the terminal and all shortcuts are disabled except the one leading back to normal mode'
 resize\t'`Resize` mode allows resizing the different existing panes'
@@ -1105,6 +1113,8 @@ complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_su
 false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l mouse-scroll-resize -d 'Whether Ctrl+ScrollWheel resizes panes default is true' -r -f -a "true\t''
 false\t''"
+complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l scroll-mode-sync -d 'Whether scrolling a pane implicitly enters (and leaving the scroll implicitly exits) Scroll mode default is true' -r -f -a "true\t''
+false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l mouse-hover-effects -d 'Whether to enable mouse hover visual effects (frame highlight and help text) default is true' -r -f -a "true\t''
 false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand attach; and __fish_seen_subcommand_from options" -l mouse-hover-tips -d 'Whether to show mouse hover help-text tips (resize help and group shortcuts) default is true' -r -f -a "true\t''
@@ -1143,6 +1153,8 @@ complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_sub
 complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -s r -l remember -d 'Save session for automatic re-authentication (4 weeks)'
 complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -l forget -d 'Delete saved session before connecting'
 complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -l insecure -d 'Skip TLS certificate validation (DANGEROUS — development only)'
+complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -l close-on-exit -d 'Close the initial command\'s pane immediately when it exits'
+complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -l start-suspended -d 'Start the initial command suspended, only running it after you first press ENTER'
 complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -s h -l help -d 'Print help'
 complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -a "options" -d 'Change the behaviour of zellij'
 complete -c zellij -n "__fish_zellij_using_subcommand a; and not __fish_seen_subcommand_from options help" -a "help" -d 'Print this message or the help of the given subcommand(s)'
@@ -1151,6 +1163,8 @@ false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l theme -d 'Set the default theme' -r
 complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l theme-dark -d 'Theme name to apply when the host terminal reports a dark color palette (CSI 2031 / DSR 997). Requires `theme_light` to also be set; if either is missing the static `theme` remains authoritative' -r
 complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l theme-light -d 'Theme name to apply when the host terminal reports a light color palette (CSI 2031 / DSR 997). Requires `theme_dark` to also be set; if either is missing the static `theme` remains authoritative' -r
+complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l explicit-theme-hue -d 'Pin the session to a dark or light appearance ("dark" or "light"), resolved before the first render and kept authoritative over ambient host terminal reports (CSI 2031 / DSR 997). When unset, the session follows the host terminal' -r -f -a "light\t''
+dark\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l default-mode -d 'Set the default mode' -r -f -a "normal\t'In `Normal` mode, input is always written to the terminal, except for the shortcuts leading to other modes'
 locked\t'In `Locked` mode, input is always written to the terminal and all shortcuts are disabled except the one leading back to normal mode'
 resize\t'`Resize` mode allows resizing the different existing panes'
@@ -1225,6 +1239,8 @@ false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l advanced-mouse-actions -d 'Whether to enable mouse hover effects and pane grouping functionality default is true' -r -f -a "true\t''
 false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l mouse-scroll-resize -d 'Whether Ctrl+ScrollWheel resizes panes default is true' -r -f -a "true\t''
+false\t''"
+complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l scroll-mode-sync -d 'Whether scrolling a pane implicitly enters (and leaving the scroll implicitly exits) Scroll mode default is true' -r -f -a "true\t''
 false\t''"
 complete -c zellij -n "__fish_zellij_using_subcommand a; and __fish_seen_subcommand_from options" -l mouse-hover-effects -d 'Whether to enable mouse hover visual effects (frame highlight and help text) default is true' -r -f -a "true\t''
 false\t''"
