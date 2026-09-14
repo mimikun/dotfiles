@@ -225,6 +225,15 @@
       {
         "hooks": [
           {
+            "command": "bash '/home/mimikun/.claude/hooks/deny-chezmoi-add-without-source.sh'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      },
+      {
+        "hooks": [
+          {
             "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state working",
             "type": "command"
           }
