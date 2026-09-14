@@ -1,0 +1,28 @@
+# script: deny-chezmoi-add-without-source.sh
+#
+# chezmoi add without -S writes into the shared source directory. The unscoped
+# form below is the one found in a transcript on 2026-08-25.
+#
+# DENY|<command>  or  allow|<command>
+
+DENY|chezmoi add ~/.claude/settings.json
+DENY|chezmoi add ~/.claude/settings.json 2>&1 | tail -5; echo "rc=$?"
+DENY|cd ~ && chezmoi add ~/.config/fish/config.fish
+DENY|chezmoi -v add ~/.gitconfig
+DENY|chezmoi add --encrypt ~/.ssh/config
+# one scoped add does not cover a second unscoped one
+DENY|chezmoi add -S ~/.local/share/chezmoi-x a.txt && chezmoi add b.txt
+
+allow|chezmoi add -S ~/.local/share/chezmoi-x ~/.claude/settings.json
+allow|chezmoi add ~/.claude/settings.json -S ~/.local/share/chezmoi-x
+allow|chezmoi add --source ~/.local/share/chezmoi-x ~/.gitconfig
+allow|chezmoi add --source=/home/mimikun/.local/share/chezmoi-x ~/.gitconfig
+allow|chezmoi -S ~/.local/share/chezmoi-x add ~/.gitconfig
+allow|git worktree add ../chezmoi-x master && chezmoi add -S ../chezmoi-x ~/.gitconfig
+# other subcommands and mentions inside another command
+allow|chezmoi status ~/.claude/settings.json
+allow|chezmoi apply
+allow|chezmoi source-path ~/.claude/settings.json
+allow|grep -c 'chezmoi add' cmds.tsv
+allow|echo "run chezmoi add later"
+allow|git worktree add ../x master
