@@ -1,0 +1,23 @@
+dot_claude/hooks/executable_deny-chezmoi-add-without-source.sh
+  s_35f8b82092a3f4::t_e407e08a53d2bf 37,42,45-46,52-60,62
+  s_35f8b82092a3f4::t_a96d3e0ad5c433 14-22
+scripts/claude-hooks-cases/chezmoi-add-source.txt
+  s_35f8b82092a3f4::t_f744917d404cdc 15-22
+  s_35f8b82092a3f4::t_239efa6d7bf504 29-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c0b2ccdec1ba1b6a1ee7f054272afcb5695bdcdd",
+  "prompts": {},
+  "sessions": {
+    "s_35f8b82092a3f4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "752be33d-857c-41cd-994e-24044142d55c",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
