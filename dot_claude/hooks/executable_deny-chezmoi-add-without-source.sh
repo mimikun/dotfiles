@@ -11,8 +11,15 @@
 # the shared directory had dropped to zero, so this is the only path left open.
 #
 # Each command segment (split on ; && || | & and newlines) is checked on its
-# own, and only when it starts with `chezmoi`. A `chezmoi add` quoted inside a
-# grep pattern or a PR body is therefore not a match.
+# own, and only when it starts with `chezmoi` — after stripping `command`,
+# `exec`, `env` and leading VAR=value assignments. A `chezmoi add` quoted inside
+# a grep pattern or a PR body is therefore not a match.
+#
+# Global options are not parsed. Several take a value (-o, -D, --cache, ...),
+# so walking them by arity would need the full flag table kept in sync with
+# chezmoi. Instead a segment is denied when any token is `add` and no token is
+# a source flag. That can deny an odd command such as `chezmoi -o add status`,
+# which is the safe side to err on.
 #
 # Not covered: chezmoi reached through xargs, sudo, or a subshell.
 #
@@ -27,37 +34,32 @@ set -euo pipefail
 # Input that jq cannot parse must not abort the hook.
 command=$(jq -r '.tool_input.command // empty' 2>/dev/null) || command=""
 
-has_source_flag() {
-    local tok
-    for tok in "$@"; do
-        case $tok in
-            -S | --source | --source=*) return 0 ;;
-        esac
-    done
-    return 1
-}
-
-# Returns 0 when the segment is `chezmoi [global flags] add ...` with no source flag.
+# Returns 0 when the segment runs chezmoi with an `add` token and no source flag.
 is_unscoped_add() {
     local -a tokens
     read -r -a tokens <<<"$1" || true
-    [ "${#tokens[@]}" -gt 0 ] || return 1
-    [ "${tokens[0]}" = chezmoi ] || return 1
 
-    local i=1
+    local i=0
     while [ "$i" -lt "${#tokens[@]}" ]; do
         case ${tokens[$i]} in
-            -S | --source) return 1 ;;
-            --source=*) return 1 ;;
-            -*) i=$((i + 1)) ;;
+            command | exec | env) i=$((i + 1)) ;;
+            [A-Za-z_]*=*) i=$((i + 1)) ;;
             *) break ;;
         esac
     done
 
     [ "$i" -lt "${#tokens[@]}" ] || return 1
-    [ "${tokens[$i]}" = add ] || return 1
+    [ "${tokens[$i]}" = chezmoi ] || return 1
 
-    ! has_source_flag "${tokens[@]:$((i + 1))}"
+    local tok has_add=false
+    for tok in "${tokens[@]:$((i + 1))}"; do
+        case $tok in
+            -S | -S?* | --source | --source=*) return 1 ;;
+            add) has_add=true ;;
+        esac
+    done
+
+    $has_add
 }
 
 segments=$(printf '%s\n' "$command" | sed -E 's/(&&|\|\||;|\||&)/\n/g')

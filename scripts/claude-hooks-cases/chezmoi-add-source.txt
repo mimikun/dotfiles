@@ -12,12 +12,24 @@ DENY|chezmoi -v add ~/.gitconfig
 DENY|chezmoi add --encrypt ~/.ssh/config
 # one scoped add does not cover a second unscoped one
 DENY|chezmoi add -S ~/.local/share/chezmoi-x a.txt && chezmoi add b.txt
+# wrappers in front of chezmoi
+DENY|command chezmoi add ~/.gitconfig
+DENY|env chezmoi add ~/.gitconfig
+DENY|GIT_DIR=/tmp chezmoi add ~/.gitconfig
+# value-taking global options before add must not hide the subcommand
+DENY|chezmoi -D /tmp add ~/.gitconfig
+DENY|chezmoi --cache /tmp/c add ~/.gitconfig
+DENY|chezmoi -o out.txt add ~/.gitconfig
 
 allow|chezmoi add -S ~/.local/share/chezmoi-x ~/.claude/settings.json
 allow|chezmoi add ~/.claude/settings.json -S ~/.local/share/chezmoi-x
 allow|chezmoi add --source ~/.local/share/chezmoi-x ~/.gitconfig
 allow|chezmoi add --source=/home/mimikun/.local/share/chezmoi-x ~/.gitconfig
 allow|chezmoi -S ~/.local/share/chezmoi-x add ~/.gitconfig
+allow|chezmoi -S=/home/mimikun/.local/share/chezmoi-x add ~/.gitconfig
+allow|chezmoi add -S=/home/mimikun/.local/share/chezmoi-x ~/.gitconfig
+allow|chezmoi -D /tmp -S ~/.local/share/chezmoi-x add ~/.gitconfig
+allow|command chezmoi add -S ~/.local/share/chezmoi-x ~/.gitconfig
 allow|git worktree add ../chezmoi-x master && chezmoi add -S ../chezmoi-x ~/.gitconfig
 # other subcommands and mentions inside another command
 allow|chezmoi status ~/.claude/settings.json
