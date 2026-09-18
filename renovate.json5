@@ -3,6 +3,13 @@
   "extends": [
     "config:recommended"
   ],
+  // pnpm 12 refuses to install anything published less than 24h ago
+  // (minimumReleaseAge, default 1440 minutes). Renovate used to open the PR
+  // right after a release, so the lockfile it wrote was rejected by CI until
+  // the version aged out: prettier 3.9.8 landed on master two hours after
+  // publication and broke the textlint workflow. Waiting three days here keeps
+  // Renovate behind pnpm's window instead of relaxing pnpm's policy.
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       // These are deliberately floating pins: mise resolves "5.1" / "3.12" to the
