@@ -1,6 +1,6 @@
 # fish completions for the claude CLI (Claude Code).
 #
-# Generated from claude 2.1.269 on 2026-09-12.
+# Generated from claude 2.1.277 on 2026-09-19.
 # Do not edit by hand - run `task gen-claude-completion` after `claude update`.
 
 complete -c claude -f
@@ -508,9 +508,11 @@ complete -c claude -n '__fish_claude_at "plugin init"' -s h -l help -d 'Display 
 complete -c claude -n '__fish_claude_at "plugin init"' -l with -d 'Also scaffold: skills, agents, hooks, mcp, lsp, output-style, channel' -r
 
 # claude plugin install
+complete -c claude -n '__fish_claude_at "plugin install"' -l accept-command -d 'Accept the marketplace-declared command (a command-source install, or the headersHelper t…' -r
 complete -c claude -n '__fish_claude_at "plugin install"' -l config -d 'Set a userConfig option declared in the plugin\'s manifest (repeatable). Values are valida…' -r -F
 complete -c claude -n '__fish_claude_at "plugin install"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin install"' -l json -d 'Print one machine-readable result line on stdout instead of the human message (same exit…'
+complete -c claude -n '__fish_claude_at "plugin install"' -l registry -d 'For a <package>@npm install: resolve and download from this npm registry instead of the o…' -r
 complete -c claude -n '__fish_claude_at "plugin install"' -s s -l scope -d 'Installation scope: user, project, or local (default: "user")' -r
 complete -c claude -n '__fish_claude_at "plugin install"' -s y -l yes -d 'Accept the displayed marketplace-declared command without the confirmation prompt — a plu…'
 
@@ -570,6 +572,7 @@ complete -c claude -n '__fish_claude_at "plugin uninstall"' -s y -l yes -d 'Skip
 
 # claude plugin update
 complete -c claude -n '__fish_claude_at "plugin update"' -x -a '(__fish_claude_plugins)'
+complete -c claude -n '__fish_claude_at "plugin update"' -l accept-command -d 'Accept the marketplace-declared command (a command-source install, or the headersHelper t…' -r
 complete -c claude -n '__fish_claude_at "plugin update"' -s h -l help -d 'Display help for command'
 complete -c claude -n '__fish_claude_at "plugin update"' -l json -d 'Print one machine-readable result line on stdout instead of the human message (same exit…'
 complete -c claude -n '__fish_claude_at "plugin update"' -s s -l scope -d 'Installation scope: user, project, local, managed (default: user)' -r
