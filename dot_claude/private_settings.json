@@ -254,8 +254,8 @@
       {
         "hooks": [
           {
-            "command": "bash '/home/mimikun/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
+            "command": "bash '/home/mimikun/.claude/hooks/check-agent-skills.sh'",
+            "timeout": 15,
             "type": "command"
           }
         ],
@@ -264,12 +264,12 @@
       {
         "hooks": [
           {
-            "command": "bash '/home/mimikun/.claude/hooks/check-agent-skills.sh'",
-            "timeout": 15,
+            "command": "bash '/home/mimikun/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
             "type": "command"
           }
         ],
-        "matcher": "*"
+        "matcher": "^(startup|resume|clear|compact|fork)$"
       }
     ],
     "Stop": [
@@ -303,7 +303,6 @@
     ]
   },
   "inputNeededNotifEnabled": true,
-  "model": "opus",
   "outputStyle": "Concise",
   "permissions": {
     "allow": [
