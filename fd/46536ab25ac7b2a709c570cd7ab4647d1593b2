@@ -1,0 +1,19 @@
+dot_claude/skills/use-spark/SKILL.md
+  s_bf5a1dd2349645::t_9b97ee5dad4dc2 9,27-28,39,46-47,181-182,214,217,232,245-246,248,262,266-270,274,278,288-289,445,450,453-470,818-819
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "fd46536ab25ac7b2a709c570cd7ab4647d1593b2",
+  "prompts": {},
+  "sessions": {
+    "s_bf5a1dd2349645": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4f897e10-052e-4923-997b-370bdb02e44c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
