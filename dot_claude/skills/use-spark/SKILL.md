@@ -6,7 +6,7 @@ description: >-
   look up contacts, and view team info. Use when the user asks about their
   emails, calendar, contacts, meetings, or scheduling.
 metadata:
-  version: 1.3.1
+  version: 1.4.0
   requires:
     bins:
       - spark
@@ -24,6 +24,8 @@ spark <command> [options]
 
 **Environment:** `spark` is a thin client that talks over IPC to the user's running Spark Desktop app - it does not ship its own mailbox, network stack, or credentials. Run it directly on the user's computer against the live Spark Desktop process. Do not try to execute it inside a sandbox, container, CI runner, or any environment isolated from the user's desktop session - it will fail to connect. If Spark Desktop is not running, ask the user to launch it instead of retrying.
 
+**JSON output:** add `--json` to any command to get its result as JSON instead of text - the same data, with full (untruncated) values, snake_case keys, and ISO 8601 dates. A failure prints `{"error": {"message": "…"}}` on stdout and exits non-zero. Prefer the default text when you only need to read the result; use `--json` when you need to process it (e.g. `spark emails --json | jq '.emails[].id'`). Fields are only ever added, never renamed or removed.
+
 ## Commands
 
 | Command | Description |
@@ -34,14 +36,15 @@ spark <command> [options]
 | `search` | Hybrid keyword + semantic search with full bodies |
 | `thread` | Read full thread - headers, bodies, attachments |
 | `attachment` | Read a single email attachment by its ID (auto-downloads) |
-| `draft` | Create or edit an email draft (new, reply, forward, from template) |
+| `draft` | Create, edit, or delete an email draft (new, reply, forward, from template), or list account signatures |
 | `templates` | List saved message templates (personal and team) |
 | `template` | Show a single template by ID or name with its placeholders |
 | `comment` | Post a team comment on a thread |
 | `events` | List calendar events for a time range |
 | `event` | Create, update, delete, or RSVP to a calendar event, including managing attendees / invitations |
 | `availability` | Find free time slots, optionally with attendees |
-| `contacts` | Search contacts by name or email |
+| `contacts` | Search contacts by name or email, or list the most-used ones |
+| `contact` | Show one contact's details and settings |
 | `team` | Show team info, members, shared inboxes, assignments |
 | `meetings` | List meeting transcripts |
 | `meeting` | Read a single meeting transcript |
@@ -175,6 +178,8 @@ spark thread "https://sparkmailapp.com/dpl/bl?token=ABC..."  # by Spark deep lin
 
 The positional argument accepts either a numeric message ID (the `ID:` line) or a Spark deep link (the `Link:` line) printed by a previous run - `https://sparkmailapp.com/dpl/bl?token=...`, `readdle-spark://bl=...`, or `readdlespark://bl=...`.
 
+A `Reply-To:` line appears only when that header points somewhere other than `From` - mailing lists and website contact forms carry the real correspondent there. `draft --reply-to` already addresses the reply to it, so don't pass `--to` yourself.
+
 Each message's `Attachments:` block is a table with columns `ID`, `Name`, `Size`, `MIME Type`, and `Path`. The `ID` column is the attachment's stable pk - feed it to `attachment` to read the file contents (auto-downloads if necessary). The `Path` column shows the local file or `(not downloaded, ...)` for attachments not yet fetched.
 
 Use `emails` or `search` to find message IDs (the ID column), then `thread` to read the full conversation. Use `folders` to list valid label identifiers for `action attachLabel` / `detachLabel`.
@@ -206,8 +211,10 @@ spark draft --to "alice@example.com" --subject "Hello" --body "Hi Alice, ..."
 spark draft --to "alice@co.com" --to "bob@co.com" --cc "carol@co.com" --subject "Meeting" --body "..."
 spark draft --edit 1234 --subject "Updated subject" --body "Updated body"
 spark draft --reply-to 5678 --body "Thanks for the update!"
+spark draft --reply-all 5678 --body "Thanks everyone!"   # keeps the other recipients and the CCs
 spark draft --forward 5678 --to "manager@co.com" --body "FYI"
 spark draft --account "john@gmail.com" --to "alice@co.com" --subject "Hi" --body "..."
+spark draft signatures                                                                # the signature each account appends
 spark draft --to "alice@co.com" --subject "Quick note" --body "..." --no-signature   # send without a signature
 spark draft --edit 1234 --no-signature                                                # strip the signature from an existing draft
 spark draft --to "alice@co.com" --subject "Report" --body "See attached" --attach /path/to/report.pdf
@@ -222,6 +229,7 @@ spark draft --edit 1234 --no-allow-send               # revoke previously-grante
 spark draft --edit 1234 --remove-user alice@co.com    # kick alice from a shared draft (keeps share, comments, other collaborators)
 spark draft --edit 1234 --remove-user alice@co.com --user dave@co.com  # swap collaborators: remove alice, invite dave
 spark draft --edit 1234 --unshare
+spark draft --delete 1234                             # remove the draft for good (no Trash, no undo)
 spark draft --template "Cold outbound v3" --to "alice@co.com" --placeholder "Project name=Acme Q3" --placeholder "Deadline=Friday EOD"
 spark draft --template 124 --edit 9821 --placeholder "Project name=Acme Q3" --placeholder "Deadline=Friday EOD"
 ```
@@ -234,8 +242,10 @@ spark draft --template 124 --edit 9821 --placeholder "Project name=Acme Q3" --pl
 | `--subject` | No | Subject line. |
 | `--body` | Yes (new, no `--template`) | Body content in markdown. Required for new drafts unless a template provides one. |
 | `--edit` | No | Message ID of an existing draft to update. |
-| `--reply-to` | No | Message ID to reply to. |
+| `--reply-to` | No | Message ID to reply to. Addresses the sender alone (or the `Reply-To:` address when the message carries one). |
+| `--reply-all` | No | Message ID to reply to, keeping everyone else on the thread: the other `To:` recipients land in To, the original `Cc:` in CC, minus your own address. Mutually exclusive with `--reply-to`; `--to` / `--cc` override the lists it builds. |
 | `--forward` | No | Message ID to forward. |
+| `--delete` | No | Message ID of a draft to delete **permanently**. Must be the only option on the command. Drafts have no Trash, so the deletion cannot be undone. A scheduled draft and a draft shared with teammates are both refused - `action unschedule` or `draft --edit <pk> --unshare` first. |
 | `--account` | No | Account email to send from. Accepts a regular mail account, an alias, or a shared inbox email. |
 | `--attach` | No | Absolute path to a file to attach. Repeat for multiple. The Spark app must be able to read the path; in the sandboxed App Store build a path outside the app's container can't be read and is rejected with a clear error - pipe the file with `--attach-stream` instead. Max 25 MB per file. |
 | `--attach-id` | No | ID of an attachment on an existing email to copy onto this draft, from the Attachments table of `thread <message-id>`. Repeat for multiple. Use this to re-send a file the user received - replies don't inherit attachments (only `--forward` does). |
@@ -249,18 +259,23 @@ spark draft --template 124 --edit 9821 --placeholder "Project name=Acme Q3" --pl
 | `--template` | No | Apply a saved template by ID or name. Combine with `--edit` to overlay onto an existing draft. |
 | `--placeholder` | When template has manual placeholders | Fill a manual template placeholder, format `"<name>=<value>"`. Repeat for each. Auto-fillable placeholders (recipient/self names) are not addressable here - control them via `--to` and `--account`. |
 | `--no-signature` | No | Send without a signature. Suppresses the account's per-mailbox default signature for this draft. On `--edit` it strips a signature already on the draft (the body and quoted thread are kept). Omit the flag to keep using the account default. |
+| `signatures` | No | Positional, not a flag: prints every mailbox you can draft from with the signature it appends. Must be the only argument. |
 
 Explicit flags always win over template fields. Use `template <id|name>` to discover the template's manual placeholders before calling `draft --template` - missing manual placeholders cause a hard error before any draft is created. Auto-fillable placeholders that fail to resolve (e.g. recipient name with multiple `--to`) leave a localized label in the body and surface in the response as a warning.
 
-On success the output includes the draft's `ID:` (use it with `--edit` and `action send`) and a `Link:` line with a Spark deep link (`https://sparkmailapp.com/dpl/bl?token=...`) that opens the draft directly in Spark.
+**The signature is added for you - never write your own sign-off.** Spark appends the mailbox's default signature to the body of every draft. `spark draft signatures` prints what each mailbox you can draft from appends.
+
+When the user asks for a closing that differs from their signature, pass `--no-signature` and write the whole closing yourself.
+
+On success the output includes the draft's `ID:` (use it with `--edit` and `action send`) and a `Link:` line with a Spark deep link (`https://sparkmailapp.com/dpl/bl?token=...`) that opens the draft directly in Spark. It also echoes the composed body under `Body:` - the whole message as the recipient will read it, signature included and quoted thread left out. Read it back to confirm the draft says what you meant, and to catch a sign-off of your own standing next to the account's.
 
 **Always give the user the deep link.** After creating or updating a draft, include the `Link:` URL in your response as a clickable markdown link (e.g. `[Open draft in Spark](https://sparkmailapp.com/dpl/bl?token=...)`) so the user can jump straight to the draft to review or send it. Do not tell the user to open Spark and hunt for the draft manually.
 
-Use `emails` to find message IDs for `--edit`, `--reply-to`, and `--forward`.
+Use `emails` to find message IDs for `--edit`, `--reply-to`, `--reply-all`, and `--forward`.
 Use `accounts` to find account emails for `--account` - personal accounts, their `Alias:` entries, and shared inboxes are all listed there, and any of them can be used as the from address when the account has draft & comment access.
 Use `teams` to find team names for `--team` and team member emails for `--user`.
 
-**Threading is critical.** Whenever a new message belongs to an existing conversation, you **must** pass `--reply-to` with the **last message in that thread**. This is what attaches the draft to the conversation (correct In-Reply-To / References headers, same thread in the recipient's mailbox). Without `--reply-to` the draft starts a brand new thread, which is almost always wrong when the user asked you to "reply", "respond", "follow up", "answer", or "ping" anyone in the context of an existing conversation. Use `thread <id>` to inspect the conversation and pick the most recent message's ID as `--reply-to`.
+**Threading is critical.** Whenever a new message belongs to an existing conversation, you **must** pass `--reply-to` with the **last message in that thread**. This is what attaches the draft to the conversation (correct In-Reply-To / References headers, same thread in the recipient's mailbox). Without `--reply-to` the draft starts a brand new thread, which is almost always wrong when the user asked you to "reply", "respond", "follow up", "answer", or "ping" anyone in the context of an existing conversation. Use `thread <id>` to inspect the conversation and pick the most recent message's ID as `--reply-to`. On a thread with several participants, use `--reply-all` unless the user wants a private answer to the sender.
 
 **Follow-ups (no response yet).** When the user asks to follow up with someone you already emailed and they haven't replied yet (e.g. "send Alice a nudge - she never responded to my last email", "bump the proposal thread"), the most recent message in that thread is your own outgoing one. Use that message's ID as `--reply-to` - the follow-up stays attached to the original outgoing message so the recipient sees it as a bump on the existing conversation rather than a new cold email.
 
@@ -269,6 +284,8 @@ To add collaborators or change the allow-send setting on an existing shared draf
 To toggle allow-send off, pass `--no-allow-send`.
 To remove a specific collaborator without tearing the share down, pass `--remove-user <email>`; the shared draft, its comments, and the remaining collaborators stay intact. Combine `--user` and `--remove-user` in one command to swap collaborators in a single operation - removals run before invites.
 Content edits (`--to`, `--cc`, `--bcc`, `--subject`, `--body`, `--attach`) and sharing updates (`--team`, `--user`, `--remove-user`, `--allow-send`, `--no-allow-send`) must be issued as separate `draft` commands.
+
+**Deleting a draft is final.** `--delete <pk>` removes the draft outright - unlike a received email there is no Trash to recover it from, and neither `history --undo` nor Spark's own undo can bring it back. Only delete a draft the user asked you to discard, and say so plainly in your response rather than implying it can be restored. To throw away just the *text* of a draft while keeping the draft itself, edit it (`draft --edit <pk> --body "..."`) instead.
 
 ### templates
 
@@ -425,12 +442,31 @@ Free slots are within working hours (08:00-20:00), skip weekends, and ignore eve
 
 ### contacts
 
-Search contacts by name or email. Strict match first, then fuzzy fallback.
+Search contacts by name or email. Strict match first, then fuzzy fallback. Without a query, lists the contacts the user writes to most, most-used first. `--limit` caps the list (1-1000, default 25).
 
 ```bash
 spark contacts "john"
 spark contacts "example.com"
+spark contacts --limit 500 --json   # most-used contacts; "query" is null, "match" is "top"
 ```
+
+### contact
+
+Show one contact's details: name, other addresses, and each setting `contact-action` changes. Check a sender's state before changing it - e.g. whether they are already Priority or blocked. An unknown address is an error.
+
+```bash
+spark contact bob@example.com
+spark contact bob@example.com --json
+```
+
+| Field | Changed by |
+|-------|-----------|
+| `category` (`personal` / `notification` / `newsletter`) | `changeCategory*` |
+| `is_priority` | `markContactAsPrimary` / `unmarkContactAsPrimary` |
+| `notifications` | `markContactAsImportant` / `unmarkContactAsImportant` |
+| `blocked` / `accepted` (GateKeeper; neither for a new sender) | `blockContact` / `acceptContact` |
+| `grouped`, `grouped_in_inbox` | `groupEmailsFromContact[AndShowInInbox]` / `ungroupEmailsFromContact` |
+| `auto_summary` | `enableAutosummaryForContact` / `disableAutosummaryForContact` |
 
 ### team
 
@@ -779,6 +815,8 @@ Do not check on every session or before every command - this skill is the source
 - `thread` returns the full conversation - use it when you need the complete email text, not just metadata
 - Use `draft` to compose emails - it supports new drafts, replies, forwards, and editing existing drafts
 - After creating a draft, always share its `Link:` deep link with the user as a clickable markdown link instead of asking them to open Spark
+- `draft --delete <pk>` discards a draft permanently - there is no Trash and no undo, so use it only when the user asked for it
+- Never end a draft body with a sign-off: Spark appends the account's signature itself (`draft signatures` shows it)
 - Use `comment` to post team chat messages on threads - it auto-shares the thread if needed
 - Use `action` to perform email actions like pin, archive, snooze, move to folder, and more
 - Use `contact-action` to manage contacts - block, accept, change category, toggle auto-summary, and more
