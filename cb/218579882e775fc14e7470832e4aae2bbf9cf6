@@ -1,0 +1,24 @@
+scripts/claude-hooks-cases/next-check-todoist-reminder.txt
+  s_bbebcd92b73e88::t_9c6ebb4d8f8784 1-17
+dot_claude/private_settings.json
+  s_bbebcd92b73e88::t_70c01178f024a9 174-179
+  s_bbebcd92b73e88::t_d323c8e9499670 171-173
+dot_claude/hooks/executable_next-check-todoist-reminder.sh
+  s_bbebcd92b73e88::t_bd004b7300b730 1-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cb218579882e775fc14e7470832e4aae2bbf9cf6",
+  "prompts": {},
+  "sessions": {
+    "s_bbebcd92b73e88": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "75d86026-d66a-4115-b150-2d6ae148dac8",
+        "model": "unknown"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
