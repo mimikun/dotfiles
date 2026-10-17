@@ -171,6 +171,15 @@
       {
         "hooks": [
           {
+            "command": "bash '/home/mimikun/.claude/hooks/next-check-todoist-reminder.sh'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash|Edit|Write|MultiEdit"
+      },
+      {
+        "hooks": [
+          {
             "command": "bash '/home/mimikun/.claude/hooks/deny-destructive-push.sh'",
             "type": "command"
           }

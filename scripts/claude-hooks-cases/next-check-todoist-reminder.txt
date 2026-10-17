@@ -1,0 +1,17 @@
+# script: next-check-todoist-reminder.sh
+#
+# This hook never denies. Here DENY means "printed the reminder" and allow
+# means "printed nothing". The writes below are the shapes used on 2026-10-17.
+#
+# DENY|<command>  or  allow|<command>
+
+DENY|sed -i 's/^next-check:     2026-09-14$/next-check:     2026-10-14/' records/P16-session-shoutotsu.md
+DENY|python3 - <<'EOF'\ns = s.replace("next-check:     2026-10-09", "next-check:     2026-11-17", 1)\nEOF
+DENY|cat > records/P99-x.md <<'EOF'\n---\nnext-check:     2026-12-01\n---\nEOF
+DENY|printf 'next-check: 2026-11-05\n' >> records/P98-y.md
+
+# Reading records carries no date after the key.
+allow|grep -H "^next-check" records/*.md | grep -v TEMPLATE
+allow|awk -F'next-check:' '{print $2}' records/*.md
+allow|sed -n '1,7p' records/P13-keymap-ni-tadoritsukenai.md
+allow|git log --oneline -5
