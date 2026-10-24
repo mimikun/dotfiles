@@ -1,5 +1,5 @@
 {
-  "packageManager": "pnpm@12.14.0",
+  "packageManager": "pnpm@12.15.0",
   "devDependencies": {
     "cspell": "^10.0.0",
     "cspell-dict-yaju": "^0.0.3",
