@@ -488,7 +488,8 @@
       "WebFetch(domain:*)",
       "NotebookRead(**)",
       "TodoRead(**)",
-      "TodoWrite(**)"
+      "TodoWrite(**)",
+      "mcp__claude_ai_Todoist__complete-tasks"
     ],
     "ask": [
       "Edit(**/.git/**)",
