@@ -6,7 +6,7 @@ description: >-
   look up contacts, and view team info. Use when the user asks about their
   emails, calendar, contacts, meetings, or scheduling.
 metadata:
-  version: 1.4.1
+  version: 1.4.2
   requires:
     bins:
       - spark
@@ -36,7 +36,7 @@ spark <command> [options]
 | `search` | Hybrid keyword + semantic search with full bodies |
 | `thread` | Read full thread - headers, bodies, attachments |
 | `attachment` | Read a single email attachment by its ID (auto-downloads) |
-| `draft` | Create, edit, or delete an email draft (new, reply, forward, from template), or list account signatures |
+| `draft` | Create, edit, or delete an email draft (new, reply, forward, from template), or list account signatures or the drafting context (Spark Profile and Custom Instructions) |
 | `templates` | List saved message templates (personal and team) |
 | `template` | Show a single template by ID or name with its placeholders |
 | `comment` | Post a team comment on a thread |
@@ -206,6 +206,8 @@ Use `thread` to find attachment IDs (the `ID` column in the `Attachments:` table
 
 Create a new email draft or edit an existing one. The body is written in markdown and converted to HTML.
 
+**Before writing any draft body, run `spark draft context`.** Write in line with the user's Spark Profile when one is shown, and follow the Custom Instructions; one that names one of the user's accounts applies only to drafts sent from that account. Instructions the user gives you in the conversation take priority over both, and text they dictate word for word is used as is.
+
 ```bash
 spark draft --to "alice@example.com" --subject "Hello" --body "Hi Alice, ..."
 spark draft --to "alice@co.com" --to "bob@co.com" --cc "carol@co.com" --subject "Meeting" --body "..."
@@ -215,6 +217,7 @@ spark draft --reply-all 5678 --body "Thanks everyone!"   # keeps the other recip
 spark draft --forward 5678 --to "manager@co.com" --body "FYI"
 spark draft --account "john@gmail.com" --to "alice@co.com" --subject "Hi" --body "..."
 spark draft signatures                                                                # the signature each account appends
+spark draft context                                                                   # the Spark Profile and Custom Instructions to write with
 spark draft --to "alice@co.com" --subject "Quick note" --body "..." --no-signature   # send without a signature
 spark draft --edit 1234 --no-signature                                                # strip the signature from an existing draft
 spark draft --to "alice@co.com" --subject "Report" --body "See attached" --attach /path/to/report.pdf
@@ -261,6 +264,7 @@ spark draft --template 124 --edit 9821 --placeholder "Project name=Acme Q3" --pl
 | `--placeholder` | When template has manual placeholders | Fill a manual template placeholder, format `"<name>=<value>"`. Repeat for each. Auto-fillable placeholders (recipient/self names) are not addressable here - control them via `--to` and `--account`. |
 | `--no-signature` | No | Send without a signature. Suppresses the account's per-mailbox default signature for this draft. On `--edit` it strips a signature already on the draft (the body and quoted thread are kept). Omit the flag to keep using the account default. |
 | `signatures` | No | Positional, not a flag: prints every mailbox you can draft from with the signature it appends. Must be the only argument. |
+| `context` | No | Positional, not a flag: prints the user's Spark Profile and Custom Instructions. Must be the only argument. |
 
 Explicit flags always win over template fields. Use `template <id|name>` to discover the template's manual placeholders before calling `draft --template` - missing manual placeholders cause a hard error before any draft is created. Auto-fillable placeholders that fail to resolve (e.g. recipient name with multiple `--to`) leave a localized label in the body and surface in the response as a warning.
 
@@ -269,6 +273,31 @@ Explicit flags always win over template fields. Use `template <id|name>` to disc
 **The signature is added for you - never write your own sign-off.** Spark appends the mailbox's default signature to the body of every draft. `spark draft signatures` prints what each mailbox you can draft from appends.
 
 When the user asks for a closing that differs from their signature, pass `--no-signature` and write the whole closing yourself.
+
+**Drafting context (Spark Personalization).** `spark draft context` prints what to write a draft body with, named as Spark Settings names it:
+
+- **Spark Profile** - what Spark has learned about who the user is and how they communicate (Settings → Spark +AI → Personalization).
+- **Custom Instructions** - rules the user recorded in Spark: the profile's own (Personalization → Custom Instructions) and the Auto-Drafts ones (Settings → Spark +AI → Inbox Automation → Auto-Drafts → Custom Instructions). An instruction that names one of the user's accounts applies only to drafts sent from that account.
+
+**Read-only**, takes no other arguments, and needs read-only access on at least one account. Instructions for an account the CLI cannot access are left out. When the user turns Personalization off, both the profile and its Custom Instructions are left out.
+
+```bash
+spark draft context
+spark draft context --json
+```
+
+Text output starts with the Spark Profile, one of:
+
+| Output | Meaning |
+|--------|---------|
+| `# Spark Profile` followed by a blank line and markdown | Profile available - write in line with it |
+| `Spark Profile: off` | The user turned Personalization off - draft without it |
+| `Spark Profile: not generated yet` | Personalization is on but the profile is not generated yet, or is regenerating - draft without it |
+| `Spark Profile: unavailable` | The profile could not be read - draft without it |
+
+After a blank line come the Custom Instructions: `# Custom Instructions`, a blank line, then one instruction per line, `- <text>`; with none recorded it prints `Custom Instructions: none`.
+
+JSON: `{"profile": {"state": "available" | "off" | "notGenerated" | "unavailable", "markdown": "…"}, "custom_instructions": [{"text": "…"}]}`. `markdown` is present only when `state` is `available`.
 
 On success the output includes the draft's `ID:` (use it with `--edit` and `action send`) and a `Link:` line with a Spark deep link (`https://sparkmailapp.com/dpl/bl?token=...`) that opens the draft directly in Spark. It also echoes the composed body under `Body:` - the whole message as the recipient will read it, signature included and quoted thread left out. Read it back to confirm the draft says what you meant, and to catch a sign-off of your own standing next to the account's.
 
@@ -325,8 +354,11 @@ If a name matches more than one template, you'll get an error listing the matchi
 
 Post a team comment (chat message) on a thread. If the thread is not yet shared, it will be shared automatically. Supports text comments, file attachments, or both. Use `--edit` to update an existing comment.
 
+To mention (tag) a teammate, write `@` followed by their email in `--body`, e.g. `@alice@co.com`. It becomes a real mention: the teammate is notified and added to the conversation, and the comment shows `@Full Name`. Get emails from `spark team "<Team Name>"`. An `@email` that isn't an active member of the team is rejected with the member list; `@Name` without an email is posted as plain text and notifies nobody.
+
 ```bash
 spark comment 1234 --body "Looks good, let's proceed."
+spark comment 1234 --body "@alice@co.com can you take this one?"
 spark comment 1234 --body "Please review this" --team "Engineering"
 spark comment 1234 --body "FYI" --team "Engineering" --user alice@co.com --user bob@co.com
 spark comment 1234 --attach /path/to/screenshot.png
@@ -338,12 +370,12 @@ spark comment --edit 5678 --body "Updated comment text"
 | Parameter | Required | Description |
 |-----------|----------|-------------|
 | `<message-id>` | Yes (post) | Message ID of a message in the thread to comment on. |
-| `--body` | When no `--attach` | Comment text to post. Required when using `--edit`. |
+| `--body` | When no `--attach` | Comment text to post. `@<email>` mentions a teammate. Required when using `--edit`. |
 | `--attach` | When no `--body` | Absolute path to a file to attach. Repeat for multiple files. Each file is sent as a separate message. Cannot be used with `--edit`. The Spark app must be able to read the path; in the sandboxed App Store build a path outside the app's container can't be read and is rejected with a clear error - pipe the file with `--attach-stream` instead. Max 25 MB per file. |
 | `--attach-stream` | When no `--body` | Attach a single file whose bytes are read from stdin, shown as `<name>`, sent as its own comment message. Use this when the file is outside the app's sandbox (the App Store build can't read arbitrary paths) - it's the inbound twin of `attachment --stream`. One streamed file per command; cannot be used with `--edit`. Max 25 MB. Example: `cat shot.png \| spark comment 456 --attach-stream shot.png --team "Engineering"`. Needs a real stdin, so it only works when you run the `spark` binary yourself - otherwise use `--attach`. |
 | `--edit` | No | Message ID of an existing comment to edit. Requires `--body`. |
 | `--team` | When >1 team | Team name. Required when you belong to multiple teams. |
-| `--user` | When team >2 members | Teammate email to share with. Repeat for multiple. Only used when auto-sharing an unshared thread. For teams with 2 or fewer members, the whole team is shared with automatically. |
+| `--user` | When team >2 members | Teammate email to share with. Repeat for multiple. Only used when auto-sharing an unshared thread; it doesn't mention anyone (use `@<email>` in `--body`). For teams with 2 or fewer members, the whole team is shared with automatically. |
 
 Use `emails` to find message IDs. Use `thread` to see comment IDs in a conversation. Use `team` to list teams and their members.
 
@@ -733,8 +765,9 @@ spark contact-action enableAutosummaryForContact newsletter@example.com # AI sum
 
 **Draft a reply:**
 1. `spark emails --filter "from:sender"` - find the email
-2. `spark draft --reply-to <ID> --body "Thanks for the update!"`
-3. Give the user the `Link:` from the output as a clickable markdown link so they can review the draft in Spark
+2. `spark draft context` - read the Spark Profile and Custom Instructions to write with
+3. `spark draft --reply-to <ID> --body "Thanks for the update!"`
+4. Give the user the `Link:` from the output as a clickable markdown link so they can review the draft in Spark
 
 **Send an email from a saved template:**
 1. `spark templates` - list templates (or `spark templates --personal` / `--team "<name>"`)
@@ -820,6 +853,7 @@ Do not check on every session or before every command - this skill is the source
 - The `search` command is best for topic-based queries; `emails` is best for browsing/filtering by metadata
 - `thread` returns the full conversation - use it when you need the complete email text, not just metadata
 - Use `draft` to compose emails - it supports new drafts, replies, forwards, and editing existing drafts
+- Before writing any draft body, run `draft context` and write in line with the Spark Profile and Custom Instructions it shows; the user's own instructions in the conversation take priority
 - After creating a draft, always share its `Link:` deep link with the user as a clickable markdown link instead of asking them to open Spark
 - `draft --delete <pk>` discards a draft permanently - there is no Trash and no undo, so use it only when the user asked for it
 - Never end a draft body with a sign-off: Spark appends the account's signature itself (`draft signatures` shows it)
