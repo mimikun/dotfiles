@@ -1,0 +1,19 @@
+dot_claude/hooks/executable_check-agent-skills.sh
+  s_1797b1c34c4c48::t_92d1a8f9edbb34 22-24,36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "233793c51184e532db5dc4202788db399a7df93e",
+  "prompts": {},
+  "sessions": {
+    "s_1797b1c34c4c48": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58a50a41-8dda-4fc4-8247-53f505826458",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Yuto Tanaka <git@mimikun.dev>"
+    }
+  }
+}
