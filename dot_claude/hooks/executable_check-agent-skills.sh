@@ -19,7 +19,9 @@ notices=""
 # --- use-spark ---------------------------------------------------------------
 # The only skill carrying a version in its front matter, so it gets a real
 # comparison instead of the mtime heuristic below. It is also the only one
-# chezmoi tracks, hence the extra `chezmoi add` in the suggested command.
+# chezmoi tracks, hence the extra `chezmoi add` in the suggested command. It
+# carries -S <worktree> because a bare `chezmoi add` writes into the shared
+# source directory and is denied by deny-chezmoi-add-without-source.sh.
 spark_skill="$HOME/.claude/skills/use-spark/SKILL.md"
 if command -v spark >/dev/null 2>&1 && [ -r "$spark_skill" ]; then
   # Read the version out of the front matter only: "version:" also appears in
@@ -31,7 +33,7 @@ if command -v spark >/dev/null 2>&1 && [ -r "$spark_skill" ]; then
   if [ -n "$have" ] && [ -n "$want" ] && [ "$have" != "$want" ] &&
     [ "$(printf '%s\n%s\n' "$have" "$want" | sort -V | tail -n1)" = "$want" ]; then
     notices+="- use-spark: skill is $have, spark CLI is $want."
-    notices+=" Refresh: spark skill > '$spark_skill' && chezmoi add '$spark_skill'"$'\n'
+    notices+=" Refresh: spark skill > '$spark_skill' && chezmoi add -S <worktree> '$spark_skill'"$'\n'
   fi
 fi
 
