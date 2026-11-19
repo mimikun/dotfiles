@@ -33,7 +33,7 @@ if command -v spark >/dev/null 2>&1 && [ -r "$spark_skill" ]; then
   if [ -n "$have" ] && [ -n "$want" ] && [ "$have" != "$want" ] &&
     [ "$(printf '%s\n%s\n' "$have" "$want" | sort -V | tail -n1)" = "$want" ]; then
     notices+="- use-spark: skill is $have, spark CLI is $want."
-    notices+=" Refresh: spark skill > '$spark_skill' && chezmoi add -S <worktree> '$spark_skill'"$'\n'
+    notices+=" Refresh: spark skill > '$spark_skill' && chezmoi add -S <worktree> '$spark_skill' (replace <worktree> with an existing worktree path first)"$'\n'
   fi
 fi
 
