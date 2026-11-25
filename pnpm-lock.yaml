@@ -195,7 +195,7 @@ importers:
         version: 16.1.2(supports-color@7.2.0)
       textlint-rule-preset-ja-technical-writing:
         specifier: ^12.0.0
-        version: 12.0.2(supports-color@7.2.0)
+        version: 12.1.0(supports-color@7.2.0)
 
 packages:
 
@@ -486,6 +486,9 @@ packages:
   '@textlint/ast-node-types@13.4.1':
     resolution: {integrity: sha512-qrZyhCh8Ekk6nwArx3BROybm9BnX6vF7VcZbijetV/OM3yfS4rTYhoMWISmhVEP2H2re0CtWEyMl/XF+WdvVLQ==}
 
+  '@textlint/ast-node-types@15.8.0':
+    resolution: {integrity: sha512-5CiH9COYmovWmExQgs7763DzX6Gy9zjkjJ7JxCC95wyTcjwQn/8poNF6fv3qzRlmx8CRRde8DHr9FcgAAiPzgw==}
+
   '@textlint/ast-node-types@16.1.2':
     resolution: {integrity: sha512-++pb7qwrQAZrvqyhDEmRCgRHTGiYYR3HOcKmiNMhFOkDFZ+YUYcRxRWKLTcktv4Rw8xQn3NBHnIGw9hIVH9RCw==}
 
@@ -529,9 +532,6 @@ packages:
 
   '@textlint/markdown-to-ast@16.1.2':
     resolution: {integrity: sha512-zasofZ6AmUV/sQ+j5+fakFWllxExZ9RJXK6hg/So9SkD2bTUWW7YCNsE2cBRUeWY3yN0DLsNqLe31jNWF9c3VQ==}
-
-  '@textlint/module-interop@14.4.2':
-    resolution: {integrity: sha512-PQqUgLcTnCTJ8qpYxLP6p98VzTP/Ju8QIDwTWYRpH00KHdmH9cR1/9O+l6YaWsJSGDtSL2zkMKIQLezpvBZ4cw==}
 
   '@textlint/module-interop@16.1.2':
     resolution: {integrity: sha512-M5wkM5g0FD0ZnjFr88mbVT+7ll3+2UtJEE6vNUBiOSUzaFURCRstrG6KICGVGdatQBePtXwgrB5GApt9hXRr8g==}
@@ -1158,6 +1158,9 @@ packages:
   kuromojin@3.0.0:
     resolution: {integrity: sha512-3h3qnn/NVVhqoKFP4oc7e6apO2B01Atc056oiVlIY7Uoup4rhrnBe28g3y9lK1HTmLDQEejvXB+3I3qxAneF7A==}
 
+  kuromojin@3.1.0:
+    resolution: {integrity: sha512-czp55A9IINhX8uGjD5zE9IKr+/oy4q8mUtUQi/xUkUkE93ER3COB92PONzX0CHiY4mrzjyuPeTg2swn7mUWEkg==}
+
   lefthook-android-arm64@2.2.2:
     resolution: {integrity: sha512-wb9rQQFLX7u1dJLxvMrq9VUfMYi5kxM7tJQ6Y4mWEOwaU+SmIm2wjoT/nromKq27Y8fh2Qd7FgCD3G1wfW8CnQ==}
     cpu: [arm64]
@@ -1485,6 +1488,9 @@ packages:
   sentence-splitter@5.0.0:
     resolution: {integrity: sha512-9Mvf7L8vwpPzkH0/HtXzCbmVkyj4aQXdeG7h8ighRvO0hvcZEy2OUEjeIlnM/z4EX4vBacEfpESC65Oa2rWOig==}
 
+  sentence-splitter@5.1.0:
+    resolution: {integrity: sha512-Zt4F1K7KF3QQQOVgdJ0Of6WYGI9t3aSiGRI6/DpXj1FXvL5wiOobhRbYceDZnNmnuYWfwd4l+wfyLB+nUax5ow==}
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -1545,20 +1551,23 @@ packages:
   textlint-rule-helper@2.3.1:
     resolution: {integrity: sha512-b1bijvyiUmKinfFE5hkQMSXs3Ky8jyZ3Y6SOoTRJKV9HLL2LWUVFAUezO7z4FpAkVvYruDYWCwA5qWV8GmvyUw==}
 
-  textlint-rule-ja-no-abusage@3.0.0:
-    resolution: {integrity: sha512-DIqPZgYTwTsvjX6Bgj7GA8vlwGMObagJpNoUtkucOaoy7E7GwUOL+knqFjcTtlkWSmoKpIkw5OWW5CV3kivlfQ==}
+  textlint-rule-helper@2.6.0:
+    resolution: {integrity: sha512-xmMYSJKI/LVKyEcda275/PyqR3NbHQwWGO+DOQuE7fOhZenaonV9ocptW7/Qj4vwI52YRyOYzTdqPi3oG5vOXA==}
 
-  textlint-rule-ja-no-mixed-period@3.0.1:
-    resolution: {integrity: sha512-h5sljMUPD/buXR7B6DYPdd7B5EkXz5+wKtVhU4juti/QCJ8ngXpv55owhzWEV4ZqH1pTNnBess+38Yy4sI+R+w==}
+  textlint-rule-ja-no-abusage@3.0.1:
+    resolution: {integrity: sha512-fcKUbRGOm5gNUUIJQjAQ+sNxSVA9na9RCTjPqEnhRIUl14WIuZTAkZnN+AaWlXZnjjvTVvZaduUuAPAR/rajug==}
 
-  textlint-rule-ja-no-redundant-expression@4.0.1:
-    resolution: {integrity: sha512-r8Qe6S7u9N97wD0gcrASqBUdZs5CMEVlgc8Ul+D2NQFiOi1BoseOMo5I9yUsEZMAL46yh/eaw9+EWz6IDlPWeA==}
+  textlint-rule-ja-no-mixed-period@3.0.2:
+    resolution: {integrity: sha512-/WHRvbAXPJxjDAmVYjIp5qBHPS7Uqv3H+fH0oGMWzujEV4n2URtXmxqTUv7nd4giTRqeV2yuMZWYRRgA9Mh0Sg==}
 
-  textlint-rule-ja-no-successive-word@2.0.1:
-    resolution: {integrity: sha512-XKTXkHwMu86SnGaj73B67U4apDdTquDKF3SfG24tRbzMyJoGe/Iba5VMId8sp8QHeTonp1bYOSxjZsbkpGyCNw==}
+  textlint-rule-ja-no-redundant-expression@4.0.2:
+    resolution: {integrity: sha512-x3F3aBIlUs24mxpWBfgEcMbgOyyeA/lPA2PwAw7b13Ss62Z2aY7T/j45RxCA0jnjRRF8STwB/wkijEZM2uOoPw==}
 
-  textlint-rule-ja-no-weak-phrase@2.0.0:
-    resolution: {integrity: sha512-jZ1/3VnE8Bz/p0CCe/+BVOmWE1cZwpDkjKb6hnq39nGk3OD4XPW7biYavK/4/mZhk4bh2+Vtu1xV26lg8d+vBw==}
+  textlint-rule-ja-no-successive-word@2.1.0:
+    resolution: {integrity: sha512-c9DVpR6kk9DuVi8yysR/lay4wEwHisBoyR648fTbePb/NDpKjJo/XpltcjD73KgpJysZNt0SKBd6PZT12tB09Q==}
+
+  textlint-rule-ja-no-weak-phrase@2.0.1:
+    resolution: {integrity: sha512-PzyudFjnYQKTxzvMBJXqPPrqwoe5zt05pJ9emOg++WiYYu6ZsIPflq6lQH1nd896DcOjFdknQsPbOH7kdDYyoA==}
 
   textlint-rule-ja-unnatural-alphabet@2.0.1:
     resolution: {integrity: sha512-n93V8qh6OKdh8OB6yLT+9Xl8DSoZ7gWi51tWdhlLEPIWgBm18nLMgm6Ck+nVc3eENOdRcQURWUpCGotI8wTemA==}
@@ -1569,23 +1578,23 @@ packages:
   textlint-rule-max-kanji-continuous-len@1.1.1:
     resolution: {integrity: sha512-os+p7dS9Op4PtZV7B9/wnzN5qpDO2WR2kj7nTnqEPbApS06AXX+qf5eH3fKdm4blzUCcPF5ozMN8zbs3AJUAug==}
 
-  textlint-rule-max-ten@5.0.0:
-    resolution: {integrity: sha512-EWOvbEa3Ukxz0+GAUEJ91DYFSC3IkyJ10dBcsU6VlL33k1BvTRoFr3m26w6upnXJffXQUI70Etn39I++2duyhA==}
+  textlint-rule-max-ten@5.0.1:
+    resolution: {integrity: sha512-G15kd67NJHoJXhyivKcdlEETkZKrX3h8MzLJJCXSc02jSNLKcmvdY18sRJokYuVlLDuST6lUDUJ2aROwcXABWQ==}
 
-  textlint-rule-no-double-negative-ja@2.0.1:
-    resolution: {integrity: sha512-LRofmNt+nd2mp+AHmG0ltk9AlbzKbWPE+EToYQ1zORCd8N8suE1YxNEplz9OeQ59ea9ITtudDIWoqeHaZnbDsg==}
+  textlint-rule-no-double-negative-ja@2.0.2:
+    resolution: {integrity: sha512-OjqRZrs/W61wwJp6iUG5tsESy4LcZmPOkSd76GPEO3dejAJE/R0oM6mDT/0UE5X2Q6aUwDKXQvVgh4wL5AGYQw==}
 
-  textlint-rule-no-doubled-conjunction@3.0.0:
-    resolution: {integrity: sha512-Ja7AK2MRVe/fpG7XmTPRbq6JEDqlzDrNjH1EQoaMqFhlGKzrlHmdMfRLAZ3Lh3FSR0Lkk2GgR3MDnXzlFAp1/Q==}
+  textlint-rule-no-doubled-conjunction@3.0.2:
+    resolution: {integrity: sha512-2lacG0cHDal37ty+cZmOq5e/PDvosw8oYCaOgVg7rIfF3KJSTph4Sq0wClXoi0/ftZvlmycpgqgnQ0URVjtS9A==}
 
-  textlint-rule-no-doubled-conjunctive-particle-ga@3.0.0:
-    resolution: {integrity: sha512-4IowX2YlTlD9VifThZwpENRh918BpPNTks0i4bOL7Gn82jUiXK0EZuV8Jtksm7i+RYG1xsO0U7P9AnxmuSxeDg==}
+  textlint-rule-no-doubled-conjunctive-particle-ga@3.0.1:
+    resolution: {integrity: sha512-foQPltDu+V0eDiV06/DSXUEDCcQ86ACI9/2HC2Wmemh63TnTaOJ1XdXxoIw1rV9/U4I50hjg4oujucE/EYGF/g==}
 
-  textlint-rule-no-doubled-joshi@5.1.0:
-    resolution: {integrity: sha512-2KkzlSlGZSM9W44SqYgtJYf1qOCBnzHS8Xs4LEZkgY78+TFsPg5kSLnC/PaAI6KdBDZJY0aI/yyAFZ7MJp/caw==}
+  textlint-rule-no-doubled-joshi@5.1.2:
+    resolution: {integrity: sha512-6/02QbRjHTpgKivQZpcyFAjMWj3nOEKYagtQb1OekI5q6Wt9sjnO0ACCmrruOVEAumsOEjpgedyJNxKdVuScgg==}
 
-  textlint-rule-no-dropping-the-ra@3.0.0:
-    resolution: {integrity: sha512-KbSIlcxj1kLs4sGSMSLGA8OmgRoaPAWtodJaGEyEUiy7uiZM/VPqYALpuD8vf16N1OR5SM/bXXeZFME65r8ZgQ==}
+  textlint-rule-no-dropping-the-ra@3.0.1:
+    resolution: {integrity: sha512-JUo/LTlsYD7YSFInebj3LJpVSorbH0iN7JxC1zsEW/mCy792mtTbGl8EohrySyzoVMw0rw0CJw8+1i+KJV64TQ==}
 
   textlint-rule-no-exclamation-question-mark@1.1.0:
     resolution: {integrity: sha512-FcBH3uH2qp5VG7I9LKwolUCcPigONcsdam1JhAFPcu10YZNYX0r1l2y9Hzg+E4+1fXLgtGyiObWwfsfelTx8Bw==}
@@ -1599,29 +1608,29 @@ packages:
   textlint-rule-no-nfd@2.0.2:
     resolution: {integrity: sha512-lIUvcQ+wqtConpPQU2YwEJl2dRcRyyrxPYZ3V76UwnkVg++XPLIrE5mLDgyNE/UIQ34e/KitJfMLqKWvnkFbNQ==}
 
-  textlint-rule-no-zero-width-spaces@1.0.1:
-    resolution: {integrity: sha512-AkxpzBILGB4YsXddzHx2xqpXmqMv5Yd+PQm4anUV+ADSJuwLP1Jd6yHf/LOtu9j3ps8K3XM9vQrXRK73z0bU3A==}
+  textlint-rule-no-zero-width-spaces@1.0.2:
+    resolution: {integrity: sha512-COHfv3SP9DfsjdNrbHQxqzalB5viq5C7KwovGJ7c7kUFw2FMCOh2ajxn37Sgr45X239ebax4sEi2AC5vFR2uhw==}
 
-  textlint-rule-preset-ja-technical-writing@12.0.2:
-    resolution: {integrity: sha512-BBVY6oA5V799k5wRfP+gCpDHsp6vWjWX2UT+/KLlAFFsNdmRB8Z6qyOnqiOjfzmLGIRgoMcPI1dXj5upOqnD6Q==}
+  textlint-rule-preset-ja-technical-writing@12.1.0:
+    resolution: {integrity: sha512-YeQZV8Iv7TEplW6HAPDBqJ10FKtZy2fphd3nhobFvOpj/HYMTccGbBMoDP4+SQEuF+L9VLRjnR7frxH5dK9BdQ==}
 
-  textlint-rule-preset-jtf-style@3.0.2:
-    resolution: {integrity: sha512-rpB1OCIK4KZqZOnM+vVxDCBkgzDH3XINCRiHQ+gV8SRydtfppPWx9WAoxCvq8lm7YuRdGiFU6XartIix2Fc2kA==}
+  textlint-rule-preset-jtf-style@3.1.0:
+    resolution: {integrity: sha512-HyVbZb3fH6PzWTkUAfUS0SRfqE1n+8iiunDkHj8IE3+ji7TxajepS37aQ+UKnSGglsbQhjJMHz4HuJAMVQ/3bA==}
 
   textlint-rule-prh@5.3.0:
     resolution: {integrity: sha512-gdod+lL1SWUDyXs1ICEwvQawaSshT3mvPGufBIjF2R5WFPdKQDMsiuzsjkLm+aF+9d97dA6pFsiyC8gSW7mSgg==}
 
-  textlint-rule-prh@6.0.0:
-    resolution: {integrity: sha512-byU7eUyhabX2FKx3ShOktKkmKLG5dhR0ru+PGllKgafKKWXtzOIAhAaDlqMC5qU6b3Jaz5rKQcnroGVCEjcP1Q==}
-
-  textlint-rule-sentence-length@5.2.0:
-    resolution: {integrity: sha512-d7H29IYOEulzT7hLX3pfP0RMch0Ng8TFiRgtmCjD6ubXoXDzBNCDAJK5D9QkUnO1hSHLdG3s3rxNdcBM5/rfCQ==}
+  textlint-rule-sentence-length@5.2.1:
+    resolution: {integrity: sha512-z4HylabPy+e1I5DcuzDmcT65hvyytTlsD+uM49JkCBTSJBWqzQQ3kCGk4b1cF+kANS2HifWNnpTG/jfSOeavIw==}
 
   textlint-tester@13.4.1:
     resolution: {integrity: sha512-Ubm9kUZ/NyY0Ggo1RkW2o5QSx6EJ/ogMT1kD5b5pk4cdFTWpUSs8StDMROgcz29wPhvS6sY/35qYALzqyZh8ew==}
 
   textlint-util-to-string@3.3.4:
     resolution: {integrity: sha512-XF4Qfw0ES+czKy03BwuvBUoXC8NAg920VuRxW0pd72fW76zMeMbPI/bRN5PHq3SbCdOm7U69/Pk+DX34xqIYqA==}
+
+  textlint-util-to-string@3.3.6:
+    resolution: {integrity: sha512-RAv7PRb9VEHq9m4aNFHAjHLXbPLeLQF0EZ1MtuDknAOXUTLO+N7if0uhYZjFlY86N9stPNulgp+Qw36Umb5VRw==}
 
   textlint@16.1.2:
     resolution: {integrity: sha512-gXfwB+PsMOw13AbhSxe8eWNuYDgNtPo6EZ0JMcqStK9Y2VYizPBr91hLQZDIKDRJ3HPgNzSp7DC7BVR2pDJ1TQ==}
@@ -2027,6 +2036,8 @@ snapshots:
 
   '@textlint/ast-node-types@13.4.1': {}
 
+  '@textlint/ast-node-types@15.8.0': {}
+
   '@textlint/ast-node-types@16.1.2': {}
 
   '@textlint/ast-tester@13.4.1(supports-color@7.2.0)':
@@ -2132,8 +2143,6 @@ snapshots:
   '@textlint/markdown-to-ast@16.1.2':
     dependencies:
       '@textlint/ast-node-types': 16.1.2
-
-  '@textlint/module-interop@14.4.2': {}
 
   '@textlint/module-interop@16.1.2': {}
 
@@ -2893,6 +2902,8 @@ snapshots:
       kuromoji: 0.1.2
       lru_map: 0.4.1
 
+  kuromojin@3.1.0: {}
+
   lefthook-android-arm64@2.2.2:
     optional: true
 
@@ -3296,6 +3307,10 @@ snapshots:
       '@textlint/ast-node-types': 13.4.1
       structured-source: 4.0.0
 
+  sentence-splitter@5.1.0:
+    dependencies:
+      '@textlint/ast-node-types': 15.8.0
+
   set-function-length@1.2.2:
     dependencies:
       define-data-property: 1.1.4
@@ -3390,34 +3405,39 @@ snapshots:
       structured-source: 4.0.0
       unist-util-visit: 2.0.3
 
-  textlint-rule-ja-no-abusage@3.0.0:
+  textlint-rule-helper@2.6.0:
     dependencies:
-      kuromojin: 3.0.0
+      '@textlint/ast-node-types': 15.8.0
+      structured-source: 4.0.0
+
+  textlint-rule-ja-no-abusage@3.0.1:
+    dependencies:
+      kuromojin: 3.1.0
       morpheme-match-textlint: 2.0.6
       textlint-rule-prh: 5.3.0
 
-  textlint-rule-ja-no-mixed-period@3.0.1:
+  textlint-rule-ja-no-mixed-period@3.0.2:
     dependencies:
       check-ends-with-period: 3.0.2
       textlint-rule-helper: 2.3.1
 
-  textlint-rule-ja-no-redundant-expression@4.0.1:
+  textlint-rule-ja-no-redundant-expression@4.0.2:
     dependencies:
       '@textlint/regexp-string-matcher': 1.1.1
-      kuromojin: 3.0.0
+      kuromojin: 3.1.0
       morpheme-match: 2.0.4
       morpheme-match-all: 2.0.5
-      textlint-rule-helper: 2.3.1
+      textlint-rule-helper: 2.6.0
       textlint-util-to-string: 3.3.4
 
-  textlint-rule-ja-no-successive-word@2.0.1:
+  textlint-rule-ja-no-successive-word@2.1.0:
     dependencies:
       '@textlint/regexp-string-matcher': 1.1.1
       kuromojin: 3.0.0
 
-  textlint-rule-ja-no-weak-phrase@2.0.0:
+  textlint-rule-ja-no-weak-phrase@2.0.1:
     dependencies:
-      kuromojin: 3.0.0
+      kuromojin: 3.1.0
       morpheme-match: 2.0.4
       morpheme-match-all: 2.0.5
 
@@ -3437,41 +3457,41 @@ snapshots:
       match-index: 1.0.3
       textlint-rule-helper: 2.3.1
 
-  textlint-rule-max-ten@5.0.0:
+  textlint-rule-max-ten@5.0.1:
     dependencies:
-      kuromojin: 3.0.0
-      sentence-splitter: 5.0.0
-      textlint-rule-helper: 2.3.1
+      kuromojin: 3.1.0
+      sentence-splitter: 5.1.0
+      textlint-rule-helper: 2.6.0
+      textlint-util-to-string: 3.3.6
+
+  textlint-rule-no-double-negative-ja@2.0.2:
+    dependencies:
+      kuromojin: 3.1.0
+
+  textlint-rule-no-doubled-conjunction@3.0.2:
+    dependencies:
+      kuromojin: 3.1.0
+      sentence-splitter: 5.1.0
+      textlint-rule-helper: 2.6.0
+
+  textlint-rule-no-doubled-conjunctive-particle-ga@3.0.1:
+    dependencies:
+      kuromojin: 3.1.0
+      sentence-splitter: 5.1.0
+      textlint-rule-helper: 2.6.0
+      textlint-util-to-string: 3.3.6
+
+  textlint-rule-no-doubled-joshi@5.1.2:
+    dependencies:
+      kuromojin: 3.1.0
+      sentence-splitter: 5.1.0
+      textlint-rule-helper: 2.6.0
       textlint-util-to-string: 3.3.4
 
-  textlint-rule-no-double-negative-ja@2.0.1:
+  textlint-rule-no-dropping-the-ra@3.0.1:
     dependencies:
-      kuromojin: 3.0.0
-
-  textlint-rule-no-doubled-conjunction@3.0.0:
-    dependencies:
-      kuromojin: 3.0.0
-      sentence-splitter: 5.0.0
-      textlint-rule-helper: 2.3.1
-
-  textlint-rule-no-doubled-conjunctive-particle-ga@3.0.0:
-    dependencies:
-      kuromojin: 3.0.0
-      sentence-splitter: 5.0.0
-      textlint-rule-helper: 2.3.1
-      textlint-util-to-string: 3.3.4
-
-  textlint-rule-no-doubled-joshi@5.1.0:
-    dependencies:
-      kuromojin: 3.0.0
-      sentence-splitter: 5.0.0
-      textlint-rule-helper: 2.3.1
-      textlint-util-to-string: 3.3.4
-
-  textlint-rule-no-dropping-the-ra@3.0.0:
-    dependencies:
-      kuromojin: 3.0.0
-      textlint-rule-helper: 2.3.1
+      kuromojin: 3.1.0
+      textlint-rule-helper: 2.6.0
 
   textlint-rule-no-exclamation-question-mark@1.1.0:
     dependencies:
@@ -3496,47 +3516,45 @@ snapshots:
       match-index: 1.0.3
       textlint-rule-helper: 2.3.1
 
-  textlint-rule-no-zero-width-spaces@1.0.1: {}
+  textlint-rule-no-zero-width-spaces@1.0.2: {}
 
-  textlint-rule-preset-ja-technical-writing@12.0.2(supports-color@7.2.0):
+  textlint-rule-preset-ja-technical-writing@12.1.0(supports-color@7.2.0):
     dependencies:
       '@textlint-rule/textlint-rule-no-invalid-control-character': 3.0.0
       '@textlint-rule/textlint-rule-no-unmatched-pair': 2.0.4
-      '@textlint/module-interop': 14.4.2
-      textlint-rule-ja-no-abusage: 3.0.0
-      textlint-rule-ja-no-mixed-period: 3.0.1
-      textlint-rule-ja-no-redundant-expression: 4.0.1
-      textlint-rule-ja-no-successive-word: 2.0.1
-      textlint-rule-ja-no-weak-phrase: 2.0.0
+      '@textlint/module-interop': 16.1.2
+      textlint-rule-ja-no-abusage: 3.0.1
+      textlint-rule-ja-no-mixed-period: 3.0.2
+      textlint-rule-ja-no-redundant-expression: 4.0.2
+      textlint-rule-ja-no-successive-word: 2.1.0
+      textlint-rule-ja-no-weak-phrase: 2.0.1
       textlint-rule-ja-unnatural-alphabet: 2.0.1
       textlint-rule-max-comma: 4.0.0
       textlint-rule-max-kanji-continuous-len: 1.1.1
-      textlint-rule-max-ten: 5.0.0
-      textlint-rule-no-double-negative-ja: 2.0.1
-      textlint-rule-no-doubled-conjunction: 3.0.0
-      textlint-rule-no-doubled-conjunctive-particle-ga: 3.0.0
-      textlint-rule-no-doubled-joshi: 5.1.0
-      textlint-rule-no-dropping-the-ra: 3.0.0
+      textlint-rule-max-ten: 5.0.1
+      textlint-rule-no-double-negative-ja: 2.0.2
+      textlint-rule-no-doubled-conjunction: 3.0.2
+      textlint-rule-no-doubled-conjunctive-particle-ga: 3.0.1
+      textlint-rule-no-doubled-joshi: 5.1.2
+      textlint-rule-no-dropping-the-ra: 3.0.1
       textlint-rule-no-exclamation-question-mark: 1.1.0
       textlint-rule-no-hankaku-kana: 2.0.1(supports-color@7.2.0)
       textlint-rule-no-mix-dearu-desumasu: 6.0.4
       textlint-rule-no-nfd: 2.0.2
-      textlint-rule-no-zero-width-spaces: 1.0.1
-      textlint-rule-preset-jtf-style: 3.0.2
-      textlint-rule-sentence-length: 5.2.0
+      textlint-rule-no-zero-width-spaces: 1.0.2
+      textlint-rule-preset-jtf-style: 3.1.0
+      textlint-rule-sentence-length: 5.2.1
     transitivePeerDependencies:
       - supports-color
 
-  textlint-rule-preset-jtf-style@3.0.2:
+  textlint-rule-preset-jtf-style@3.1.0:
     dependencies:
       analyze-desumasu-dearu: 2.1.5
       japanese-numerals-to-number: 1.0.2
       match-index: 1.0.3
       moji: 0.5.1
       regexp.prototype.flags: 1.5.4
-      regx: 1.0.4
       textlint-rule-helper: 2.3.1
-      textlint-rule-prh: 6.0.0
 
   textlint-rule-prh@5.3.0:
     dependencies:
@@ -3545,13 +3563,7 @@ snapshots:
       textlint-rule-helper: 2.3.1
       untildify: 3.0.3
 
-  textlint-rule-prh@6.0.0:
-    dependencies:
-      '@babel/parser': 7.26.9
-      prh: 5.4.4
-      textlint-rule-helper: 2.3.1
-
-  textlint-rule-sentence-length@5.2.0:
+  textlint-rule-sentence-length@5.2.1:
     dependencies:
       '@textlint/regexp-string-matcher': 2.0.2
       sentence-splitter: 5.0.0
@@ -3570,6 +3582,13 @@ snapshots:
   textlint-util-to-string@3.3.4:
     dependencies:
       '@textlint/ast-node-types': 13.4.1
+      rehype-parse: 6.0.2
+      structured-source: 4.0.0
+      unified: 8.4.2
+
+  textlint-util-to-string@3.3.6:
+    dependencies:
+      '@textlint/ast-node-types': 16.1.2
       rehype-parse: 6.0.2
       structured-source: 4.0.0
       unified: 8.4.2
