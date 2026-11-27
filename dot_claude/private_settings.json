@@ -256,6 +256,15 @@
             "type": "command"
           }
         ]
+      },
+      {
+        "matcher": "mcp__.*__wrap_up",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/mimikun/.claude/hooks/japanese-guard.py"
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -296,6 +305,14 @@
           {
             "command": "/home/mimikun/.local/bin/lazy-tmux hook claude-status --state idle",
             "type": "command"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/mimikun/.claude/hooks/japanese-guard.py"
           }
         ]
       }
